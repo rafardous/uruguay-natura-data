@@ -1,16 +1,17 @@
 [
   {
     "id_especie": 1,
-    "nombre_comun": "Carpincho",
-    "nombre_cientifico": "Hydrochoerus hydrochaeris",
-    "grupo": "Mamíferos",
-    "prioritaria_snap": true,
+    "nombre_comun": "Gavilán común",
+    "nombre_cientifico": "Buteo magnirostris",
+    "otros nombres": "taguató, gavilán caminero",
+    "grupo": "Aves rapaces",
+    "prioritaria_snap": false,
     "es_nativa": true,
-    "imagen_url": "https://tuservidor.com/fotos/carpincho.webp",
+    "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Buteo_magnirostris.jpg",
     "detalles": {
-      "familia": "Caviidae",
-      "descripcion": "Es el roedor viviente de mayor tamaño y peso del mundo...",
-      "habitat": "Ambientes acuáticos, lagunas, ríos y esteros uruguayos."
+      "familia": "Accipitridae",
+      "descripcion": "Es una pequeña ave rapaz diurna muy adaptable. Mide entre 31 y 41 cm de longitud y destaca por su dorso grisáceo, pecho barrado y parches canela en las alas que se aprecian al volar.",
+      "habitat": "Bosques abiertos, márgenes de monte, pastizales, chacras y áreas urbanas de todo el Uruguay."
     }
   }
 ]

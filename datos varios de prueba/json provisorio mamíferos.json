@@ -1,0 +1,762 @@
+  [
+    {
+    "especie_cientifica": "Procyon cancrivorus",
+    "nombre_comun": "Mano pelada o Aguara pope",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Procyonidae",
+      "genero": "Procyon"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Procionido con un antifaz negro caracteristico y cola anillada. Sus manos desprovistas de pelo estan adaptadas para manipular y lavar su alimento acuatico.",
+    "habitat_local": "Montes ripareos, banados costeros, estuarios, lagunas y proximidades de cursos de agua.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Crab-eating_Raccoon_Procyon_cancrivorus.jpg"
+  },
+  {
+    "especie_cientifica": "Nasua nasua",
+    "autor": "(Linnaeus, 1766)",
+    "nombre_comun": "Coati",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Procyonidae",
+      "genero": "Nasua"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Mamifero de cola larga anillada, hocico alargado y movil adaptado para desenterrar invertebrados. Es una especie social y de habitos trepadores de arboles.",
+    "habitat_local": "Bosques fluviales densos, quebradas boscosas y selvas en galeria del norte.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ring-tailed_coati_Nasua_nasua.jpg"
+  },
+  {
+    "especie_cientifica": "Leopardus geoffroyi",
+    "autor": "(d'Orbigny & Gervais, 1844)",
+    "nombre_comun": "Gato montes",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Felidae",
+      "genero": "Leopardus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "El felino silvestre mas comun del pais, de tamano comparable al domestico y pelaje manchado. Depredador muy agil de pequenos roedores e insectos.",
+    "habitat_local": "Montes indigenas, montes serranos, matorrales costeros y areas agricolas forestadas.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/0/07/Geoffroy%27s_cat_%28Leopardus_geoffroyi%29.jpg"
+  },
+  {
+    "especie_cientifica": "Leopardus fasciatus",
+    "autor": "(Larrañaga, 1923)",
+    "nombre_comun": "Gato de pajonal de Larranaga",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Felidae",
+      "genero": "Leopardus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Near Threatened (NT)",
+    "descripcion_educativa": "Pequeno felino adaptado a ecosistemas de gramineas, con pelaje denso que le permite mimetizarse. Recientemente reevaluado bajo este binomio prioritario.",
+    "habitat_local": "Pastizales altos, pajonales arenosos y praderas abiertas litorales y del este.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/36/Leopardus_munoai.jpg"
+  },
+  {
+    "especie_cientifica": "Leopardus wiedii",
+    "autor": "(Schinz, 1821)",
+    "nombre_comun": "Margay",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Felidae",
+      "genero": "Leopardus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Near Threatened (NT)",
+    "descripcion_educativa": "Especie forestal arboricola de grandes ojos y cola larga que actua como contrapeso. Capaz de rotar sus articulaciones traseras para bajar arboles cabeza abajo.",
+    "habitat_local": "Montes de quebrada densos, selvas riparias y relictos boscosos en el norte y noreste.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Margay_Leopardus_wiedii.jpg"
+  },
+  {
+    "especie_cientifica": "Herpailurus yagouaroundi",
+    "autor": "(E. Geoffroy Saint-Hilaire, 1803)",
+    "nombre_comun": "Yaguarundi",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Felidae",
+      "genero": "Herpailurus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Felino de morfologia inusual, con cuerpo sumamente estirado, orejas pequenas y patas cortas que le otorgan un aspecto similar al de una nutria o comadreja.",
+    "habitat_local": "Areas de matorral, bordes de bosques densos, pajonales y ecotonos del este y norte.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Jaguarundi_Herpailurus_yagouaroundi.jpg"
+  },
+  {
+    "especie_cientifica": "Puma concolor",
+    "autor": "(Linnaeus, 1771)",
+    "nombre_comun": "Puma",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Felidae",
+      "genero": "Puma"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "El segundo felino de mayor tamano de las Americas. Cazador solitario de grandes presas terrestres. Es catalogado como especie amenazada a nivel nacional.",
+    "habitat_local": "Areas forestadas densas, quebradas de dificil acceso y zonas serranas aisladas.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Mountain_Lion_Puma_concolor.jpg"
+  },
+  {
+    "especie_cientifica": "Tamandua tetradactyla",
+    "autor": "(Linnaeus, 1758)",
+    "nombre_comun": "Tamandua u Oso melero",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Pilosa",
+      "familia": "Myrmecophagidae",
+      "genero": "Tamandua"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Especie insectivora de habitos trepadores, con cola prencil desprovista de pelo y garras curvas y fuertes para forrajear nidos de termitas e insectos sociales.",
+    "habitat_local": "Montes de quebrada indigenas y selvas de galeria densas del norte y noreste.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southern_Tamandua_Tamandua_tetradactyla.jpg"
+  },
+  {
+    "especie_cientifica": "Cabassous tatouay",
+    "autor": "(Desmarest, 1804)",
+    "nombre_comun": "Tatu de rabo molle",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cingulata",
+      "familia": "Chlamyphoridae",
+      "genero": "Cabassous"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Armadillo caracterizado por carecer de coraza rigida en su cola. Adaptado para la vida fosorial, es un activo excavador nocturno y de habitos solitarios.",
+    "habitat_local": "Suelos profundos en bosques riparios, serranias y pastizales seminaturales.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Cabassous_tatouay_naked_tailed_armadillo.jpg"
+  },
+  {
+    "especie_cientifica": "Dasypus hybridus",
+    "autor": "(Desmarest, 1804)",
+    "nombre_comun": "Mulita pampeana",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cingulata",
+      "familia": "Dasypodidae",
+      "genero": "Dasypus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Near Threatened (NT)",
+    "descripcion_educativa": "Pequeno armadillo endemico de la region del Rio de la Plata. Altamente vulnerable debido a la intensa caza para consumo humano y a la alteracion de su suelo nativo.",
+    "habitat_local": "Campos naturales de pastoreo, praderas arenosas y pastizales pampeanos de pasto corto.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/8/87/Dasypus_hybridus_mulita.jpg"
+  },
+  {
+    "especie_cientifica": "Dasypus novemcinctus",
+    "autor": "Linnaeus, 1758",
+    "nombre_comun": "Tatu grande",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cingulata",
+      "familia": "Dasypodidae",
+      "genero": "Dasypus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Armadillo de gran tamano provisto de nueve bandas moviles en su coraza. Se adapta bien a paisajes modificados, alimentandose de larvas, lombrices y raices.",
+    "habitat_local": "Bosques nativos, areas ecotonales y plantaciones forestales comerciales en todo el pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Nine-banded_Armadillo_Dasypus_novemcinctus.jpg"
+  },
+  {
+    "especie_cientifica": "Euphractus sexcinctus",
+    "autor": "(Linnaeus, 1758)",
+    "nombre_comun": "Peludo o Gualacate",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cingulata",
+      "familia": "Chlamyphoridae",
+      "genero": "Euphractus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Armadillo robusto provisto de abundantes pelos rigidos de color amarillento. Es sumamente omnivoro, llegando a alimentarse de carroña y pequenos vertebrados.",
+    "habitat_local": "Suelos firmes de pradera, dunas litorales costeras y areas de pastizales naturales.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Six-banded_armadillo_Euphractus_sexcinctus.jpg"
+  },
+  {
+    "especie_cientifica": "Chironectes minimus",
+    "autor": "(Zimmermann, 1780)",
+    "nombre_comun": "Yapok o Cuica de agua",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Didelphimorphia",
+      "familia": "Didelphidae",
+      "genero": "Chironectes"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "El unico marsupial semiacuatico del planeta, provisto de patas traseras palmeadas y un marsupio impermeable para mantener secas a las crias al sumergirse.",
+    "habitat_local": "Arroyos limpios de cauce rapido protegidos por vegetacion de ribera densa en Cerro Largo.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/30/Chironectes_minimus_water_opossum.jpg"
+  },
+  {
+    "especie_cientifica": "Didelphis albiventris",
+    "autor": "Lund, 1840",
+    "nombre_comun": "Comadreja overa",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Didelphimorphia",
+      "familia": "Didelphidae",
+      "genero": "Didelphis"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Marsupial generalista de habitos nocturnos, pelaje bicolor gris-blanco y rostro blanquecino con lineas oscuras. Es muy adaptable y tolera ambientes urbanizados.",
+    "habitat_local": "Praderas, matorrales, parches urbanos, bordes de banado y bosques nativos del pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Didelphis_albiventris_white_eared_opossum.jpg"
+  },
+  {
+    "especie_cientifica": "Monodelphis dimidiata",
+    "autor": "(Wagner, 1847)",
+    "nombre_comun": "Comadreja colorada chica",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Didelphimorphia",
+      "familia": "Didelphidae",
+      "genero": "Monodelphis"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Pequeno marsupial terrestre sin cola prencil y sin bolsa marsupial. Es sumamente insectivoro y corre activamente entre los pajonales y herbazales densos.",
+    "habitat_local": "Pastizales humedos, chircales costeros, dunas y bordes de banado del litoral sur.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Monodelphis_dimidiata_opossum.jpg"
+  },
+  {
+    "especie_cientifica": "Lutreolina crassicaudata",
+    "autor": "(Desmarest, 1804)",
+    "nombre_comun": "Comadreja colorada grande",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Didelphimorphia",
+      "familia": "Didelphidae",
+      "genero": "Lutreolina"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Marsupial de cuerpo esbelto alargado y cola gruesa rojiza, con una biologia que recuerda a los mustelidos. Se alimenta de pequenos vertebrados acuaticos y terrestres.",
+    "habitat_local": "Zonas pantanosas, pajonales costeros inundables, canales y bordes de lagunas.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Lutreolina_crassicaudata_lutrine_opossum.jpg"
+  },
+  {
+    "especie_cientifica": "Hydrochoerus hydrochaeris",
+    "autor": "(Linnaeus, 1766)",
+    "nombre_comun": "Carpincho",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Caviidae",
+      "genero": "Hydrochoerus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "El roedor mas grande de la tierra, de comportamiento gregario y adaptaciones para el nado. Es intensamente cazado en ambientes silvestres por su cuero y carne.",
+    "habitat_local": "Riberas de rios, grandes lagunas, humedales, esteros y areas pantanosas de todo el pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Capybara_Hydrochoerus_hydrochaeris.jpg"
+  },
+  {
+    "especie_cientifica": "Myocastor coypus",
+    "autor": "(Molina, 1782)",
+    "nombre_comun": "Coipo o Nutria criolla",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Echimyidae",
+      "genero": "Myocastor"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Gran roedor de habitos acuaticos provisto de membranas natatorias en sus patas y llamativos incisivos anaranjados. Muy perseguido historicamente por el valor de su piel.",
+    "habitat_local": "Banados permanentes, lagunas salobres y riachuelos lentos de la cuenca este y centro.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Nutria_Myocastor_coypus.jpg"
+  },
+  {
+    "especie_cientifica": "Cavia aperea",
+    "autor": "(Thomas, 1901)",
+    "nombre_comun": "Aperea o Cuis grande",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Caviidae",
+      "genero": "Cavia"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Pequeno roedor silvestre herbiboro, carente de cola externa visible y muy abundante. Representa una de las presas base mas importantes para los carnivoros locales.",
+    "habitat_local": "Pastizales densos, praderas naturales y bordes arbustivos de campos ganaderos en todo el pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cavia_aperea_guinea_pig.jpg"
+  },
+  {
+    "especie_cientifica": "Cuniculus paca",
+    "autor": "(Linnaeus, 1766)",
+    "nombre_comun": "Paca",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Cuniculidae",
+      "genero": "Cuniculus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Un gran roedor nocturno y solitario con un pelaje rojizo decorado con manchas blancas alineadas. Es sumamente timido y muy sensible a la degradacion forestal.",
+    "habitat_local": "Bosques nativos densos y selvas riparias de galeria en el departamento de Cerro Largo.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/7/77/Lowland_Paca_Cuniculus_paca.jpg"
+  },
+  {
+    "especie_cientifica": "Ctenomys pearsoni",
+    "autor": "Lessa & Langguth, 1983",
+    "nombre_comun": "Tucu-tucu de Pearson",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Ctenomyidae",
+      "genero": "Ctenomys"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Near Threatened (NT)",
+    "descripcion_educativa": "Roedor fosorial de cuerpo robusto y fuertes garras adaptadas para excavar sistemas de tuneles. Es un endemismo costero altamente amenazado por el desarrollo urbanistico.",
+    "habitat_local": "Zonas medanosas arenosas, dunas costeras de la Barra de Rocha, Valizas y playas del sur.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/6/63/Ctenomys_pearsoni_tuco_tuco.jpg"
+  },
+  {
+    "especie_cientifica": "Ctenomys rionegrensis",
+    "autor": "Langguth & Abella, 1970",
+    "nombre_comun": "Tucu-tucu negro",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Ctenomyidae",
+      "genero": "Ctenomys"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Endangered (EN)",
+    "descripcion_educativa": "Especie con distribucion muy restringida. Presenta polimorfismo en su pelaje, incluyendo formas completamente melanicas. Severamente amenazado por la forestacion exotica.",
+    "habitat_local": "Dunas interiores de arena fina de la cuenca baja del Rio Uruguay, en Rio Negro.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ctenomys_rionegrensis_tuco_tuco.jpg"
+  },
+  {
+    "especie_cientifica": "Wilfredomys oenax",
+    "autor": "(Thomas, 1928)",
+    "nombre_comun": "Rata de hocico ferrugineo",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Cricetidae",
+      "genero": "Wilfredomys"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Endangered (EN)",
+    "descripcion_educativa": "Uno de los mamiferos mas amenazados del pais. Pequeño roedor arboricola caracterizado por una coloracion rojiza sobre su hocico, dependiente de montes indigenas continuos.",
+    "habitat_local": "Bosques serranos densos, montes de parque de gran dosel e isletas de monte nativo.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/1/14/Wilfredomys_oenax_rodent.jpg"
+  },
+  {
+    "especie_cientifica": "Scapteromys tumidus",
+    "autor": "(Waterhouse, 1837)",
+    "nombre_comun": "Rata de pajonal",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Cricetidae",
+      "genero": "Scapteromys"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Roedor de tamaño mediano con pelaje largo oscuro y cola larga, sumamente adaptado a nadar y correr en areas anegadas y bordes de lagunas.",
+    "habitat_local": "Humedales, pajonales densos inundables, bordes costeros del Rio de la Plata.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/2/22/Scapteromys_tumidus_swamp_rat.jpg"
+  },
+  {
+    "especie_cientifica": "Calomys laucha",
+    "autor": "(Fischer, 1814)",
+    "nombre_comun": "Laucha de campo",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Rodentia",
+      "familia": "Cricetidae",
+      "genero": "Calomys"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Un roedor pequeño, gris-amarillento, abundante en sistemas agricolas y praderas. Actua como reservorio epidemiologico relevante de hantavirus en ambientes rurales.",
+    "habitat_local": "Praderas ganaderas, campos de cultivo, pastizales xerofilos e islas de suelo arenoso.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/9/91/Calomys_laucha_vesper_mouse.jpg"
+  },
+  {
+    "especie_cientifica": "Eptesicus diminutus",
+    "autor": "Osgood, 1915",
+    "nombre_comun": "Murcielago dorado",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Chiroptera",
+      "familia": "Vespertilionidae",
+      "genero": "Eptesicus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Un murcielago insectivoro pequeño, caracterizado por un pelaje brillante de tonos dorados y membranas oscuras. Es muy util para regular insectos nocturnos.",
+    "habitat_local": "Bosques nativos del norte y areas periurbanas o rurales arboladas en Artigas y Salto.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/0/06/Little_golden_bat_Eptesicus_diminutus.jpg"
+  },
+  {
+    "especie_cientifica": "Eptesicus furinalis",
+    "autor": "(D'Orbigny, 1847)",
+    "nombre_comun": "Murcielago bronceado",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Chiroptera",
+      "familia": "Vespertilionidae",
+      "genero": "Eptesicus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Murcielago insectivoro robusto de pelaje castaño oscuro con brillo bronceado. Muy comun en construcciones y refugios de arboles de ambientes antropizados.",
+    "habitat_local": "Parques urbanos, bosques fluviales nativos y techumbres de construcciones rurales.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Argentine_brown_bat_Eptesicus_furinalis.jpg"
+  },
+  {
+    "especie_cientifica": "Molossus molossus",
+    "autor": "(Pallas, 1766)",
+    "nombre_comun": "Moloso comun",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Chiroptera",
+      "familia": "Molossidae",
+      "genero": "Molossus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Quiróptero de orejas unidas sobre la frente y cola que sobresale libremente de la membrana. Forma colonias compactas en edificaciones y es un activo insectivoro.",
+    "habitat_local": "Construcciones urbanas, viejas edificaciones rurales, troncos de palmeras y bosques riparios.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Molossus_molossus_pallas_free_tailed_bat.jpg"
+  },
+  {
+    "especie_cientifica": "Tadarida brasiliensis",
+    "autor": "(I. Geoffroy, 1824)",
+    "nombre_comun": "Murcielago cola de raton",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Chiroptera",
+      "familia": "Molossidae",
+      "genero": "Tadarida"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Un excelente volador migratorio de gran altura, clave para el control de plagas agricolas. Sus colonias albergan miles de individuos de habitos ruidosos.",
+    "habitat_local": "Estructuras urbanas, puentes, campanarios e iglesias en todo el territorio de Uruguay.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Mexican_Free-tailed_Bat_Tadarida_brasiliensis.jpg"
+  },
+  {
+    "especie_cientifica": "Desmodus rotundus",
+    "autor": "(E. Geoffroy, 1810)",
+    "nombre_comun": "Vampiro comun",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Chiroptera",
+      "familia": "Phyllostomidae",
+      "genero": "Desmodus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Una de las escasas especies de mamiferos hematofagos obligados. Se alimenta de sangre de ganado vacuno y equino. Es vector del virus de la rabia paralitica.",
+    "habitat_local": "Cerranias pedregosas con cuevas profundas, minas abandonadas y construcciones en desuso.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/30/Common_vampire_bat_Desmodus_rotundus.jpg"
+  },
+  {
+    "especie_cientifica": "Eubalaena australis",
+    "autor": "(Desmoulins, 1822)",
+    "nombre_comun": "Ballena franca austral",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cetacea",
+      "familia": "Balaenidae",
+      "genero": "Eubalaena"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Grande misticeto que carece de aleta dorsal y presenta callosidades caracteristicas en su cabeza. Es protegida en Uruguay para fomentar el avistamiento costero turistico.",
+    "habitat_local": "Aguas litorales poco profundas del Oceano Atlantico en Rocha y Maldonado de julio a noviembre.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/5/52/Eubalaena_australis_southern_right_whale.jpg"
+  },
+  {
+    "especie_cientifica": "Balaenoptera physalus",
+    "autor": "(Linnaeus, 1758)",
+    "nombre_comun": "Rorcual comun o Ballena Fin",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cetacea",
+      "familia": "Balaenopteridae",
+      "genero": "Balaenoptera"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Vulnerable (VU)",
+    "descripcion_educativa": "El segundo cetaceo mas grande del planeta, con un cuerpo esbelto y asimetria tonal en la cabeza. Excelente nadador de zonas pelagicas profundas.",
+    "habitat_local": "Aguas marinas pelagicas y de plataforma continental externa del mar territorial uruguayo.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Balaenoptera_physalus_fin_whale.jpg"
+  },
+  {
+    "especie_cientifica": "Pontoporia blainvillei",
+    "autor": "(Gervais & d'Orbigny, 1844)",
+    "nombre_comun": "Franciscan o Delfin del Plata",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cetacea",
+      "familia": "Pontoporiidae",
+      "genero": "Pontoporia"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Vulnerable (VU)",
+    "descripcion_educativa": "Un pequeño delfin costero de tonos pardos, con un rostro muy elongado. Muy susceptible a la mortalidad por enmalle en redes de pesca artesanal costera.",
+    "habitat_local": "Aguas marinas templadas someras de Rocha, Maldonado y estuario del Rio de la Plata.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Franciscana_Pontoporia_blainvillei.jpg"
+  },
+  {
+    "especie_cientifica": "Tursiops truncatus",
+    "autor": "(Montagu, 1821)",
+    "nombre_comun": "Tonina o Delfin mular",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Cetacea",
+      "familia": "Delphinidae",
+      "genero": "Tursiops"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Delfin mular costero. El ecotipo local costero (Tursiops truncatus gephyreus) esta altamente amenazado debido al bajo numero de individuos de sus manadas.",
+    "habitat_local": "Aguas costeras y estuarios someros del litoral sur y este, proximo a desembocaduras de rios.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tursiops_truncatus_bottlenose_dolphin.jpg"
+  },
+  {
+    "especie_cientifica": "Otaria flavescens",
+    "autor": "(Shaw, 1800)",
+    "nombre_comun": "Lobo marino de un pelo",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Otariidae",
+      "genero": "Otaria"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Grande otarido costero donde los machos poseen una melena prominente. Enfrenta amenazas por competencia alimenticia debido a la intensa pesqueria industrial.",
+    "habitat_local": "Isla de Lobos, islas de Cabo Polonio y areas neriticas costeras del Oceano Atlantico.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Otaria_flavescens_sea_lion.jpg"
+  },
+  {
+    "especie_cientifica": "Arctocephalus australis",
+    "autor": "(Zimmermann, 1783)",
+    "nombre_comun": "Lobo fino sudamericano",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Otariidae",
+      "genero": "Arctocephalus"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "Si",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Otarido caracterizado por su denso pelaje con doble capa. Tras sufrir una severa explotacion historica, hoy su poblacion se encuentra estable y saludable en el pais.",
+    "habitat_local": "Grandes colonias reproductivas en Isla de Lobos y grupo de islas en Cabo Polonio.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Arctocephalus_australis_fur_seal.jpg"
+  },
+  {
+    "especie_cientifica": "Mirounga leonina",
+    "autor": "(Linnaeus, 1758)",
+    "nombre_comun": "Elefante marino del sur",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Carnivora",
+      "familia": "Phocidae",
+      "genero": "Mirounga"
+    },
+    "origen": "Nativa",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "El focido mas grande del mundo. Presenta dimorfismo sexual extremo donde el macho posee una proboscide de gran tamaño para emitir fuertes vocalizaciones.",
+    "habitat_local": "Playas de arena de la costa oceanica este e islas oceánicas de manera estacional.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Southern_Elephant_Seal_Mirounga_leonina.jpg"
+  },
+  {
+    "especie_cientifica": "Axis axis",
+    "autor": "(Erxleben, 1777)",
+    "nombre_comun": "Ciervo axis",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Artiodactyla",
+      "familia": "Cervidae",
+      "genero": "Axis"
+    },
+    "origen": "Exotica",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Especie asiatica introducida con fines de caza. De pelaje rojizo salpicado de motas blancas permanentes. Ejerce una severa presion competitiva sobre herbivoros nativos.",
+    "habitat_local": "Bosques nativos abiertos, serranias arboladas e isletas de monte del oeste y norte del pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/2/25/Chital_Axis_axis_deer.jpg"
+  },
+  {
+    "especie_cientifica": "Sus scrofa",
+    "autor": "Linnaeus, 1758",
+    "nombre_comun": "Jabali",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Artiodactyla",
+      "familia": "Suidae",
+      "genero": "Sus"
+    },
+    "origen": "Exotica",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Suido euroasiatico de comportamiento omnivoro invasor sumamente destructivo. Modifica suelos por hozado y depreda activamente micromamiferos y huevos.",
+    "habitat_local": "Humedales, bosques nativos de ribera, matorrales costeros y areas de cultivo ganadero.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Wild_boar_Sus_scrofa_silvestris.jpg"
+  },
+  {
+    "especie_cientifica": "Lepus europaeus",
+    "autor": "Pallas, 1778",
+    "nombre_comun": "Liebre europea",
+    "taxonomia": {
+      "reino": "Animalia",
+      "filo": "Chordata",
+      "clase": "Mammalia",
+      "orden": "Lagomorpha",
+      "familia": "Leporidae",
+      "genero": "Lepus"
+    },
+    "origen": "Exotica",
+    "prioridad_snap": "No",
+    "estado_iucn": "Least Concern (LC)",
+    "descripcion_educativa": "Gran lagomorfo invasor introducido para caza. Su alta capacidad reproductiva genera competencia forrajera con el aperea silvestre en campos de pastoreo.",
+    "habitat_local": "Praderas ganaderas abiertas, estepas de pastizales y llanuras abiertas de todo el pais.",
+    "url_imagen": "https://upload.wikimedia.org/wikipedia/commons/3/30/European_brown_hare_Lepus_europaeus.jpg"
+  }
+
+]
