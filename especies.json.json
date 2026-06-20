@@ -1,0 +1,16 @@
+[
+  {
+    "id_especie": 1,
+    "nombre_comun": "Carpincho",
+    "nombre_cientifico": "Hydrochoerus hydrochaeris",
+    "grupo": "Mamíferos",
+    "prioritaria_snap": true,
+    "es_nativa": true,
+    "imagen_url": "https://tuservidor.com/fotos/carpincho.webp",
+    "detalles": {
+      "familia": "Caviidae",
+      "descripcion": "Es el roedor viviente de mayor tamaño y peso del mundo...",
+      "habitat": "Ambientes acuáticos, lagunas, ríos y esteros uruguayos."
+    }
+  }
+]
