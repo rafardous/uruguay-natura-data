@@ -9,9 +9,9 @@
     "epiteto_especifico": "atroluteus",
     "estado_conservacion": "No Prioritaria",
     "nativa": true,
-    "descripcion": "",
-    "alimentacion": "",
-    "tamano": "",
+    "descripcion": "Es pequeño y robusto. Se destaca por su dorso negro y vientre con llamativas manchas rojas y amarillas. Vive en pastizales, praderas húmedas y zonas bajas que se inundan con las lluvias.  Es de hábitos terrestres y activos durante el día, especialmente cuando el suelo está mojado por la lluvia.",
+    "alimentacion": "Insectos - principalmente hormigas",
+    "tamano": "25 mm",
     "imagen_url": "https://github.com/rafardous/uruguay-natura-data/blob/main/datos%20varios%20de%20prueba/imagenes/Mel_atrolu.jpg",
     "thumbnail_url": "https://github.com/rafardous/uruguay-natura-data/blob/main/datos%20varios%20de%20prueba/thumbnail/Mel_atrolu.jpg",
     "audio_url": ""
