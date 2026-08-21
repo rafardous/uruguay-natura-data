@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Natura UY",
+    "slug": "natura-uy",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "naturauy",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/images/icon.png",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "uy.naturauy.app"
+    },
+    "android": {
+      "package": "uy.naturauy.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#1F4034"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain",
+          "backgroundColor": "#F2F5EC",
+          "dark": {
+            "backgroundColor": "#101A14"
+          }
+        }
+      ]
+    ],
+    "assetBundlePatterns": ["assets/db/*", "assets/thumbs/*"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

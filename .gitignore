@@ -1,0 +1,35 @@
+# Dependencies and local package-manager state
+NaturaUY-source/node_modules/
+NaturaUY-source/.expo/
+NaturaUY-source/.npm/
+
+# Expo / React Native generated output
+NaturaUY-source/android/
+NaturaUY-source/ios/
+NaturaUY-source/dist/
+NaturaUY-source/web-build/
+NaturaUY-source/.metro-cache/
+NaturaUY-source/expo-env.d.ts
+
+# Data-pipeline intermediates and local caches
+NaturaUY-source/scripts/.cache/
+NaturaUY-source/scripts/out/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+NaturaUY-source/*.jks
+NaturaUY-source/*.p8
+NaturaUY-source/*.p12
+NaturaUY-source/*.key
+NaturaUY-source/*.mobileprovision
+
+# Logs, temporary files, and OS/editor metadata
+*.log
+npm-debug.*
+*.orig.*
+.DS_Store
+Thumbs.db
+.idea/
+

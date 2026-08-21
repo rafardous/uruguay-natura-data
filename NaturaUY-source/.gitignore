@@ -1,0 +1,22 @@
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native projects (regenerate with `npx expo prebuild`)
+/ios
+/android
+
+# Data pipeline intermediates — regenerate with `npm run data:all`
+scripts/.cache/
+scripts/out/
+
+*.orig.*
+.DS_Store
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
