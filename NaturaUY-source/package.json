@@ -17,6 +17,12 @@
     "data:db": "tsx scripts/06-build-db.ts",
     "data:verify": "tsx scripts/07-verify.ts",
     "data:all": "npm run data:normalize && npm run data:taxonomy && npm run data:media && npm run data:thumbs && npm run data:accent && npm run data:db && npm run data:verify"
+    ,"data:sources": "tsx scripts/catalog/01-sources.ts"
+    ,"data:catalog-normalize": "tsx scripts/catalog/02-normalize.ts"
+    ,"data:catalog-taxonomy": "tsx scripts/catalog/03-taxonomy.ts"
+    ,"data:audit": "tsx scripts/catalog/04-audit.ts"
+    ,"data:build-catalog": "tsx scripts/catalog/05-build-catalog.ts"
+    ,"data:catalog-all": "npm run data:sources && npm run data:catalog-normalize && npm run data:catalog-taxonomy && npm run data:audit && npm run data:build-catalog"
   },
   "dependencies": {
     "@expo-google-fonts/fraunces": "^0.4.1",

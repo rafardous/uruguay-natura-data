@@ -1,0 +1,3702 @@
+[
+  {
+    "id": "argenteohyla-siemersi",
+    "scientificName": "Argenteohyla siemersi",
+    "commonName": "Rana motor",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Argenteohyla"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": ["monte_nativo"],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2427368"
+      },
+      {
+        "source": "snap",
+        "record": "Arg_siemer"
+      },
+      {
+        "source": "research",
+        "record": "https://www.iucn-amphibians.org/wp-content/uploads/sites/4/2018/11/TAW-Threatened-Species-Profiles_Part1.pdf"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "boana-pulchella",
+    "scientificName": "Boana pulchella",
+    "commonName": "rana trepadora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Boana"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1791"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1792"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1793"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1794"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1795"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1796"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1797"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1798"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1799"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1800"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1801"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1802"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1803"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1804"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1805"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1806"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1807"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1808"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1809"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1810"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1811"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1812"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1847"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2054"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2055"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2056"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2057"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2058"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2059"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2060"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2061"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2062"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2281"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2286"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2303"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2304"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ceratophrys-ornata",
+    "scientificName": "Ceratophrys ornata",
+    "commonName": "Escuerzo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Ceratophryidae",
+      "genus": "Ceratophrys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2424454"
+      },
+      {
+        "source": "snap",
+        "record": "Cer_ornata"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chthonerpeton-indistinctum",
+    "scientificName": "Chthonerpeton indistinctum",
+    "commonName": "Cecilia",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Gymnophiona",
+      "family": "Typhlonectidae",
+      "genus": "Chthonerpeton"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2430937"
+      },
+      {
+        "source": "snap",
+        "record": "Cht_indist"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dendropsophus-minutus",
+    "scientificName": "Dendropsophus minutus",
+    "commonName": "ranita rayada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Dendropsophus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1813"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1815"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1816"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1817"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1818"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1819"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1820"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1821"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1822"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2050"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428549"
+      },
+      {
+        "source": "snap",
+        "record": "Den_minutu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dendropsophus-nanus",
+    "scientificName": "Dendropsophus nanus",
+    "commonName": "ranita enana del chaco",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Dendropsophus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1823"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428453"
+      },
+      {
+        "source": "snap",
+        "record": "Den_nanus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dendropsophus-sanborni",
+    "scientificName": "Dendropsophus sanborni",
+    "commonName": "ranita enana de sanborn",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Dendropsophus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1814"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1824"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1825"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1826"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1827"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1828"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1829"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1830"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1831"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1832"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1833"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1834"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2046"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2047"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2048"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2049"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2051"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428563"
+      },
+      {
+        "source": "snap",
+        "record": "Den_sanbor"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "elachistocleis-bicolor",
+    "scientificName": "Elachistocleis bicolor",
+    "commonName": "sapito oval",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Microhylidae",
+      "genus": "Elachistocleis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1835"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1836"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1837"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1838"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1839"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1840"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1841"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1842"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1843"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1844"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1845"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1846"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2052"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2053"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2175"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2279"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2421949"
+      },
+      {
+        "source": "snap",
+        "record": "Ela_bicolo"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "boana-albopunctata",
+    "scientificName": "Boana albopunctata",
+    "commonName": "Ranita punteada de blanco",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Boana"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428866"
+      },
+      {
+        "source": "snap",
+        "record": "Hyp_albopu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "boana-pulchella",
+    "scientificName": "Boana pulchella",
+    "commonName": "Ranita de zarzal",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Boana"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428800"
+      },
+      {
+        "source": "snap",
+        "record": "Hyp_pulche"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "julianus-uruguayus",
+    "scientificName": "Julianus uruguayus",
+    "commonName": "ranita uruguaya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Julianus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1848"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1849"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1850"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1851"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1852"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-chaquensis",
+    "scientificName": "Leptodactylus chaquensis",
+    "commonName": "rana del chaco",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1853"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2298"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217514"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_chaque"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-furnarius",
+    "scientificName": "Leptodactylus furnarius",
+    "commonName": "rana de campo grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2293"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217576"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_furnar"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-gracilis",
+    "scientificName": "Leptodactylus gracilis",
+    "commonName": "rana saltadora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1854"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1855"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1856"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1857"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1858"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1859"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1860"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1861"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1862"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1863"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1864"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1865"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1866"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1867"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1868"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1911"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2063"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2064"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2065"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2066"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2299"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217602"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_gracil"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-latinasus",
+    "scientificName": "Leptodactylus latinasus",
+    "commonName": "rana piadora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1869"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1870"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1871"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1872"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1873"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1874"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1875"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1876"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1877"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1878"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1879"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1880"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1881"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1882"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1883"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1884"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1885"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1886"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2067"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2068"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2069"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2070"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2071"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2072"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2177"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2305"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217578"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_latina"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-latrans",
+    "scientificName": "Leptodactylus latrans",
+    "commonName": "rana común",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1887"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1888"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1889"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1890"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1891"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1892"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1893"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1894"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1895"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1896"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1897"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1898"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1899"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1900"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1901"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1902"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1903"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2041"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2073"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2074"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2075"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2076"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2077"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2078"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2079"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2080"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2081"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2082"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2083"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2176"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2287"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2290"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2306"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/8268125"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_latran"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-mystacinus",
+    "scientificName": "Leptodactylus mystacinus",
+    "commonName": "rana de bigotes",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1904"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1905"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1906"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1907"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1908"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1909"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1910"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2084"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2085"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217574"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_mystac"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leptodactylus-podicipinus",
+    "scientificName": "Leptodactylus podicipinus",
+    "commonName": "Rana de vientre moteado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Leptodactylus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217598"
+      },
+      {
+        "source": "snap",
+        "record": "Lep_podici"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "limnomedusa-macroglossa",
+    "scientificName": "Limnomedusa macroglossa",
+    "commonName": "rana de las piedras",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Alsodidae",
+      "genus": "Limnomedusa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1912"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1913"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1914"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1915"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1916"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1917"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2086"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2087"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2088"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2089"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2090"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2091"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2092"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2282"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2291"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2424296"
+      },
+      {
+        "source": "snap",
+        "record": "Lim_macrog"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lithobates-catesbeianus",
+    "scientificName": "Lithobates catesbeianus",
+    "commonName": "Rana toro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Ranidae",
+      "genus": "Lithobates"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2427091"
+      },
+      {
+        "source": "snap",
+        "record": "lit_catesb"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lysapsus-limellum",
+    "scientificName": "Lysapsus limellum",
+    "commonName": "rana boyadora chica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Lysapsus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2300"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428373"
+      },
+      {
+        "source": "snap",
+        "record": "Pse_limell"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-atroluteus",
+    "scientificName": "Melanophryniscus atroluteus",
+    "commonName": "sapito banderita española",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2093"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2094"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2095"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2096"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2097"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2098"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2099"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2100"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2101"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422142"
+      },
+      {
+        "source": "snap",
+        "record": "Mel_atrolu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-devincenzii",
+    "scientificName": "Melanophryniscus devincenzii",
+    "commonName": "sapito de devicenzi",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2102"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2103"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2104"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2105"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422147"
+      },
+      {
+        "source": "snap",
+        "record": "Mel_devinc"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-langonei",
+    "scientificName": "Melanophryniscus langonei",
+    "commonName": "Sapito de Langone",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422155"
+      },
+      {
+        "source": "snap",
+        "record": "Mel_langon"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-montevidensis",
+    "scientificName": "Melanophryniscus montevidensis",
+    "commonName": "sapito de darwin",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2178"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422152"
+      },
+      {
+        "source": "snap",
+        "record": "Mel_montev"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-pachyrhynus",
+    "scientificName": "Melanophryniscus pachyrhynus",
+    "commonName": "Sapito de orejas miranda",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Mel_orejas"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-pachyrhynus",
+    "scientificName": "Melanophryniscus pachyrhynus",
+    "commonName": "Sapito de nariz gorda",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Mel_pachyr"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-pachyrhynus",
+    "scientificName": "Melanophryniscus pachyrhynus",
+    "commonName": "sapito de nariz gorda",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2283"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422160"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "melanophryniscus-sanmartini",
+    "scientificName": "Melanophryniscus sanmartini",
+    "commonName": "Sapito de San Martin",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Melanophryniscus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2422140"
+      },
+      {
+        "source": "snap",
+        "record": "Mel_sanmar"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "odontophrynus-americanus",
+    "scientificName": "Odontophrynus americanus",
+    "commonName": "escuerzo chico",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Odontophrynidae",
+      "genus": "Odontophrynus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1918"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1919"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1920"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1921"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1922"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1923"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1924"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1925"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1926"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1927"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1928"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1929"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2106"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2107"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2108"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2109"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2110"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2111"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2112"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2294"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2424395"
+      },
+      {
+        "source": "snap",
+        "record": "Odo_americ"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "odontophrynus-maisuma",
+    "scientificName": "Odontophrynus maisuma",
+    "commonName": "Escuarcito",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Odontophrynidae",
+      "genus": "Odontophrynus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2424393"
+      },
+      {
+        "source": "snap",
+        "record": "Odo_maisum"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ololygon-aromothyella",
+    "scientificName": "Ololygon aromothyella",
+    "commonName": "ranita de las tormentas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Ololygon"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1930"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1931"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1932"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ololygon-berthae",
+    "scientificName": "Ololygon berthae",
+    "commonName": "ranita de pintas naranja",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Ololygon"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1933"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "phyllomedusa-iheringii",
+    "scientificName": "Phyllomedusa iheringii",
+    "commonName": "rana monito",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Phyllomedusidae",
+      "genus": "Phyllomedusa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1934"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1935"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1936"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1937"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1938"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1939"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1940"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1941"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1942"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1943"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2113"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2114"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2427991"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_iherin"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-albonotatus",
+    "scientificName": "Physalaemus albonotatus",
+    "commonName": "NA",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1944"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-biligonigerus",
+    "scientificName": "Physalaemus biligonigerus",
+    "commonName": "ranita de cuatro ojos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1945"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1946"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1947"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1948"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1949"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2115"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2116"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2117"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2118"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423543"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_biligo"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-cuvieri",
+    "scientificName": "Physalaemus cuvieri",
+    "commonName": "rana perro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2119"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423581"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_cuvier"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-fernandezae",
+    "scientificName": "Physalaemus fernandezae",
+    "commonName": "Ranita de Fernández",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423547"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_fernan"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-gracilis",
+    "scientificName": "Physalaemus gracilis",
+    "commonName": "ranita gato",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1950"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1951"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1952"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1953"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1954"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1955"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1956"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2042"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2284"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423564"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_gracil"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-henselii",
+    "scientificName": "Physalaemus henselii",
+    "commonName": "ranita de hensel",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1957"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2120"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2309"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423552"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_hensel"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physalaemus-riograndensis",
+    "scientificName": "Physalaemus riograndensis",
+    "commonName": "ranita de río grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Physalaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1958"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1959"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2280"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423579"
+      },
+      {
+        "source": "snap",
+        "record": "Phy_riogra"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pleurodema-bibroni",
+    "scientificName": "Pleurodema bibroni",
+    "commonName": "ranita de bibron",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Pleurodema"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1960"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423478"
+      },
+      {
+        "source": "snap",
+        "record": "Ple_bibron"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pseudis-minuta",
+    "scientificName": "Pseudis minuta",
+    "commonName": "rana boyadora grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Pseudis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1961"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1962"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1963"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1964"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1965"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1966"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1967"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1968"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1969"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1970"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1971"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1972"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1973"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1974"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1975"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1976"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1977"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1978"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1979"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2043"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2121"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2122"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2123"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2124"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2125"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2126"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2127"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2128"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2129"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2130"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2131"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2179"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2288"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2307"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2428369"
+      },
+      {
+        "source": "snap",
+        "record": "Pse_minuta"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pseudopaludicola-falcipes",
+    "scientificName": "Pseudopaludicola falcipes",
+    "commonName": "rana de vientre moteado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Leptodactylidae",
+      "genus": "Pseudopaludicola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1664"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1980"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1981"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1982"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1983"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1984"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1985"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1986"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1987"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1988"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1989"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1990"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1992"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1993"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1994"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1995"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2132"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2133"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2134"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2135"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2136"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2137"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2138"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2139"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2140"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2141"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2142"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2143"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2180"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2289"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2292"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2295"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2301"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/2423521"
+      },
+      {
+        "source": "snap",
+        "record": "Pse_falcip"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-achavali",
+    "scientificName": "Rhinella achavali",
+    "commonName": "sapo grande de achaval",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1996"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1997"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2144"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2145"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2146"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217007"
+      },
+      {
+        "source": "snap",
+        "record": "Rhi_achava"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-arenarum",
+    "scientificName": "Rhinella arenarum",
+    "commonName": "sapo común",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1998"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:1999"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2000"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2181"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2285"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5216921"
+      },
+      {
+        "source": "snap",
+        "record": "Rhi_arenar"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-diptycha",
+    "scientificName": "Rhinella diptycha",
+    "commonName": "sapo cururú",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2003"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2004"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2150"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-dorbignyi",
+    "scientificName": "Rhinella dorbignyi",
+    "commonName": "sapito de jardín de d’Orbigny",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2001"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2002"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5216923"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-fernandezae",
+    "scientificName": "Rhinella fernandezae",
+    "commonName": "sapito de jardín de Fernández",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2147"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2148"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2149"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5216893"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-granulosa",
+    "scientificName": "Rhinella granulosa",
+    "commonName": "Sapitos de jardín",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Rhi_granul"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rhinella-diptycha",
+    "scientificName": "Rhinella diptycha",
+    "commonName": "Sapo cucurú",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Bufonidae",
+      "genus": "Rhinella"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5216849"
+      },
+      {
+        "source": "snap",
+        "record": "Rhi_schnei"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ololygon-aromothyella",
+    "scientificName": "Ololygon aromothyella",
+    "commonName": "Ranita de las tormentas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Ololygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217925"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_aromot"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ololygon-berthae",
+    "scientificName": "Ololygon berthae",
+    "commonName": "Ranita de pintas naranjas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Ololygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217907"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_bertha"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "scinax-fuscovarius",
+    "scientificName": "Scinax fuscovarius",
+    "commonName": "rana de flancos amarillos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Scinax"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2151"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2152"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2153"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2154"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2155"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2156"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2157"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2158"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2159"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2160"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2296"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217858"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_fuscov"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "scinax-granulatus",
+    "scientificName": "Scinax granulatus",
+    "commonName": "rana roncadora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Scinax"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2005"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2006"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2007"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2008"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2009"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2010"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2011"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2012"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2013"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2014"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2015"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2016"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2017"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2018"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2019"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2020"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2021"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2022"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2044"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2161"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2162"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2163"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2164"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2165"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2166"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2167"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2308"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217937"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_granul"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "scinax-nasicus",
+    "scientificName": "Scinax nasicus",
+    "commonName": "ranita de pecho manchado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Scinax"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2023"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2302"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217886"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_nasicu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "scinax-squalirostris",
+    "scientificName": "Scinax squalirostris",
+    "commonName": "ranita hocicuda",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Scinax"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2024"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2025"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2026"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2027"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2028"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2029"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2030"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2031"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2032"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2033"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2034"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2035"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2036"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2037"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2038"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2045"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2168"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2169"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2170"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2171"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2172"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2173"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2174"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Amphibia:2297"
+      },
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217922"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_squali"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "julianus-uruguayus",
+    "scientificName": "Julianus uruguayus",
+    "commonName": "Ranita uruguaya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Hylidae",
+      "genus": "Julianus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "ministerio",
+        "record": "https://www.gbif.org/species/5217904"
+      },
+      {
+        "source": "snap",
+        "record": "Sci_urugua"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

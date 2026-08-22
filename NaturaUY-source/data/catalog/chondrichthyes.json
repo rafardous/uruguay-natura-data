@@ -1,0 +1,70 @@
+[
+  {
+    "id": "potamotrygon-brachyura",
+    "scientificName": "Potamotrygon brachyura",
+    "commonName": "Raya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Myliobatiformes",
+      "family": "Potamotrygonidae",
+      "genus": "Potamotrygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": ["rio_arroyo", "laguna_estero"],
+    "diet": null,
+    "size": "75 cm",
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_brachyur"
+      },
+      {
+        "source": "research",
+        "record": "https://www.researchgate.net/publication/312612363_Potamotrygon_brachyura"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "potamotrygon-motoro",
+    "scientificName": "Potamotrygon motoro",
+    "commonName": "Raya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Myliobatiformes",
+      "family": "Potamotrygonidae",
+      "genus": "Potamotrygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_motoro"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

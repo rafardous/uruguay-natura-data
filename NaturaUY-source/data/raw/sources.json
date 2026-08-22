@@ -1,0 +1,21 @@
+{
+  "retrievedAt": "2026-08-22T17:03:37.876Z",
+  "sources": [
+    {
+      "id": "biodiversidata",
+      "title": "Tetrápodos de Uruguay",
+      "type": "occurrence",
+      "license": "CC BY 4.0",
+      "url": "https://cloud.gbif.org/uy/archive.do?r=tetrapodos_de_uruguay",
+      "rawFile": "C:\\Users\\rafar\\Documents\\proyecto\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\biodiversidata\\tetrapodos-de-uruguay.zip"
+    },
+    {
+      "id": "ministerio",
+      "title": "Especies de fauna del Uruguay evaluadas y reportadas en Listas Rojas",
+      "type": "checklist",
+      "license": null,
+      "url": "https://cloud.gbif.org/uy/archive.do?r=listas_rojas_fauna_uy",
+      "rawFile": "C:\\Users\\rafar\\Documents\\proyecto\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\ministerio\\listas-rojas-fauna-uy.zip"
+    }
+  ]
+}

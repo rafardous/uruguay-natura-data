@@ -1,0 +1,1735 @@
+{
+  "generatedAt": "2026-08-22T17:03:40.801Z",
+  "groups": {
+    "Mammalia": {
+      "total": 100,
+      "resolved": 99,
+      "exactTaxonomy": 86,
+      "scientificNamesUpdated": [
+        {
+          "input": "Cabassous totouay",
+          "accepted": "Cabassous tatouay"
+        },
+        {
+          "input": "Coendou spinosus",
+          "accepted": "Sphiggurus spinosus"
+        },
+        {
+          "input": "Conepatus chionga",
+          "accepted": "Conepatus chinga"
+        },
+        {
+          "input": "Lasiurus cinereus",
+          "accepted": "Aeorestes cinereus"
+        },
+        {
+          "input": "Lasiurus ega",
+          "accepted": "Dasypterus ega"
+        },
+        {
+          "input": "Megaptera novaengliae",
+          "accepted": "Megaptera novaeangliae"
+        },
+        {
+          "input": "Myrmecophaga trydactyla",
+          "accepted": "Myrmecophaga tridactyla"
+        },
+        {
+          "input": "Nictinomops laticaudatus",
+          "accepted": "Nyctinomops laticaudatus"
+        },
+        {
+          "input": "Otaria flavescens",
+          "accepted": "Otaria byronia"
+        },
+        {
+          "input": "Platyrhinus lineatus",
+          "accepted": "Platyrrhinus lineatus"
+        },
+        {
+          "input": "Rattus norvergicus",
+          "accepted": "Rattus norvegicus"
+        }
+      ],
+      "needs_review": [],
+      "unresolved": [
+        "Delphinus capensis"
+      ],
+      "conflicts": [],
+      "synonyms": [
+        {
+          "input": "Coendou spinosus",
+          "accepted": "Sphiggurus spinosus"
+        },
+        {
+          "input": "Lasiurus cinereus",
+          "accepted": "Aeorestes cinereus"
+        },
+        {
+          "input": "Lasiurus ega",
+          "accepted": "Dasypterus ega"
+        },
+        {
+          "input": "Otaria flavescens",
+          "accepted": "Otaria byronia"
+        }
+      ],
+      "only": {
+        "biodiversidata": [],
+        "ministerio": [],
+        "snap": [
+          "Akodon azarae",
+          "Akodon reigi",
+          "Arctocephalus australis",
+          "Axis axis",
+          "Balaenoptera acutorostrata",
+          "Balaenoptera bonaerensis",
+          "Balaenoptera borealis",
+          "Balaenoptera musculus",
+          "Balaenoptera physalus",
+          "Blastocerus dichotomus",
+          "Cabassous totouay",
+          "Calomys laucha",
+          "Cavia aperea",
+          "Cavia magna",
+          "Cerdocyon thous",
+          "Chironectes minimus",
+          "Chrysocyon brachyurus",
+          "Coendou spinosus",
+          "Conepatus chionga",
+          "Cryptonanus chacoensis",
+          "Ctenomys pearsoni",
+          "Ctenomys rionegrensis",
+          "Ctenomys torquatus",
+          "Cuniculus paca",
+          "Dasypus hybridus",
+          "Dasypus novemcinctus",
+          "Delphinus capensis",
+          "Delphinus delphis",
+          "Deltamys kempi",
+          "Desmodus rotundus",
+          "Didelphis albiventris",
+          "Eubalaena australis",
+          "Euphractus sexcinctus",
+          "Galictis cuja",
+          "Histiotus velatus",
+          "Holochilus brasiliensis",
+          "Hydrochoerus hydrochaeris",
+          "Lagenorhynchus obscurus",
+          "Lasiurus cinereus",
+          "Lasiurus ega",
+          "Leopardus braccatus",
+          "Leopardus geoffroyi",
+          "Leopardus pardalis",
+          "Leopardus wiedii",
+          "Lepus europaeus",
+          "Lontra longicaudis",
+          "Lundomys molitor",
+          "Lutreolina crassicaudata",
+          "Lycalopex gymnocercus",
+          "Mazama gouazoubira",
+          "Megaptera novaengliae",
+          "Monodelphis dimidiata",
+          "Mus musculus",
+          "Myocastor coypus",
+          "Myotis nigricans",
+          "Myotis riparius",
+          "Myotis ruber",
+          "Myrmecophaga trydactyla",
+          "Nasua nasua",
+          "Necromys obscurus",
+          "Nictinomops laticaudatus",
+          "Oligoryzomys flavescens",
+          "Oligoryzomys nigripes",
+          "Orcinus orca",
+          "Otaria flavescens",
+          "Oxymycterus josei",
+          "Oxymycterus nasutus",
+          "Panthera onca",
+          "Pecari tajacu",
+          "Phocoena spinipinnis",
+          "Physeter macrocephalus",
+          "Platyrhinus lineatus",
+          "Pontoporia blainvillei",
+          "Procyon cancrivorus",
+          "Promops centralis",
+          "Pseudorca crassidens",
+          "Pteronura brasiliensis",
+          "Puma concolor",
+          "Rattus norvergicus",
+          "Rattus rattus",
+          "Reithrodon typicus",
+          "Scapteromys tumidus",
+          "Sturnira lilium",
+          "Sus scrofa",
+          "Tamandua tetradactyla",
+          "Tursiops truncatus",
+          "Wilfredomys oenax"
+        ]
+      }
+    },
+    "Aves": {
+      "total": 574,
+      "resolved": 564,
+      "exactTaxonomy": 475,
+      "scientificNamesUpdated": [
+        {
+          "input": "Actitis macularia",
+          "accepted": "Actitis macularius"
+        },
+        {
+          "input": "Agelaius ruficapillus",
+          "accepted": "Chrysomus ruficapillus"
+        },
+        {
+          "input": "Agelaius thilius",
+          "accepted": "Agelasticus thilius"
+        },
+        {
+          "input": "Agriornis murina",
+          "accepted": "Agriornis murinus"
+        },
+        {
+          "input": "Ajaia ajaja",
+          "accepted": "Platalea ajaja"
+        },
+        {
+          "input": "Alectrurus risorus",
+          "accepted": "Alectrurus risora"
+        },
+        {
+          "input": "Anas cyanoptera",
+          "accepted": "Spatula cyanoptera"
+        },
+        {
+          "input": "Anas discors",
+          "accepted": "Spatula discors"
+        },
+        {
+          "input": "Anas platalea",
+          "accepted": "Spatula platalea"
+        },
+        {
+          "input": "Anas sibilatrix",
+          "accepted": "Mareca sibilatrix"
+        },
+        {
+          "input": "Anas versicolor",
+          "accepted": "Spatula versicolor"
+        },
+        {
+          "input": "Anumbis annumbi",
+          "accepted": "Anumbius annumbi"
+        },
+        {
+          "input": "Aramides cajaena",
+          "accepted": "Aramides cajanea"
+        },
+        {
+          "input": "Aramides cajaneus",
+          "accepted": "Aramides cajanea"
+        },
+        {
+          "input": "Aratinga leucophthalmus",
+          "accepted": "Aratinga leucophthalma"
+        },
+        {
+          "input": "Ardenna grisea",
+          "accepted": "Puffinus griseus"
+        },
+        {
+          "input": "Ardeola ibis",
+          "accepted": "Bubulcus ibis"
+        },
+        {
+          "input": "Bartraima longicauda",
+          "accepted": "Bartramia longicauda"
+        },
+        {
+          "input": "Basileuterus leucoblepharus",
+          "accepted": "Myiothlypis leucoblephara"
+        },
+        {
+          "input": "Buteo magnirostris",
+          "accepted": "Rupornis magnirostris"
+        },
+        {
+          "input": "Butorides striatus",
+          "accepted": "Butorides striata"
+        },
+        {
+          "input": "Calloneta leucophrys",
+          "accepted": "Callonetta leucophrys"
+        },
+        {
+          "input": "Campostoma obsoletum",
+          "accepted": "Camptostoma obsoletum"
+        },
+        {
+          "input": "Caprimulgus longirostris",
+          "accepted": "Systellura longirostris"
+        },
+        {
+          "input": "Caprimulgus parvulus",
+          "accepted": "Setopagis parvula"
+        },
+        {
+          "input": "Carduelis chloris",
+          "accepted": "Chloris chloris"
+        },
+        {
+          "input": "Carduelis magellanica",
+          "accepted": "Spinus magellanicus"
+        },
+        {
+          "input": "Casiornis rufa",
+          "accepted": "Casiornis rufus"
+        },
+        {
+          "input": "Casmerodius albus",
+          "accepted": "Ardea alba"
+        },
+        {
+          "input": "Catoptrophorus semipalmatus",
+          "accepted": "Tringa semipalmata"
+        },
+        {
+          "input": "Certhyaxis cinnamomea",
+          "accepted": "Certhiaxis cinnamomeus"
+        },
+        {
+          "input": "Ceryle torquata",
+          "accepted": "Megaceryle torquata"
+        },
+        {
+          "input": "Chlorostilbon aureoventris",
+          "accepted": "Chlorostilbon lucidus"
+        },
+        {
+          "input": "Coccycua cinerea",
+          "accepted": "Coccyzus cinereus"
+        },
+        {
+          "input": "Coccyzus melancoryphus",
+          "accepted": "Coccyzus melacoryphus"
+        },
+        {
+          "input": "Colaptes melanolaimus",
+          "accepted": "Colaptes melanochloros"
+        },
+        {
+          "input": "Columba cayennensis",
+          "accepted": "Patagioenas cayennensis"
+        },
+        {
+          "input": "Columba maculosa",
+          "accepted": "Patagioenas maculosa"
+        },
+        {
+          "input": "Columba picazuro",
+          "accepted": "Patagioenas picazuro"
+        },
+        {
+          "input": "Coryhpistera alaudina",
+          "accepted": "Coryphistera alaudina"
+        },
+        {
+          "input": "Cyanocompsa brissoni",
+          "accepted": "Cyanocompsa brissonii"
+        },
+        {
+          "input": "Dendrocygna viudata",
+          "accepted": "Dendrocygna viduata"
+        },
+        {
+          "input": "Dendroica striata",
+          "accepted": "Setophaga striata"
+        },
+        {
+          "input": "Empidonax euleri",
+          "accepted": "Lathrotriccus euleri"
+        },
+        {
+          "input": "Empidonomus aurantioatriocristatus",
+          "accepted": "Empidonomus aurantioatrocristatus"
+        },
+        {
+          "input": "Fluvicola albiventer",
+          "accepted": "Fluvicola pica"
+        },
+        {
+          "input": "Gallinula galeata",
+          "accepted": "Gallinula chloropus"
+        },
+        {
+          "input": "Geranoaetus albicaudatus",
+          "accepted": "Buteo albicaudatus"
+        },
+        {
+          "input": "Geranoaetus polyosoma",
+          "accepted": "Buteo polyosoma"
+        },
+        {
+          "input": "Harpiprion caerulescens",
+          "accepted": "Theristicus caerulescens"
+        },
+        {
+          "input": "Heterospizias meridionalis",
+          "accepted": "Buteogallus meridionalis"
+        },
+        {
+          "input": "Hirudinea ferruginea",
+          "accepted": "Hirundinea ferruginea"
+        },
+        {
+          "input": "Hydranassa caerulea",
+          "accepted": "Egretta caerulea"
+        },
+        {
+          "input": "Hydropsalis brasiliana",
+          "accepted": "Hydropsalis torquata"
+        },
+        {
+          "input": "Hymenops perspicilliatus",
+          "accepted": "Hymenops perspicillatus"
+        },
+        {
+          "input": "Icterus pyrrhopterus",
+          "accepted": "Icterus cayanensis"
+        },
+        {
+          "input": "Larus cirrocephalus",
+          "accepted": "Chroicocephalus cirrocephalus"
+        },
+        {
+          "input": "Larus maculipennis",
+          "accepted": "Chroicocephalus maculipennis"
+        },
+        {
+          "input": "Limnocites rectirostris",
+          "accepted": "Limnornis rectirostris"
+        },
+        {
+          "input": "Limnoctites rectirostris",
+          "accepted": "Limnornis rectirostris"
+        },
+        {
+          "input": "Machetornis rixosus",
+          "accepted": "Machetornis rixosa"
+        },
+        {
+          "input": "Megarhynchus pitangua",
+          "accepted": "Megarynchus pitangua"
+        },
+        {
+          "input": "Melanotrochilus fuscus",
+          "accepted": "Florisuga fusca"
+        },
+        {
+          "input": "Molothrus badius",
+          "accepted": "Agelaioides badius"
+        },
+        {
+          "input": "Muscisaxiola macloviana",
+          "accepted": "Muscisaxicola maclovianus"
+        },
+        {
+          "input": "Myiodinastes maculatus",
+          "accepted": "Myiodynastes maculatus"
+        },
+        {
+          "input": "Myopsitta monachus",
+          "accepted": "Myiopsitta monachus"
+        },
+        {
+          "input": "Nycticrtphes semicollaris",
+          "accepted": "Nycticryphes semicollaris"
+        },
+        {
+          "input": "Otus choliba",
+          "accepted": "Megascops choliba"
+        },
+        {
+          "input": "Otus sanctaecatarinae",
+          "accepted": "Megascops sanctaecatarinae"
+        },
+        {
+          "input": "Oxyura dominica",
+          "accepted": "Nomonyx dominicus"
+        },
+        {
+          "input": "Parula pitiayumi",
+          "accepted": "Setophaga pitiayumi"
+        },
+        {
+          "input": "Phacellodomus ferrugineigula",
+          "accepted": "Phacellodomus erythrophthalmus"
+        },
+        {
+          "input": "Phalacrocorax albiventer",
+          "accepted": "Leucocarbo albiventer"
+        },
+        {
+          "input": "Phalacrocorax atriceps",
+          "accepted": "Leucocarbo atriceps"
+        },
+        {
+          "input": "Phrygilus fruticeti",
+          "accepted": "Rhopospina fruticeti"
+        },
+        {
+          "input": "Picoides mixtus",
+          "accepted": "Veniliornis mixtus"
+        },
+        {
+          "input": "Pipraeida melanonota",
+          "accepted": "Pipraeidea melanonota"
+        },
+        {
+          "input": "Platycichla flavipes",
+          "accepted": "Turdus flavipes"
+        },
+        {
+          "input": "Podager nacunda",
+          "accepted": "Chordeiles nacunda"
+        },
+        {
+          "input": "Polyborus plancus",
+          "accepted": "Caracara plancus"
+        },
+        {
+          "input": "Polysticus pectoralis",
+          "accepted": "Polystictus pectoralis"
+        },
+        {
+          "input": "Poospiza cabanisi",
+          "accepted": "Microspingus cabanisi"
+        },
+        {
+          "input": "Poospiza lateralis",
+          "accepted": "Microspingus lateralis"
+        },
+        {
+          "input": "Poospiza melanoleuca",
+          "accepted": "Microspingus melanoleucus"
+        },
+        {
+          "input": "Porphiriops melanops",
+          "accepted": "Gallinula melanops"
+        },
+        {
+          "input": "Porphyriops melanops",
+          "accepted": "Gallinula melanops"
+        },
+        {
+          "input": "Porphyrula martinica",
+          "accepted": "Porphyrio martinica"
+        },
+        {
+          "input": "Psittacara leucophthalmus",
+          "accepted": "Aratinga leucophthalma"
+        },
+        {
+          "input": "Pterodroma brevirostris",
+          "accepted": "Aphrodroma brevirostris"
+        },
+        {
+          "input": "Pygochelidon cyanoleuca",
+          "accepted": "Notiochelidon cyanoleuca"
+        },
+        {
+          "input": "Rosthramus sociabilis",
+          "accepted": "Rostrhamus sociabilis"
+        },
+        {
+          "input": "Schoeniophylax phryganophila",
+          "accepted": "Schoeniophylax phryganophilus"
+        },
+        {
+          "input": "Speotyto cunicularia",
+          "accepted": "Athene cunicularia"
+        },
+        {
+          "input": "Spiziapteryx circumcinctus",
+          "accepted": "Spiziapteryx circumcincta"
+        },
+        {
+          "input": "Sporophila zelichi",
+          "accepted": "Sporophila palustris"
+        },
+        {
+          "input": "Stercorarius antartica",
+          "accepted": "Stercorarius antarcticus"
+        },
+        {
+          "input": "Sterna superciliaris",
+          "accepted": "Sternula superciliaris"
+        },
+        {
+          "input": "Tachycineta meyeni",
+          "accepted": "Tachycineta leucopyga"
+        },
+        {
+          "input": "Tangara preciosa",
+          "accepted": "Stilpnia preciosa"
+        },
+        {
+          "input": "Thalassarche chlororhynchus",
+          "accepted": "Thalassarche chlororhynchos"
+        },
+        {
+          "input": "Thalassarche melanophrys",
+          "accepted": "Thalassarche melanophris"
+        },
+        {
+          "input": "Thalasseus eurygnatha",
+          "accepted": "Thalasseus acuflavidus"
+        },
+        {
+          "input": "Thraupis bonariensis",
+          "accepted": "Rauenia bonariensis"
+        },
+        {
+          "input": "Tricothraupis melanops",
+          "accepted": "Trichothraupis melanops"
+        },
+        {
+          "input": "Tryngites subruficollis",
+          "accepted": "Calidris subruficollis"
+        },
+        {
+          "input": "Xolmis cinerea",
+          "accepted": "Xolmis cinereus"
+        },
+        {
+          "input": "Xolmis coronata",
+          "accepted": "Xolmis coronatus"
+        },
+        {
+          "input": "Xolmis dominicanus",
+          "accepted": "Heteroxolmis dominicana"
+        }
+      ],
+      "needs_review": [],
+      "unresolved": [
+        "Amazona petrei",
+        "Chloris chloris",
+        "Geranotaeus melanoleucus",
+        "Myarchus tyrannulus",
+        "Myopagis viridicata",
+        "Ortygonax sanguinolentus",
+        "Podylimbus podiceps",
+        "Pseudoleistes girahuro",
+        "Rhynchops niger",
+        "Serpophaga griseiceps"
+      ],
+      "conflicts": [],
+      "synonyms": [
+        {
+          "input": "Agelaius ruficapillus",
+          "accepted": "Chrysomus ruficapillus"
+        },
+        {
+          "input": "Agelaius thilius",
+          "accepted": "Agelasticus thilius"
+        },
+        {
+          "input": "Ajaia ajaja",
+          "accepted": "Platalea ajaja"
+        },
+        {
+          "input": "Anas cyanoptera",
+          "accepted": "Spatula cyanoptera"
+        },
+        {
+          "input": "Anas discors",
+          "accepted": "Spatula discors"
+        },
+        {
+          "input": "Anas platalea",
+          "accepted": "Spatula platalea"
+        },
+        {
+          "input": "Anas sibilatrix",
+          "accepted": "Mareca sibilatrix"
+        },
+        {
+          "input": "Anas versicolor",
+          "accepted": "Spatula versicolor"
+        },
+        {
+          "input": "Ardenna grisea",
+          "accepted": "Puffinus griseus"
+        },
+        {
+          "input": "Ardeola ibis",
+          "accepted": "Bubulcus ibis"
+        },
+        {
+          "input": "Basileuterus leucoblepharus",
+          "accepted": "Myiothlypis leucoblephara"
+        },
+        {
+          "input": "Buteo magnirostris",
+          "accepted": "Rupornis magnirostris"
+        },
+        {
+          "input": "Caprimulgus longirostris",
+          "accepted": "Systellura longirostris"
+        },
+        {
+          "input": "Caprimulgus parvulus",
+          "accepted": "Setopagis parvula"
+        },
+        {
+          "input": "Carduelis chloris",
+          "accepted": "Chloris chloris"
+        },
+        {
+          "input": "Carduelis magellanica",
+          "accepted": "Spinus magellanicus"
+        },
+        {
+          "input": "Casmerodius albus",
+          "accepted": "Ardea alba"
+        },
+        {
+          "input": "Catoptrophorus semipalmatus",
+          "accepted": "Tringa semipalmata"
+        },
+        {
+          "input": "Ceryle torquata",
+          "accepted": "Megaceryle torquata"
+        },
+        {
+          "input": "Chlorostilbon aureoventris",
+          "accepted": "Chlorostilbon lucidus"
+        },
+        {
+          "input": "Coccycua cinerea",
+          "accepted": "Coccyzus cinereus"
+        },
+        {
+          "input": "Colaptes melanolaimus",
+          "accepted": "Colaptes melanochloros"
+        },
+        {
+          "input": "Columba cayennensis",
+          "accepted": "Patagioenas cayennensis"
+        },
+        {
+          "input": "Columba maculosa",
+          "accepted": "Patagioenas maculosa"
+        },
+        {
+          "input": "Columba picazuro",
+          "accepted": "Patagioenas picazuro"
+        },
+        {
+          "input": "Dendroica striata",
+          "accepted": "Setophaga striata"
+        },
+        {
+          "input": "Empidonax euleri",
+          "accepted": "Lathrotriccus euleri"
+        },
+        {
+          "input": "Fluvicola albiventer",
+          "accepted": "Fluvicola pica"
+        },
+        {
+          "input": "Gallinula galeata",
+          "accepted": "Gallinula chloropus"
+        },
+        {
+          "input": "Geranoaetus albicaudatus",
+          "accepted": "Buteo albicaudatus"
+        },
+        {
+          "input": "Geranoaetus polyosoma",
+          "accepted": "Buteo polyosoma"
+        },
+        {
+          "input": "Harpiprion caerulescens",
+          "accepted": "Theristicus caerulescens"
+        },
+        {
+          "input": "Heterospizias meridionalis",
+          "accepted": "Buteogallus meridionalis"
+        },
+        {
+          "input": "Hydranassa caerulea",
+          "accepted": "Egretta caerulea"
+        },
+        {
+          "input": "Hydropsalis brasiliana",
+          "accepted": "Hydropsalis torquata"
+        },
+        {
+          "input": "Icterus pyrrhopterus",
+          "accepted": "Icterus cayanensis"
+        },
+        {
+          "input": "Larus cirrocephalus",
+          "accepted": "Chroicocephalus cirrocephalus"
+        },
+        {
+          "input": "Larus maculipennis",
+          "accepted": "Chroicocephalus maculipennis"
+        },
+        {
+          "input": "Limnocites rectirostris",
+          "accepted": "Limnornis rectirostris"
+        },
+        {
+          "input": "Limnoctites rectirostris",
+          "accepted": "Limnornis rectirostris"
+        },
+        {
+          "input": "Melanotrochilus fuscus",
+          "accepted": "Florisuga fusca"
+        },
+        {
+          "input": "Molothrus badius",
+          "accepted": "Agelaioides badius"
+        },
+        {
+          "input": "Myarchus tyrannulus",
+          "accepted": null
+        },
+        {
+          "input": "Myopsitta monachus",
+          "accepted": "Myiopsitta monachus"
+        },
+        {
+          "input": "Otus choliba",
+          "accepted": "Megascops choliba"
+        },
+        {
+          "input": "Otus sanctaecatarinae",
+          "accepted": "Megascops sanctaecatarinae"
+        },
+        {
+          "input": "Oxyura dominica",
+          "accepted": "Nomonyx dominicus"
+        },
+        {
+          "input": "Parula pitiayumi",
+          "accepted": "Setophaga pitiayumi"
+        },
+        {
+          "input": "Phacellodomus ferrugineigula",
+          "accepted": "Phacellodomus erythrophthalmus"
+        },
+        {
+          "input": "Phalacrocorax albiventer",
+          "accepted": "Leucocarbo albiventer"
+        },
+        {
+          "input": "Phalacrocorax atriceps",
+          "accepted": "Leucocarbo atriceps"
+        },
+        {
+          "input": "Phrygilus fruticeti",
+          "accepted": "Rhopospina fruticeti"
+        },
+        {
+          "input": "Picoides mixtus",
+          "accepted": "Veniliornis mixtus"
+        },
+        {
+          "input": "Platycichla flavipes",
+          "accepted": "Turdus flavipes"
+        },
+        {
+          "input": "Podager nacunda",
+          "accepted": "Chordeiles nacunda"
+        },
+        {
+          "input": "Polyborus plancus",
+          "accepted": "Caracara plancus"
+        },
+        {
+          "input": "Poospiza cabanisi",
+          "accepted": "Microspingus cabanisi"
+        },
+        {
+          "input": "Poospiza lateralis",
+          "accepted": "Microspingus lateralis"
+        },
+        {
+          "input": "Poospiza melanoleuca",
+          "accepted": "Microspingus melanoleucus"
+        },
+        {
+          "input": "Porphiriops melanops",
+          "accepted": "Gallinula melanops"
+        },
+        {
+          "input": "Porphyriops melanops",
+          "accepted": "Gallinula melanops"
+        },
+        {
+          "input": "Porphyrula martinica",
+          "accepted": "Porphyrio martinica"
+        },
+        {
+          "input": "Psittacara leucophthalmus",
+          "accepted": "Aratinga leucophthalma"
+        },
+        {
+          "input": "Pterodroma brevirostris",
+          "accepted": "Aphrodroma brevirostris"
+        },
+        {
+          "input": "Pygochelidon cyanoleuca",
+          "accepted": "Notiochelidon cyanoleuca"
+        },
+        {
+          "input": "Rhynchops niger",
+          "accepted": null
+        },
+        {
+          "input": "Speotyto cunicularia",
+          "accepted": "Athene cunicularia"
+        },
+        {
+          "input": "Sporophila zelichi",
+          "accepted": "Sporophila palustris"
+        },
+        {
+          "input": "Sterna superciliaris",
+          "accepted": "Sternula superciliaris"
+        },
+        {
+          "input": "Tachycineta meyeni",
+          "accepted": "Tachycineta leucopyga"
+        },
+        {
+          "input": "Tangara preciosa",
+          "accepted": "Stilpnia preciosa"
+        },
+        {
+          "input": "Thalassarche chlororhynchus",
+          "accepted": "Thalassarche chlororhynchos"
+        },
+        {
+          "input": "Thalasseus eurygnatha",
+          "accepted": "Thalasseus acuflavidus"
+        },
+        {
+          "input": "Thraupis bonariensis",
+          "accepted": "Rauenia bonariensis"
+        },
+        {
+          "input": "Tryngites subruficollis",
+          "accepted": "Calidris subruficollis"
+        },
+        {
+          "input": "Xolmis dominicanus",
+          "accepted": "Heteroxolmis dominicana"
+        }
+      ],
+      "only": {
+        "biodiversidata": [
+          "Aramides cajaneus",
+          "Ardenna grisea",
+          "Colaptes melanolaimus",
+          "Gallinula galeata",
+          "Mareca sibilatrix",
+          "Microspingus lateralis",
+          "Myiothlypis leucoblephara",
+          "Porphyriops melanops",
+          "Psittacara leucophthalmus",
+          "Setopagis parvula",
+          "Setophaga pitiayumi",
+          "Spatula versicolor",
+          "Spinus magellanicus",
+          "Thalasseus sandvicensis"
+        ],
+        "ministerio": [
+          "Actitis macularius",
+          "Agelasticus thilius",
+          "Agriornis micropterus",
+          "Alectrurus risora",
+          "Anous stolidus",
+          "Aphrodroma brevirostris",
+          "Aramides cajanea",
+          "Aratinga leucophthalma",
+          "Aratinga mitrata",
+          "Bartramia longicauda",
+          "Callonetta leucophrys",
+          "Calonectris edwardsii",
+          "Carduelis chloris",
+          "Casiornis rufus",
+          "Chroicocephalus cirrocephalus",
+          "Coccycua cinerea",
+          "Coccyzus melacoryphus",
+          "Coryphistera alaudina",
+          "Dendrocolaptes platyrostris",
+          "Diomedea sanfordi",
+          "Egretta caerulea",
+          "Elaenia flavogaster",
+          "Empidonomus aurantioatrocristatus",
+          "Florisuga fusca",
+          "Fluvicola albiventer",
+          "Gallinula melanops",
+          "Geranoaetus polyosoma",
+          "Heliobletus contaminatus",
+          "Megarynchus pitangua",
+          "Megascops sanctaecatarinae",
+          "Morus capensis",
+          "Muscisaxicola maclovianus",
+          "Myiarchus tyrannulus",
+          "Myiopagis viridicata",
+          "Nomonyx dominicus",
+          "Nycticryphes semicollaris",
+          "Patagioenas cayennensis",
+          "Phalacrocorax atriceps",
+          "Pipraeidea melanonota",
+          "Polystictus pectoralis",
+          "Progne elegans",
+          "Pterodroma arminjoniana",
+          "Pterodroma macroptera",
+          "Sarkidiornis sylvicola",
+          "Spiziapteryx circumcincta",
+          "Stercorarius antarcticus",
+          "Sternula antillarum",
+          "Sula dactylatra",
+          "Thalassarche steadi",
+          "Thalasseus acuflavidus",
+          "Tolmomyias sulphurescens",
+          "Tringa semipalmata",
+          "Turdus flavipes",
+          "Turdus nigriceps",
+          "Xolmis coronatus"
+        ],
+        "snap": [
+          "Actitis macularia",
+          "Agelaius ruficapillus",
+          "Agelaius thilius",
+          "Agriornis murina",
+          "Ajaia ajaja",
+          "Alectrurus risorus",
+          "Amazona petrei",
+          "Anthracothorax nigricollis",
+          "Anumbis annumbi",
+          "Aramides cajaena",
+          "Aratinga leucophthalmus",
+          "Ardeola ibis",
+          "Bartraima longicauda",
+          "Buteo albicaudatus",
+          "Buteo magnirostris",
+          "Buteo polyosoma",
+          "Butorides striatus",
+          "Calidris minutilla",
+          "Calloneta leucophrys",
+          "Campostoma obsoletum",
+          "Carduelis magellanica",
+          "Casiornis rufa",
+          "Casmerodius albus",
+          "Catoptrophorus semipalmatus",
+          "Certhyaxis cinnamomea",
+          "Ceryle torquata",
+          "Chloris chloris",
+          "Chlorostilbon aureoventris",
+          "Coccyzus cinereus",
+          "Coccyzus melancoryphus",
+          "Columba cayennensis",
+          "Columba maculosa",
+          "Columba picazuro",
+          "Coryhpistera alaudina",
+          "Cyanocompsa brissoni",
+          "Dendrocygna viudata",
+          "Empidonax euleri",
+          "Empidonomus aurantioatriocristatus",
+          "Estrilda astrild",
+          "Eudyptes chrysolophus",
+          "Fluvicola pica",
+          "Gallinago undulata",
+          "Geranotaeus melanoleucus",
+          "Haplospiza unicolor",
+          "Harpiprion caerulescens",
+          "Harpyhaliaetus coronatus",
+          "Heterospizias meridionalis",
+          "Heteroxolmis dominicana",
+          "Hirudinea ferruginea",
+          "Hydranassa caerulea",
+          "Hydropsalis brasiliana",
+          "Hymenops perspicilliatus",
+          "Icterus cayanensis",
+          "Knipolegus aterrimus",
+          "Larus cirrocephalus",
+          "Larus maculipennis",
+          "Limnocites rectirostris",
+          "Lophornis chalybeus",
+          "Lophospingus pusillus",
+          "Machetornis rixosus",
+          "Megarhynchus pitangua",
+          "Melanotrochilus fuscus",
+          "Molothrus badius",
+          "Muscisaxiola macloviana",
+          "Myarchus tyrannulus",
+          "Myiodinastes maculatus",
+          "Myopagis viridicata",
+          "Myopsitta monachus",
+          "Nandayus nenday",
+          "Notiochelidon cyanoleuca",
+          "Nycticrtphes semicollaris",
+          "Odontophorus capueira",
+          "Ortygonax sanguinolentus",
+          "Otus choliba",
+          "Otus sanctaecatarinae",
+          "Oxyura dominica",
+          "Phalacrocorax albiventer",
+          "Picoides mixtus",
+          "Pipraeida melanonota",
+          "Platycichla flavipes",
+          "Podager nacunda",
+          "Podylimbus podiceps",
+          "Polyborus plancus",
+          "Polysticus pectoralis",
+          "Poospiza lateralis",
+          "Porphiriops melanops",
+          "Progne modesta",
+          "Pseudoleistes girahuro",
+          "Pterodroma brevirostris",
+          "Rhynchops niger",
+          "Rosthramus sociabilis",
+          "Sarkidiornis melanotos",
+          "Schoeniophylax phryganophila",
+          "Serpophaga griseiceps",
+          "Speotyto cunicularia",
+          "Spiziapteryx circumcinctus",
+          "Sporophila zelichi",
+          "Stercorarius antartica",
+          "Sterna superciliaris",
+          "Sturnus vulgaris",
+          "Thalassarche chlororhynchus",
+          "Thalassarche melanophrys",
+          "Thalasseus eurygnatha",
+          "Tricothraupis melanops",
+          "Trogon surrucura",
+          "Turdus subalaris",
+          "Xolmis cinerea",
+          "Xolmis coronata"
+        ]
+      }
+    },
+    "Reptilia": {
+      "total": 79,
+      "resolved": 78,
+      "exactTaxonomy": 0,
+      "scientificNamesUpdated": [
+        {
+          "input": "Amphisbaena microcephala",
+          "accepted": "Leposternon microcephalum"
+        },
+        {
+          "input": "Bothropoides pubescens",
+          "accepted": "Bothrops pubescens"
+        },
+        {
+          "input": "Clelia rustica",
+          "accepted": "Paraphimophis rusticus"
+        },
+        {
+          "input": "Cnemidophorus charrua",
+          "accepted": "Contomastix lacertoides"
+        },
+        {
+          "input": "Cnemidophorus lacertoides",
+          "accepted": "Contomastix lacertoides"
+        },
+        {
+          "input": "Liophis almadensis",
+          "accepted": "Erythrolamprus almadensis"
+        },
+        {
+          "input": "Liophis jaegeri",
+          "accepted": "Erythrolamprus jaegeri"
+        },
+        {
+          "input": "Liophis poecilogyrus",
+          "accepted": "Erythrolamprus poecilogyrus"
+        },
+        {
+          "input": "Liophis semiaureus",
+          "accepted": "Erythrolamprus semiaureus"
+        },
+        {
+          "input": "Mabuya dorsivittata",
+          "accepted": "Aspronema dorsivittatum"
+        },
+        {
+          "input": "Rhinocerophis alternatus",
+          "accepted": "Bothrops alternatus"
+        },
+        {
+          "input": "Sibynomorphus turgidus",
+          "accepted": "Dipsas turgida"
+        },
+        {
+          "input": "Trachemys dorbignyi",
+          "accepted": "Trachemys dorbigni"
+        },
+        {
+          "input": "Tupinambis merianae",
+          "accepted": "Salvator merianae"
+        },
+        {
+          "input": "Xenodon merremi",
+          "accepted": "Xenodon merremii"
+        }
+      ],
+      "needs_review": [],
+      "unresolved": [
+        "Leptophis marginatus"
+      ],
+      "conflicts": [],
+      "synonyms": [
+        {
+          "input": "Amphisbaena microcephala",
+          "accepted": "Leposternon microcephalum"
+        },
+        {
+          "input": "Bothropoides pubescens",
+          "accepted": "Bothrops pubescens"
+        },
+        {
+          "input": "Clelia rustica",
+          "accepted": "Paraphimophis rusticus"
+        },
+        {
+          "input": "Cnemidophorus charrua",
+          "accepted": "Contomastix lacertoides"
+        },
+        {
+          "input": "Cnemidophorus lacertoides",
+          "accepted": "Contomastix lacertoides"
+        },
+        {
+          "input": "Liophis almadensis",
+          "accepted": "Erythrolamprus almadensis"
+        },
+        {
+          "input": "Liophis jaegeri",
+          "accepted": "Erythrolamprus jaegeri"
+        },
+        {
+          "input": "Liophis poecilogyrus",
+          "accepted": "Erythrolamprus poecilogyrus"
+        },
+        {
+          "input": "Liophis semiaureus",
+          "accepted": "Erythrolamprus semiaureus"
+        },
+        {
+          "input": "Mabuya dorsivittata",
+          "accepted": "Aspronema dorsivittatum"
+        },
+        {
+          "input": "Rhinocerophis alternatus",
+          "accepted": "Bothrops alternatus"
+        },
+        {
+          "input": "Sibynomorphus turgidus",
+          "accepted": "Dipsas turgida"
+        },
+        {
+          "input": "Tupinambis merianae",
+          "accepted": "Salvator merianae"
+        }
+      ],
+      "only": {
+        "biodiversidata": [
+          "Bothrops pubescens",
+          "Contomastix lacertoides",
+          "Erythrolamprus almadensis",
+          "Erythrolamprus poecilogyrus",
+          "Erythrolamprus semiaureus",
+          "Salvator merianae",
+          "Trachemys dorbigni"
+        ],
+        "ministerio": [],
+        "snap": [
+          "Amphisbaena darwinii",
+          "Amphisbaena microcephala",
+          "Anisolepis undulatus",
+          "Bothropoides pubescens",
+          "Caiman latirostris",
+          "Calamodontophis paucidens",
+          "Caretta caretta",
+          "Chelonia mydas",
+          "Chironius bicarinatus",
+          "Clelia rustica",
+          "Cnemidophorus charrua",
+          "Cnemidophorus lacertoides",
+          "Crotalus durissus",
+          "Dermochelys coriacea",
+          "Eretmochelys imbricata",
+          "Eunectes notaeus",
+          "Hemidactylus mabouia",
+          "Lepidochelys olivacea",
+          "Leptophis marginatus",
+          "Liolaemus gardeli",
+          "Liolaemus occipitalis",
+          "Liophis almadensis",
+          "Liophis jaegeri",
+          "Liophis poecilogyrus",
+          "Liophis semiaureus",
+          "Liotyphlops ternetzii",
+          "Mabuya dorsivittata",
+          "Micrurus altirostris",
+          "Ophiodes intermedius",
+          "Ophiodes vertebralis",
+          "Oxyrhopus rhombifer",
+          "Philodryas agassizii",
+          "Phrynops hilarii",
+          "Phrynops williamsi",
+          "Rhinocerophis alternatus",
+          "Sibynomorphus turgidus",
+          "Stenocercus azureus",
+          "Taeniophallus poecilopogon",
+          "Tantilla melanocephala",
+          "Tarentola mauritanica",
+          "Thamnodynastes strigatus",
+          "Tomodon dorsatus",
+          "Tomodon ocellatus",
+          "Trachemys dorbignyi",
+          "Trachemys scripta",
+          "Tropidurus torquatus",
+          "Tupinambis merianae",
+          "Xenodon histricus",
+          "Xenodon merremi"
+        ]
+      }
+    },
+    "Amphibia": {
+      "total": 58,
+      "resolved": 58,
+      "exactTaxonomy": 52,
+      "scientificNamesUpdated": [
+        {
+          "input": "Hypsiboas albopunctatus",
+          "accepted": "Boana albopunctata"
+        },
+        {
+          "input": "Hypsiboas pulchellus",
+          "accepted": "Boana pulchella"
+        },
+        {
+          "input": "Melanophryniscus orejasmirandai",
+          "accepted": "Melanophryniscus pachyrhynus"
+        },
+        {
+          "input": "Melanophryniscus pachyrhinus",
+          "accepted": "Melanophryniscus pachyrhynus"
+        },
+        {
+          "input": "Rhinella schneideri",
+          "accepted": "Rhinella diptycha"
+        },
+        {
+          "input": "Scinax aromothyella",
+          "accepted": "Ololygon aromothyella"
+        },
+        {
+          "input": "Scinax berthae",
+          "accepted": "Ololygon berthae"
+        },
+        {
+          "input": "Scinax uruguayus",
+          "accepted": "Julianus uruguayus"
+        }
+      ],
+      "needs_review": [],
+      "unresolved": [],
+      "conflicts": [],
+      "synonyms": [
+        {
+          "input": "Hypsiboas albopunctatus",
+          "accepted": "Boana albopunctata"
+        },
+        {
+          "input": "Hypsiboas pulchellus",
+          "accepted": "Boana pulchella"
+        },
+        {
+          "input": "Melanophryniscus orejasmirandai",
+          "accepted": "Melanophryniscus pachyrhynus"
+        },
+        {
+          "input": "Rhinella schneideri",
+          "accepted": "Rhinella diptycha"
+        },
+        {
+          "input": "Scinax aromothyella",
+          "accepted": "Ololygon aromothyella"
+        },
+        {
+          "input": "Scinax berthae",
+          "accepted": "Ololygon berthae"
+        },
+        {
+          "input": "Scinax uruguayus",
+          "accepted": "Julianus uruguayus"
+        }
+      ],
+      "only": {
+        "biodiversidata": [
+          "Boana pulchella",
+          "Julianus uruguayus",
+          "Ololygon aromothyella",
+          "Ololygon berthae",
+          "Physalaemus albonotatus",
+          "Rhinella diptycha"
+        ],
+        "ministerio": [],
+        "snap": [
+          "Melanophryniscus orejasmirandai",
+          "Melanophryniscus pachyrhinus",
+          "Rhinella granulosa"
+        ]
+      }
+    },
+    "Actinopterygii": {
+      "total": 209,
+      "resolved": 205,
+      "exactTaxonomy": 0,
+      "scientificNamesUpdated": [
+        {
+          "input": "Apistogramma borelli",
+          "accepted": "Apistogramma borellii"
+        },
+        {
+          "input": "Astyanax eigenmaniorum",
+          "accepted": "Astyanax eigenmanniorum"
+        },
+        {
+          "input": "Astyanax jacuiensis",
+          "accepted": "Astyanax jacuhiensis"
+        },
+        {
+          "input": "Astyanax rutilus",
+          "accepted": "Astyanax fasciatus"
+        },
+        {
+          "input": "Austrolebias luteoflamulatus",
+          "accepted": "Austrolebias luteoflammulatus"
+        },
+        {
+          "input": "Brycon orbygnianus",
+          "accepted": "Brycon orbignyanus"
+        },
+        {
+          "input": "Bryconamericus iheringi",
+          "accepted": "Bryconamericus iheringii"
+        },
+        {
+          "input": "Cichlasoma portalegrensis",
+          "accepted": "Cichlasoma portalegrense"
+        },
+        {
+          "input": "Crenicichla scotti",
+          "accepted": "Crenicichla scottii"
+        },
+        {
+          "input": "Gymnogeophagus balzani",
+          "accepted": "Gymnogeophagus balzanii"
+        },
+        {
+          "input": "Heptapterus sympterigium",
+          "accepted": "Heptapterus sympterygium"
+        },
+        {
+          "input": "Hypostomus borelli",
+          "accepted": "Hypostomus borellii"
+        },
+        {
+          "input": "Mugil platanus",
+          "accepted": "Mugil liza"
+        },
+        {
+          "input": "Otocinclus affinis",
+          "accepted": "Macrotocinclus affinis"
+        },
+        {
+          "input": "Pseudobunocephalus iheringi",
+          "accepted": "Pseudobunocephalus iheringii"
+        },
+        {
+          "input": "Rineloricaria strigatta",
+          "accepted": "Rineloricaria strigilata"
+        },
+        {
+          "input": "Schizodon borelli",
+          "accepted": "Schizodon borellii"
+        }
+      ],
+      "needs_review": [],
+      "unresolved": [
+        "Auchenipterus oestomystax",
+        "Gymnotus inequilabiatus",
+        "Lepthohoplosternum pectorale",
+        "Rhinodoras orbygnianus"
+      ],
+      "conflicts": [],
+      "synonyms": [
+        {
+          "input": "Astyanax rutilus",
+          "accepted": "Astyanax fasciatus"
+        },
+        {
+          "input": "Cichlasoma portalegrensis",
+          "accepted": "Cichlasoma portalegrense"
+        },
+        {
+          "input": "Mugil platanus",
+          "accepted": "Mugil liza"
+        },
+        {
+          "input": "Otocinclus affinis",
+          "accepted": "Macrotocinclus affinis"
+        }
+      ],
+      "only": {
+        "biodiversidata": [],
+        "ministerio": [],
+        "snap": [
+          "Acestrorhynchus pantaneiro",
+          "Ageneiosus inermis",
+          "Ageneiosus militaris",
+          "Apareiodon affinis",
+          "Aphyocharax anisitsi",
+          "Apistogramma borelli",
+          "Apistogramma commbrae",
+          "Apteronotus ellisi",
+          "Astyanax abramis",
+          "Astyanax eigenmaniorum",
+          "Astyanax jacuiensis",
+          "Astyanax laticeps",
+          "Astyanax rutilus",
+          "Astyanax saguazu",
+          "Astyanax stenohalinus",
+          "Auchenipterus nigripinnis",
+          "Auchenipterus oestomystax",
+          "Australoheros facetus",
+          "Australoheros minuano",
+          "Australoheros scitulus",
+          "Austrolebias affinis",
+          "Austrolebias alexandri",
+          "Austrolebias arachan",
+          "Austrolebias bellottii",
+          "Austrolebias charrua",
+          "Austrolebias cheradophilus",
+          "Austrolebias cinereus",
+          "Austrolebias elongatus",
+          "Austrolebias gymnoventris",
+          "Austrolebias luteoflamulatus",
+          "Austrolebias melanoorus",
+          "Austrolebias nigripinnis",
+          "Austrolebias periodicus",
+          "Austrolebias prognathus",
+          "Austrolebias quirogai",
+          "Austrolebias reicherti",
+          "Austrolebias vazferreirai",
+          "Austrolebias viarius",
+          "Austrolebias wolterstorffi",
+          "Brachyhypopomus bombilla",
+          "Brachyhypopomus draco",
+          "Brachyhypopomus gauderio",
+          "Brycon orbygnianus",
+          "Bryconamericus exodon",
+          "Bryconamericus iheringi",
+          "Bryconamericus lambari",
+          "Bryconamericus ytu",
+          "Bunocephalus doriae",
+          "Callichthys callichthys",
+          "Catathyridium jenynsii",
+          "Characidium orientale",
+          "Characidium pterostictum",
+          "Characidium rachovii",
+          "Characidium tenue",
+          "Characidium zebra",
+          "Charax stenopterus",
+          "Cheirodon ibicuhiensis",
+          "Cheirodon interruptus",
+          "Cichlasoma dimerus",
+          "Cichlasoma portalegrensis",
+          "Cnesterodon decemmaculatus",
+          "Corydoras aeneus",
+          "Corydoras hastatus",
+          "Corydoras paleatus",
+          "Corydoras undulatus",
+          "Crenicichla celidochilus",
+          "Crenicichla lepidota",
+          "Crenicichla minuano",
+          "Crenicichla missioneira",
+          "Crenicichla punctata",
+          "Crenicichla scotti",
+          "Crenicichla tendybaguassu",
+          "Crenicichla vittata",
+          "Cyanocharax alburnus",
+          "Cyanocharax alegretensis",
+          "Cyanocharax uruguayensis",
+          "Cynopoecilus melanotaenia",
+          "Cynopotamus argenteus",
+          "Cyphocharax platanus",
+          "Cyphocharax saladensis",
+          "Cyphocharax spilotus",
+          "Cyphocharax voga",
+          "Cyprinus carpio",
+          "Diapoma speculiferum",
+          "Diapoma terofali",
+          "Ectrepopterus uruguayensis",
+          "Eigenmannia virescens",
+          "Galeocharax humeralis",
+          "Genidens barbus",
+          "Geophagus brasiliensis",
+          "Gymnogeophagus australis",
+          "Gymnogeophagus balzani",
+          "Gymnogeophagus gymnogenys",
+          "Gymnogeophagus labiatus",
+          "Gymnogeophagus meridionalis",
+          "Gymnogeophagus rhabdotus",
+          "Gymnogeophagus tiraparae",
+          "Gymnotus inequilabiatus",
+          "Gymnotus omarorum",
+          "Heptapterus mustelinus",
+          "Heptapterus sympterigium",
+          "Hisonotus armatus",
+          "Hisonotus charrua",
+          "Hisonotus nigricauda",
+          "Hisonotus ringueleti",
+          "Homodiaetus anisitsi",
+          "Hoplias australis",
+          "Hoplias lacerdae",
+          "Hoplias malabaricus",
+          "Hoplosternum littorale",
+          "Hyphessobrycon anisitsi",
+          "Hyphessobrycon boulengeri",
+          "Hyphessobrycon eques",
+          "Hyphessobrycon luetkenii",
+          "Hyphessobrycon meridionalis",
+          "Hypobrycon maromba",
+          "Hypostomus alatus",
+          "Hypostomus auroguttatus",
+          "Hypostomus borelli",
+          "Hypostomus commersoni",
+          "Hypostomus laplatae",
+          "Hypostomus luteomaculatus",
+          "Iheringichthys labrosus",
+          "Jenynsia lineata",
+          "Jenynsia multidentata",
+          "Jenynsia onca",
+          "Leporinus amae",
+          "Leporinus lacustris",
+          "Leporinus obtusidens",
+          "Leporinus striatus",
+          "Lepthohoplosternum pectorale",
+          "Loricariichthys anus",
+          "Loricariichthys edentatus",
+          "Loricariichthys melanocheilus",
+          "Loricariichthys platymetopon",
+          "Luciopimelodus pati",
+          "Lycengraulis grossidens",
+          "Macropsobrycon uruguayanae",
+          "Microglanis cibelae",
+          "Microglanis eurystoma",
+          "Mimagoniates inequalis",
+          "Moenkhausia dichroura",
+          "Mugil platanus",
+          "Mylossoma duriventre",
+          "Odontesthes argentinensis",
+          "Odontesthes bonariensis",
+          "Odontesthes humensis",
+          "Odontesthes incisa",
+          "Odontesthes perugiae",
+          "Odontesthes retropinnis",
+          "Odontostilbe pequira",
+          "Oligosarcus hepsetus",
+          "Oligosarcus jenynsii",
+          "Oligosarcus oligolepis",
+          "Oligosarcus robustus",
+          "Otocinclus affinis",
+          "Otocinclus arnoldi",
+          "Otocinclus flexilis",
+          "Otocinclus vestitus",
+          "Oxydoras kneri",
+          "Pachyurus bonariensis",
+          "Paraloricaria vetula",
+          "Parapimelodus nigribarbis",
+          "Parapimelodus valenciennis",
+          "Pellona flavipinnis",
+          "Phalloceros caudimaculatus",
+          "Piaractus mesopotamicus",
+          "Pimelodella australis",
+          "Pimelodella gracilis",
+          "Pimelodus albicans",
+          "Pimelodus maculatus",
+          "Pimelodus pintado",
+          "Platanichthys platana",
+          "Prochilodus lineatus",
+          "Pseudobunocephalus iheringi",
+          "Pseudocorynopoma doriae",
+          "Pseudopimelodus mangurus",
+          "Pseudoplatystoma corruscans",
+          "Pterodoras granulosus",
+          "Pygocentrus nattereri",
+          "Pyrrhulina australis",
+          "Ramnogaster melanostoma",
+          "Rhamdia quelen",
+          "Rhaphiodon vulpinus",
+          "Rhinelepis strigosa",
+          "Rhinodoras orbygnianus",
+          "Ricola macrops",
+          "Rineloricaria baliola",
+          "Rineloricaria lanceolata",
+          "Rineloricaria longicauda",
+          "Rineloricaria microlepidogaster",
+          "Rineloricaria parva",
+          "Rineloricaria strigatta",
+          "Roeboides microlepis",
+          "Salminus brasiliensis",
+          "Schizodon borelli",
+          "Schizodon nasutus",
+          "Sorubim lima",
+          "Steindachneridion scriptum",
+          "Steindachnerina biornata",
+          "Steindachnerina brevipinna",
+          "Synbranchus marmoratus",
+          "Tatia boemia",
+          "Thoracocharax stellatus",
+          "Trachelyopterus galeatus",
+          "Trachelyopterus lucenai",
+          "Trachelyopterus teaguei",
+          "Triportheus paranensis",
+          "Xyliphius barbatus"
+        ]
+      }
+    },
+    "Chondrichthyes": {
+      "total": 2,
+      "resolved": 2,
+      "exactTaxonomy": 0,
+      "scientificNamesUpdated": [],
+      "needs_review": [],
+      "unresolved": [],
+      "conflicts": [],
+      "synonyms": [],
+      "only": {
+        "biodiversidata": [],
+        "ministerio": [],
+        "snap": [
+          "Potamotrygon brachyura",
+          "Potamotrygon motoro"
+        ]
+      }
+    }
+  },
+  "total": 1022,
+  "resolved": 1006,
+  "unresolved": 16,
+  "conflicts": 0
+}
