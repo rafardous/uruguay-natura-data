@@ -7,8 +7,8 @@ import { useTheme } from '../theme/ThemeProvider';
 import { MenuIcon } from './TabIcons';
 
 export interface AppHeaderProps {
-  eyebrow: string;
-  title: string;
+  eyebrow?: string;
+  title?: string;
   /** Right-hand pill, e.g. "2021 especies". */
   badge?: string;
   onOpenMenu?: () => void;
@@ -47,29 +47,31 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
         <View style={styles.flex}>{children}</View>
       </View>
 
-      <MotiView
-        from={{ opacity: 0, translateY: 8 }}
-        animate={{ opacity: 1, translateY: 0 }}
-        transition={{ type: 'timing', duration: 320 }}
-        style={[styles.titleRow, { marginTop: spacing.lg }]}
-      >
-        <View style={styles.flex}>
-          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{eyebrow}</Text>
-          <Text style={[typography.display, { color: colors.text, marginTop: 4 }]}>{title}</Text>
-        </View>
-
-        {badge && (
-          <View style={[styles.badge, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
-            <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{badge}</Text>
+      {(eyebrow || title || badge) && (
+        <MotiView
+          from={{ opacity: 0, translateY: 8 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 320 }}
+          style={[styles.titleRow, { marginTop: spacing.lg }]}
+        >
+          <View style={styles.flex}>
+            {eyebrow && <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{eyebrow}</Text>}
+            {title && <Text style={[typography.display, { color: colors.text, marginTop: eyebrow ? 4 : 0 }]}>{title}</Text>}
           </View>
-        )}
-      </MotiView>
+
+          {badge && (
+            <View style={[styles.badge, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
+              <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{badge}</Text>
+            </View>
+          )}
+        </MotiView>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  topRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  topRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   // A suspended circle rather than a bare glyph pinned to the layout grid.
   menuButton: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center' },
   titleRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 12 },

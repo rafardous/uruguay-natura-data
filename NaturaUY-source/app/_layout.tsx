@@ -32,6 +32,7 @@ function Navigator(): React.JSX.Element {
         }}
       >
         <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="login" />
         <Stack.Screen name="taxonomy" />
         <Stack.Screen
           name="species/[codigo]"

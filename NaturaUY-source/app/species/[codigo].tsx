@@ -7,12 +7,18 @@ import { MotiView } from 'moti';
 
 import type { Species } from '../../src/domain/entities/species';
 import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel } from '../../src/domain/catalogLabels';
-import { speciesRepository } from '../../src/data/repositories/speciesRepository';
+import {
+  speciesRepository,
+  TAXON_RANKS,
+  UNASSIGNED_TAXON,
+  type TaxonRank,
+  type TaxonomyPath,
+} from '../../src/data/repositories/speciesRepository';
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
-import { CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
+import { ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
@@ -82,18 +88,36 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       ].filter((fact) => fact.value.length > 0)
     : [];
 
-  const classification = species
+  const classification: { label: string; rank: TaxonRank; value: string }[] = species
     ? [
-        ['Filo', species.taxonomy.phylum],
-        ['Clase', species.taxonomy.clase],
-        ['Orden', species.taxonomy.orden || 'Sin determinar'],
-        ['Familia', species.taxonomy.familia],
-        ['Género', species.taxonomy.genero],
-      ] as const
+        { label: 'Filo', rank: 'phylum', value: species.taxonomy.phylum },
+        { label: 'Clase', rank: 'clase', value: species.taxonomy.clase },
+        { label: 'Orden', rank: 'orden', value: species.taxonomy.orden || 'Sin determinar' },
+        { label: 'Familia', rank: 'familia', value: species.taxonomy.familia },
+        { label: 'Género', rank: 'genero', value: species.taxonomy.genero },
+      ]
     : [];
   const dataSources = species
     ? [...new Set(species.sources.map((source) => sourceLabel(source.source)))]
     : [];
+
+  const openTaxonomyAt = (rank: TaxonRank): void => {
+    if (!species) return;
+    haptics.tap();
+    const values: Record<TaxonRank, string> = {
+      phylum: species.taxonomy.phylum,
+      clase: species.taxonomy.clase,
+      orden: species.taxonomy.orden || UNASSIGNED_TAXON,
+      familia: species.taxonomy.familia,
+      genero: species.taxonomy.genero,
+    };
+    const params: TaxonomyPath = {};
+    for (const candidate of TAXON_RANKS) {
+      params[candidate] = values[candidate];
+      if (candidate === rank) break;
+    }
+    router.replace({ pathname: '/taxonomy', params });
+  };
 
   return (
     <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
@@ -280,17 +304,23 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             <Staggered index={8}>
               <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Clasificación</Text>
               <View style={[styles.classification, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.sm }]}>
-                {classification.map(([label, value], index) => (
-                  <View
-                    key={label}
+                {classification.map(({ label, rank, value }, index) => (
+                  <Pressable
+                    key={rank}
+                    onPress={() => openTaxonomyAt(rank)}
+                    accessibilityRole="link"
+                    accessibilityLabel={`Ver ${label.toLocaleLowerCase('es')} ${value} en búsqueda taxonómica`}
                     style={[
                       styles.classificationRow,
                       index > 0 && { borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth },
                     ]}
                   >
                     <Text style={[typography.caption, { color: colors.textMuted }]}>{label}</Text>
-                    <Text style={[typography.label, label === 'Género' && styles.scientific, { color: colors.text }]}>{value}</Text>
-                  </View>
+                    <View style={styles.classificationValue}>
+                      <Text style={[typography.label, rank === 'genero' && styles.scientific, { color: colors.text }]} numberOfLines={1}>{value}</Text>
+                      <ChevronRightIcon color={colors.textMuted} size={16} />
+                    </View>
+                  </Pressable>
                 ))}
               </View>
             </Staggered>
@@ -354,4 +384,5 @@ const styles = StyleSheet.create({
   note: { padding: 14 },
   classification: { overflow: 'hidden', paddingHorizontal: 14 },
   classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
+  classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },
 });

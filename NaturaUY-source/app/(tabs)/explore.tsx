@@ -25,6 +25,7 @@ import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useSpeciesList } from '../../src/presentation/hooks/useSpeciesList';
 import { useScrollDetentHaptics } from '../../src/presentation/hooks/useScrollDetentHaptics';
+import { useTaxonomyChildren } from '../../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN, spacing as space } from '../../src/presentation/theme/tokens';
 import { useDebouncedValue } from '../../src/shared/hooks/useDebouncedValue';
@@ -36,14 +37,16 @@ export default function ExploreScreen(): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const insets = useSafeAreaInsets();
   const router = useRouter();
-  const params = useLocalSearchParams<{ native?: string; priority?: string }>();
+  const params = useLocalSearchParams<{ native?: string; priority?: string; clase?: string; q?: string }>();
   const { isFavorite, toggle } = useFavorites();
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(params.q ?? '');
   const [showFilters, setShowFilters] = useState(false);
   const [onlyNative, setOnlyNative] = useState(params.native === '1');
   const [onlyPriority, setOnlyPriority] = useState(params.priority === '1');
+  const [selectedClass, setSelectedClass] = useState(params.clase ?? '');
+  const { items: taxonomicClasses, loading: classesLoading } = useTaxonomyChildren('clase', {});
 
   const debouncedQuery = useDebouncedValue(query, 220);
 
@@ -52,8 +55,9 @@ export default function ExploreScreen(): React.JSX.Element {
       search: debouncedQuery.trim() || undefined,
       onlyNative: onlyNative || undefined,
       onlyPriority: onlyPriority || undefined,
+      taxonomy: selectedClass ? { clase: selectedClass } : undefined,
     }),
-    [debouncedQuery, onlyNative, onlyPriority],
+    [debouncedQuery, onlyNative, onlyPriority, selectedClass],
   );
 
   const { items, total, loading, loadingMore, hasMore, loadMore } = useSpeciesList(filters);
@@ -91,49 +95,53 @@ export default function ExploreScreen(): React.JSX.Element {
    */
   const onScroll = useScrollDetentHaptics(ROW_HEIGHT);
 
-  const activeFilterCount = (onlyNative ? 1 : 0) + (onlyPriority ? 1 : 0);
+  const activeFilterCount = (onlyNative ? 1 : 0) + (onlyPriority ? 1 : 0) + (selectedClass ? 1 : 0);
   // The navigation island floats over the list, so the last card needs to clear it.
   const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom;
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <AppHeader
-        eyebrow="NATURA UY"
-        title="Descubrir"
-        badge={`${total} ${total === 1 ? 'especie' : 'especies'}`}
         onOpenMenu={() => setMenuOpen(true)}
       >
-        <View style={styles.searchActions}>
-          <SearchBar value={query} onChange={setQuery} />
-          <Pressable
-            onPress={() => {
-              haptics.tap();
-              router.push('/taxonomy' as Href);
-            }}
-            accessibilityRole="button"
-            accessibilityLabel="Abrir búsqueda taxonómica"
-            style={({ pressed }) => [
-              styles.taxonomyButton,
-              {
-                backgroundColor: pressed ? colors.surfaceContainer : colors.primaryContainer,
-                borderRadius: radius.md,
-              },
-            ]}
-          >
-            <TaxonomyIcon color={colors.onPrimaryContainer} />
-            <View style={styles.flex}>
-              <Text style={[typography.label, { color: colors.onPrimaryContainer }]}>Búsqueda taxonómica</Text>
-              <Text style={[typography.caption, { color: colors.textMuted }]}>Explorá de filo a género</Text>
-            </View>
-            <ChevronRightIcon color={colors.onPrimaryContainer} />
-          </Pressable>
-        </View>
+        <SearchBar value={query} onChange={setQuery} />
       </AppHeader>
 
+      <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md }}>
+        <Pressable
+          onPress={() => {
+            haptics.tap();
+            router.push('/taxonomy' as Href);
+          }}
+          accessibilityRole="button"
+          accessibilityLabel="Abrir búsqueda taxonómica"
+          style={({ pressed }) => [
+            styles.taxonomyButton,
+            elevation.low,
+            {
+              backgroundColor: pressed ? colors.surfaceContainer : colors.primaryContainer,
+              borderColor: colors.border,
+              borderRadius: radius.lg,
+            },
+          ]}
+        >
+          <View style={[styles.taxonomyIcon, { backgroundColor: colors.surface, borderRadius: radius.md }]}>
+            <TaxonomyIcon color={colors.primary} size={23} />
+          </View>
+          <View style={styles.flex}>
+            <Text style={[typography.eyebrow, { color: colors.primary }]}>EXPLORAR EL ÁRBOL DE LA VIDA</Text>
+            <Text style={[typography.label, { color: colors.onPrimaryContainer }]}>Búsqueda taxonómica</Text>
+            <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Navegá de filo a género</Text>
+          </View>
+          <ChevronRightIcon color={colors.onPrimaryContainer} />
+        </Pressable>
+      </View>
+
       <View style={[styles.filterRow, { paddingHorizontal: spacing.lg, marginTop: spacing.xl }]}>
-        <Text style={[typography.label, { color: colors.textMuted }]}>
-          Catálogo completo
-        </Text>
+        <View>
+          <Text style={[typography.label, { color: colors.text }]}>Catálogo completo</Text>
+          <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>{total} {total === 1 ? 'especie' : 'especies'}</Text>
+        </View>
         <Pressable
           onPress={() => {
             haptics.tap();
@@ -156,8 +164,18 @@ export default function ExploreScreen(): React.JSX.Element {
           animate={{ opacity: 1, translateY: 0 }}
           style={[styles.filterPanel, elevation.low, { backgroundColor: colors.surface, marginHorizontal: spacing.lg }]}
         >
-          <Chip label="Solo nativas" selected={onlyNative} onPress={() => setOnlyNative((v) => !v)} />
-          <Chip label="Prioridad de conservación" selected={onlyPriority} onPress={() => setOnlyPriority((v) => !v)} />
+          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>CLASE TAXONÓMICA</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.classChips}>
+            <Chip label="Todas" selected={!selectedClass} onPress={() => setSelectedClass('')} />
+            {taxonomicClasses.map(({ value }) => (
+              <Chip key={value} label={value} selected={selectedClass === value} onPress={() => setSelectedClass(value)} />
+            ))}
+          </ScrollView>
+          {classesLoading && <ActivityIndicator size="small" color={colors.primary} />}
+          <View style={styles.booleanFilters}>
+            <Chip label="Solo nativas" selected={onlyNative} onPress={() => setOnlyNative((v) => !v)} />
+            <Chip label="Prioridad de conservación" selected={onlyPriority} onPress={() => setOnlyPriority((v) => !v)} />
+          </View>
         </MotiView>
       )}
 
@@ -224,10 +242,12 @@ export default function ExploreScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
-  searchActions: { gap: 10 },
-  taxonomyButton: { minHeight: 58, flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: 14, paddingVertical: 10 },
+  taxonomyButton: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 12, paddingVertical: 10, borderWidth: StyleSheet.hairlineWidth },
+  taxonomyIcon: { width: 46, height: 46, alignItems: 'center', justifyContent: 'center' },
   filterRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   filterButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999 },
-  filterPanel: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, padding: 12, borderRadius: 16, marginTop: 12 },
+  filterPanel: { gap: 10, padding: 12, borderRadius: 16, marginTop: 12 },
+  classChips: { gap: 8, paddingRight: 12 },
+  booleanFilters: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   end: { textAlign: 'center', paddingVertical: 28 },
 });

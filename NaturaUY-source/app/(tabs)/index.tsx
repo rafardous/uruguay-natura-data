@@ -1,5 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  FlatList,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
@@ -8,38 +18,37 @@ import { MotiView } from 'moti';
 import type { Species } from '../../src/domain/entities/species';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { AppDrawer } from '../../src/presentation/components/AppDrawer';
+import { SearchBar } from '../../src/presentation/components/SearchBar';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
-import { GameIcon, HeartIcon, MenuIcon, ShieldIcon } from '../../src/presentation/components/TabIcons';
+import {
+  GameIcon,
+  HeartIcon,
+  LoginIcon,
+  MenuIcon,
+  NewsIcon,
+} from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
 
-interface Stats {
-  total: number;
-  withPhoto: number;
-  families: number;
-}
-
 const ON_PHOTO = '#FFFFFF';
-const ON_PHOTO_MUTED = 'rgba(255,255,255,0.72)';
-const PANEL = 'rgba(14,24,17,0.82)';
+const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
+const PHOTO_PANEL = 'rgba(14,24,17,0.82)';
+const CARD_HEIGHT = 230;
+const CAROUSEL_INTERVAL_MS = 5_000;
 
-const FEATURED_WIDTH = 184;
-const FEATURED_HEIGHT = 236;
-
-/** A featured species in the horizontal shelf. */
-function FeaturedCard({
+function LargeSpeciesCard({
   species,
+  width,
   onPress,
 }: {
   species: Species;
+  width: number;
   onPress: (codigo: string) => void;
 }): React.JSX.Element {
-  const { colors, radius, spacing, typography, elevation } = useTheme();
-  const width = FEATURED_WIDTH;
-  const height = FEATURED_HEIGHT;
+  const { radius, spacing, typography, elevation, colors } = useTheme();
 
   return (
     <Pressable
@@ -50,86 +59,139 @@ function FeaturedCard({
       accessibilityRole="button"
       accessibilityLabel={species.displayName}
       style={({ pressed }) => [
-        styles.featured,
+        styles.speciesCard,
         elevation.low,
         {
           width,
-          height,
+          height: CARD_HEIGHT,
           backgroundColor: colors.surface,
           borderRadius: radius.xl,
-          transform: [{ scale: pressed ? 0.985 : 1 }],
+          transform: [{ scale: pressed ? 0.99 : 1 }],
         },
       ]}
     >
-      <SpeciesImage species={species} height={height} glyphSize={52} bordered={false} style={StyleSheet.absoluteFill} />
-      <View style={[styles.featuredCaption, { margin: spacing.sm, borderRadius: radius.md, padding: spacing.md }]}>
-        <Text style={[typography.label, { color: ON_PHOTO }]} numberOfLines={2}>
+      <SpeciesImage
+        species={species}
+        height={CARD_HEIGHT}
+        glyphSize={70}
+        bordered={false}
+        style={StyleSheet.absoluteFill}
+      />
+      <View style={[styles.speciesPanel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md }]}>
+        <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>
           {species.displayName}
         </Text>
         <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>
-          {species.taxonomy.clase}
+          {species.taxonomy.clase} · {species.conservation.label}
         </Text>
       </View>
     </Pressable>
   );
 }
 
-/**
- * The species this day belongs to.
- *
- * Picked from the day number rather than at random, so it's the same species
- * all day and a different one tomorrow — a reason to open the app again that
- * costs one query.
- */
-function useSpeciesOfTheDay(): Species | null {
-  const db = useSQLiteContext();
-  const [species, setSpecies] = useState<Species | null>(null);
+function SpeciesCarousel({
+  species,
+  width,
+  onPress,
+}: {
+  species: Species[];
+  width: number;
+  onPress: (codigo: string) => void;
+}): React.JSX.Element {
+  const { colors, radius, spacing } = useTheme();
+  const listRef = useRef<FlatList<Species>>(null);
+  const indexRef = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    void (async () => {
-      const filters = { onlyWithPhoto: true, onlyPriority: true };
-      const pool = await speciesRepository.count(db, filters);
-      if (pool === 0) return;
+    if (species.length < 2) return undefined;
+    const timer = setInterval(() => {
+      const next = (indexRef.current + 1) % species.length;
+      indexRef.current = next;
+      setActiveIndex(next);
+      listRef.current?.scrollToIndex({ index: next, animated: true });
+    }, CAROUSEL_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, [species.length]);
 
-      const day = Math.floor(Date.now() / 86_400_000);
-      const page = await speciesRepository.findPaged(db, filters, 1, day % pool);
-      setSpecies(page.items[0] ?? null);
-    })();
-  }, [db]);
+  const syncIndex = (event: NativeSyntheticEvent<NativeScrollEvent>): void => {
+    const next = Math.max(0, Math.min(species.length - 1, Math.round(event.nativeEvent.contentOffset.x / width)));
+    indexRef.current = next;
+    setActiveIndex(next);
+  };
 
-  return species;
+  return (
+    <View>
+      <FlatList
+        ref={listRef}
+        horizontal
+        pagingEnabled
+        data={species}
+        keyExtractor={(item) => item.codigo}
+        renderItem={({ item }) => <LargeSpeciesCard species={item} width={width} onPress={onPress} />}
+        getItemLayout={(_, index) => ({ length: width, offset: width * index, index })}
+        onMomentumScrollEnd={syncIndex}
+        showsHorizontalScrollIndicator={false}
+      />
+      {species.length > 1 && (
+        <View style={[styles.dots, { marginTop: spacing.md }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${species.length}`}>
+          {species.map((item, index) => (
+            <View
+              key={item.codigo}
+              style={{
+                width: index === activeIndex ? 22 : 7,
+                height: 7,
+                borderRadius: radius.pill,
+                backgroundColor: index === activeIndex ? colors.primary : colors.border,
+              }}
+            />
+          ))}
+        </View>
+      )}
+    </View>
+  );
 }
 
 export default function HomeScreen(): React.JSX.Element {
   const db = useSQLiteContext();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const { width: windowWidth } = useWindowDimensions();
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const { count } = useFavorites();
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [stats, setStats] = useState<Stats | null>(null);
-  const [featured, setFeatured] = useState<Species[]>([]);
+  const [query, setQuery] = useState('');
+  const [total, setTotal] = useState<number | null>(null);
+  const [carouselSpecies, setCarouselSpecies] = useState<Species[]>([]);
+  const [mostSearched, setMostSearched] = useState<Species | null>(null);
+  const cardWidth = Math.max(280, windowWidth - spacing.lg * 2);
 
   const openSpecies = useCallback((codigo: string) => router.push(`/species/${codigo}`), [router]);
-
-  const daily = useSpeciesOfTheDay();
+  const submitSearch = useCallback(() => {
+    const search = query.trim();
+    if (search) router.push({ pathname: '/explore', params: { q: search } });
+    else router.push('/explore');
+  }, [query, router]);
 
   useEffect(() => {
-    void speciesRepository.stats(db).then(setStats);
-    // Threatened species with a photograph make the most compelling shelf.
-    void speciesRepository
-      .findPaged(db, { onlyPriority: true, onlyWithPhoto: true }, 10, 0)
-      .then((page) => setFeatured(page.items));
+    let cancelled = false;
+    void (async () => {
+      const stats = await speciesRepository.stats(db);
+      const withPhoto = await speciesRepository.count(db, { onlyWithPhoto: true });
+      const poolSize = Math.min(6, withPhoto);
+      const maxOffset = Math.max(0, withPhoto - poolSize);
+      const offset = maxOffset === 0 ? 0 : Math.floor(Math.random() * (maxOffset + 1));
+      const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
+      if (cancelled) return;
+      setTotal(stats.total);
+      setCarouselSpecies(page.items.slice(0, Math.min(5, page.items.length)));
+      setMostSearched(page.items[5] ?? page.items[0] ?? null);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [db]);
-
-  const statChips: { value: number; label: string }[] = stats
-    ? [
-        { value: stats.total, label: 'especies' },
-        { value: stats.families, label: 'familias' },
-        { value: stats.withPhoto, label: 'con foto' },
-      ]
-    : [];
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
@@ -137,12 +199,6 @@ export default function HomeScreen(): React.JSX.Element {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
       >
-        {/*
-          The header lives inside the hero rather than above it — a separate
-          title bar stacked on a coloured block is the web pattern this screen
-          was stuck in. Extra bottom padding leaves room for the card that
-          overlaps the hero's lower edge.
-        */}
         <View
           style={[
             styles.hero,
@@ -153,25 +209,50 @@ export default function HomeScreen(): React.JSX.Element {
             },
           ]}
         >
-          <View style={{ paddingTop: insets.top + spacing.md, paddingHorizontal: spacing.lg, paddingBottom: 56 }}>
-            <Pressable
-              onPress={() => {
-                haptics.tap();
-                setMenuOpen(true);
-              }}
-              hitSlop={8}
-              accessibilityRole="button"
-              accessibilityLabel="Abrir menú"
-              style={({ pressed }) => [
-                styles.heroMenu,
-                {
-                  borderRadius: radius.pill,
-                  backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
-                },
-              ]}
-            >
-              <MenuIcon color={colors.canvasText} />
-            </Pressable>
+          <View style={{ paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: 56 }}>
+            <View style={[styles.topActions, { gap: spacing.sm }]}>
+              <Pressable
+                onPress={() => {
+                  haptics.tap();
+                  setMenuOpen(true);
+                }}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel="Abrir menú"
+                style={({ pressed }) => [
+                  styles.heroAction,
+                  {
+                    borderRadius: radius.pill,
+                    backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
+                  },
+                ]}
+              >
+                <MenuIcon color={colors.canvasText} />
+              </Pressable>
+
+              <View style={styles.searchWrap}>
+                <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} placeholder="Buscar una especie" />
+              </View>
+
+              <Pressable
+                onPress={() => {
+                  haptics.tap();
+                  router.push('/login');
+                }}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel="Iniciar sesión"
+                style={({ pressed }) => [
+                  styles.heroAction,
+                  {
+                    borderRadius: radius.pill,
+                    backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
+                  },
+                ]}
+              >
+                <LoginIcon color={colors.canvasText} />
+              </Pressable>
+            </View>
 
             <MotiView
               from={{ opacity: 0, translateY: 14 }}
@@ -180,49 +261,23 @@ export default function HomeScreen(): React.JSX.Element {
               style={{ marginTop: spacing.xl }}
             >
               <Text style={[typography.hero, { color: colors.canvasText }]}>
-                Conocé la vida{'\n'}que habita{'\n'}nuestro suelo
+                Conocé la vida{'\n'}de nuestro suelo
               </Text>
 
-              {/*
-                One figure carries the accent; the rest stay quiet. Three
-                equally bright chips would just be three chips.
-              */}
               <View style={[styles.chipRow, { marginTop: spacing.xl }]}>
-                {stats ? (
-                  statChips.map((chip, i) => (
-                    <View
-                      key={chip.label}
-                      style={[
-                        styles.statChip,
-                        {
-                          borderRadius: radius.sm,
-                          backgroundColor: i === 0 ? colors.accent : 'transparent',
-                          borderColor: i === 0 ? 'transparent' : 'rgba(255,255,255,0.18)',
-                        },
-                      ]}
-                    >
-                      <Text style={[typography.label, { color: i === 0 ? colors.onAccent : colors.canvasText }]}>
-                        {chip.value}
-                      </Text>
-                      <Text
-                        style={[
-                          typography.caption,
-                          { color: i === 0 ? colors.onAccent : colors.canvasTextMuted },
-                        ]}
-                      >
-                        {chip.label}
-                      </Text>
-                    </View>
-                  ))
+                {total === null ? (
+                  <Skeleton width="58%" height={36} radius={radius.sm} />
                 ) : (
-                  <Skeleton width="72%" height={32} radius={radius.sm} />
+                  <View style={[styles.statChip, { borderRadius: radius.sm, backgroundColor: colors.accent }]}>
+                    <Text style={[typography.label, { color: colors.onAccent }]}>{total}</Text>
+                    <Text style={[typography.caption, { color: colors.onAccent }]}>especies registradas</Text>
+                  </View>
                 )}
               </View>
             </MotiView>
           </View>
         </View>
 
-        {/* Lifted over the hero's edge — the overlap is what creates the depth. */}
         <MotiView
           from={{ opacity: 0, translateY: 16 }}
           animate={{ opacity: 1, translateY: 0 }}
@@ -276,79 +331,59 @@ export default function HomeScreen(): React.JSX.Element {
           </View>
         </MotiView>
 
-        {/*
-          One species, chosen by the date. The screen had no focal point between
-          the hero and a row of small tiles; this gives it one, and it changes
-          on its own overnight.
-        */}
-        {daily && (
-          <MotiView
-            from={{ opacity: 0, translateY: 16 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{ type: 'timing', duration: 380, delay: 140 }}
-            style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}
-          >
-            <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ESPECIE DEL DÍA</Text>
-            <Pressable
-              onPress={() => {
-                haptics.tap();
-                openSpecies(daily.codigo);
-              }}
-              accessibilityRole="button"
-              accessibilityLabel={`Especie del día: ${daily.displayName}`}
-              style={({ pressed }) => [
-                styles.daily,
-                elevation.low,
-                {
-                  backgroundColor: colors.surface,
-                  borderRadius: radius.xl,
-                  marginTop: spacing.md,
-                  transform: [{ scale: pressed ? 0.99 : 1 }],
-                },
-              ]}
-            >
-              <SpeciesImage species={daily} height={230} glyphSize={70} bordered={false} style={StyleSheet.absoluteFill} />
-              <View style={[styles.dailyPanel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md }]}>
-                <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>
-                  {daily.displayName}
-                </Text>
-                <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>
-                  {daily.taxonomy.clase} · {daily.conservation.label}
-                </Text>
-              </View>
-            </Pressable>
-          </MotiView>
-        )}
-
-        <View style={[styles.sectionHeader, { paddingHorizontal: spacing.lg, marginTop: spacing.xl }]}>
-          <ShieldIcon color={colors.primary} size={20} />
-          <Text style={[typography.title, { color: colors.text, flex: 1 }]}>Prioridad de conservación</Text>
-        </View>
-        <Text style={[typography.body, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: 4 }]}>
-          Especies que el SNAP señala como prioritarias.
-        </Text>
-
-        {featured.length === 0 ? (
-          <View style={{ flexDirection: 'row', gap: spacing.md, paddingHorizontal: spacing.lg, marginTop: spacing.lg }}>
-            <Skeleton width={FEATURED_WIDTH} height={FEATURED_HEIGHT} radius={radius.xl} />
-            <Skeleton width={FEATURED_WIDTH} height={FEATURED_HEIGHT} radius={radius.xl} />
+        <MotiView
+          from={{ opacity: 0, translateY: 16 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 380, delay: 140 }}
+          style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}
+        >
+          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ESPECIES PARA DESCUBRIR</Text>
+          <View style={{ marginTop: spacing.md }}>
+            {carouselSpecies.length === 0 ? (
+              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
+            ) : (
+              <SpeciesCarousel species={carouselSpecies} width={cardWidth} onPress={openSpecies} />
+            )}
           </View>
-        ) : (
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{
-              gap: spacing.md,
-              paddingHorizontal: spacing.lg,
-              marginTop: spacing.lg,
-              alignItems: 'flex-start',
-            }}
+        </MotiView>
+
+        <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
+          <Text style={[typography.title, { color: colors.text }]}>Especies más buscadas</Text>
+          <Text style={[typography.body, { color: colors.textMuted, marginTop: 4 }]}>Una selección provisoria mientras construimos las estadísticas.</Text>
+          <View style={{ marginTop: spacing.md }}>
+            {mostSearched ? (
+              <LargeSpeciesCard species={mostSearched} width={cardWidth} onPress={openSpecies} />
+            ) : (
+              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
+            )}
+          </View>
+        </View>
+
+        <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
+          <Text style={[typography.title, { color: colors.text }]}>Noticias</Text>
+          <View
+            style={[
+              styles.newsCard,
+              elevation.low,
+              {
+                backgroundColor: colors.surface,
+                borderColor: colors.border,
+                borderRadius: radius.xl,
+                padding: spacing.lg,
+                marginTop: spacing.md,
+              },
+            ]}
           >
-            {featured.map((species) => (
-              <FeaturedCard key={species.codigo} species={species} onPress={openSpecies} />
-            ))}
-          </ScrollView>
-        )}
+            <View style={[styles.newsIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
+              <NewsIcon color={colors.onPrimaryContainer} size={24} />
+            </View>
+            <View style={styles.flex}>
+              <Text style={[typography.eyebrow, { color: colors.primary }]}>PRÓXIMAMENTE</Text>
+              <Text style={[typography.cardTitle, { color: colors.text, marginTop: 5 }]}>Noticias de la naturaleza uruguaya</Text>
+              <Text style={[typography.body, { color: colors.textMuted, marginTop: 4 }]}>Este espacio reunirá novedades, hallazgos y proyectos de conservación.</Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
 
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -360,7 +395,9 @@ const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
   hero: { overflow: 'hidden' },
-  heroMenu: {
+  topActions: { flexDirection: 'row', alignItems: 'flex-start' },
+  searchWrap: { flex: 1 },
+  heroAction: {
     width: 42,
     height: 42,
     alignItems: 'center',
@@ -368,22 +405,21 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'rgba(255,255,255,0.2)',
   },
-  chipRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
+  chipRow: { flexDirection: 'row', flexWrap: 'wrap' },
   statChip: {
     flexDirection: 'row',
     alignItems: 'baseline',
-    gap: 5,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderWidth: StyleSheet.hairlineWidth,
+    gap: 6,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
   },
   quickWrap: { marginTop: -34 },
   quickCard: { flexDirection: 'row', alignItems: 'center' },
   quick: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 11 },
   quickDivider: { width: StyleSheet.hairlineWidth, alignSelf: 'stretch', marginHorizontal: 12 },
-  sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  featured: { overflow: 'hidden' },
-  featuredCaption: { marginTop: 'auto', backgroundColor: PANEL },
-  daily: { height: 230, overflow: 'hidden', justifyContent: 'flex-end' },
-  dailyPanel: { backgroundColor: PANEL },
+  speciesCard: { overflow: 'hidden', justifyContent: 'flex-end' },
+  speciesPanel: { backgroundColor: PHOTO_PANEL },
+  dots: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7 },
+  newsCard: { flexDirection: 'row', gap: 14, borderWidth: StyleSheet.hairlineWidth },
+  newsIcon: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
 });

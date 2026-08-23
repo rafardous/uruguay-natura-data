@@ -27,7 +27,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 180,
           "resizeMode": "contain",
-          "backgroundColor": "#F6F2E7",
+          "backgroundColor": "#FBF2DC",
           "dark": {
             "backgroundColor": "#101A14"
           }

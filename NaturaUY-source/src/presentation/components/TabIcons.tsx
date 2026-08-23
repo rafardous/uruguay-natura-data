@@ -9,17 +9,20 @@
 import {
   Check,
   ArrowLeft,
-  Binary,
   ChevronRight,
   Clock,
   Compass,
   Flame,
   Gamepad2,
+  GitFork,
   Heart,
   House,
   Info,
   Leaf,
+  LogIn,
   Menu,
+  Newspaper,
+  RotateCcw,
   Settings,
   ShieldCheck,
   SlidersHorizontal,
@@ -27,6 +30,8 @@ import {
   Trophy,
   X,
   Zap,
+  ZoomIn,
+  ZoomOut,
 } from 'lucide-react-native';
 
 export interface IconProps {
@@ -91,7 +96,27 @@ export const BackIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => 
 );
 
 export const TaxonomyIcon = ({ color, size = 20 }: IconProps): React.JSX.Element => (
-  <Binary color={color} size={size} strokeWidth={1.75} />
+  <GitFork color={color} size={size} strokeWidth={1.75} />
+);
+
+export const LoginIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <LogIn color={color} size={size} strokeWidth={1.75} />
+);
+
+export const NewsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Newspaper color={color} size={size} strokeWidth={1.75} />
+);
+
+export const ZoomInIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <ZoomIn color={color} size={size} strokeWidth={1.75} />
+);
+
+export const ZoomOutIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <ZoomOut color={color} size={size} strokeWidth={1.75} />
+);
+
+export const ResetIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <RotateCcw color={color} size={size} strokeWidth={1.75} />
 );
 
 export const TrophyIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

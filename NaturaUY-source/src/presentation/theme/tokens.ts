@@ -84,36 +84,36 @@ export interface ThemeColors {
 }
 
 export const lightColors: ThemeColors = {
-  background: '#F6F2E7',
-  surface: '#FFFCF5',
-  surfaceVariant: '#E7EBDD',
-  surfaceContainer: '#D8E2D2',
+  background: '#FBF2DC',
+  surface: '#FFF9EA',
+  surfaceVariant: '#EEE8D5',
+  surfaceContainer: '#DCE6D5',
 
-  text: '#14261D',
-  textSecondary: '#3F5548',
-  textMuted: '#536359',
+  text: '#293832',
+  textSecondary: '#465A50',
+  textMuted: '#5D6C64',
 
-  primary: '#214936',
+  primary: '#35634C',
   onPrimary: '#FFFFFF',
-  primaryContainer: '#D5E5D4',
-  onPrimaryContainer: '#163524',
+  primaryContainer: '#D8E7D3',
+  onPrimaryContainer: '#294A3A',
 
-  border: '#CBD5C5',
-  outline: '#66766B',
+  border: '#D7D5BE',
+  outline: '#6C7B72',
 
-  canvas: '#153528',
-  canvasText: '#FAF6EB',
-  canvasTextMuted: '#B8CCBD',
-  canvasActive: '#244A38',
-  canvasBorder: 'rgba(250,246,235,0.12)',
+  canvas: '#35634C',
+  canvasText: '#FFF9EA',
+  canvasTextMuted: '#DAE7D8',
+  canvasActive: '#47765E',
+  canvasBorder: 'rgba(255,249,234,0.18)',
 
-  accent: '#A9D0AC',
-  onAccent: '#153024',
+  accent: '#BDD0B7',
+  onAccent: '#293832',
 
-  navInactiveText: '#B8CCBD',
+  navInactiveText: '#DAE7D8',
 
-  skeleton: '#E4E6DA',
-  skeletonHighlight: '#F2F1E8',
+  skeleton: '#E9E2CF',
+  skeletonHighlight: '#F9F2E1',
 
   success: '#1E6B43',
   danger: '#A32B32',
@@ -224,9 +224,9 @@ export interface ElevationSet {
 }
 
 export const lightElevation: ElevationSet = {
-  low: { shadowColor: '#183326', shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.08, shadowRadius: 9, elevation: 2 },
-  medium: { shadowColor: '#183326', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.12, shadowRadius: 18, elevation: 6 },
-  high: { shadowColor: '#10271B', shadowOffset: { width: 0, height: 12 }, shadowOpacity: 0.2, shadowRadius: 24, elevation: 12 },
+  low: { shadowColor: '#355847', shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.08, shadowRadius: 9, elevation: 2 },
+  medium: { shadowColor: '#355847', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.11, shadowRadius: 18, elevation: 6 },
+  high: { shadowColor: '#294A3A', shadowOffset: { width: 0, height: 12 }, shadowOpacity: 0.16, shadowRadius: 24, elevation: 12 },
 };
 
 // A dark ground swallows a soft shadow, so these carry more opacity to read at all.
