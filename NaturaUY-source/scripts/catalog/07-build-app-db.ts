@@ -14,7 +14,7 @@ import { PATHS, readJson } from './lib';
 const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -101,6 +101,7 @@ const SCHEMA = `
 CREATE TABLE species (
   codigo TEXT PRIMARY KEY, scientific_name TEXT NOT NULL, accepted_name TEXT,
   common_name TEXT NOT NULL, common_names TEXT NOT NULL,
+  kingdom TEXT NOT NULL, phylum TEXT NOT NULL,
   clase TEXT NOT NULL, orden TEXT NOT NULL, familia TEXT NOT NULL,
   genero TEXT NOT NULL, epiteto TEXT NOT NULL,
   estado_conservacion TEXT NOT NULL, conservation_label TEXT NOT NULL,
@@ -116,8 +117,11 @@ CREATE TABLE species (
   review_status TEXT NOT NULL, sources TEXT NOT NULL
 );
 CREATE INDEX idx_species_clase ON species(clase);
+CREATE INDEX idx_species_phylum ON species(phylum);
 CREATE INDEX idx_species_orden ON species(orden);
 CREATE INDEX idx_species_familia ON species(familia);
+CREATE INDEX idx_species_genero ON species(genero);
+CREATE INDEX idx_species_taxonomy_path ON species(phylum, clase, orden, familia, genero, common_name COLLATE NOCASE);
 CREATE INDEX idx_species_rank ON species(conservation_rank);
 CREATE INDEX idx_species_has_photo ON species(image_url);
 CREATE INDEX idx_species_sort ON species(common_name);
@@ -199,7 +203,7 @@ function main(): void {
   db.exec('PRAGMA journal_mode=DELETE; PRAGMA foreign_keys=ON;');
   db.exec(SCHEMA);
   const insert = db.prepare(`INSERT INTO species (
-    codigo, scientific_name, accepted_name, common_name, common_names,
+    codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum,
     clase, orden, familia, genero, epiteto,
     estado_conservacion, conservation_label, conservation_rank, nativa,
     descripcion, alimentacion, tamano,
@@ -208,7 +212,7 @@ function main(): void {
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
     origin, seasonality, abundance_status, habitat, diet, relevant_note, review_status, sources
   ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
   )`);
 
   const usedCodes = new Set<string>();
@@ -233,7 +237,6 @@ function main(): void {
       const displayName = commonNames[0] ?? scientificName;
       const origins = unique(rows.map((row) => row.origin).filter((value): value is Exclude<Origin, null> => value !== null));
       const origin: Origin = origins.length === 1 ? origins[0]! : null;
-      const taxonomy = rows[0]!.taxonomy;
       const genus = first(rows, (row) => row.taxonomy.genus) ?? scientificName.split(' ')[0] ?? '';
       const epithet = scientificName.split(' ')[1] ?? '';
       const image = first(rows, (row) => row.media?.image);
@@ -241,9 +244,12 @@ function main(): void {
       const habitat = unique(rows.flatMap((row) => row.habitat ?? []));
       const sources = unique(rows.flatMap((row) => row.sources).map((source) => JSON.stringify(source))).map((source) => JSON.parse(source));
       const abundance = first(rows, (row) => row.abundanceStatus);
-      const conservationRaw = abundance ?? old?.estado_conservacion ?? 'No evaluada';
-      const conservationLabel = abundance ?? old?.conservation_label ?? 'No evaluada';
-      const conservationRank = abundance ? 0 : old?.conservation_rank ?? 0;
+      // Abundance and conservation are different biological concepts. Until
+      // the catalogue has an explicit conservation object, preserve a prior
+      // evaluated status or mark the species as unassessed.
+      const conservationRaw = old?.estado_conservacion ?? 'No evaluada';
+      const conservationLabel = old?.conservation_label ?? 'No evaluada';
+      const conservationRank = old?.conservation_rank ?? 0;
       const palette = old ?? DEFAULT_PALETTE;
       const description = first(rows, (row) => row.description) ?? old?.descripcion ?? '';
       const size = first(rows, (row) => row.size) ?? old?.tamano ?? '';
@@ -254,6 +260,8 @@ function main(): void {
 
       insert.run(
         codigo, scientificName, scientificName, displayName, JSON.stringify(commonNames),
+        first(rows, (row) => row.taxonomy.kingdom) ?? 'Animalia',
+        first(rows, (row) => row.taxonomy.phylum) ?? '',
         first(rows, (row) => row.taxonomy.class) ?? '', first(rows, (row) => row.taxonomy.order) ?? '',
         first(rows, (row) => row.taxonomy.family) ?? '', genus, epithet,
         conservationRaw, conservationLabel, conservationRank, origin === 'native' ? 1 : 0,

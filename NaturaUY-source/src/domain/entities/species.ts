@@ -25,11 +25,18 @@ export interface SpeciesPhoto {
 }
 
 export interface Taxonomy {
+  kingdom: string;
+  phylum: string;
   clase: string;
   orden: string;
   familia: string;
   genero: string;
   epiteto: string;
+}
+
+export interface SpeciesSource {
+  source: string;
+  record: string | null;
 }
 
 export interface Species {
@@ -49,6 +56,13 @@ export interface Species {
   nativa: boolean;
   /** Explicit origin; null means the sources do not establish it. */
   origin: 'native' | 'introduced' | null;
+  seasonality: string | null;
+  abundanceStatus: string | null;
+  habitat: string[];
+  diet: string[];
+  relevantNote: string | null;
+  reviewStatus: string;
+  sources: SpeciesSource[];
   descripcion: string;
   alimentacion: string;
   tamano: string;

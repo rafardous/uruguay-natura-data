@@ -4,16 +4,16 @@ type SourceId = 'biodiversidata' | 'ministerio' | 'snap';
 interface Evidence { source: SourceId; sourceName: string; scientificName: string; commonNames: string[]; taxonomy: Record<string, string | null>; origin: string | null; sourceRecord: string | null; }
 interface Candidate { scientificName: string; class: string | null; evidence: Evidence[]; }
 const wanted = new Set<string>(GROUPS);
-const taxonomy = (row: Record<string, string | null>) => ({ kingdom: row.kingdom, phylum: row.phylum, class: row.class, order: row.order, family: row.family, genus: row.genus });
+const taxonomy = (row: Record<string, string | null>) => ({ kingdom: row.kingdom ?? null, phylum: row.phylum ?? null, class: row.class ?? null, order: row.order ?? null, family: row.family ?? null, genus: row.genus ?? null });
 function add(map: Map<string, Candidate>, evidence: Evidence): void {
   const key = evidence.scientificName.toLowerCase(); const existing = map.get(key);
-  if (existing) existing.evidence.push(evidence); else map.set(key, { scientificName: evidence.scientificName, class: evidence.taxonomy.class, evidence: [evidence] });
+  if (existing) existing.evidence.push(evidence); else map.set(key, { scientificName: evidence.scientificName, class: evidence.taxonomy.class ?? null, evidence: [evidence] });
 }
 function fromDwca(file: string, source: SourceId, sourceName: string): Evidence[] {
   return readDwcaCore(file).flatMap((row) => {
     const name = cleanName(row.scientificName ?? row.acceptedNameUsage); const clazz = row.class;
     if (!name || !clazz || !wanted.has(clazz)) return [];
-    return [{ source, sourceName, scientificName: name, commonNames: [row.vernacularName].filter((x): x is string => Boolean(x)), taxonomy: taxonomy(row), origin: row.establishmentMeans, sourceRecord: row.taxonID ?? row.occurrenceID ?? null }];
+    return [{ source, sourceName, scientificName: name, commonNames: [row.vernacularName].filter((x): x is string => Boolean(x)), taxonomy: taxonomy(row), origin: row.establishmentMeans ?? null, sourceRecord: row.taxonID ?? row.occurrenceID ?? null }];
   });
 }
 function historical(): Evidence[] {

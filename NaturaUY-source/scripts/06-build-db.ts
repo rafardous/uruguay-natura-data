@@ -6,8 +6,7 @@
  */
 import { rmSync } from 'node:fs';
 import { resolve } from 'node:path';
-
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 
 import { readJson } from './lib/cache';
 import { ensureDirs, PATHS } from './lib/paths';
@@ -88,8 +87,8 @@ function main(): void {
   const palettes = readJson<Record<string, PaletteRecord>>(resolve(PATHS.out, 'palettes.json'));
 
   rmSync(PATHS.db, { force: true });
-  const db = new Database(PATHS.db);
-  db.pragma('journal_mode = DELETE'); // A single portable file, no -wal sidecar.
+  const db = new DatabaseSync(PATHS.db);
+  db.exec('PRAGMA journal_mode = DELETE'); // A single portable file, no -wal sidecar.
   db.exec(SCHEMA);
 
   const insert = db.prepare(`
@@ -105,7 +104,9 @@ function main(): void {
     )
   `);
 
-  const insertAll = db.transaction((rows: NormalizedSpecies[]) => {
+  const insertAll = (rows: NormalizedSpecies[]): void => {
+    db.exec('BEGIN');
+    try {
     for (const s of rows) {
       const photo = media[s.codigo] ?? null;
       const palette = palettes[s.codigo];
@@ -145,7 +146,12 @@ function main(): void {
         on_container_dark: palette.onContainerDark,
       });
     }
-  });
+      db.exec('COMMIT');
+    } catch (error) {
+      db.exec('ROLLBACK');
+      throw error;
+    }
+  };
 
   insertAll(species);
 

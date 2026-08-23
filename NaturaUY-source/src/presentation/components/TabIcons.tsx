@@ -8,6 +8,8 @@
  */
 import {
   Check,
+  ArrowLeft,
+  Binary,
   ChevronRight,
   Clock,
   Compass,
@@ -82,6 +84,14 @@ export const LeafIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => 
 
 export const ChevronRightIcon = ({ color, size = 18 }: IconProps): React.JSX.Element => (
   <ChevronRight color={color} size={size} strokeWidth={1.75} />
+);
+
+export const BackIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <ArrowLeft color={color} size={size} strokeWidth={1.75} />
+);
+
+export const TaxonomyIcon = ({ color, size = 20 }: IconProps): React.JSX.Element => (
+  <Binary color={color} size={size} strokeWidth={1.75} />
 );
 
 export const TrophyIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

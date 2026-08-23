@@ -27,14 +27,18 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 180,
           "resizeMode": "contain",
-          "backgroundColor": "#F2F5EC",
+          "backgroundColor": "#F6F2E7",
           "dark": {
             "backgroundColor": "#101A14"
           }
         }
-      ]
+      ],
+      "expo-asset"
     ],
-    "assetBundlePatterns": ["assets/db/*", "assets/thumbs/*"],
+    "assetBundlePatterns": [
+      "assets/db/*",
+      "assets/thumbs/*"
+    ],
     "experiments": {
       "typedRoutes": true
     }

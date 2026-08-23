@@ -7,6 +7,8 @@ const baseRow: SpeciesRow = {
   accepted_name: 'Vanellus chilensis',
   common_name: 'Tero',
   common_names: '["Tero","Tero común"]',
+  kingdom: 'Animalia',
+  phylum: 'Chordata',
   clase: 'Aves',
   orden: 'Charadriiformes',
   familia: 'Charadriidae',
@@ -17,6 +19,13 @@ const baseRow: SpeciesRow = {
   conservation_rank: 1,
   nativa: 1,
   origin: 'native',
+  seasonality: 'resident',
+  abundance_status: null,
+  habitat: '["pastizal_campo_natural"]',
+  diet: '["invertebrates"]',
+  relevant_note: null,
+  review_status: 'unreviewed',
+  sources: '[{"source":"snap","record":"V_chilensi"}]',
   descripcion: 'Ave común de pastizales.',
   alimentacion: 'Insectos y lombrices.',
   tamano: '32-38 cm',
@@ -43,7 +52,12 @@ describe('rowToSpecies', () => {
     expect(species.displayName).toBe('Tero');
     expect(species.commonNames).toEqual(['Tero', 'Tero común']);
     expect(species.nativa).toBe(true);
+    expect(species.taxonomy.phylum).toBe('Chordata');
     expect(species.taxonomy.familia).toBe('Charadriidae');
+    expect(species.habitat).toEqual(['pastizal_campo_natural']);
+    expect(species.diet).toEqual(['invertebrates']);
+    expect(species.seasonality).toBe('resident');
+    expect(species.sources).toEqual([{ source: 'snap', record: 'V_chilensi' }]);
     expect(species.photo?.fullUrl).toBe('https://example.test/tero-large.jpg');
   });
 
@@ -58,8 +72,11 @@ describe('rowToSpecies', () => {
   });
 
   it('survives malformed common_names instead of throwing', () => {
-    const species = rowToSpecies({ ...baseRow, common_names: 'not json' });
+    const species = rowToSpecies({ ...baseRow, common_names: 'not json', habitat: 'bad', diet: 'bad', sources: 'bad' });
     expect(species.commonNames).toEqual([]);
+    expect(species.habitat).toEqual([]);
+    expect(species.diet).toEqual([]);
+    expect(species.sources).toEqual([]);
     expect(species.displayName).toBe('Tero');
   });
 

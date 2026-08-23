@@ -4,14 +4,16 @@ import type { Species } from '../../domain/entities/species';
 import { rowToSpecies } from '../mappers/speciesMapper';
 import type { SpeciesRow } from '../db/schema';
 
-export type TaxonRank = 'clase' | 'orden' | 'familia';
+export const TAXON_RANKS = ['phylum', 'clase', 'orden', 'familia', 'genero'] as const;
+export type TaxonRank = (typeof TAXON_RANKS)[number];
+export type TaxonomyPath = Partial<Record<TaxonRank, string>>;
+export const UNASSIGNED_TAXON = '__unassigned__';
 
 export interface SpeciesFilters {
   /** Free text, matched against vernacular names, binomial, family and genus. */
   search?: string;
-  rank?: TaxonRank;
-  /** The selected value for `rank`, e.g. "Aves". */
-  taxon?: string;
+  /** Several ranks at once, used by the hierarchical taxonomy browser. */
+  taxonomy?: TaxonomyPath;
   onlyNative?: boolean;
   /** Conservation rank >= 2 (priority or threatened). */
   onlyPriority?: boolean;
@@ -57,10 +59,12 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
     params.push(fts);
   }
 
-  if (filters.rank && filters.taxon) {
-    // `rank` is constrained to a union of column names, never raw input.
-    clauses.push(`species.${filters.rank} = ?`);
-    params.push(filters.taxon);
+  for (const rank of TAXON_RANKS) {
+    const value = filters.taxonomy?.[rank];
+    if (value !== undefined) {
+      clauses.push(`species.${rank} = ?`);
+      params.push(value === UNASSIGNED_TAXON ? '' : value);
+    }
   }
   if (filters.onlyNative) clauses.push('species.nativa = 1');
   if (filters.onlyPriority) clauses.push('species.conservation_rank >= 2');
@@ -124,12 +128,27 @@ export const speciesRepository = {
     return rows.map(rowToSpecies);
   },
 
-  /** Distinct values for a rank, with counts, for the filter sheet. */
-  async listTaxa(db: SQLiteDatabase, rank: TaxonRank): Promise<{ value: string; count: number }[]> {
+  /** One level of the taxonomic tree, constrained by every selected ancestor. */
+  async listTaxonomyChildren(
+    db: SQLiteDatabase,
+    rank: TaxonRank,
+    ancestors: TaxonomyPath,
+  ): Promise<{ value: string; count: number }[]> {
+    const clauses: string[] = [];
+    const params: string[] = [];
+    for (const ancestorRank of TAXON_RANKS) {
+      const value = ancestors[ancestorRank];
+      if (value !== undefined) {
+        clauses.push(`${ancestorRank} = ?`);
+        params.push(value === UNASSIGNED_TAXON ? '' : value);
+      }
+    }
     return db.getAllAsync<{ value: string; count: number }>(
-      `SELECT ${rank} AS value, COUNT(*) AS count
-       FROM species WHERE ${rank} <> ''
-       GROUP BY ${rank} ORDER BY count DESC, value ASC`,
+      `SELECT CASE WHEN ${rank} = '' THEN '${UNASSIGNED_TAXON}' ELSE ${rank} END AS value,
+              COUNT(*) AS count
+       FROM species WHERE ${clauses.length > 0 ? clauses.join(' AND ') : '1 = 1'}
+       GROUP BY ${rank} ORDER BY ${rank} = '' ASC, value COLLATE NOCASE ASC`,
+      params,
     );
   },
 

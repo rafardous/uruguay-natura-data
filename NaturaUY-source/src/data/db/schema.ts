@@ -5,6 +5,8 @@ export interface SpeciesRow {
   accepted_name: string | null;
   common_name: string;
   common_names: string;
+  kingdom: string;
+  phylum: string;
   clase: string;
   orden: string;
   familia: string;
@@ -15,6 +17,13 @@ export interface SpeciesRow {
   conservation_rank: number;
   nativa: number;
   origin: 'native' | 'introduced' | null;
+  seasonality: string | null;
+  abundance_status: string | null;
+  habitat: string;
+  diet: string;
+  relevant_note: string | null;
+  review_status: string;
+  sources: string;
   descripcion: string;
   alimentacion: string;
   tamano: string;

@@ -5,7 +5,7 @@
  * generated colour pair would be illegible. Contrast is the thing most likely
  * to regress silently, so it is enforced here rather than left to review.
  */
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 
 import { AA_NORMAL, contrastRatio } from '../src/shared/color/contrast';
 import { CONTRAST_CONTRACT, darkColors, lightColors } from '../src/presentation/theme/tokens';
@@ -52,8 +52,8 @@ function checkStaticTheme(): string[] {
 }
 
 function main(): void {
-  const db = new Database(PATHS.db, { readonly: true });
-  const rows = db.prepare('SELECT * FROM species').all() as SpeciesRow[];
+  const db = new DatabaseSync(PATHS.db, { readOnly: true });
+  const rows = db.prepare('SELECT * FROM species').all() as unknown as SpeciesRow[];
 
   console.log(`07-verify: ${rows.length} species\n`);
 

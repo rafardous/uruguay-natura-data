@@ -2,10 +2,27 @@ import type { Species } from '../../domain/entities/species';
 import type { SpeciesRow } from '../db/schema';
 
 /** JSON-encoded arrays in SQLite are worth decoding defensively. */
-function parseNames(raw: string): string[] {
+function parseStringArray(raw: string): string[] {
   try {
     const parsed: unknown = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed.filter((n): n is string => typeof n === 'string') : [];
+  } catch {
+    return [];
+  }
+}
+
+function parseSources(raw: string): Species['sources'] {
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed)
+      ? parsed.filter(
+          (source): source is Species['sources'][number] =>
+            typeof source === 'object' && source !== null &&
+            typeof (source as { source?: unknown }).source === 'string' &&
+            (typeof (source as { record?: unknown }).record === 'string' ||
+              (source as { record?: unknown }).record === null),
+        )
+      : [];
   } catch {
     return [];
   }
@@ -21,8 +38,10 @@ export function rowToSpecies(row: SpeciesRow): Species {
     displayName: row.common_name,
     scientificName: row.scientific_name,
     acceptedName: row.accepted_name,
-    commonNames: parseNames(row.common_names),
+    commonNames: parseStringArray(row.common_names),
     taxonomy: {
+      kingdom: row.kingdom,
+      phylum: row.phylum,
       clase: row.clase,
       orden: row.orden,
       familia: row.familia,
@@ -36,6 +55,13 @@ export function rowToSpecies(row: SpeciesRow): Species {
     },
     nativa: row.nativa === 1,
     origin: row.origin,
+    seasonality: row.seasonality,
+    abundanceStatus: row.abundance_status,
+    habitat: parseStringArray(row.habitat),
+    diet: parseStringArray(row.diet),
+    relevantNote: row.relevant_note,
+    reviewStatus: row.review_status,
+    sources: parseSources(row.sources),
     descripcion: row.descripcion,
     alimentacion: row.alimentacion,
     tamano: row.tamano,
