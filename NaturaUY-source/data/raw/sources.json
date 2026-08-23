@@ -1,5 +1,5 @@
 {
-  "retrievedAt": "2026-08-22T17:03:37.876Z",
+  "retrievedAt": "2026-08-22T22:49:15.724Z",
   "sources": [
     {
       "id": "biodiversidata",
@@ -7,7 +7,7 @@
       "type": "occurrence",
       "license": "CC BY 4.0",
       "url": "https://cloud.gbif.org/uy/archive.do?r=tetrapodos_de_uruguay",
-      "rawFile": "C:\\Users\\rafar\\Documents\\proyecto\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\biodiversidata\\tetrapodos-de-uruguay.zip"
+      "rawFile": "C:\\Users\\rafar\\Documents\\2026 - proyects\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\biodiversidata\\tetrapodos-de-uruguay.zip"
     },
     {
       "id": "ministerio",
@@ -15,7 +15,7 @@
       "type": "checklist",
       "license": null,
       "url": "https://cloud.gbif.org/uy/archive.do?r=listas_rojas_fauna_uy",
-      "rawFile": "C:\\Users\\rafar\\Documents\\proyecto\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\ministerio\\listas-rojas-fauna-uy.zip"
+      "rawFile": "C:\\Users\\rafar\\Documents\\2026 - proyects\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\ministerio\\listas-rojas-fauna-uy.zip"
     }
   ]
 }

@@ -34,6 +34,7 @@ export function makeSpecies(overrides: Partial<Species> = {}): Species {
     },
     conservation: { raw: 'No Prioritaria', label: 'No prioritaria', rank: 1 },
     nativa: true,
+    origin: 'native',
     descripcion: '',
     alimentacion: '',
     tamano: '',

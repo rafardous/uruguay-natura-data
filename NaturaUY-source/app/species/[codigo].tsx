@@ -177,7 +177,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 />
                 <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}>
                   <Text style={[typography.caption, { color: palette.onContainer }]}>
-                    {species.nativa ? 'Nativa' : 'Exótica'}
+                    {species.origin === 'native'
+                      ? 'Nativa'
+                      : species.origin === 'introduced'
+                        ? 'Exótica'
+                        : 'Origen sin determinar'}
                   </Text>
                 </View>
               </View>

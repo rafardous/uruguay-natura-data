@@ -16,6 +16,7 @@ const baseRow: SpeciesRow = {
   conservation_label: 'No prioritaria',
   conservation_rank: 1,
   nativa: 1,
+  origin: 'native',
   descripcion: 'Ave común de pastizales.',
   alimentacion: 'Insectos y lombrices.',
   tamano: '32-38 cm',

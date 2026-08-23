@@ -15,12 +15,23 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": ["rio_arroyo"],
-    "diet": ["fish"],
+    "habitat": [
+      "rio_arroyo"
+    ],
+    "diet": [
+      "fish"
+    ],
     "size": "35.2 cm",
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347724680/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347724680/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197428648"
+      },
       "audio": null
     },
     "sources": [
@@ -56,7 +67,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/459584817/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/459584817/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/256342374"
+      },
       "audio": null
     },
     "sources": [
@@ -88,7 +106,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Ageneiosus_militaris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Ageneiosus_militaris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "Paul Louis Oudart (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ageneiosus_militaris.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -120,7 +145,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187350040/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/187350040/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Eduardo Luis Beltrocco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/111008541"
+      },
       "audio": null
     },
     "sources": [
@@ -152,7 +184,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447331359/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447331359/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/250157765"
+      },
       "audio": null
     },
     "sources": [
@@ -184,7 +223,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/516824570/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/516824570/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Douglas Lopes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/287433941"
+      },
       "audio": null
     },
     "sources": [
@@ -216,7 +262,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63953467/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63953467/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40258377"
+      },
       "audio": null
     },
     "sources": [
@@ -248,7 +301,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613888061/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613888061/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/337665959"
+      },
       "audio": null
     },
     "sources": [
@@ -280,7 +340,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343190144/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/343190144/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/195123964"
+      },
       "audio": null
     },
     "sources": [
@@ -312,7 +379,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363027022/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/363027022/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lauu, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/205318394"
+      },
       "audio": null
     },
     "sources": [
@@ -344,7 +418,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345299002/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/345299002/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/196169492"
+      },
       "audio": null
     },
     "sources": [
@@ -376,7 +457,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169817903/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/169817903/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Noelia, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/101677225"
+      },
       "audio": null
     },
     "sources": [
@@ -408,7 +496,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467233037/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467233037/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Zakqary Roy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260210185"
+      },
       "audio": null
     },
     "sources": [
@@ -440,7 +535,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Astyanax_saguazu.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Astyanax_saguazu.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Astyanax_saguazu.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -508,7 +610,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/441745545/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/441745545/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Ezequiel Vera, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/247346319"
+      },
       "audio": null
     },
     "sources": [
@@ -540,7 +649,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/319842109/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/319842109/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/183339665"
+      },
       "audio": null
     },
     "sources": [
@@ -572,7 +688,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328304799/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/328304799/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/187696509"
+      },
       "audio": null
     },
     "sources": [
@@ -604,7 +727,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Australoheros_scitulus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Australoheros_scitulus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Australoheros_scitulus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -636,7 +766,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Austrolebias_affinis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Austrolebias_affinis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_affinis.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -668,7 +805,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323684383/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/323684383/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Ivan Grela, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/185344754"
+      },
       "audio": null
     },
     "sources": [
@@ -700,7 +844,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Austrolebias_arachan.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Austrolebias_arachan.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_arachan.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -732,7 +883,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606124635/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/606124635/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) José Nicolás Amuchastegui, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/333842205"
+      },
       "audio": null
     },
     "sources": [
@@ -764,7 +922,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Austrolebias_charrua.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Austrolebias_charrua.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_charrua.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -796,7 +961,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Austrolebias_cheradophilus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Austrolebias_cheradophilus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 3.0",
+        "attribution": "Loureiro, Marcelo (CC BY 3.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_cheradophilus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -828,7 +1000,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Austrolebias_cinereus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Austrolebias_cinereus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_cinereus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -860,7 +1039,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52187943/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/52187943/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Leonel Roget, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/33240435"
+      },
       "audio": null
     },
     "sources": [
@@ -892,7 +1078,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Austrolebias_gymnoventris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Austrolebias_gymnoventris.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_gymnoventris.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -924,7 +1117,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Austrolebias_luteoflammulatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Austrolebias_luteoflammulatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_luteoflammulatus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -956,7 +1156,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/321836610/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/321836610/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/184378412"
+      },
       "audio": null
     },
     "sources": [
@@ -988,7 +1195,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236347685/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/236347685/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/138295399"
+      },
       "audio": null
     },
     "sources": [
@@ -1020,7 +1234,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Austrolebias_periodicus_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Austrolebias_periodicus_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_periodicus_-_distribuci%C3%B3n.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1052,7 +1273,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Austrolebias_prognathus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Austrolebias_prognathus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_prognathus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1084,7 +1312,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Austrolebias_quirogai.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Austrolebias_quirogai.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Foto Marcelo Loureiro (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_quirogai.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1116,7 +1351,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Austrolebias_reicherti.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Austrolebias_reicherti.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_reicherti.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1148,7 +1390,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Austrolebias_vazferreirai.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Austrolebias_vazferreirai.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_vazferreirai.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1180,7 +1429,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/451371770/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/451371770/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Eliana Walker, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/252175382"
+      },
       "audio": null
     },
     "sources": [
@@ -1212,7 +1468,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Austrolebias_wolterstorffi.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Austrolebias_wolterstorffi.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Austrolebias_wolterstorffi.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1244,7 +1507,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/311594958/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/311594958/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ivan Grela, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/179011195"
+      },
       "audio": null
     },
     "sources": [
@@ -1308,7 +1578,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130764993/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130764993/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79819728"
+      },
       "audio": null
     },
     "sources": [
@@ -1340,7 +1617,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349500761/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/349500761/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mariano Cosentino, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/198310973"
+      },
       "audio": null
     },
     "sources": [
@@ -1372,7 +1656,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106216147/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/106216147/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/65940118"
+      },
       "audio": null
     },
     "sources": [
@@ -1404,7 +1695,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/36472249/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/36472249/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/23808111"
+      },
       "audio": null
     },
     "sources": [
@@ -1500,7 +1798,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/103747599/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/103747599/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/64522669"
+      },
       "audio": null
     },
     "sources": [
@@ -1532,7 +1837,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329750081/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/329750081/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/188408399"
+      },
       "audio": null
     },
     "sources": [
@@ -1564,7 +1876,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/301632061/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/301632061/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/173676376"
+      },
       "audio": null
     },
     "sources": [
@@ -1596,7 +1915,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Characidium_orientale.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Characidium_orientale.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Characidium_orientale.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1628,7 +1954,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113929963/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113929963/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Gabriel Perazza, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/70119143"
+      },
       "audio": null
     },
     "sources": [
@@ -1660,7 +1993,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/217394603/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/217394603/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/128011564"
+      },
       "audio": null
     },
     "sources": [
@@ -1692,7 +2032,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Characidium_tenue.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Characidium_tenue.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Characidium_tenue.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1724,7 +2071,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467225795/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467225795/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Zakqary Roy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260197952"
+      },
       "audio": null
     },
     "sources": [
@@ -1756,7 +2110,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130782637/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130782637/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79829947"
+      },
       "audio": null
     },
     "sources": [
@@ -1820,7 +2181,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/218595858/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/218595858/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/128680260"
+      },
       "audio": null
     },
     "sources": [
@@ -1852,7 +2220,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343802737/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/343802737/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) geosesarma, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/195427421"
+      },
       "audio": null
     },
     "sources": [
@@ -1884,7 +2259,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/The_complete_aquarium_book%3B_the_care_and_breeding_of_goldfish_and_tropical_fishes_%281936%29_%2820049218654%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/The_complete_aquarium_book%3B_the_care_and_breeding_of_goldfish_and_tropical_fishes_%281936%29_%2820049218654%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "Internet Archive Book Images (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20049218654).jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -1916,7 +2298,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/470814257/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/470814257/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/262017316"
+      },
       "audio": null
     },
     "sources": [
@@ -1948,7 +2337,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347207428/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347207428/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Douglas Lopes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197174005"
+      },
       "audio": null
     },
     "sources": [
@@ -1980,7 +2376,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Corydoras_hastatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Corydoras_hastatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 3.0 DE",
+        "attribution": "AquariaNR (CC BY-SA 3.0 de) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Corydoras_hastatus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2012,7 +2415,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/454429281/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/454429281/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Valentín Alfano, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/253762023"
+      },
       "audio": null
     },
     "sources": [
@@ -2076,7 +2486,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Crenicichla_celidochilus_%28Crcel_u1%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Crenicichla_celidochilus_%28Crcel_u1%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 3.0",
+        "attribution": "P. Petersen (CC BY 3.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Crenicichla_celidochilus_(Crcel_u1).jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2108,7 +2525,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/584282497/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/584282497/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Donald Davesne, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/322937090"
+      },
       "audio": null
     },
     "sources": [
@@ -2140,7 +2564,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Crenicichla_minuano.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Crenicichla_minuano.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Crenicichla_minuano.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2172,7 +2603,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Crenicichla_missioneira.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Crenicichla_missioneira.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Crenicichla_missioneira.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2204,7 +2642,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/358459875/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/358459875/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/202926330"
+      },
       "audio": null
     },
     "sources": [
@@ -2236,7 +2681,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/410793989/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/410793989/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Sebastián Fornés, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/231302150"
+      },
       "audio": null
     },
     "sources": [
@@ -2268,7 +2720,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Crenicichla_tendybaguassu_%28ZVC-P_9759%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Crenicichla_tendybaguassu_%28ZVC-P_9759%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "Wilson S. Serra, Alejandro Duarte, Edward D. Burress, Marcelo Loureiro (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Crenicichla_tendybaguassu_(ZVC-P_9759).png"
+      },
       "audio": null
     },
     "sources": [
@@ -2300,7 +2759,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613225572/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613225572/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/337344197"
+      },
       "audio": null
     },
     "sources": [
@@ -2332,7 +2798,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Diapoma_alburnus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Diapoma_alburnus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diapoma_alburnus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2396,7 +2869,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Diapoma_uruguayense.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Diapoma_uruguayense.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diapoma_uruguayense.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2428,7 +2908,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Cynopoecilus_melanotaenia.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Cynopoecilus_melanotaenia.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cynopoecilus_melanotaenia.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2460,7 +2947,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467495703/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467495703/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Douglas Lopes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260331166"
+      },
       "audio": null
     },
     "sources": [
@@ -2492,7 +2986,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130764401/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130764401/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79819238"
+      },
       "audio": null
     },
     "sources": [
@@ -2524,7 +3025,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/316830427/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/316830427/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/181786975"
+      },
       "audio": null
     },
     "sources": [
@@ -2556,7 +3064,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244685656/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/244685656/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/142694228"
+      },
       "audio": null
     },
     "sources": [
@@ -2588,7 +3103,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/270463044/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/270463044/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/156411291"
+      },
       "audio": null
     },
     "sources": [
@@ -2620,7 +3142,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112096573/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/112096573/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) りなべる, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69124740"
+      },
       "audio": null
     },
     "sources": [
@@ -2652,7 +3181,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Diapoma_speculiferum_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Diapoma_speculiferum_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diapoma_speculiferum_-_distribuci%C3%B3n.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2684,7 +3220,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Diapoma_terofali.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Diapoma_terofali.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diapoma_terofali.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2716,7 +3259,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Ectrepopterus_uruguayensis_%2846313%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Ectrepopterus_uruguayensis_%2846313%29.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 3.0",
+        "attribution": "Petersen, P. (CC BY 3.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ectrepopterus_uruguayensis_(46313).jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -2748,7 +3298,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/624811229/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/624811229/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/343048034"
+      },
       "audio": null
     },
     "sources": [
@@ -2780,7 +3337,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113220509/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113220509/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69736075"
+      },
       "audio": null
     },
     "sources": [
@@ -2812,7 +3376,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/39316183/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/39316183/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/25389628"
+      },
       "audio": null
     },
     "sources": [
@@ -2844,7 +3415,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/603549508/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/603549508/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Dominic Williams, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/332553877"
+      },
       "audio": null
     },
     "sources": [
@@ -2876,7 +3454,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/594121410/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/594121410/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/327911448"
+      },
       "audio": null
     },
     "sources": [
@@ -2908,7 +3493,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63965128/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63965128/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40265092"
+      },
       "audio": null
     },
     "sources": [
@@ -2940,7 +3532,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/331824584/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/331824584/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/189422988"
+      },
       "audio": null
     },
     "sources": [
@@ -2972,7 +3571,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328300930/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/328300930/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/187694778"
+      },
       "audio": null
     },
     "sources": [
@@ -3004,7 +3610,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/592813235/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/592813235/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Mariano Cosentino, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/327238643"
+      },
       "audio": null
     },
     "sources": [
@@ -3036,7 +3649,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177756461/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/177756461/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/105881021"
+      },
       "audio": null
     },
     "sources": [
@@ -3068,7 +3688,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Gymnogeophagus_tiraparae_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Gymnogeophagus_tiraparae_-_distribuci%C3%B3n.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gymnogeophagus_tiraparae_-_distribuci%C3%B3n.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -3100,7 +3727,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/214136422/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/214136422/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/126219272"
+      },
       "audio": null
     },
     "sources": [
@@ -3132,7 +3766,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/397078175/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/397078175/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Carranza Perales, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/224072904"
+      },
       "audio": null
     },
     "sources": [
@@ -3324,7 +3965,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/125877081/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/125877081/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/76971486"
+      },
       "audio": null
     },
     "sources": [
@@ -3356,7 +4004,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426934089/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/426934089/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) William G. Borges, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/239691891"
+      },
       "audio": null
     },
     "sources": [
@@ -3388,7 +4043,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/515870664/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/515870664/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) vinicius_s_domingues, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/286933427"
+      },
       "audio": null
     },
     "sources": [
@@ -3420,7 +4082,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/568277633/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/568277633/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) desertnaturalist, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/314627771"
+      },
       "audio": null
     },
     "sources": [
@@ -3452,7 +4121,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339904205/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/339904205/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/193489492"
+      },
       "audio": null
     },
     "sources": [
@@ -3484,7 +4160,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323263/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323263/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/195685048"
+      },
       "audio": null
     },
     "sources": [
@@ -3516,7 +4199,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Hyphessobrycon_boulengeri_%28Eigenmann%2C_1907%29_473286373.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Hyphessobrycon_boulengeri_%28Eigenmann%2C_1907%29_473286373.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC0",
+        "attribution": "California Academy of Sciences (Ihering%2C%20H.%20Von) (CC0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_boulengeri_(Eigenmann,_1907)_473286373.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -3548,7 +4238,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/651012788/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/651012788/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicola Crockford, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/356966704"
+      },
       "audio": null
     },
     "sources": [
@@ -3580,7 +4277,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Hyphessobrycon_luetkenii.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Hyphessobrycon_luetkenii.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_luetkenii.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -3612,7 +4316,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167319821/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/167319821/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Noelia, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/100264355"
+      },
       "audio": null
     },
     "sources": [
@@ -3676,7 +4387,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Hypostomus_alatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Hypostomus_alatus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "François-Louis Laporte, comte de Castelnau (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hypostomus_alatus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -3772,7 +4490,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347726564/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347726564/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197429461"
+      },
       "audio": null
     },
     "sources": [
@@ -3804,7 +4529,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1458346/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/1458346/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/1157114"
+      },
       "audio": null
     },
     "sources": [
@@ -3836,7 +4568,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350979458/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350979458/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/199061963"
+      },
       "audio": null
     },
     "sources": [
@@ -3868,7 +4607,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106788246/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/106788246/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Eduardo Luis Beltrocco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/66267811"
+      },
       "audio": null
     },
     "sources": [
@@ -3900,7 +4646,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347246652/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347246652/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pato Malruk Knight, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197193399"
+      },
       "audio": null
     },
     "sources": [
@@ -3932,7 +4685,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113326671/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113326671/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69789776"
+      },
       "audio": null
     },
     "sources": [
@@ -3964,7 +4724,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Jenynsia_onca.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Jenynsia_onca.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Jenynsia_onca.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -4028,7 +4795,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467470589/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467470589/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Douglas Lopes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260318145"
+      },
       "audio": null
     },
     "sources": [
@@ -4060,7 +4834,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130848680/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130848680/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79867529"
+      },
       "audio": null
     },
     "sources": [
@@ -4092,7 +4873,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504076828/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/504076828/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/280651019"
+      },
       "audio": null
     },
     "sources": [
@@ -4124,7 +4912,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/414706682/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/414706682/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/233356028"
+      },
       "audio": null
     },
     "sources": [
@@ -4188,7 +4983,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363513519/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/363513519/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Martín Acosta Albarracín, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/205575942"
+      },
       "audio": null
     },
     "sources": [
@@ -4220,7 +5022,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226455/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226455/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Zakqary Roy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260198781"
+      },
       "audio": null
     },
     "sources": [
@@ -4252,7 +5061,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/115416247/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/115416247/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Abril Bastons, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/70940344"
+      },
       "audio": null
     },
     "sources": [
@@ -4284,7 +5100,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/446872333/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/446872333/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/249930762"
+      },
       "audio": null
     },
     "sources": [
@@ -4316,7 +5139,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Macropsobrycon_uruguayanae_%28uncataloged_male%29.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Macropsobrycon_uruguayanae_%28uncataloged_male%29.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "Jerep, Fernando C. &amp; Malabarba, Luiz R. (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Macropsobrycon_uruguayanae_(uncataloged_male).png"
+      },
       "audio": null
     },
     "sources": [
@@ -4444,7 +5274,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226794/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226794/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Zakqary Roy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260198839"
+      },
       "audio": null
     },
     "sources": [
@@ -4476,7 +5313,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46529659/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/46529659/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/29802065"
+      },
       "audio": null
     },
     "sources": [
@@ -4508,7 +5352,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/418516730/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/418516730/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Sebastián Fornés, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/235340730"
+      },
       "audio": null
     },
     "sources": [
@@ -4540,7 +5391,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/335994304/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/335994304/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Martín Acosta Albarracín, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/191514670"
+      },
       "audio": null
     },
     "sources": [
@@ -4572,7 +5430,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52528751/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/52528751/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/33444907"
+      },
       "audio": null
     },
     "sources": [
@@ -4604,7 +5469,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Vista_de_Porto_Alegre_a_partir_do_Rio_Gua%C3%ADba_09.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Vista_de_Porto_Alegre_a_partir_do_Rio_Gua%C3%ADba_09.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 2.5 BR",
+        "attribution": "Paulo rsmenezes (CC BY-SA 2.5 br) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vista_de_Porto_Alegre_a_partir_do_Rio_Gua%C3%ADba_09.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -4636,7 +5508,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/574462348/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/574462348/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/317894592"
+      },
       "audio": null
     },
     "sources": [
@@ -4668,7 +5547,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/229779334/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/229779334/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/134772929"
+      },
       "audio": null
     },
     "sources": [
@@ -4700,7 +5586,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/RioYi_Durazno_Uruguay.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/RioYi_Durazno_Uruguay.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "Ingmourelle (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:RioYi_Durazno_Uruguay.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -4732,7 +5625,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/584282799/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/584282799/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Donald Davesne, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/322937097"
+      },
       "audio": null
     },
     "sources": [
@@ -4764,7 +5664,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Oligosarcus_hepsetus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Oligosarcus_hepsetus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "Paul Louis Oudart (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Oligosarcus_hepsetus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -4796,7 +5703,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176967786/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/176967786/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Carranza Perales, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/105468447"
+      },
       "audio": null
     },
     "sources": [
@@ -4828,7 +5742,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130781814/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130781814/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79829459"
+      },
       "audio": null
     },
     "sources": [
@@ -4860,7 +5781,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Obligosarcus_robustus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Obligosarcus_robustus.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 2.0",
+        "attribution": "Cláudio D. Timm (CC BY 2.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Obligosarcus_robustus.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -4892,7 +5820,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631590672/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/631590672/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/346482539"
+      },
       "audio": null
     },
     "sources": [
@@ -4924,7 +5859,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63180832/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63180832/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/39800414"
+      },
       "audio": null
     },
     "sources": [
@@ -4988,7 +5930,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/615022289/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/615022289/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/338220324"
+      },
       "audio": null
     },
     "sources": [
@@ -5020,7 +5969,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112480014/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/112480014/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69326988"
+      },
       "audio": null
     },
     "sources": [
@@ -5052,7 +6008,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444066898/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/444066898/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lucas Kaminski, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/248519814"
+      },
       "audio": null
     },
     "sources": [
@@ -5084,7 +6047,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480162/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480162/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/313152843"
+      },
       "audio": null
     },
     "sources": [
@@ -5148,7 +6118,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/416170402/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/416170402/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Gonzalo Roget, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/234194414"
+      },
       "audio": null
     },
     "sources": [
@@ -5180,7 +6157,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313835455/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/313835455/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/180192126"
+      },
       "audio": null
     },
     "sources": [
@@ -5212,7 +6196,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/602233841/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/602233841/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/331914065"
+      },
       "audio": null
     },
     "sources": [
@@ -5244,7 +6235,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/307099193/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/307099193/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/176627958"
+      },
       "audio": null
     },
     "sources": [
@@ -5276,7 +6274,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pimelodella_australis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pimelodella_australis.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "W.S.Serra (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pimelodella_australis.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -5308,7 +6313,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350961773/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350961773/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/199053714"
+      },
       "audio": null
     },
     "sources": [
@@ -5340,7 +6352,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/607962353/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/607962353/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/334745812"
+      },
       "audio": null
     },
     "sources": [
@@ -5372,7 +6391,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107517367/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/107517367/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) João D'Andretta, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/66665270"
+      },
       "audio": null
     },
     "sources": [
@@ -5404,7 +6430,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350979762/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350979762/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/199062126"
+      },
       "audio": null
     },
     "sources": [
@@ -5468,7 +6501,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1922556/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/1922556/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/1552028"
+      },
       "audio": null
     },
     "sources": [
@@ -5500,7 +6540,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130780714/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130780714/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79829131"
+      },
       "audio": null
     },
     "sources": [
@@ -5532,7 +6579,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Pseudocorynopoma_doriae.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Pseudocorynopoma_doriae.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Pseudocorynopoma_doriae.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -5564,7 +6618,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62457577/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/62457577/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/39374350"
+      },
       "audio": null
     },
     "sources": [
@@ -5596,7 +6657,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/470887644/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/470887644/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/262065015"
+      },
       "audio": null
     },
     "sources": [
@@ -5628,7 +6696,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469643574/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/469643574/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rocío Esmeralda Pose, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/261416870"
+      },
       "audio": null
     },
     "sources": [
@@ -5660,7 +6735,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453154174/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/453154174/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/253114217"
+      },
       "audio": null
     },
     "sources": [
@@ -5692,7 +6774,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63954920/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63954920/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40258715"
+      },
       "audio": null
     },
     "sources": [
@@ -5724,7 +6813,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/229778853/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/229778853/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/134772667"
+      },
       "audio": null
     },
     "sources": [
@@ -5756,7 +6852,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/464916035/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/464916035/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) James-LaFontaine, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/259042631"
+      },
       "audio": null
     },
     "sources": [
@@ -5788,7 +6891,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/97717550/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/97717550/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) dhfischer, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/61086548"
+      },
       "audio": null
     },
     "sources": [
@@ -5820,7 +6930,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363514140/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/363514140/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Martín Acosta Albarracín, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/205576473"
+      },
       "audio": null
     },
     "sources": [
@@ -5916,7 +7033,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226084/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226084/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Zakqary Roy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/260197979"
+      },
       "audio": null
     },
     "sources": [
@@ -5948,7 +7072,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Viola_%28Rineloricaria_longicauda%29_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Viola_%28Rineloricaria_longicauda%29_2.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 2.0",
+        "attribution": "Cláudio Timm (CC BY 2.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Viola_(Rineloricaria_longicauda)_2.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -6012,7 +7143,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63953703/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63953703/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40258396"
+      },
       "audio": null
     },
     "sources": [
@@ -6076,7 +7214,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63951606/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63951606/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40257090"
+      },
       "audio": null
     },
     "sources": [
@@ -6108,7 +7253,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/456741893/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/456741893/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ezequiel Racker, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/254930409"
+      },
       "audio": null
     },
     "sources": [
@@ -6140,7 +7292,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63952271/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63952271/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40257094"
+      },
       "audio": null
     },
     "sources": [
@@ -6172,7 +7331,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/474389174/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/474389174/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lucas Mantelo Cruz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/264011824"
+      },
       "audio": null
     },
     "sources": [
@@ -6204,7 +7370,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/122845620/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/122845620/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/75116865"
+      },
       "audio": null
     },
     "sources": [
@@ -6268,7 +7441,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/316829859/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/316829859/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/181786633"
+      },
       "audio": null
     },
     "sources": [
@@ -6300,7 +7480,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444066788/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/444066788/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lucas Kaminski, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/248519783"
+      },
       "audio": null
     },
     "sources": [
@@ -6332,7 +7519,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173754047/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/173754047/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/103769696"
+      },
       "audio": null
     },
     "sources": [
@@ -6396,7 +7590,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697325/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697325/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/349060094"
+      },
       "audio": null
     },
     "sources": [
@@ -6428,7 +7629,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130822815/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/130822815/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79853203"
+      },
       "audio": null
     },
     "sources": [
@@ -6460,7 +7668,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113219865/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113219865/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69736068"
+      },
       "audio": null
     },
     "sources": [
@@ -6492,7 +7707,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Trachelyopterus_teaguei.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Trachelyopterus_teaguei.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "W.S.Serra (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Trachelyopterus_teaguei.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -6524,7 +7746,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63955239/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63955239/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40258927"
+      },
       "audio": null
     },
     "sources": [

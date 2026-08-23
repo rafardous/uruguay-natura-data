@@ -47,6 +47,8 @@ export interface Species {
     rank: number;
   };
   nativa: boolean;
+  /** Explicit origin; null means the sources do not establish it. */
+  origin: 'native' | 'introduced' | null;
   descripcion: string;
   alimentacion: string;
   tamano: string;

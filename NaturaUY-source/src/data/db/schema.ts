@@ -14,6 +14,7 @@ export interface SpeciesRow {
   conservation_label: string;
   conservation_rank: number;
   nativa: number;
+  origin: 'native' | 'introduced' | null;
   descripcion: string;
   alimentacion: string;
   tamano: string;

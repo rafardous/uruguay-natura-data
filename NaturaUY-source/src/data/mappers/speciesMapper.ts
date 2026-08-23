@@ -35,6 +35,7 @@ export function rowToSpecies(row: SpeciesRow): Species {
       rank: row.conservation_rank,
     },
     nativa: row.nativa === 1,
+    origin: row.origin,
     descripcion: row.descripcion,
     alimentacion: row.alimentacion,
     tamano: row.tamano,

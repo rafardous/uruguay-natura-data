@@ -11,6 +11,7 @@ export const PATHS = {
   historical: resolve(DATA, 'raw/otras_fuentes/outputSNAP.json'),
   cache: resolve(DATA, 'cache'),
   gbif: resolve(DATA, 'cache/gbif/species-match.json'),
+  media: resolve(DATA, 'cache/media/species-media.json'),
   normalized: resolve(DATA, 'normalized'),
   candidates: resolve(DATA, 'normalized/candidates.json'),
   resolved: resolve(DATA, 'normalized/resolved.json'),
@@ -23,7 +24,7 @@ export type Group = (typeof GROUPS)[number];
 
 export function ensureDirs(): void {
   for (const dir of [PATHS.raw, resolve(PATHS.raw, 'biodiversidata'), resolve(PATHS.raw, 'ministerio'),
-    resolve(PATHS.raw, 'otras_fuentes'), PATHS.cache, resolve(PATHS.cache, 'gbif'), PATHS.normalized,
+    resolve(PATHS.raw, 'otras_fuentes'), PATHS.cache, resolve(PATHS.cache, 'gbif'), resolve(PATHS.cache, 'media'), PATHS.normalized,
     PATHS.catalog, PATHS.reports]) mkdirSync(dir, { recursive: true });
 }
 
@@ -146,3 +147,12 @@ export function cleanName(value: string | null | undefined): string | null {
 }
 
 export const slug = (name: string): string => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+export interface CatalogImage {
+  url: string;
+  fullUrl: string;
+  license: string;
+  attribution: string;
+  source: 'inaturalist' | 'wikimedia';
+  sourcePage: string | null;
+}

@@ -15,12 +15,21 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": ["monte_nativo"],
+    "habitat": [
+      "monte_nativo"
+    ],
     "diet": null,
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Renato Augusto Martins (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -60,7 +69,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/54740875"
+      },
       "audio": null
     },
     "sources": [
@@ -232,7 +248,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353799373/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353799373/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Abril Bastons, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200519662"
+      },
       "audio": null
     },
     "sources": [
@@ -268,7 +291,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Chthonerpeton_indistinctum.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Chthonerpeton_indistinctum.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 2.5",
+        "attribution": "Axel Kwet (CC BY-SA 2.5) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chthonerpeton_indistinctum.jpg"
+      },
       "audio": null
     },
     "sources": [
@@ -304,7 +334,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337243480/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337243480/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Patrícia Mees, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/192144648"
+      },
       "audio": null
     },
     "sources": [
@@ -380,7 +417,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617957707/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/617957707/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/339670975"
+      },
       "audio": null
     },
     "sources": [
@@ -420,7 +464,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447903341/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447903341/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/250439347"
+      },
       "audio": null
     },
     "sources": [
@@ -524,7 +575,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/238929267/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/238929267/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) William G. Borges, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/139668693"
+      },
       "audio": null
     },
     "sources": [
@@ -624,7 +682,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/610656338/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/610656338/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jean Martins, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/316651405"
+      },
       "audio": null
     },
     "sources": [
@@ -660,7 +725,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/54740875"
+      },
       "audio": null
     },
     "sources": [
@@ -696,7 +768,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/250235211"
+      },
       "audio": null
     },
     "sources": [
@@ -744,7 +823,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354445906/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354445906/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200853786"
+      },
       "audio": null
     },
     "sources": [
@@ -788,7 +874,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169573439/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/169573439/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Jean Martins, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/101526564"
+      },
       "audio": null
     },
     "sources": [
@@ -828,7 +921,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462885173/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/462885173/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Lourdes Mariel Quarin, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/258034142"
+      },
       "audio": null
     },
     "sources": [
@@ -948,7 +1048,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113336558/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113336558/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Bahiano Ayala, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69795730"
+      },
       "audio": null
     },
     "sources": [
@@ -1088,7 +1195,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53757566/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/53757566/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/34178852"
+      },
       "audio": null
     },
     "sources": [
@@ -1256,7 +1370,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443937257/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/443937257/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/248453198"
+      },
       "audio": null
     },
     "sources": [
@@ -1328,7 +1449,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/461409910/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/461409910/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lucas Mantelo Cruz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/257237444"
+      },
       "audio": null
     },
     "sources": [
@@ -1364,7 +1492,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/341418067/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/341418067/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/194260385"
+      },
       "audio": null
     },
     "sources": [
@@ -1460,7 +1595,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161936314/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/161936314/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nell Cant, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/97376714"
+      },
       "audio": null
     },
     "sources": [
@@ -1496,7 +1638,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347256814/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347256814/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197197982"
+      },
       "audio": null
     },
     "sources": [
@@ -1536,7 +1685,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/531011492/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/531011492/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/285747818"
+      },
       "audio": null
     },
     "sources": [
@@ -1608,7 +1764,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/596317153/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/596317153/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/329014778"
+      },
       "audio": null
     },
     "sources": [
@@ -1696,7 +1859,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350556399/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350556399/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Leo Lagos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/198848150"
+      },
       "audio": null
     },
     "sources": [
@@ -1736,7 +1906,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+      },
       "audio": null
     },
     "sources": [
@@ -1768,7 +1945,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+      },
       "audio": null
     },
     "sources": [
@@ -1800,7 +1984,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+      },
       "audio": null
     },
     "sources": [
@@ -1872,7 +2063,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106905720/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/106905720/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Agustín Zarco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/66329639"
+      },
       "audio": null
     },
     "sources": [
@@ -1988,7 +2186,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530703/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530703/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ibere Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/316346183"
+      },
       "audio": null
     },
     "sources": [
@@ -2064,7 +2269,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/36498789"
+      },
       "audio": null
     },
     "sources": [
@@ -2096,7 +2308,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55048189/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/55048189/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Noelia, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/34936672"
+      },
       "audio": null
     },
     "sources": [
@@ -2180,7 +2399,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111467589/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/111467589/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Morten Ross, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/68787066"
+      },
       "audio": null
     },
     "sources": [
@@ -2212,7 +2438,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/334875253/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/334875253/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Kane Sandoval, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/190957856"
+      },
       "audio": null
     },
     "sources": [
@@ -2284,7 +2517,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248350063/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/248350063/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Henrique Nogueira, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/144670362"
+      },
       "audio": null
     },
     "sources": [
@@ -2324,7 +2564,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Physalaemus_fernandezae_distribution.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Physalaemus_fernandezae_distribution.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 3.0",
+        "attribution": "map data: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.* distribution: Esteban Lavilla, Jose Langone 2004. Physalaemus fernandezae. In: IUCN 2012. IUCN Red List of Threatened Species. Version 2012.2. &lt;www.iucnredlist.org&gt;. Downloaded on 25 October 2012. compilation: rbrausse (CC BY-SA 3.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physalaemus_fernandezae_distribution.png"
+      },
       "audio": null
     },
     "sources": [
@@ -2360,7 +2607,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242520224/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/242520224/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/141547938"
+      },
       "audio": null
     },
     "sources": [
@@ -2432,7 +2686,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/196057023/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/196057023/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nico Fernandez-Sauleda, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/116176001"
+      },
       "audio": null
     },
     "sources": [
@@ -2480,7 +2741,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339029776/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/339029776/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/193041327"
+      },
       "audio": null
     },
     "sources": [
@@ -2528,7 +2796,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530559/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530559/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ibere Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/316346141"
+      },
       "audio": null
     },
     "sources": [
@@ -2568,7 +2843,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32340851/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/32340851/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/20949089"
+      },
       "audio": null
     },
     "sources": [
@@ -2740,7 +3022,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178861563/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/178861563/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) vinicius_s_domingues, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/106471323"
+      },
       "audio": null
     },
     "sources": [
@@ -2908,7 +3197,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337709490/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337709490/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/192383500"
+      },
       "audio": null
     },
     "sources": [
@@ -2964,7 +3260,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101654626/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/101654626/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Matias Cabezas, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/63351196"
+      },
       "audio": null
     },
     "sources": [
@@ -3020,7 +3323,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Thomaz de Carvalho Callado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/342600069"
+      },
       "audio": null
     },
     "sources": [
@@ -3060,7 +3370,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200770179"
+      },
       "audio": null
     },
     "sources": [
@@ -3100,7 +3417,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200770179"
+      },
       "audio": null
     },
     "sources": [
@@ -3144,7 +3468,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/610575417/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/610575417/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Mayane Alves, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/336036932"
+      },
       "audio": null
     },
     "sources": [
@@ -3176,7 +3507,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Thomaz de Carvalho Callado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/342600069"
+      },
       "audio": null
     },
     "sources": [
@@ -3248,7 +3586,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/36498789"
+      },
       "audio": null
     },
     "sources": [
@@ -3284,7 +3629,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/581885449/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/581885449/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jefferson Ferreira, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/321730520"
+      },
       "audio": null
     },
     "sources": [
@@ -3364,7 +3716,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/174956355/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/174956355/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/104416672"
+      },
       "audio": null
     },
     "sources": [
@@ -3508,7 +3867,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339462329/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/339462329/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/193256816"
+      },
       "audio": null
     },
     "sources": [
@@ -3552,7 +3918,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/483265695/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/483265695/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Sebastián Fornés, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/268827888"
+      },
       "audio": null
     },
     "sources": [
@@ -3684,7 +4057,14 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/250235211"
+      },
       "audio": null
     },
     "sources": [
