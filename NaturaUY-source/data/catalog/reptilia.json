@@ -1,0 +1,3300 @@
+[
+  {
+    "id": "acanthochelys-spixii",
+    "scientificName": "Acanthochelys spixii",
+    "commonName": "tortuga de canaleta",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Chelidae",
+      "genus": "Acanthochelys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [
+      "humedal",
+      "laguna_estero"
+    ],
+    "diet": [
+      "invertebrates",
+      "amphibians_reptiles",
+      "fish",
+      "other_plant_material"
+    ],
+    "size": "17 cm",
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/461512408/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/461512408/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Vitoria Fortes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/257287580"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii"
+      },
+      {
+        "source": "research",
+        "record": "https://mvc.unb.br/pesquisa/especies/conheca-as-especies/tartr/79-cagado-preto"
+      },
+      {
+        "source": "research",
+        "record": "https://www.researchgate.net/publication/232693600_Feeding_Ecology_of_Acanthochelys_spixii_Testudines_Chelidae_in_the_Cerrado_of_Central_Brazil"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "amphisbaena-darwinii",
+    "scientificName": "Amphisbaena darwinii",
+    "commonName": "Víbora ciega de darwin",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Amphisbaenidae",
+      "genus": "Amphisbaena"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165502687/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/165502687/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mateo Cocimano, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/99297581"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_darwinii"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "amphisbaena-kingii",
+    "scientificName": "Amphisbaena kingii",
+    "commonName": "víbora ciega de cabeza en cuña",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Amphisbaenidae",
+      "genus": "Amphisbaena"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/413728340/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/413728340/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Carranza Perales, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/232846654"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leposternon-microcephalum",
+    "scientificName": "Leposternon microcephalum",
+    "commonName": "Víbora ciega de cabeza chica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Amphisbaenidae",
+      "genus": "Leposternon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/184874509/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/184874509/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/109667073"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_microcep"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "amphisbaena-munoai",
+    "scientificName": "Amphisbaena munoai",
+    "commonName": "víbora ciega chica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Amphisbaenidae",
+      "genus": "Amphisbaena"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Amphisbaena_munoai_imported_from_iNaturalist_19_May_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Amphisbaena_munoai_imported_from_iNaturalist_19_May_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Wikimedia Commons (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Amphisbaena_munoai_imported_from_iNaturalist_19_May_2019.jpg"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "anisolepis-undulatus",
+    "scientificName": "Anisolepis undulatus",
+    "commonName": "Lagartija arborícola",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Leiosauridae",
+      "genus": "Anisolepis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_undulatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "atractus-reticulatus",
+    "scientificName": "Atractus reticulatus",
+    "commonName": "culebra reticulada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Atractus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172442317/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/172442317/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) William G. Borges, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/103078964"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "boiruna-maculata",
+    "scientificName": "Boiruna maculata",
+    "commonName": "musurana",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Boiruna"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/481393663/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/481393663/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Leonel Roget, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/267849319"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:31"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "bothrops-pubescens",
+    "scientificName": "Bothrops pubescens",
+    "commonName": "Yarará",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Viperidae",
+      "genus": "Bothrops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181577733/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/181577733/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/107907981"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_pubescen"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "bothrops-pubescens",
+    "scientificName": "Bothrops pubescens",
+    "commonName": "yarará",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Viperidae",
+      "genus": "Bothrops"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181577733/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/181577733/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/107907981"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:32"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "caiman-latirostris",
+    "scientificName": "Caiman latirostris",
+    "commonName": "Yacaré",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Alligatoridae",
+      "genus": "Caiman"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/124774345/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/124774345/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pedro Henrique Maloso Ramos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/76274254"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_latirost"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "calamodontophis-paucidens",
+    "scientificName": "Calamodontophis paucidens",
+    "commonName": "Culebra jaspeada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Calamodontophis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/47948259/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/47948259/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/30683744"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_pauciden"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "caretta-caretta",
+    "scientificName": "Caretta caretta",
+    "commonName": "Tortuga falsa carey",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Cheloniidae",
+      "genus": "Caretta"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183028089/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/183028089/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Jan Ebr &amp; Ivana Ebrová, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/108680443"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_caretta"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cercosaura-schreibersii",
+    "scientificName": "Cercosaura schreibersii",
+    "commonName": "camaleón marrón",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Gymnophthalmidae",
+      "genus": "Cercosaura"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/408504940/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/408504940/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/230088172"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2016"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chelonia-mydas",
+    "scientificName": "Chelonia mydas",
+    "commonName": "Tortuga verde",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Cheloniidae",
+      "genus": "Chelonia"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/359580154/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/359580154/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jared Shorma, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/203511811"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_mydas"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chironius-bicarinatus",
+    "scientificName": "Chironius bicarinatus",
+    "commonName": "Culebra papapintos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Chironius"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613504185/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613504185/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/337478058"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_bicarina"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "paraphimophis-rusticus",
+    "scientificName": "Paraphimophis rusticus",
+    "commonName": "Culebra marrón",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Paraphimophis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169665548/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/169665548/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Victoria Prosdocimo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/101585716"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_rustica"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "contomastix-lacertoides",
+    "scientificName": "Contomastix lacertoides",
+    "commonName": "Lagartija de cabo polonio",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Contomastix"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/315144504"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_charrua"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "contomastix-lacertoides",
+    "scientificName": "Contomastix lacertoides",
+    "commonName": "Lagartija verde de cinco dedos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Contomastix"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/315144504"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_lacertoi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "contomastix-lacertoides",
+    "scientificName": "Contomastix lacertoides",
+    "commonName": "lagartija verde de cinco dedos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Contomastix"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/315144504"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "crotalus-durissus",
+    "scientificName": "Crotalus durissus",
+    "commonName": "Cascabel",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Viperidae",
+      "genus": "Crotalus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2151381/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/2151381/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jorge Armín Escalante-Pasos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/1777788"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_duris_te"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dermochelys-coriacea",
+    "scientificName": "Dermochelys coriacea",
+    "commonName": "Tortuga laúd",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Dermochelyidae",
+      "genus": "Dermochelys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/23833432/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/23833432/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pam Kleinsasser, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/15930749"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_coriacea"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "epictia-munoai",
+    "scientificName": "Epictia munoai",
+    "commonName": "viborita de dos cabezas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Leptotyphlopidae",
+      "genus": "Epictia"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504549726/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/504549726/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Gabriel Martínez, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/280898476"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2018"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eretmochelys-imbricata",
+    "scientificName": "Eretmochelys imbricata",
+    "commonName": "Tortuga carey",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Cheloniidae",
+      "genus": "Eretmochelys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/44650/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/44650/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Kyle Van Houtan, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/24641"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "E_imbricat"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-almadensis",
+    "scientificName": "Erythrolamprus almadensis",
+    "commonName": "culebra de almada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/367577115/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/367577115/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Henrique Nogueira, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/207787474"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-poecilogyrus",
+    "scientificName": "Erythrolamprus poecilogyrus",
+    "commonName": "culebra de peñarol",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353144794/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353144794/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Salomão Janderson Ferreira Bispo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200187353"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:37"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-semiaureus",
+    "scientificName": "Erythrolamprus semiaureus",
+    "commonName": "culebra parda de agua",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/200745796/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/200745796/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/118792478"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:48"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eunectes-notaeus",
+    "scientificName": "Eunectes notaeus",
+    "commonName": "Anaconda amarilla",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Boidae",
+      "genus": "Eunectes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242208428/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/242208428/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/141388007"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "E_notaeus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "helicops-infrataeniatus",
+    "scientificName": "Helicops infrataeniatus",
+    "commonName": "culebra de agua",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Helicops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444881489/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/444881489/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/248928065"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:39"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "hemidactylus-mabouia",
+    "scientificName": "Hemidactylus mabouia",
+    "commonName": "Geko centroafricano",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Gekkonidae",
+      "genus": "Hemidactylus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/166148514/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/166148514/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/99642535"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "H_mabouia"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "homonota-uruguayensis",
+    "scientificName": "Homonota uruguayensis",
+    "commonName": "geko de las piedras",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Phyllodactylidae",
+      "genus": "Homonota"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60550858/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/60550858/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/38126318"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2015"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "hydromedusa-tectifera",
+    "scientificName": "Hydromedusa tectifera",
+    "commonName": "tortuga cabeza de víbora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Chelidae",
+      "genus": "Hydromedusa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137664642/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/137664642/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mauro Fossati, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/83802259"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:43"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lepidochelys-olivacea",
+    "scientificName": "Lepidochelys olivacea",
+    "commonName": "Tortuga olivacea",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Cheloniidae",
+      "genus": "Lepidochelys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/158956388/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/158956388/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Bill Levine, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/95727817"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_olivacea"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "liolaemus-gardeli",
+    "scientificName": "Liolaemus gardeli",
+    "commonName": null,
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Liolaemidae",
+      "genus": "Liolaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_garde"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "liolaemus-occipitalis",
+    "scientificName": "Liolaemus occipitalis",
+    "commonName": null,
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Liolaemidae",
+      "genus": "Liolaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/199070258/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/199070258/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) vinicius_s_domingues, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/117852760"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_occipita"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "liolaemus-wiegmannii",
+    "scientificName": "Liolaemus wiegmannii",
+    "commonName": "lagartija de la arena",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Liolaemidae",
+      "genus": "Liolaemus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353560639/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353560639/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Valentín Alfano, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200399597"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:46"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:111"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-almadensis",
+    "scientificName": "Erythrolamprus almadensis",
+    "commonName": "Culebra de almada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/367577115/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/367577115/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Henrique Nogueira, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/207787474"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_almadens"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-jaegeri",
+    "scientificName": "Erythrolamprus jaegeri",
+    "commonName": "Culebra verde de vientre rojo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1354505/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/1354505/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/1078927"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_jaegeri"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-poecilogyrus",
+    "scientificName": "Erythrolamprus poecilogyrus",
+    "commonName": "Culebra de peñarol",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353144794/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353144794/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Salomão Janderson Ferreira Bispo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/200187353"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_poeci_su"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "erythrolamprus-semiaureus",
+    "scientificName": "Erythrolamprus semiaureus",
+    "commonName": "Culebra parda de agua",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Erythrolamprus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/200745796/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/200745796/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/118792478"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_semiaure"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "liotyphlops-ternetzii",
+    "scientificName": "Liotyphlops ternetzii",
+    "commonName": "Víbora ciega de ternetz",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Anomalepididae",
+      "genus": "Liotyphlops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/56635458/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/56635458/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Douglas, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/35879905"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_ternetzi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lygophis-anomalus",
+    "scientificName": "Lygophis anomalus",
+    "commonName": "culebra de líneas amarillas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Lygophis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27310621/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/27310621/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) aacocucci, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/17885166"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lygophis-flavifrenatus",
+    "scientificName": "Lygophis flavifrenatus",
+    "commonName": "culebra listada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Lygophis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/618544707/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/618544707/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/339958976"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "aspronema-dorsivittatum",
+    "scientificName": "Aspronema dorsivittatum",
+    "commonName": "Lagartija brillante",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Scincidae",
+      "genus": "Aspronema"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/233301358/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/233301358/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Eduardo Luis Beltrocco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/136675543"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_dorsivit"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "micrurus-altirostris",
+    "scientificName": "Micrurus altirostris",
+    "commonName": "Coral",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Elapidae",
+      "genus": "Micrurus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/254501901/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/254501901/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) E Santos Ortega, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/147857565"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_altirost"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ophiodes-intermedius",
+    "scientificName": "Ophiodes intermedius",
+    "commonName": "Víbora de cristal castaña",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Diploglossidae",
+      "genus": "Ophiodes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/301990146/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/301990146/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Candela Castro, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/173867605"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_intermed"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ophiodes-striatus",
+    "scientificName": "Ophiodes striatus",
+    "commonName": "víbora de cristal verde",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Diploglossidae",
+      "genus": "Ophiodes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60160993/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/60160993/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Carlos Otávio Gussoni, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/37904882"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2014"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ophiodes-vertebralis",
+    "scientificName": "Ophiodes vertebralis",
+    "commonName": "Víbora de cristal común",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Diploglossidae",
+      "genus": "Ophiodes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/327457475/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/327457475/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lauu, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/187270302"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_vertebra"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "oxyrhopus-rhombifer",
+    "scientificName": "Oxyrhopus rhombifer",
+    "commonName": "Falsa coral",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Oxyrhopus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350404285/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350404285/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mauro Fossati, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/198768881"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "phalotris-lemniscatus",
+    "scientificName": "Phalotris lemniscatus",
+    "commonName": "culebra de collar",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Phalotris"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/206621781/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/206621781/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/122062726"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "philodryas-aestiva",
+    "scientificName": "Philodryas aestiva",
+    "commonName": "culebra verde esmeralda",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Philodryas"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62166796/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/62166796/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Leo Lagos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/39204959"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "philodryas-agassizii",
+    "scientificName": "Philodryas agassizii",
+    "commonName": "Culebra verde listada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Philodryas"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/121173838/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/121173838/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Mario Barroso, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/74161007"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_agassizi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "philodryas-olfersii",
+    "scientificName": "Philodryas olfersii",
+    "commonName": "culebra de olfers",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Philodryas"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113593960/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113593960/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69934655"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "philodryas-patagoniensis",
+    "scientificName": "Philodryas patagoniensis",
+    "commonName": "parejera",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Philodryas"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/432432799/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/432432799/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Valentín Alfano, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/242568380"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:51"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "phrynops-hilarii",
+    "scientificName": "Phrynops hilarii",
+    "commonName": "Campanita",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Chelidae",
+      "genus": "Phrynops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/615588922/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/615588922/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/338493819"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_hilarii"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "phrynops-williamsi",
+    "scientificName": "Phrynops williamsi",
+    "commonName": "Tortuga de herradura",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Chelidae",
+      "genus": "Phrynops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111675246/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/111675246/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Mark Bolnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/68898457"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_williams"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "psomophis-obtusus",
+    "scientificName": "Psomophis obtusus",
+    "commonName": "culebra castaña de vientre rojo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Psomophis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/104881640/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/104881640/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/65185927"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "bothrops-alternatus",
+    "scientificName": "Bothrops alternatus",
+    "commonName": "Crucera",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Viperidae",
+      "genus": "Bothrops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26455215/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/26455215/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/17410625"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "R_alternat"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "salvator-merianae",
+    "scientificName": "Salvator merianae",
+    "commonName": "lagarto overo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Salvator"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91124302/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/91124302/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/57144450"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:53"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dipsas-turgida",
+    "scientificName": "Dipsas turgida",
+    "commonName": "Culebra duerme duerme",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Dipsas"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169265021/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/169265021/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) E Santos Ortega, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/101359706"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "S_turgidus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "stenocercus-azureus",
+    "scientificName": "Stenocercus azureus",
+    "commonName": "Lagartija manchada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Tropiduridae",
+      "genus": "Stenocercus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "S_azureus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "taeniophallus-occipitalis",
+    "scientificName": "Taeniophallus occipitalis",
+    "commonName": "culebra de pintas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Taeniophallus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181593092/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/181593092/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Gonzalo Rodriguez, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/107916073"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "taeniophallus-poecilopogon",
+    "scientificName": "Taeniophallus poecilopogon",
+    "commonName": "Culebra acintada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Taeniophallus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/247738916/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/247738916/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/144354269"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_poecilop"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tantilla-melanocephala",
+    "scientificName": "Tantilla melanocephala",
+    "commonName": "Culebra roja de cabeza negra",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Tantilla"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/461845113/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/461845113/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Edivan De Souza, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/257453341"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_melanoce"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tarentola-mauritanica",
+    "scientificName": "Tarentola mauritanica",
+    "commonName": "Geko de mauritania",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Phyllodactylidae",
+      "genus": "Tarentola"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362951121/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/362951121/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) nbasargin, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/205280532"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_mauritan"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "teius-oculatus",
+    "scientificName": "Teius oculatus",
+    "commonName": "lagartija verde de cuatro dedos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Teius"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/619256636/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/619256636/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Martin Coronel Varela, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/340304900"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2022"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "thamnodynastes-hypoconia",
+    "scientificName": "Thamnodynastes hypoconia",
+    "commonName": "culebra de la arena",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Thamnodynastes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/218636421/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/218636421/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Holger Braun, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/128702983"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:55"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "thamnodynastes-strigatus",
+    "scientificName": "Thamnodynastes strigatus",
+    "commonName": "Culebra sepia",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Thamnodynastes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312685153/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/312685153/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Eduardo Luis Beltrocco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/179591626"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_strigatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tomodon-dorsatus",
+    "scientificName": "Tomodon dorsatus",
+    "commonName": null,
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Tomodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/237061171/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/237061171/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rodrigo Paiva Lázaro, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/138671442"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_dorsatus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tomodon-ocellatus",
+    "scientificName": "Tomodon ocellatus",
+    "commonName": "Falsa crucera",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Tomodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187940999/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/187940999/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Gonzalo Rodriguez, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/111337945"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_ocellatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trachemys-dorbigni",
+    "scientificName": "Trachemys dorbigni",
+    "commonName": "morrocoyo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Emydidae",
+      "genus": "Trachemys"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63821653/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63821653/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40178359"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:56"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trachemys-dorbigni",
+    "scientificName": "Trachemys dorbigni",
+    "commonName": "Morrocoyo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Emydidae",
+      "genus": "Trachemys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63821653/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63821653/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/40178359"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_dorbigny"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trachemys-scripta",
+    "scientificName": "Trachemys scripta",
+    "commonName": "Tortuga de orejas rojas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Emydidae",
+      "genus": "Trachemys"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5518581/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/5518581/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Laura Clark, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/4571829"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "tra_script"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tropidurus-torquatus",
+    "scientificName": "Tropidurus torquatus",
+    "commonName": "Camaleón de cola espinosa",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Tropiduridae",
+      "genus": "Tropidurus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613258746/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613258746/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/337360549"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_torquatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "salvator-merianae",
+    "scientificName": "Salvator merianae",
+    "commonName": "Lagarto",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Teiidae",
+      "genus": "Salvator"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91124302/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/91124302/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/57144450"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_merianae"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "xenodon-dorbignyi",
+    "scientificName": "Xenodon dorbignyi",
+    "commonName": "falsa crucera de hocico respingado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Xenodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/455274996/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/455274996/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/254203515"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "xenodon-histricus",
+    "scientificName": "Xenodon histricus",
+    "commonName": "Falsa coral de hocico respingado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Xenodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "X_histricu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "xenodon-merremii",
+    "scientificName": "Xenodon merremii",
+    "commonName": "Sapera",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": null,
+      "family": "Colubridae",
+      "genus": "Xenodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376711168/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/376711168/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/213165116"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "X_merremi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

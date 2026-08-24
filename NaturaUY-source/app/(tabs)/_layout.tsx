@@ -1,27 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Tabs } from 'expo-router';
 // expo-router bundles its own copy of the bottom-tabs types; using those keeps
 // the tabBar signature identical to what <Tabs> actually passes.
 import type { BottomTabBarProps } from 'expo-router/build/react-navigation/bottom-tabs/types';
-import { MotiView } from 'moti';
-
-import { CompassIcon, GameIcon, HomeIcon, type IconProps } from '../../src/presentation/components/TabIcons';
+import { NavigationIsland, type MainTab } from '../../src/presentation/components/NavigationIsland';
 import { haptics } from '../../src/presentation/haptics';
-import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
-
-const ICONS: Record<string, (props: IconProps) => React.JSX.Element> = {
-  index: HomeIcon,
-  explore: CompassIcon,
-  games: GameIcon,
-};
-
-const LABELS: Record<string, string> = {
-  index: 'Inicio',
-  explore: 'Descubrir',
-  games: 'Juegos',
-};
 
 /**
  * A floating island rather than a full-width strip.
@@ -35,67 +17,17 @@ const LABELS: Record<string, string> = {
  * three, and the icons already read on their own.
  */
 function TabBar({ state, navigation }: BottomTabBarProps): React.JSX.Element {
-  const { colors, radius, typography, elevation } = useTheme();
-  const insets = useSafeAreaInsets();
+  const active = (state.routes[state.index]?.name ?? 'index') as MainTab;
 
-  return (
-    <View
-      pointerEvents="box-none"
-      style={[styles.dock, { paddingBottom: Math.max(insets.bottom, NAV_ISLAND_MARGIN) }]}
-    >
-      <View
-        style={[
-          styles.island,
-          elevation.high,
-          {
-            backgroundColor: colors.canvas,
-            borderColor: colors.canvasBorder,
-            borderRadius: radius.pill,
-            height: NAV_ISLAND_HEIGHT,
-          },
-        ]}
-      >
-        {state.routes.map((route, index) => {
-          const focused = state.index === index;
-          const Icon = ICONS[route.name] ?? HomeIcon;
-
-          return (
-            <Pressable
-              key={route.key}
-              accessibilityRole="tab"
-              accessibilityState={{ selected: focused }}
-              accessibilityLabel={LABELS[route.name]}
-              onPress={() => {
-                const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
-                // Nothing moved if the tab was already active — no buzz either.
-                if (!focused && !event.defaultPrevented) {
-                  haptics.tick();
-                  navigation.navigate(route.name);
-                }
-              }}
-              style={styles.tab}
-            >
-              <MotiView
-                animate={{
-                  backgroundColor: focused ? colors.accent : 'transparent',
-                  paddingHorizontal: focused ? 16 : 12,
-                }}
-                transition={{ type: 'timing', duration: 220 }}
-                style={[styles.pill, { borderRadius: radius.pill }]}
-              >
-                <Icon color={focused ? colors.onAccent : colors.navInactiveText} size={21} />
-                {focused && (
-                  <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'timing', duration: 200 }}>
-                    <Text style={[typography.label, { color: colors.onAccent }]}>{LABELS[route.name]}</Text>
-                  </MotiView>
-                )}
-              </MotiView>
-            </Pressable>
-          );
-        })}
-      </View>
-    </View>
-  );
+  return <NavigationIsland active={active} onNavigate={(name) => {
+    const target = state.routes.find((route) => route.name === name);
+    if (!target || name === active) return;
+    const event = navigation.emit({ type: 'tabPress', target: target.key, canPreventDefault: true });
+    if (!event.defaultPrevented) {
+      haptics.tick();
+      navigation.navigate(name);
+    }
+  }} />;
 }
 
 export default function TabsLayout(): React.JSX.Element {
@@ -115,10 +47,3 @@ export default function TabsLayout(): React.JSX.Element {
     </Tabs>
   );
 }
-
-const styles = StyleSheet.create({
-  dock: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 18 },
-  island: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 6, borderWidth: StyleSheet.hairlineWidth },
-  tab: { flex: 1, alignItems: 'center' },
-  pill: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 10 },
-});

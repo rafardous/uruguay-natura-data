@@ -6,12 +6,19 @@ import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 
 import type { Species } from '../../src/domain/entities/species';
-import { speciesRepository } from '../../src/data/repositories/speciesRepository';
+import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel } from '../../src/domain/catalogLabels';
+import {
+  speciesRepository,
+  TAXON_RANKS,
+  UNASSIGNED_TAXON,
+  type TaxonRank,
+  type TaxonomyPath,
+} from '../../src/data/repositories/speciesRepository';
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
-import { CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
+import { ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
@@ -31,11 +38,11 @@ function Staggered({ index, children }: { index: number; children: React.ReactNo
 }
 
 function Fact({ label, value, container, onContainer }: { label: string; value: string; container: string; onContainer: string }): React.JSX.Element {
-  const { radius, typography, colors } = useTheme();
+  const { radius, typography } = useTheme();
 
   return (
     <View style={[styles.fact, { backgroundColor: container, borderRadius: radius.md }]}>
-      <Text style={[typography.caption, { color: colors.textMuted }]} numberOfLines={1}>
+      <Text style={[typography.caption, { color: onContainer }]} numberOfLines={1}>
         {label}
       </Text>
       <Text style={[typography.label, { color: onContainer, marginTop: 3 }]} numberOfLines={2}>
@@ -75,13 +82,48 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
   const facts = species
     ? [
-        { label: 'Familia', value: species.taxonomy.familia },
-        { label: 'Género', value: species.taxonomy.genero },
-        { label: 'Orden', value: species.taxonomy.orden },
         { label: 'Tamaño', value: species.tamano },
-        { label: 'Estado', value: species.conservation.label },
+        { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
+        { label: 'Abundancia', value: species.abundanceStatus ? abundanceLabel(species.abundanceStatus) : '' },
       ].filter((fact) => fact.value.length > 0)
     : [];
+
+  const classification: { label: string; rank: TaxonRank; value: string }[] = species
+    ? [
+        { label: 'Filo', rank: 'phylum', value: species.taxonomy.phylum },
+        { label: 'Clase', rank: 'clase', value: species.taxonomy.clase },
+        { label: 'Orden', rank: 'orden', value: species.taxonomy.orden || 'Sin determinar' },
+        { label: 'Familia', rank: 'familia', value: species.taxonomy.familia },
+        { label: 'Género', rank: 'genero', value: species.taxonomy.genero },
+      ]
+    : [];
+  const dataSources = species
+    ? [...new Set(species.sources.map((source) => sourceLabel(source.source)))]
+    : [];
+
+  const openTaxonomyAt = (rank: TaxonRank): void => {
+    if (!species) return;
+    haptics.tap();
+    const values: Record<TaxonRank, string> = {
+      phylum: species.taxonomy.phylum,
+      clase: species.taxonomy.clase,
+      orden: species.taxonomy.orden || UNASSIGNED_TAXON,
+      familia: species.taxonomy.familia,
+      genero: species.taxonomy.genero,
+    };
+    const params: TaxonomyPath = {};
+    for (const candidate of TAXON_RANKS) {
+      params[candidate] = values[candidate];
+      if (candidate === rank) break;
+    }
+    // Keep this form sheet on the navigation stack. The taxonomy screen knows
+    // this came from a species card, so either Android's Back button or its
+    // own back affordance returns to this exact, still-open sheet.
+    router.push({
+      pathname: '/taxonomy',
+      params: { ...params, returnToSpecies: species.codigo },
+    });
+  };
 
   return (
     <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
@@ -147,12 +189,25 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             >
               <SpeciesImage species={species} height={230} full borderRadius={radius.lg} glyphSize={78} />
             </Pressable>
+            {species.photo && species.photo.attribution.length > 0 && (
+              <Pressable
+                onPress={() => species.photo?.page && void Linking.openURL(species.photo.page)}
+                disabled={!species.photo.page}
+                accessibilityRole={species.photo.page ? 'link' : undefined}
+                style={styles.photoCredit}
+              >
+                <Text style={[typography.caption, { color: colors.textMuted, fontSize: 10, lineHeight: 14 }]} numberOfLines={2}>
+                  Foto: {species.photo.attribution}
+                  {species.photo.license ? ` · ${species.photo.license}` : ''}
+                </Text>
+              </Pressable>
+            )}
           </View>
 
           <View style={{ padding: spacing.lg }}>
             <Staggered index={0}>
               <Text style={[typography.eyebrow, { color: palette.accent }]}>
-                {species.taxonomy.clase.toUpperCase()} · {species.taxonomy.orden.toUpperCase()}
+                {species.taxonomy.clase.toUpperCase()} · FAUNA DEL URUGUAY
               </Text>
               <Text style={[typography.display, { color: colors.text, marginTop: 6 }]}>
                 {species.displayName}
@@ -177,7 +232,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 />
                 <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}>
                   <Text style={[typography.caption, { color: palette.onContainer }]}>
-                    {species.nativa ? 'Nativa' : 'Exótica'}
+                    {species.origin === 'native'
+                      ? 'Nativa'
+                      : species.origin === 'introduced'
+                        ? 'Exótica'
+                        : 'Origen sin determinar'}
                   </Text>
                 </View>
               </View>
@@ -199,8 +258,30 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.descripcion.length > 0 && (
+            {species.habitat.length > 0 && (
               <Staggered index={3}>
+                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Hábitat</Text>
+                <View style={[styles.tagRow, { marginTop: spacing.sm }]}>
+                  {species.habitat.map((habitat) => (
+                    <View key={habitat} style={[styles.dataTag, { backgroundColor: palette.container, borderRadius: radius.pill }]}>
+                      <Text style={[typography.caption, { color: palette.onContainer }]}>{habitatLabel(habitat)}</Text>
+                    </View>
+                  ))}
+                </View>
+              </Staggered>
+            )}
+
+            {species.diet.length > 0 && (
+              <Staggered index={4}>
+                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
+                <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
+                  {species.diet.map(dietLabel).join(' · ')}
+                </Text>
+              </Staggered>
+            )}
+
+            {species.descripcion.length > 0 && (
+              <Staggered index={5}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Descripción</Text>
                 <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
                   {species.descripcion}
@@ -208,8 +289,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.alimentacion.length > 0 && (
-              <Staggered index={4}>
+            {species.diet.length === 0 && species.alimentacion.length > 0 && (
+              <Staggered index={6}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
                 <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
                   {species.alimentacion}
@@ -217,8 +298,41 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
+            {species.relevantNote && (
+              <Staggered index={7}>
+                <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                  <Text style={[typography.label, { color: colors.text }]}>Dato relevante</Text>
+                  <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>{species.relevantNote}</Text>
+                </View>
+              </Staggered>
+            )}
+
+            <Staggered index={8}>
+              <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Clasificación</Text>
+              <View style={[styles.classification, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.sm }]}>
+                {classification.map(({ label, rank, value }, index) => (
+                  <Pressable
+                    key={rank}
+                    onPress={() => openTaxonomyAt(rank)}
+                    accessibilityRole="link"
+                    accessibilityLabel={`Ver ${label.toLocaleLowerCase('es')} ${value} en búsqueda taxonómica`}
+                    style={[
+                      styles.classificationRow,
+                      index > 0 && { borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth },
+                    ]}
+                  >
+                    <Text style={[typography.caption, { color: colors.textMuted }]}>{label}</Text>
+                    <View style={styles.classificationValue}>
+                      <Text style={[typography.label, rank === 'genero' && styles.scientific, { color: colors.text }]} numberOfLines={1}>{value}</Text>
+                      <ChevronRightIcon color={colors.textMuted} size={16} />
+                    </View>
+                  </Pressable>
+                ))}
+              </View>
+            </Staggered>
+
             {species.acceptedName && species.acceptedName !== species.scientificName && (
-              <Staggered index={5}>
+              <Staggered index={9}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>
                   Nombre aceptado
                 </Text>
@@ -228,21 +342,22 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {/* CC BY obliges us to credit the photographer wherever the photo appears. */}
-            {species.photo && species.photo.attribution.length > 0 && (
-              <Staggered index={6}>
-                <Pressable
-                  onPress={() => species.photo?.page && void Linking.openURL(species.photo.page)}
-                  disabled={!species.photo.page}
-                  style={[styles.credit, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}
-                >
-                  <Text style={[typography.caption, { color: colors.textMuted }]}>FOTOGRAFÍA</Text>
-                  <Text style={[typography.caption, { color: colors.textSecondary, marginTop: 4 }]}>
-                    {species.photo.attribution}
+            {dataSources.length > 0 && (
+              <Staggered index={10}>
+                <View style={{ marginTop: spacing.xl }}>
+                  <Text style={[typography.caption, { color: colors.textMuted }]}>FUENTES DEL REGISTRO</Text>
+                  <Text style={[typography.body, { color: colors.textSecondary, marginTop: 4 }]}>
+                    {dataSources.join(' · ')}
                   </Text>
-                </Pressable>
+                  {species.reviewStatus === 'needs_review' && (
+                    <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>
+                      Clasificación pendiente de revisión editorial
+                    </Text>
+                  )}
+                </View>
               </Staggered>
             )}
+
           </View>
         </ScrollView>
       )}
@@ -269,5 +384,11 @@ const styles = StyleSheet.create({
   pill: { paddingHorizontal: 9, paddingVertical: 5 },
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   fact: { flexGrow: 1, flexBasis: '46%', padding: 12 },
-  credit: { padding: 12 },
+  photoCredit: { alignSelf: 'flex-start', paddingTop: 7, paddingHorizontal: 3 },
+  tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
+  dataTag: { paddingHorizontal: 11, paddingVertical: 7 },
+  note: { padding: 14 },
+  classification: { overflow: 'hidden', paddingHorizontal: 14 },
+  classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
+  classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },
 });

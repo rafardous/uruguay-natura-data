@@ -7,9 +7,10 @@ export interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  onSubmit?: () => void;
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Buscar especie' }: SearchBarProps): React.JSX.Element {
+export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
 
   return (
@@ -32,6 +33,7 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie' }: S
         autoCorrect={false}
         autoCapitalize="none"
         returnKeyType="search"
+        onSubmitEditing={onSubmit}
         accessibilityLabel="Buscar especies"
         style={[typography.body, styles.input, { color: colors.text }]}
       />

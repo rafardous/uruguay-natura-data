@@ -1,0 +1,87 @@
+[
+  {
+    "id": "potamotrygon-brachyura",
+    "scientificName": "Potamotrygon brachyura",
+    "commonName": "Raya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Myliobatiformes",
+      "family": "Potamotrygonidae",
+      "genus": "Potamotrygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [
+      "rio_arroyo",
+      "laguna_estero"
+    ],
+    "diet": null,
+    "size": "75 cm",
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255049027/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/255049027/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Marien Béguelin, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/148141301"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_brachyur"
+      },
+      {
+        "source": "research",
+        "record": "https://www.researchgate.net/publication/312612363_Potamotrygon_brachyura"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "potamotrygon-motoro",
+    "scientificName": "Potamotrygon motoro",
+    "commonName": "Raya",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Myliobatiformes",
+      "family": "Potamotrygonidae",
+      "genus": "Potamotrygon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52598823/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/52598823/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/33487379"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_motoro"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

@@ -5,6 +5,8 @@ export interface SpeciesRow {
   accepted_name: string | null;
   common_name: string;
   common_names: string;
+  kingdom: string;
+  phylum: string;
   clase: string;
   orden: string;
   familia: string;
@@ -14,6 +16,19 @@ export interface SpeciesRow {
   conservation_label: string;
   conservation_rank: number;
   nativa: number;
+  origin: 'native' | 'introduced' | null;
+  establishment?: 'established' | 'casual' | 'uncertain' | null;
+  seasonality: string | null;
+  presence_certainty?: 'confirmed' | 'probable' | 'uncertain' | null;
+  abundance_status: string | null;
+  conservation_system?: string | null;
+  conservation_source?: string | null;
+  conservation_assessed_at?: string | null;
+  habitat: string;
+  diet: string;
+  relevant_note: string | null;
+  review_status: string;
+  sources: string;
   descripcion: string;
   alimentacion: string;
   tamano: string;
@@ -34,8 +49,8 @@ export interface SpeciesRow {
 }
 
 /**
- * The catalogue: shipped prebuilt and replaced wholesale on every launch, so a
- * new app version always serves fresh data. Read-only at runtime.
+ * The read-only catalogue. A verified remote database is staged in a separate
+ * file and atomically activated before this database is opened.
  */
 export const CATALOG_DATABASE_NAME = 'natura.db';
 

@@ -8,9 +8,9 @@ const UserDatabaseContext = createContext<SQLiteDatabase | null>(null);
 /**
  * Opens (and migrates) the database holding everything the user creates.
  *
- * Deliberately separate from the catalogue: `natura.db` is overwritten from the
- * bundled asset on every launch so content updates actually land, which would
- * destroy favourites and quiz records if they shared the file.
+ * Deliberately separate from the catalogue: `natura.db` can be atomically
+ * replaced by a verified editorial release, which would destroy favourites and
+ * quiz records if they shared the file.
  */
 export function UserDatabaseProvider({ children }: { children: ReactNode }): React.JSX.Element | null {
   const [db, setDb] = useState<SQLiteDatabase | null>(null);

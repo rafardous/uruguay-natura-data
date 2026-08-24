@@ -1,0 +1,4230 @@
+[
+  {
+    "id": "akodon-azarae",
+    "scientificName": "Akodon azarae",
+    "commonName": "Ratón de campo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Akodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "fruit",
+      "seeds",
+      "other_plant_material"
+    ],
+    "size": "11 cm",
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280774100/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/280774100/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/162385649"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_azarae"
+      },
+      {
+        "source": "research",
+        "record": "https://animaldiversity.org/accounts/Akodon_azarae/"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "akodon-reigi",
+    "scientificName": "Akodon reigi",
+    "commonName": "Ratón de monte",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Akodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_reigi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "arctocephalus-australis",
+    "scientificName": "Arctocephalus australis",
+    "commonName": "Lobo marino fino",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Otariidae",
+      "genus": "Arctocephalus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187214320/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/187214320/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jorge Herreros de Lartundo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/110933779"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_australi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "axis-axis",
+    "scientificName": "Axis axis",
+    "commonName": "Ciervo axis",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Axis"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463062867/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/463062867/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) William Stephens, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/258122871"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "axi_axis"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "balaenoptera-acutorostrata",
+    "scientificName": "Balaenoptera acutorostrata",
+    "commonName": "Ballena minke enana",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2901229/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/2901229/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Nils, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/2598638"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_acut_ssp"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "balaenoptera-bonaerensis",
+    "scientificName": "Balaenoptera bonaerensis",
+    "commonName": "Ballena minke antártica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/99317784/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/99317784/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rosângela Souza, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/62020494"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_bonaeren"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "balaenoptera-borealis",
+    "scientificName": "Balaenoptera borealis",
+    "commonName": "Ballena sei",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/321567411/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/321567411/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Sidonio Paes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/184235748"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_borealis"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "balaenoptera-musculus",
+    "scientificName": "Balaenoptera musculus",
+    "commonName": "Ballena azul",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/615864130/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/615864130/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/338634606"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_musculus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "balaenoptera-physalus",
+    "scientificName": "Balaenoptera physalus",
+    "commonName": "Ballena fin",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469840763/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/469840763/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Matt Muir, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/261515805"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_physalus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "blastocerus-dichotomus",
+    "scientificName": "Blastocerus dichotomus",
+    "commonName": "Ciervo de los pantanos",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Blastocerus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/597676814/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/597676814/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Donald Davesne, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/329691903"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_dichotom"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cabassous-tatouay",
+    "scientificName": "Cabassous tatouay",
+    "commonName": "Tatú de rabo molle",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cingulata",
+      "family": "Dasypodidae",
+      "genus": "Cabassous"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/305050812/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/305050812/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pedro Henrique Maloso Ramos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/175523519"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_tatouay"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "calomys-laucha",
+    "scientificName": "Calomys laucha",
+    "commonName": "Laucha",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Calomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/439992814/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/439992814/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Lourdes Mariel Quarin, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/246495142"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_laucha"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cavia-aperea",
+    "scientificName": "Cavia aperea",
+    "commonName": "Apereá",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Caviidae",
+      "genus": "Cavia"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/484176640/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/484176640/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Frank Dietze, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/269296217"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_aperea"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cavia-magna",
+    "scientificName": "Cavia magna",
+    "commonName": "Apereá de dorso oscuro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Caviidae",
+      "genus": "Cavia"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606738944/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/606738944/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Andre Saibra, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/334144106"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_magna"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cerdocyon-thous",
+    "scientificName": "Cerdocyon thous",
+    "commonName": "Zorro perro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Cerdocyon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208379476/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/208379476/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/123031051"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_thous"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chironectes-minimus",
+    "scientificName": "Chironectes minimus",
+    "commonName": "Yapok",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Didelphimorphia",
+      "family": "Didelphidae",
+      "genus": "Chironectes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462993805/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/462993805/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Sylvain Eichhorn, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/199640229"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Ch_minimus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chrysocyon-brachyurus",
+    "scientificName": "Chrysocyon brachyurus",
+    "commonName": "Aguaraguazú",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Chrysocyon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205682420/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/205682420/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/121541639"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_brachyur"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "sphiggurus-spinosus",
+    "scientificName": "Sphiggurus spinosus",
+    "commonName": "Coendú",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Erethizontidae",
+      "genus": "Sphiggurus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/47292165/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/47292165/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/30276994"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "S_spinosus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "conepatus-chinga",
+    "scientificName": "Conepatus chinga",
+    "commonName": "Zorrillo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Mephitidae",
+      "genus": "Conepatus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54589830/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/54589830/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/34669640"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_chinga"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cryptonanus-chacoensis",
+    "scientificName": "Cryptonanus chacoensis",
+    "commonName": "Marmosa",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Didelphimorphia",
+      "family": "Didelphidae",
+      "genus": "Cryptonanus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/415570879/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/415570879/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/233812752"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_cf_chaco"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ctenomys-pearsoni",
+    "scientificName": "Ctenomys pearsoni",
+    "commonName": "Tucu tucu de pearson",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Ctenomyidae",
+      "genus": "Ctenomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63212055/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/63212055/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Joselin Listur, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/39818781"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_pearsoni"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ctenomys-rionegrensis",
+    "scientificName": "Ctenomys rionegrensis",
+    "commonName": "Tucu tucu de río negro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Ctenomyidae",
+      "genus": "Ctenomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/267673422/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/267673422/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Leo Lagos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/154888964"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_rionegre"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ctenomys-torquatus",
+    "scientificName": "Ctenomys torquatus",
+    "commonName": "Tucu tucu",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Ctenomyidae",
+      "genus": "Ctenomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/23391562/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/23391562/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Leonel Roget, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/15669886"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_torquatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cuniculus-paca",
+    "scientificName": "Cuniculus paca",
+    "commonName": "Paca",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cuniculidae",
+      "genus": "Cuniculus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/271854591/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/271854591/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) André Ambrozio, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/157218283"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_paca"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dasypus-hybridus",
+    "scientificName": "Dasypus hybridus",
+    "commonName": "Mulita",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cingulata",
+      "family": "Dasypodidae",
+      "genus": "Dasypus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/224832922/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/224832922/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/132055836"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_hybridus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dasypus-novemcinctus",
+    "scientificName": "Dasypus novemcinctus",
+    "commonName": "Tatú",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cingulata",
+      "family": "Dasypodidae",
+      "genus": "Dasypus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/552761863/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/552761863/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Bruno Henrique Aranda, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/306511056"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_novemcin"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "delphinus-delphis",
+    "scientificName": "Delphinus delphis",
+    "commonName": "Delfín común de pico corto",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Delphinidae",
+      "genus": "Delphinus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220485867/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/220485867/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Cricket Raspet, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/129718440"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_delphis"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "deltamys-kempi",
+    "scientificName": "Deltamys kempi",
+    "commonName": "Ratón aterciopelado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Deltamys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118548586/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/118548586/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Gustavo Masuzzo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/72684380"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_kempi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "desmodus-rotundus",
+    "scientificName": "Desmodus rotundus",
+    "commonName": "Vampiro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Phyllostomidae",
+      "genus": "Desmodus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/149103976/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/149103976/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Carranza Perales, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/90231512"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_rotundus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "didelphis-albiventris",
+    "scientificName": "Didelphis albiventris",
+    "commonName": "Comadreja mora",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Didelphimorphia",
+      "family": "Didelphidae",
+      "genus": "Didelphis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32129066/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/32129066/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Eduardo Luis Beltrocco, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/20829259"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_albivent"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eptesicus-diminutus",
+    "scientificName": "Eptesicus diminutus",
+    "commonName": "murciélago dorado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Eptesicus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119586151/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/119586151/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/73261444"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:15"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:16"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:17"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:18"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:19"
+      },
+      {
+        "source": "snap",
+        "record": "E_diminutu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eptesicus-furinalis",
+    "scientificName": "Eptesicus furinalis",
+    "commonName": "mueciélago bronceado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Eptesicus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161808803/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/161808803/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/97307728"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:20"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:21"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:22"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:23"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:24"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:25"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:26"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:27"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:28"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:29"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:30"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:31"
+      },
+      {
+        "source": "snap",
+        "record": "E_furinali"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eubalaena-australis",
+    "scientificName": "Eubalaena australis",
+    "commonName": "Franca austral",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenidae",
+      "genus": "Eubalaena"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/560257512/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/560257512/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Alan Bell, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/310422523"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "E_australi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eumops-bonariensis",
+    "scientificName": "Eumops bonariensis",
+    "commonName": "murciélago de orejas anchas",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Eumops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96877357/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/96877357/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/60578214"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:32"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:33"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:34"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:35"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:36"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:37"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:38"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:39"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:40"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:41"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:42"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:43"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:44"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:45"
+      },
+      {
+        "source": "snap",
+        "record": "E_bonarien"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "eumops-patagonicus",
+    "scientificName": "Eumops patagonicus",
+    "commonName": "murciélago de orejas anchas patagónico",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Eumops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26459159/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/26459159/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/17413099"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:46"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:47"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:48"
+      },
+      {
+        "source": "snap",
+        "record": "E_patagoni"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "euphractus-sexcinctus",
+    "scientificName": "Euphractus sexcinctus",
+    "commonName": "Peludo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cingulata",
+      "family": "Dasypodidae",
+      "genus": "Euphractus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/284959585/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/284959585/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Jan Ebr &amp; Ivana Ebrová, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/164680932"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "E_sexcinct"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "galictis-cuja",
+    "scientificName": "Galictis cuja",
+    "commonName": "Hurón",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Mustelidae",
+      "genus": "Galictis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54377581/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/54377581/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/34544661"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_cuja"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "histiotus-montanus",
+    "scientificName": "Histiotus montanus",
+    "commonName": "murciélago orejudo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Histiotus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/608638302/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/608638302/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Tomás Tamagno, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/335072110"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:49"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:50"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:51"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:52"
+      },
+      {
+        "source": "snap",
+        "record": "H_montanus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "histiotus-velatus",
+    "scientificName": "Histiotus velatus",
+    "commonName": "Murciélago orejudo oscuro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Histiotus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/157336241/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/157336241/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/94820095"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "H_cf_velat"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "holochilus-brasiliensis",
+    "scientificName": "Holochilus brasiliensis",
+    "commonName": "Rata de agua chica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Holochilus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426149829/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/426149829/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/239289528"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "H_brasilie"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "hydrochoerus-hydrochaeris",
+    "scientificName": "Hydrochoerus hydrochaeris",
+    "commonName": "Capibara",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Caviidae",
+      "genus": "Hydrochoerus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10691626/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/10691626/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) avocat, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/8066919"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "H_hydrocha"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lagenorhynchus-obscurus",
+    "scientificName": "Lagenorhynchus obscurus",
+    "commonName": "Delfín oscuro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Delphinidae",
+      "genus": "Lagenorhynchus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350363411/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350363411/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Charlotte Kirchner, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/198748559"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_obscurus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lasiurus-blossevillii",
+    "scientificName": "Lasiurus blossevillii",
+    "commonName": "murciélago colorado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Lasiurus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131595477/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/131595477/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Lauu, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/80297299"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:53"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:54"
+      },
+      {
+        "source": "snap",
+        "record": "L_blossevi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "aeorestes-cinereus",
+    "scientificName": "Aeorestes cinereus",
+    "commonName": "Murciélago escarchado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Aeorestes"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/190248030/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/190248030/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Aiva Noringseth, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/113248084"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_cinereus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "dasypterus-ega",
+    "scientificName": "Dasypterus ega",
+    "commonName": "Murciélago de las palmeras",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Dasypterus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96964679/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/96964679/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/60631705"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_ega"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leopardus-braccatus",
+    "scientificName": "Leopardus braccatus",
+    "commonName": "Gato pajero",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Leopardus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53781087/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/53781087/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Matt Muir, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/34191553"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_braccatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leopardus-geoffroyi",
+    "scientificName": "Leopardus geoffroyi",
+    "commonName": "Gato montés",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Leopardus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118761534/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/118761534/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) María Zeta, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/72799902"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_geoffroy"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leopardus-pardalis",
+    "scientificName": "Leopardus pardalis",
+    "commonName": "Ocelote",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Leopardus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/624962198/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/624962198/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Emily Turteltaub Nelson, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/343122720"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_pardalis"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "leopardus-wiedii",
+    "scientificName": "Leopardus wiedii",
+    "commonName": "Margay",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Leopardus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/239567366/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/239567366/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Sam Eberhard, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/139959534"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_wieddi"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lepus-europaeus",
+    "scientificName": "Lepus europaeus",
+    "commonName": "Liebre europea",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Lagomorpha",
+      "family": "Leporidae",
+      "genus": "Lepus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15438896/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/15438896/large.png",
+        "license": "CC-BY",
+        "attribution": "(c) Grete Pasch, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/10968039"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "lep_europa"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lontra-longicaudis",
+    "scientificName": "Lontra longicaudis",
+    "commonName": "Lobito de río",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Mustelidae",
+      "genus": "Lontra"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/430222515/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/430222515/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Naelin, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/241398050"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_longicau"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lundomys-molitor",
+    "scientificName": "Lundomys molitor",
+    "commonName": "Rata de agua grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Lundomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/231290519/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/231290519/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/135595835"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_molitor"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lutreolina-crassicaudata",
+    "scientificName": "Lutreolina crassicaudata",
+    "commonName": "Comadreja colorada grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Didelphimorphia",
+      "family": "Didelphidae",
+      "genus": "Lutreolina"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/216571683/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/216571683/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ezequiel Racker, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/127564280"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_crassica"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lycalopex-gymnocercus",
+    "scientificName": "Lycalopex gymnocercus",
+    "commonName": "Zorro gris",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Lycalopex"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/48696672/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/48696672/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/31133047"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_gymnocer"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mazama-gouazoubira",
+    "scientificName": "Mazama gouazoubira",
+    "commonName": "Guazubirá",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Mazama"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/418729750/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/418729750/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Luciano Massa, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/235447537"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_gouazoub"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "megaptera-novaeangliae",
+    "scientificName": "Megaptera novaeangliae",
+    "commonName": "Ballena jorobada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Balaenopteridae",
+      "genus": "Megaptera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2562747/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/2562747/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Ken-ichi Ueda, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/2306249"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_novaengl"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "molossops-temminckii",
+    "scientificName": "Molossops temminckii",
+    "commonName": "moloso de temminck",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Molossops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/490807498/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/490807498/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/272806230"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:55"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:56"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:57"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:58"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:59"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:60"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:61"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:62"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:63"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:64"
+      },
+      {
+        "source": "snap",
+        "record": "M_temminck"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "molossus-molossus",
+    "scientificName": "Molossus molossus",
+    "commonName": "molosso común",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Molossus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347156071/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347156071/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jeremiah Degenhardt, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/197147823"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:65"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:66"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:67"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:68"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:69"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:70"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:71"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:72"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:73"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:74"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:75"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:76"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:77"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:78"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:79"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:80"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:81"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:82"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:83"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:84"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:85"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:86"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:87"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:88"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:89"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:90"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:91"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:92"
+      },
+      {
+        "source": "snap",
+        "record": "M_molossus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "molossus-rufus",
+    "scientificName": "Molossus rufus",
+    "commonName": "molosso grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Molossus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91470054/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/91470054/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Carlos Funes, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/57352107"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:93"
+      },
+      {
+        "source": "snap",
+        "record": "M_rufus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "monodelphis-dimidiata",
+    "scientificName": "Monodelphis dimidiata",
+    "commonName": "Comadreja colorada chica",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Didelphimorphia",
+      "family": "Didelphidae",
+      "genus": "Monodelphis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/324189565/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/324189565/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rony Ristow, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/185610396"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_dimidiat"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mus-musculus",
+    "scientificName": "Mus musculus",
+    "commonName": "Ratón",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Muridae",
+      "genus": "Mus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58808635/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/58808635/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Carrie Seltzer, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/37128761"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "mus_muscul"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myocastor-coypus",
+    "scientificName": "Myocastor coypus",
+    "commonName": "Nutria",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Myocastoridae",
+      "genus": "Myocastor"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/129618066/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/129618066/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Юлия, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/79153082"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_coypus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myotis-albescens",
+    "scientificName": "Myotis albescens",
+    "commonName": "murciélago de vientre blanco",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Myotis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/158664305/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/158664305/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Guilherme Siniciato Terra Garbino, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/95563277"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:94"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:95"
+      },
+      {
+        "source": "snap",
+        "record": "M_albescen"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myotis-levis",
+    "scientificName": "Myotis levis",
+    "commonName": "murciélago acanelado",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Myotis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109970276/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/109970276/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/67979006"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:96"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:97"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:98"
+      },
+      {
+        "source": "snap",
+        "record": "M_levis"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myotis-nigricans",
+    "scientificName": "Myotis nigricans",
+    "commonName": "Murciélago oscuro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Myotis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46733168/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/46733168/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/29927846"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_nigrican"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myotis-riparius",
+    "scientificName": "Myotis riparius",
+    "commonName": "Murciélago negruzco",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Myotis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258950426/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/258950426/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Vincent A. Vos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/150214107"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_riparius"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myotis-ruber",
+    "scientificName": "Myotis ruber",
+    "commonName": "Murciélago rojizo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Vespertilionidae",
+      "genus": "Myotis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60186417/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/60186417/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Carlos Otávio Gussoni, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/37918607"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_ruber"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "myrmecophaga-tridactyla",
+    "scientificName": "Myrmecophaga tridactyla",
+    "commonName": "Oso hormiguero gigante",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Pilosa",
+      "family": "Myrmecophagidae",
+      "genus": "Myrmecophaga"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345917023/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/345917023/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) djcooker, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/196473595"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_trydacty"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "nasua-nasua",
+    "scientificName": "Nasua nasua",
+    "commonName": "Coatí",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Procyonidae",
+      "genus": "Nasua"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5022455/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/5022455/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) johnyochum, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/4210940"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "N_nasua"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "necromys-obscurus",
+    "scientificName": "Necromys obscurus",
+    "commonName": "Ratón oscuro",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Necromys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Rat%C3%B3n_oscuro_%28Necromys_obscurus%29%2C_Uruguay%2C_2022.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Rat%C3%B3n_oscuro_%28Necromys_obscurus%29%2C_Uruguay%2C_2022.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Enrique Manuel González González (CC BY-SA 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rat%C3%B3n_oscuro_(Necromys_obscurus),_Uruguay,_2022.jpg"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "N_obscurus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "nyctinomops-laticaudatus",
+    "scientificName": "Nyctinomops laticaudatus",
+    "commonName": "Murciélago",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Nyctinomops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109507573/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/109507573/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Sebastián de Jesús Herrera Buenfil, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/67731002"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "N_laticaud"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "oligoryzomys-flavescens",
+    "scientificName": "Oligoryzomys flavescens",
+    "commonName": "Ratón colilargo chico",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Oligoryzomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356270611/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/356270611/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Chobe Paz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/201791059"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_flavesce"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "oligoryzomys-nigripes",
+    "scientificName": "Oligoryzomys nigripes",
+    "commonName": "Ratón colilargo grande",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Oligoryzomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/47292425/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/47292425/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/30277363"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_nigripes"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "orcinus-orca",
+    "scientificName": "Orcinus orca",
+    "commonName": "Orca",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Delphinidae",
+      "genus": "Orcinus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/282690764/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/282690764/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/163442610"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_orca"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "otaria-byronia",
+    "scientificName": "Otaria byronia",
+    "commonName": "Lobo marino de un pelo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Otariidae",
+      "genus": "Otaria"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118417847/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/118417847/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jorge Herreros de Lartundo, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/72612249"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "o_flavesce"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "oxymycterus-josei",
+    "scientificName": "Oxymycterus josei",
+    "commonName": "Ratón hocicudo de José",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Oxymycterus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_josei"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "oxymycterus-nasutus",
+    "scientificName": "Oxymycterus nasutus",
+    "commonName": "Ratón hocicudo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Oxymycterus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Oxymycterus_nasutus_%28The_zoology_of_the_voyage_of_H.M.S._Beagle_%28Pl._17%29_BHL40299903%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Oxymycterus_nasutus_%28The_zoology_of_the_voyage_of_H.M.S._Beagle_%28Pl._17%29_BHL40299903%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "PUBLIC DOMAIN",
+        "attribution": "Bell, Thomas; Darwin, Charles; Gould, Elizabeth; Gould, John; Owen, Richard; Waterhouse, G. R. (Public domain) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Oxymycterus_nasutus_(The_zoology_of_the_voyage_of_H.M.S._Beagle_(Pl._17)_BHL40299903).jpg"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_nasutus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ozotoceros-bezoarticus",
+    "scientificName": "Ozotoceros bezoarticus",
+    "commonName": "venado de campo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Ozotoceros"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60523573/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/60523573/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/38110785"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:3951"
+      },
+      {
+        "source": "snap",
+        "record": "O_bezoarti"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "panthera-onca",
+    "scientificName": "Panthera onca",
+    "commonName": "Jaguar",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Panthera"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53458442/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/53458442/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Matt Muir, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/33998744"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_onca"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pecari-tajacu",
+    "scientificName": "Pecari tajacu",
+    "commonName": "Pecarí de collar",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Tayassuidae",
+      "genus": "Pecari"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/505661570/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/505661570/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Bennett Grappone, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/281486762"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_tajacu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "phocoena-spinipinnis",
+    "scientificName": "Phocoena spinipinnis",
+    "commonName": "Marsopa espinosa",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Phocoenidae",
+      "genus": "Phocoena"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343610290/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/343610290/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/195334041"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_spinipin"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "physeter-macrocephalus",
+    "scientificName": "Physeter macrocephalus",
+    "commonName": "Cachalote",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Physeteridae",
+      "genus": "Physeter"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/219667126/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/219667126/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Vsevolod Rudyi, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/129273061"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_macrocep"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "platyrrhinus-lineatus",
+    "scientificName": "Platyrrhinus lineatus",
+    "commonName": "Murciélago de línea blanca",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Phyllostomidae",
+      "genus": "Platyrrhinus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/243517242/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/243517242/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Leo Lagos, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/142072613"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Pl_lineatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pontoporia-blainvillei",
+    "scientificName": "Pontoporia blainvillei",
+    "commonName": "Franciscana",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Pontoporiidae",
+      "genus": "Pontoporia"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/471902618/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/471902618/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Gabriel Martínez, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/262756145"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_blainvil"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "procyon-cancrivorus",
+    "scientificName": "Procyon cancrivorus",
+    "commonName": "Mano pelada",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Procyonidae",
+      "genus": "Procyon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/140948898/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/140948898/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) João Vitor Oliveira de Souza, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/85648069"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_cancrivo"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "promops-centralis",
+    "scientificName": "Promops centralis",
+    "commonName": "Murciélago",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Promops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178758283/medium.png",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/178758283/large.png",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/106415094"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_centrali"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pseudorca-crassidens",
+    "scientificName": "Pseudorca crassidens",
+    "commonName": "Falsa orca",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Delphinidae",
+      "genus": "Pseudorca"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/544032351/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/544032351/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Jan Ebr &amp; Ivana Ebrová, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/301892370"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_crasside"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "pteronura-brasiliensis",
+    "scientificName": "Pteronura brasiliensis",
+    "commonName": "Lobo grande de río",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Mustelidae",
+      "genus": "Pteronura"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10663302/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/10663302/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) avocat, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/8049516"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_brasilie"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "puma-concolor",
+    "scientificName": "Puma concolor",
+    "commonName": "Puma",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Puma"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10820975/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/10820975/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Bobby McCabe, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/8170860"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_concolor"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rattus-norvegicus",
+    "scientificName": "Rattus norvegicus",
+    "commonName": "Rata",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Muridae",
+      "genus": "Rattus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112123484/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/112123484/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mara Christensen, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69139935"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "rat_norver"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "rattus-rattus",
+    "scientificName": "Rattus rattus",
+    "commonName": "Rata",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Muridae",
+      "genus": "Rattus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112123484/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/112123484/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Mara Christensen, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/69139935"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "rat_rattus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "reithrodon-typicus",
+    "scientificName": "Reithrodon typicus",
+    "commonName": "Rata conejo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Reithrodon"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161810036/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/161810036/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/97308227"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "R_typicus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "scapteromys-tumidus",
+    "scientificName": "Scapteromys tumidus",
+    "commonName": "Rata de pajonal",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Scapteromys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Rata_de_pajonal_%28Scapteromys_tumidus%29%2C_Uruguay%2C_2020.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Rata_de_pajonal_%28Scapteromys_tumidus%29%2C_Uruguay%2C_2020.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
+        "license": "CC BY 4.0",
+        "attribution": "Enrique González (CC BY 4.0) vía Wikimedia Commons",
+        "source": "wikimedia",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rata_de_pajonal_(Scapteromys_tumidus),_Uruguay,_2020.jpg"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "S_tumidus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "sturnira-lilium",
+    "scientificName": "Sturnira lilium",
+    "commonName": "Falso vampiro flor de lis",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Phyllostomidae",
+      "genus": "Sturnira"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/59980572/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/59980572/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/37790173"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "S_lilium"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "sus-scrofa",
+    "scientificName": "Sus scrofa",
+    "commonName": "Jabalí",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Suidae",
+      "genus": "Sus"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61882466/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/61882466/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Jacqui Geux, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/38952018"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "sus_scrofa"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tadarida-brasiliensis",
+    "scientificName": "Tadarida brasiliensis",
+    "commonName": "murciélago",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Chiroptera",
+      "family": "Molossidae",
+      "genus": "Tadarida"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/230701640/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/230701640/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) William J. Deml, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/135277353"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:99"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:100"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:101"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:102"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:103"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:104"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Mammalia:105"
+      },
+      {
+        "source": "snap",
+        "record": "T_brasilie"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tamandua-tetradactyla",
+    "scientificName": "Tamandua tetradactyla",
+    "commonName": "Tamandua",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Pilosa",
+      "family": "Myrmecophagidae",
+      "genus": "Tamandua"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67014035/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/67014035/large.jpg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo H Capovilla, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/42214038"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_tetradac"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tursiops-truncatus",
+    "scientificName": "Tursiops truncatus",
+    "commonName": "Tonina",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cetacea",
+      "family": "Delphinidae",
+      "genus": "Tursiops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9280144/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/9280144/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Adam J. Searcy, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/7196368"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_truncatu"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "wilfredomys-oenax",
+    "scientificName": "Wilfredomys oenax",
+    "commonName": "Rata de hocico ferrugineo",
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Cricetidae",
+      "genus": "Wilfredomys"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/229433550/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/229433550/large.jpeg",
+        "license": "CC-BY",
+        "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/134590714"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "W_oenax"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

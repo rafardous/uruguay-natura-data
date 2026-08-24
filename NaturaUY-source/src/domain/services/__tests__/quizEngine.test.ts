@@ -1,6 +1,18 @@
 import { createRun, QUIZ_MODES } from '../../entities/quiz';
+import type { Taxonomy } from '../../entities/species';
 import { makeSpecies, seededRng } from '../../../testing/speciesFactory';
 import { answerQuestion, buildQuestion, eligibleTargets, selectDistractors } from '../quizEngine';
+
+const taxonomy = (overrides: Partial<Taxonomy>): Taxonomy => ({
+  kingdom: 'Animalia',
+  phylum: 'Chordata',
+  clase: 'Aves',
+  orden: 'Passeriformes',
+  familia: 'Tyrannidae',
+  genero: 'Genus',
+  epiteto: 'species',
+  ...overrides,
+});
 
 describe('eligibleTargets', () => {
   it('only offers species that actually have a photo to show', () => {
@@ -15,12 +27,12 @@ describe('selectDistractors', () => {
   const rng = seededRng(42);
 
   it('prefers same-family species so the question is not trivially easy', () => {
-    const target = makeSpecies({ taxonomy: { clase: 'Aves', orden: 'Passeriformes', familia: 'Tyrannidae', genero: 'A', epiteto: 'x' } });
+    const target = makeSpecies({ taxonomy: taxonomy({ genero: 'A', epiteto: 'x' }) });
     const sameFamily = Array.from({ length: 5 }, () =>
-      makeSpecies({ taxonomy: { clase: 'Aves', orden: 'Passeriformes', familia: 'Tyrannidae', genero: 'B', epiteto: 'y' } }),
+      makeSpecies({ taxonomy: taxonomy({ genero: 'B', epiteto: 'y' }) }),
     );
     const farAway = Array.from({ length: 5 }, () =>
-      makeSpecies({ taxonomy: { clase: 'Mammalia', orden: 'Rodentia', familia: 'Caviidae', genero: 'C', epiteto: 'z' } }),
+      makeSpecies({ taxonomy: taxonomy({ clase: 'Mammalia', orden: 'Rodentia', familia: 'Caviidae', genero: 'C', epiteto: 'z' }) }),
     );
 
     const picked = selectDistractors(target, [...sameFamily, ...farAway], rng);
@@ -30,10 +42,10 @@ describe('selectDistractors', () => {
   });
 
   it('widens to the order, then the class, when the family is too small', () => {
-    const target = makeSpecies({ taxonomy: { clase: 'Aves', orden: 'Passeriformes', familia: 'Tyrannidae', genero: 'A', epiteto: 'x' } });
-    const sameOrder = makeSpecies({ taxonomy: { clase: 'Aves', orden: 'Passeriformes', familia: 'Furnariidae', genero: 'B', epiteto: 'y' } });
-    const sameClass = makeSpecies({ taxonomy: { clase: 'Aves', orden: 'Anseriformes', familia: 'Anatidae', genero: 'C', epiteto: 'z' } });
-    const other = makeSpecies({ taxonomy: { clase: 'Reptilia', orden: 'Squamata', familia: 'Colubridae', genero: 'D', epiteto: 'w' } });
+    const target = makeSpecies({ taxonomy: taxonomy({ genero: 'A', epiteto: 'x' }) });
+    const sameOrder = makeSpecies({ taxonomy: taxonomy({ familia: 'Furnariidae', genero: 'B', epiteto: 'y' }) });
+    const sameClass = makeSpecies({ taxonomy: taxonomy({ orden: 'Anseriformes', familia: 'Anatidae', genero: 'C', epiteto: 'z' }) });
+    const other = makeSpecies({ taxonomy: taxonomy({ clase: 'Reptilia', orden: 'Squamata', familia: 'Colubridae', genero: 'D', epiteto: 'w' }) });
 
     const picked = selectDistractors(target, [sameOrder, sameClass, other], rng);
 

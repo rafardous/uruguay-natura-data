@@ -82,6 +82,42 @@ npx tsx scripts/03-fetch-media.ts --limit 20
 
 > Solo se descargan imágenes CC0 y CC BY. CC BY exige atribución: el fotógrafo aparece en cada ficha y en la pantalla de Créditos. No cambies el filtro de licencias sin revisar eso.
 
+### Catálogo por grupos (`data/catalog`)
+
+El catálogo nuevo combina las fuentes públicas, resuelve nombres con GBIF y
+busca una imagen redistribuible por nombre científico aceptado:
+
+```bash
+npm run data:catalog-all
+```
+
+La etapa de imágenes consulta iNaturalist primero y Wikimedia como respaldo.
+Solo acepta licencias reutilizables, guarda URL mediana y grande, licencia,
+atribución, fuente y página original. El resultado reanudable queda en
+`data/cache/media/species-media.json` y se integra en `media.image` dentro de
+los JSON de `data/catalog/` sin reemplazar los campos enriquecidos existentes.
+Luego `data:catalog-db` consolida las apariciones repetidas por especie, conserva
+los códigos históricos que reconoce y genera `assets/db/natura.db`. La última
+etapa (`data:catalog-verify`) prueba integridad, búsqueda FTS, filtros, paginado y
+la consulta del juego antes de dar el pipeline por terminado.
+
+Para validar una muestra pequeña antes de procesar todo el catálogo:
+
+```bash
+npm run data:catalog-media -- --limit=20
+npm run data:build-catalog
+npm run data:catalog-db
+npm run data:catalog-verify
+```
+
+Las especies ya consultadas no se vuelven a pedir. Para reintentar únicamente
+las que no tuvieron resultado:
+
+```bash
+npm run data:catalog-media -- --retry-missing
+npm run data:build-catalog
+```
+
 ## Tests
 
 ```bash

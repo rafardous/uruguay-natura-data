@@ -16,9 +16,11 @@ import { useFavorites } from '../hooks/FavoritesProvider';
 import { useTheme } from '../theme/ThemeProvider';
 import {
   ChevronRightIcon,
+  CollaborateIcon,
   CloseIcon,
   HeartIcon,
   InfoIcon,
+  InterestSitesIcon,
   LeafIcon,
   SettingsIcon,
   ShieldIcon,
@@ -143,9 +145,6 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               <LeafIcon color={colors.canvasText} size={26} />
               <View>
                 <Text style={[typography.title, { color: colors.canvasText }]}>Natura UY</Text>
-                <Text style={[typography.eyebrow, { color: colors.canvasTextMuted, marginTop: 2 }]}>
-                  EXPLORÁ LO NATIVO
-                </Text>
               </View>
             </View>
             <Pressable onPress={onClose} hitSlop={10} accessibilityLabel="Cerrar menú">
@@ -178,7 +177,22 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
 
             <View style={[styles.divider, { backgroundColor: colors.canvasBorder }]} />
 
-            <Text style={[typography.eyebrow, styles.section, { color: colors.canvasTextMuted }]}>LA APP</Text>
+            <Text style={[typography.eyebrow, styles.section, { color: colors.canvasTextMuted }]}>APP</Text>
+            <DrawerLink
+              icon={<CollaborateIcon color={colors.canvasText} />}
+              label="Colaborar"
+              onPress={() => go('/collaborate')}
+            />
+            <DrawerLink
+              icon={<InterestSitesIcon color={colors.canvasText} />}
+              label="Sitios de interés"
+              onPress={() => go('/interest-sites')}
+            />
+            <DrawerLink
+              icon={<InfoIcon color={colors.canvasText} />}
+              label="Acerca de"
+              onPress={() => go('/about')}
+            />
             <DrawerLink
               icon={<SettingsIcon color={colors.canvasText} />}
               label="Configuración"

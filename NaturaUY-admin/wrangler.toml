@@ -1,0 +1,10 @@
+name = "natura-uy-admin"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "./dist"
+
+[vars]
+MEDIA_PRIMARY = "supabase"
+
+[[r2_buckets]]
+binding = "MEDIA_BACKUP"
+bucket_name = "natura-uy-media-backup"

@@ -1,0 +1,74 @@
+name: Publicar catálogo móvil
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: 'Release editorial existente (opcional)'
+        required: false
+  repository_dispatch:
+    types: [publish-catalog]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NaturaUY-admin
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      EDITORIAL_SYSTEM_USER_ID: ${{ secrets.EDITORIAL_SYSTEM_USER_ID }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      PUBLIC_MEDIA_ORIGIN: ${{ vars.PUBLIC_MEDIA_ORIGIN }}
+      CATALOG_RELEASE_ID: ${{ github.event.client_payload.release_id || inputs.release_id || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: NaturaUY-admin/package-lock.json
+      - run: npm ci
+      - id: prepare
+        run: npm run catalog:prepare-release
+      - name: Construir y validar SQLite
+        if: steps.prepare.outputs.should_publish == 'true'
+        env:
+          CATALOG_RELEASE_ID: ${{ steps.prepare.outputs.release_id }}
+        run: npm run catalog:build
+      - id: metadata
+        if: steps.prepare.outputs.should_publish == 'true'
+        run: node -e 'const m=require("./dist/catalog/build-metadata.json");require("fs").appendFileSync(process.env.GITHUB_OUTPUT,"data_version="+m.dataVersion+"\n")'
+      - name: Crear GitHub Release
+        if: steps.prepare.outputs.should_publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATA_VERSION: ${{ steps.metadata.outputs.data_version }}
+        run: gh release create "catalog-v${DATA_VERSION}" dist/catalog/* --title "Catálogo Natura UY v${DATA_VERSION}" --notes "Publicación automatizada del catálogo editorial validado."
+      - name: Finalizar manifiesto estable
+        if: steps.prepare.outputs.should_publish == 'true'
+        env:
+          CATALOG_RELEASE_ID: ${{ steps.prepare.outputs.release_id }}
+        run: npm run catalog:finalize
+      - name: Actualizar manifiesto del Release
+        if: steps.prepare.outputs.should_publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATA_VERSION: ${{ steps.metadata.outputs.data_version }}
+        run: gh release upload "catalog-v${DATA_VERSION}" dist/catalog/manifest.json --clobber
+      - name: Registrar fallo editorial
+        if: failure() && steps.prepare.outputs.should_publish == 'true'
+        env:
+          CATALOG_RELEASE_ID: ${{ steps.prepare.outputs.release_id }}
+          FAILURE_MESSAGE: 'Falló la construcción o publicación automatizada. Revisar el log de GitHub Actions.'
+        run: npm run catalog:fail
