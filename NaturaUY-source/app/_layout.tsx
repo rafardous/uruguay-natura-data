@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Alert, Platform, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Fraunces_600SemiBold, useFonts } from '@expo-google-fonts/fraunces';
@@ -86,8 +86,17 @@ void SplashScreen.preventAutoHideAsync();
 export default function RootLayout(): React.JSX.Element | null {
   const [fontsLoaded, fontError] = useFonts({ Fraunces_600SemiBold });
   const [catalogReady, setCatalogReady] = useState(false);
+  // File-based staging is native-only. On web, SQLite imports the bundled
+  // catalogue below directly into its browser-backed database.
+  const catalogAssetSource = Platform.OS === 'web'
+    ? { assetId: require('../assets/db/natura.db'), forceOverwrite: true }
+    : undefined;
 
   useEffect(() => {
+    if (Platform.OS === 'web') {
+      setCatalogReady(true);
+      return;
+    }
     void prepareCatalogDatabase(require('../assets/db/natura.db'))
       .catch((error: unknown) => console.warn('Catalogue preparation failed; opening the last local copy.', error))
       .finally(() => setCatalogReady(true));
@@ -105,6 +114,7 @@ export default function RootLayout(): React.JSX.Element | null {
         <Suspense fallback={<Loading />}>
           <SQLiteProvider
             databaseName={CATALOG_DATABASE_NAME}
+            assetSource={catalogAssetSource}
             useSuspense
           >
             <CatalogUpdateProvider>
