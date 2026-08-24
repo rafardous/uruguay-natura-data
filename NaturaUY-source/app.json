@@ -41,6 +41,14 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "catalogManifestUrl": "https://natura-uy-admin.pages.dev/catalog/manifest.json",
+      "eas": {
+        "projectId": "6f80d125-ac33-4b1a-8756-0d60df3c1c06"
+      }
+    },
+    "owner": "rafardous"
   }
 }

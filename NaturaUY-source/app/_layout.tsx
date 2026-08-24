@@ -1,5 +1,5 @@
-import { Suspense, useEffect } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { Suspense, useEffect, useState } from 'react';
+import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Fraunces_600SemiBold, useFonts } from '@expo-google-fonts/fraunces';
@@ -8,6 +8,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 
+import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/CatalogUpdateProvider';
+import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
 import { FavoritesProvider } from '../src/presentation/hooks/FavoritesProvider';
@@ -33,6 +35,9 @@ function Navigator(): React.JSX.Element {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="login" />
+        <Stack.Screen name="collaborate" />
+        <Stack.Screen name="interest-sites" />
+        <Stack.Screen name="about" />
         <Stack.Screen name="taxonomy" />
         <Stack.Screen
           name="species/[codigo]"
@@ -66,18 +71,33 @@ function Loading(): React.JSX.Element {
   );
 }
 
+function CatalogUpdateNotice(): null {
+  const updateState = useCatalogUpdateState();
+  useEffect(() => {
+    if (updateState === 'app_update_required') Alert.alert('Actualización necesaria', 'Hay un catálogo nuevo que requiere una versión más reciente de Natura UY. Mientras tanto podés seguir usando tus datos actuales.');
+  }, [updateState]);
+  return null;
+}
+
 // Held open until fonts are ready, so headline text never flashes in the
 // system font first and then jumps to Fraunces mid-render.
 void SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout(): React.JSX.Element | null {
   const [fontsLoaded, fontError] = useFonts({ Fraunces_600SemiBold });
+  const [catalogReady, setCatalogReady] = useState(false);
+
+  useEffect(() => {
+    void prepareCatalogDatabase(require('../assets/db/natura.db'))
+      .catch((error: unknown) => console.warn('Catalogue preparation failed; opening the last local copy.', error))
+      .finally(() => setCatalogReady(true));
+  }, []);
 
   useEffect(() => {
     if (fontsLoaded || fontError) void SplashScreen.hideAsync();
   }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) return null;
+  if ((!fontsLoaded && !fontError) || !catalogReady) return null;
 
   return (
     <GestureHandlerRootView style={styles.root}>
@@ -85,18 +105,18 @@ export default function RootLayout(): React.JSX.Element | null {
         <Suspense fallback={<Loading />}>
           <SQLiteProvider
             databaseName={CATALOG_DATABASE_NAME}
-            // Always re-copy: the catalogue holds no user data, so overwriting is
-            // free and guarantees a new app version ships new content.
-            assetSource={{ assetId: require('../assets/db/natura.db'), forceOverwrite: true }}
             useSuspense
           >
-            <UserDatabaseProvider>
-              <ThemeProvider>
-                <FavoritesProvider>
-                  <Navigator />
-                </FavoritesProvider>
-              </ThemeProvider>
-            </UserDatabaseProvider>
+            <CatalogUpdateProvider>
+              <CatalogUpdateNotice />
+              <UserDatabaseProvider>
+                <ThemeProvider>
+                  <FavoritesProvider>
+                    <Navigator />
+                  </FavoritesProvider>
+                </ThemeProvider>
+              </UserDatabaseProvider>
+            </CatalogUpdateProvider>
           </SQLiteProvider>
         </Suspense>
       </SafeAreaProvider>

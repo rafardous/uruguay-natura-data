@@ -20,6 +20,7 @@ import {
   Info,
   Leaf,
   LogIn,
+  Map,
   Menu,
   Newspaper,
   RotateCcw,
@@ -28,6 +29,7 @@ import {
   SlidersHorizontal,
   Star,
   Trophy,
+  Users,
   X,
   Zap,
   ZoomIn,
@@ -101,6 +103,14 @@ export const TaxonomyIcon = ({ color, size = 20 }: IconProps): React.JSX.Element
 
 export const LoginIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
   <LogIn color={color} size={size} strokeWidth={1.75} />
+);
+
+export const CollaborateIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Users color={color} size={size} strokeWidth={1.75} />
+);
+
+export const InterestSitesIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Map color={color} size={size} strokeWidth={1.75} />
 );
 
 export const NewsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

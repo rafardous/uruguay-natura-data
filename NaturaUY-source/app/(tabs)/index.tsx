@@ -349,7 +349,6 @@ export default function HomeScreen(): React.JSX.Element {
 
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
           <Text style={[typography.title, { color: colors.text }]}>Especies más buscadas</Text>
-          <Text style={[typography.body, { color: colors.textMuted, marginTop: 4 }]}>Una selección provisoria mientras construimos las estadísticas.</Text>
           <View style={{ marginTop: spacing.md }}>
             {mostSearched ? (
               <LargeSpeciesCard species={mostSearched} width={cardWidth} onPress={openSpecies} />

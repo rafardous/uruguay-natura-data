@@ -1,0 +1,50 @@
+name: Procesar medio editorial
+
+on:
+  repository_dispatch:
+    types: [process-media]
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: 'ID del trabajo de medios'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: media-${{ github.event.client_payload.job_id || inputs.job_id }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: NaturaUY-admin
+    env:
+      MEDIA_JOB_ID: ${{ github.event.client_payload.job_id || inputs.job_id }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: NaturaUY-admin/package-lock.json
+      - run: npm ci
+      - name: Preparar análisis antimalware
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clamav
+          sudo freshclam || true
+          clamscan --version
+      - name: Verificar ffmpeg
+        run: ffmpeg -version
+      - run: npm run media:process

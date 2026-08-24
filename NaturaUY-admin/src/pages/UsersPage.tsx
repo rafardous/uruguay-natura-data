@@ -1,0 +1,17 @@
+import { MailPlus, Shield, UserRoundCheck, UserRoundX } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Loading, Modal, Notice, PageHeader } from '../components/Ui';
+import type { Profile } from '../domain';
+import { inviteUser, listUsers, setUserActive } from '../lib/api';
+
+export function UsersPage(): React.JSX.Element {
+  const [users, setUsers] = useState<Profile[] | null>(null); const [invite, setInvite] = useState(false); const [message, setMessage] = useState('');
+  const load = () => void listUsers().then(setUsers).catch((error: Error) => setMessage(error.message)); useEffect(load, []);
+  async function toggle(user: Profile) { await setUserActive(user.id, !user.active); load(); }
+  return <><PageHeader eyebrow="ACCESO PRIVADO" title="Usuarios" subtitle="Sólo las personas invitadas pueden entrar al panel." action={<button className="primary" onClick={() => setInvite(true)}><MailPlus size={18} /> Invitar persona</button>} />{message && <Notice kind="success">{message}</Notice>}{!users ? <Loading /> : <section className="panel user-grid">{users.map((user) => <article key={user.id} className={!user.active ? 'inactive' : ''}><span className="user-avatar">{user.displayName.split(' ').map((part) => part[0]).slice(0,2).join('')}</span><div><h2>{user.displayName}</h2><p>{user.email}</p><span className="role"><Shield />{user.role === 'admin' ? 'Administrador' : 'Colaborador'}</span></div><button className="secondary" onClick={() => void toggle(user)}>{user.active ? <UserRoundX /> : <UserRoundCheck />}{user.active ? 'Desactivar' : 'Activar'}</button></article>)}</section>}{invite && <InviteModal onClose={() => setInvite(false)} onComplete={() => { setInvite(false); setMessage('La invitación fue enviada correctamente.'); load(); }} />}</>;
+}
+function InviteModal({ onClose, onComplete }: { onClose(): void; onComplete(): void }): React.JSX.Element {
+  const [email, setEmail] = useState(''); const [name, setName] = useState(''); const [role, setRole] = useState<Profile['role']>('collaborator'); const [busy, setBusy] = useState(false); const [error, setError] = useState('');
+  async function submit(event: React.FormEvent) { event.preventDefault(); setBusy(true); try { await inviteUser(email, name, role); onComplete(); } catch (reason) { setError(reason instanceof Error ? reason.message : 'No se pudo enviar la invitación.'); setBusy(false); } }
+  return <Modal title="Invitar colaborador" onClose={onClose}><form className="form-stack" onSubmit={(event) => void submit(event)}>{error && <Notice kind="error">{error}</Notice>}<label className="field"><span>Nombre visible</span><input value={name} onChange={(event) => setName(event.target.value)} required /></label><label className="field"><span>Correo electrónico</span><input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required /></label><label className="field"><span>Rol inicial</span><select value={role} onChange={(event) => setRole(event.target.value as Profile['role'])}><option value="collaborator">Colaborador</option><option value="admin">Administrador</option></select></label><Notice>Los colaboradores pueden crear, editar, retirar, validar y publicar especies. Sólo los administradores gestionan usuarios.</Notice><footer className="modal-actions"><button type="button" className="secondary" onClick={onClose}>Cancelar</button><button className="primary" disabled={busy}>{busy ? 'Enviando…' : 'Enviar invitación'}</button></footer></form></Modal>;
+}

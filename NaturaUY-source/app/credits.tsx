@@ -16,8 +16,18 @@ interface Source {
 
 const SOURCES: Source[] = [
   {
-    title: 'Datos de especies',
-    body: 'Sistema Nacional de Áreas Protegidas (SNAP), Ministerio de Ambiente del Uruguay. Listado de especies y estado de conservación.',
+    title: 'Catálogo histórico SNAP',
+    body: 'Exportación histórica del Sistema Nacional de Áreas Protegidas (SNAP), preservada como base de códigos, nombres comunes y campos del catálogo.',
+  },
+  {
+    title: 'Tetrápodos de Uruguay',
+    body: 'Datos de ocurrencia publicados por Biodiversidata en el portal GBIF Uruguay. Licencia CC BY 4.0.',
+    url: 'https://cloud.gbif.org/uy/archive.do?r=tetrapodos_de_uruguay',
+  },
+  {
+    title: 'Listas Rojas de fauna del Uruguay',
+    body: 'Checklist de especies de fauna evaluadas y reportadas en Listas Rojas, publicado en el portal GBIF Uruguay por el Ministerio de Ambiente.',
+    url: 'https://cloud.gbif.org/uy/archive.do?r=listas_rojas_fauna_uy',
   },
   {
     title: 'Nombres científicos',
@@ -55,10 +65,17 @@ export default function CreditsScreen(): React.JSX.Element {
         {stats && (
           <View style={[styles.summary, { backgroundColor: colors.canvas, borderRadius: radius.lg, padding: spacing.lg }]}>
             <Text style={[typography.body, { color: colors.canvasText }]}>
-              {stats.total} especies del SNAP, {stats.withPhoto} con fotografía de licencia libre.
+              {stats.total} especies en el catálogo, {stats.withPhoto} con fotografía de licencia libre.
             </Text>
           </View>
         )}
+
+        <View
+          style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}
+        >
+          <Text style={[typography.label, { color: colors.text }]}>Desarrollo de la aplicación</Text>
+          <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Rafael Rinaldi · Agustín Morelle</Text>
+        </View>
 
         {SOURCES.map((source) => (
           <View

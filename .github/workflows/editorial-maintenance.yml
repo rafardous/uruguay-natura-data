@@ -1,0 +1,67 @@
+name: Mantenimiento editorial
+
+on:
+  schedule:
+    - cron: '20 3 * * *'
+    - cron: '40 3 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup-and-cleanup:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NaturaUY-admin
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      BACKUP_ENCRYPTION_PASSWORD: ${{ secrets.BACKUP_ENCRYPTION_PASSWORD }}
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: NaturaUY-admin/package-lock.json
+      - run: npm ci
+      - name: Respaldo lógico cifrado
+        run: |
+          pg_dump "$SUPABASE_DB_URL" --schema=public --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
+      - name: Guardar y aplicar retención
+        env:
+          BACKUP_FILE: ${{ github.workspace }}/NaturaUY-admin/editorial-${{ github.run_id }}.sql.gz.enc
+        run: |
+          mv editorial-*.sql.gz.enc "$BACKUP_FILE"
+          npm run backup:upload
+      - run: npm run media:cleanup
+
+  verify-media:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '40 3 1 * *'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NaturaUY-admin
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: NaturaUY-admin/package-lock.json
+      - run: npm ci
+      - run: npm run backup:verify-media

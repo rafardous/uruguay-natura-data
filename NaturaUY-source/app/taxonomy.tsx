@@ -145,6 +145,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
     orden?: string;
     familia?: string;
     genero?: string;
+    returnToSpecies?: string;
   }>();
   const paramsKey = TAXON_RANKS.map((rank) => params[rank] ?? '').join('|');
   const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
@@ -160,6 +161,10 @@ export default function TaxonomyScreen(): React.JSX.Element {
   }, [paramsKey]);
 
   const goBack = useCallback(() => {
+    if (params.returnToSpecies) {
+      router.back();
+      return;
+    }
     const last = selectedRanks.at(-1);
     if (!last) {
       router.replace('/explore');
@@ -170,7 +175,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
       delete next[last];
       return next;
     });
-  }, [router, selectedRanks]);
+  }, [params.returnToSpecies, router, selectedRanks]);
 
   useFocusEffect(useCallback(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {

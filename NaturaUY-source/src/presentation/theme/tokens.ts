@@ -93,7 +93,7 @@ export const lightColors: ThemeColors = {
   textSecondary: '#465A50',
   textMuted: '#5D6C64',
 
-  primary: '#35634C',
+  primary: '#477052',
   onPrimary: '#FFFFFF',
   primaryContainer: '#D8E7D3',
   onPrimaryContainer: '#294A3A',
@@ -101,16 +101,16 @@ export const lightColors: ThemeColors = {
   border: '#D7D5BE',
   outline: '#6C7B72',
 
-  canvas: '#35634C',
+  canvas: '#477052',
   canvasText: '#FFF9EA',
-  canvasTextMuted: '#DAE7D8',
+  canvasTextMuted: '#E4F0E3',
   canvasActive: '#47765E',
   canvasBorder: 'rgba(255,249,234,0.18)',
 
   accent: '#BDD0B7',
   onAccent: '#293832',
 
-  navInactiveText: '#DAE7D8',
+  navInactiveText: '#E4F0E3',
 
   skeleton: '#E9E2CF',
   skeletonHighlight: '#F9F2E1',

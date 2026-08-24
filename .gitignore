@@ -2,6 +2,11 @@
 NaturaUY-source/node_modules/
 NaturaUY-source/.expo/
 NaturaUY-source/.npm/
+NaturaUY-admin/node_modules/
+NaturaUY-admin/dist/
+NaturaUY-admin/*.tsbuildinfo
+NaturaUY-admin/.wrangler/
+NaturaUY-admin/editorial-*.sql.gz.enc
 
 # Expo / React Native generated output
 NaturaUY-source/android/
@@ -32,4 +37,3 @@ npm-debug.*
 .DS_Store
 Thumbs.db
 .idea/
-

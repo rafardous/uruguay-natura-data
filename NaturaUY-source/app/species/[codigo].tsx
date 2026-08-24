@@ -116,7 +116,13 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       params[candidate] = values[candidate];
       if (candidate === rank) break;
     }
-    router.replace({ pathname: '/taxonomy', params });
+    // Keep this form sheet on the navigation stack. The taxonomy screen knows
+    // this came from a species card, so either Android's Back button or its
+    // own back affordance returns to this exact, still-open sheet.
+    router.push({
+      pathname: '/taxonomy',
+      params: { ...params, returnToSpecies: species.codigo },
+    });
   };
 
   return (
