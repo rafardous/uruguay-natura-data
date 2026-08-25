@@ -1,8 +1,6 @@
 name: Publicar catálogo móvil
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       release_id:
