@@ -1,4 +1,4 @@
-import type { CatalogRelease, DashboardStats, MediaAsset, Profile, Revision, SpeciesPayload, SpeciesSummary } from '../domain';
+import type { CatalogRelease, DashboardStats, MediaAsset, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { demoMedia, demoProfile, demoReleases, demoRevisions, demoSpecies, demoStats } from './demo';
 import { isDemoMode, supabase } from './supabase';
 
@@ -120,9 +120,9 @@ export async function listMedia(): Promise<MediaAsset[]> {
   return (data ?? []).map((row) => ({ id: row.id, jobId: row.job_id ?? null, speciesId: row.species_id, speciesName: row.species_name, kind: row.kind, state: row.state, author: row.author, license: row.license, sourceUrl: row.source_url ?? '', uploadedBy: row.uploaded_by_name, createdAt: row.created_at, error: row.error }));
 }
 
-export async function createMediaAsset(input: { speciesId: string; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; sourceUrl: string; evidenceKey: string | null; incomingKey: string }): Promise<string> {
+export async function createMediaAsset(input: { speciesId: string; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; sourceUrl: string; evidenceKey: string | null; incomingKey: string; clipStartSeconds?: number; clipDurationSeconds?: number }): Promise<string> {
   if (isDemoMode) return crypto.randomUUID();
-  const { data, error } = await assertClient().rpc('create_media_asset', { p_species_id: input.speciesId, p_kind: input.kind, p_author: input.author, p_license: input.license, p_source_url: input.sourceUrl || null, p_evidence_key: input.evidenceKey, p_incoming_key: input.incomingKey, p_terms_version: '2026-08-01' });
+  const { data, error } = await assertClient().rpc('create_media_asset', { p_species_id: input.speciesId, p_kind: input.kind, p_author: input.author, p_license: input.license, p_source_url: input.sourceUrl || null, p_evidence_key: input.evidenceKey, p_incoming_key: input.incomingKey, p_terms_version: '2026-08-26', p_clip_start_seconds: input.clipStartSeconds ?? null, p_clip_duration_seconds: input.clipDurationSeconds ?? null });
   if (error) throw error; return String(data);
 }
 
@@ -157,4 +157,21 @@ export async function inviteUser(email: string, displayName: string, role: Profi
 export async function setUserActive(userId: string, active: boolean): Promise<void> {
   if (isDemoMode) return;
   const { error } = await assertClient().functions.invoke('set-user-active', { body: { userId, active } }); if (error) throw error;
+}
+
+export async function listUserReports(): Promise<UserReport[]> {
+  if (isDemoMode) return [];
+  const { data, error } = await assertClient().from('editor_report_queue').select('*').order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({
+    id: row.id, kind: row.kind, catalogCode: row.catalog_code, description: row.description,
+    appVersion: row.app_version, platform: row.platform, state: row.state,
+    reporterName: row.reporter_name, reporterAlias: row.reporter_alias, createdAt: row.created_at,
+  }));
+}
+
+export async function resolveUserReport(id: string, state: 'reviewing' | 'resolved' | 'dismissed', note = ''): Promise<void> {
+  if (isDemoMode) return;
+  const { error } = await assertClient().rpc('resolve_user_report', { p_report_id: id, p_state: state, p_resolution_note: note || null });
+  if (error) throw error;
 }

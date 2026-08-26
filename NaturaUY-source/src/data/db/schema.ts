@@ -86,4 +86,19 @@ export const USER_MIGRATIONS: string[] = [
    );`,
   `INSERT OR IGNORE INTO quiz_records (mode, scope, best_score, best_streak, played_at)
    SELECT mode, 'animals_all', best_score, best_streak, played_at FROM quiz_scores;`,
+  `CREATE TABLE IF NOT EXISTS favorite_sync (
+     codigo      TEXT PRIMARY KEY,
+     is_favorite INTEGER NOT NULL CHECK (is_favorite IN (0, 1)),
+     updated_at  INTEGER NOT NULL
+   );`,
+  `INSERT OR IGNORE INTO favorite_sync (codigo, is_favorite, updated_at)
+   SELECT codigo, 1, created_at FROM favorites;`,
+  `CREATE TABLE IF NOT EXISTS quiz_sync (
+     mode       TEXT NOT NULL,
+     scope      TEXT NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (mode, scope)
+   );`,
+  `INSERT OR IGNORE INTO quiz_sync (mode, scope, updated_at)
+   SELECT mode, scope, COALESCE(played_at, 1) FROM quiz_records;`,
 ];

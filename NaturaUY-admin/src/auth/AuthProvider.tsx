@@ -12,6 +12,7 @@ interface AuthState {
   mfa: { factorId: string; qrCode: string | null; secret: string | null } | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
+  signInWithGoogle(): Promise<string | null>;
   verifyMfa(code: string): Promise<string | null>;
   setPassword(password: string): Promise<string | null>;
   resetPassword(email: string): Promise<string | null>;
@@ -28,9 +29,12 @@ const initialPasswordFlow = (): AuthState['passwordFlow'] => {
 
 async function loadProfile(session: Session): Promise<Profile | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.from('profiles').select('id, display_name, role, is_active, mfa_required').eq('id', session.user.id).single();
-  if (error || !data?.is_active) return null;
-  return { id: data.id, displayName: data.display_name, email: session.user.email ?? '', role: data.role, active: data.is_active, mfaRequired: data.mfa_required };
+  const [{ data: profile, error: profileError }, { data: membership, error: membershipError }] = await Promise.all([
+    supabase.from('profiles').select('id, display_name').eq('id', session.user.id).single(),
+    supabase.from('editor_memberships').select('role, is_active, mfa_required').eq('user_id', session.user.id).single(),
+  ]);
+  if (profileError || membershipError || !profile || !membership?.is_active) return null;
+  return { id: profile.id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.is_active, mfaRequired: membership.mfa_required };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
@@ -69,6 +73,11 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     async signIn(email, password) {
       if (!supabase) { setProfile(demoProfile); return null; }
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
+    },
+    async signInWithGoogle() {
+      if (!supabase) { setProfile(demoProfile); return null; }
+      const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/login` } });
+      return error?.message ?? null;
     },
     async verifyMfa(code) {
       if (!supabase || !mfa) return 'No hay una verificación pendiente.';

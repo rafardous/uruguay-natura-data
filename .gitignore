@@ -6,6 +6,7 @@ NaturaUY-admin/node_modules/
 NaturaUY-admin/dist/
 NaturaUY-admin/*.tsbuildinfo
 NaturaUY-admin/.wrangler/
+NaturaUY-admin/supabase/.temp/
 NaturaUY-admin/editorial-*.sql.gz.enc
 
 # Expo / React Native generated output

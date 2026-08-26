@@ -47,14 +47,22 @@ export const quizRepository = {
     score: number,
     streak: number,
   ): Promise<void> {
-    await db.runAsync(
-      `INSERT INTO quiz_records (mode, scope, best_score, best_streak, played_at)
-       VALUES (?, ?, ?, ?, ?)
-       ON CONFLICT(mode, scope) DO UPDATE SET
-         best_score  = MAX(best_score, excluded.best_score),
-         best_streak = MAX(best_streak, excluded.best_streak),
-         played_at   = excluded.played_at`,
-      [mode, scope, score, streak, Date.now()],
-    );
+    const now = Date.now();
+    await db.withTransactionAsync(async () => {
+      await db.runAsync(
+        `INSERT INTO quiz_records (mode, scope, best_score, best_streak, played_at)
+         VALUES (?, ?, ?, ?, ?)
+         ON CONFLICT(mode, scope) DO UPDATE SET
+           best_score  = MAX(best_score, excluded.best_score),
+           best_streak = MAX(best_streak, excluded.best_streak),
+           played_at   = excluded.played_at`,
+        [mode, scope, score, streak, now],
+      );
+      await db.runAsync(
+        `INSERT INTO quiz_sync (mode, scope, updated_at) VALUES (?, ?, ?)
+         ON CONFLICT(mode, scope) DO UPDATE SET updated_at = excluded.updated_at`,
+        [mode, scope, now],
+      );
+    });
   },
 };

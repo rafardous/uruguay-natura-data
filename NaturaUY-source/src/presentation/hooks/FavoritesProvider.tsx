@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 
 import { useUserDatabase } from '../../data/db/UserDatabaseProvider';
 import { favoritesRepository } from '../../data/repositories/favoritesRepository';
+import { useMobileSync } from '../../sync/MobileSyncProvider';
 
 interface FavoritesContextValue {
   codigos: string[];
@@ -18,11 +19,12 @@ const FavoritesContext = createContext<FavoritesContextValue | null>(null);
  */
 export function FavoritesProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const db = useUserDatabase();
+  const { requestSync, revision } = useMobileSync();
   const [codigos, setCodigos] = useState<string[]>([]);
 
   useEffect(() => {
     void favoritesRepository.listCodigos(db).then(setCodigos);
-  }, [db]);
+  }, [db, revision]);
 
   const toggle = useCallback(
     (codigo: string) => {
@@ -30,9 +32,9 @@ export function FavoritesProvider({ children }: { children: ReactNode }): React.
       setCodigos((current) =>
         current.includes(codigo) ? current.filter((c) => c !== codigo) : [codigo, ...current],
       );
-      void favoritesRepository.toggle(db, codigo);
+      void favoritesRepository.toggle(db, codigo).then(requestSync);
     },
-    [db],
+    [db, requestSync],
   );
 
   const value = useMemo<FavoritesContextValue>(() => {

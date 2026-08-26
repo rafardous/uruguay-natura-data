@@ -6,13 +6,13 @@ Natura UY es un catálogo de biodiversidad de Uruguay. El repositorio contiene:
 
 - Una aplicación móvil Expo/React Native que funciona offline con SQLite.
 - Un panel editorial privado React/Vite para que administradores y colaboradores mantengan el catálogo.
-- Infraestructura como código para Supabase, Cloudflare Pages/R2 y GitHub Actions.
+- Infraestructura como código para Supabase, Cloudflare Pages y GitHub Actions; R2 es una ampliación futura opcional.
 
 La interfaz y la documentación del proyecto se escriben en español rioplatense, salvo nombres técnicos y código.
 
 ## Estado actual
 
-- El panel y la infraestructura están implementados localmente, pero **Supabase, R2, Cloudflare Pages y los secretos de GitHub aún no fueron aprovisionados**.
+- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está vinculado: las tres migraciones, Auth config y cuatro Edge Functions fueron desplegadas y el linter remoto no reporta errores. **Todavía faltan Google OAuth, primer administrador, importación, secretos de GitHub y Cloudflare Pages**. R2 no forma parte del primer despliegue.
 - El panel editorial sí puede ejecutarse hoy en modo demostración local: sin `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` usa datos y sesión simulados; no confundir esa demo con una conexión editorial real.
 - Por ahora, los datos existentes siguen en `NaturaUY-source/data/catalog/` y `NaturaUY-source/assets/db/natura.db`.
 - Después de realizar la importación inicial a Supabase, la fuente editorial definitiva pasa a ser PostgreSQL. Los JSON y `natura.db` serán artefactos derivados y versionados.
@@ -39,6 +39,7 @@ Rutas que existen en el router actual:
 - `/species/:id`: editor, revisiones, fuentes y validación.
 - `/media`: medios y trabajos de procesamiento.
 - `/releases`: publicaciones y solicitud de catálogo.
+- `/reports`: reportes autenticados enviados desde la app móvil.
 - `/users`: usuarios; sólo se muestra para perfiles administradores.
 - `/login`: la pantalla de acceso se muestra cuando no hay sesión real.
 
@@ -71,21 +72,22 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 3. Una edición crea una revisión nueva. Nunca sobrescribir ni borrar revisiones ni especies físicamente.
 4. `abundanceStatus` no es conservación. Conservar separados abundancia, conservación, origen, establecimiento, estacionalidad y certeza.
 5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie.
-6. Favoritos, preferencias y juegos van en `user.db`; nunca se mezclan con el catálogo reemplazable `natura.db`.
+6. Favoritos, preferencias y juegos tienen fuente offline en `user.db`; nunca se mezclan con `natura.db`. Si hay cuenta Google, se sincronizan con Supabase sin volver al backend un requisito de arranque.
 7. Cada medio nuevo debe registrar autoría y derechos. Sólo aceptar CC0, CC BY 4.0 o autorización verificable; las licencias heredadas se preservan como históricas.
-8. Los medios procesados se verifican en Supabase Storage y R2 antes de eliminar el original temporal. Las URLs públicas deben seguir el patrón estable `/m/{assetId}/{variant}`.
-9. No incluir secretos, archivos `.env`, medios, builds, `node_modules` ni backups en Git.
+8. Los medios procesados se verifican en Supabase Storage antes de eliminar el original temporal. Si en el futuro se configura R2, también se verifica allí. Las URLs públicas siguen `/m/{assetId}/{variant}`.
+9. Las imágenes definitivas usan lado mayor de 1600 px y miniatura de 480 px. Los audios definitivos duran como máximo 15 s, son mono, MP3 96 kbps y 48 kHz.
+10. No incluir secretos, archivos `.env`, medios, builds, `node_modules` ni backups en Git.
 
 ## Reglas de seguridad
 
-- No habilitar registro público. Las cuentas se crean por invitación.
+- No habilitar registro público **editorial**. Google OAuth se admite para cuentas móviles; una identidad sólo entra al panel si además tiene una fila activa en `editor_memberships` creada por invitación.
 - Administradores requieren MFA TOTP; no quitar esta condición en frontend, RLS o Edge Functions.
 - Las escrituras editoriales usan las RPCs existentes (`save_species`, bajas/restauraciones, validación, rollback, medios y publicación). No abrir escrituras directas de tablas desde el navegador.
-- No exponer `SUPABASE_SERVICE_ROLE_KEY`, credenciales R2, tokens de GitHub ni evidencia privada de permisos.
+- No exponer `SUPABASE_SERVICE_ROLE_KEY`, tokens de GitHub ni evidencia privada de permisos. La URL y publishable key sí son públicas y dependen de RLS.
 
 ## Flujo de datos y publicación
 
-1. Un editor guarda una revisión o medio en Supabase; se registra auditoría y el catálogo queda `dirty`.
+1. La app funciona offline y sincroniza favoritos/récords sólo cuando hay sesión. Un editor guarda una revisión o medio en Supabase; se registra auditoría y el catálogo queda `dirty`.
 2. GitHub Actions procesa el medio o genera catálogo JSON/SQLite, manifiesto e informe de calidad.
 3. Cloudflare Pages sirve el manifiesto y resuelve URLs de medios.
 4. La app abre primero la base local válida; consulta el manifiesto sin bloquearse, descarga una actualización a `natura.next.db`, valida SHA-256/esquema/SQLite y la activa en el siguiente inicio. Ante error conserva o restaura la base anterior.
@@ -119,5 +121,5 @@ npm test -- --runInBand
 
 - `NaturaUY-admin/README.md`: alcance y uso del panel.
 - `NaturaUY-admin/docs/deployment.md`: aprovisionamiento y operación.
-- `NaturaUY-admin/supabase/migrations/202608230001_editorial_foundation.sql`: contrato real de base, permisos y RPCs.
+- `NaturaUY-admin/supabase/migrations/`: contrato real de base, cuentas unificadas, sincronización, medios, permisos y RPCs.
 - `NaturaUY-source/src/data/db/catalogUpdater.ts`: contrato de actualización móvil.

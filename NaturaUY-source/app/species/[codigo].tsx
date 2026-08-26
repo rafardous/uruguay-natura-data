@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter, type Href } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import Animated, {
@@ -462,6 +462,16 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
+            <Staggered index={11}>
+              <Pressable
+                onPress={() => router.push({ pathname: '/report', params: { kind: 'data_error', codigo: species.codigo } } as unknown as Href)}
+                style={[styles.reportButton, { borderColor: colors.border, borderRadius: radius.pill, marginTop: spacing.xl }]}
+              >
+                <Text style={[typography.label, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text>
+                <ChevronRightIcon color={colors.textMuted} size={16} />
+              </Pressable>
+            </Staggered>
+
           </View>
           </Animated.ScrollView>
         </GestureDetector>
@@ -498,4 +508,5 @@ const styles = StyleSheet.create({
   classification: { overflow: 'hidden', paddingHorizontal: 14 },
   classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
   classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },
+  reportButton: { minHeight: 48, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
 });

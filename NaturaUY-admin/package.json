@@ -14,8 +14,9 @@
     "catalog:build": "tsx scripts/build-catalog.ts",
     "catalog:finalize": "tsx scripts/finalize-release.ts",
     "media:process": "tsx scripts/process-media.ts",
+    "media:migrate-external": "tsx scripts/migrate-external-images.ts",
     "media:cleanup": "tsx scripts/cleanup-incoming.ts",
-    "backup:verify-media": "tsx scripts/verify-media-backup.ts",
+    "media:verify": "tsx scripts/verify-media-primary.ts",
     "backup:upload": "tsx scripts/upload-backup.ts",
     "catalog:fail": "tsx scripts/fail-release.ts"
   },
@@ -23,9 +24,11 @@
     "@aws-sdk/client-s3": "^3.1116.0",
     "@supabase/supabase-js": "^2.112.3",
     "lucide-react": "^0.468.0",
+    "pica": "^10.0.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "tus-js-client": "^4.3.1"
+    "tus-js-client": "^4.3.1",
+    "wavesurfer.js": "^7.12.11"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260823.1",
@@ -34,6 +37,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.4",
     "sharp": "^0.35.3",
+    "supabase": "^2.115.0",
     "tsx": "^4.23.12",
     "typescript": "~6.0.3",
     "vite": "^7.1.7"

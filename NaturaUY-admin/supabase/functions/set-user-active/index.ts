@@ -6,7 +6,7 @@ Deno.serve(async (request) => {
   try {
     const actor = await requireActor(request, true); const { userId, active } = await request.json();
     if (typeof userId !== 'string' || typeof active !== 'boolean' || userId === actor.user.id) return json({ error: 'invalid_user_change' }, 400);
-    const { error } = await serviceClient().from('profiles').update({ is_active: active, updated_at: new Date().toISOString() }).eq('id', userId);
+    const { error } = await serviceClient().from('editor_memberships').update({ is_active: active, updated_at: new Date().toISOString() }).eq('user_id', userId);
     if (error) return json({ error: error.message }, 400);
     await serviceClient().from('audit_events').insert({ actor_id: actor.user.id, event_type: active ? 'user.activated' : 'user.disabled', entity_type: 'user', entity_id: userId });
     return json({ ok: true });

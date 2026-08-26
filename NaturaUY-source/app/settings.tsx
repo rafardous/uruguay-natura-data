@@ -1,5 +1,5 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, type Href } from 'expo-router';
 
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { ChevronRightIcon, CloseIcon } from '../src/presentation/components/TabIcons';
@@ -62,6 +62,17 @@ export default function SettingsScreen(): React.JSX.Element {
         </View>
 
         <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.xl }]}>ACERCA DE</Text>
+
+        <Pressable
+          onPress={() => router.push({ pathname: '/report', params: { kind: 'app_bug' } } as unknown as Href)}
+          style={[styles.group, styles.linkRow, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}
+        >
+          <View style={styles.flex}>
+            <Text style={[typography.label, { color: colors.text }]}>Reportar un problema</Text>
+            <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Requiere iniciar sesión para evitar spam</Text>
+          </View>
+          <ChevronRightIcon color={colors.textMuted} />
+        </Pressable>
 
         <Pressable
           onPress={() => router.push('/credits')}

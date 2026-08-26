@@ -7,6 +7,7 @@ import { useUserDatabase } from '../../data/db/UserDatabaseProvider';
 import { quizRepository } from '../../data/repositories/quizRepository';
 import { speciesRepository } from '../../data/repositories/speciesRepository';
 import { answerQuestion, buildQuestion, eligibleTargets, finishRun, grantExtraLife, shuffle } from '../../domain/services/quizEngine';
+import { useMobileSync } from '../../sync/MobileSyncProvider';
 
 export interface QuizRun {
   loading: boolean;
@@ -31,6 +32,7 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
   // Questions come from the catalogue; records are written to the user database.
   const catalog = useSQLiteContext();
   const userDb = useUserDatabase();
+  const { requestSync } = useMobileSync();
 
   const [pool, setPool] = useState<Species[]>([]);
   const [loading, setLoading] = useState(true);
@@ -84,8 +86,8 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
   useEffect(() => {
     if (!state.finished || submitted.current) return;
     submitted.current = true;
-    void quizRepository.submitRun(userDb, mode, scope, state.score, state.bestStreakThisRun);
-  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode, scope]);
+    void quizRepository.submitRun(userDb, mode, scope, state.score, state.bestStreakThisRun).then(requestSync);
+  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode, scope, requestSync]);
 
   const answer = useCallback(
     (codigo: string): boolean => {

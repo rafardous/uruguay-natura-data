@@ -122,6 +122,19 @@ export interface CatalogRelease {
   error: string | null;
 }
 
+export interface UserReport {
+  id: string;
+  kind: 'data_error' | 'app_bug';
+  catalogCode: string | null;
+  description: string;
+  appVersion: string;
+  platform: string;
+  state: 'open' | 'reviewing' | 'resolved' | 'dismissed';
+  reporterName: string;
+  reporterAlias: string | null;
+  createdAt: string;
+}
+
 export const emptySpeciesPayload = (): SpeciesPayload => ({
   scientificName: '', acceptedName: '', commonNames: [],
   taxonomy: { kingdom: 'Animalia', phylum: 'Chordata', class: '', order: '', family: '', genus: '' },

@@ -46,7 +46,7 @@ console.log(`Catalog records: ${items.length}; unique species: ${speciesRows.len
 if (dryRun) process.exit(0);
 
 const client = adminClient(); const actor = required('EDITORIAL_BOOTSTRAP_USER_ID');
-const { data: profile, error: profileError } = await client.from('profiles').select('id').eq('id', actor).single(); if (profileError || !profile) throw new Error('EDITORIAL_BOOTSTRAP_USER_ID must reference an invited Supabase user');
+const { data: membership, error: membershipError } = await client.from('editor_memberships').select('user_id,is_active').eq('user_id', actor).single(); if (membershipError || !membership?.is_active) throw new Error('EDITORIAL_BOOTSTRAP_USER_ID must reference an active editorial member');
 for (const batch of chunks(speciesRows, 100)) {
   const { error } = await client.from('species').upsert(batch.map((row) => ({ id: row.id, catalog_code: row.catalog_code, lifecycle: 'active', current_revision: 1, created_by: actor })), { onConflict: 'id' }); if (error) throw error;
   const revisionRows = batch.map((row) => ({ species_id: row.id, revision: 1, payload: row.payload, validation_state: row.review, edited_by: actor, reason: 'Importación del catálogo existente' }));
