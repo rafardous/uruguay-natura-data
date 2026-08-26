@@ -4,18 +4,16 @@ import { useRouter } from 'expo-router';
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { ChevronRightIcon, CloseIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
-import { useTheme, useThemeMode, type ThemeMode } from '../src/presentation/theme/ThemeProvider';
+import { useTheme } from '../src/presentation/theme/ThemeProvider';
 
-const MODES: { id: ThemeMode; label: string; hint: string }[] = [
-  { id: 'system', label: 'Automático', hint: 'Sigue la configuración del sistema' },
-  { id: 'light', label: 'Claro', hint: 'Siempre en tonos claros' },
-  { id: 'dark', label: 'Oscuro', hint: 'Siempre en tonos oscuros' },
+const MODES = [
+  { id: 'light', label: 'Claro', hint: 'Siempre en tonos claros', disabled: false },
+  { id: 'dark', label: 'Oscuro', hint: 'Próximamente', disabled: true },
 ];
 
 export default function SettingsScreen(): React.JSX.Element {
   const router = useRouter();
   const { colors, radius, spacing, typography } = useTheme();
-  const { mode, setMode } = useThemeMode();
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
@@ -32,15 +30,13 @@ export default function SettingsScreen(): React.JSX.Element {
 
         <View style={[styles.group, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}>
           {MODES.map((option, index) => {
-            const selected = mode === option.id;
+            const selected = option.id === 'light';
 
             return (
               <Pressable
                 key={option.id}
-                onPress={() => {
-                  haptics.tick();
-                  setMode(option.id);
-                }}
+                onPress={() => haptics.tick()}
+                disabled={option.disabled}
                 accessibilityRole="radio"
                 accessibilityState={{ selected }}
                 style={[
@@ -49,7 +45,7 @@ export default function SettingsScreen(): React.JSX.Element {
                 ]}
               >
                 <View style={styles.flex}>
-                  <Text style={[typography.label, { color: colors.text }]}>{option.label}</Text>
+                  <Text style={[typography.label, { color: option.disabled ? colors.textMuted : colors.text }]}>{option.label}</Text>
                   <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>{option.hint}</Text>
                 </View>
                 <View

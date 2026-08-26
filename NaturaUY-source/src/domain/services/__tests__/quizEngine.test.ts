@@ -1,7 +1,7 @@
 import { createRun, QUIZ_MODES } from '../../entities/quiz';
 import type { Taxonomy } from '../../entities/species';
 import { makeSpecies, seededRng } from '../../../testing/speciesFactory';
-import { answerQuestion, buildQuestion, eligibleTargets, selectDistractors } from '../quizEngine';
+import { answerQuestion, buildQuestion, eligibleTargets, grantExtraLife, selectDistractors } from '../quizEngine';
 
 const taxonomy = (overrides: Partial<Taxonomy>): Taxonomy => ({
   kingdom: 'Animalia',
@@ -163,5 +163,13 @@ describe('answerQuestion', () => {
 
     expect(state.finished).toBe(false);
     expect(state.score).toBe(30);
+  });
+
+  it('grants an extra survival life without changing the score or streak', () => {
+    const state = { ...createRun('survival'), score: 8, streak: 8 };
+    const rewarded = grantExtraLife(state);
+    expect(rewarded.livesLeft).toBe(4);
+    expect(rewarded.score).toBe(8);
+    expect(rewarded.streak).toBe(8);
   });
 });

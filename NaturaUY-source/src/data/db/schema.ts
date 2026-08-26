@@ -76,4 +76,14 @@ export const USER_MIGRATIONS: string[] = [
      key   TEXT PRIMARY KEY,
      value TEXT NOT NULL
    );`,
+  `CREATE TABLE IF NOT EXISTS quiz_records (
+     mode        TEXT NOT NULL,
+     scope       TEXT NOT NULL,
+     best_score  INTEGER NOT NULL DEFAULT 0,
+     best_streak INTEGER NOT NULL DEFAULT 0,
+     played_at   INTEGER,
+     PRIMARY KEY (mode, scope)
+   );`,
+  `INSERT OR IGNORE INTO quiz_records (mode, scope, best_score, best_streak, played_at)
+   SELECT mode, 'animals_all', best_score, best_streak, played_at FROM quiz_scores;`,
 ];

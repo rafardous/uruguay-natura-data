@@ -6,21 +6,28 @@
  * a hand-drawn SVG set that had a broken path in GameIcon — stays a one-file
  * change instead of touching every screen.
  */
+import { View } from 'react-native';
 import {
+  BadgeInfo,
+  Bird,
+  BookOpen,
   Check,
   ArrowLeft,
   ChevronRight,
   Clock,
   Compass,
+  Database,
+  ExternalLink,
   Flame,
   Gamepad2,
   GitFork,
+  HandHeart,
   Heart,
   House,
-  Info,
+  Images,
   Leaf,
   LogIn,
-  Map,
+  MapPinned,
   Menu,
   Newspaper,
   RotateCcw,
@@ -29,7 +36,7 @@ import {
   SlidersHorizontal,
   Star,
   Trophy,
-  Users,
+  Trees,
   X,
   Zap,
   ZoomIn,
@@ -78,7 +85,7 @@ export const ShieldIcon = ({ color, size = 22 }: IconProps): React.JSX.Element =
 );
 
 export const InfoIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Info color={color} size={size} strokeWidth={1.75} />
+  <BadgeInfo color={color} size={size} strokeWidth={1.75} />
 );
 
 export const SettingsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
@@ -98,7 +105,9 @@ export const BackIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => 
 );
 
 export const TaxonomyIcon = ({ color, size = 20 }: IconProps): React.JSX.Element => (
-  <GitFork color={color} size={size} strokeWidth={1.75} />
+  <View style={{ width: size, height: size, transform: [{ rotate: '180deg' }] }}>
+    <GitFork color={color} size={size} strokeWidth={1.75} />
+  </View>
 );
 
 export const LoginIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
@@ -106,11 +115,35 @@ export const LoginIcon = ({ color, size = 22 }: IconProps): React.JSX.Element =>
 );
 
 export const CollaborateIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Users color={color} size={size} strokeWidth={1.75} />
+  <HandHeart color={color} size={size} strokeWidth={1.75} />
 );
 
 export const InterestSitesIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Map color={color} size={size} strokeWidth={1.75} />
+  <MapPinned color={color} size={size} strokeWidth={1.75} />
+);
+
+export const BiomesIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Trees color={color} size={size} strokeWidth={1.75} />
+);
+
+export const CreditsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <BookOpen color={color} size={size} strokeWidth={1.75} />
+);
+
+export const ExternalLinkIcon = ({ color, size = 18 }: IconProps): React.JSX.Element => (
+  <ExternalLink color={color} size={size} strokeWidth={1.75} />
+);
+
+export const DatabaseIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Database color={color} size={size} strokeWidth={1.75} />
+);
+
+export const GalleryIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Images color={color} size={size} strokeWidth={1.75} />
+);
+
+export const BirdIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Bird color={color} size={size} strokeWidth={1.75} />
 );
 
 export const NewsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

@@ -73,7 +73,7 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
 const styles = StyleSheet.create({
   topRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   // A suspended circle rather than a bare glyph pinned to the layout grid.
-  menuButton: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center' },
+  menuButton: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   titleRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 12 },
   flex: { flex: 1 },
   badge: { paddingHorizontal: 12, paddingVertical: 7 },

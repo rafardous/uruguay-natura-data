@@ -1,9 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
+import Animated, {
+  FadeInDown,
+  interpolate,
+  runOnJS,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
 import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel } from '../../src/domain/catalogLabels';
@@ -52,16 +63,13 @@ function Fact({ label, value, container, onContainer }: { label: string; value: 
   );
 }
 
-/**
- * Rendered inside a native `formSheet` (see app/_layout.tsx), so this screen owns
- * none of the sheet's own motion or backdrop — the OS drives the slide-up entry,
- * the dim behind it, and swipe-to-dismiss. This file only owns its content.
- */
+/** A custom sheet keeps Android scrolling predictable and owns its dismiss gesture. */
 export default function SpeciesDetailScreen(): React.JSX.Element {
   const { codigo } = useLocalSearchParams<{ codigo: string }>();
   const db = useSQLiteContext();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const { height: windowHeight } = useWindowDimensions();
   const { colors, radius, spacing, typography } = useTheme();
   const { isFavorite, toggle } = useFavorites();
 
@@ -69,6 +77,75 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [notFound, setNotFound] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const palette = useSpeciesPalette(species);
+
+  const scrollY = useSharedValue(0);
+  const sheetY = useSharedValue(0);
+  const sheetDragOrigin = useSharedValue(0);
+  const draggingSheet = useSharedValue(false);
+  const dismissing = useSharedValue(false);
+
+  const dismiss = (): void => {
+    router.back();
+  };
+
+  const scrollGesture = Gesture.Native();
+  const dismissGesture = Gesture.Pan()
+    .enabled(!lightboxOpen)
+    .activeOffsetY(8)
+    .failOffsetX([-28, 28])
+    .simultaneousWithExternalGesture(scrollGesture)
+    .onStart((event) => {
+      draggingSheet.value = scrollY.value <= 0.5;
+      sheetDragOrigin.value = draggingSheet.value ? 0 : event.translationY;
+    })
+    .onUpdate((event) => {
+      if (dismissing.value) return;
+
+      // If the gesture began farther down, the ScrollView consumes the first
+      // part. Once it reaches its top, only the remaining drag moves the sheet.
+      if (!draggingSheet.value && scrollY.value <= 0.5) {
+        draggingSheet.value = true;
+        sheetDragOrigin.value = event.translationY;
+      }
+      if (!draggingSheet.value) return;
+
+      sheetY.value = Math.max(0, event.translationY - sheetDragOrigin.value);
+    })
+    .onEnd((event) => {
+      if (!draggingSheet.value) return;
+
+      const dragged = sheetY.value;
+      const shouldDismiss = dragged > Math.min(150, windowHeight * 0.18)
+        || (dragged > 24 && event.velocityY > 950);
+
+      if (shouldDismiss) {
+        dismissing.value = true;
+        sheetY.value = withTiming(windowHeight, { duration: 190 }, (finished) => {
+          if (finished) runOnJS(dismiss)();
+        });
+      } else {
+        sheetY.value = withSpring(0, { damping: 22, stiffness: 240 });
+      }
+    })
+    .onFinalize(() => {
+      draggingSheet.value = false;
+      sheetDragOrigin.value = 0;
+      if (!dismissing.value && sheetY.value > 0) {
+        sheetY.value = withSpring(0, { damping: 22, stiffness: 240 });
+      }
+    });
+
+  const onScroll = useAnimatedScrollHandler((event) => {
+    scrollY.value = Math.max(0, event.contentOffset.y);
+  });
+
+  const sheetStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: sheetY.value }],
+  }));
+
+  const scrimStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(sheetY.value, [0, windowHeight * 0.65], [1, 0], 'clamp'),
+  }));
 
   useEffect(() => {
     if (!codigo) return;
@@ -116,9 +193,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       params[candidate] = values[candidate];
       if (candidate === rank) break;
     }
-    // Keep this form sheet on the navigation stack. The taxonomy screen knows
+    // Keep this detail route on the navigation stack. The taxonomy screen knows
     // this came from a species card, so either Android's Back button or its
-    // own back affordance returns to this exact, still-open sheet.
+    // own back affordance returns to this exact, still-open detail.
     router.push({
       pathname: '/taxonomy',
       params: { ...params, returnToSpecies: species.codigo },
@@ -126,10 +203,30 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   };
 
   return (
-    <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
-      <View style={styles.grabberArea}>
-        <View style={[styles.grabber, { backgroundColor: colors.outline }]} />
-      </View>
+    <View style={styles.modalRoot}>
+      <Animated.View style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }, scrimStyle]}>
+        <Pressable
+          style={StyleSheet.absoluteFill}
+          onPress={dismiss}
+          accessibilityLabel="Cerrar ficha"
+        />
+      </Animated.View>
+      <GestureDetector gesture={dismissGesture}>
+        <Animated.View
+          entering={FadeInDown.duration(220)}
+          style={[
+            styles.sheet,
+            {
+              backgroundColor: colors.surface,
+              borderTopLeftRadius: radius.xl,
+              borderTopRightRadius: radius.xl,
+              marginTop: insets.top + spacing.lg,
+            },
+            sheetStyle,
+          ]}
+        >
+
+      <View style={[styles.grabber, { backgroundColor: colors.border }]} />
 
       {/* In-flow row, above the photo — not overlapping it. */}
       <View style={[styles.headerRow, { paddingHorizontal: spacing.lg }]}>
@@ -176,10 +273,17 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           <Skeleton height={80} radius={radius.md} />
         </View>
       ) : (
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
-        >
+        <GestureDetector gesture={scrollGesture}>
+          <Animated.ScrollView
+            showsVerticalScrollIndicator={false}
+            nestedScrollEnabled
+            bounces={false}
+            overScrollMode="never"
+            keyboardShouldPersistTaps="handled"
+            scrollEventThrottle={16}
+            onScroll={onScroll}
+            contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
+          >
           <View style={{ paddingHorizontal: spacing.lg }}>
             <Pressable
               onPress={() => species.photo && setLightboxOpen(true)}
@@ -359,7 +463,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             )}
 
           </View>
-        </ScrollView>
+          </Animated.ScrollView>
+        </GestureDetector>
       )}
 
       <PhotoLightbox
@@ -368,16 +473,18 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         label={species?.displayName ?? ''}
         onClose={() => setLightboxOpen(false)}
       />
+        </Animated.View>
+      </GestureDetector>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  sheet: { flex: 1 },
+  modalRoot: { flex: 1, justifyContent: 'flex-end' },
+  sheet: { flex: 1, overflow: 'hidden' },
+  grabber: { width: 36, height: 4, borderRadius: 2, alignSelf: 'center', marginTop: 8 },
   flex: { flex: 1 },
-  grabberArea: { alignItems: 'center', paddingVertical: 10 },
-  grabber: { width: 44, height: 4, borderRadius: 2, opacity: 0.4 },
-  headerRow: { flexDirection: 'row', alignItems: 'center', paddingBottom: 18 },
+  headerRow: { flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 18 },
   action: { padding: 9, borderRadius: 12 },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   badgeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },

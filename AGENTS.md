@@ -13,9 +13,40 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 ## Estado actual
 
 - El panel y la infraestructura están implementados localmente, pero **Supabase, R2, Cloudflare Pages y los secretos de GitHub aún no fueron aprovisionados**.
+- El panel editorial sí puede ejecutarse hoy en modo demostración local: sin `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` usa datos y sesión simulados; no confundir esa demo con una conexión editorial real.
 - Por ahora, los datos existentes siguen en `NaturaUY-source/data/catalog/` y `NaturaUY-source/assets/db/natura.db`.
 - Después de realizar la importación inicial a Supabase, la fuente editorial definitiva pasa a ser PostgreSQL. Los JSON y `natura.db` serán artefactos derivados y versionados.
 - Los JSON actuales tienen 1006 registros de entrada que se consolidan en 902 especies únicas. No asumir que “registro JSON” y “especie” son equivalentes.
+
+### Panel web disponible actualmente
+
+El panel vive en `NaturaUY-admin/` y está implementado con React + Vite. La demo local se inicia así:
+
+```powershell
+cd "C:\Users\rafar\Documents\2026 - proyects\uruguay-natura-data\NaturaUY-admin"
+npm install
+Copy-Item .env.example .env.local
+npm run dev
+```
+
+Se abre en `http://localhost:5173`. El archivo `.env.local` puede quedar con sus valores vacíos para la demo. Sólo al completar `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` se intenta usar Supabase real; nunca colocar allí una `service_role` key.
+
+Rutas que existen en el router actual:
+
+- `/`: dashboard con métricas, actividad y estado de publicación.
+- `/species`: listado, búsqueda y filtros.
+- `/species/new`: alta de especie.
+- `/species/:id`: editor, revisiones, fuentes y validación.
+- `/media`: medios y trabajos de procesamiento.
+- `/releases`: publicaciones y solicitud de catálogo.
+- `/users`: usuarios; sólo se muestra para perfiles administradores.
+- `/login`: la pantalla de acceso se muestra cuando no hay sesión real.
+
+La demo no persiste cambios en Supabase ni reemplaza las pruebas de RLS, MFA, RPCs o workflows.
+
+### Diagrama de arquitectura
+
+El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y sus flujos (acceso, medios, publicación, distribución offline y respaldo). Es documentación conceptual, no evidencia de que los servicios estén desplegados. La fuente operativa sigue siendo este archivo, `NaturaUY-admin/docs/deployment.md` y el código; si el diagrama contradice al repositorio, revisar primero esos documentos y marcar el SVG para actualizarlo.
 
 ## Mapa del repositorio
 

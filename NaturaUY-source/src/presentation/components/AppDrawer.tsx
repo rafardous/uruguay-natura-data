@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BackHandler, Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { BackHandler, Dimensions, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, {
@@ -9,6 +9,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 
 import { haptics } from '../haptics';
@@ -16,8 +17,10 @@ import { useFavorites } from '../hooks/FavoritesProvider';
 import { useTheme } from '../theme/ThemeProvider';
 import {
   ChevronRightIcon,
+  BiomesIcon,
   CollaborateIcon,
   CloseIcon,
+  CreditsIcon,
   HeartIcon,
   InfoIcon,
   InterestSitesIcon,
@@ -127,7 +130,8 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
   };
 
   return (
-    <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+    <Modal visible={open} transparent animationType="none" statusBarTranslucent onRequestClose={onClose}>
+    <View style={StyleSheet.absoluteFill}>
       <Animated.View style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }, scrimStyle]}>
         <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel="Cerrar menú" />
       </Animated.View>
@@ -142,7 +146,12 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
         >
           <View style={styles.header}>
             <View style={styles.brand}>
-              <LeafIcon color={colors.canvasText} size={26} />
+              <Image
+                source={require('../../../assets/images/icon.png')}
+                contentFit="cover"
+                style={[styles.logo, { borderRadius: radius.md, borderColor: colors.canvasBorder }]}
+                accessibilityLabel="Logo de Natura UY"
+              />
               <View>
                 <Text style={[typography.title, { color: colors.canvasText }]}>Natura UY</Text>
               </View>
@@ -174,10 +183,21 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               label="Especies nativas"
               onPress={() => go('/explore?native=1')}
             />
+            <DrawerLink
+              icon={<BiomesIcon color={colors.canvasText} />}
+              label="Explorar ambientes"
+              onPress={() => go('/biomes')}
+              trailing="Próximamente"
+            />
 
             <View style={[styles.divider, { backgroundColor: colors.canvasBorder }]} />
 
             <Text style={[typography.eyebrow, styles.section, { color: colors.canvasTextMuted }]}>APP</Text>
+            <DrawerLink
+              icon={<SettingsIcon color={colors.canvasText} />}
+              label="Configuración"
+              onPress={() => go('/settings')}
+            />
             <DrawerLink
               icon={<CollaborateIcon color={colors.canvasText} />}
               label="Colaborar"
@@ -194,12 +214,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               onPress={() => go('/about')}
             />
             <DrawerLink
-              icon={<SettingsIcon color={colors.canvasText} />}
-              label="Configuración"
-              onPress={() => go('/settings')}
-            />
-            <DrawerLink
-              icon={<InfoIcon color={colors.canvasText} />}
+              icon={<CreditsIcon color={colors.canvasText} />}
               label="Créditos y licencias"
               onPress={() => go('/credits')}
             />
@@ -207,6 +222,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
         </Animated.View>
       </GestureDetector>
     </View>
+    </Modal>
   );
 }
 
@@ -214,6 +230,7 @@ const styles = StyleSheet.create({
   panel: { position: 'absolute', left: 0, top: 0, bottom: 0, paddingHorizontal: 20 },
   header: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 26 },
   brand: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  logo: { width: 44, height: 44, borderWidth: StyleSheet.hairlineWidth },
   favorites: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 18 },
   section: { marginTop: 26, marginBottom: 8, paddingHorizontal: 4 },
   link: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 12, paddingVertical: 14 },

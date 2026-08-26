@@ -83,48 +83,55 @@ export const SpeciesCard = memo(function SpeciesCard({
   const Wrapper = animated ? MotiView : View;
   const motion = animated
     ? {
-        from: { opacity: 0, translateY: 14 },
+        from: { opacity: 0, translateY: 7 },
         animate: { opacity: 1, translateY: 0 },
-        transition: { type: 'timing' as const, duration: 320, delay: index * 45 },
+        transition: { type: 'timing' as const, duration: 240, delay: Math.min(index, 5) * 30 },
       }
     : {};
 
   return (
     <Wrapper {...motion}>
-      <Pressable
-        onPress={() => {
-          haptics.tap();
-          onPress(species.codigo);
-        }}
-        accessibilityRole="button"
-        accessibilityLabel={`${species.displayName}, ${species.scientificName}`}
-        style={({ pressed }) => [
-          styles.card,
-          elevation.low,
-          {
-            backgroundColor: colors.surface,
-            borderRadius: radius.xl,
-            transform: [{ scale: pressed ? 0.99 : 1 }],
-          },
-        ]}
-      >
-        <SpeciesImage species={species} height={CARD_HEIGHT} glyphSize={78} bordered={false} style={styles.photo} />
-
-        <View style={[styles.topRow, { padding: spacing.md }]}>
-          <View style={[styles.chip, { borderRadius: radius.sm }]}>
-            <Text style={[typography.caption, { color: ON_PHOTO }]}>{species.taxonomy.clase}</Text>
-          </View>
-
+      <View style={[styles.shadow, elevation.low, { borderRadius: radius.xl, backgroundColor: colors.surface }]}>
+        <View style={[styles.card, { borderRadius: radius.xl, backgroundColor: colors.surface }]}>
           <Pressable
             onPress={() => {
-              haptics.press();
-              onToggleFavorite(species.codigo);
+              haptics.tap();
+              onPress(species.codigo);
             }}
+            accessibilityRole="button"
+            accessibilityLabel={`${species.displayName}, ${species.scientificName}`}
+            style={({ pressed }) => [styles.cardAction, { opacity: pressed ? 0.94 : 1 }]}
+          >
+            <SpeciesImage species={species} height={CARD_HEIGHT} borderRadius={radius.xl} glyphSize={78} bordered={false} style={styles.photo} />
+
+            <View style={[styles.topRow, { padding: spacing.md }]}>
+              <View style={[styles.chip, { borderRadius: radius.sm }]}>
+                <Text style={[typography.caption, { color: ON_PHOTO }]}>{species.taxonomy.clase}</Text>
+              </View>
+            </View>
+
+            <View style={[styles.panel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md }]}>
+              <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>{species.displayName}</Text>
+              {showScientific && (
+                <Text style={[typography.body, styles.scientific, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.scientificName}</Text>
+              )}
+              <View style={[styles.meta, { marginTop: spacing.sm }]}>
+                {threatened ? (
+                  <View style={[styles.status, { borderRadius: radius.sm, backgroundColor: colors.danger }]}>
+                    <Text style={[typography.caption, { color: colors.onDanger }]} numberOfLines={1}>{species.conservation.label}</Text>
+                  </View>
+                ) : (
+                  <Text style={[typography.caption, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.conservation.label}</Text>
+                )}
+                <Text style={[typography.caption, styles.family, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.taxonomy.familia}</Text>
+              </View>
+            </View>
+          </Pressable>
+          <Pressable
+            onPress={() => { haptics.press(); onToggleFavorite(species.codigo); }}
             hitSlop={10}
             accessibilityRole="button"
-            accessibilityLabel={
-              favorite ? `Quitar ${species.displayName} de favoritos` : `Guardar ${species.displayName} en favoritos`
-            }
+            accessibilityLabel={favorite ? `Quitar ${species.displayName} de favoritos` : `Guardar ${species.displayName} en favoritos`}
             style={[styles.heart, { borderRadius: radius.sm }]}
           >
             <MotiView animate={{ scale: favorite ? 1.12 : 1 }} transition={{ type: 'spring', damping: 12 }}>
@@ -132,35 +139,7 @@ export const SpeciesCard = memo(function SpeciesCard({
             </MotiView>
           </Pressable>
         </View>
-
-        <View style={[styles.panel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md }]}>
-          <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>
-            {species.displayName}
-          </Text>
-          {showScientific && (
-            <Text style={[typography.body, styles.scientific, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>
-              {species.scientificName}
-            </Text>
-          )}
-
-          <View style={[styles.meta, { marginTop: spacing.sm }]}>
-            {threatened ? (
-              <View style={[styles.status, { borderRadius: radius.sm, backgroundColor: colors.danger }]}>
-                <Text style={[typography.caption, { color: colors.onDanger }]} numberOfLines={1}>
-                  {species.conservation.label}
-                </Text>
-              </View>
-            ) : (
-              <Text style={[typography.caption, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>
-                {species.conservation.label}
-              </Text>
-            )}
-            <Text style={[typography.caption, styles.family, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>
-              {species.taxonomy.familia}
-            </Text>
-          </View>
-        </View>
-      </Pressable>
+      </View>
     </Wrapper>
   );
 });
@@ -170,18 +149,20 @@ export function SpeciesCardSkeleton(): React.JSX.Element {
   const { colors, radius } = useTheme();
 
   return (
-    <View style={[styles.card, { backgroundColor: colors.surface, borderRadius: radius.xl }]}>
-      <Skeleton height={CARD_HEIGHT} radius={0} />
+    <View style={{ borderRadius: radius.xl, overflow: 'hidden', backgroundColor: colors.surface }}>
+      <Skeleton height={CARD_HEIGHT} radius={radius.xl} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  shadow: { height: CARD_HEIGHT },
   card: { height: CARD_HEIGHT, overflow: 'hidden' },
+  cardAction: { flex: 1 },
   photo: { ...StyleSheet.absoluteFill, height: CARD_HEIGHT },
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
   chip: { backgroundColor: PANEL, paddingHorizontal: 10, paddingVertical: 5 },
-  heart: { backgroundColor: PANEL, padding: 9 },
+  heart: { position: 'absolute', top: 12, right: 12, backgroundColor: PANEL, padding: 9 },
   panel: { marginTop: 'auto', backgroundColor: PANEL },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   meta: { flexDirection: 'row', alignItems: 'center', gap: 10 },

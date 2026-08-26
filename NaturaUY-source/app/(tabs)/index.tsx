@@ -14,6 +14,15 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
+import { LinearGradient } from 'expo-linear-gradient';
+import Animated, {
+  Easing,
+  scrollTo,
+  useAnimatedRef,
+  useDerivedValue,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
@@ -37,16 +46,20 @@ const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
 const PHOTO_PANEL = 'rgba(14,24,17,0.82)';
 const CARD_HEIGHT = 230;
-const CAROUSEL_INTERVAL_MS = 5_000;
+const CAROUSEL_INTERVAL_MS = 7_000;
+const CAROUSEL_SLIDE_MS = 1_100;
+const SPOTLIGHT_LABELS = ['MÁS BUSCADAS', 'MÁS GUSTADAS', 'EN TENDENCIA'] as const;
 
 function LargeSpeciesCard({
   species,
   width,
   onPress,
+  kicker,
 }: {
   species: Species;
   width: number;
   onPress: (codigo: string) => void;
+  kicker?: string;
 }): React.JSX.Element {
   const { radius, spacing, typography, elevation, colors } = useTheme();
 
@@ -78,6 +91,11 @@ function LargeSpeciesCard({
         style={StyleSheet.absoluteFill}
       />
       <View style={[styles.speciesPanel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md }]}>
+        {kicker && (
+          <Text style={[typography.eyebrow, { color: '#DDEFCF', marginBottom: 4 }]}>
+            {kicker}
+          </Text>
+        )}
         <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>
           {species.displayName}
         </Text>
@@ -93,15 +111,24 @@ function SpeciesCarousel({
   species,
   width,
   onPress,
+  labels,
 }: {
   species: Species[];
   width: number;
   onPress: (codigo: string) => void;
+  labels?: readonly string[];
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
-  const listRef = useRef<FlatList<Species>>(null);
+  const listRef = useAnimatedRef<FlatList<Species>>();
+  const scrollX = useSharedValue(0);
+  const carouselReady = useSharedValue(false);
   const indexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useDerivedValue(() => {
+    if (!carouselReady.value) return;
+    scrollTo(listRef, scrollX.value, 0, false);
+  });
 
   useEffect(() => {
     if (species.length < 2) return undefined;
@@ -109,26 +136,33 @@ function SpeciesCarousel({
       const next = (indexRef.current + 1) % species.length;
       indexRef.current = next;
       setActiveIndex(next);
-      listRef.current?.scrollToIndex({ index: next, animated: true });
+      scrollX.value = withTiming(next * width, {
+        duration: CAROUSEL_SLIDE_MS,
+        easing: Easing.inOut(Easing.cubic),
+      });
     }, CAROUSEL_INTERVAL_MS);
     return () => clearInterval(timer);
-  }, [species.length]);
+  }, [scrollX, species.length, width]);
 
   const syncIndex = (event: NativeSyntheticEvent<NativeScrollEvent>): void => {
     const next = Math.max(0, Math.min(species.length - 1, Math.round(event.nativeEvent.contentOffset.x / width)));
     indexRef.current = next;
     setActiveIndex(next);
+    scrollX.value = event.nativeEvent.contentOffset.x;
   };
 
   return (
     <View>
-      <FlatList
+      <Animated.FlatList
         ref={listRef}
+        onLayout={() => {
+          carouselReady.value = true;
+        }}
         horizontal
         pagingEnabled
         data={species}
         keyExtractor={(item) => item.codigo}
-        renderItem={({ item }) => <LargeSpeciesCard species={item} width={width} onPress={onPress} />}
+        renderItem={({ item, index }) => <LargeSpeciesCard species={item} width={width} onPress={onPress} kicker={labels?.[index]} />}
         getItemLayout={(_, index) => ({ length: width, offset: width * index, index })}
         onMomentumScrollEnd={syncIndex}
         showsHorizontalScrollIndicator={false}
@@ -163,8 +197,8 @@ export default function HomeScreen(): React.JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [total, setTotal] = useState<number | null>(null);
-  const [carouselSpecies, setCarouselSpecies] = useState<Species[]>([]);
-  const [mostSearched, setMostSearched] = useState<Species | null>(null);
+  const [dailySpecies, setDailySpecies] = useState<Species | null>(null);
+  const [spotlightSpecies, setSpotlightSpecies] = useState<Species[]>([]);
   const cardWidth = Math.max(280, windowWidth - spacing.lg * 2);
 
   const openSpecies = useCallback((codigo: string) => router.push(`/species/${codigo}`), [router]);
@@ -179,14 +213,19 @@ export default function HomeScreen(): React.JSX.Element {
     void (async () => {
       const stats = await speciesRepository.stats(db);
       const withPhoto = await speciesRepository.count(db, { onlyWithPhoto: true });
-      const poolSize = Math.min(6, withPhoto);
+      const poolSize = Math.min(4, withPhoto);
       const maxOffset = Math.max(0, withPhoto - poolSize);
       const offset = maxOffset === 0 ? 0 : Math.floor(Math.random() * (maxOffset + 1));
       const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
       if (cancelled) return;
       setTotal(stats.total);
-      setCarouselSpecies(page.items.slice(0, Math.min(5, page.items.length)));
-      setMostSearched(page.items[5] ?? page.items[0] ?? null);
+      setDailySpecies(page.items[0] ?? null);
+      const spotlight = page.items.slice(1, 4);
+      setSpotlightSpecies(
+        spotlight.length === 3
+          ? spotlight
+          : Array.from({ length: Math.min(3, page.items.length) }, (_, index) => page.items[(index + 1) % page.items.length]!),
+      );
     })();
     return () => {
       cancelled = true;
@@ -199,11 +238,13 @@ export default function HomeScreen(): React.JSX.Element {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
       >
-        <View
+        <LinearGradient
+          colors={['#5E8566', '#477052', '#294A3A']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
           style={[
             styles.hero,
             {
-              backgroundColor: colors.canvas,
               borderBottomLeftRadius: radius.hero,
               borderBottomRightRadius: radius.hero,
             },
@@ -276,7 +317,8 @@ export default function HomeScreen(): React.JSX.Element {
               </View>
             </MotiView>
           </View>
-        </View>
+          <View pointerEvents="none" style={styles.heroGlow} />
+        </LinearGradient>
 
         <MotiView
           from={{ opacity: 0, translateY: 16 }}
@@ -300,9 +342,11 @@ export default function HomeScreen(): React.JSX.Element {
               accessibilityLabel="Jugar"
               style={styles.quick}
             >
-              <GameIcon color={colors.text} size={20} />
+              <View style={[styles.quickIcon, { backgroundColor: '#EEE4F6', borderRadius: radius.md }]}>
+                <GameIcon color={colors.play} size={21} />
+              </View>
               <View style={styles.flex}>
-                <Text style={[typography.label, { color: colors.text }]}>Jugar</Text>
+                <Text style={[typography.label, { color: colors.play }]}>Jugar</Text>
                 <Text style={[typography.caption, { color: colors.textMuted }]} numberOfLines={1}>
                   Poné a prueba tu ojo
                 </Text>
@@ -337,21 +381,18 @@ export default function HomeScreen(): React.JSX.Element {
           transition={{ type: 'timing', duration: 380, delay: 140 }}
           style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}
         >
-          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ESPECIES PARA DESCUBRIR</Text>
+          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ESPECIE DEL DÍA</Text>
           <View style={{ marginTop: spacing.md }}>
-            {carouselSpecies.length === 0 ? (
-              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
-            ) : (
-              <SpeciesCarousel species={carouselSpecies} width={cardWidth} onPress={openSpecies} />
-            )}
+            {dailySpecies ? (
+              <LargeSpeciesCard species={dailySpecies} width={cardWidth} onPress={openSpecies} />
+            ) : <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />}
           </View>
         </MotiView>
 
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
-          <Text style={[typography.title, { color: colors.text }]}>Especies más buscadas</Text>
-          <View style={{ marginTop: spacing.md }}>
-            {mostSearched ? (
-              <LargeSpeciesCard species={mostSearched} width={cardWidth} onPress={openSpecies} />
+          <View>
+            {spotlightSpecies.length > 0 ? (
+              <SpeciesCarousel species={spotlightSpecies} width={cardWidth} onPress={openSpecies} labels={SPOTLIGHT_LABELS} />
             ) : (
               <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
             )}
@@ -394,11 +435,12 @@ const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
   hero: { overflow: 'hidden' },
-  topActions: { flexDirection: 'row', alignItems: 'flex-start' },
+  heroGlow: { position: 'absolute', width: 240, height: 240, borderRadius: 120, right: -90, top: 88, backgroundColor: 'rgba(189,208,183,.16)' },
+  topActions: { flexDirection: 'row', alignItems: 'center' },
   searchWrap: { flex: 1 },
   heroAction: {
-    width: 42,
-    height: 42,
+    width: 48,
+    height: 48,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: StyleSheet.hairlineWidth,
@@ -415,6 +457,7 @@ const styles = StyleSheet.create({
   quickWrap: { marginTop: -34 },
   quickCard: { flexDirection: 'row', alignItems: 'center' },
   quick: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 11 },
+  quickIcon: { width: 38, height: 38, alignItems: 'center', justifyContent: 'center' },
   quickDivider: { width: StyleSheet.hairlineWidth, alignSelf: 'stretch', marginHorizontal: 12 },
   speciesCard: { overflow: 'hidden', justifyContent: 'flex-end' },
   speciesPanel: { backgroundColor: PHOTO_PANEL },

@@ -112,6 +112,10 @@ export function answerQuestion(state: QuizRunState, wasCorrect: boolean): QuizRu
 /** Ends a timed run when the clock runs out. */
 export const finishRun = (state: QuizRunState): QuizRunState => ({ ...state, finished: true });
 
+/** Rewards a survival streak without imposing a cap on earned lives. */
+export const grantExtraLife = (state: QuizRunState): QuizRunState =>
+  state.livesLeft === null ? state : { ...state, livesLeft: state.livesLeft + 1 };
+
 /** Total questions for progress UI, or null when the run is open-ended. */
 export const totalQuestions = (state: QuizRunState): number | null =>
   QUIZ_MODES[state.mode].questionCount;

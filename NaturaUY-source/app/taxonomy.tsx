@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   BackHandler,
@@ -12,6 +12,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { MotiView } from 'moti';
 
@@ -33,9 +34,11 @@ import { useScrollDetentHaptics } from '../src/presentation/hooks/useScrollDeten
 import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
 import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { classVisual } from '../src/presentation/taxonomy/classVisuals';
 import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN, spacing as space } from '../src/presentation/theme/tokens';
 
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
+const TAXONOMY = { main: '#8A641B', pale: '#F1E3B9', text: '#293832' };
 
 const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt: string }> = {
   phylum: { singular: 'Filo', plural: 'filos', prompt: 'Elegí un filo' },
@@ -47,15 +50,6 @@ const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt:
 
 const CHORDATA_DESCRIPTION =
   'Animales con notocorda en alguna etapa de su desarrollo. Incluye a todos los vertebrados: peces, anfibios, reptiles, aves y mamíferos.';
-
-const CLASS_DESCRIPTIONS: Record<string, string> = {
-  Aves: 'Vertebrados de sangre caliente con plumas, pico y huevos con cáscara.',
-  Actinopterygii: 'Peces óseos cuyas aletas están sostenidas por radios finos y flexibles.',
-  Chondrichthyes: 'Peces de esqueleto cartilaginoso, como tiburones, rayas y quimeras.',
-  Mammalia: 'Vertebrados con pelo; las madres alimentan a sus crías con leche.',
-  Reptilia: 'Vertebrados de piel seca y escamosa que regulan su temperatura con el ambiente.',
-  Amphibia: 'Vertebrados de piel húmeda ligados al agua y a la tierra durante su ciclo de vida.',
-};
 
 const taxonName = (rank: TaxonRank, value: string): string =>
   value === UNASSIGNED_TAXON ? `Sin ${RANK_LABELS[rank].singular.toLocaleLowerCase('es')} asignado` : value;
@@ -152,6 +146,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const currentRank = TAXON_RANKS.find((rank) => path[rank] === undefined) ?? null;
   const { items, loading } = useTaxonomyChildren(currentRank, path);
   const selectedRanks = TAXON_RANKS.filter((rank) => path[rank] !== undefined);
+  const breadcrumbRef = useRef<ScrollView>(null);
   const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
 
   useEffect(() => {
@@ -167,7 +162,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
     }
     const last = selectedRanks.at(-1);
     if (!last) {
-      router.replace('/explore');
+      router.back();
       return;
     }
     setPath((current) => {
@@ -248,19 +243,23 @@ export default function TaxonomyScreen(): React.JSX.Element {
 
         {selectedRanks.length > 0 && (
           <ScrollView
+            ref={breadcrumbRef}
             horizontal
             showsHorizontalScrollIndicator={false}
+            onContentSizeChange={() => breadcrumbRef.current?.scrollToEnd({ animated: true })}
             contentContainerStyle={[styles.breadcrumb, { paddingTop: spacing.lg, paddingBottom: spacing.sm }]}
           >
             {selectedRanks.map((rank, index) => (
               <View key={rank} style={styles.crumbGroup}>
-                {index > 0 && <ChevronRightIcon color={colors.textMuted} size={15} />}
+                {index > 0 && <View style={[styles.crumbConnector, { backgroundColor: TAXONOMY.main }]}><ChevronRightIcon color={TAXONOMY.main} size={14} /></View>}
                 <Pressable
                   onPress={() => returnTo(rank)}
-                  style={[styles.crumb, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}
+                  accessibilityRole="link"
+                  accessibilityLabel={`${RANK_LABELS[rank].singular}: ${taxonName(rank, path[rank]!)}`}
+                  style={[styles.crumb, { backgroundColor: index === selectedRanks.length - 1 ? TAXONOMY.main : TAXONOMY.pale, borderRadius: radius.md }]}
                 >
-                  <Text style={[typography.caption, { color: colors.textMuted }]}>{RANK_LABELS[rank].singular}</Text>
-                  <Text style={[typography.label, { color: colors.text }]}>{taxonName(rank, path[rank]!)}</Text>
+                  <Text style={[typography.caption, { color: index === selectedRanks.length - 1 ? '#F5E8C4' : colors.textMuted }]}>{RANK_LABELS[rank].singular}</Text>
+                  <Text style={[typography.label, { color: index === selectedRanks.length - 1 ? '#FFF9EA' : TAXONOMY.text }]}>{taxonName(rank, path[rank]!)}</Text>
                 </Pressable>
               </View>
             ))}
@@ -289,11 +288,12 @@ export default function TaxonomyScreen(): React.JSX.Element {
             renderItem={({ item, index }) => {
               const isPhylum = currentRank === 'phylum';
               const isClass = currentRank === 'clase';
+              const visual = isClass ? classVisual(item.value) : undefined;
+              const foreground = visual ? '#FFF9EA' : colors.text;
+              const mutedForeground = visual ? 'rgba(255,249,234,.82)' : colors.textSecondary;
               const description = isPhylum && item.value === 'Chordata'
                 ? CHORDATA_DESCRIPTION
-                : isClass
-                  ? CLASS_DESCRIPTIONS[item.value]
-                  : undefined;
+                : visual?.description;
 
               return (
                 <MotiView
@@ -311,24 +311,34 @@ export default function TaxonomyScreen(): React.JSX.Element {
                       isClass && styles.classRow,
                       elevation.low,
                       {
-                        backgroundColor: pressed ? colors.surfaceVariant : colors.surface,
-                        borderColor: colors.border,
+                        backgroundColor: visual ? visual.colors[0] : pressed ? colors.surfaceVariant : colors.surface,
+                        borderColor: visual ? 'rgba(255,249,234,.2)' : colors.border,
                         borderRadius: radius.lg,
+                        opacity: pressed ? 0.92 : 1,
                       },
                     ]}
                   >
+                    {visual && (
+                      <LinearGradient
+                        pointerEvents="none"
+                        colors={[...visual.colors]}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 1 }}
+                        style={[StyleSheet.absoluteFill, { borderRadius: radius.lg }]}
+                      />
+                    )}
                     {isClass && (
-                      <View style={[styles.classIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
-                        <FamilyGlyph clase={item.value} color={colors.onPrimaryContainer} size={48} opacity={0.92} />
+                      <View style={[styles.classIcon, { backgroundColor: visual ? 'rgba(255,249,234,.15)' : colors.primaryContainer, borderRadius: radius.md }]}>
+                        <FamilyGlyph clase={item.value} color={visual ? '#FFF9EA' : colors.onPrimaryContainer} size={48} opacity={0.95} />
                       </View>
                     )}
                     <View style={styles.flex}>
-                      <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>
-                      <Text style={[typography.cardTitle, styles.scientific, { color: colors.text, marginTop: 4 }]}>
+                      <Text style={[typography.eyebrow, { color: visual ? 'rgba(255,249,234,.72)' : colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>
+                      <Text style={[typography.cardTitle, styles.scientific, { color: foreground, marginTop: 4 }]}>
                         {taxonName(currentRank, item.value)}
                       </Text>
                       {description && (
-                        <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]} numberOfLines={isPhylum ? 4 : 3}>
+                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isPhylum ? 4 : undefined}>
                           {description}
                         </Text>
                       )}
@@ -350,10 +360,10 @@ export default function TaxonomyScreen(): React.JSX.Element {
                       </View>
                     ) : (
                       <View style={styles.rowEnd}>
-                        <View style={[styles.count, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
-                          <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{item.count}</Text>
+                        <View style={[styles.count, { backgroundColor: visual ? 'rgba(255,249,234,.16)' : colors.primaryContainer, borderRadius: radius.pill }]}>
+                          <Text style={[typography.caption, { color: visual ? '#FFF9EA' : colors.onPrimaryContainer }]}>{item.count}</Text>
                         </View>
-                        <ChevronRightIcon color={colors.textMuted} />
+                        <ChevronRightIcon color={visual ? '#FFF9EA' : colors.textMuted} />
                       </View>
                     )}
                   </Pressable>
@@ -376,11 +386,12 @@ const styles = StyleSheet.create({
   backButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   iconTile: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   breadcrumb: { alignItems: 'center' },
-  crumbGroup: { flexDirection: 'row', alignItems: 'center', gap: 5 },
-  crumb: { paddingHorizontal: 11, paddingVertical: 7, marginHorizontal: 3 },
+  crumbGroup: { flexDirection: 'row', alignItems: 'center' },
+  crumbConnector: { width: 24, height: 2, alignItems: 'center', justifyContent: 'center' },
+  crumb: { minWidth: 92, paddingHorizontal: 12, paddingVertical: 8 },
   divider: { height: StyleSheet.hairlineWidth },
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  taxonRow: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderWidth: StyleSheet.hairlineWidth },
+  taxonRow: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
   phylumRow: { minHeight: 154, paddingVertical: 18 },
   classRow: { minHeight: 116 },
   phylumVisual: { width: 108, alignItems: 'center', gap: 2 },
