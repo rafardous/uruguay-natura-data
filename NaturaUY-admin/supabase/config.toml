@@ -22,10 +22,14 @@ additional_redirect_urls = ["http://127.0.0.1:5173/**", "naturauy://**"]
 enable_signup = true
 
 [auth.email]
-enable_signup = false
+enable_signup = true
 enable_confirmations = true
 max_frequency = "1m"
 otp_length = 8
+
+[auth.hook.before_user_created]
+enabled = true
+uri = "pg-functions://postgres/public/hook_restrict_new_auth_user"
 
 [auth.mfa.totp]
 enroll_enabled = true

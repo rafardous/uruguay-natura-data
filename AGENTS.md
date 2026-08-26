@@ -12,7 +12,7 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 ## Estado actual
 
-- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está vinculado: las tres migraciones, Auth config y cuatro Edge Functions fueron desplegadas, el linter remoto no reporta errores y existe un primer administrador activo con MFA obligatorio. **Todavía faltan Google OAuth, importación, secretos de GitHub y Cloudflare Pages**. R2 no forma parte del primer despliegue.
+- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está vinculado: las cuatro migraciones, Auth config y cuatro Edge Functions fueron desplegadas, el linter remoto no reporta errores y existe un primer administrador activo con MFA obligatorio. **Todavía faltan Google OAuth, importación, secretos de GitHub y Cloudflare Pages**. R2 no forma parte del primer despliegue.
 - El panel editorial sí puede ejecutarse hoy en modo demostración local: sin `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` usa datos y sesión simulados; no confundir esa demo con una conexión editorial real.
 - Por ahora, los datos existentes siguen en `NaturaUY-source/data/catalog/` y `NaturaUY-source/assets/db/natura.db`.
 - Después de realizar la importación inicial a Supabase, la fuente editorial definitiva pasa a ser PostgreSQL. Los JSON y `natura.db` serán artefactos derivados y versionados.
@@ -81,6 +81,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 ## Reglas de seguridad
 
 - No habilitar registro público **editorial**. Google OAuth se admite para cuentas móviles; una identidad sólo entra al panel si además tiene una fila activa en `editor_memberships` creada por invitación.
+- El proveedor de correo permanece habilitado para que los usuarios existentes puedan iniciar sesión. El hook `hook_restrict_new_auth_user` bloquea altas por email fuera de `editor_email_invitations` y permite las altas móviles mediante Google.
 - Administradores requieren MFA TOTP; no quitar esta condición en frontend, RLS o Edge Functions.
 - Las escrituras editoriales usan las RPCs existentes (`save_species`, bajas/restauraciones, validación, rollback, medios y publicación). No abrir escrituras directas de tablas desde el navegador.
 - No exponer `SUPABASE_SERVICE_ROLE_KEY`, tokens de GitHub ni evidencia privada de permisos. La URL y publishable key sí son públicas y dependen de RLS.

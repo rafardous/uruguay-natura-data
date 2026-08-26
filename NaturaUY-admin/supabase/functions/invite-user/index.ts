@@ -15,6 +15,12 @@ Deno.serve(async (request) => {
     let user = existing;
     let invitationSent = false;
     if (!user) {
+      const { error: allowlistError } = await admin.from('editor_email_invitations').upsert({
+        email: normalizedEmail,
+        invited_by: actor.user.id,
+        last_invited_at: new Date().toISOString(),
+      });
+      if (allowlistError) return json({ error: allowlistError.message }, 400);
       const redirectTo = `${Deno.env.get('PUBLIC_APP_ORIGIN')}/login`;
       const { data, error } = await admin.auth.admin.inviteUserByEmail(normalizedEmail, { redirectTo, data: { display_name: displayName.trim() } });
       if (error) return json({ error: error.message }, 400);

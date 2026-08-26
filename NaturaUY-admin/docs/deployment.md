@@ -39,7 +39,7 @@ http://localhost:5173/**
 https://TU_DOMINIO_PAGES/**
 ```
 
-El registro público por email queda deshabilitado; Google se admite para usuarios móviles. El acceso al panel requiere además una fila activa en `editor_memberships`.
+El proveedor de correo queda habilitado para que las cuentas invitadas puedan iniciar sesión. El Auth Hook `hook_restrict_new_auth_user` rechaza nuevas altas por email salvo que la dirección haya sido agregada por `invite-user` a `editor_email_invitations`; Google se admite para usuarios móviles. El acceso al panel requiere además una fila activa en `editor_memberships`.
 
 Crear el primer usuario desde Authentication → Users y promoverlo una sola vez desde SQL Editor:
 
