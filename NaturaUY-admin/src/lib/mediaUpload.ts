@@ -1,11 +1,11 @@
 import * as tus from 'tus-js-client';
 
-import { isDemoMode, supabase, supabaseAnonKey, supabaseUrl } from './supabase';
+import { supabase, supabaseAnonKey, supabaseUrl } from './supabase';
 
 export interface UploadProgress { sent: number; total: number; percent: number; }
 
 export async function uploadIncoming(file: File, objectName: string, onProgress: (progress: UploadProgress) => void): Promise<void> {
-  if (isDemoMode || !supabase) { onProgress({ sent: file.size, total: file.size, percent: 100 }); return; }
+  if (!supabase) throw new Error('Supabase no está configurado.');
   const { data } = await supabase.auth.getSession(); const token = data.session?.access_token;
   if (!token) throw new Error('La sesión expiró. Volvé a iniciar sesión.');
   await new Promise<void>((resolve, reject) => {

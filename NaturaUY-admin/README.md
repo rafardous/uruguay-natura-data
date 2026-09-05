@@ -29,6 +29,8 @@ npm run catalog:import -- --dry-run
 npm run catalog:export-json
 ```
 
+El panel requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` para funcionar. No existe un fallback de datos demo: si faltan esas variables, muestra un error de configuración. En Cloudflare Pages deben configurarse únicamente para el entorno Production; nunca colocar una `service_role` key en el frontend.
+
 Los tests SQL viven en `supabase/tests/` y se ejecutan con `npx supabase test db` cuando Docker/Supabase local está disponible.
 
 ## Directorios

@@ -12,15 +12,15 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 ## Estado actual
 
-- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está vinculado pero figura pausado. La transición simplificada está preparada localmente y debe validarse con Docker antes de aplicar migraciones, importar o desplegar. **Todavía faltan Google OAuth, importación, secretos de GitHub y Cloudflare Pages**. R2 no forma parte del primer despliegue.
-- El panel editorial sí puede ejecutarse hoy en modo demostración local: sin `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` usa datos y sesión simulados; no confundir esa demo con una conexión editorial real.
+- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está operativo y tiene aplicada la arquitectura lean. El panel ya está publicado en `https://uruguay-natura-data.pages.dev`, pero todavía faltan Google OAuth, la importación inicial, los secretos de GitHub y el despliegue de Edge Functions. R2 no forma parte del primer despliegue.
+- El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.
 - Por ahora, los datos existentes siguen en `NaturaUY-source/data/catalog/` y `NaturaUY-source/assets/db/natura.db`.
 - Después de realizar la importación inicial a Supabase, la fuente editorial definitiva pasa a ser PostgreSQL. Los JSON y `natura.db` serán artefactos derivados y versionados.
 - Los JSON actuales tienen 1006 registros de entrada que se consolidan en 902 especies únicas. No asumir que “registro JSON” y “especie” son equivalentes.
 
 ### Panel web disponible actualmente
 
-El panel vive en `NaturaUY-admin/` y está implementado con React + Vite. La demo local se inicia así:
+El panel vive en `NaturaUY-admin/` y está implementado con React + Vite. El panel local se inicia así:
 
 ```powershell
 cd "C:\Users\rafar\Documents\2026 - proyects\uruguay-natura-data\NaturaUY-admin"
@@ -29,7 +29,7 @@ Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Se abre en `http://localhost:5173`. El archivo `.env.local` puede quedar con sus valores vacíos para la demo. Sólo al completar `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` se intenta usar Supabase real; nunca colocar allí una `service_role` key.
+Se abre en `http://localhost:5173`. Para operar contra Supabase hay que completar `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; nunca colocar allí una `service_role` key. Las variables de producción se configuran únicamente en el entorno Production de Cloudflare Pages.
 
 Rutas que existen en el router actual:
 
@@ -43,7 +43,7 @@ Rutas que existen en el router actual:
 - `/users`: usuarios; sólo se muestra para perfiles administradores.
 - `/login`: la pantalla de acceso se muestra cuando no hay sesión real.
 
-La demo no persiste cambios en Supabase ni reemplaza las pruebas de RLS, MFA, RPCs o workflows.
+El panel real no reemplaza las pruebas de RLS, MFA, RPCs o workflows.
 
 ### Diagrama de arquitectura
 

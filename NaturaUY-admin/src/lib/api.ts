@@ -1,6 +1,5 @@
 import type { CatalogRelease, ChangeRequest, DashboardStats, MediaAsset, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
-import { demoMedia, demoProfile, demoReleases, demoRevisions, demoSpecies, demoStats } from './demo';
-import { isDemoMode, supabase } from './supabase';
+import { supabase } from './supabase';
 
 const assertClient = () => {
   if (!supabase) throw new Error('Supabase no está configurado');
@@ -77,7 +76,6 @@ function mapSpecies(row: Record<string, any>): SpeciesSummary {
 }
 
 export async function getDashboardStats(): Promise<DashboardStats> {
-  if (isDemoMode) return demoStats;
   const { data, error } = await assertClient().from('dashboard_stats').select('*').single();
   if (error) throw error;
   return {
@@ -89,7 +87,6 @@ export async function getDashboardStats(): Promise<DashboardStats> {
 }
 
 export async function listSpecies(filters: SpeciesFilters = {}): Promise<{ rows: SpeciesSummary[]; count: number }> {
-  if (isDemoMode) return { rows: demoSpecies, count: demoSpecies.length };
   const page = filters.page ?? 0;
   const pageSize = filters.pageSize ?? 50;
   let request = assertClient().from('species_editor').select('*', { count: 'exact' });
@@ -111,11 +108,6 @@ export async function listSpecies(filters: SpeciesFilters = {}): Promise<{ rows:
 }
 
 export async function getSpecies(id: string): Promise<{ species: SpeciesSummary; revisions: Revision[] }> {
-  if (isDemoMode) {
-    const species = demoSpecies.find((item) => item.id === id);
-    if (!species) throw new Error('Especie no encontrada');
-    return { species, revisions: demoRevisions(species) };
-  }
   const client = assertClient();
   const [{ data: row, error }, { data: audits, error: auditError }] = await Promise.all([
     client.from('species_editor').select('*').eq('id', id).single(),
@@ -140,7 +132,6 @@ function changedColumns(before: Record<string, unknown>, after: Record<string, u
 }
 
 export async function saveSpecies(input: { id?: string; catalogCode: string; payload: SpeciesPayload; baseUpdatedAt: string | null; reason: string }): Promise<string> {
-  if (isDemoMode) return crypto.randomUUID();
   const columns = payloadToColumns(input.catalogCode, input.payload);
   let proposedChanges: Record<string, unknown> = columns;
   if (input.id) {
@@ -160,7 +151,6 @@ export async function saveSpecies(input: { id?: string; catalogCode: string; pay
 }
 
 export async function findOwnPendingCreateRequest(catalogCode: string): Promise<string | null> {
-  if (isDemoMode) return null;
   const client = assertClient();
   const { data: user, error: userError } = await client.auth.getUser();
   if (userError || !user.user) throw userError ?? new Error('No hay una sesión activa.');
@@ -172,7 +162,6 @@ export async function findOwnPendingCreateRequest(catalogCode: string): Promise<
 }
 
 export async function submitLifecycleChange(species: SpeciesSummary, status: 'active' | 'archived', reason: string) {
-  if (isDemoMode) return;
   const { error } = await assertClient().rpc('submit_species_change', {
     p_species_id: species.id, p_change_type: status === 'archived' ? 'archive' : 'update', p_proposed_values: { status }, p_comment: reason,
   });
@@ -180,7 +169,6 @@ export async function submitLifecycleChange(species: SpeciesSummary, status: 'ac
 }
 
 export async function listChangeRequests(): Promise<ChangeRequest[]> {
-  if (isDemoMode) return [];
   const { data, error } = await assertClient().from('change_request_queue').select('*').eq('status', 'pending').order('created_at');
   if (error) throw error;
   return (data ?? []).map((row) => ({
@@ -191,19 +179,16 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
 }
 
 export async function approveChangeRequest(id: string, confirmSelfValidation: boolean) {
-  if (isDemoMode) return;
   const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: true, p_confirm_self_validation: confirmSelfValidation });
   if (error) throw error;
 }
 
 export async function rejectChangeRequest(id: string) {
-  if (isDemoMode) return;
   const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: false, p_confirm_self_validation: false });
   if (error) throw error;
 }
 
 export async function listMedia(): Promise<MediaAsset[]> {
-  if (isDemoMode) return demoMedia;
   const { data, error } = await assertClient().from('media_queue').select('*').order('created_at', { ascending: false });
   if (error) throw error;
   return (data ?? []).map((row) => ({
@@ -216,7 +201,6 @@ export async function listMedia(): Promise<MediaAsset[]> {
 
 export interface ReservedMediaUpload { mediaId: string; jobId: string; changeRequestId: string | null; incomingPath: string }
 export async function reserveMediaUpload(input: { speciesId: string | null; changeRequestId?: string | null; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; source: string; sourceUrl: string; originalFilename: string; makePrimary: boolean; confirmRights: boolean; clipStartSeconds?: number; clipDurationSeconds?: number }): Promise<ReservedMediaUpload> {
-  if (isDemoMode) return { mediaId: crypto.randomUUID(), jobId: crypto.randomUUID(), changeRequestId: input.changeRequestId ?? null, incomingPath: 'demo' };
   const { data, error } = await assertClient().rpc('reserve_species_media_upload', {
     p_species_id: input.speciesId, p_change_id: input.changeRequestId ?? null, p_type: input.kind,
     p_author: input.author, p_license: input.license, p_source: input.source,
@@ -229,20 +213,17 @@ export async function reserveMediaUpload(input: { speciesId: string | null; chan
 }
 
 export async function requestMediaProcessing(mediaId: string): Promise<void> {
-  if (isDemoMode) return;
   const { error } = await assertClient().functions.invoke('request-media-processing', { body: { mediaId } });
   if (error) throw error;
 }
 
 export async function listReleases(): Promise<CatalogRelease[]> {
-  if (isDemoMode) return demoReleases;
   const { data, error } = await assertClient().from('catalog_release_history').select('*').order('version', { ascending: false });
   if (error) throw error;
   return (data ?? []).map((row) => ({ id: row.id, dataVersion: row.version, status: row.status, requestedBy: row.requested_by_name, requestedAt: row.requested_at, publishedAt: row.published_at, speciesCount: row.species_count, databaseSize: row.database_size, qualityReportUrl: row.quality_report_url, error: row.error }));
 }
 
 export async function requestPublish(): Promise<void> {
-  if (isDemoMode) return;
   const { data, error } = await assertClient().rpc('request_catalog_publish');
   if (error) throw error;
   const dispatch = await assertClient().functions.invoke('request-catalog-publish', { body: { releaseId: data } });
@@ -250,33 +231,28 @@ export async function requestPublish(): Promise<void> {
 }
 
 export async function listUsers(): Promise<Profile[]> {
-  if (isDemoMode) return [demoProfile];
   const { data, error } = await assertClient().from('admin_profiles').select('*').order('display_name');
   if (error) throw error;
   return (data ?? []).map((row) => ({ id: row.user_id, displayName: row.display_name, email: row.email, role: row.role, active: row.active, mfaRequired: row.role === 'admin' }));
 }
 
 export async function inviteUser(email: string, displayName: string, role: Profile['role']): Promise<void> {
-  if (isDemoMode) return;
   const { error } = await assertClient().functions.invoke('invite-user', { body: { email, displayName, role } });
   if (error) throw error;
 }
 
 export async function setUserActive(userId: string, active: boolean): Promise<void> {
-  if (isDemoMode) return;
   const { error } = await assertClient().functions.invoke('set-user-active', { body: { userId, active } });
   if (error) throw error;
 }
 
 export async function listUserReports(): Promise<UserReport[]> {
-  if (isDemoMode) return [];
   const { data, error } = await assertClient().from('feedback_queue').select('*').order('created_at', { ascending: false });
   if (error) throw error;
   return (data ?? []).map((row) => ({ id: row.id, kind: row.type, speciesId: row.species_id, description: row.message, state: row.status, reporterId: row.user_id, createdAt: row.created_at }));
 }
 
 export async function resolveUserReport(report: UserReport): Promise<void> {
-  if (isDemoMode) return;
   const { error } = await assertClient().rpc('resolve_feedback', { p_id: report.id, p_status: 'resolved', p_note: null });
   if (error) throw error;
 }

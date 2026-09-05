@@ -1,6 +1,6 @@
 # Despliegue y cutover
 
-Proyecto Supabase objetivo: `xbnbfekcxrkgteuijbzh`. No guardar secretos en Git ni en archivos versionados.
+Proyecto Supabase objetivo: `xbnbfekcxrkgteuijbzh`. El panel productivo está publicado en `https://uruguay-natura-data.pages.dev`. No guardar secretos en Git ni en archivos versionados.
 
 ## 1. Preflight y respaldo
 
@@ -34,6 +34,8 @@ npx supabase config push
 ## 2. Identidad editorial
 
 Google sigue disponible para cuentas mobile. El registro por correo editorial sólo se habilita si existe una fila activa en `editor_access`; entrar al panel requiere esa misma fila.
+
+La URL de sitio productiva es `https://uruguay-natura-data.pages.dev`. El cliente OAuth web de Google debe usar `https://xbnbfekcxrkgteuijbzh.supabase.co/auth/v1/callback` como URI de redirección autorizada. La redirección del panel termina en `/login`.
 
 Promoción inicial:
 
@@ -76,7 +78,9 @@ El importador debe informar 1006 entradas, 902 especies y 902 coincidencias de c
 
 ## 5. Panel, Storage y publicación
 
-El panel puede hospedarse como frontend estático. Configure `VITE_SUPABASE_URL` y la clave pública. Los derivados se leen directamente desde el bucket público `media-public`; el manifest estable, desde `catalog-public/manifest.json`.
+El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
+
+Los derivados se leen directamente desde el bucket público `media-public`; el manifest estable, desde `catalog-public/manifest.json`.
 
 El panel sube originales únicamente a rutas reservadas por `reserve_species_media_upload`, con `upsert=false`, MIME/tamaño validados y declaración de derechos. GitHub Actions escribe los derivados con `service_role`.
 

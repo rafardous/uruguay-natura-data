@@ -17,8 +17,8 @@ port = 54323
 
 [auth]
 enabled = true
-site_url = "http://localhost:5173"
-additional_redirect_urls = ["http://127.0.0.1:5173/**", "naturauy://**"]
+site_url = "https://uruguay-natura-data.pages.dev"
+additional_redirect_urls = ["https://uruguay-natura-data.pages.dev/**", "http://localhost:5173/**", "http://127.0.0.1:5173/**", "naturauy://**"]
 enable_signup = true
 
 [auth.email]
@@ -38,6 +38,9 @@ verify_enabled = true
 [storage]
 enabled = true
 file_size_limit = "50MiB"
+
+[storage.vector]
+enabled = false
 
 [functions.invite-user]
 verify_jwt = true

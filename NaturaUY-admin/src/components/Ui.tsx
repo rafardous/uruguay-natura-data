@@ -9,6 +9,10 @@ export function Loading({ label = 'Cargando…' }: { label?: string }): React.JS
   return <div className="state-card"><LoaderCircle className="spin" /><p>{label}</p></div>;
 }
 
+export function ConfigurationError({ detail }: { detail: string }): React.JSX.Element {
+  return <div className="full-state"><div className="state-card"><CircleAlert /><h2>Panel sin configuración</h2><p>{detail}</p></div></div>;
+}
+
 export function Empty({ title, detail }: { title: string; detail: string }): React.JSX.Element {
   return <div className="state-card"><CircleAlert /><h2>{title}</h2><p>{detail}</p></div>;
 }

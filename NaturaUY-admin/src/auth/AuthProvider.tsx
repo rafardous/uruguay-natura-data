@@ -2,13 +2,12 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import type { Session } from '@supabase/supabase-js';
 
 import type { Profile } from '../domain';
-import { demoProfile } from '../lib/demo';
-import { isDemoMode, supabase } from '../lib/supabase';
+import { supabase, supabaseConfigurationError } from '../lib/supabase';
 
 interface AuthState {
   loading: boolean;
   profile: Profile | null;
-  demo: boolean;
+  configurationError: string | null;
   mfa: { factorId: string; qrCode: string | null; secret: string | null } | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
@@ -38,8 +37,8 @@ async function loadProfile(session: Session): Promise<Profile | null> {
 }
 
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
-  const [loading, setLoading] = useState(!isDemoMode);
-  const [profile, setProfile] = useState<Profile | null>(isDemoMode ? demoProfile : null);
+  const [loading, setLoading] = useState(Boolean(supabase));
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [mfa, setMfa] = useState<AuthState['mfa']>(null);
   const [passwordFlow, setPasswordFlow] = useState<AuthState['passwordFlow']>(initialPasswordFlow);
 
@@ -69,32 +68,32 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
   }, []);
 
   const value = useMemo<AuthState>(() => ({
-    loading, profile, demo: isDemoMode, mfa, passwordFlow,
+    loading, profile, configurationError: supabaseConfigurationError, mfa, passwordFlow,
     async signIn(email, password) {
-      if (!supabase) { setProfile(demoProfile); return null; }
+      if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
     },
     async signInWithGoogle() {
-      if (!supabase) { setProfile(demoProfile); return null; }
+      if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/login` } });
       return error?.message ?? null;
     },
     async verifyMfa(code) {
-      if (!supabase || !mfa) return 'No hay una verificación pendiente.';
+      if (!supabase || !mfa) return supabaseConfigurationError ?? 'No hay una verificación pendiente.';
       const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId: mfa.factorId, code: code.trim() });
       if (error) return error.message;
       const { data } = await supabase.auth.getSession(); if (data.session) await resolveSession(data.session);
       return null;
     },
     async setPassword(password) {
-      if (!supabase) return null;
+      if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       if (password.length < 12) return 'Usá al menos 12 caracteres.';
       const { error } = await supabase.auth.updateUser({ password }); if (error) return error.message;
       setPasswordFlow(null); window.history.replaceState({}, '', '/login'); const { data } = await supabase.auth.getSession(); if (data.session) await resolveSession(data.session);
       return null;
     },
     async resetPassword(email) {
-      if (!supabase) return null;
+      if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/login?reset=1` }); return error?.message ?? null;
     },
     async signOut() { if (supabase) await supabase.auth.signOut(); setMfa(null); setProfile(null); },

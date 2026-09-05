@@ -1,6 +1,6 @@
 import { AuthProvider, useAuth } from './auth/AuthProvider';
 import { Shell } from './components/Shell';
-import { Loading } from './components/Ui';
+import { ConfigurationError, Loading } from './components/Ui';
 import { usePathname } from './lib/router';
 import { DashboardPage } from './pages/DashboardPage';
 import { LoginPage } from './pages/LoginPage';
@@ -13,7 +13,8 @@ import { SpeciesListPage } from './pages/SpeciesListPage';
 import { UsersPage } from './pages/UsersPage';
 
 function Router(): React.JSX.Element {
-  const path = usePathname(); const { loading, profile } = useAuth();
+  const path = usePathname(); const { loading, profile, configurationError } = useAuth();
+  if (configurationError) return <ConfigurationError detail={configurationError} />;
   if (loading) return <div className="full-state"><Loading label="Verificando acceso…" /></div>;
   if (!profile) return <LoginPage />;
   let page: React.JSX.Element;

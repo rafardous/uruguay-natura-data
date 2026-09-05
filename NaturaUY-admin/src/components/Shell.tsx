@@ -15,7 +15,7 @@ const items = [
 ];
 
 export function Shell({ path, children }: { path: string; children: ReactNode }): React.JSX.Element {
-  const { profile, signOut, demo } = useAuth();
+  const { profile, signOut } = useAuth();
   return (
     <div className="app-shell">
       <aside className="sidebar">
@@ -27,7 +27,6 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
           })}
         </nav>
         <div className="sidebar-foot">
-          {demo && <div className="demo-badge">Modo demostración</div>}
           <button className="nav-item"><Settings size={19} /><span>Configuración</span></button>
           <div className="profile"><span className="avatar">{profile?.displayName.split(' ').map((word) => word[0]).slice(0, 2).join('')}</span><span>{profile?.displayName}<small>{profile?.role === 'admin' ? 'Administrador' : 'Colaborador'}</small></span><button className="icon-button inverse" aria-label="Cerrar sesión" onClick={() => void signOut()}><LogOut size={17} /></button></div>
         </div>

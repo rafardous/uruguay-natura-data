@@ -58,7 +58,6 @@ h2 { margin: 0; color: #293832; font-size: 21px; }
 button:disabled { cursor: not-allowed; opacity: .55; transform: none !important; }
 a { color: inherit; text-decoration: none; }
 .brand-button { padding: 0; color: inherit; border: 0; background: transparent; text-align: left; }
-.demo-badge { margin: 0 8px 8px; padding: 7px 10px; color: #293f34; border-radius: 8px; background: #f3d893; font-size: 10px; font-weight: 800; text-align: center; text-transform: uppercase; }
 .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 14px; color: #477052; border: 1px solid #cdd6ca; border-radius: 10px; background: #fdfcf8; font-weight: 700; }
 .secondary:hover { border-color: #477052; background: #f3f6f0; }
 .icon-button { display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; color: #566159; border: 1px solid #dddcd4; border-radius: 9px; background: transparent; }
