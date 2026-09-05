@@ -2,11 +2,18 @@ begin;
 create extension if not exists pgtap with schema extensions;
 select extensions.plan(16);
 
-insert into public.profiles(user_id,display_name) values
+insert into auth.users(instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values
+ ('00000000-0000-0000-0000-000000000000','11111111-1111-4111-8111-111111111111','authenticated','authenticated','one@example.test','',now(),'{}','{}',now(),now()),
+ ('00000000-0000-0000-0000-000000000000','22222222-2222-4222-8222-222222222222','authenticated','authenticated','two@example.test','',now(),'{}','{}',now(),now()),
+ ('00000000-0000-0000-0000-000000000000','33333333-3333-4333-8333-333333333333','authenticated','authenticated','admin@example.test','',now(),'{}','{}',now(),now()),
+ ('00000000-0000-0000-0000-000000000000','44444444-4444-4444-8444-444444444444','authenticated','authenticated','mobile@example.test','',now(),'{}','{}',now(),now());
+
+update public.profiles set display_name = value.display_name from (values
  ('11111111-1111-4111-8111-111111111111','Editora uno'),
  ('22222222-2222-4222-8222-222222222222','Editor dos'),
  ('33333333-3333-4333-8333-333333333333','Administradora'),
- ('44444444-4444-4444-8444-444444444444','Móvil');
+ ('44444444-4444-4444-8444-444444444444','Móvil')) as value(user_id,display_name)
+where public.profiles.user_id = value.user_id::uuid;
 insert into public.editor_access(email,user_id,role,active) values
  ('one@example.test','11111111-1111-4111-8111-111111111111','collaborator',true),
  ('two@example.test','22222222-2222-4222-8222-222222222222','collaborator',true),

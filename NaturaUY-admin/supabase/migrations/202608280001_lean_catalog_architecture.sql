@@ -37,6 +37,21 @@ drop table if exists public.catalog_state cascade;
 drop table if exists public.catalog_releases cascade;
 drop table if exists public.audit_events cascade;
 drop table if exists public.species cascade;
+drop function if exists public.mark_catalog_dirty();
+drop function if exists public.save_species(uuid,text,jsonb,integer,text);
+drop function if exists public.change_species_lifecycle(uuid,integer,public.species_lifecycle,text);
+drop function if exists public.retire_species(uuid,integer,text);
+drop function if exists public.restore_species(uuid,integer,text);
+drop function if exists public.validate_revision(uuid,integer);
+drop function if exists public.rollback_revision(uuid,integer,integer,text);
+drop function if exists public.create_media_asset(uuid,public.media_kind,text,public.media_license,text,text,text,text,numeric,numeric);
+drop function if exists public.request_publish();
+drop function if exists public.sync_mobile_state(text,jsonb,jsonb);
+drop function if exists public.get_quiz_leaderboard(text,text,integer);
+drop function if exists public.get_species_favorite_counts(text[]);
+drop function if exists public.get_most_favorited_species(integer);
+drop function if exists public.submit_user_report(public.report_kind,text,text,text,text);
+drop function if exists public.resolve_user_report(uuid,public.report_state,text);
 
 -- A single access table represents both a pending email invitation and an
 -- accepted editorial membership. Normal mobile users never have a row here.
@@ -246,8 +261,8 @@ begin
   if p_license='permission' and coalesce(p_evidence_path,'')='' then raise exception 'permission_evidence_required'; end if;
   select coalesce(max(ordinal),0)+1 into v_ordinal from public.species_media where (species_id is not distinct from p_species_id) and (change_id is not distinct from p_change_id) and type=p_type and status not in ('rejected','archived');
   if (p_type='image' and v_ordinal>2) or (p_type='audio' and v_ordinal>1) then raise exception 'media_limit_exceeded'; end if;
-  insert into public.species_media(species_id,change_id,type,ordinal,is_primary,author,license,source,source_url,original_filename,evidence_path,uploaded_by,incoming_path)
-  values(p_species_id,p_change_id,p_type,v_ordinal,p_is_primary,trim(p_author),p_license,trim(p_source),nullif(trim(p_source_url),''),nullif(trim(p_original_filename),''),p_evidence_path,v_actor,format('%s/%s',v_actor,gen_random_uuid())) returning id,incoming_path into v_id,v_path;
+  insert into public.species_media as media(species_id,change_id,type,ordinal,is_primary,author,license,source,source_url,original_filename,evidence_path,uploaded_by,incoming_path)
+  values(p_species_id,p_change_id,p_type,v_ordinal,p_is_primary,trim(p_author),p_license,trim(p_source),nullif(trim(p_source_url),''),nullif(trim(p_original_filename),''),p_evidence_path,v_actor,format('%s/%s',v_actor,gen_random_uuid())) returning media.id,media.incoming_path into v_id,v_path;
   media_id:=v_id; incoming_path:=v_path; return next;
 end $$;
 
@@ -279,6 +294,7 @@ create or replace function public.resolve_feedback(p_id uuid,p_status text,p_not
 begin perform public.require_editor(); if p_status not in ('reviewing','resolved','dismissed') then raise exception 'invalid_feedback_status'; end if; update public.feedback set status=p_status,resolution_note=nullif(trim(p_note),''),resolved_by=auth.uid(),resolved_at=case when p_status in ('resolved','dismissed') then now() else null end where id=p_id; if not found then raise exception 'feedback_not_found'; end if; end $$;
 
 alter table public.profiles enable row level security; alter table public.editor_access enable row level security; alter table public.species enable row level security; alter table public.species_changes enable row level security; alter table public.species_media enable row level security; alter table public.catalog_releases enable row level security; alter table public.favorites enable row level security; alter table public.game_stats enable row level security; alter table public.feedback enable row level security;
+drop policy if exists profiles_read on public.profiles;
 create policy profiles_read on public.profiles for select to authenticated using(user_id=auth.uid() or public.has_editor_access());
 create policy editor_access_read on public.editor_access for select to authenticated using(user_id=auth.uid() or public.has_admin_access());
 create policy species_public_read on public.species for select to anon,authenticated using(status='active' or public.has_editor_access());
@@ -326,7 +342,7 @@ declare v_used bigint; v_next bigint := coalesce((new.metadata->>'size')::bigint
 begin
   if new.bucket_id not in ('incoming','media-public','media-evidence','catalog-public') then return new; end if;
   select coalesce(sum(coalesce((metadata->>'size')::bigint,0)),0) into v_used from storage.objects where bucket_id in ('incoming','media-public','media-evidence','catalog-public');
-  if v_used - case when tg_op='UPDATE' then v_previous else 0 end + v_next > 900*1024*1024 then raise exception 'storage_budget_exceeded'; end if;
+  if (v_used - (case when tg_op='UPDATE' then v_previous else 0 end) + v_next) > 900*1024*1024 then raise exception 'storage_budget_exceeded'; end if;
   return new;
 end $$;
 drop trigger if exists enforce_natura_storage_budget on storage.objects;
