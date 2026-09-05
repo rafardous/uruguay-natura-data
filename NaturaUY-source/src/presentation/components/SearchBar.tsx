@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 import { useTheme } from '../theme/ThemeProvider';
 
@@ -12,19 +13,24 @@ export interface SearchBarProps {
 
 export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
+  const [focused, setFocused] = useState(false);
 
   return (
     <View
       style={[
         styles.wrapper,
-        { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.md },
+        {
+          backgroundColor: '#E8E9D8',
+          borderColor: focused ? colors.primary : colors.border,
+          borderRadius: radius.pill,
+          shadowColor: colors.primary,
+          shadowOffset: { width: 0, height: 3 },
+          shadowOpacity: focused ? 0.13 : 0,
+          shadowRadius: 8,
+          elevation: focused ? 3 : 0,
+        },
       ]}
     >
-      <Svg width={19} height={19} viewBox="0 0 24 24">
-        <Circle cx="11" cy="11" r="7" stroke={colors.textMuted} strokeWidth={2} fill="none" />
-        <Path d="M20 20l-4-4" stroke={colors.textMuted} strokeWidth={2} strokeLinecap="round" />
-      </Svg>
-
       <TextInput
         value={value}
         onChangeText={onChange}
@@ -34,6 +40,8 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
         autoCapitalize="none"
         returnKeyType="search"
         onSubmitEditing={onSubmit}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         accessibilityLabel="Buscar especies"
         style={[typography.body, styles.input, { color: colors.text }]}
       />
@@ -56,6 +64,7 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,

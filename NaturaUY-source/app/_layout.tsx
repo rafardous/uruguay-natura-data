@@ -12,7 +12,9 @@ import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/Cat
 import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
+import { MobileAuthProvider } from '../src/auth/MobileAuthProvider';
 import { FavoritesProvider } from '../src/presentation/hooks/FavoritesProvider';
+import { MobileSyncProvider } from '../src/sync/MobileSyncProvider';
 import { ThemeProvider, useTheme } from '../src/presentation/theme/ThemeProvider';
 import { lightColors } from '../src/presentation/theme/tokens';
 
@@ -21,42 +23,44 @@ import { lightColors } from '../src/presentation/theme/tokens';
  * and every later start opens it directly — no import step, no empty state.
  */
 function Navigator(): React.JSX.Element {
-  const { colors, scheme } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <>
-      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+      <StatusBar style="dark" />
       <Stack
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: colors.background },
-          animation: 'slide_from_right',
+          animation: 'fade',
+          animationDuration: 240,
         }}
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="login" />
+        <Stack.Screen name="report" />
         <Stack.Screen name="collaborate" />
+        <Stack.Screen name="biomes" />
         <Stack.Screen name="interest-sites" />
         <Stack.Screen name="about" />
         <Stack.Screen name="taxonomy" />
         <Stack.Screen
           name="species/[codigo]"
           options={{
-            // Native bottom sheet (UISheetPresentationController on iOS, Material
-            // BottomSheetBehaviour on Android) instead of a hand-rolled slide-up.
-            // A `transparentModal` + manual translateY was tried first, but on
-            // Android `transparentModal` plays its own native dialog animation
-            // that `animation: 'none'` doesn't suppress, so it ran at the same
-            // time as the custom one — two overlapping motions, reads as broken.
-            // formSheet gives one native-driven motion with swipe-to-dismiss for free.
-            presentation: 'formSheet',
-            sheetAllowedDetents: [0.94],
-            sheetCornerRadius: 28,
-            sheetGrabberVisible: false,
-            sheetExpandsWhenScrolledToEdge: false,
+            // Android's native formSheet keeps intercepting a downward finger
+            // movement even after its navigation gesture is disabled. A
+            // transparent modal preserves the card presentation, but assigns
+            // every vertical gesture exclusively to the inner ScrollView.
+            presentation: 'transparentModal',
+            animation: 'fade',
+            animationDuration: 180,
+            gestureEnabled: false,
+            contentStyle: { backgroundColor: 'transparent' },
           }}
         />
-        <Stack.Screen name="game/identify" options={{ animation: 'slide_from_bottom' }} />
+        <Stack.Screen name="game/identify" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
+        <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
+        <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
         <Stack.Screen name="credits" />
       </Stack>
     </>
@@ -121,9 +125,13 @@ export default function RootLayout(): React.JSX.Element | null {
               <CatalogUpdateNotice />
               <UserDatabaseProvider>
                 <ThemeProvider>
-                  <FavoritesProvider>
-                    <Navigator />
-                  </FavoritesProvider>
+                  <MobileAuthProvider>
+                    <MobileSyncProvider>
+                      <FavoritesProvider>
+                        <Navigator />
+                      </FavoritesProvider>
+                    </MobileSyncProvider>
+                  </MobileAuthProvider>
                 </ThemeProvider>
               </UserDatabaseProvider>
             </CatalogUpdateProvider>

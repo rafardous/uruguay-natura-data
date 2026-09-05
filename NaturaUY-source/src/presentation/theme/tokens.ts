@@ -224,7 +224,7 @@ export interface ElevationSet {
 }
 
 export const lightElevation: ElevationSet = {
-  low: { shadowColor: '#355847', shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.08, shadowRadius: 9, elevation: 2 },
+  low: { shadowColor: '#355847', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.12, shadowRadius: 12, elevation: 4 },
   medium: { shadowColor: '#355847', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.11, shadowRadius: 18, elevation: 6 },
   high: { shadowColor: '#294A3A', shadowOffset: { width: 0, height: 12 }, shadowOpacity: 0.16, shadowRadius: 24, elevation: 12 },
 };

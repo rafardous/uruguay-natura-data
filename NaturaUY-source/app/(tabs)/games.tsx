@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { QUIZ_MODES, type QuizMode, type QuizModeConfig } from '../../src/domain/entities/quiz';
 import type { Species } from '../../src/domain/entities/species';
@@ -126,6 +127,7 @@ export default function GamesScreen(): React.JSX.Element {
     }, [db]),
   );
 
+
   useEffect(() => {
     void (async () => {
       // The stated pool is every photograph the quiz can draw from…
@@ -150,33 +152,39 @@ export default function GamesScreen(): React.JSX.Element {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
       >
-        <AppHeader eyebrow="APRENDÉ JUGANDO" title="Juegos" onOpenMenu={() => setMenuOpen(true)} />
+        <AppHeader onOpenMenu={() => setMenuOpen(true)}>
+          <View style={styles.gamesHeader}>
+            <View><Text style={[typography.eyebrow, { color: colors.textMuted }]}>APRENDÉ JUGANDO</Text><Text style={[typography.title, { color: colors.text }]}>Juegos</Text></View>
+            <Pressable onPress={() => router.push('/game/records')} accessibilityRole="button" accessibilityLabel="Ver récords" style={[styles.recordsButton, { backgroundColor: colors.play, borderRadius: radius.pill }]}>
+              <TrophyIcon color={colors.onPlay} size={18} /><Text style={[typography.label, { color: colors.onPlay }]}>Récords</Text>
+            </Pressable>
+          </View>
+        </AppHeader>
 
         <MotiView
-          from={{ opacity: 0, translateY: 14 }}
+          from={{ opacity: 0, translateY: 7 }}
           animate={{ opacity: 1, translateY: 0 }}
-          transition={{ type: 'timing', duration: 380 }}
+          transition={{ type: 'timing', duration: 240 }}
           style={{ paddingHorizontal: spacing.lg, marginTop: spacing.lg }}
         >
-          <View
+          <LinearGradient
+            colors={['#6E4E9E', '#503874']}
             style={[
               styles.hero,
               elevation.medium,
               {
-                backgroundColor: colors.canvas,
-                borderColor: colors.canvasBorder,
+                borderColor: 'rgba(255,255,255,.18)',
                 borderRadius: radius.xl,
-                paddingVertical: spacing.xl,
+                paddingVertical: spacing.lg,
               },
             ]}
           >
             {deck.length > 0 && <PhotoDeck deck={deck} />}
 
-            <View style={{ paddingHorizontal: spacing.xl, marginTop: spacing.xl }}>
-              <Text style={[typography.display, { color: colors.canvasText }]}>Identificá{'\n'}la especie</Text>
+            <View style={{ paddingHorizontal: spacing.xl, marginTop: spacing.md }}>
+              <Text style={[typography.title, { color: colors.onPlay }]}>Identificá la especie</Text>
               <Text style={[typography.body, { color: colors.canvasTextMuted, marginTop: spacing.sm }]}>
-                Mirá la foto y elegí el nombre correcto. Las opciones equivocadas vienen de la misma familia,
-                así que hay que mirar con atención.
+                Mirá la foto y elegí el nombre correcto.
               </Text>
 
               {poolSize > 0 && (
@@ -186,7 +194,7 @@ export default function GamesScreen(): React.JSX.Element {
                 </View>
               )}
             </View>
-          </View>
+          </LinearGradient>
         </MotiView>
 
         <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.xl }]}>
@@ -196,22 +204,22 @@ export default function GamesScreen(): React.JSX.Element {
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
           {MODE_ORDER.map((mode, index) => {
             const config = QUIZ_MODES[mode];
-            const record = records[mode];
+            const record = records[`animals_all:${mode}`];
             const Icon = MODE_ICON[mode];
             const played = record && record.bestScore > 0;
 
             return (
               <MotiView
                 key={mode}
-                from={{ opacity: 0, translateY: 12 }}
+                from={{ opacity: 0, translateY: 7 }}
                 animate={{ opacity: 1, translateY: 0 }}
-                transition={{ type: 'timing', duration: 320, delay: index * 70 }}
+                transition={{ type: 'timing', duration: 240, delay: index * 35 }}
               >
                 <Pressable
                   onPress={() => {
                     // Starting a run is the weightiest action on this screen.
                     haptics.press();
-                    router.push(`/game/identify?mode=${mode}`);
+                    router.push(`/game/categories?mode=${mode}`);
                   }}
                   accessibilityRole="button"
                   accessibilityLabel={`Jugar modo ${config.title}`}
@@ -257,6 +265,10 @@ export default function GamesScreen(): React.JSX.Element {
             );
           })}
         </View>
+        <View style={[styles.future, { margin: spacing.lg, backgroundColor: colors.surfaceVariant, borderRadius: radius.lg }]}>
+          <Text style={[typography.cardTitle, { color: colors.text }]}>Jugá con amigos</Text>
+          <Text style={[typography.body, { color: colors.textMuted }]}>Creá una sala y compará resultados. Próximamente.</Text>
+        </View>
       </ScrollView>
 
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -267,9 +279,12 @@ export default function GamesScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
+  gamesHeader: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  recordsButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 13, height: 42 },
+  future: { padding: 18, gap: 4, opacity: 0.72 },
   hero: { overflow: 'hidden', borderWidth: StyleSheet.hairlineWidth },
   deck: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
-  deckCard: { width: 92, height: 124, overflow: 'hidden', borderWidth: 3, marginHorizontal: -12 },
+  deckCard: { width: 74, height: 92, overflow: 'hidden', borderWidth: 3, marginHorizontal: -10 },
   poolRow: { flexDirection: 'row', alignItems: 'baseline', gap: 6, paddingTop: 12, borderTopWidth: StyleSheet.hairlineWidth },
   mode: {},
   modeTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },

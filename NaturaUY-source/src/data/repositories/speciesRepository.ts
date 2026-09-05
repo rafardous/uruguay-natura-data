@@ -2,7 +2,7 @@ import type { SQLiteDatabase } from 'expo-sqlite';
 
 import type { Species } from '../../domain/entities/species';
 import { rowToSpecies } from '../mappers/speciesMapper';
-import type { SpeciesRow } from '../db/schema';
+import type { SpeciesMediaRow, SpeciesRow } from '../db/schema';
 
 export const TAXON_RANKS = ['phylum', 'clase', 'orden', 'familia', 'genero'] as const;
 export type TaxonRank = (typeof TAXON_RANKS)[number];
@@ -18,6 +18,10 @@ export interface SpeciesFilters {
   /** Conservation rank >= 2 (priority or threatened). */
   onlyPriority?: boolean;
   onlyWithPhoto?: boolean;
+  classes?: string[];
+  habitats?: string[];
+  diets?: string[];
+  seasonalities?: string[];
 }
 
 export interface Page<T> {
@@ -70,6 +74,24 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
   if (filters.onlyPriority) clauses.push('species.conservation_rank >= 2');
   if (filters.onlyWithPhoto) clauses.push('species.image_url IS NOT NULL');
 
+  const addIn = (column: string, values?: string[]): void => {
+    if (!values?.length) return;
+    clauses.push(`species.${column} IN (${values.map(() => '?').join(',')})`);
+    params.push(...values);
+  };
+  addIn('clase', filters.classes);
+  addIn('seasonality', filters.seasonalities);
+
+  const addJsonAny = (column: 'habitat' | 'diet', values?: string[]): void => {
+    if (!values?.length) return;
+    clauses.push(`json_valid(species.${column}) AND EXISTS (
+      SELECT 1 FROM json_each(species.${column}) WHERE json_each.value IN (${values.map(() => '?').join(',')})
+    )`);
+    params.push(...values);
+  };
+  addJsonAny('habitat', filters.habitats);
+  addJsonAny('diet', filters.diets);
+
   return {
     joins,
     where: clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : '',
@@ -101,7 +123,7 @@ export const speciesRepository = {
     );
 
     const hasMore = rows.length > limit;
-    return { items: rows.slice(0, limit).map(rowToSpecies), hasMore };
+    return { items: rows.slice(0, limit).map((row) => rowToSpecies(row)), hasMore };
   },
 
   async count(db: SQLiteDatabase, filters: SpeciesFilters): Promise<number> {
@@ -115,7 +137,15 @@ export const speciesRepository = {
 
   async findByCodigo(db: SQLiteDatabase, codigo: string): Promise<Species | null> {
     const row = await db.getFirstAsync<SpeciesRow>('SELECT * FROM species WHERE codigo = ?', [codigo]);
-    return row ? rowToSpecies(row) : null;
+    if (!row) return null;
+    try {
+      const media = await db.getAllAsync<SpeciesMediaRow>('SELECT * FROM species_media WHERE stable_id = ? ORDER BY media_type, ordinal', [row.stable_id ?? '']);
+      return rowToSpecies(row, media);
+    } catch {
+      // The app can still open a pre-schema-6 bundled catalogue while the
+      // validated update is downloaded for the next launch.
+      return rowToSpecies(row);
+    }
   },
 
   async findManyByCodigo(db: SQLiteDatabase, codigos: string[]): Promise<Species[]> {
@@ -125,7 +155,7 @@ export const speciesRepository = {
       `SELECT * FROM species WHERE codigo IN (${placeholders}) ORDER BY common_name COLLATE NOCASE`,
       codigos,
     );
-    return rows.map(rowToSpecies);
+    return rows.map((row) => rowToSpecies(row));
   },
 
   /** One level of the taxonomic tree, constrained by every selected ancestor. */
@@ -156,13 +186,29 @@ export const speciesRepository = {
    * Quiz pool: only species with a photo, since the question *is* the photo.
    * Loaded once per run so question generation stays synchronous and instant.
    */
-  async findQuizPool(db: SQLiteDatabase, clase?: string): Promise<Species[]> {
+  async findQuizPool(db: SQLiteDatabase, classes: string[] = []): Promise<Species[]> {
+    const classClause = classes.length > 0 ? `AND clase IN (${classes.map(() => '?').join(',')})` : '';
     const rows = await db.getAllAsync<SpeciesRow>(
       `SELECT * FROM species
-       WHERE image_url IS NOT NULL ${clase ? 'AND clase = ?' : ''}`,
-      clase ? [clase] : [],
+       WHERE image_url IS NOT NULL ${classClause}`,
+      classes,
     );
-    return rows.map(rowToSpecies);
+    return rows.map((row) => rowToSpecies(row));
+  },
+
+  async listFilterValues(db: SQLiteDatabase, field: 'habitat' | 'diet' | 'seasonality'): Promise<string[]> {
+    if (field === 'seasonality') {
+      const rows = await db.getAllAsync<{ value: string }>(
+        `SELECT DISTINCT seasonality AS value FROM species
+         WHERE seasonality IS NOT NULL AND seasonality <> '' ORDER BY value COLLATE NOCASE`,
+      );
+      return rows.map((row) => row.value);
+    }
+    const rows = await db.getAllAsync<{ value: string }>(
+      `SELECT DISTINCT json_each.value AS value FROM species, json_each(species.${field})
+       WHERE json_valid(species.${field}) AND json_each.value <> '' ORDER BY value COLLATE NOCASE`,
+    );
+    return rows.map((row) => row.value);
   },
 
   async stats(db: SQLiteDatabase): Promise<{ total: number; withPhoto: number; families: number }> {

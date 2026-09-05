@@ -23,9 +23,3 @@ export async function uploadIncoming(file: File, objectName: string, onProgress:
     upload.findPreviousUploads().then((previous) => { if (previous[0]) upload.resumeFromPreviousUpload(previous[0]); upload.start(); }).catch(reject);
   });
 }
-
-export async function uploadEvidence(file: File, objectName: string): Promise<string> {
-  if (isDemoMode || !supabase) return objectName;
-  const { error } = await supabase.storage.from('media-evidence').upload(objectName, file, { upsert: false });
-  if (error) throw error; return objectName;
-}

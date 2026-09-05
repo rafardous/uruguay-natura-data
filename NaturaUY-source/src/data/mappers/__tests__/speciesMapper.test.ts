@@ -24,7 +24,6 @@ const baseRow: SpeciesRow = {
   habitat: '["pastizal_campo_natural"]',
   diet: '["invertebrates"]',
   relevant_note: null,
-  review_status: 'unreviewed',
   sources: '[{"source":"snap","record":"V_chilensi"}]',
   descripcion: 'Ave común de pastizales.',
   alimentacion: 'Insectos y lombrices.',

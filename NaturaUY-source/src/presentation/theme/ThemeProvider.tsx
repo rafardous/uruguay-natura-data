@@ -1,11 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { useColorScheme } from 'react-native';
+import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react';
 
-import { useUserDatabase } from '../../data/db/UserDatabaseProvider';
-import { settingsRepository } from '../../data/repositories/settingsRepository';
 import {
-  darkColors,
-  darkElevation,
   lightColors,
   lightElevation,
   radius,
@@ -33,53 +28,25 @@ interface ThemeContextValue {
   setMode: (mode: ThemeMode) => void;
 }
 
-const SETTING_KEY = 'theme_mode';
-
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const isThemeMode = (value: string | null): value is ThemeMode =>
-  value === 'system' || value === 'light' || value === 'dark';
-
 export function ThemeProvider({ children }: { children: ReactNode }): React.JSX.Element {
-  const db = useUserDatabase();
-  const systemScheme = useColorScheme();
-  const [mode, setModeState] = useState<ThemeMode>('system');
-
-  useEffect(() => {
-    let active = true;
-    void settingsRepository.get(db, SETTING_KEY).then((stored) => {
-      if (active && isThemeMode(stored)) setModeState(stored);
-    });
-    return () => {
-      active = false;
-    };
-  }, [db]);
-
-  const setMode = useCallback(
-    (next: ThemeMode) => {
-      // Update immediately; persistence is a background detail.
-      setModeState(next);
-      void settingsRepository.set(db, SETTING_KEY, next);
-    },
-    [db],
-  );
+  const setMode = useCallback((_next: ThemeMode) => {}, []);
 
   const value = useMemo<ThemeContextValue>(() => {
-    const scheme: ColorScheme = mode === 'system' ? (systemScheme === 'dark' ? 'dark' : 'light') : mode;
-
     return {
-      mode,
+      mode: 'light',
       setMode,
       theme: {
-        scheme,
-        colors: scheme === 'dark' ? darkColors : lightColors,
+        scheme: 'light',
+        colors: lightColors,
         spacing,
         radius,
         typography,
-        elevation: scheme === 'dark' ? darkElevation : lightElevation,
+        elevation: lightElevation,
       },
     };
-  }, [mode, setMode, systemScheme]);
+  }, [setMode]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

@@ -35,6 +35,7 @@ export default function TabsLayout(): React.JSX.Element {
     <Tabs
       screenOptions={{
         headerShown: false,
+        animation: 'fade',
         // The island floats over the content instead of reserving layout height;
         // screens pad their own scroll content by NAV_ISLAND_HEIGHT.
         tabBarStyle: { position: 'absolute', backgroundColor: 'transparent', borderTopWidth: 0, elevation: 0 },

@@ -1,6 +1,24 @@
 import type { Species } from './species';
 
 export type QuizMode = 'classic' | 'timed' | 'survival';
+export type QuizScope = 'animals_all' | 'birds' | 'mammals' | 'reptiles' | 'amphibians' | 'fish';
+
+export interface QuizScopeConfig {
+  id: QuizScope;
+  label: string;
+  classes: string[];
+}
+
+export const QUIZ_SCOPES: Record<QuizScope, QuizScopeConfig> = {
+  animals_all: { id: 'animals_all', label: 'Todos', classes: [] },
+  birds: { id: 'birds', label: 'Aves', classes: ['Aves'] },
+  mammals: { id: 'mammals', label: 'Mamíferos', classes: ['Mammalia'] },
+  reptiles: { id: 'reptiles', label: 'Reptiles', classes: ['Reptilia'] },
+  amphibians: { id: 'amphibians', label: 'Anfibios', classes: ['Amphibia'] },
+  fish: { id: 'fish', label: 'Peces', classes: ['Actinopterygii', 'Chondrichthyes'] },
+};
+
+export const QUIZ_SCOPE_ORDER: QuizScope[] = ['animals_all', 'birds', 'mammals', 'reptiles', 'amphibians', 'fish'];
 
 export interface QuizModeConfig {
   id: QuizMode;

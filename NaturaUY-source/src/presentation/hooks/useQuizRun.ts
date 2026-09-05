@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite';
 
-import { QUIZ_MODES, createRun, type QuizMode, type QuizQuestion, type QuizRunState } from '../../domain/entities/quiz';
+import { QUIZ_MODES, QUIZ_SCOPES, createRun, type QuizMode, type QuizQuestion, type QuizRunState, type QuizScope } from '../../domain/entities/quiz';
 import type { Species } from '../../domain/entities/species';
 import { useUserDatabase } from '../../data/db/UserDatabaseProvider';
 import { quizRepository } from '../../data/repositories/quizRepository';
 import { speciesRepository } from '../../data/repositories/speciesRepository';
-import { answerQuestion, buildQuestion, eligibleTargets, finishRun, shuffle } from '../../domain/services/quizEngine';
+import { answerQuestion, buildQuestion, eligibleTargets, finishRun, grantExtraLife, shuffle } from '../../domain/services/quizEngine';
+import { useMobileSync } from '../../sync/MobileSyncProvider';
 
 export interface QuizRun {
   loading: boolean;
@@ -18,6 +19,7 @@ export interface QuizRun {
   answer: (codigo: string) => boolean;
   next: () => void;
   restart: () => void;
+  awardLife: () => void;
 }
 
 /**
@@ -26,10 +28,11 @@ export interface QuizRun {
  * Targets are drawn from a pre-shuffled queue rather than sampled at random,
  * which guarantees a species never repeats within a run.
  */
-export function useQuizRun(mode: QuizMode): QuizRun {
+export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
   // Questions come from the catalogue; records are written to the user database.
   const catalog = useSQLiteContext();
   const userDb = useUserDatabase();
+  const { requestSync } = useMobileSync();
 
   const [pool, setPool] = useState<Species[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +56,7 @@ export function useQuizRun(mode: QuizMode): QuizRun {
   useEffect(() => {
     let active = true;
 
-    void speciesRepository.findQuizPool(catalog).then((loaded) => {
+    void speciesRepository.findQuizPool(catalog, QUIZ_SCOPES[scope].classes).then((loaded) => {
       if (!active) return;
       setPool(loaded);
       queue.current = shuffle(eligibleTargets(loaded), Math.random);
@@ -64,7 +67,7 @@ export function useQuizRun(mode: QuizMode): QuizRun {
     return () => {
       active = false;
     };
-  }, [catalog, serveNext]);
+  }, [catalog, scope, serveNext]);
 
   // Countdown for the timed mode.
   useEffect(() => {
@@ -83,8 +86,8 @@ export function useQuizRun(mode: QuizMode): QuizRun {
   useEffect(() => {
     if (!state.finished || submitted.current) return;
     submitted.current = true;
-    void quizRepository.submitRun(userDb, mode, state.score, state.bestStreakThisRun);
-  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode]);
+    void quizRepository.submitRun(userDb, mode, scope, state.score, state.bestStreakThisRun).then(requestSync);
+  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode, scope, requestSync]);
 
   const answer = useCallback(
     (codigo: string): boolean => {
@@ -111,8 +114,10 @@ export function useQuizRun(mode: QuizMode): QuizRun {
     serveNext(pool);
   }, [mode, pool, serveNext]);
 
+  const awardLife = useCallback(() => setState(grantExtraLife), []);
+
   return useMemo(
-    () => ({ loading, state, question, secondsLeft, answeredCodigo, answer, next, restart }),
-    [loading, state, question, secondsLeft, answeredCodigo, answer, next, restart],
+    () => ({ loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife }),
+    [loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife],
   );
 }

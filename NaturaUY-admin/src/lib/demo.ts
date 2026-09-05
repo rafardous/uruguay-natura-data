@@ -11,7 +11,7 @@ const base = {
   origin: 'native' as const, establishment: 'established' as const, seasonality: 'resident' as const,
   presenceCertainty: 'confirmed' as const, abundanceStatus: '',
   conservation: { system: 'UICN', category: 'NE' as const, source: '', assessedAt: '' },
-  description: '', habitat: [] as string[], diet: [] as string[], size: '', relevantNote: '', fieldSources: [] as Array<{ fieldPath: string; name: string; citation: string; url: string; note: string }>,
+  description: '', habitat: [] as string[], diet: [] as string[], size: '', relevantNote: '', sourceReferences: [] as string[],
 };
 
 const rows = [
@@ -45,7 +45,7 @@ export const demoStats: DashboardStats = {
 export const demoMedia: MediaAsset[] = [
   { id: 'm1', jobId: null, speciesId: 'actitis-macularius', speciesName: 'Playerito manchado', kind: 'image', state: 'ready', author: 'RJ Baltierra', license: 'CC-BY-4.0', sourceUrl: '', uploadedBy: 'Rafael Rinaldi', createdAt: new Date().toISOString(), error: null },
   { id: 'm2', jobId: 'j2', speciesId: 'accipiter-bicolor', speciesName: 'Gavilán bicolor', kind: 'image', state: 'processing', author: 'Archivo Natura UY', license: 'CC-BY-4.0', sourceUrl: '', uploadedBy: 'Agustín Morelle', createdAt: new Date().toISOString(), error: null },
-  { id: 'm3', jobId: 'j3', speciesId: 'aegolius-harrisii', speciesName: 'Lechucita canela', kind: 'audio', state: 'failed', author: 'Donación particular', license: 'permission', sourceUrl: '', uploadedBy: 'Rafael Rinaldi', createdAt: new Date().toISOString(), error: 'El archivo supera los 15 minutos permitidos.' },
+  { id: 'm3', jobId: 'j3', speciesId: 'aegolius-harrisii', speciesName: 'Lechucita canela', kind: 'audio', state: 'failed', author: 'Donación particular', license: 'permission', sourceUrl: '', uploadedBy: 'Rafael Rinaldi', createdAt: new Date().toISOString(), error: 'El fragmento supera los 15 segundos permitidos.' },
 ];
 
 export const demoReleases: CatalogRelease[] = [

@@ -5,11 +5,12 @@ import { defaultDatabaseDirectory, importDatabaseFromAssetAsync, openDatabaseAsy
 
 import { CATALOG_DATABASE_NAME } from './schema';
 import { decideCatalogUpdate } from './catalogUpdatePolicy';
+import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from './catalogUpdateValidation';
 
 const STAGED_DATABASE_NAME = 'natura.next.db';
 const PREVIOUS_DATABASE_NAME = 'natura.previous.db';
 const BUNDLED_DATABASE_NAME = 'natura.bundled.db';
-export const SUPPORTED_CATALOG_SCHEMA = 4;
+export const SUPPORTED_CATALOG_SCHEMA = 6;
 
 export interface CatalogManifest {
   data_version: number;
@@ -28,7 +29,7 @@ async function readMeta(databaseName: string): Promise<{ dataVersion: number; sc
   const database = await openDatabaseAsync(databaseName);
   try {
     const integrity = await database.getFirstAsync<{ integrity_check: string }>('PRAGMA integrity_check');
-    if (integrity?.integrity_check !== 'ok') throw new Error(`catalog_integrity_failed:${integrity?.integrity_check}`);
+    assertCatalogIntegrity(integrity?.integrity_check);
     const rows = await database.getAllAsync<{ key: string; value: string }>("SELECT key, value FROM meta WHERE key IN ('data_version', 'schema_version')");
     const meta = Object.fromEntries(rows.map((row) => [row.key, row.value]));
     return { dataVersion: Number(meta.data_version ?? 0), schemaVersion: Number(meta.schema_version ?? 0) };
@@ -54,15 +55,19 @@ async function atomicReplace(candidateName: string): Promise<void> {
 
 async function recoverInstalledCatalog(assetId: number): Promise<void> {
   const current = databaseFile(CATALOG_DATABASE_NAME); const previous = databaseFile(PREVIOUS_DATABASE_NAME);
+  let previousIsValid = false;
   if (previous.exists) {
     try {
       await readMeta(PREVIOUS_DATABASE_NAME);
+      previousIsValid = true;
+      if (recoverySource(previousIsValid) !== 'previous') throw new Error('invalid_recovery_plan');
       if (current.exists) current.delete();
       await previous.move(databaseFile(CATALOG_DATABASE_NAME));
       await readMeta(CATALOG_DATABASE_NAME);
       return;
     } catch { if (previous.exists) previous.delete(); }
   }
+  if (recoverySource(previousIsValid) !== 'bundled') throw new Error('catalog_recovery_failed');
   if (current.exists) current.delete();
   await importDatabaseFromAssetAsync(CATALOG_DATABASE_NAME, { assetId, forceOverwrite: true });
   await readMeta(CATALOG_DATABASE_NAME);
@@ -98,10 +103,9 @@ export async function stageLatestCatalog(currentDataVersion: number, signal?: Ab
   if (staged.exists) staged.delete();
   await File.downloadFileAsync(manifest.database_url, staged, { idempotent: true });
   try {
-    if (staged.size !== manifest.database_size) throw new Error(`catalog_size_mismatch:${staged.size}`);
-    if (await sha256(staged) !== manifest.sha256.toLowerCase()) throw new Error('catalog_sha256_mismatch');
+    const checksum = await sha256(staged);
     const meta = await readMeta(STAGED_DATABASE_NAME);
-    if (meta.dataVersion !== manifest.data_version || meta.schemaVersion !== manifest.schema_version) throw new Error('catalog_version_mismatch');
+    assertCatalogDownload({ actualSize: staged.size, expectedSize: manifest.database_size, actualSha256: checksum, expectedSha256: manifest.sha256, actualDataVersion: meta.dataVersion, expectedDataVersion: manifest.data_version, actualSchemaVersion: meta.schemaVersion, expectedSchemaVersion: manifest.schema_version });
     return 'staged';
   } catch (error) { if (staged.exists) staged.delete(); throw error; }
 }

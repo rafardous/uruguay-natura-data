@@ -46,13 +46,27 @@ jobs:
         run: npm run catalog:build
       - id: metadata
         if: steps.prepare.outputs.should_publish == 'true'
-        run: node -e 'const m=require("./dist/catalog/build-metadata.json");require("fs").appendFileSync(process.env.GITHUB_OUTPUT,"data_version="+m.dataVersion+"\n")'
+        run: node -e 'const m=require("./dist/catalog/build-metadata.json");require("fs").appendFileSync(process.env.GITHUB_OUTPUT,"data_version="+m.version+"\n")'
       - name: Crear GitHub Release
         if: steps.prepare.outputs.should_publish == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           DATA_VERSION: ${{ steps.metadata.outputs.data_version }}
-        run: gh release create "catalog-v${DATA_VERSION}" dist/catalog/* --title "Catálogo Natura UY v${DATA_VERSION}" --notes "Publicación automatizada del catálogo editorial validado."
+        run: >-
+          gh release create "catalog-v${DATA_VERSION}"
+          dist/catalog/natura.db
+          dist/catalog/natura.db.gz
+          dist/catalog/catalog-full.json
+          dist/catalog/aves.json
+          dist/catalog/mammalia.json
+          dist/catalog/reptilia.json
+          dist/catalog/amphibia.json
+          dist/catalog/actinopterygii.json
+          dist/catalog/chondrichthyes.json
+          dist/catalog/manifest.json
+          dist/catalog/quality-report.json
+          --title "Catálogo Natura UY v${DATA_VERSION}"
+          --notes "Publicación manual del catálogo editorial aprobado."
       - name: Finalizar manifiesto estable
         if: steps.prepare.outputs.should_publish == 'true'
         env:

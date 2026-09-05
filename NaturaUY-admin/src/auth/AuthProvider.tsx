@@ -12,6 +12,7 @@ interface AuthState {
   mfa: { factorId: string; qrCode: string | null; secret: string | null } | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
+  signInWithGoogle(): Promise<string | null>;
   verifyMfa(code: string): Promise<string | null>;
   setPassword(password: string): Promise<string | null>;
   resetPassword(email: string): Promise<string | null>;
@@ -28,9 +29,12 @@ const initialPasswordFlow = (): AuthState['passwordFlow'] => {
 
 async function loadProfile(session: Session): Promise<Profile | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.from('profiles').select('id, display_name, role, is_active, mfa_required').eq('id', session.user.id).single();
-  if (error || !data?.is_active) return null;
-  return { id: data.id, displayName: data.display_name, email: session.user.email ?? '', role: data.role, active: data.is_active, mfaRequired: data.mfa_required };
+  const [{ data: profile, error: profileError }, { data: membership, error: membershipError }] = await Promise.all([
+    supabase.from('profiles').select('user_id, display_name').eq('user_id', session.user.id).single(),
+    supabase.from('editor_access').select('role, active').eq('user_id', session.user.id).single(),
+  ]);
+  if (profileError || membershipError || !profile || !membership?.active) return null;
+  return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active, mfaRequired: membership.role === 'admin' };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
@@ -43,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     if (!supabase) return;
     const nextProfile = await loadProfile(session);
     if (!nextProfile) { setProfile(null); setLoading(false); return; }
-    if (nextProfile.role !== 'admin' && !nextProfile.mfaRequired) { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
+    if (nextProfile.role !== 'admin') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
     const { data: assurance } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
     if (assurance?.currentLevel === 'aal2') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
     const { data: factors } = await supabase.auth.mfa.listFactors(); const verified = factors?.totp.find((factor) => factor.status === 'verified');
@@ -69,6 +73,11 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     async signIn(email, password) {
       if (!supabase) { setProfile(demoProfile); return null; }
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
+    },
+    async signInWithGoogle() {
+      if (!supabase) { setProfile(demoProfile); return null; }
+      const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/login` } });
+      return error?.message ?? null;
     },
     async verifyMfa(code) {
       if (!supabase || !mfa) return 'No hay una verificación pendiente.';

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Bird, PawPrint, Turtle } from 'lucide-react-native';
 import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
 
 /**
@@ -210,6 +211,19 @@ export const FamilyGlyph = memo(function FamilyGlyph({
   size = 48,
   opacity = 1,
 }: FamilyGlyphProps): React.JSX.Element {
+  // Lucide's zoological marks read more clearly at card size than the old
+  // hand-drawn silhouettes. Keeping the swap here updates taxonomy, games and
+  // every photo fallback without duplicating icon choices across screens.
+  if (clase === 'Aves') {
+    return <Bird color={color} size={size} strokeWidth={1.65} opacity={opacity} />;
+  }
+  if (clase === 'Mammalia') {
+    return <PawPrint color={color} size={size} strokeWidth={1.65} opacity={opacity} />;
+  }
+  if (clase === 'Reptilia') {
+    return <Turtle color={color} size={size} strokeWidth={1.65} opacity={opacity} />;
+  }
+
   return (
     <Svg width={size} height={size} viewBox="0 0 64 64" opacity={opacity}>
       <GlyphShape glyph={glyphForClass(clase)} color={color} />

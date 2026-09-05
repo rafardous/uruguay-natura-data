@@ -18,10 +18,6 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
-      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-      R2_BUCKET: ${{ secrets.R2_BUCKET }}
       BACKUP_ENCRYPTION_PASSWORD: ${{ secrets.BACKUP_ENCRYPTION_PASSWORD }}
       SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
     steps:
@@ -35,12 +31,13 @@ jobs:
       - name: Respaldo lógico cifrado
         run: |
           pg_dump "$SUPABASE_DB_URL" --schema=public --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
-      - name: Guardar y aplicar retención
-        env:
-          BACKUP_FILE: ${{ github.workspace }}/NaturaUY-admin/editorial-${{ github.run_id }}.sql.gz.enc
-        run: |
-          mv editorial-*.sql.gz.enc "$BACKUP_FILE"
-          npm run backup:upload
+      - name: Conservar respaldo cifrado durante siete días
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-${{ github.run_id }}
+          path: NaturaUY-admin/editorial-*.sql.gz.enc
+          retention-days: 7
+          compression-level: 0
       - run: npm run media:cleanup
 
   verify-media:
@@ -52,10 +49,6 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
-      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-      R2_BUCKET: ${{ secrets.R2_BUCKET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -64,4 +57,4 @@ jobs:
           cache: npm
           cache-dependency-path: NaturaUY-admin/package-lock.json
       - run: npm ci
-      - run: npm run backup:verify-media
+      - run: npm run media:verify

@@ -9,14 +9,27 @@ export const favoritesRepository = {
   },
 
   async add(db: SQLiteDatabase, codigo: string): Promise<void> {
-    await db.runAsync('INSERT OR IGNORE INTO favorites (codigo, created_at) VALUES (?, ?)', [
-      codigo,
-      Date.now(),
-    ]);
+    const now = Date.now();
+    await db.withTransactionAsync(async () => {
+      await db.runAsync('INSERT OR IGNORE INTO favorites (codigo, created_at) VALUES (?, ?)', [codigo, now]);
+      await db.runAsync(
+        `INSERT INTO favorite_sync (codigo, is_favorite, updated_at) VALUES (?, 1, ?)
+         ON CONFLICT(codigo) DO UPDATE SET is_favorite = 1, updated_at = excluded.updated_at`,
+        [codigo, now],
+      );
+    });
   },
 
   async remove(db: SQLiteDatabase, codigo: string): Promise<void> {
-    await db.runAsync('DELETE FROM favorites WHERE codigo = ?', [codigo]);
+    const now = Date.now();
+    await db.withTransactionAsync(async () => {
+      await db.runAsync('DELETE FROM favorites WHERE codigo = ?', [codigo]);
+      await db.runAsync(
+        `INSERT INTO favorite_sync (codigo, is_favorite, updated_at) VALUES (?, 0, ?)
+         ON CONFLICT(codigo) DO UPDATE SET is_favorite = 0, updated_at = excluded.updated_at`,
+        [codigo, now],
+      );
+    });
   },
 
   /** Returns the resulting state so callers can update optimistically. */
