@@ -14,7 +14,7 @@ import { PATHS, readJson } from './lib';
 const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 5;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -99,22 +99,23 @@ const DIET_LABELS: Record<string, string> = {
 
 const SCHEMA = `
 CREATE TABLE species (
-  codigo TEXT PRIMARY KEY, scientific_name TEXT NOT NULL, accepted_name TEXT,
+  stable_id TEXT NOT NULL UNIQUE, codigo TEXT PRIMARY KEY, scientific_name TEXT NOT NULL, accepted_name TEXT,
   common_name TEXT NOT NULL, common_names TEXT NOT NULL,
   kingdom TEXT NOT NULL, phylum TEXT NOT NULL,
   clase TEXT NOT NULL, orden TEXT NOT NULL, familia TEXT NOT NULL,
   genero TEXT NOT NULL, epiteto TEXT NOT NULL,
   estado_conservacion TEXT NOT NULL, conservation_label TEXT NOT NULL,
-  conservation_rank INTEGER NOT NULL, nativa INTEGER NOT NULL,
+  conservation_rank INTEGER NOT NULL, conservation_system TEXT, conservation_source TEXT, conservation_assessed_at TEXT,
+  nativa INTEGER NOT NULL,
   descripcion TEXT NOT NULL, alimentacion TEXT NOT NULL, tamano TEXT NOT NULL,
   image_url TEXT, full_url TEXT, thumb_asset TEXT, audio_url TEXT,
   image_license TEXT, image_attribution TEXT, image_source TEXT, image_page TEXT,
   accent_light TEXT NOT NULL, accent_dark TEXT NOT NULL,
   container_light TEXT NOT NULL, on_container_light TEXT NOT NULL,
   container_dark TEXT NOT NULL, on_container_dark TEXT NOT NULL,
-  origin TEXT, seasonality TEXT, abundance_status TEXT,
+  origin TEXT, establishment TEXT, seasonality TEXT, presence_certainty TEXT, abundance_status TEXT,
   habitat TEXT NOT NULL, diet TEXT NOT NULL, relevant_note TEXT,
-  review_status TEXT NOT NULL, sources TEXT NOT NULL
+  sources TEXT NOT NULL
 );
 CREATE INDEX idx_species_clase ON species(clase);
 CREATE INDEX idx_species_phylum ON species(phylum);
@@ -203,17 +204,15 @@ function main(): void {
   db.exec('PRAGMA journal_mode=DELETE; PRAGMA foreign_keys=ON;');
   db.exec(SCHEMA);
   const insert = db.prepare(`INSERT INTO species (
-    codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum,
+    stable_id, codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum,
     clase, orden, familia, genero, epiteto,
-    estado_conservacion, conservation_label, conservation_rank, nativa,
+    estado_conservacion, conservation_label, conservation_rank, conservation_system, conservation_source, conservation_assessed_at, nativa,
     descripcion, alimentacion, tamano,
     image_url, full_url, thumb_asset, audio_url,
     image_license, image_attribution, image_source, image_page,
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
-    origin, seasonality, abundance_status, habitat, diet, relevant_note, review_status, sources
-  ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-  )`);
+    origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources
+  ) VALUES (${Array.from({ length: 46 }, () => '?').join(', ')})`);
 
   const usedCodes = new Set<string>();
   let existingCodes = 0;
@@ -256,24 +255,22 @@ function main(): void {
       const dietText = diet.length > 0
         ? diet.map((value) => DIET_LABELS[value] ?? value.replaceAll('_', ' ')).join(', ')
         : old?.alimentacion ?? '';
-      const reviewStatus = rows.some((row) => row.reviewStatus === 'needs_review') ? 'needs_review' : 'unreviewed';
-
       insert.run(
-        codigo, scientificName, scientificName, displayName, JSON.stringify(commonNames),
+        id, codigo, scientificName, scientificName, displayName, JSON.stringify(commonNames),
         first(rows, (row) => row.taxonomy.kingdom) ?? 'Animalia',
         first(rows, (row) => row.taxonomy.phylum) ?? '',
         first(rows, (row) => row.taxonomy.class) ?? '', first(rows, (row) => row.taxonomy.order) ?? '',
         first(rows, (row) => row.taxonomy.family) ?? '', genus, epithet,
-        conservationRaw, conservationLabel, conservationRank, origin === 'native' ? 1 : 0,
+        conservationRaw, conservationLabel, conservationRank, 'Prioridad nacional/SNAP (legado)', null, null, origin === 'native' ? 1 : 0,
         description, dietText, size,
         image?.url ?? null, image?.fullUrl ?? null, old?.thumb_asset ?? null,
         first(rows, (row) => row.media?.audio) ?? old?.audio_url ?? null,
         image?.license ?? null, image?.attribution ?? null, image?.source ?? null, image?.sourcePage ?? null,
         palette.accent_light, palette.accent_dark, palette.container_light, palette.on_container_light,
         palette.container_dark, palette.on_container_dark,
-        origin, first(rows, (row) => row.seasonality), abundance,
+        origin, 'uncertain', first(rows, (row) => row.seasonality), 'uncertain', abundance,
         JSON.stringify(habitat), JSON.stringify(diet), first(rows, (row) => row.relevantNote),
-        reviewStatus, JSON.stringify(sources),
+        JSON.stringify(sources),
       );
     }
     db.exec(`

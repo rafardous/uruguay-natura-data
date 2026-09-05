@@ -1,5 +1,5 @@
 import type { Species } from '../../domain/entities/species';
-import type { SpeciesRow } from '../db/schema';
+import type { SpeciesMediaRow, SpeciesRow } from '../db/schema';
 
 /** JSON-encoded arrays in SQLite are worth decoding defensively. */
 function parseStringArray(raw: string): string[] {
@@ -32,7 +32,7 @@ function parseSources(raw: string): Species['sources'] {
  * The single place SQL rows become domain entities. Screens never see a row,
  * so a schema change stops here instead of rippling through the UI.
  */
-export function rowToSpecies(row: SpeciesRow): Species {
+export function rowToSpecies(row: SpeciesRow, mediaRows: SpeciesMediaRow[] = []): Species {
   return {
     codigo: row.codigo,
     displayName: row.common_name,
@@ -60,7 +60,6 @@ export function rowToSpecies(row: SpeciesRow): Species {
     habitat: parseStringArray(row.habitat),
     diet: parseStringArray(row.diet),
     relevantNote: row.relevant_note,
-    reviewStatus: row.review_status,
     sources: parseSources(row.sources),
     descripcion: row.descripcion,
     alimentacion: row.alimentacion,
@@ -77,6 +76,8 @@ export function rowToSpecies(row: SpeciesRow): Species {
         }
       : null,
     audioUrl: row.audio_url,
+    media: mediaRows.map((media) => ({ id: media.id, type: media.media_type, ordinal: media.ordinal, isPrimary: media.is_primary === 1,
+      url: media.url, thumbnailUrl: media.thumbnail_url, attribution: media.author, license: media.license, source: media.source, page: media.source_url })),
     palette: {
       accentLight: row.accent_light,
       accentDark: row.accent_dark,

@@ -24,6 +24,19 @@ export interface SpeciesPhoto {
   page: string | null;
 }
 
+export interface SpeciesMedia {
+  id: string;
+  type: 'image' | 'audio';
+  ordinal: number;
+  isPrimary: boolean;
+  url: string;
+  thumbnailUrl: string | null;
+  attribution: string;
+  license: string;
+  source: string;
+  page: string | null;
+}
+
 export interface Taxonomy {
   kingdom: string;
   phylum: string;
@@ -61,13 +74,14 @@ export interface Species {
   habitat: string[];
   diet: string[];
   relevantNote: string | null;
-  reviewStatus: string;
   sources: SpeciesSource[];
   descripcion: string;
   alimentacion: string;
   tamano: string;
   photo: SpeciesPhoto | null;
   audioUrl: string | null;
+  /** Full approved gallery from SQLite schema 6. Primary fields above remain for cards and games. */
+  media: SpeciesMedia[];
   palette: SpeciesPalette;
 }
 

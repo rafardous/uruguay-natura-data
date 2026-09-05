@@ -14,8 +14,12 @@ export async function requireActor(request: Request, adminOnly = false): Promise
   const client = createClient(url, anon, { global: { headers: { Authorization: authorization } }, auth: { persistSession: false } });
   const { data, error } = await client.auth.getUser();
   if (error || !data.user) throw new Error('unauthorized');
-  const { data: profile, error: profileError } = await serviceClient().from('profiles').select('role,is_active').eq('id', data.user.id).single();
-  if (profileError || !profile?.is_active || (adminOnly && profile.role !== 'admin')) throw new Error('forbidden');
-  if (profile.role === 'admin') { const { data: assurance, error: assuranceError } = await client.auth.mfa.getAuthenticatorAssuranceLevel(); if (assuranceError || assurance?.currentLevel !== 'aal2') throw new Error('mfa_required'); }
-  return { user: data.user, role: profile.role };
+  const { data: membership, error: membershipError } = await serviceClient()
+    .from('editor_access')
+    .select('role,active')
+    .eq('user_id', data.user.id)
+    .single();
+  if (membershipError || !membership?.active || (adminOnly && membership.role !== 'admin')) throw new Error('forbidden');
+  if (membership.role === 'admin') { const { data: assurance, error: assuranceError } = await client.auth.mfa.getAuthenticatorAssuranceLevel(); if (assuranceError || assurance?.currentLevel !== 'aal2') throw new Error('mfa_required'); }
+  return { user: data.user, role: membership.role };
 }

@@ -12,7 +12,9 @@ import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/Cat
 import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
+import { MobileAuthProvider } from '../src/auth/MobileAuthProvider';
 import { FavoritesProvider } from '../src/presentation/hooks/FavoritesProvider';
+import { MobileSyncProvider } from '../src/sync/MobileSyncProvider';
 import { ThemeProvider, useTheme } from '../src/presentation/theme/ThemeProvider';
 import { lightColors } from '../src/presentation/theme/tokens';
 
@@ -36,6 +38,7 @@ function Navigator(): React.JSX.Element {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="login" />
+        <Stack.Screen name="report" />
         <Stack.Screen name="collaborate" />
         <Stack.Screen name="biomes" />
         <Stack.Screen name="interest-sites" />
@@ -122,9 +125,13 @@ export default function RootLayout(): React.JSX.Element | null {
               <CatalogUpdateNotice />
               <UserDatabaseProvider>
                 <ThemeProvider>
-                  <FavoritesProvider>
-                    <Navigator />
-                  </FavoritesProvider>
+                  <MobileAuthProvider>
+                    <MobileSyncProvider>
+                      <FavoritesProvider>
+                        <Navigator />
+                      </FavoritesProvider>
+                    </MobileSyncProvider>
+                  </MobileAuthProvider>
                 </ThemeProvider>
               </UserDatabaseProvider>
             </CatalogUpdateProvider>

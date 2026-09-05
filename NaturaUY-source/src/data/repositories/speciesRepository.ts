@@ -2,7 +2,7 @@ import type { SQLiteDatabase } from 'expo-sqlite';
 
 import type { Species } from '../../domain/entities/species';
 import { rowToSpecies } from '../mappers/speciesMapper';
-import type { SpeciesRow } from '../db/schema';
+import type { SpeciesMediaRow, SpeciesRow } from '../db/schema';
 
 export const TAXON_RANKS = ['phylum', 'clase', 'orden', 'familia', 'genero'] as const;
 export type TaxonRank = (typeof TAXON_RANKS)[number];
@@ -123,7 +123,7 @@ export const speciesRepository = {
     );
 
     const hasMore = rows.length > limit;
-    return { items: rows.slice(0, limit).map(rowToSpecies), hasMore };
+    return { items: rows.slice(0, limit).map((row) => rowToSpecies(row)), hasMore };
   },
 
   async count(db: SQLiteDatabase, filters: SpeciesFilters): Promise<number> {
@@ -137,7 +137,15 @@ export const speciesRepository = {
 
   async findByCodigo(db: SQLiteDatabase, codigo: string): Promise<Species | null> {
     const row = await db.getFirstAsync<SpeciesRow>('SELECT * FROM species WHERE codigo = ?', [codigo]);
-    return row ? rowToSpecies(row) : null;
+    if (!row) return null;
+    try {
+      const media = await db.getAllAsync<SpeciesMediaRow>('SELECT * FROM species_media WHERE stable_id = ? ORDER BY media_type, ordinal', [row.stable_id ?? '']);
+      return rowToSpecies(row, media);
+    } catch {
+      // The app can still open a pre-schema-6 bundled catalogue while the
+      // validated update is downloaded for the next launch.
+      return rowToSpecies(row);
+    }
   },
 
   async findManyByCodigo(db: SQLiteDatabase, codigos: string[]): Promise<Species[]> {
@@ -147,7 +155,7 @@ export const speciesRepository = {
       `SELECT * FROM species WHERE codigo IN (${placeholders}) ORDER BY common_name COLLATE NOCASE`,
       codigos,
     );
-    return rows.map(rowToSpecies);
+    return rows.map((row) => rowToSpecies(row));
   },
 
   /** One level of the taxonomic tree, constrained by every selected ancestor. */
@@ -185,7 +193,7 @@ export const speciesRepository = {
        WHERE image_url IS NOT NULL ${classClause}`,
       classes,
     );
-    return rows.map(rowToSpecies);
+    return rows.map((row) => rowToSpecies(row));
   },
 
   async listFilterValues(db: SQLiteDatabase, field: 'habitat' | 'diet' | 'seasonality'): Promise<string[]> {
