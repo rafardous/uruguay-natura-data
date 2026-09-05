@@ -56,6 +56,7 @@ export function makeSpecies(overrides: Partial<Species> = {}): Species {
       page: null,
     },
     audioUrl: null,
+    media: [],
     palette: {
       accentLight: '#3D6847',
       accentDark: '#9CCBAC',

@@ -6,7 +6,6 @@ import { adminClient, required } from './shared';
 interface BuildMetadata {
   releaseId: string;
   version: number;
-  sourceAuditId: number | null;
   speciesCount: number;
   databaseSize: number;
   sha256: string;
@@ -46,28 +45,13 @@ const { data: release, error: releaseError } = await client.from('catalog_releas
   quality_report_url: manifest.quality_report_url,
   github_release_url: `https://github.com/${repository}/releases/tag/${tag}`,
   error: null,
-}).eq('id', metadata.releaseId).select('source_audit_id,requested_by').single();
+}).eq('id', metadata.releaseId).select('requested_by').single();
 if (releaseError) throw releaseError;
 
-const { count: newerCount, error: countError } = await client.from('species_audit')
+const { count: newerCount, error: countError } = await client.from('species_changes')
   .select('id', { count: 'exact', head: true })
-  .gt('id', release.source_audit_id ?? 0);
+  .eq('status', 'approved')
+  .gt('reviewed_at', publishedAt);
 if (countError) throw countError;
 
-const { error: stateError } = await client.from('catalog_state').update({
-  dirty: (newerCount ?? 0) > 0,
-  dirty_changes: newerCount ?? 0,
-  last_release_version: metadata.version,
-  last_published_at: publishedAt,
-}).eq('singleton', true);
-if (stateError) throw stateError;
-
-const { error: auditError } = await client.from('audit_events').insert({
-  actor_id: release.requested_by,
-  event_type: 'catalog.published',
-  entity_type: 'release',
-  entity_id: metadata.releaseId,
-  payload: { version: metadata.version, speciesCount: metadata.speciesCount, sha256: metadata.sha256 },
-});
-if (auditError) throw auditError;
 console.log(`Finalized catalog v${metadata.version}. Newer approved changes: ${newerCount ?? 0}.`);

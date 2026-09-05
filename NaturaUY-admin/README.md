@@ -4,14 +4,13 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 
 ## Arquitectura
 
-- `species` contiene únicamente la ficha aprobada en columnas y arrays simples.
-- Toda alta, edición, baja lógica o cambio multimedia entra por `species_change_requests` y se aplica con `approve_species_change` en una transacción.
-- `species_audit` guarda el diff aprobado, su autor y validador. La autovalidación exige confirmación explícita.
+- `profiles` representa cualquier cuenta; `editor_access` agrega una invitación o permiso editorial, sin tablas de usuarios duplicadas.
+- `species` contiene únicamente la ficha aprobada; `species_changes` conserva propuesta, validación e historial en una sola entidad. La autovalidación exige confirmación explícita.
 - Los administradores conservan MFA TOTP y son los únicos que pueden solicitar una publicación manual.
-- `species_media` separa aprobación editorial de `media_jobs`; GitHub Actions produce WebP 1600/480 o MP3 y verifica Storage.
+- `species_media` limita cada especie a dos imágenes y un audio. El navegador sube imágenes WebP 1600 px y WAV mono de hasta 15 s; GitHub Actions verifica y produce WebP 480 px o MP3 96 kbps/48 kHz.
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
-- Bugs, sugerencias y solicitudes de revisión usan tablas y RPCs independientes.
-- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 5.
+- Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
+- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 6, incluida la galería sin binarios.
 - El actualizador mobile valida versión, compatibilidad, tamaño, SHA-256 e integridad SQLite antes de activar la DB al siguiente inicio.
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. No se usa R2 ni un proxy de medios.
 
@@ -37,7 +36,7 @@ Los tests SQL viven en `supabase/tests/` y se ejecutan con `npx supabase test db
 - `src/`: panel, autenticación y flujos de solicitudes/revisión.
 - `supabase/migrations/`: esquema, RLS, Storage y RPCs transaccionales.
 - `supabase/functions/`: invitaciones y dispatch seguro a GitHub Actions.
-- `supabase/tests/`: pgTAP para RLS, permisos, conflictos y rollback.
+- `supabase/tests/`: pgTAP para RLS, permisos, conflictos, autovalidación y límites de medios.
 - `scripts/`: importación, medios, export JSON y publicación.
 - `../.github/workflows/`: medios, publicación manual y respaldo/limpieza.
 

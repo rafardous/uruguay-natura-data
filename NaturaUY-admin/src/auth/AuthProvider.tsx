@@ -31,7 +31,7 @@ async function loadProfile(session: Session): Promise<Profile | null> {
   if (!supabase) return null;
   const [{ data: profile, error: profileError }, { data: membership, error: membershipError }] = await Promise.all([
     supabase.from('profiles').select('user_id, display_name').eq('user_id', session.user.id).single(),
-    supabase.from('editor_memberships').select('role, active').eq('user_id', session.user.id).single(),
+    supabase.from('editor_access').select('role, active').eq('user_id', session.user.id).single(),
   ]);
   if (profileError || membershipError || !profile || !membership?.active) return null;
   return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active, mfaRequired: membership.role === 'admin' };

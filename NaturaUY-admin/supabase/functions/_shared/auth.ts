@@ -15,7 +15,7 @@ export async function requireActor(request: Request, adminOnly = false): Promise
   const { data, error } = await client.auth.getUser();
   if (error || !data.user) throw new Error('unauthorized');
   const { data: membership, error: membershipError } = await serviceClient()
-    .from('editor_memberships')
+    .from('editor_access')
     .select('role,active')
     .eq('user_id', data.user.id)
     .single();

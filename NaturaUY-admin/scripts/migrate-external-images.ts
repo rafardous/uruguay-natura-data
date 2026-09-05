@@ -4,18 +4,17 @@ import { resolve } from 'node:path';
 
 import sharp from 'sharp';
 
-import { adminClient, required } from './shared';
+import { adminClient } from './shared';
 
 const client = adminClient();
 const dryRun = process.argv.includes('--dry-run');
-const actor = dryRun ? null : required('EDITORIAL_SYSTEM_USER_ID');
 const limitArg = process.argv.find((value) => value.startsWith('--limit='));
 const limit = limitArg ? Math.max(1, Number(limitArg.split('=')[1])) : 1000;
 const acceptedLicenses = new Set(['CC0', 'CC0 1.0', 'CC BY 4.0', 'CC-BY-4.0', 'PUBLIC DOMAIN', 'Public domain']);
 const sha = (body: Uint8Array) => createHash('sha256').update(body).digest('hex');
 
 const { data: assets, error } = await client.from('species_media')
-  .select('id,species_id,ordinal,source_url,license,species!inner(catalog_code,primary_image_id)')
+  .select('id,species_id,ordinal,source_url,license,species!inner(catalog_code)')
   .eq('type', 'image').eq('status', 'archived').is('storage_path', null).not('source_url', 'is', null).limit(limit);
 if (error) throw error;
 
@@ -51,8 +50,6 @@ for (const asset of assets ?? []) {
     }
     const { error: updateError } = await client.from('species_media').update({ storage_path: mainPath, thumbnail_path: thumbnailPath, status: 'approved' }).eq('id', asset.id);
     if (updateError) throw updateError;
-    if (!species.primary_image_id) await client.from('species').update({ primary_image_id: asset.id }).eq('id', asset.species_id);
-    await client.from('audit_events').insert({ actor_id: actor, event_type: 'media.initial_import_approved', entity_type: 'species_media', entity_id: asset.id, payload: { checksum: sha(main) } });
     migrated += 1; console.log(`MIGRATED ${asset.id}`);
   } catch (reason) {
     failed += 1;
@@ -61,10 +58,6 @@ for (const asset of assets ?? []) {
   }
 }
 
-if (migrated) {
-  const { data: state } = await client.from('catalog_state').select('dirty_changes').eq('singleton', true).single();
-  await client.from('catalog_state').update({ dirty: true, dirty_changes: Number(state?.dirty_changes ?? 0) + migrated, last_changed_at: new Date().toISOString() }).eq('singleton', true);
-}
 const reportDirectory = resolve(import.meta.dirname, '../dist');
 mkdirSync(reportDirectory, { recursive: true });
 writeFileSync(resolve(reportDirectory, 'media-import-review.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), inspected: assets?.length ?? 0, eligible, migrated, skipped, failed, dryRun, review }, null, 2)}\n`);

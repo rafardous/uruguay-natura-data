@@ -25,6 +25,8 @@ NaturaUY-source/scripts/out/
 .env
 .env.*
 !.env.example
+NaturaUY-admin/supabase/.branches/
+NaturaUY-admin/supabase/snippets/
 NaturaUY-source/*.jks
 NaturaUY-source/*.p8
 NaturaUY-source/*.p12

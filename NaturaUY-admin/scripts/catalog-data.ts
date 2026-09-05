@@ -9,6 +9,7 @@ export interface CatalogRecord {
   species: DatabaseRow;
   image: DatabaseRow | null;
   audio: DatabaseRow | null;
+  images: DatabaseRow[];
   imageUrl: string | null;
   thumbnailUrl: string | null;
   audioUrl: string | null;
@@ -43,9 +44,10 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
         ?? assets.find((asset) => asset.type === 'image')
         ?? null;
       const audio = assets.find((asset) => asset.type === 'audio') ?? null;
+      const images = assets.filter((asset) => asset.type === 'image').slice(0, 2);
       return {
         species,
-        image,
+        image, images,
         audio,
         imageUrl: publicMediaUrl(image?.thumbnail_path ?? image?.storage_path),
         thumbnailUrl: publicMediaUrl(image?.thumbnail_path),
@@ -91,7 +93,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     diet: species.diet ?? [],
     size: species.size,
     relevantNote: species.relevant_note,
-    sources: (species.source_references ?? []).map((reference: string) => ({ source: reference, record: null })),
+    sources: Object.entries(species.field_sources ?? {}).flatMap(([field, references]) => (references as string[]).map((reference) => ({ source: reference, record: field }))),
     media: {
       image: record.image ? {
         url: record.imageUrl,
@@ -101,6 +103,10 @@ export function serializeCatalogRecord(record: CatalogRecord) {
         source: record.image.source,
         sourcePage: record.image.source_url,
       } : null,
+      images: record.images.map((image) => ({
+        url: publicMediaUrl(image.thumbnail_path ?? image.storage_path), fullUrl: publicMediaUrl(image.storage_path), license: image.license,
+        attribution: image.author, source: image.source, sourcePage: image.source_url,
+      })),
       audio: record.audioUrl,
     },
   };

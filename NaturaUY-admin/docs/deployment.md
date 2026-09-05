@@ -33,14 +33,14 @@ npx supabase config push
 
 ## 2. Identidad editorial
 
-Google sigue disponible para cuentas mobile. El registro por correo permanece protegido por `editor_email_invitations`; entrar al panel requiere además una membresía activa.
+Google sigue disponible para cuentas mobile. El registro por correo editorial sólo se habilita si existe una fila activa en `editor_access`; entrar al panel requiere esa misma fila.
 
 Promoción inicial:
 
 ```sql
-insert into public.editor_memberships(user_id,role,active)
-select id,'admin',true from auth.users where email='ADMIN@EJEMPLO.COM'
-on conflict(user_id) do update set role='admin',active=true;
+insert into public.editor_access(email,user_id,role,active,accepted_at)
+select lower(email),id,'admin',true,now() from auth.users where email='ADMIN@EJEMPLO.COM'
+on conflict(email) do update set user_id=excluded.user_id,role='admin',active=true,accepted_at=now();
 ```
 
 El rol admin deriva el requisito MFA: no existe una columna duplicada. Los colaboradores posteriores se invitan desde `/users`.
@@ -72,7 +72,7 @@ npm run media:migrate-external -- --dry-run
 npm run media:migrate-external
 ```
 
-El importador debe informar 1006 entradas, 902 especies y 902 coincidencias de código. Crea solicitudes/auditorías sintéticas de “Importación inicial”. Sólo CC0, CC BY 4.0 y dominio público inequívoco se copian; el resto queda archivado con su metadata.
+El importador debe informar 1006 entradas, 902 especies y 902 coincidencias de código. Crea 902 cambios iniciales aprobados de “Importación inicial”. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
 
 ## 5. Panel, Storage y publicación
 
@@ -84,7 +84,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 5 y conserva `user.db`. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 6, incluida la tabla `species_media`, y conserva `user.db`. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source
@@ -95,6 +95,6 @@ npm run data:catalog-db
 npm run data:catalog-verify
 ```
 
-Verificar en dos cuentas editoriales: aprobación normal, autovalidación confirmada, rechazo, conflicto; dos reservas de ordinal; bug limitado a 24 horas; favorito y partida offline; checksum inválido, DB inválida, esquema incompatible y restauración de la copia anterior. Publicar primero un piloto y comparar conteos/SHA antes de descongelar el panel.
+Verificar en dos cuentas editoriales: aprobación normal, autovalidación confirmada, rechazo, conflicto; dos imágenes y un audio por especie; favorito y partida offline; checksum inválido, DB inválida, esquema incompatible y restauración de la copia anterior. Publicar primero un piloto y comparar conteos/SHA antes de descongelar el panel.
 
 Si algo falla antes de reabrir escrituras, restaurar frontend, grants/RPCs anteriores y el backup. Después de aceptar solicitudes nuevas, preferir roll-forward para no perder cambios posteriores al corte.

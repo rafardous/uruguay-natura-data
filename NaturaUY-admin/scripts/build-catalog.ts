@@ -10,6 +10,7 @@ import { adminClient, required } from './shared';
 const client = adminClient();
 const output = resolve(import.meta.dirname, '../dist/catalog');
 const databasePath = resolve(output, 'natura.db');
+const mediaUrl = (path: string | null | undefined) => path ? `${required('SUPABASE_URL').replace(/\/$/, '')}/storage/v1/object/public/media-public/${path}` : null;
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 
@@ -72,18 +73,25 @@ create index idx_species_rank on species(conservation_rank);
 create index idx_species_has_photo on species(image_url);
 create index idx_species_sort on species(common_name);
 create virtual table species_fts using fts5(common_names, scientific_name, familia, genero, content='species', content_rowid='rowid', tokenize="unicode61 remove_diacritics 2");
+create table species_media (
+  id text primary key, stable_id text not null references species(stable_id), media_type text not null check(media_type in ('image','audio')),
+  ordinal integer not null, is_primary integer not null default 0, url text not null, thumbnail_url text,
+  author text not null, license text not null, source text not null, source_url text, duration_seconds real
+);
+create index idx_species_media_species on species_media(stable_id, media_type, ordinal);
 create table meta (key text primary key, value text not null);
 `);
 
 const defaults = ['#477052', '#BDD0B7', '#DCE8D8', '#293832', '#31533D', '#E5F1E2'];
 const insert = db.prepare(`insert into species values (${Array.from({ length: 46 }, () => '?').join(',')})`);
+const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?)');
 db.exec('begin');
 try {
   for (const item of items) {
     const species = item.species;
     const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];
     const category = species.conservation_category || 'NE';
-    const references = (species.source_references ?? []).map((reference: string) => ({ source: reference, record: null }));
+    const references = Object.entries(species.field_sources ?? {}).flatMap(([field, values]) => (values as string[]).map((source) => ({ source, record: field })));
     const values = [
       species.id, species.catalog_code, species.scientific_name, species.accepted_name || species.scientific_name,
       species.common_name, JSON.stringify(commonNames), species.kingdom ?? '', species.phylum ?? '', species.class ?? '',
@@ -99,6 +107,10 @@ try {
     ];
     if (values.length !== 46) throw new Error(`SQLite column mismatch: expected 46, got ${values.length}`);
     insert.run(...values);
+    item.images.forEach((image, index) => insertMedia.run(image.id, species.id, 'image', index + 1, image.id === item.image?.id ? 1 : 0,
+      mediaUrl(image.storage_path), mediaUrl(image.thumbnail_path ?? image.storage_path), image.author, image.license, image.source, image.source_url, null));
+    if (item.audio?.storage_path) insertMedia.run(item.audio.id, species.id, 'audio', 1, 0, mediaUrl(item.audio.storage_path), null,
+      item.audio.author, item.audio.license, item.audio.source, item.audio.source_url, 15);
   }
   db.exec(`insert into species_fts(rowid, common_names, scientific_name, familia, genero)
     select rowid, replace(replace(replace(common_names, '["', ''), '"]', ''), '","', ' '), scientific_name, familia, genero from species;`);
@@ -117,8 +129,9 @@ try {
 const integrity = db.prepare('pragma integrity_check').get() as { integrity_check: string };
 const count = (db.prepare('select count(*) as count from species').get() as { count: number }).count;
 const ftsCount = (db.prepare('select count(*) as count from species_fts').get() as { count: number }).count;
+const mediaCount = (db.prepare('select count(*) as count from species_media').get() as { count: number }).count;
 if (integrity.integrity_check !== 'ok' || count !== items.length || ftsCount !== items.length) {
-  throw new Error(`SQLite validation failed: integrity=${integrity.integrity_check}, species=${count}, fts=${ftsCount}`);
+  throw new Error(`SQLite validation failed: integrity=${integrity.integrity_check}, species=${count}, fts=${ftsCount}, media=${mediaCount}`);
 }
 db.exec('pragma optimize; vacuum;');
 db.close();
@@ -155,7 +168,6 @@ writeFileSync(resolve(output, 'manifest.json'), `${JSON.stringify(manifest, null
 writeFileSync(resolve(output, 'build-metadata.json'), JSON.stringify({
   releaseId,
   version: release.version,
-  sourceAuditId: release.source_audit_id,
   speciesCount: items.length,
   databaseSize: database.length,
   sha256,

@@ -39,7 +39,7 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
     diet: row.diet ?? [],
     size: row.size ?? '',
     relevantNote: row.relevant_note ?? '',
-    sourceReferences: row.source_references ?? [],
+    sourceReferences: row.field_sources?.general ?? [],
   };
 }
 
@@ -55,7 +55,7 @@ function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
     conservation_system: payload.conservation.system, conservation_category: payload.conservation.category,
     conservation_source: payload.conservation.source, conservation_assessed_at: payload.conservation.assessedAt || null,
     description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size,
-    relevant_note: payload.relevantNote, source_references: payload.sourceReferences,
+    relevant_note: payload.relevantNote, field_sources: { general: payload.sourceReferences.filter(Boolean) },
   };
 }
 
@@ -71,8 +71,8 @@ function mapSpecies(row: Record<string, any>): SpeciesSummary {
     payload: rowToPayload(row),
     updatedAt: row.updated_at,
     updatedBy: 'Catálogo aprobado',
-    imageUrl: mediaUrl(row.primary_thumbnail_path ?? row.primary_storage_path),
-    hasAudio: Boolean(row.has_audio),
+    imageUrl: mediaUrl((row.media ?? []).find((item: Record<string, any>) => item.type === 'image' && item.is_primary)?.thumbnail_path ?? (row.media ?? []).find((item: Record<string, any>) => item.type === 'image')?.thumbnail_path),
+    hasAudio: (row.media ?? []).some((item: Record<string, any>) => item.type === 'audio'),
   };
 }
 
@@ -99,15 +99,15 @@ export async function listSpecies(filters: SpeciesFilters = {}): Promise<{ rows:
   }
   if (filters.taxonomicClass) request = request.eq('class', filters.taxonomicClass);
   if (filters.lifecycle) request = request.eq('status', filters.lifecycle === 'retired' ? 'archived' : filters.lifecycle);
-  if (filters.missing === 'image') request = request.is('primary_storage_path', null);
-  if (filters.missing === 'audio') request = request.eq('has_audio', false);
+  // Media filtering is performed client-side because the lean view exposes a JSON gallery.
   if (filters.missing === 'description') request = request.or('description.is.null,description.eq.');
   request = filters.sort === 'recent'
     ? request.order('updated_at', { ascending: false })
     : request.order('common_name');
   const { data, count, error } = await request.range(page * pageSize, page * pageSize + pageSize - 1);
   if (error) throw error;
-  return { rows: (data ?? []).map(mapSpecies), count: count ?? 0 };
+  const rows = (data ?? []).map(mapSpecies).filter((item) => filters.missing === 'image' ? !item.imageUrl : filters.missing === 'audio' ? !item.hasAudio : true);
+  return { rows, count: filters.missing ? rows.length : count ?? 0 };
 }
 
 export async function getSpecies(id: string): Promise<{ species: SpeciesSummary; revisions: Revision[] }> {
@@ -119,7 +119,7 @@ export async function getSpecies(id: string): Promise<{ species: SpeciesSummary;
   const client = assertClient();
   const [{ data: row, error }, { data: audits, error: auditError }] = await Promise.all([
     client.from('species_editor').select('*').eq('id', id).single(),
-    client.from('species_audit_history').select('*').eq('species_id', id).order('id', { ascending: false }),
+    client.from('species_changes').select('*').eq('species_id', id).eq('status', 'approved').order('reviewed_at', { ascending: false }),
   ]);
   if (error) throw error;
   if (auditError) throw auditError;
@@ -128,8 +128,8 @@ export async function getSpecies(id: string): Promise<{ species: SpeciesSummary;
     species,
     revisions: (audits ?? []).map((audit, index) => ({
       id: String(audit.id), revision: (audits?.length ?? 0) - index, payload: species.payload,
-      validationState: 'validated', editedBy: audit.proposed_by_name, editedAt: audit.created_at,
-      validatedBy: audit.validated_by_name, validatedAt: audit.created_at,
+      validationState: 'validated', editedBy: audit.proposed_by, editedAt: audit.created_at,
+      validatedBy: audit.reviewed_by, validatedAt: audit.reviewed_at,
       reason: `Campos aprobados: ${Object.keys(audit.after_values ?? {}).join(', ') || 'alta inicial'}`,
     })),
   };
@@ -152,7 +152,7 @@ export async function saveSpecies(input: { id?: string; catalogCode: string; pay
   const { data, error } = await assertClient().rpc('submit_species_change', {
     p_species_id: input.id ?? null,
     p_change_type: input.id ? 'update' : 'create',
-    p_proposed_changes: proposedChanges,
+    p_proposed_values: proposedChanges,
     p_comment: input.reason || null,
   });
   if (error) throw error;
@@ -164,9 +164,9 @@ export async function findOwnPendingCreateRequest(catalogCode: string): Promise<
   const client = assertClient();
   const { data: user, error: userError } = await client.auth.getUser();
   if (userError || !user.user) throw userError ?? new Error('No hay una sesión activa.');
-  const { data, error } = await client.from('species_change_requests').select('id')
+  const { data, error } = await client.from('species_changes').select('id')
     .eq('proposed_by', user.user.id).eq('change_type', 'create').eq('status', 'pending')
-    .contains('proposed_changes', { catalog_code: catalogCode }).order('created_at', { ascending: false }).limit(1).maybeSingle();
+    .contains('proposed_values', { catalog_code: catalogCode }).order('created_at', { ascending: false }).limit(1).maybeSingle();
   if (error) throw error;
   return data?.id ?? null;
 }
@@ -174,7 +174,7 @@ export async function findOwnPendingCreateRequest(catalogCode: string): Promise<
 export async function submitLifecycleChange(species: SpeciesSummary, status: 'active' | 'archived', reason: string) {
   if (isDemoMode) return;
   const { error } = await assertClient().rpc('submit_species_change', {
-    p_species_id: species.id, p_change_type: 'update', p_proposed_changes: { status }, p_comment: reason,
+    p_species_id: species.id, p_change_type: status === 'archived' ? 'archive' : 'update', p_proposed_values: { status }, p_comment: reason,
   });
   if (error) throw error;
 }
@@ -185,20 +185,20 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
   if (error) throw error;
   return (data ?? []).map((row) => ({
     id: row.id, speciesId: row.species_id, catalogCode: row.catalog_code, scientificName: row.scientific_name,
-    commonName: row.common_name, changeType: row.change_type, currentValues: row.current_values ?? {}, proposedChanges: row.proposed_changes,
+    commonName: row.common_name, changeType: row.change_type, currentValues: row.before_values ?? {}, proposedChanges: row.proposed_values,
     proposedBy: row.proposed_by, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at,
   }));
 }
 
 export async function approveChangeRequest(id: string, confirmSelfValidation: boolean) {
   if (isDemoMode) return;
-  const { error } = await assertClient().rpc('approve_species_change', { p_request_id: id, p_confirm_self_validation: confirmSelfValidation });
+  const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: true, p_confirm_self_validation: confirmSelfValidation });
   if (error) throw error;
 }
 
 export async function rejectChangeRequest(id: string) {
   if (isDemoMode) return;
-  const { error } = await assertClient().rpc('reject_species_change', { p_request_id: id });
+  const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: false, p_confirm_self_validation: false });
   if (error) throw error;
 }
 
@@ -207,31 +207,30 @@ export async function listMedia(): Promise<MediaAsset[]> {
   const { data, error } = await assertClient().from('media_queue').select('*').order('created_at', { ascending: false });
   if (error) throw error;
   return (data ?? []).map((row) => ({
-    id: row.id, jobId: row.job_id ?? null, speciesId: row.species_id, speciesName: row.species_name ?? 'Alta pendiente',
-    kind: row.type, state: row.processing_status === 'failed' ? 'failed' : row.processing_status === 'processing' ? 'processing' : row.processing_status === 'pending' ? 'incoming' : row.status === 'approved' ? 'ready' : row.status === 'pending' ? 'pending' : row.status,
+    id: row.id, jobId: row.id, speciesId: row.species_id, speciesName: row.species_name ?? 'Alta pendiente',
+    kind: row.type, state: row.status === 'reserved' ? 'incoming' : row.status === 'ready' ? 'pending' : row.status === 'approved' ? 'ready' : row.status,
     author: row.author, license: row.license, sourceUrl: row.source_url ?? '', uploadedBy: row.uploaded_by_name,
     createdAt: row.created_at, error: row.processing_error ?? null,
   }));
 }
 
-export interface ReservedMediaUpload { mediaId: string; jobId: string; changeRequestId: string; incomingPath: string }
+export interface ReservedMediaUpload { mediaId: string; jobId: string; changeRequestId: string | null; incomingPath: string }
 export async function reserveMediaUpload(input: { speciesId: string | null; changeRequestId?: string | null; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; source: string; sourceUrl: string; originalFilename: string; makePrimary: boolean; confirmRights: boolean; clipStartSeconds?: number; clipDurationSeconds?: number }): Promise<ReservedMediaUpload> {
-  if (isDemoMode) return { mediaId: crypto.randomUUID(), jobId: crypto.randomUUID(), changeRequestId: crypto.randomUUID(), incomingPath: 'demo' };
+  if (isDemoMode) return { mediaId: crypto.randomUUID(), jobId: crypto.randomUUID(), changeRequestId: input.changeRequestId ?? null, incomingPath: 'demo' };
   const { data, error } = await assertClient().rpc('reserve_species_media_upload', {
-    p_species_id: input.speciesId, p_change_request_id: input.changeRequestId ?? null, p_type: input.kind,
+    p_species_id: input.speciesId, p_change_id: input.changeRequestId ?? null, p_type: input.kind,
     p_author: input.author, p_license: input.license, p_source: input.source,
     p_source_url: input.sourceUrl || null, p_original_filename: input.originalFilename,
-    p_make_primary: input.makePrimary, p_confirm_rights: input.confirmRights,
-    p_clip_start_seconds: input.clipStartSeconds ?? null, p_clip_duration_seconds: input.clipDurationSeconds ?? null,
+    p_is_primary: input.makePrimary, p_evidence_path: input.license === 'permission' ? `pending/${crypto.randomUUID()}` : null,
   });
   if (error) throw error;
   const row = Array.isArray(data) ? data[0] : data;
-  return { mediaId: row.media_id, jobId: row.job_id, changeRequestId: row.change_request_id, incomingPath: row.incoming_path };
+  return { mediaId: row.media_id, jobId: row.media_id, changeRequestId: input.changeRequestId ?? null, incomingPath: row.incoming_path };
 }
 
-export async function requestMediaProcessing(jobId: string): Promise<void> {
+export async function requestMediaProcessing(mediaId: string): Promise<void> {
   if (isDemoMode) return;
-  const { error } = await assertClient().functions.invoke('request-media-processing', { body: { jobId } });
+  const { error } = await assertClient().functions.invoke('request-media-processing', { body: { mediaId } });
   if (error) throw error;
 }
 
@@ -278,7 +277,6 @@ export async function listUserReports(): Promise<UserReport[]> {
 
 export async function resolveUserReport(report: UserReport): Promise<void> {
   if (isDemoMode) return;
-  const functionName = report.kind === 'bug' ? 'resolve_bug_report' : report.kind === 'suggestion' ? 'resolve_suggestion' : 'resolve_review_request';
-  const { error } = await assertClient().rpc(functionName, { p_id: report.id });
+  const { error } = await assertClient().rpc('resolve_feedback', { p_id: report.id, p_status: 'resolved', p_note: null });
   if (error) throw error;
 }

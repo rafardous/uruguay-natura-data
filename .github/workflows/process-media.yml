@@ -5,15 +5,15 @@ on:
     types: [process-media]
   workflow_dispatch:
     inputs:
-      job_id:
-        description: 'ID del trabajo de medios'
+      media_id:
+        description: 'ID del medio reservado'
         required: true
 
 permissions:
   contents: read
 
 concurrency:
-  group: media-${{ github.event.client_payload.job_id || inputs.job_id }}
+  group: media-${{ github.event.client_payload.media_id || inputs.media_id }}
   cancel-in-progress: false
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       run:
         working-directory: NaturaUY-admin
     env:
-      MEDIA_JOB_ID: ${{ github.event.client_payload.job_id || inputs.job_id }}
+      MEDIA_ID: ${{ github.event.client_payload.media_id || inputs.media_id }}
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
     steps:

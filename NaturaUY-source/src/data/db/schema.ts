@@ -1,5 +1,6 @@
 /** Shape of a `species` row exactly as SQLite returns it. */
 export interface SpeciesRow {
+  stable_id?: string;
   codigo: string;
   scientific_name: string;
   accepted_name: string | null;
@@ -45,6 +46,21 @@ export interface SpeciesRow {
   on_container_light: string;
   container_dark: string;
   on_container_dark: string;
+}
+
+export interface SpeciesMediaRow {
+  id: string;
+  stable_id?: string;
+  media_type: 'image' | 'audio';
+  ordinal: number;
+  is_primary: number;
+  url: string;
+  thumbnail_url: string | null;
+  author: string;
+  license: string;
+  source: string;
+  source_url: string | null;
+  duration_seconds: number | null;
 }
 
 /**

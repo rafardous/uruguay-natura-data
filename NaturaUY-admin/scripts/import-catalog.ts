@@ -82,7 +82,7 @@ interface ImportedSpecies {
   diet: string[];
   size: string;
   relevant_note: string;
-  source_references: string[];
+  field_sources: Record<string, string[]>;
   status: 'active';
   image: ImportedImage | null;
 }
@@ -174,7 +174,7 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
     diet: uniqueStrings(rows.flatMap((row) => row.diet ?? [])),
     size: first(rows, (row) => row.size) ?? '',
     relevant_note: first(rows, (row) => row.relevantNote) ?? '',
-    source_references: sourceReferences,
+    field_sources: { general: sourceReferences },
     status: 'active' as const,
     image,
   };
@@ -186,7 +186,7 @@ if (dryRun) process.exit(0);
 const client = adminClient();
 const actor = required('EDITORIAL_BOOTSTRAP_USER_ID');
 const { data: membership, error: membershipError } = await client
-  .from('editor_memberships')
+  .from('editor_access')
   .select('user_id,active')
   .eq('user_id', actor)
   .single();
@@ -211,39 +211,29 @@ for (const batch of chunks(speciesRows, 100)) {
     id: stableUuid(`initial-change:${row.id}`),
     species_id: row.id,
     change_type: 'create',
-    proposed_changes: changeFields(row),
+    proposed_values: changeFields(row),
     base_updated_at: null,
     proposed_by: actor,
     status: 'approved',
-    validated_by: actor,
+    reviewed_by: actor,
     comment: 'Importación inicial',
-    validated_at: new Date(0).toISOString(),
-  }));
-  const { error: requestError } = await client.from('species_change_requests').upsert(requests, { onConflict: 'id' });
-  if (requestError) throw requestError;
-
-  const audits = batch.map((row) => ({
-    species_id: row.id,
-    change_request_id: stableUuid(`initial-change:${row.id}`),
+    reviewed_at: new Date(0).toISOString(),
     before_values: {},
     after_values: changeFields(row),
-    proposed_by: actor,
-    validated_by: actor,
-    created_at: new Date(0).toISOString(),
   }));
-  const { error: auditError } = await client.from('species_audit').upsert(audits, { onConflict: 'change_request_id' });
-  if (auditError) throw auditError;
+  const { error: requestError } = await client.from('species_changes').upsert(requests, { onConflict: 'id' });
+  if (requestError) throw requestError;
 
   const media = batch.filter((row) => row.image).map((row) => ({
     id: stableUuid(`legacy-image:${row.id}`),
     species_id: row.id,
-    change_request_id: null,
+    change_id: null,
     ordinal: 1,
     type: 'image',
     storage_path: null,
     thumbnail_path: null,
     author: row.image!.attribution || 'Fuente externa',
-    license: row.image!.license || 'Licencia no normalizada',
+    license: 'legacy',
     source: `${row.image!.source || 'Catálogo anterior'}${row.image!.sourcePage ? ` · ${row.image!.sourcePage}` : ''}`,
     source_url: row.image!.fullUrl ?? row.image!.url,
     original_filename: null,
@@ -258,12 +248,5 @@ for (const batch of chunks(speciesRows, 100)) {
   imported += batch.length;
   console.log(`Imported ${imported}/${speciesRows.length}`);
 }
-
-const { error: stateError } = await client.from('catalog_state').update({
-  dirty: true,
-  dirty_changes: speciesRows.length,
-  last_changed_at: new Date().toISOString(),
-}).eq('singleton', true);
-if (stateError) throw stateError;
 
 console.log('Initial catalog import completed; legacy media remains archived pending license review.');

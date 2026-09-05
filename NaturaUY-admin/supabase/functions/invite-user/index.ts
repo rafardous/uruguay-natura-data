@@ -15,11 +15,9 @@ Deno.serve(async (request) => {
     let user = existing;
     let invitationSent = false;
     if (!user) {
-      const { error: allowlistError } = await admin.from('editor_email_invitations').upsert({
-        email: normalizedEmail,
-        invited_by: actor.user.id,
-        last_invited_at: new Date().toISOString(),
-      });
+      const { error: allowlistError } = await admin.from('editor_access').upsert({
+        email: normalizedEmail, role, active: true, invited_by: actor.user.id, invited_at: new Date().toISOString(),
+      }, { onConflict: 'email' });
       if (allowlistError) return json({ error: allowlistError.message }, 400);
       const redirectTo = `${Deno.env.get('PUBLIC_APP_ORIGIN')}/login`;
       const { data, error } = await admin.auth.admin.inviteUserByEmail(normalizedEmail, { redirectTo, data: { display_name: displayName.trim() } });
@@ -27,16 +25,11 @@ Deno.serve(async (request) => {
       user = data.user; invitationSent = true;
     }
     await admin.from('profiles').update({ display_name: displayName.trim() }).eq('user_id', user.id);
-    const { error: membershipError } = await admin.from('editor_memberships').upsert({
-      user_id: user.id,
-      role,
-      active: true,
-    });
+    const { error: membershipError } = await admin.from('editor_access').upsert({ email: normalizedEmail, user_id: user.id, role, active: true, invited_by: actor.user.id, accepted_at: new Date().toISOString() }, { onConflict: 'email' });
     if (membershipError) {
       if (invitationSent) await admin.auth.admin.deleteUser(user.id);
       return json({ error: membershipError.message }, 400);
     }
-    await admin.from('audit_events').insert({ actor_id: actor.user.id, event_type: 'user.invited', entity_type: 'user', entity_id: user.id, payload: { role, invitationSent } });
     return json({ userId: user.id, invitationSent });
   } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : ['forbidden', 'mfa_required'].includes(message) ? 403 : 500); }
 });

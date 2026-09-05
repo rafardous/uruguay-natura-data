@@ -8,6 +8,7 @@ import type { MediaAsset, SpeciesSummary } from '../domain';
 import { listMedia, listSpecies, requestMediaProcessing, reserveMediaUpload } from '../lib/api';
 import { uploadIncoming } from '../lib/mediaUpload';
 import { prepareImageForUpload } from '../lib/prepareImage';
+import { prepareAudioForUpload } from '../lib/prepareAudio';
 
 const AudioClipEditor = lazy(() => import('../components/AudioClipEditor').then((module) => ({ default: module.AudioClipEditor })));
 
@@ -75,13 +76,15 @@ function MediaUploadModal({ species, initialSpeciesId = '', onClose, onComplete 
     if (kind === 'audio' && !clip) { setError('Esperá a que cargue el audio y elegí el fragmento.'); return; }
     setBusy(true); setError('');
     try {
+      const fileToUpload = kind === 'audio' && sourceFile && clip ? await prepareAudioForUpload(sourceFile, clip) : uploadFile;
+      if (fileToUpload.size > (kind === 'image' ? 20 : 5) * 1024 * 1024) throw new Error('El archivo preparado supera el máximo permitido.');
       let currentReservation = reservation;
       if (!currentReservation) {
-        currentReservation = await reserveMediaUpload({ speciesId, kind, author, license, source, sourceUrl, originalFilename: uploadFile.name, makePrimary: kind === 'image' && makePrimary, confirmRights: accepted, clipStartSeconds: clip?.start, clipDurationSeconds: clip?.duration });
+        currentReservation = await reserveMediaUpload({ speciesId, kind, author, license, source, sourceUrl, originalFilename: fileToUpload.name, makePrimary: kind === 'image' && makePrimary, confirmRights: accepted, clipStartSeconds: clip?.start, clipDurationSeconds: clip?.duration });
         setReservation(currentReservation);
       }
       if (!uploaded) {
-        await uploadIncoming(uploadFile, currentReservation.incomingPath, ({ percent }) => setProgress(percent));
+        await uploadIncoming(fileToUpload, currentReservation.incomingPath, ({ percent }) => setProgress(percent));
         setUploaded(true);
       }
       await requestMediaProcessing(currentReservation.jobId); onComplete();
