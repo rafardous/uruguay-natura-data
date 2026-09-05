@@ -61,7 +61,6 @@ export interface Species {
   habitat: string[];
   diet: string[];
   relevantNote: string | null;
-  reviewStatus: string;
   sources: SpeciesSource[];
   descripcion: string;
   alimentacion: string;

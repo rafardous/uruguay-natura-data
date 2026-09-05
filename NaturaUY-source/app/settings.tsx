@@ -64,12 +64,23 @@ export default function SettingsScreen(): React.JSX.Element {
         <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.xl }]}>ACERCA DE</Text>
 
         <Pressable
-          onPress={() => router.push({ pathname: '/report', params: { kind: 'app_bug' } } as unknown as Href)}
+          onPress={() => router.push({ pathname: '/report', params: { kind: 'bug' } } as unknown as Href)}
           style={[styles.group, styles.linkRow, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}
         >
           <View style={styles.flex}>
             <Text style={[typography.label, { color: colors.text }]}>Reportar un problema</Text>
             <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Requiere iniciar sesión para evitar spam</Text>
+          </View>
+          <ChevronRightIcon color={colors.textMuted} />
+        </Pressable>
+
+        <Pressable
+          onPress={() => router.push({ pathname: '/report', params: { kind: 'suggestion' } } as unknown as Href)}
+          style={[styles.group, styles.linkRow, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}
+        >
+          <View style={styles.flex}>
+            <Text style={[typography.label, { color: colors.text }]}>Enviar una sugerencia</Text>
+            <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Ideas breves para mejorar la aplicación o el catálogo</Text>
           </View>
           <ChevronRightIcon color={colors.textMuted} />
         </Pressable>

@@ -7,7 +7,8 @@ import { LoginPage } from './pages/LoginPage';
 import { MediaPage } from './pages/MediaPage';
 import { ReleasesPage } from './pages/ReleasesPage';
 import { ReportsPage } from './pages/ReportsPage';
-import { SpeciesEditorPage } from './pages/SpeciesEditorPage';
+import { ReviewsPage } from './pages/ReviewsPage';
+import { SpeciesEditorV2Page } from './pages/SpeciesEditorV2Page';
 import { SpeciesListPage } from './pages/SpeciesListPage';
 import { UsersPage } from './pages/UsersPage';
 
@@ -18,9 +19,10 @@ function Router(): React.JSX.Element {
   let page: React.JSX.Element;
   if (path === '/') page = <DashboardPage />;
   else if (path === '/species') page = <SpeciesListPage />;
-  else if (path === '/species/new') page = <SpeciesEditorPage id={null} />;
-  else if (/^\/species\/[^/]+$/.test(path)) page = <SpeciesEditorPage id={decodeURIComponent(path.split('/')[2] ?? '')} />;
+  else if (path === '/species/new') page = <SpeciesEditorV2Page id={null} />;
+  else if (/^\/species\/[^/]+$/.test(path)) page = <SpeciesEditorV2Page id={decodeURIComponent(path.split('/')[2] ?? '')} />;
   else if (path === '/media') page = <MediaPage />;
+  else if (path === '/reviews') page = <ReviewsPage />;
   else if (path === '/releases') page = <ReleasesPage />;
   else if (path === '/reports') page = <ReportsPage />;
   else if (path === '/users' && profile.role === 'admin') page = <UsersPage />;

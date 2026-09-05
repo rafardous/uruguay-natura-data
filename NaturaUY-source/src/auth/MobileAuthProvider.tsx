@@ -46,12 +46,12 @@ async function loadProfile(userId: string): Promise<MobileProfile | null> {
   if (!mobileSupabase) return null;
   const { data, error } = await mobileSupabase
     .from('profiles')
-    .select('id,display_name,public_alias,avatar_url')
-    .eq('id', userId)
+    .select('user_id,display_name,public_alias,avatar_url')
+    .eq('user_id', userId)
     .maybeSingle();
   if (error) throw error;
   return data ? {
-    id: data.id,
+    id: data.user_id,
     displayName: data.display_name,
     publicAlias: data.public_alias,
     avatarUrl: data.avatar_url,

@@ -27,7 +27,6 @@ export interface SpeciesRow {
   habitat: string;
   diet: string;
   relevant_note: string | null;
-  review_status: string;
   sources: string;
   descripcion: string;
   alimentacion: string;
@@ -101,4 +100,12 @@ export const USER_MIGRATIONS: string[] = [
    );`,
   `INSERT OR IGNORE INTO quiz_sync (mode, scope, updated_at)
    SELECT mode, scope, COALESCE(played_at, 1) FROM quiz_records;`,
+  `CREATE TABLE IF NOT EXISTS game_sync (
+     mode          TEXT NOT NULL,
+     scope         TEXT NOT NULL,
+     pending_games INTEGER NOT NULL DEFAULT 0,
+     PRIMARY KEY (mode, scope)
+   );`,
+  `INSERT OR IGNORE INTO game_sync (mode, scope, pending_games)
+   SELECT mode, scope, 0 FROM quiz_records;`,
 ];

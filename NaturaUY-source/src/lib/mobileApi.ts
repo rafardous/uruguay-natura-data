@@ -7,13 +7,13 @@ export interface LeaderboardEntry {
   bestScore: number;
   bestStreak: number;
   playedAt: number | null;
+  gamesPlayed: number;
 }
 
 export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Promise<LeaderboardEntry[]> {
   if (!mobileSupabase) return [];
-  const { data, error } = await mobileSupabase.rpc('get_quiz_leaderboard', {
-    p_mode: mode,
-    p_scope: scope,
+  const { data, error } = await mobileSupabase.rpc('get_game_leaderboard', {
+    p_game_mode: `${mode}:${scope}`,
     p_limit: 50,
   });
   if (error) throw error;
@@ -21,32 +21,25 @@ export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Prom
     position: Number(entry.rank),
     publicAlias: String(entry.public_alias),
     bestScore: Number(entry.best_score),
-    bestStreak: Number(entry.best_streak),
-    playedAt: entry.played_at === null ? null : Number(entry.played_at),
+    bestStreak: 0,
+    playedAt: null,
+    gamesPlayed: Number(entry.games_played),
   }));
 }
 
-export async function getMostFavoritedSpecies(limit = 10): Promise<{ catalogCode: string; count: number }[]> {
-  if (!mobileSupabase) return [];
-  const { data, error } = await mobileSupabase.rpc('get_most_favorited_species', { p_limit: limit });
-  if (error) throw error;
-  return (data ?? []).map((entry: Record<string, unknown>) => ({ catalogCode: String(entry.catalog_code), count: Number(entry.favorite_count) }));
-}
-
 export async function submitUserReport(input: {
-  kind: 'data_error' | 'app_bug';
+  kind: 'review' | 'bug' | 'suggestion';
   catalogCode?: string;
   description: string;
   appVersion: string;
-  platform: 'android' | 'ios' | 'web';
 }): Promise<void> {
   if (!mobileSupabase) throw new Error('La conexión todavía no está configurada.');
-  const { error } = await mobileSupabase.rpc('submit_user_report', {
-    p_kind: input.kind,
-    p_catalog_code: input.catalogCode ?? null,
-    p_description: input.description,
-    p_app_version: input.appVersion,
-    p_platform: input.platform,
-  });
+  const rpc = input.kind === 'review' ? 'submit_review_request' : input.kind === 'bug' ? 'submit_bug_report' : 'submit_suggestion';
+  const args = input.kind === 'review'
+    ? { p_catalog_code: input.catalogCode, p_reason: input.description }
+    : input.kind === 'bug'
+      ? { p_message: input.description, p_app_version: input.appVersion }
+      : { p_message: input.description };
+  const { error } = await mobileSupabase.rpc(rpc, args);
   if (error) throw error;
 }

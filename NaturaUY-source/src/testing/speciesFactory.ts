@@ -42,7 +42,6 @@ export function makeSpecies(overrides: Partial<Species> = {}): Species {
     habitat: ['pastizal_campo_natural'],
     diet: ['seeds'],
     relevantNote: null,
-    reviewStatus: 'unreviewed',
     sources: [{ source: 'snap', record: codigo }],
     descripcion: '',
     alimentacion: '',

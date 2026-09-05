@@ -28,14 +28,6 @@ export interface ConservationPayload {
   assessedAt: string;
 }
 
-export interface FieldSourcePayload {
-  fieldPath: string;
-  name: string;
-  citation: string;
-  url: string;
-  note: string;
-}
-
 export interface SpeciesPayload {
   scientificName: string;
   acceptedName: string;
@@ -52,7 +44,7 @@ export interface SpeciesPayload {
   diet: string[];
   size: string;
   relevantNote: string;
-  fieldSources: FieldSourcePayload[];
+  sourceReferences: string[];
 }
 
 export interface SpeciesSummary {
@@ -100,7 +92,7 @@ export interface MediaAsset {
   speciesId: string;
   speciesName: string;
   kind: 'image' | 'audio';
-  state: 'incoming' | 'processing' | 'ready' | 'failed' | 'retired';
+  state: 'incoming' | 'processing' | 'pending' | 'ready' | 'failed' | 'rejected' | 'archived';
   author: string;
   license: 'CC0' | 'CC-BY-4.0' | 'permission' | 'legacy';
   sourceUrl: string;
@@ -124,14 +116,26 @@ export interface CatalogRelease {
 
 export interface UserReport {
   id: string;
-  kind: 'data_error' | 'app_bug';
-  catalogCode: string | null;
+  kind: 'review' | 'bug' | 'suggestion';
+  speciesId: string | null;
   description: string;
-  appVersion: string;
-  platform: string;
-  state: 'open' | 'reviewing' | 'resolved' | 'dismissed';
-  reporterName: string;
-  reporterAlias: string | null;
+  state: 'open' | 'resolved';
+  reporterId: string;
+  createdAt: string;
+}
+
+export interface ChangeRequest {
+  id: string;
+  speciesId: string | null;
+  catalogCode: string | null;
+  scientificName: string | null;
+  commonName: string | null;
+  changeType: 'create' | 'update' | 'media';
+  currentValues: Record<string, unknown>;
+  proposedChanges: Record<string, unknown>;
+  proposedBy: string;
+  proposedByName: string;
+  comment: string;
   createdAt: string;
 }
 
@@ -140,5 +144,5 @@ export const emptySpeciesPayload = (): SpeciesPayload => ({
   taxonomy: { kingdom: 'Animalia', phylum: 'Chordata', class: '', order: '', family: '', genus: '' },
   origin: 'unknown', establishment: 'uncertain', seasonality: 'unknown', presenceCertainty: 'uncertain',
   abundanceStatus: '', conservation: { system: 'UICN', category: 'NE', source: '', assessedAt: '' },
-  description: '', habitat: [], diet: [], size: '', relevantNote: '', fieldSources: [],
+  description: '', habitat: [], diet: [], size: '', relevantNote: '', sourceReferences: [],
 });

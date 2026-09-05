@@ -1,4 +1,4 @@
-import { FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Settings, Users } from 'lucide-react';
+import { FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Settings, Users } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 import { useAuth } from '../auth/AuthProvider';
@@ -7,6 +7,7 @@ import { navigate } from '../lib/router';
 const items = [
   { path: '/', label: 'Resumen', icon: LayoutDashboard },
   { path: '/species', label: 'Especies', icon: Leaf },
+  { path: '/reviews', label: 'Revisiones', icon: FileCheck2 },
   { path: '/media', label: 'Medios', icon: Image },
   { path: '/releases', label: 'Publicaciones', icon: FileClock },
   { path: '/reports', label: 'Reportes', icon: MessageSquareWarning },

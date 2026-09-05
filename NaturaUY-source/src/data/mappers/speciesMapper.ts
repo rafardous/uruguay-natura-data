@@ -60,7 +60,6 @@ export function rowToSpecies(row: SpeciesRow): Species {
     habitat: parseStringArray(row.habitat),
     diet: parseStringArray(row.diet),
     relevantNote: row.relevant_note,
-    reviewStatus: row.review_status,
     sources: parseSources(row.sources),
     descripcion: row.descripcion,
     alimentacion: row.alimentacion,

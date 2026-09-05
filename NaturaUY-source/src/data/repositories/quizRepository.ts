@@ -63,6 +63,11 @@ export const quizRepository = {
          ON CONFLICT(mode, scope) DO UPDATE SET updated_at = excluded.updated_at`,
         [mode, scope, now],
       );
+      await db.runAsync(
+        `INSERT INTO game_sync (mode, scope, pending_games) VALUES (?, ?, 1)
+         ON CONFLICT(mode, scope) DO UPDATE SET pending_games = pending_games + 1`,
+        [mode, scope],
+      );
     });
   },
 };

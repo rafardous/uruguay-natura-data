@@ -30,11 +30,11 @@ const initialPasswordFlow = (): AuthState['passwordFlow'] => {
 async function loadProfile(session: Session): Promise<Profile | null> {
   if (!supabase) return null;
   const [{ data: profile, error: profileError }, { data: membership, error: membershipError }] = await Promise.all([
-    supabase.from('profiles').select('id, display_name').eq('id', session.user.id).single(),
-    supabase.from('editor_memberships').select('role, is_active, mfa_required').eq('user_id', session.user.id).single(),
+    supabase.from('profiles').select('user_id, display_name').eq('user_id', session.user.id).single(),
+    supabase.from('editor_memberships').select('role, active').eq('user_id', session.user.id).single(),
   ]);
-  if (profileError || membershipError || !profile || !membership?.is_active) return null;
-  return { id: profile.id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.is_active, mfaRequired: membership.mfa_required };
+  if (profileError || membershipError || !profile || !membership?.active) return null;
+  return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active, mfaRequired: membership.role === 'admin' };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     if (!supabase) return;
     const nextProfile = await loadProfile(session);
     if (!nextProfile) { setProfile(null); setLoading(false); return; }
-    if (nextProfile.role !== 'admin' && !nextProfile.mfaRequired) { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
+    if (nextProfile.role !== 'admin') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
     const { data: assurance } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
     if (assurance?.currentLevel === 'aal2') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
     const { data: factors } = await supabase.auth.mfa.listFactors(); const verified = factors?.totp.find((factor) => factor.status === 'verified');

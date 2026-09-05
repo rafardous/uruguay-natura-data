@@ -453,18 +453,13 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   <Text style={[typography.body, { color: colors.textSecondary, marginTop: 4 }]}>
                     {dataSources.join(' · ')}
                   </Text>
-                  {species.reviewStatus === 'needs_review' && (
-                    <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>
-                      Clasificación pendiente de revisión editorial
-                    </Text>
-                  )}
                 </View>
               </Staggered>
             )}
 
             <Staggered index={11}>
               <Pressable
-                onPress={() => router.push({ pathname: '/report', params: { kind: 'data_error', codigo: species.codigo } } as unknown as Href)}
+                onPress={() => router.push({ pathname: '/report', params: { kind: 'review', codigo: species.codigo } } as unknown as Href)}
                 style={[styles.reportButton, { borderColor: colors.border, borderRadius: radius.pill, marginTop: spacing.xl }]}
               >
                 <Text style={[typography.label, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text>

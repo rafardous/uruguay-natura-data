@@ -16,10 +16,10 @@ export async function requireActor(request: Request, adminOnly = false): Promise
   if (error || !data.user) throw new Error('unauthorized');
   const { data: membership, error: membershipError } = await serviceClient()
     .from('editor_memberships')
-    .select('role,is_active,mfa_required')
+    .select('role,active')
     .eq('user_id', data.user.id)
     .single();
-  if (membershipError || !membership?.is_active || (adminOnly && membership.role !== 'admin')) throw new Error('forbidden');
-  if (membership.mfa_required) { const { data: assurance, error: assuranceError } = await client.auth.mfa.getAuthenticatorAssuranceLevel(); if (assuranceError || assurance?.currentLevel !== 'aal2') throw new Error('mfa_required'); }
+  if (membershipError || !membership?.active || (adminOnly && membership.role !== 'admin')) throw new Error('forbidden');
+  if (membership.role === 'admin') { const { data: assurance, error: assuranceError } = await client.auth.mfa.getAuthenticatorAssuranceLevel(); if (assuranceError || assurance?.currentLevel !== 'aal2') throw new Error('mfa_required'); }
   return { user: data.user, role: membership.role };
 }

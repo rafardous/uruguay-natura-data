@@ -26,14 +26,11 @@ Deno.serve(async (request) => {
       if (error) return json({ error: error.message }, 400);
       user = data.user; invitationSent = true;
     }
-    await admin.from('profiles').update({ display_name: displayName.trim(), updated_at: new Date().toISOString() }).eq('id', user.id);
+    await admin.from('profiles').update({ display_name: displayName.trim() }).eq('user_id', user.id);
     const { error: membershipError } = await admin.from('editor_memberships').upsert({
       user_id: user.id,
       role,
-      is_active: true,
-      mfa_required: role === 'admin',
-      invited_by: actor.user.id,
-      updated_at: new Date().toISOString(),
+      active: true,
     });
     if (membershipError) {
       if (invitationSent) await admin.auth.admin.deleteUser(user.id);
