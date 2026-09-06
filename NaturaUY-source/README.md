@@ -56,7 +56,17 @@ npm start          # solo el bundler (Expo Dev Client)
 
 ### Cuenta y actualizaciones
 
-Google se abre en el navegador seguro con PKCE y vuelve por `naturauy://auth/callback`; el mismo OAuth Client ID de tipo Web configurado en Supabase sirve para web y móvil. Agregá ese callback a la allowlist de Supabase. Las variables públicas de Expo/EAS son `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y, opcionalmente, `EXPO_PUBLIC_CATALOG_MANIFEST_URL`. Nunca incluyas secretos de Google ni `service_role` en la app.
+Google se abre en el navegador seguro con PKCE y vuelve por `naturauy://auth/callback`; el mismo OAuth Client ID de tipo Web configurado en Supabase sirve para web y móvil. En Supabase agregá `naturauy://**` a las URL de redirección permitidas y configurá en Google únicamente el callback alojado de Supabase (`https://xbnbfekcxrkgteuijbzh.supabase.co/auth/v1/callback`).
+
+Las variables públicas de Expo/EAS son `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y, opcionalmente, `EXPO_PUBLIC_CATALOG_MANIFEST_URL`. Definilas en cada entorno de EAS antes de compilar:
+
+```powershell
+eas env:create --environment preview --name EXPO_PUBLIC_SUPABASE_URL --value https://xbnbfekcxrkgteuijbzh.supabase.co --visibility plaintext
+eas env:create --environment preview --name EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY --value TU_CLAVE_PUBLISHABLE --visibility plaintext
+eas build --platform android --profile preview
+```
+
+El callback nativo requiere una build de desarrollo, preview o producción; Expo Go no es una prueba válida del retorno `naturauy://`. Nunca incluyas secretos de Google ni `service_role` en la app.
 
 El catálogo remoto se descarga a `natura.next.db`, se valida (HTTPS, SHA-256, tamaño, esquema e integridad SQLite) y se activa recién en el siguiente arranque. Favoritos, récords y preferencias permanecen en `user.db`.
 

@@ -31,7 +31,7 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-La migración mobile `202609060003_mobile_feedback_sync.sql` debe aplicarse junto con el resto del historial. Expone feedback por área (ficha, general, app o juegos), conserva plataforma/versión y exige nota al resolver o descartar. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result` y `get_game_leaderboard`.
+Las migraciones mobile `202609060003_mobile_feedback_sync.sql` y `202609060004_mobile_popular_species.sql` deben aplicarse junto con el resto del historial. La primera expone feedback por área (ficha, general, app o juegos), conserva plataforma/versión y exige nota al resolver o descartar. La segunda calcula la especie más favorita sobre `favorites` sin exponer usuarios ni conteos. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard` y `get_most_favorited_species`.
 
 ## 2. Identidad editorial
 

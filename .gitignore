@@ -1,4 +1,6 @@
 # Dependencies and local package-manager state
+node_modules/
+.expo/
 NaturaUY-source/node_modules/
 NaturaUY-source/.expo/
 NaturaUY-source/.npm/

@@ -38,6 +38,7 @@ function Navigator(): React.JSX.Element {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="login" />
+        <Stack.Screen name="auth/callback" options={{ animation: 'fade', gestureEnabled: false }} />
         <Stack.Screen name="report" />
         <Stack.Screen name="collaborate" />
         <Stack.Screen name="biomes" />

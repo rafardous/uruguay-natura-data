@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { MotiView } from 'moti';
+import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 
 import { AppDrawer } from '../../src/presentation/components/AppDrawer';
-import { AppHeader } from '../../src/presentation/components/AppHeader';
-import { BookIcon, ChevronRightIcon, GameIcon, LeafIcon, TrophyIcon } from '../../src/presentation/components/TabIcons';
+import { CollapsibleGradientHeader } from '../../src/presentation/components/CollapsibleGradientHeader';
+import { BookIcon, ChevronRightIcon, GameIcon, LeafIcon, MenuIcon, TrophyIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED, NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
 
 const GAME_TYPES = [
   { id: 'identify', title: 'Identificá la especie', description: 'Elegí distintos modos para poner a prueba cuántas especies conocés.', icon: GameIcon, active: true },
@@ -23,23 +24,35 @@ export default function GamesScreen(): React.JSX.Element {
   const insets = useSafeAreaInsets();
   const theme = useTheme();
   const { colors, radius, spacing, typography, elevation } = theme;
+  const scrollY = useSharedValue(0);
+  const onScroll = useAnimatedScrollHandler((event) => { scrollY.value = event.contentOffset.y; });
 
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
-      >
-        <AppHeader onOpenMenu={() => setMenuOpen(true)}>
-          <View style={styles.gamesHeader}>
-            <View><Text style={[typography.eyebrow, { color: colors.textMuted }]}>APRENDÉ JUGANDO</Text><Text style={[typography.title, { color: colors.text }]}>Juegos</Text></View>
-            <Pressable onPress={() => router.push('/game/records')} accessibilityRole="button" accessibilityLabel="Ver récords" style={[styles.recordsButton, { backgroundColor: colors.play, borderRadius: radius.pill }]}>
-              <TrophyIcon color={colors.onPlay} size={18} /><Text style={[typography.label, { color: colors.onPlay }]}>Récords</Text>
+      <CollapsibleGradientHeader
+        scrollY={scrollY}
+        gradient={['#7A5CAD', '#6E4E9E', '#4C356F']}
+        compactTitle="Juegos"
+        controls={
+          <>
+            <Pressable onPress={() => { haptics.tap(); setMenuOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Abrir menú" style={[styles.menuButton, { backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: radius.pill }]}>
+              <MenuIcon color={colors.canvasText} />
             </Pressable>
-          </View>
-        </AppHeader>
-
+            <View style={styles.flex} />
+            <Pressable onPress={() => router.push('/game/records')} accessibilityRole="button" accessibilityLabel="Ver récords" style={[styles.recordsButton, { backgroundColor: 'rgba(255,255,255,0.16)', borderRadius: radius.pill }]}>
+              <TrophyIcon color={colors.canvasText} size={18} /><Text style={[typography.label, { color: colors.canvasText }]}>Récords</Text>
+            </Pressable>
+          </>
+        }
+        expandedContent={<View><Text style={[typography.eyebrow, { color: colors.canvasTextMuted }]}>APRENDÉ JUGANDO</Text><Text style={[typography.title, { color: colors.canvasText, marginTop: 4 }]}>Juegos</Text></View>}
+      />
+      <Animated.ScrollView
+        onScroll={onScroll}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED, paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
+      >
         <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.xl }]}>
           ELEGÍ UN JUEGO
         </Text>
@@ -86,7 +99,7 @@ export default function GamesScreen(): React.JSX.Element {
             );
           })}
         </View>
-      </ScrollView>
+      </Animated.ScrollView>
 
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
     </View>
@@ -96,7 +109,7 @@ export default function GamesScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
-  gamesHeader: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  menuButton: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   recordsButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 13, height: 42 },
   mode: {},
   modeTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },

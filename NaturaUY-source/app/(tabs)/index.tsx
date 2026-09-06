@@ -1,22 +1,16 @@
+import { AppState, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useState } from 'react';
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Carousel } from 'react-native-reanimated-carousel';
+import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { AppDrawer } from '../../src/presentation/components/AppDrawer';
+import { CollapsibleGradientHeader } from '../../src/presentation/components/CollapsibleGradientHeader';
 import { AccountButton } from '../../src/presentation/components/AccountButton';
 import { SearchBar } from '../../src/presentation/components/SearchBar';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
@@ -29,14 +23,18 @@ import {
 } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
+import { useMobileSync } from '../../src/sync/MobileSyncProvider';
+import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
+import { settingsRepository } from '../../src/data/repositories/settingsRepository';
+import { getMostFavoritedSpecies } from '../../src/lib/mobileApi';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED, NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
 
 const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
 const PHOTO_PANEL = 'rgba(14,24,17,0.82)';
 const CARD_HEIGHT = 230;
-const SPOTLIGHT_LABELS = ['MÁS BUSCADAS', 'MÁS GUSTADAS', 'EN TENDENCIA'] as const;
+const POPULAR_CODE_CACHE_KEY = 'home.most_favorited_code';
 
 function LargeSpeciesCard({
   species,
@@ -104,7 +102,7 @@ function SpeciesCarousel({
   species: Species[];
   width: number;
   onPress: (codigo: string) => void;
-  labels?: readonly string[];
+  labels?: readonly (string | undefined)[];
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -143,17 +141,22 @@ function SpeciesCarousel({
 
 export default function HomeScreen(): React.JSX.Element {
   const db = useSQLiteContext();
+  const userDb = useUserDatabase();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { width: windowWidth } = useWindowDimensions();
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const { count } = useFavorites();
+  const { revision } = useMobileSync();
+  const scrollY = useSharedValue(0);
+  const onScroll = useAnimatedScrollHandler((event) => { scrollY.value = event.contentOffset.y; });
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [total, setTotal] = useState<number | null>(null);
   const [dailySpecies, setDailySpecies] = useState<Species | null>(null);
   const [spotlightSpecies, setSpotlightSpecies] = useState<Species[]>([]);
+  const [hasPopularSpecies, setHasPopularSpecies] = useState(false);
   const cardWidth = Math.max(280, windowWidth - spacing.lg * 2);
 
   const openSpecies = useCallback((codigo: string) => router.push(`/species/${codigo}`), [router]);
@@ -163,104 +166,98 @@ export default function HomeScreen(): React.JSX.Element {
     else router.push('/explore');
   }, [query, router]);
 
-  useEffect(() => {
-    let cancelled = false;
-    void (async () => {
-      const stats = await speciesRepository.stats(db);
-      const withPhoto = await speciesRepository.count(db, { onlyWithPhoto: true });
-      const poolSize = Math.min(4, withPhoto);
-      const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Montevideo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).replaceAll('-', '');
-      const maxOffset = Math.max(0, withPhoto - poolSize);
-      const offset = maxOffset === 0 ? 0 : Number(dateKey) % (maxOffset + 1);
-      const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
-      if (cancelled) return;
-      setTotal(stats.total);
-      setDailySpecies(page.items[0] ?? null);
-      const spotlight = page.items.slice(1, 4);
-      setSpotlightSpecies(
-        spotlight.length === 3
-          ? spotlight
-          : Array.from({ length: Math.min(3, page.items.length) }, (_, index) => page.items[(index + 1) % page.items.length]!),
-      );
-    })();
+  const loadHome = useCallback(async () => {
+    const stats = await speciesRepository.stats(db);
+    const withPhoto = await speciesRepository.count(db, { onlyWithPhoto: true });
+    const cachedPopular = await settingsRepository.get(userDb, POPULAR_CODE_CACHE_KEY);
+    let popularCode = cachedPopular;
+    try {
+      const remote = await getMostFavoritedSpecies(1);
+      if (remote[0]) {
+        popularCode = remote[0];
+        await settingsRepository.set(userDb, POPULAR_CODE_CACHE_KEY, remote[0]);
+      }
+    } catch {
+      // The catalogue remains useful before the migration is deployed or offline.
+    }
+    const poolSize = Math.min(10, withPhoto);
+    const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Montevideo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).replaceAll('-', '');
+    const maxOffset = Math.max(0, withPhoto - poolSize);
+    const offset = maxOffset === 0 ? 0 : Number(dateKey) % (maxOffset + 1);
+    const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
+    setTotal(stats.total);
+    setDailySpecies(page.items[0] ?? null);
+    const popular = popularCode ? await speciesRepository.findByCodigo(db, popularCode) : null;
+    const candidates = page.items.filter((item) => item.codigo !== page.items[0]?.codigo && item.codigo !== popular?.codigo);
+    const spotlight = [popular, ...candidates].filter((item): item is Species => Boolean(item)).slice(0, 3);
+    if (spotlight.length < 3) {
+      for (const item of page.items) {
+        if (spotlight.some((current) => current.codigo === item.codigo)) continue;
+        spotlight.push(item);
+        if (spotlight.length === 3) break;
+      }
+    }
+    setHasPopularSpecies(Boolean(popular));
+    setSpotlightSpecies(spotlight);
+  }, [db, userDb]);
+
+  useFocusEffect(useCallback(() => {
+    void loadHome();
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active') void loadHome();
+    });
     return () => {
-      cancelled = true;
+      subscription.remove();
     };
-  }, [db]);
+  }, [loadHome]));
+
+  useEffect(() => {
+    if (revision > 0) void loadHome();
+  }, [loadHome, revision]);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
-      >
-        <LinearGradient
-          colors={['#5E8566', '#477052', '#294A3A']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={[
-            styles.hero,
-            {
-              borderBottomLeftRadius: radius.hero,
-              borderBottomRightRadius: radius.hero,
-            },
-          ]}
-        >
-          <View style={{ paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: 32 }}>
-            <View style={[styles.topActions, { gap: spacing.sm }]}>
-              <Pressable
-                onPress={() => {
-                  haptics.tap();
-                  setMenuOpen(true);
-                }}
-                hitSlop={8}
-                accessibilityRole="button"
-                accessibilityLabel="Abrir menú"
-                style={({ pressed }) => [
-                  styles.heroAction,
-                  {
-                    borderRadius: radius.pill,
-                    backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
-                  },
-                ]}
-              >
-                <MenuIcon color={colors.canvasText} />
-              </Pressable>
-
-              <View style={styles.searchWrap}>
-                <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} placeholder="Buscar una especie" />
-              </View>
-
-              <AccountButton onPress={() => { haptics.tap(); router.push('/login'); }} color={colors.canvasText} backgroundColor="rgba(255,255,255,0.10)" />
-            </View>
-
-            <MotiView
-              from={{ opacity: 0, translateY: 14 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              transition={{ type: 'timing', duration: 380 }}
-              style={{ marginTop: spacing.xl }}
+      <CollapsibleGradientHeader
+        scrollY={scrollY}
+        gradient={['#5E8566', '#477052', '#294A3A']}
+        compactTitle="Inicio"
+        controls={
+          <View style={[styles.topActions, { gap: spacing.sm }]}>
+            <Pressable
+              onPress={() => { haptics.tap(); setMenuOpen(true); }}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel="Abrir menú"
+              style={({ pressed }) => [styles.heroAction, { borderRadius: radius.pill, backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)' }]}
             >
-              <Text style={[typography.title, { color: colors.canvasText, maxWidth: 320 }]}>La naturaleza de Uruguay, especie por especie</Text>
-
-              <View style={[styles.chipRow, { marginTop: spacing.xl }]}>
-                {total === null ? (
-                  <Skeleton width="58%" height={36} radius={radius.sm} />
-                ) : (
-                  <View style={[styles.statChip, { borderRadius: radius.sm, backgroundColor: colors.accent }]}>
-                    <Text style={[typography.label, { color: colors.onAccent }]}>{total}</Text>
-                    <Text style={[typography.caption, { color: colors.onAccent }]}>especies registradas</Text>
-                  </View>
-                )}
-              </View>
-            </MotiView>
+              <MenuIcon color={colors.canvasText} />
+            </Pressable>
+            <View style={styles.searchWrap}>
+              <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} placeholder="Buscar una especie" />
+            </View>
+            <AccountButton onPress={() => { haptics.tap(); router.push('/login'); }} color={colors.canvasText} backgroundColor="rgba(255,255,255,0.10)" />
           </View>
-        </LinearGradient>
-
+        }
+        expandedContent={
+          <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 380 }}>
+            <Text style={[typography.title, { color: colors.canvasText, maxWidth: 320 }]}>La naturaleza de Uruguay, especie por especie</Text>
+            <View style={[styles.chipRow, { marginTop: spacing.xl }]}>
+              {total === null ? <Skeleton width="58%" height={36} radius={radius.sm} /> : <View style={[styles.statChip, { borderRadius: radius.sm, backgroundColor: colors.accent }]}><Text style={[typography.label, { color: colors.onAccent }]}>{total}</Text><Text style={[typography.caption, { color: colors.onAccent }]}>especies registradas</Text></View>}
+            </View>
+          </MotiView>
+        }
+      />
+      <Animated.ScrollView
+        onScroll={onScroll}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED, paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
+      >
         <MotiView
           from={{ opacity: 0, translateY: 16 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ type: 'timing', duration: 380, delay: 90 }}
-          style={[styles.quickWrap, { marginHorizontal: spacing.lg }]}
+          style={[styles.quickWrap, { marginHorizontal: spacing.lg, marginTop: spacing.md }]}
         >
           <View
             style={[
@@ -315,7 +312,7 @@ export default function HomeScreen(): React.JSX.Element {
           <Text style={[typography.eyebrow, { color: colors.textMuted }]}>DESTACADAS</Text>
           <View>
             {spotlightSpecies.length > 0 ? (
-              <SpeciesCarousel species={spotlightSpecies} width={cardWidth} onPress={openSpecies} labels={SPOTLIGHT_LABELS} />
+              <SpeciesCarousel species={spotlightSpecies} width={cardWidth} onPress={openSpecies} labels={hasPopularSpecies ? ['MÁS GUSTADA', undefined, undefined] : undefined} />
             ) : (
               <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
             )}
@@ -361,7 +358,7 @@ export default function HomeScreen(): React.JSX.Element {
             </View>
           </View>
         </View>
-      </ScrollView>
+      </Animated.ScrollView>
 
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
     </View>
@@ -390,7 +387,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 13,
     paddingVertical: 9,
   },
-  quickWrap: { marginTop: -34 },
+  quickWrap: {},
   quickCard: { flexDirection: 'row', alignItems: 'center' },
   quick: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 11 },
   quickIcon: { width: 38, height: 38, alignItems: 'center', justifyContent: 'center' },

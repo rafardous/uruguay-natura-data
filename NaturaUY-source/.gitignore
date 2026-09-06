@@ -2,6 +2,8 @@ node_modules/
 .expo/
 dist/
 web-build/
+.env*
+!.env.example
 expo-env.d.ts
 
 # Native projects (regenerate with `npx expo prebuild`)

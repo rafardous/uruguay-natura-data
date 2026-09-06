@@ -243,6 +243,11 @@ export const darkElevation: ElevationSet = {
 export const NAV_ISLAND_HEIGHT = 62;
 export const NAV_ISLAND_MARGIN = 14;
 
+/** Shared geometry for the three collapsible tab headers. */
+export const COLLAPSIBLE_HEADER_EXPANDED = 252;
+export const COLLAPSIBLE_HEADER_COLLAPSED = 116;
+export const COLLAPSIBLE_HEADER_SCROLL_DISTANCE = COLLAPSIBLE_HEADER_EXPANDED - COLLAPSIBLE_HEADER_COLLAPSED;
+
 /**
  * Fraunces carries the app's headline moments (Fraunces_600SemiBold is a
  * single loaded weight, so no `fontWeight` alongside it — Android won't

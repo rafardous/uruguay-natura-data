@@ -21,22 +21,34 @@ export function MobileSyncProvider({ children }: { children: ReactNode }): React
   const [status, setStatus] = useState<SyncStatus>(session ? 'idle' : 'guest');
   const [revision, setRevision] = useState(0);
   const running = useRef<Promise<void> | null>(null);
+  const queued = useRef(false);
 
   const requestSync = useCallback(async () => {
     if (!session) {
       setStatus('guest');
       return;
     }
-    if (running.current) return running.current;
+    if (running.current) {
+      // A favorite or game can change while the network request is in flight.
+      // Keep one follow-up pass queued instead of waiting for the next app open.
+      queued.current = true;
+      return running.current;
+    }
     const task = (async () => {
-      setStatus('syncing');
       try {
-        await mobileSyncRepository.sync(db);
-        setRevision((current) => current + 1);
-        setStatus('idle');
-      } catch (error) {
-        console.warn('No se pudo sincronizar user.db; se reintentará más adelante.', error);
-        setStatus('error');
+        do {
+          queued.current = false;
+          setStatus('syncing');
+          try {
+            await mobileSyncRepository.sync(db);
+            setRevision((current) => current + 1);
+            setStatus('idle');
+          } catch (error) {
+            queued.current = false;
+            console.warn('No se pudo sincronizar user.db; se reintentará más adelante.', error);
+            setStatus('error');
+          }
+        } while (queued.current && session);
       } finally {
         running.current = null;
       }

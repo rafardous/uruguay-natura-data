@@ -26,7 +26,7 @@ export default function LoginScreen(): React.JSX.Element {
 
   async function connect(): Promise<void> {
     setBusy(true); setMessage('');
-    const error = await signInWithGoogle();
+    const error = await signInWithGoogle(params.returnTo);
     if (error) setMessage(error);
     setBusy(false);
   }
@@ -53,7 +53,7 @@ export default function LoginScreen(): React.JSX.Element {
           {session ? `Conectado como ${profile?.displayName ?? session.user.email ?? 'usuario'}.` : 'La app sigue funcionando sin cuenta. Google permite recuperar favoritos y récords en otros dispositivos.'}
         </Text>
 
-        {!configured && <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.lg, textAlign: 'center' }]}>La sincronización se habilitará al completar el despliegue de Supabase.</Text>}
+        {!configured && <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.lg, textAlign: 'center' }]}>Este build necesita EXPO_PUBLIC_SUPABASE_URL y EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY para habilitar Google y la sincronización.</Text>}
         {message ? <Text style={[typography.caption, { color: message.startsWith('Alias guardado') ? colors.primary : colors.favorite, marginTop: spacing.md, textAlign: 'center' }]}>{message}</Text> : null}
 
         {loading ? <ActivityIndicator color={colors.primary} style={{ marginTop: spacing.lg }} /> : !session ? (

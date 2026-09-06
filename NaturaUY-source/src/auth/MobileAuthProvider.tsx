@@ -22,25 +22,51 @@ interface MobileAuthContextValue {
   loading: boolean;
   session: Session | null;
   profile: MobileProfile | null;
-  signInWithGoogle(): Promise<string | null>;
+  signInWithGoogle(returnTo?: string): Promise<string | null>;
+  completeOAuthFromUrl(url: string): Promise<string>;
   signOut(): Promise<void>;
   setPublicAlias(alias: string): Promise<string | null>;
 }
 
 const MobileAuthContext = createContext<MobileAuthContextValue | null>(null);
-const redirectTo = makeRedirectUri({ scheme: 'naturauy', path: 'auth/callback' });
-let handledAuthCode: string | null = null;
+const DEFAULT_RETURN_TO = '/login';
+const handledAuthCodes = new Set<string>();
+const inFlightAuthCodes = new Map<string, Promise<void>>();
+
+function safeReturnTo(value: unknown): string {
+  if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//')) return DEFAULT_RETURN_TO;
+  return value;
+}
+
+function redirectUriFor(returnTo?: string): string {
+  const safe = safeReturnTo(returnTo);
+  return makeRedirectUri({
+    scheme: 'naturauy',
+    path: 'auth/callback',
+    queryParams: { returnTo: safe },
+  });
+}
 
 async function createSessionFromUrl(url: string): Promise<void> {
   if (!mobileSupabase) return;
   const { params, errorCode } = QueryParams.getQueryParams(url);
-  if (errorCode) throw new Error(String(errorCode));
+  if (errorCode || params.error) throw new Error(String(params.error_description ?? params.error ?? errorCode));
   const code = typeof params.code === 'string' ? params.code : null;
   if (code) {
-    if (handledAuthCode === code) return;
-    handledAuthCode = code;
-    const { error } = await mobileSupabase.auth.exchangeCodeForSession(code);
-    if (error) throw error;
+    if (handledAuthCodes.has(code)) return;
+    const existing = inFlightAuthCodes.get(code);
+    if (existing) return existing;
+    const exchange = (async () => {
+      const { error } = await mobileSupabase.auth.exchangeCodeForSession(code);
+      if (error) throw error;
+      handledAuthCodes.add(code);
+    })();
+    inFlightAuthCodes.set(code, exchange);
+    try {
+      await exchange;
+    } finally {
+      inFlightAuthCodes.delete(code);
+    }
     return;
   }
   const accessToken = typeof params.access_token === 'string' ? params.access_token : null;
@@ -49,6 +75,11 @@ async function createSessionFromUrl(url: string): Promise<void> {
     const { error } = await mobileSupabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken });
     if (error) throw error;
   }
+}
+
+function returnToFromUrl(url: string): string {
+  const { params } = QueryParams.getQueryParams(url);
+  return safeReturnTo(params.returnTo);
 }
 
 async function loadProfile(userId: string): Promise<MobileProfile | null> {
@@ -106,8 +137,9 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
     loading,
     session,
     profile,
-    async signInWithGoogle() {
+    async signInWithGoogle(returnTo = DEFAULT_RETURN_TO) {
       if (!mobileSupabase) return 'La sincronización todavía no está configurada.';
+      const redirectTo = redirectUriFor(returnTo);
       const { data, error } = await mobileSupabase.auth.signInWithOAuth({
         provider: 'google',
         options: { redirectTo, skipBrowserRedirect: Platform.OS !== 'web' },
@@ -121,6 +153,14 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
         return null;
       } catch (reason) {
         return reason instanceof Error ? reason.message : 'No se pudo completar el acceso con Google.';
+      }
+    },
+    async completeOAuthFromUrl(url) {
+      try {
+        await createSessionFromUrl(url);
+        return returnToFromUrl(url);
+      } catch (reason) {
+        throw reason instanceof Error ? reason : new Error('No se pudo completar el acceso con Google.');
       }
     },
     async signOut() {

@@ -11,6 +11,16 @@ export interface LeaderboardEntry {
   gamesPlayed: number;
 }
 
+/** Returns only public catalog codes; species data is hydrated from offline SQLite. */
+export async function getMostFavoritedSpecies(limit = 1): Promise<string[]> {
+  if (!mobileSupabase) return [];
+  const { data, error } = await mobileSupabase.rpc('get_most_favorited_species', { p_limit: limit });
+  if (error) throw error;
+  return (data ?? [])
+    .map((entry: Record<string, unknown>) => String(entry.catalog_code ?? '').trim())
+    .filter(Boolean);
+}
+
 export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Promise<LeaderboardEntry[]> {
   if (!mobileSupabase) return [];
   const { data, error } = await mobileSupabase.rpc('get_game_leaderboard', {
