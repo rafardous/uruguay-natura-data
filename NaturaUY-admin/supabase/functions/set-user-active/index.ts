@@ -9,5 +9,5 @@ Deno.serve(async (request) => {
     const { error } = await serviceClient().from('editor_access').update({ active }).eq('user_id', userId);
     if (error) return json({ error: error.message }, 400);
     return json({ ok: true });
-  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : ['forbidden', 'mfa_required'].includes(message) ? 403 : 500); }
+  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : message === 'forbidden' ? 403 : 500); }
 });

@@ -4,22 +4,13 @@ import type { Session } from '@supabase/supabase-js';
 import type { Profile } from '../domain';
 import { supabase, supabaseConfigurationError } from '../lib/supabase';
 
-interface MfaState {
-  mode: 'enroll' | 'challenge';
-  factorId: string;
-  qrCode: string | null;
-  secret: string | null;
-}
-
 interface AuthState {
   loading: boolean;
   profile: Profile | null;
   configurationError: string | null;
-  mfa: MfaState | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
   signInWithGoogle(): Promise<string | null>;
-  verifyMfa(code: string): Promise<string | null>;
   setPassword(password: string): Promise<string | null>;
   resetPassword(email: string): Promise<string | null>;
   signOut(): Promise<void>;
@@ -40,33 +31,26 @@ async function loadProfile(session: Session): Promise<Profile | null> {
     supabase.from('editor_access').select('role, active').eq('user_id', session.user.id).single(),
   ]);
   if (profileError || membershipError || !profile || !membership?.active) return null;
-  return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active, mfaRequired: membership.role === 'admin' };
+  return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active };
 }
 
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const [loading, setLoading] = useState(Boolean(supabase));
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [mfa, setMfa] = useState<AuthState['mfa']>(null);
   const [passwordFlow, setPasswordFlow] = useState<AuthState['passwordFlow']>(initialPasswordFlow);
 
   async function resolveSession(session: Session): Promise<void> {
     if (!supabase) return;
     const nextProfile = await loadProfile(session);
-    if (!nextProfile) { setProfile(null); setLoading(false); return; }
-    if (nextProfile.role !== 'admin') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
-    const { data: assurance } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
-    if (assurance?.currentLevel === 'aal2') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
-    const { data: factors } = await supabase.auth.mfa.listFactors(); const verified = factors?.totp.find((factor) => factor.status === 'verified');
-    if (verified) setMfa({ mode: 'challenge', factorId: verified.id, qrCode: null, secret: null });
-    else { const { data, error } = await supabase.auth.mfa.enroll({ factorType: 'totp', friendlyName: 'Natura UY' }); if (error) { await supabase.auth.signOut(); setProfile(null); setLoading(false); return; } setMfa({ mode: 'enroll', factorId: data.id, qrCode: data.totp.qr_code, secret: data.totp.secret }); }
-    setProfile(null); setLoading(false);
+    setProfile(nextProfile);
+    setLoading(false);
   }
 
   useEffect(() => {
     if (!supabase) return;
     void supabase.auth.getSession().then(async ({ data }) => { if (data.session && !passwordFlow) await resolveSession(data.session); else { setProfile(null); setLoading(false); } });
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      if (!session) { setProfile(null); setMfa(null); setLoading(false); return; }
+      if (!session) { setProfile(null); setLoading(false); return; }
       if (event === 'PASSWORD_RECOVERY') { setPasswordFlow('recovery'); setProfile(null); setLoading(false); return; }
       if (passwordFlow) { setProfile(null); setLoading(false); return; }
       void resolveSession(session);
@@ -75,7 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
   }, []);
 
   const value = useMemo<AuthState>(() => ({
-    loading, profile, configurationError: supabaseConfigurationError, mfa, passwordFlow,
+    loading, profile, configurationError: supabaseConfigurationError, passwordFlow,
     async signIn(email, password) {
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
@@ -84,18 +68,6 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/login` } });
       return error?.message ?? null;
-    },
-    async verifyMfa(code) {
-      if (!supabase || !mfa) return supabaseConfigurationError ?? 'No hay una verificación pendiente.';
-      const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId: mfa.factorId, code: code.trim() });
-      if (error) {
-        const detail = error.message.toLowerCase();
-        if (detail.includes('invalid') || detail.includes('code')) return 'El código no es válido. Esperá a que aparezca uno nuevo en la aplicación e intentá otra vez.';
-        if (detail.includes('expired')) return 'El código venció. Ingresá el nuevo código que muestra tu aplicación.';
-        return 'No pudimos verificar el código. Revisá tu conexión e intentá nuevamente.';
-      }
-      const { data } = await supabase.auth.getSession(); if (data.session) await resolveSession(data.session);
-      return null;
     },
     async setPassword(password) {
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
@@ -108,8 +80,8 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/login?reset=1` }); return error?.message ?? null;
     },
-    async signOut() { if (supabase) await supabase.auth.signOut(); setMfa(null); setProfile(null); },
-  }), [loading, profile, mfa, passwordFlow]);
+    async signOut() { if (supabase) await supabase.auth.signOut(); setProfile(null); },
+  }), [loading, profile, passwordFlow]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

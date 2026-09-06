@@ -43,7 +43,7 @@ Rutas que existen en el router actual:
 - `/users`: usuarios; sólo se muestra para perfiles administradores.
 - `/login`: la pantalla de acceso se muestra cuando no hay sesión real.
 
-El panel real no reemplaza las pruebas de RLS, MFA, RPCs o workflows.
+El panel real no reemplaza las pruebas de autenticación, RLS, RPCs o workflows.
 
 ### Diagrama de arquitectura
 
@@ -82,7 +82,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 
 - No habilitar registro público **editorial**. Google OAuth se admite para cuentas móviles; una identidad sólo entra al panel si además tiene una fila activa en `editor_memberships` creada por invitación.
 - El proveedor de correo permanece habilitado para que los usuarios existentes puedan iniciar sesión. El hook `hook_restrict_new_auth_user` bloquea altas por email fuera de `editor_email_invitations` y permite las altas móviles mediante Google.
-- Administradores requieren MFA TOTP; no quitar esta condición en frontend, RLS o Edge Functions.
+- Durante la etapa inicial, administradores ingresan con Google OAuth y una fila activa con rol `admin` en `editor_access`. MFA TOTP está postergado; reactivarlo de forma integral en frontend, RLS y Edge Functions cuando el proyecto madure.
 - Las escrituras editoriales usan las RPCs existentes (`save_species`, bajas/restauraciones, validación, rollback, medios y publicación). No abrir escrituras directas de tablas desde el navegador.
 - No exponer `SUPABASE_SERVICE_ROLE_KEY`, tokens de GitHub ni evidencia privada de permisos. La URL y publishable key sí son públicas y dependen de RLS.
 

@@ -25,5 +25,5 @@ Deno.serve(async (request) => {
     const response = await fetch(`https://api.github.com/repos/${repository}/dispatches`, { method: 'POST', headers: { Authorization: `Bearer ${dispatchToken}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ event_type: 'publish-catalog', client_payload: { release_id: releaseId, requested_by: actor.user.id } }) });
     if (!response.ok) return json({ error: `github_dispatch_${response.status}` }, 502);
     return json({ ok: true });
-  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : ['forbidden', 'mfa_required'].includes(message) ? 403 : 500); }
+  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : message === 'forbidden' ? 403 : 500); }
 });

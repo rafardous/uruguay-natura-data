@@ -20,6 +20,5 @@ export async function requireActor(request: Request, adminOnly = false): Promise
     .eq('user_id', data.user.id)
     .single();
   if (membershipError || !membership?.active || (adminOnly && membership.role !== 'admin')) throw new Error('forbidden');
-  if (membership.role === 'admin') { const { data: assurance, error: assuranceError } = await client.auth.mfa.getAuthenticatorAssuranceLevel(); if (assuranceError || assurance?.currentLevel !== 'aal2') throw new Error('mfa_required'); }
   return { user: data.user, role: membership.role };
 }

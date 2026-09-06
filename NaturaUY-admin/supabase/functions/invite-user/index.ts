@@ -31,5 +31,5 @@ Deno.serve(async (request) => {
       return json({ error: membershipError.message }, 400);
     }
     return json({ userId: user.id, invitationSent });
-  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : ['forbidden', 'mfa_required'].includes(message) ? 403 : 500); }
+  } catch (error) { const message = error instanceof Error ? error.message : 'internal_error'; return json({ error: message }, message === 'unauthorized' ? 401 : message === 'forbidden' ? 403 : 500); }
 });

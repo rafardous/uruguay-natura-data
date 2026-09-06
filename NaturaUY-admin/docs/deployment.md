@@ -45,7 +45,7 @@ select lower(email),id,'admin',true,now() from auth.users where email='ADMIN@EJE
 on conflict(email) do update set user_id=excluded.user_id,role='admin',active=true,accepted_at=now();
 ```
 
-El rol admin deriva el requisito MFA: no existe una columna duplicada. Los colaboradores posteriores se invitan desde `/users`.
+Durante la etapa inicial, los administradores ingresan con Google OAuth y una fila activa con rol `admin` en `editor_access`. MFA TOTP no se exige todavía y deberá reactivarse en frontend, RLS y Edge Functions cuando el proyecto avance. Los colaboradores posteriores se invitan desde `/users`.
 
 ## 3. Edge Functions y GitHub
 

@@ -71,9 +71,8 @@ reset role;
 
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"33333333-3333-4333-8333-333333333333","role":"authenticated","aal":"aal1"}',true);
-select extensions.throws_ok($$select public.request_catalog_publish()$$,'42501','admin_access_required','admin requires AAL2 to publish');
-select set_config('request.jwt.claims','{"sub":"33333333-3333-4333-8333-333333333333","role":"authenticated","aal":"aal2"}',true);
-select extensions.lives_ok($$select public.request_catalog_publish()$$,'AAL2 admin can publish');
+select extensions.ok(public.has_admin_access(),'active admin has admin access with a regular session');
+select extensions.lives_ok($$select public.request_catalog_publish()$$,'active admin can publish with a regular session');
 reset role;
 
 select * from extensions.finish();

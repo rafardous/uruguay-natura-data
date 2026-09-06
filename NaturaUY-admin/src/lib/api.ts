@@ -233,7 +233,7 @@ export async function requestPublish(): Promise<void> {
 export async function listUsers(): Promise<Profile[]> {
   const { data, error } = await assertClient().from('admin_profiles').select('*').order('display_name');
   if (error) throw error;
-  return (data ?? []).map((row) => ({ id: row.user_id, displayName: row.display_name, email: row.email, role: row.role, active: row.active, mfaRequired: row.role === 'admin' }));
+  return (data ?? []).map((row) => ({ id: row.user_id, displayName: row.display_name, email: row.email, role: row.role, active: row.active }));
 }
 
 export async function inviteUser(email: string, displayName: string, role: Profile['role']): Promise<void> {

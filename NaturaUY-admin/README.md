@@ -6,7 +6,7 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 
 - `profiles` representa cualquier cuenta; `editor_access` agrega una invitación o permiso editorial, sin tablas de usuarios duplicadas.
 - `species` contiene únicamente la ficha aprobada; `species_changes` conserva propuesta, validación e historial en una sola entidad. La autovalidación exige confirmación explícita.
-- Los administradores conservan MFA TOTP y son los únicos que pueden solicitar una publicación manual.
+- Los administradores son los únicos que pueden solicitar una publicación manual. Durante la etapa inicial ingresan con Google OAuth y una autorización activa en `editor_access`; MFA queda postergado.
 - `species_media` limita cada especie a dos imágenes y un audio. El navegador sube imágenes WebP 1600 px y WAV mono de hasta 15 s; GitHub Actions verifica y produce WebP 480 px o MP3 96 kbps/48 kHz.
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.

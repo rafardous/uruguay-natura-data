@@ -9,7 +9,6 @@ export interface Profile {
   email: string;
   role: Role;
   active: boolean;
-  mfaRequired: boolean;
 }
 
 export interface TaxonomyPayload {
