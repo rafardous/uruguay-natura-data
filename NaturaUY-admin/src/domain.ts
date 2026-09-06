@@ -34,7 +34,7 @@ export interface SpeciesPayload {
   taxonomy: TaxonomyPayload;
   origin: 'native' | 'introduced' | 'unknown';
   establishment: 'established' | 'casual' | 'uncertain';
-  seasonality: 'resident' | 'migratory' | 'occasional' | 'unknown';
+  seasonality: 'resident' | 'migratory' | 'occasional' | 'summer_visitor' | 'unknown';
   presenceCertainty: 'confirmed' | 'probable' | 'uncertain';
   abundanceStatus: string;
   conservation: ConservationPayload;
