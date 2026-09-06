@@ -32,7 +32,7 @@ export interface SpeciesListState {
  * entirely image loading — which is why the list shows skeleton *cards* rather
  * than a blocking spinner.
  */
-export function useSpeciesList(filters: SpeciesFilters): SpeciesListState {
+export function useSpeciesList(filters: SpeciesFilters, enabled = true): SpeciesListState {
   const db = useSQLiteContext();
   const [items, setItems] = useState<Species[]>([]);
   const [total, setTotal] = useState(0);
@@ -46,6 +46,10 @@ export function useSpeciesList(filters: SpeciesFilters): SpeciesListState {
 
   useEffect(() => {
     const id = ++requestId.current;
+    if (!enabled) {
+      setItems([]); setTotal(0); setHasMore(false); setLoading(false);
+      return;
+    }
     const startedAt = Date.now();
     setLoading(true);
 
@@ -73,10 +77,10 @@ export function useSpeciesList(filters: SpeciesFilters): SpeciesListState {
     // `key` is the serialised form of `filters`; depending on the object itself
     // would refetch on every render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, key]);
+  }, [db, key, enabled]);
 
   const loadMore = useCallback(() => {
-    if (loading || loadingMore || !hasMore) return;
+    if (!enabled || loading || loadingMore || !hasMore) return;
 
     const id = requestId.current;
     setLoadingMore(true);
@@ -91,7 +95,7 @@ export function useSpeciesList(filters: SpeciesFilters): SpeciesListState {
       setLoadingMore(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, key, items.length, loading, loadingMore, hasMore]);
+  }, [db, key, items.length, loading, loadingMore, hasMore, enabled]);
 
   return { items, total, loading, loadingMore, hasMore, loadMore };
 }

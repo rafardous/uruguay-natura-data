@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 
 import { useMobileAuth } from '../src/auth/MobileAuthProvider';
 import { BackIcon, CheckIcon, LoginIcon } from '../src/presentation/components/TabIcons';
@@ -10,6 +10,7 @@ import { useTheme } from '../src/presentation/theme/ThemeProvider';
 
 export default function LoginScreen(): React.JSX.Element {
   const router = useRouter();
+  const params = useLocalSearchParams<{ returnTo?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const { configured, loading, session, profile, signInWithGoogle, signOut, setPublicAlias } = useMobileAuth();
@@ -19,6 +20,9 @@ export default function LoginScreen(): React.JSX.Element {
   const [message, setMessage] = useState('');
 
   useEffect(() => setAlias(profile?.publicAlias ?? ''), [profile?.publicAlias]);
+  useEffect(() => {
+    if (session && params.returnTo) router.replace(params.returnTo as never);
+  }, [params.returnTo, router, session]);
 
   async function connect(): Promise<void> {
     setBusy(true); setMessage('');

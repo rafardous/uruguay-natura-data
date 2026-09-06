@@ -9,12 +9,14 @@
 import { View } from 'react-native';
 import {
   BadgeInfo,
+  Bug,
   Bird,
   BookOpen,
   Check,
   ArrowLeft,
   ChevronRight,
   Clock,
+  CircleUserRound,
   Compass,
   Database,
   ExternalLink,
@@ -26,7 +28,6 @@ import {
   House,
   Images,
   Leaf,
-  LogIn,
   MapPinned,
   Menu,
   Newspaper,
@@ -37,6 +38,7 @@ import {
   Star,
   Trophy,
   Trees,
+  Type,
   X,
   Zap,
   ZoomIn,
@@ -111,7 +113,19 @@ export const TaxonomyIcon = ({ color, size = 20 }: IconProps): React.JSX.Element
 );
 
 export const LoginIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <LogIn color={color} size={size} strokeWidth={1.75} />
+  <CircleUserRound color={color} size={size} strokeWidth={1.75} />
+);
+
+export const UserIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <CircleUserRound color={color} size={size} strokeWidth={1.75} />
+);
+
+export const BugIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Bug color={color} size={size} strokeWidth={1.75} />
+);
+
+export const NamingIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Type color={color} size={size} strokeWidth={1.75} />
 );
 
 export const CollaborateIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
@@ -127,6 +141,10 @@ export const BiomesIcon = ({ color, size = 22 }: IconProps): React.JSX.Element =
 );
 
 export const CreditsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <BookOpen color={color} size={size} strokeWidth={1.75} />
+);
+
+export const BookIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
   <BookOpen color={color} size={size} strokeWidth={1.75} />
 );
 

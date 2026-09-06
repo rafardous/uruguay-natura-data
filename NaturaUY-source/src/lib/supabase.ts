@@ -28,6 +28,7 @@ export const mobileSupabase = isSupabaseConfigured
   ? createClient(url, publishableKey, {
       auth: {
         storage: secureStorage,
+        flowType: 'pkce',
         autoRefreshToken: true,
         persistSession: true,
         detectSessionInUrl: false,

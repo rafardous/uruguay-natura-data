@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, {
   useAnimatedStyle,
@@ -30,7 +30,7 @@ import { useQuizRun } from '../../src/presentation/hooks/useQuizRun';
 import { useTheme, type Theme } from '../../src/presentation/theme/ThemeProvider';
 
 const isQuizMode = (value: string | undefined): value is QuizMode =>
-  value === 'classic' || value === 'timed' || value === 'survival';
+  value === 'classic' || value === 'timed' || value === 'survival' || value === 'naming';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
@@ -266,7 +266,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
   const insets = useSafeAreaInsets();
   const theme = useTheme();
   const { colors, radius, spacing, typography } = theme;
-  const { loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife } = useQuizRun(mode, scope);
+  const { loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife, nameCandidates } = useQuizRun(mode, scope);
   const reducedMotion = useReducedMotion();
 
   /*
@@ -282,6 +282,8 @@ export default function IdentifyGameScreen(): React.JSX.Element {
   const [hiddenOptions, setHiddenOptions] = useState<string[]>([]);
   const [reward, setReward] = useState<string | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [nameQuery, setNameQuery] = useState('');
+  const [selectedName, setSelectedName] = useState<string | null>(null);
   const shake = useSharedValue(0);
   const pulse = useSharedValue(1);
 
@@ -295,7 +297,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
     return () => clearTimeout(timer);
   }, [answeredCodigo, lightboxOpen, state.finished, next]);
 
-  useEffect(() => setHiddenOptions([]), [question?.target.codigo]);
+  useEffect(() => { setHiddenOptions([]); setNameQuery(''); setSelectedName(null); }, [question?.target.codigo]);
   useEffect(() => {
     if (!reward) return;
     const timer = setTimeout(() => setReward(null), 1800);
@@ -485,8 +487,33 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           </Pressable>
 
           <Text style={[typography.label, { color: colors.textMuted, marginTop: spacing.lg, textAlign: 'center' }]}>
-            ¿Qué especie es?
+            {mode === 'naming' ? 'Escribí el nombre de la especie' : '¿Qué especie es?'}
           </Text>
+
+          {mode === 'naming' ? (
+            <View style={{ marginTop: spacing.md, gap: spacing.sm }}>
+              <TextInput
+                value={nameQuery}
+                onChangeText={(value) => { setNameQuery(value); setSelectedName(null); }}
+                editable={!answeredCodigo}
+                autoCapitalize="none"
+                placeholder="Nombre común o científico"
+                placeholderTextColor={colors.textMuted}
+                style={[styles.nameInput, typography.body, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.md }]}
+                accessibilityLabel="Buscar especie"
+              />
+              {nameCandidates(nameQuery).map((candidate) => (
+                <Pressable key={candidate.codigo} onPress={() => setSelectedName(candidate.codigo)} disabled={Boolean(answeredCodigo)} style={[styles.nameCandidate, { backgroundColor: selectedName === candidate.codigo ? colors.play : colors.surfaceVariant, borderRadius: radius.md }]}>
+                  <Text style={[typography.label, { color: selectedName === candidate.codigo ? colors.onPlay : colors.text }]}>{candidate.displayName}</Text>
+                  <Text style={[typography.caption, { color: selectedName === candidate.codigo ? colors.onPlay : colors.textMuted }]}>{candidate.scientificName}</Text>
+                </Pressable>
+              ))}
+              <Pressable onPress={() => selectedName && onAnswer(selectedName)} disabled={!selectedName || Boolean(answeredCodigo)} style={[styles.confirmName, { backgroundColor: colors.play, borderRadius: radius.pill, opacity: !selectedName || answeredCodigo ? 0.45 : 1 }]}>
+                <Text style={[typography.label, { color: colors.onPlay }]}>Confirmar nombre</Text>
+              </Pressable>
+              <View style={[styles.audioLocked, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]}><Text style={[typography.caption, { color: colors.textMuted }]}>🔊 Sonido · Próximamente</Text></View>
+            </View>
+          ) : null}
 
           {mode === 'timed' && wildcards > 0 && (
             <Pressable onPress={useWildcard} disabled={answeredCodigo !== null || hiddenOptions.length > 0} style={[styles.wildcard, { backgroundColor: colors.warning, borderRadius: radius.pill }]}>
@@ -494,7 +521,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
             </Pressable>
           )}
 
-          <View style={{ marginTop: spacing.md, gap: spacing.sm }}>
+          {mode !== 'naming' && <View style={{ marginTop: spacing.md, gap: spacing.sm }}>
             {question.options.map((option, index) => hiddenOptions.includes(option.codigo) ? null : (
               <AnswerTile
                 key={option.codigo}
@@ -507,7 +534,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
                 theme={theme}
               />
             ))}
-          </View>
+          </View>}
 
           {answeredCodigo && (
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ marginTop: spacing.md }}>
@@ -558,6 +585,10 @@ const styles = StyleSheet.create({
   wildcard: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 14, paddingVertical: 9, marginTop: 10 },
   reward: { position: 'absolute', top: 18, alignSelf: 'center', paddingHorizontal: 16, paddingVertical: 10, zIndex: 8 },
   scientific: { fontStyle: 'italic', textAlign: 'center' },
+  nameInput: { minHeight: 50, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 14 },
+  nameCandidate: { paddingHorizontal: 14, paddingVertical: 10 },
+  confirmName: { minHeight: 48, alignItems: 'center', justifyContent: 'center' },
+  audioLocked: { padding: 12, alignItems: 'center' },
   result: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   trophyHalo: { width: 108, height: 108, borderRadius: 54, alignItems: 'center', justifyContent: 'center' },
   trophy: { width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center' },

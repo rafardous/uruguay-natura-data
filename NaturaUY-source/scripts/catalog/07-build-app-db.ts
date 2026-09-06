@@ -14,7 +14,7 @@ import { PATHS, readJson } from './lib';
 const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 5;
+const SCHEMA_VERSION = 6;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -131,6 +131,15 @@ CREATE VIRTUAL TABLE species_fts USING fts5(
   content='species', content_rowid='rowid',
   tokenize="unicode61 remove_diacritics 2"
 );
+CREATE TABLE species_media (
+  id TEXT PRIMARY KEY, stable_id TEXT NOT NULL REFERENCES species(stable_id),
+  media_type TEXT NOT NULL CHECK(media_type IN ('image', 'audio')),
+  ordinal INTEGER NOT NULL, is_primary INTEGER NOT NULL DEFAULT 0,
+  url TEXT NOT NULL, thumbnail_url TEXT, author TEXT NOT NULL,
+  license TEXT NOT NULL, source TEXT NOT NULL, source_url TEXT,
+  duration_seconds REAL
+);
+CREATE INDEX idx_species_media_species ON species_media(stable_id, media_type, ordinal);
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
 `;
 
@@ -280,6 +289,7 @@ function main(): void {
     `);
     const meta = db.prepare('INSERT INTO meta (key, value) VALUES (?, ?)');
     meta.run('schema_version', String(SCHEMA_VERSION));
+    meta.run('data_version', '0');
     meta.run('built_at', new Date().toISOString());
     meta.run('source', 'data/catalog/*.json');
     meta.run('catalog_record_count', String(input.length));

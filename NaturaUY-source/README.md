@@ -54,6 +54,12 @@ npm run ios        # simulador iOS
 npm start          # solo el bundler (Expo Dev Client)
 ```
 
+### Cuenta y actualizaciones
+
+Google se abre en el navegador seguro con PKCE y vuelve por `naturauy://auth/callback`; el mismo OAuth Client ID de tipo Web configurado en Supabase sirve para web y móvil. Agregá ese callback a la allowlist de Supabase. Las variables públicas de Expo/EAS son `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y, opcionalmente, `EXPO_PUBLIC_CATALOG_MANIFEST_URL`. Nunca incluyas secretos de Google ni `service_role` en la app.
+
+El catálogo remoto se descarga a `natura.next.db`, se valida (HTTPS, SHA-256, tamaño, esquema e integridad SQLite) y se activa recién en el siguiente arranque. Favoritos, récords y preferencias permanecen en `user.db`.
+
 ## Pipeline de datos
 
 Convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Se corre una sola vez; el resultado se versiona.

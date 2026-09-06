@@ -285,10 +285,10 @@ export async function setUserActive(userId: string, active: boolean): Promise<vo
 export async function listUserReports(): Promise<UserReport[]> {
   const { data, error } = await assertClient().from('feedback_queue').select('*').order('created_at', { ascending: false });
   if (error) throw error;
-  return (data ?? []).map((row) => ({ id: row.id, kind: row.type, speciesId: row.species_id, description: row.message, state: row.status, reporterId: row.user_id, createdAt: row.created_at }));
+  return (data ?? []).map((row) => ({ id: row.id, kind: row.type, area: row.area ?? (row.type === 'review' ? 'species' : 'general'), platform: row.platform ?? 'unknown', appVersion: row.app_version ?? null, referenceUrl: row.reference_url ?? null, speciesId: row.species_id, speciesName: row.species_name ?? null, catalogCode: row.catalog_code ?? null, description: row.message, state: row.status, reporterId: row.user_id, reporterName: row.reporter_name ?? null, createdAt: row.created_at, resolutionNote: row.resolution_note ?? null }));
 }
 
-export async function resolveUserReport(report: UserReport): Promise<void> {
-  const { error } = await assertClient().rpc('resolve_feedback', { p_id: report.id, p_status: 'resolved', p_note: null });
+export async function resolveUserReport(report: UserReport, status: 'reviewing' | 'resolved' | 'dismissed', note?: string): Promise<void> {
+  const { error } = await assertClient().rpc('resolve_feedback', { p_id: report.id, p_status: status, p_note: note ?? null });
   if (error) throw error;
 }

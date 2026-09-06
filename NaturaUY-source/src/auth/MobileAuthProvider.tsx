@@ -29,11 +29,20 @@ interface MobileAuthContextValue {
 
 const MobileAuthContext = createContext<MobileAuthContextValue | null>(null);
 const redirectTo = makeRedirectUri({ scheme: 'naturauy', path: 'auth/callback' });
+let handledAuthCode: string | null = null;
 
 async function createSessionFromUrl(url: string): Promise<void> {
   if (!mobileSupabase) return;
   const { params, errorCode } = QueryParams.getQueryParams(url);
   if (errorCode) throw new Error(String(errorCode));
+  const code = typeof params.code === 'string' ? params.code : null;
+  if (code) {
+    if (handledAuthCode === code) return;
+    handledAuthCode = code;
+    const { error } = await mobileSupabase.auth.exchangeCodeForSession(code);
+    if (error) throw error;
+    return;
+  }
   const accessToken = typeof params.access_token === 'string' ? params.access_token : null;
   const refreshToken = typeof params.refresh_token === 'string' ? params.refresh_token : null;
   if (accessToken && refreshToken) {

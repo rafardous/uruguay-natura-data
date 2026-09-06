@@ -25,6 +25,8 @@ const missingRequired = scalar(`SELECT COUNT(*) AS n FROM species
   WHERE scientific_name = '' OR common_name = '' OR common_names = '' OR phylum = '' OR clase = ''`);
 const photos = scalar('SELECT COUNT(*) AS n FROM species WHERE image_url IS NOT NULL');
 const unknownOrigin = scalar('SELECT COUNT(*) AS n FROM species WHERE origin IS NULL');
+const schemaVersion = (db.prepare("SELECT value FROM meta WHERE key = 'schema_version'").get() as { value: string } | undefined)?.value;
+const hasMediaTable = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type = 'table' AND name = 'species_media'");
 
 // Same joins/filters/order used by speciesRepository.findPaged.
 const searchProbe = db.prepare(`SELECT species.codigo FROM species
@@ -43,6 +45,8 @@ const unassignedOrderBranch = db.prepare(`SELECT
 
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
+  schemaVersion !== '6' && `schema_version=${schemaVersion ?? 'missing'}, expected 6`,
+  hasMediaTable !== 1 && 'species_media table missing',
   species !== catalogIds.size && `species=${species}, expected unique catalog ids=${catalogIds.size}`,
   fts !== species && `fts=${fts}, species=${species}`,
   duplicateCodes > 0 && `duplicate codigo values=${duplicateCodes}`,

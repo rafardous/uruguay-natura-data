@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import type { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import type { NativeScrollEvent, NativeSyntheticEvent, ViewToken } from 'react-native';
 
 import { haptics } from '../haptics';
 
@@ -18,4 +18,16 @@ export function useScrollDetentHaptics(
     lastDetent.current = row;
     if (Math.abs(moved) === 1) haptics.tick();
   }, [rowHeight]);
+}
+
+/** Haptic feedback based on actual viewability, useful for variable-height taxon cards. */
+export function useViewableItemHaptics(resetKey = ''): { onViewableItemsChanged: (info: { viewableItems: ViewToken[] }) => void; viewabilityConfig: { itemVisiblePercentThreshold: number } } {
+  const lastVisible = useRef<string | null>(null);
+  useEffect(() => { lastVisible.current = null; }, [resetKey]);
+  const onViewableItemsChanged = useCallback(({ viewableItems }: { viewableItems: ViewToken[] }) => {
+    const key = viewableItems[0]?.key ?? null;
+    if (key && lastVisible.current && key !== lastVisible.current) haptics.tick();
+    if (key) lastVisible.current = String(key);
+  }, []);
+  return { onViewableItemsChanged, viewabilityConfig: { itemVisiblePercentThreshold: 60 } };
 }

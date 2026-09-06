@@ -120,9 +120,17 @@ export interface UserReport {
   kind: 'review' | 'bug' | 'suggestion';
   speciesId: string | null;
   description: string;
-  state: 'open' | 'resolved';
+  area: 'species' | 'general' | 'app' | 'games';
+  platform: 'android' | 'ios' | 'web' | 'unknown';
+  appVersion: string | null;
+  referenceUrl: string | null;
+  speciesName: string | null;
+  catalogCode: string | null;
+  reporterName: string | null;
+  state: 'open' | 'reviewing' | 'resolved' | 'dismissed';
   reporterId: string;
   createdAt: string;
+  resolutionNote: string | null;
 }
 
 export interface ChangeRequest {

@@ -18,6 +18,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import {
   ChevronRightIcon,
   BiomesIcon,
+  BugIcon,
   CollaborateIcon,
   CloseIcon,
   CreditsIcon,
@@ -176,12 +177,12 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
             <DrawerLink
               icon={<ShieldIcon color={colors.canvasText} />}
               label="Especies prioritarias"
-              onPress={() => go('/explore?priority=1')}
+              onPress={() => go('/species?priority=1')}
             />
             <DrawerLink
               icon={<LeafIcon color={colors.canvasText} />}
               label="Especies nativas"
-              onPress={() => go('/explore?native=1')}
+              onPress={() => go('/species?native=1')}
             />
             <DrawerLink
               icon={<BiomesIcon color={colors.canvasText} />}
@@ -197,6 +198,11 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               icon={<SettingsIcon color={colors.canvasText} />}
               label="Configuración"
               onPress={() => go('/settings')}
+            />
+            <DrawerLink
+              icon={<BugIcon color={colors.canvasText} />}
+              label="Reportar un problema / bug"
+              onPress={() => go('/report')}
             />
             <DrawerLink
               icon={<CollaborateIcon color={colors.canvasText} />}

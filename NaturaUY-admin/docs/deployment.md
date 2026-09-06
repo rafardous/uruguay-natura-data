@@ -31,6 +31,8 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
+La migración mobile `202609060003_mobile_feedback_sync.sql` debe aplicarse junto con el resto del historial. Expone feedback por área (ficha, general, app o juegos), conserva plataforma/versión y exige nota al resolver o descartar. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result` y `get_game_leaderboard`.
+
 ## 2. Identidad editorial
 
 Google sigue disponible para cuentas mobile. El registro por correo editorial sólo se habilita si existe una fila activa en `editor_access`; entrar al panel requiere esa misma fila.

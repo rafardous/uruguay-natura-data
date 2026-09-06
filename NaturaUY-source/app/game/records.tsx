@@ -9,11 +9,11 @@ import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { quizRepository, type QuizRecord } from '../../src/data/repositories/quizRepository';
 import { getQuizLeaderboard, type LeaderboardEntry } from '../../src/lib/mobileApi';
 import { Chip } from '../../src/presentation/components/Chip';
-import { BackIcon, ClockIcon, HeartIcon, TrophyIcon, type IconProps } from '../../src/presentation/components/TabIcons';
+import { BackIcon, ClockIcon, HeartIcon, NamingIcon, TrophyIcon, type IconProps } from '../../src/presentation/components/TabIcons';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 
-const MODES: QuizMode[] = ['classic', 'timed', 'survival'];
-const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: TrophyIcon, timed: ClockIcon, survival: HeartIcon };
+const MODES: QuizMode[] = ['classic', 'timed', 'survival', 'naming'];
+const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: TrophyIcon, timed: ClockIcon, survival: HeartIcon, naming: NamingIcon };
 
 export default function RecordsScreen(): React.JSX.Element {
   const db = useUserDatabase(); const router = useRouter(); const insets = useSafeAreaInsets();

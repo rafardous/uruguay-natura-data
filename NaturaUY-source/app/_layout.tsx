@@ -9,7 +9,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 
 import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/CatalogUpdateProvider';
-import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
+import { prepareCatalogDatabase, SUPPORTED_CATALOG_SCHEMA } from '../src/data/db/catalogUpdater';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
 import { MobileAuthProvider } from '../src/auth/MobileAuthProvider';
@@ -59,6 +59,7 @@ function Navigator(): React.JSX.Element {
           }}
         />
         <Stack.Screen name="game/identify" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
+        <Stack.Screen name="game/identify-modes" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
         <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
         <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
         <Stack.Screen name="credits" />
@@ -91,9 +92,14 @@ export default function RootLayout(): React.JSX.Element | null {
   const [fontsLoaded, fontError] = useFonts({ Fraunces_600SemiBold });
   const [catalogReady, setCatalogReady] = useState(false);
   // File-based staging is native-only. On web, SQLite imports the bundled
-  // catalogue below directly into its browser-backed database.
+  // catalogue below directly into its browser-backed database. The schema is
+  // part of the web filename so a new bundled schema gets a fresh database
+  // without overwriting a file that an HMR worker may still have open.
+  const catalogDatabaseName = Platform.OS === 'web'
+    ? `natura.web.schema-${SUPPORTED_CATALOG_SCHEMA}.db`
+    : CATALOG_DATABASE_NAME;
   const catalogAssetSource = Platform.OS === 'web'
-    ? { assetId: require('../assets/db/natura.db'), forceOverwrite: true }
+    ? { assetId: require('../assets/db/natura.db'), forceOverwrite: false }
     : undefined;
 
   useEffect(() => {
@@ -117,7 +123,7 @@ export default function RootLayout(): React.JSX.Element | null {
       <SafeAreaProvider>
         <Suspense fallback={<Loading />}>
           <SQLiteProvider
-            databaseName={CATALOG_DATABASE_NAME}
+            databaseName={catalogDatabaseName}
             assetSource={catalogAssetSource}
             useSuspense
           >

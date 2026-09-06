@@ -1,6 +1,6 @@
 import type { Species } from './species';
 
-export type QuizMode = 'classic' | 'timed' | 'survival';
+export type QuizMode = 'classic' | 'timed' | 'survival' | 'naming';
 export type QuizScope = 'animals_all' | 'birds' | 'mammals' | 'reptiles' | 'amphibians' | 'fish';
 
 export interface QuizScopeConfig {
@@ -56,6 +56,14 @@ export const QUIZ_MODES: Record<QuizMode, QuizModeConfig> = {
     questionCount: null,
     durationSeconds: null,
     lives: 3,
+  },
+  naming: {
+    id: 'naming',
+    title: 'Nombrar',
+    description: '10 fotos, elegí el nombre que corresponde.',
+    questionCount: 10,
+    durationSeconds: null,
+    lives: null,
   },
 };
 

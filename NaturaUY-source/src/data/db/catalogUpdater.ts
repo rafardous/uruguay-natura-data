@@ -6,22 +6,15 @@ import { defaultDatabaseDirectory, importDatabaseFromAssetAsync, openDatabaseAsy
 import { CATALOG_DATABASE_NAME } from './schema';
 import { decideCatalogUpdate } from './catalogUpdatePolicy';
 import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from './catalogUpdateValidation';
+import { assertCatalogManifest, type CatalogManifestContract } from './catalogManifestValidation';
 
 const STAGED_DATABASE_NAME = 'natura.next.db';
 const PREVIOUS_DATABASE_NAME = 'natura.previous.db';
 const BUNDLED_DATABASE_NAME = 'natura.bundled.db';
 export const SUPPORTED_CATALOG_SCHEMA = 6;
 
-export interface CatalogManifest {
-  data_version: number;
-  schema_version: number;
-  published_at: string;
-  database_url: string;
-  database_size: number;
-  sha256: string;
-  min_app_version: string;
-  quality_report_url: string;
-}
+export type CatalogManifest = CatalogManifestContract;
+export { assertCatalogManifest } from './catalogManifestValidation';
 
 const databaseFile = (name: string): File => new File(defaultDatabaseDirectory, name);
 
@@ -94,9 +87,12 @@ export async function stageLatestCatalog(currentDataVersion: number, signal?: Ab
   const configured = process.env.EXPO_PUBLIC_CATALOG_MANIFEST_URL
     ?? (Constants.expoConfig?.extra?.catalogManifestUrl as string | undefined);
   if (!configured) return 'current';
+  try { if (new URL(configured).protocol !== 'https:') throw new Error('manifest_url_invalid'); } catch { throw new Error('manifest_url_invalid'); }
   const response = await fetch(configured, { signal, headers: { Accept: 'application/json' } });
   if (!response.ok) throw new Error(`manifest_http_${response.status}`);
-  const manifest = await response.json() as CatalogManifest;
+  const manifestValue = await response.json() as unknown;
+  assertCatalogManifest(manifestValue);
+  const manifest = manifestValue;
   const decision = decideCatalogUpdate({ dataVersion: manifest.data_version, schemaVersion: manifest.schema_version, minAppVersion: manifest.min_app_version }, currentDataVersion, SUPPORTED_CATALOG_SCHEMA, Constants.expoConfig?.version ?? '0.0.0');
   if (decision !== 'stage') return decision;
   const staged = databaseFile(STAGED_DATABASE_NAME);

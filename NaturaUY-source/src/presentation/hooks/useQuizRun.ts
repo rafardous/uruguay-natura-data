@@ -8,6 +8,7 @@ import { quizRepository } from '../../data/repositories/quizRepository';
 import { speciesRepository } from '../../data/repositories/speciesRepository';
 import { answerQuestion, buildQuestion, eligibleTargets, finishRun, grantExtraLife, shuffle } from '../../domain/services/quizEngine';
 import { useMobileSync } from '../../sync/MobileSyncProvider';
+import { rankNameMatches } from '../../domain/services/naming';
 
 export interface QuizRun {
   loading: boolean;
@@ -20,6 +21,7 @@ export interface QuizRun {
   next: () => void;
   restart: () => void;
   awardLife: () => void;
+  nameCandidates: (query: string) => Species[];
 }
 
 /**
@@ -116,8 +118,12 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
 
   const awardLife = useCallback(() => setState(grantExtraLife), []);
 
+  const nameCandidates = useCallback((query: string): Species[] => {
+    return rankNameMatches(pool, query);
+  }, [pool]);
+
   return useMemo(
-    () => ({ loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife }),
-    [loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife],
+    () => ({ loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife, nameCandidates }),
+    [loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife, nameCandidates],
   );
 }

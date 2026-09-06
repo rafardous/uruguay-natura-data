@@ -30,7 +30,7 @@ import { NavigationIsland, type MainTab } from '../src/presentation/components/N
 import { BackIcon, ChevronRightIcon, TaxonomyIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
 import { useFavorites } from '../src/presentation/hooks/FavoritesProvider';
-import { useScrollDetentHaptics } from '../src/presentation/hooks/useScrollDetentHaptics';
+import { useScrollDetentHaptics, useViewableItemHaptics } from '../src/presentation/hooks/useScrollDetentHaptics';
 import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
 import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
@@ -148,6 +148,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const selectedRanks = TAXON_RANKS.filter((rank) => path[rank] !== undefined);
   const breadcrumbRef = useRef<ScrollView>(null);
   const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
+  const visibleHaptics = useViewableItemHaptics(`${currentRank ?? 'species'}:${TAXON_RANKS.map((rank) => path[rank] ?? '').join('|')}`);
 
   useEffect(() => {
     setPath(pathFromParams(params));
@@ -279,6 +280,8 @@ export default function TaxonomyScreen(): React.JSX.Element {
             data={items}
             keyExtractor={(item) => item.value}
             showsVerticalScrollIndicator={false}
+            onViewableItemsChanged={visibleHaptics.onViewableItemsChanged}
+            viewabilityConfig={visibleHaptics.viewabilityConfig}
             contentContainerStyle={{ padding: spacing.lg, paddingBottom: bottomInset, gap: spacing.sm }}
             ListHeaderComponent={
               <Text style={[typography.body, { color: colors.textSecondary, marginBottom: spacing.sm }]}>

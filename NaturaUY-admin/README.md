@@ -10,6 +10,7 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 - `species_media` limita cada especie a dos imágenes y un audio. El navegador sube imágenes WebP 1600 px y WAV mono de hasta 15 s; GitHub Actions verifica y produce WebP 480 px o MP3 96 kbps/48 kHz.
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
+- La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
 - La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 6, incluida la galería sin binarios.
 - El actualizador mobile valida versión, compatibilidad, tamaño, SHA-256 e integridad SQLite antes de activar la DB al siguiente inicio.
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. No se usa R2 ni un proxy de medios.

@@ -1,39 +1,29 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
-  FlatList,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
   useWindowDimensions,
   View,
-  type NativeScrollEvent,
-  type NativeSyntheticEvent,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import { LinearGradient } from 'expo-linear-gradient';
-import Animated, {
-  Easing,
-  scrollTo,
-  useAnimatedRef,
-  useDerivedValue,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import { Carousel } from 'react-native-reanimated-carousel';
 
 import type { Species } from '../../src/domain/entities/species';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { AppDrawer } from '../../src/presentation/components/AppDrawer';
+import { AccountButton } from '../../src/presentation/components/AccountButton';
 import { SearchBar } from '../../src/presentation/components/SearchBar';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import {
   GameIcon,
   HeartIcon,
-  LoginIcon,
   MenuIcon,
   NewsIcon,
 } from '../../src/presentation/components/TabIcons';
@@ -46,8 +36,6 @@ const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
 const PHOTO_PANEL = 'rgba(14,24,17,0.82)';
 const CARD_HEIGHT = 230;
-const CAROUSEL_INTERVAL_MS = 7_000;
-const CAROUSEL_SLIDE_MS = 1_100;
 const SPOTLIGHT_LABELS = ['MÁS BUSCADAS', 'MÁS GUSTADAS', 'EN TENDENCIA'] as const;
 
 function LargeSpeciesCard({
@@ -119,53 +107,20 @@ function SpeciesCarousel({
   labels?: readonly string[];
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
-  const listRef = useAnimatedRef<FlatList<Species>>();
-  const scrollX = useSharedValue(0);
-  const carouselReady = useSharedValue(false);
-  const indexRef = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useDerivedValue(() => {
-    if (!carouselReady.value) return;
-    scrollTo(listRef, scrollX.value, 0, false);
-  });
-
-  useEffect(() => {
-    if (species.length < 2) return undefined;
-    const timer = setInterval(() => {
-      const next = (indexRef.current + 1) % species.length;
-      indexRef.current = next;
-      setActiveIndex(next);
-      scrollX.value = withTiming(next * width, {
-        duration: CAROUSEL_SLIDE_MS,
-        easing: Easing.inOut(Easing.cubic),
-      });
-    }, CAROUSEL_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, [scrollX, species.length, width]);
-
-  const syncIndex = (event: NativeSyntheticEvent<NativeScrollEvent>): void => {
-    const next = Math.max(0, Math.min(species.length - 1, Math.round(event.nativeEvent.contentOffset.x / width)));
-    indexRef.current = next;
-    setActiveIndex(next);
-    scrollX.value = event.nativeEvent.contentOffset.x;
-  };
 
   return (
     <View>
-      <Animated.FlatList
-        ref={listRef}
-        onLayout={() => {
-          carouselReady.value = true;
-        }}
-        horizontal
-        pagingEnabled
+      <Carousel
+        itemSize={width}
+        style={{ width, height: CARD_HEIGHT }}
         data={species}
-        keyExtractor={(item) => item.codigo}
-        renderItem={({ item, index }) => <LargeSpeciesCard species={item} width={width} onPress={onPress} kicker={labels?.[index]} />}
-        getItemLayout={(_, index) => ({ length: width, offset: width * index, index })}
-        onMomentumScrollEnd={syncIndex}
-        showsHorizontalScrollIndicator={false}
+        loop
+        autoplay={species.length > 1}
+        autoplayInterval={7000}
+        layout={{ type: 'parallax', scale: 0.92, offset: 48 }}
+        onSnapToItem={setActiveIndex}
+        renderItem={({ item, index }: { item: Species; index: number }) => <LargeSpeciesCard species={item} width={width} onPress={onPress} kicker={labels?.[index]} />}
       />
       {species.length > 1 && (
         <View style={[styles.dots, { marginTop: spacing.md }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${species.length}`}>
@@ -214,8 +169,9 @@ export default function HomeScreen(): React.JSX.Element {
       const stats = await speciesRepository.stats(db);
       const withPhoto = await speciesRepository.count(db, { onlyWithPhoto: true });
       const poolSize = Math.min(4, withPhoto);
+      const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Montevideo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).replaceAll('-', '');
       const maxOffset = Math.max(0, withPhoto - poolSize);
-      const offset = maxOffset === 0 ? 0 : Math.floor(Math.random() * (maxOffset + 1));
+      const offset = maxOffset === 0 ? 0 : Number(dateKey) % (maxOffset + 1);
       const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
       if (cancelled) return;
       setTotal(stats.total);
@@ -250,7 +206,7 @@ export default function HomeScreen(): React.JSX.Element {
             },
           ]}
         >
-          <View style={{ paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: 56 }}>
+          <View style={{ paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: 32 }}>
             <View style={[styles.topActions, { gap: spacing.sm }]}>
               <Pressable
                 onPress={() => {
@@ -275,24 +231,7 @@ export default function HomeScreen(): React.JSX.Element {
                 <SearchBar value={query} onChange={setQuery} onSubmit={submitSearch} placeholder="Buscar una especie" />
               </View>
 
-              <Pressable
-                onPress={() => {
-                  haptics.tap();
-                  router.push('/login');
-                }}
-                hitSlop={8}
-                accessibilityRole="button"
-                accessibilityLabel="Iniciar sesión"
-                style={({ pressed }) => [
-                  styles.heroAction,
-                  {
-                    borderRadius: radius.pill,
-                    backgroundColor: pressed ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
-                  },
-                ]}
-              >
-                <LoginIcon color={colors.canvasText} />
-              </Pressable>
+              <AccountButton onPress={() => { haptics.tap(); router.push('/login'); }} color={colors.canvasText} backgroundColor="rgba(255,255,255,0.10)" />
             </View>
 
             <MotiView
@@ -301,9 +240,7 @@ export default function HomeScreen(): React.JSX.Element {
               transition={{ type: 'timing', duration: 380 }}
               style={{ marginTop: spacing.xl }}
             >
-              <Text style={[typography.hero, { color: colors.canvasText }]}>
-                Conocé la vida{'\n'}de nuestro suelo
-              </Text>
+              <Text style={[typography.title, { color: colors.canvasText, maxWidth: 320 }]}>La naturaleza de Uruguay, especie por especie</Text>
 
               <View style={[styles.chipRow, { marginTop: spacing.xl }]}>
                 {total === null ? (
@@ -317,7 +254,6 @@ export default function HomeScreen(): React.JSX.Element {
               </View>
             </MotiView>
           </View>
-          <View pointerEvents="none" style={styles.heroGlow} />
         </LinearGradient>
 
         <MotiView
@@ -375,6 +311,17 @@ export default function HomeScreen(): React.JSX.Element {
           </View>
         </MotiView>
 
+        <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
+          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>DESTACADAS</Text>
+          <View>
+            {spotlightSpecies.length > 0 ? (
+              <SpeciesCarousel species={spotlightSpecies} width={cardWidth} onPress={openSpecies} labels={SPOTLIGHT_LABELS} />
+            ) : (
+              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
+            )}
+          </View>
+        </View>
+
         <MotiView
           from={{ opacity: 0, translateY: 16 }}
           animate={{ opacity: 1, translateY: 0 }}
@@ -388,16 +335,6 @@ export default function HomeScreen(): React.JSX.Element {
             ) : <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />}
           </View>
         </MotiView>
-
-        <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
-          <View>
-            {spotlightSpecies.length > 0 ? (
-              <SpeciesCarousel species={spotlightSpecies} width={cardWidth} onPress={openSpecies} labels={SPOTLIGHT_LABELS} />
-            ) : (
-              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
-            )}
-          </View>
-        </View>
 
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
           <Text style={[typography.title, { color: colors.text }]}>Noticias</Text>
@@ -435,7 +372,6 @@ const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
   hero: { overflow: 'hidden' },
-  heroGlow: { position: 'absolute', width: 240, height: 240, borderRadius: 120, right: -90, top: 88, backgroundColor: 'rgba(189,208,183,.16)' },
   topActions: { flexDirection: 'row', alignItems: 'center' },
   searchWrap: { flex: 1 },
   heroAction: {

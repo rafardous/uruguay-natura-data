@@ -29,6 +29,7 @@ import { ConservationBadge } from '../../src/presentation/components/Conservatio
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
+import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
 import { ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
@@ -161,7 +162,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
     ? [
         { label: 'Tamaño', value: species.tamano },
         { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
-        { label: 'Abundancia', value: species.abundanceStatus ? abundanceLabel(species.abundanceStatus) : '' },
       ].filter((fact) => fact.value.length > 0)
     : [];
 
@@ -230,6 +230,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
       {/* In-flow row, above the photo — not overlapping it. */}
       <View style={[styles.headerRow, { paddingHorizontal: spacing.lg }]}>
+        {species ? <View style={[styles.classGlyph, { backgroundColor: palette.container, borderRadius: radius.md }]}><FamilyGlyph clase={species.taxonomy.clase} color={palette.accent} size={22} /></View> : null}
         <View style={styles.flex} />
         {species && (
           <Pressable
@@ -343,6 +344,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                         : 'Origen sin determinar'}
                   </Text>
                 </View>
+                {species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
               </View>
             </Staggered>
 
@@ -459,7 +461,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             <Staggered index={11}>
               <Pressable
-                onPress={() => router.push({ pathname: '/report', params: { kind: 'review', codigo: species.codigo } } as unknown as Href)}
+                onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
                 style={[styles.reportButton, { borderColor: colors.border, borderRadius: radius.pill, marginTop: spacing.xl }]}
               >
                 <Text style={[typography.label, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text>
@@ -491,6 +493,7 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   headerRow: { flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 18 },
   action: { padding: 9, borderRadius: 12 },
+  classGlyph: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   badgeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   pill: { paddingHorizontal: 9, paddingVertical: 5 },

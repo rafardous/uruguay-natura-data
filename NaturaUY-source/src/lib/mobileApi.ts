@@ -1,4 +1,5 @@
 import type { QuizMode, QuizScope } from '../domain/entities/quiz';
+import { Platform } from 'react-native';
 import { mobileSupabase } from './supabase';
 
 export interface LeaderboardEntry {
@@ -13,7 +14,8 @@ export interface LeaderboardEntry {
 export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Promise<LeaderboardEntry[]> {
   if (!mobileSupabase) return [];
   const { data, error } = await mobileSupabase.rpc('get_game_leaderboard', {
-    p_game_mode: `${mode}:${scope}`,
+    p_mode_arg: mode,
+    p_scope_arg: scope,
     p_limit: 50,
   });
   if (error) throw error;
@@ -23,23 +25,29 @@ export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Prom
     bestScore: Number(entry.best_score),
     bestStreak: 0,
     playedAt: null,
-    gamesPlayed: Number(entry.games_played),
+    gamesPlayed: Number(entry.games_played ?? 0),
   }));
 }
 
 export async function submitUserReport(input: {
   kind: 'review' | 'bug' | 'suggestion';
+  area?: 'species' | 'general' | 'app' | 'games';
   catalogCode?: string;
   description: string;
   appVersion: string;
+  referenceUrl?: string;
 }): Promise<void> {
   if (!mobileSupabase) throw new Error('La conexión todavía no está configurada.');
-  const rpc = input.kind === 'review' ? 'submit_review_request' : input.kind === 'bug' ? 'submit_bug_report' : 'submit_suggestion';
-  const args = input.kind === 'review'
-    ? { p_catalog_code: input.catalogCode, p_reason: input.description }
-    : input.kind === 'bug'
-      ? { p_message: input.description, p_app_version: input.appVersion }
-      : { p_message: input.description };
-  const { error } = await mobileSupabase.rpc(rpc, args);
+  const area = input.area ?? (input.kind === 'review' ? 'species' : 'general');
+  const type = input.kind === 'review' ? 'review' : input.kind === 'suggestion' ? 'suggestion' : 'bug';
+  const { error } = await mobileSupabase.rpc('submit_feedback', {
+    p_type: type,
+    p_message: input.description,
+    p_catalog_code: input.catalogCode ?? null,
+    p_app_version: input.appVersion,
+    p_area: area,
+    p_platform: Platform.OS === 'android' || Platform.OS === 'ios' || Platform.OS === 'web' ? Platform.OS : 'unknown',
+    p_reference_url: input.referenceUrl ?? null,
+  });
   if (error) throw error;
 }
