@@ -58,6 +58,8 @@ export interface SpeciesSummary {
   updatedAt: string;
   updatedBy: string;
   imageUrl: string | null;
+  imageSourceUrl: string | null;
+  imageIsLegacy: boolean;
   hasAudio: boolean;
 }
 
@@ -136,6 +138,12 @@ export interface ChangeRequest {
   proposedByName: string;
   comment: string;
   createdAt: string;
+  imageUrl: string | null;
+}
+
+export interface NavigationCounts {
+  pendingReviews: number;
+  openReports: number;
 }
 
 export const emptySpeciesPayload = (): SpeciesPayload => ({

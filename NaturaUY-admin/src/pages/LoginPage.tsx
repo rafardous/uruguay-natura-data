@@ -1,4 +1,4 @@
-import { Leaf, LockKeyhole, Mail } from 'lucide-react';
+import { LockKeyhole, Mail } from 'lucide-react';
 import { useState } from 'react';
 
 import { useAuth } from '../auth/AuthProvider';
@@ -20,7 +20,7 @@ export function LoginPage({ accessDenied = false }: { accessDenied?: boolean }):
     form = <form className="login-form" onSubmit={(event) => void submit(event)}><p className="eyebrow">PANEL EDITORIAL</p><h2>Iniciar sesión</h2><p>Ingresá con una cuenta que tenga invitación editorial activa.</p>{accessDenied && <Notice kind="error">Tu cuenta de Google está autenticada, pero no tiene una autorización editorial activa. Pedile a un administrador que te agregue desde Usuarios.</Notice>}{message && <Notice kind={message.startsWith('Te enviamos') ? 'success' : 'error'}>{message}</Notice>}<button type="button" className="secondary wide" disabled={busy} onClick={() => void signInWithGoogle().then(setMessage)}>Continuar con Google</button><label>Correo electrónico<span><Mail size={18} /><input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="nombre@correo.com" required /></span></label><PasswordField label="Contraseña" value={password} onChange={setPasswordValue} /><button className="primary wide" disabled={busy}>{busy ? 'Ingresando…' : 'Ingresar'}</button><button type="button" className="link-button centered" onClick={() => void reset()}>¿Olvidaste tu contraseña?</button></form>;
   }
 
-  return <div className="login-page"><section className="login-brand"><div className="login-wordmark"><span className="brand-mark"><Leaf /></span><span>Natura UY<small>CATÁLOGO DE BIODIVERSIDAD</small></span></div><div><p className="eyebrow">TRABAJO COLABORATIVO</p><h1>Un catálogo vivo,<br />cuidado entre todos.</h1><p>Revisá datos, documentá fuentes y ayudá a mantener actualizada la biodiversidad de Uruguay.</p></div><small>Acceso exclusivo para colaboradores invitados.</small></section><section className="login-form-wrap">{form}</section></div>;
+  return <div className="login-page"><section className="login-brand"><div className="login-wordmark"><span className="brand-mark"><img src="/natura-uy-icon.png" alt="" /></span><span>Natura UY<small>CATÁLOGO DE BIODIVERSIDAD</small></span></div><div><p className="eyebrow">TRABAJO COLABORATIVO</p><h1>Un catálogo vivo,<br />cuidado entre todos.</h1><p>Revisá datos, documentá fuentes y ayudá a mantener actualizada la biodiversidad de Uruguay.</p></div><small>Acceso exclusivo para colaboradores invitados.</small></section><section className="login-form-wrap">{form}</section></div>;
 }
 
 function PasswordField({ label, value, onChange }: { label: string; value: string; onChange(value: string): void }) {

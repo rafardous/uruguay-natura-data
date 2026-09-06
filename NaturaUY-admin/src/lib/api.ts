@@ -1,4 +1,4 @@
-import type { CatalogRelease, ChangeRequest, DashboardStats, MediaAsset, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
+import type { CatalogRelease, ChangeRequest, DashboardStats, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { supabase } from './supabase';
 
 const assertClient = () => {
@@ -19,6 +19,20 @@ export interface SpeciesFilters {
 
 function mediaUrl(path: unknown) {
   return path ? assertClient().storage.from('media-public').getPublicUrl(String(path)).data.publicUrl : null;
+}
+
+function resolveSpeciesImage(media: Array<Record<string, any>>) {
+  const images = media.filter((item) => item.type === 'image');
+  const approved = images.find((item) => item.status === 'approved' && item.is_primary)
+    ?? images.find((item) => item.status === 'approved');
+  const legacy = images.find((item) => item.status === 'archived' && item.license === 'legacy' && item.source_url);
+  const selected = approved ?? legacy;
+  const storedUrl = approved ? mediaUrl(approved.thumbnail_path ?? approved.storage_path) : null;
+  return {
+    imageUrl: storedUrl ?? (selected?.source_url ? String(selected.source_url) : null),
+    imageSourceUrl: selected?.source_url ? String(selected.source_url) : null,
+    imageIsLegacy: !approved && Boolean(legacy),
+  };
 }
 
 function rowToPayload(row: Record<string, any>): SpeciesPayload {
@@ -59,6 +73,8 @@ function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
 }
 
 function mapSpecies(row: Record<string, any>): SpeciesSummary {
+  const media = (row.media ?? []) as Array<Record<string, any>>;
+  const image = resolveSpeciesImage(media);
   return {
     id: row.id,
     catalogCode: row.catalog_code,
@@ -70,8 +86,8 @@ function mapSpecies(row: Record<string, any>): SpeciesSummary {
     payload: rowToPayload(row),
     updatedAt: row.updated_at,
     updatedBy: 'Catálogo aprobado',
-    imageUrl: mediaUrl((row.media ?? []).find((item: Record<string, any>) => item.type === 'image' && item.is_primary)?.thumbnail_path ?? (row.media ?? []).find((item: Record<string, any>) => item.type === 'image')?.thumbnail_path),
-    hasAudio: (row.media ?? []).some((item: Record<string, any>) => item.type === 'audio'),
+    ...image,
+    hasAudio: media.some((item) => item.type === 'audio' && item.status === 'approved'),
   };
 }
 
@@ -169,13 +185,33 @@ export async function submitLifecycleChange(species: SpeciesSummary, status: 'ac
 }
 
 export async function listChangeRequests(): Promise<ChangeRequest[]> {
-  const { data, error } = await assertClient().from('change_request_queue').select('*').eq('status', 'pending').order('created_at');
+  const client = assertClient();
+  const { data, error } = await client.from('change_request_queue').select('*').eq('status', 'pending').order('created_at');
   if (error) throw error;
+  const speciesIds = [...new Set((data ?? []).map((row) => row.species_id).filter(Boolean))];
+  const imageBySpecies = new Map<string, string | null>();
+  if (speciesIds.length) {
+    const { data: speciesRows, error: speciesError } = await client.from('species_editor').select('id,media').in('id', speciesIds);
+    if (speciesError) throw speciesError;
+    for (const row of speciesRows ?? []) imageBySpecies.set(row.id, resolveSpeciesImage(row.media ?? []).imageUrl);
+  }
   return (data ?? []).map((row) => ({
     id: row.id, speciesId: row.species_id, catalogCode: row.catalog_code, scientificName: row.scientific_name,
     commonName: row.common_name, changeType: row.change_type, currentValues: row.before_values ?? {}, proposedChanges: row.proposed_values,
     proposedBy: row.proposed_by, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at,
+    imageUrl: row.species_id ? imageBySpecies.get(row.species_id) ?? null : null,
   }));
+}
+
+export async function getNavigationCounts(): Promise<NavigationCounts> {
+  const client = assertClient();
+  const [reviews, reports] = await Promise.all([
+    client.from('species_changes').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
+    client.from('feedback').select('id', { count: 'exact', head: true }).in('status', ['open', 'reviewing']),
+  ]);
+  if (reviews.error) throw reviews.error;
+  if (reports.error) throw reports.error;
+  return { pendingReviews: reviews.count ?? 0, openReports: reports.count ?? 0 };
 }
 
 export async function approveChangeRequest(id: string, confirmSelfValidation: boolean) {
