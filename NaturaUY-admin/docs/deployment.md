@@ -37,6 +37,16 @@ Google sigue disponible para cuentas mobile. El registro por correo editorial s�
 
 La URL de sitio productiva es `https://uruguay-natura-data.pages.dev`. El cliente OAuth web de Google debe usar `https://xbnbfekcxrkgteuijbzh.supabase.co/auth/v1/callback` como URI de redirección autorizada. La redirección del panel termina en `/login`.
 
+Antes de ejecutar `npx supabase config push`, cargar el Client ID y el Client Secret de Google únicamente en la sesión local. Si faltan, configurar Google desde `Authentication > Sign In / Providers` en el Dashboard y no empujar la configuración hasta disponer de ambos valores.
+
+```powershell
+$env:SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID = 'CLIENT_ID_DE_GOOGLE'
+$env:SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET = 'CLIENT_SECRET_DE_GOOGLE'
+npx supabase config push
+Remove-Item Env:SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID
+Remove-Item Env:SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET
+```
+
 Promoción inicial:
 
 ```sql
