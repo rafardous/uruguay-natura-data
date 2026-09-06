@@ -4,11 +4,18 @@ import type { Session } from '@supabase/supabase-js';
 import type { Profile } from '../domain';
 import { supabase, supabaseConfigurationError } from '../lib/supabase';
 
+interface MfaState {
+  mode: 'enroll' | 'challenge';
+  factorId: string;
+  qrCode: string | null;
+  secret: string | null;
+}
+
 interface AuthState {
   loading: boolean;
   profile: Profile | null;
   configurationError: string | null;
-  mfa: { factorId: string; qrCode: string | null; secret: string | null } | null;
+  mfa: MfaState | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
   signInWithGoogle(): Promise<string | null>;
@@ -50,8 +57,8 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     const { data: assurance } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
     if (assurance?.currentLevel === 'aal2') { setProfile(nextProfile); setMfa(null); setLoading(false); return; }
     const { data: factors } = await supabase.auth.mfa.listFactors(); const verified = factors?.totp.find((factor) => factor.status === 'verified');
-    if (verified) setMfa({ factorId: verified.id, qrCode: null, secret: null });
-    else { const { data, error } = await supabase.auth.mfa.enroll({ factorType: 'totp', friendlyName: 'Natura UY' }); if (error) { await supabase.auth.signOut(); setProfile(null); setLoading(false); return; } setMfa({ factorId: data.id, qrCode: data.totp.qr_code, secret: data.totp.secret }); }
+    if (verified) setMfa({ mode: 'challenge', factorId: verified.id, qrCode: null, secret: null });
+    else { const { data, error } = await supabase.auth.mfa.enroll({ factorType: 'totp', friendlyName: 'Natura UY' }); if (error) { await supabase.auth.signOut(); setProfile(null); setLoading(false); return; } setMfa({ mode: 'enroll', factorId: data.id, qrCode: data.totp.qr_code, secret: data.totp.secret }); }
     setProfile(null); setLoading(false);
   }
 
@@ -81,7 +88,12 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
     async verifyMfa(code) {
       if (!supabase || !mfa) return supabaseConfigurationError ?? 'No hay una verificación pendiente.';
       const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId: mfa.factorId, code: code.trim() });
-      if (error) return error.message;
+      if (error) {
+        const detail = error.message.toLowerCase();
+        if (detail.includes('invalid') || detail.includes('code')) return 'El código no es válido. Esperá a que aparezca uno nuevo en la aplicación e intentá otra vez.';
+        if (detail.includes('expired')) return 'El código venció. Ingresá el nuevo código que muestra tu aplicación.';
+        return 'No pudimos verificar el código. Revisá tu conexión e intentá nuevamente.';
+      }
       const { data } = await supabase.auth.getSession(); if (data.session) await resolveSession(data.session);
       return null;
     },
