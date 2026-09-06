@@ -13,10 +13,10 @@ import { SpeciesListPage } from './pages/SpeciesListPage';
 import { UsersPage } from './pages/UsersPage';
 
 function Router(): React.JSX.Element {
-  const path = usePathname(); const { loading, profile, configurationError } = useAuth();
+  const path = usePathname(); const { loading, profile, configurationError, accessDenied } = useAuth();
   if (configurationError) return <ConfigurationError detail={configurationError} />;
   if (loading) return <div className="full-state"><Loading label="Verificando acceso…" /></div>;
-  if (!profile) return <LoginPage />;
+  if (!profile) return <LoginPage accessDenied={accessDenied} />;
   let page: React.JSX.Element;
   if (path === '/') page = <DashboardPage />;
   else if (path === '/species') page = <SpeciesListPage />;

@@ -8,6 +8,7 @@ interface AuthState {
   loading: boolean;
   profile: Profile | null;
   configurationError: string | null;
+  accessDenied: boolean;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
   signInWithGoogle(): Promise<string | null>;
@@ -37,20 +38,22 @@ async function loadProfile(session: Session): Promise<Profile | null> {
 export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const [loading, setLoading] = useState(Boolean(supabase));
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [accessDenied, setAccessDenied] = useState(false);
   const [passwordFlow, setPasswordFlow] = useState<AuthState['passwordFlow']>(initialPasswordFlow);
 
   async function resolveSession(session: Session): Promise<void> {
     if (!supabase) return;
     const nextProfile = await loadProfile(session);
     setProfile(nextProfile);
+    setAccessDenied(!nextProfile);
     setLoading(false);
   }
 
   useEffect(() => {
     if (!supabase) return;
-    void supabase.auth.getSession().then(async ({ data }) => { if (data.session && !passwordFlow) await resolveSession(data.session); else { setProfile(null); setLoading(false); } });
+    void supabase.auth.getSession().then(async ({ data }) => { if (data.session && !passwordFlow) await resolveSession(data.session); else { setProfile(null); setAccessDenied(false); setLoading(false); } });
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      if (!session) { setProfile(null); setLoading(false); return; }
+      if (!session) { setProfile(null); setAccessDenied(false); setLoading(false); return; }
       if (event === 'PASSWORD_RECOVERY') { setPasswordFlow('recovery'); setProfile(null); setLoading(false); return; }
       if (passwordFlow) { setProfile(null); setLoading(false); return; }
       void resolveSession(session);
@@ -59,7 +62,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
   }, []);
 
   const value = useMemo<AuthState>(() => ({
-    loading, profile, configurationError: supabaseConfigurationError, passwordFlow,
+    loading, profile, configurationError: supabaseConfigurationError, accessDenied, passwordFlow,
     async signIn(email, password) {
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
@@ -80,8 +83,8 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/login?reset=1` }); return error?.message ?? null;
     },
-    async signOut() { if (supabase) await supabase.auth.signOut(); setProfile(null); },
-  }), [loading, profile, passwordFlow]);
+    async signOut() { if (supabase) await supabase.auth.signOut(); setProfile(null); setAccessDenied(false); },
+  }), [loading, profile, accessDenied, passwordFlow]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
