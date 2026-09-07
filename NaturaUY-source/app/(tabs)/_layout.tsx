@@ -3,7 +3,6 @@ import { Tabs } from 'expo-router';
 // the tabBar signature identical to what <Tabs> actually passes.
 import type { BottomTabBarProps } from 'expo-router/build/react-navigation/bottom-tabs/types';
 import { NavigationIsland, type MainTab } from '../../src/presentation/components/NavigationIsland';
-import { haptics } from '../../src/presentation/haptics';
 
 /**
  * A floating island rather than a full-width strip.
@@ -24,7 +23,6 @@ function TabBar({ state, navigation }: BottomTabBarProps): React.JSX.Element {
     if (!target || name === active) return;
     const event = navigation.emit({ type: 'tabPress', target: target.key, canPreventDefault: true });
     if (!event.defaultPrevented) {
-      haptics.tick();
       navigation.navigate(name);
     }
   }} />;
@@ -35,7 +33,10 @@ export default function TabsLayout(): React.JSX.Element {
     <Tabs
       screenOptions={{
         headerShown: false,
-        animation: 'fade',
+        // The three primary surfaces stay mounted and switch immediately. A
+        // cross-fade made the shared gradient briefly reveal the page behind
+        // it, which read as a flash on both Android and web.
+        animation: 'none',
         // The island floats over the content instead of reserving layout height;
         // screens pad their own scroll content by NAV_ISLAND_HEIGHT.
         tabBarStyle: { position: 'absolute', backgroundColor: 'transparent', borderTopWidth: 0, elevation: 0 },

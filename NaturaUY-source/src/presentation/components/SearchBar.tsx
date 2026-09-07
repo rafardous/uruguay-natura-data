@@ -1,24 +1,38 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, type LayoutChangeEvent } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import Animated, { Extrapolation, interpolate, useAnimatedStyle, type SharedValue } from 'react-native-reanimated';
 
 import { useTheme } from '../theme/ThemeProvider';
+import { COLLAPSIBLE_HEADER_SCROLL_DISTANCE } from '../theme/tokens';
 
 export interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
   onSubmit?: () => void;
+  collapseOffset?: SharedValue<number>;
+  onFocusChange?: (focused: boolean) => void;
+  onLayout?: (event: LayoutChangeEvent) => void;
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit }: SearchBarProps): React.JSX.Element {
+export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit, collapseOffset, onFocusChange, onLayout }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
   const [focused, setFocused] = useState(false);
+  const compactStyle = useAnimatedStyle(() => {
+    const offset = collapseOffset?.value ?? 0;
+    return {
+      height: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [48, 40], Extrapolation.CLAMP),
+      marginHorizontal: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [0, 4], Extrapolation.CLAMP),
+      paddingHorizontal: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [14, 10], Extrapolation.CLAMP),
+    };
+  });
 
   return (
-    <View
+    <Animated.View
       style={[
         styles.wrapper,
+        compactStyle,
         {
           backgroundColor: '#E8E9D8',
           borderColor: focused ? colors.primary : colors.border,
@@ -30,6 +44,7 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
           elevation: focused ? 3 : 0,
         },
       ]}
+      onLayout={onLayout}
     >
       <TextInput
         value={value}
@@ -40,8 +55,8 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
         autoCapitalize="none"
         returnKeyType="search"
         onSubmitEditing={onSubmit}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
+        onFocus={() => { setFocused(true); onFocusChange?.(true); }}
+        onBlur={() => { setFocused(false); onFocusChange?.(false); }}
         accessibilityLabel="Buscar especies"
         style={[typography.body, styles.input, { color: colors.text }]}
       />
@@ -58,13 +73,16 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
           </Svg>
         </Pressable>
       )}
-    </View>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 'auto',
+    minWidth: 0,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,

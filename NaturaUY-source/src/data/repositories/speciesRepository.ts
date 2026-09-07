@@ -1,4 +1,5 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
+import { Platform } from 'react-native';
 
 import type { Species } from '../../domain/entities/species';
 import { rowToSpecies } from '../mappers/speciesMapper';
@@ -35,10 +36,23 @@ export interface Page<T> {
  * reduced to word characters and turned into prefix queries, which is what
  * makes search feel responsive while typing.
  */
+function foldSearch(value: string): string {
+  return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+function normalizedColumn(column: string): string {
+  let expression = `LOWER(COALESCE(species.${column}, ''))`;
+  for (const [from, to] of [['á', 'a'], ['é', 'e'], ['í', 'i'], ['ó', 'o'], ['ú', 'u'], ['ü', 'u'], ['ñ', 'n']] as const) {
+    expression = `REPLACE(${expression}, '${from}', '${to}')`;
+  }
+  return expression;
+}
+
 function toFtsQuery(search: string): string | null {
   const tokens = search
-    .toLowerCase()
+    .toLocaleLowerCase('es-UY')
     .split(/[^\p{L}\p{N}]+/u)
+    .map(foldSearch)
     .filter((t) => t.length > 0);
 
   if (tokens.length === 0) return null;
@@ -57,10 +71,27 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
   let joins = '';
 
   const fts = filters.search ? toFtsQuery(filters.search) : null;
-  if (fts) {
+  if (fts && Platform.OS !== 'web') {
     joins = 'JOIN species_fts ON species_fts.rowid = species.rowid';
     clauses.push('species_fts MATCH ?');
     params.push(fts);
+  } else if (fts) {
+    // The SQLite WASM runtime used by Expo on web is not compiled with FTS5.
+    // Keep browser search functional with a tokenized, parameterized fallback.
+    const tokens = filters.search!
+      .toLocaleLowerCase('es-UY')
+      .split(/[^\p{L}\p{N}]+/u)
+      .map(foldSearch)
+      .filter((token) => token.length > 0);
+    for (const token of tokens) {
+      clauses.push(`(
+        ${normalizedColumn('common_name')} LIKE ? OR
+        ${normalizedColumn('scientific_name')} LIKE ? OR
+        ${normalizedColumn('familia')} LIKE ? OR
+        ${normalizedColumn('genero')} LIKE ?
+      )`);
+      params.push(...Array<string>(4).fill(`%${token}%`));
+    }
   }
 
   for (const rank of TAXON_RANKS) {

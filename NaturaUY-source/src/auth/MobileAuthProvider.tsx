@@ -124,8 +124,12 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
     }
     void mobileSupabase.auth.getSession().then(({ data }) => resolveSession(data.session));
     const { data } = mobileSupabase.auth.onAuthStateChange((_event, next) => void resolveSession(next));
-    const linkingSubscription = Linking.addEventListener('url', ({ url }) => void createSessionFromUrl(url));
-    void Linking.getInitialURL().then((url) => { if (url) void createSessionFromUrl(url); });
+    const linkingSubscription = Linking.addEventListener('url', ({ url }) => {
+      void createSessionFromUrl(url).catch(() => undefined);
+    });
+    void Linking.getInitialURL().then((url) => {
+      if (url) void createSessionFromUrl(url).catch(() => undefined);
+    });
     return () => {
       data.subscription.unsubscribe();
       linkingSubscription.remove();
@@ -147,11 +151,20 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
       if (error) return error.message;
       if (Platform.OS === 'web') return null;
       const result = await WebBrowser.openAuthSessionAsync(data.url ?? '', redirectTo);
-      if (result.type !== 'success') return result.type === 'cancel' ? null : 'No se pudo completar el acceso con Google.';
+      if (result.type !== 'success') {
+        // The deep-link listener can finish the exchange before the browser
+        // session reports that it was dismissed. The session is authoritative
+        // in that race, so never turn a successful login into a red error.
+        const current = await mobileSupabase.auth.getSession();
+        if (current.data.session || result.type === 'cancel' || result.type === 'dismiss') return null;
+        return 'No se pudo completar el acceso con Google.';
+      }
       try {
         await createSessionFromUrl(result.url);
         return null;
       } catch (reason) {
+        const current = await mobileSupabase.auth.getSession();
+        if (current.data.session) return null;
         return reason instanceof Error ? reason.message : 'No se pudo completar el acceso con Google.';
       }
     },

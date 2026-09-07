@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { MotiView } from 'moti';
 import Svg, { Path } from 'react-native-svg';
@@ -8,6 +8,7 @@ import { haptics } from '../haptics';
 import { useTheme } from '../theme/ThemeProvider';
 import { Skeleton } from './Skeleton';
 import { SpeciesImage } from './SpeciesImage';
+import { FavoriteSparkles } from './FavoriteSparkles';
 
 /** Exported so a list can derive its row pitch instead of hard-coding one. */
 export const CARD_HEIGHT = 268;
@@ -73,6 +74,7 @@ export const SpeciesCard = memo(function SpeciesCard({
   index = 0,
 }: SpeciesCardProps): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
+  const [sparkleTrigger, setSparkleTrigger] = useState(0);
 
   const threatened = species.conservation.rank >= 3;
   // `displayName` falls back to the binomial when a species has no vernacular
@@ -128,7 +130,7 @@ export const SpeciesCard = memo(function SpeciesCard({
             </View>
           </Pressable>
           <Pressable
-            onPress={() => { haptics.press(); onToggleFavorite(species.codigo); }}
+            onPress={() => { haptics.press(); if (!favorite) setSparkleTrigger((value) => value + 1); onToggleFavorite(species.codigo); }}
             hitSlop={10}
             accessibilityRole="button"
             accessibilityLabel={favorite ? `Quitar ${species.displayName} de favoritos` : `Guardar ${species.displayName} en favoritos`}
@@ -137,6 +139,7 @@ export const SpeciesCard = memo(function SpeciesCard({
             <MotiView animate={{ scale: favorite ? 1.12 : 1 }} transition={{ type: 'spring', damping: 12 }}>
               <HeartIcon filled={favorite} color={favorite ? colors.favorite : ON_PHOTO} />
             </MotiView>
+            <FavoriteSparkles trigger={sparkleTrigger} color={colors.favorite} />
           </Pressable>
         </View>
       </View>

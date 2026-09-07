@@ -16,7 +16,18 @@ export const SUPPORTED_CATALOG_SCHEMA = 6;
 export type CatalogManifest = CatalogManifestContract;
 export { assertCatalogManifest } from './catalogManifestValidation';
 
-const databaseFile = (name: string): File => new File(defaultDatabaseDirectory, name);
+/**
+ * expo-sqlite exposes the native database directory as a filesystem path,
+ * while expo-file-system's new File API expects a URI. Android otherwise
+ * throws `URI is not absolute` before it can inspect the bundled catalogue.
+ */
+function databaseDirectoryUri(): string {
+  const directory = String(defaultDatabaseDirectory);
+  if (/^[a-z][a-z\d+.-]*:\/\//i.test(directory)) return directory.replace(/\/+$/, '');
+  return `file://${directory.startsWith('/') ? '' : '/'}${directory.replace(/\/+$/, '')}`;
+}
+
+const databaseFile = (name: string): File => new File(`${databaseDirectoryUri()}/${name}`);
 
 async function readMeta(databaseName: string): Promise<{ dataVersion: number; schemaVersion: number }> {
   const database = await openDatabaseAsync(databaseName);

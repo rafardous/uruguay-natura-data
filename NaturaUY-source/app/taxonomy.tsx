@@ -8,10 +8,10 @@ import {
   StyleSheet,
   Text,
   View,
+  Image as NativeImage,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { MotiView } from 'moti';
@@ -34,7 +34,7 @@ import { useScrollDetentHaptics, useViewableItemHaptics } from '../src/presentat
 import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
 import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
-import { classVisual } from '../src/presentation/taxonomy/classVisuals';
+import { classVisual, type ClassVisual } from '../src/presentation/taxonomy/classVisuals';
 import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN, spacing as space } from '../src/presentation/theme/tokens';
 
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
@@ -48,11 +48,47 @@ const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt:
   genero: { singular: 'Género', plural: 'géneros', prompt: 'Elegí un género' },
 };
 
+const CHORDATA_CLASS_ORDER: Record<string, number> = {
+  Mammalia: 0,
+  Reptilia: 1,
+  Aves: 2,
+  Amphibia: 3,
+  Actinopterygii: 4,
+  Chondrichthyes: 5,
+};
+
 const CHORDATA_DESCRIPTION =
   'Animales con notocorda en alguna etapa de su desarrollo. Incluye a todos los vertebrados: peces, anfibios, reptiles, aves y mamíferos.';
 
 const taxonName = (rank: TaxonRank, value: string): string =>
   value === UNASSIGNED_TAXON ? `Sin ${RANK_LABELS[rank].singular.toLocaleLowerCase('es')} asignado` : value;
+
+function ChordataIllustration(): React.JSX.Element {
+  const { colors } = useTheme();
+  const [failed, setFailed] = useState(false);
+  if (failed) return <View style={[styles.phylumImage, styles.illustrationFallback]}><TaxonomyIcon color={colors.primary} size={38} /></View>;
+  return <NativeImage source={require('../assets/images/taxonomy/chordata-vertebrates.png')} resizeMode="contain" style={styles.phylumImage} onError={() => setFailed(true)} accessibilityLabel="Pez, ave, anfibio, reptil y mamífero representando a los vertebrados" />;
+}
+
+function ClassIllustration({ clase, visual }: { clase: string; visual: ClassVisual }): React.JSX.Element {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <View style={[styles.classImage, styles.illustrationFallback]}>
+        <FamilyGlyph clase={clase} color={visual.foreground} size={48} opacity={0.82} />
+      </View>
+    );
+  }
+  return (
+    <NativeImage
+      source={visual.image}
+      resizeMode="contain"
+      style={styles.classImage}
+      onError={() => setFailed(true)}
+      accessibilityLabel={visual.imageAccessibilityLabel}
+    />
+  );
+}
 
 function pathFromParams(params: Partial<Record<TaxonRank, string | undefined>>): TaxonomyPath {
   const path: TaxonomyPath = {};
@@ -145,6 +181,14 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
   const currentRank = TAXON_RANKS.find((rank) => path[rank] === undefined) ?? null;
   const { items, loading } = useTaxonomyChildren(currentRank, path);
+  const orderedItems = useMemo(() => {
+    if (currentRank !== 'clase' || path.phylum?.trim().toLocaleLowerCase() !== 'chordata') return items;
+    return [...items].sort((left, right) => {
+      const leftOrder = CHORDATA_CLASS_ORDER[left.value] ?? Number.MAX_SAFE_INTEGER;
+      const rightOrder = CHORDATA_CLASS_ORDER[right.value] ?? Number.MAX_SAFE_INTEGER;
+      return leftOrder - rightOrder || left.value.localeCompare(right.value, 'es');
+    });
+  }, [currentRank, items, path.phylum]);
   const selectedRanks = TAXON_RANKS.filter((rank) => path[rank] !== undefined);
   const breadcrumbRef = useRef<ScrollView>(null);
   const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
@@ -209,7 +253,6 @@ export default function TaxonomyScreen(): React.JSX.Element {
   }, []);
 
   const navigateMain = useCallback((tab: MainTab) => {
-    haptics.tick();
     if (tab === 'index') router.replace('/');
     if (tab === 'explore') router.replace('/explore');
     if (tab === 'games') router.replace('/games');
@@ -277,7 +320,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
           <View style={styles.loading}><ActivityIndicator color={colors.primary} /></View>
         ) : (
           <FlatList
-            data={items}
+            data={orderedItems}
             keyExtractor={(item) => item.value}
             showsVerticalScrollIndicator={false}
             onViewableItemsChanged={visibleHaptics.onViewableItemsChanged}
@@ -292,17 +335,18 @@ export default function TaxonomyScreen(): React.JSX.Element {
               const isPhylum = currentRank === 'phylum';
               const isClass = currentRank === 'clase';
               const visual = isClass ? classVisual(item.value) : undefined;
-              const foreground = visual ? '#FFF9EA' : colors.text;
-              const mutedForeground = visual ? 'rgba(255,249,234,.82)' : colors.textSecondary;
-              const description = isPhylum && item.value === 'Chordata'
+              const foreground = visual?.foreground ?? colors.text;
+              const mutedForeground = visual?.mutedForeground ?? colors.textSecondary;
+              const isChordata = isPhylum && item.value.trim().toLocaleLowerCase() === 'chordata';
+              const description = isChordata
                 ? CHORDATA_DESCRIPTION
                 : visual?.description;
 
               return (
                 <MotiView
-                  from={{ opacity: 0, translateY: 8 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  transition={{ type: 'timing', duration: 240, delay: Math.min(index, 10) * 28 }}
+                  from={{ opacity: 0, translateY: isClass ? 18 : 8, scale: isClass ? 0.96 : 1 }}
+                  animate={{ opacity: 1, translateY: 0, scale: 1 }}
+                  transition={{ type: 'timing', duration: isClass ? 360 : 240, delay: Math.min(index, isClass ? 7 : 10) * (isClass ? 68 : 28) }}
                 >
                   <Pressable
                     onPress={() => select(currentRank, item.value)}
@@ -315,7 +359,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
                       elevation.low,
                       {
                         backgroundColor: visual ? visual.colors[0] : pressed ? colors.surfaceVariant : colors.surface,
-                        borderColor: visual ? 'rgba(255,249,234,.2)' : colors.border,
+                        borderColor: visual ? 'rgba(41,56,50,.14)' : colors.border,
                         borderRadius: radius.lg,
                         opacity: pressed ? 0.92 : 1,
                       },
@@ -330,30 +374,29 @@ export default function TaxonomyScreen(): React.JSX.Element {
                         style={[StyleSheet.absoluteFill, { borderRadius: radius.lg }]}
                       />
                     )}
-                    {isClass && (
-                      <View style={[styles.classIcon, { backgroundColor: visual ? 'rgba(255,249,234,.15)' : colors.primaryContainer, borderRadius: radius.md }]}>
-                        <FamilyGlyph clase={item.value} color={visual ? '#FFF9EA' : colors.onPrimaryContainer} size={48} opacity={0.95} />
+                    {isClass && (visual ? (
+                      <View style={[styles.classImageFrame, { borderRadius: radius.md }]}>
+                        <ClassIllustration clase={item.value} visual={visual} />
                       </View>
-                    )}
+                    ) : (
+                      <View style={[styles.classIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
+                        <FamilyGlyph clase={item.value} color={colors.onPrimaryContainer} size={48} opacity={0.95} />
+                      </View>
+                    ))}
                     <View style={styles.flex}>
-                      <Text style={[typography.eyebrow, { color: visual ? 'rgba(255,249,234,.72)' : colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>
+                      <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>
                       <Text style={[typography.cardTitle, styles.scientific, { color: foreground, marginTop: 4 }]}>
                         {taxonName(currentRank, item.value)}
                       </Text>
                       {description && (
-                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isPhylum ? 4 : undefined}>
+                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isClass ? 3 : isPhylum ? 4 : undefined}>
                           {description}
                         </Text>
                       )}
                     </View>
-                    {isPhylum && item.value === 'Chordata' ? (
+                    {isChordata ? (
                       <View style={styles.phylumVisual}>
-                        <Image
-                          source={require('../assets/images/taxonomy/chordata-vertebrates.png')}
-                          contentFit="contain"
-                          style={styles.phylumImage}
-                          accessibilityLabel="Pez, ave, anfibio, reptil y mamífero representando a los vertebrados"
-                        />
+                        <ChordataIllustration />
                         <View style={styles.rowEnd}>
                           <View style={[styles.count, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
                             <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{item.count}</Text>
@@ -362,11 +405,11 @@ export default function TaxonomyScreen(): React.JSX.Element {
                         </View>
                       </View>
                     ) : (
-                      <View style={styles.rowEnd}>
-                        <View style={[styles.count, { backgroundColor: visual ? 'rgba(255,249,234,.16)' : colors.primaryContainer, borderRadius: radius.pill }]}>
-                          <Text style={[typography.caption, { color: visual ? '#FFF9EA' : colors.onPrimaryContainer }]}>{item.count}</Text>
+                      <View style={[styles.rowEnd, isClass && styles.classRowEnd]}>
+                        <View style={[styles.count, isClass && styles.classCount, { backgroundColor: visual ? 'rgba(255,255,255,.52)' : colors.primaryContainer, borderRadius: radius.pill }]}>
+                          <Text style={[typography.caption, { color: visual?.foreground ?? colors.onPrimaryContainer }]}>{item.count}</Text>
                         </View>
-                        <ChevronRightIcon color={visual ? '#FFF9EA' : colors.textMuted} />
+                        <ChevronRightIcon color={visual?.foreground ?? colors.textMuted} size={isClass ? 18 : undefined} />
                       </View>
                     )}
                   </Pressable>
@@ -396,12 +439,17 @@ const styles = StyleSheet.create({
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   taxonRow: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
   phylumRow: { minHeight: 154, paddingVertical: 18 },
-  classRow: { minHeight: 116 },
+  classRow: { minHeight: 136, gap: 10, padding: 12 },
   phylumVisual: { width: 108, alignItems: 'center', gap: 2 },
   phylumImage: { width: 96, height: 88 },
+  illustrationFallback: { alignItems: 'center', justifyContent: 'center' },
+  classImageFrame: { width: 96, height: 96, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FDF7E7', overflow: 'hidden' },
+  classImage: { width: 96, height: 96 },
   classIcon: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
   rowEnd: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  classRowEnd: { flexDirection: 'column', justifyContent: 'center', flexShrink: 0, gap: 6 },
   count: { minWidth: 36, alignItems: 'center', paddingHorizontal: 9, paddingVertical: 6 },
+  classCount: { minWidth: 30, paddingHorizontal: 6, paddingVertical: 4 },
   scientific: { fontStyle: 'italic' },
   end: { textAlign: 'center', paddingTop: 24 },
 });

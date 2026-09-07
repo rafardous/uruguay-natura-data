@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import * as Haptics from 'expo-haptics';
 
 /**
@@ -33,10 +34,14 @@ function fire(run: () => Promise<void>): void {
   run().catch(() => {});
 }
 
+function androidOr(platform: Haptics.AndroidHaptics, fallback: () => Promise<void>): Promise<void> {
+  return Platform.OS === 'android' ? Haptics.performAndroidHapticsAsync(platform) : fallback();
+}
+
 export const haptics = {
-  tick: (): void => fire(() => Haptics.selectionAsync()),
-  tap: (): void => fire(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)),
-  press: (): void => fire(() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)),
-  success: (): void => fire(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)),
-  error: (): void => fire(() => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)),
+  tick: (): void => fire(() => androidOr(Haptics.AndroidHaptics.Segment_Frequent_Tick, () => Haptics.selectionAsync())),
+  tap: (): void => fire(() => androidOr(Haptics.AndroidHaptics.Context_Click, () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light))),
+  press: (): void => fire(() => androidOr(Haptics.AndroidHaptics.Long_Press, () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium))),
+  success: (): void => fire(() => androidOr(Haptics.AndroidHaptics.Confirm, () => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success))),
+  error: (): void => fire(() => androidOr(Haptics.AndroidHaptics.Reject, () => Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error))),
 };

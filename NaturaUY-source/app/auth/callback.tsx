@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import * as Linking from 'expo-linking';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 
 import { useMobileAuth } from '../../src/auth/MobileAuthProvider';
 import { BackIcon } from '../../src/presentation/components/TabIcons';
@@ -15,14 +15,26 @@ import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 export default function AuthCallbackScreen(): React.JSX.Element {
   const router = useRouter();
   const url = Linking.useURL();
+  const params = useLocalSearchParams<Record<string, string | string[]>>();
   const { completeOAuthFromUrl } = useMobileAuth();
   const { colors, radius, spacing, typography } = useTheme();
   const [error, setError] = useState<string | null>(null);
+  const paramsUrl = useMemo(() => {
+    const query = Object.entries(params).flatMap(([key, value]) => {
+      const values = Array.isArray(value) ? value : [value];
+      return values.filter((item): item is string => typeof item === 'string').map((item) => `${encodeURIComponent(key)}=${encodeURIComponent(item)}`);
+    }).join('&');
+    return query ? `naturauy://auth/callback?${query}` : null;
+  }, [params]);
+  const callbackUrl = url ?? paramsUrl;
 
   useEffect(() => {
-    if (!url) return;
+    if (!callbackUrl) {
+      const timeout = setTimeout(() => setError('No recibimos la respuesta de Google. Volvé a intentar el acceso.'), 8000);
+      return () => clearTimeout(timeout);
+    }
     let cancelled = false;
-    void completeOAuthFromUrl(url)
+    void completeOAuthFromUrl(callbackUrl)
       .then((returnTo) => {
         if (!cancelled) router.replace(returnTo as never);
       })
@@ -32,7 +44,7 @@ export default function AuthCallbackScreen(): React.JSX.Element {
     return () => {
       cancelled = true;
     };
-  }, [completeOAuthFromUrl, router, url]);
+  }, [callbackUrl, completeOAuthFromUrl, router]);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background, padding: spacing.xl }]}>

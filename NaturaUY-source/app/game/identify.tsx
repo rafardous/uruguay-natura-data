@@ -467,7 +467,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           />
         </View>
       ) : (
-        <View style={[styles.flex, { padding: spacing.lg }]}>
+        <View style={[styles.flex, { padding: mode === 'naming' ? spacing.md : spacing.lg }]}>
           <Pressable
             onPress={() => question.target.photo && setLightboxOpen(true)}
             disabled={!question.target.photo}
@@ -476,7 +476,21 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           >
             <Animated.View style={photoStyle}>
               <View style={[styles.photoFrame, { borderRadius: radius.xl }]}>
-                <SpeciesImage species={question.target} height={250} full borderRadius={radius.xl - 3} glyphSize={84} />
+                <SpeciesImage species={question.target} height={mode === 'naming' ? 212 : 250} full borderRadius={radius.xl - 3} glyphSize={84} />
+                {mode === 'naming' && answeredCodigo && answeredCodigo !== question.target.codigo && (
+                  <MotiView
+                    key={`correct-${question.target.codigo}`}
+                    pointerEvents="none"
+                    from={{ opacity: 0, translateY: -16, scale: 0.9 }}
+                    animate={{ opacity: 1, translateY: 0, scale: 1 }}
+                    transition={{ type: 'spring', damping: 11, stiffness: 170 }}
+                    style={styles.correctNameOverlay}
+                  >
+                    <Text style={styles.correctNameEyebrow}>LA RESPUESTA ERA</Text>
+                    <Text style={styles.correctNameTitle} numberOfLines={1}>{question.target.displayName}</Text>
+                    <Text style={styles.correctNameScientific} numberOfLines={1}>{question.target.scientificName}</Text>
+                  </MotiView>
+                )}
                 {question.target.photo && (
                   <View style={styles.zoomBadge}>
                     <ZoomInIcon color="#FFFFFF" size={19} />
@@ -486,12 +500,12 @@ export default function IdentifyGameScreen(): React.JSX.Element {
             </Animated.View>
           </Pressable>
 
-          <Text style={[typography.label, { color: colors.textMuted, marginTop: spacing.lg, textAlign: 'center' }]}>
+          <Text style={[typography.label, { color: colors.textMuted, marginTop: mode === 'naming' ? spacing.md : spacing.lg, textAlign: 'center' }]}>
             {mode === 'naming' ? 'Escribí el nombre de la especie' : '¿Qué especie es?'}
           </Text>
 
           {mode === 'naming' ? (
-            <View style={{ marginTop: spacing.md, gap: spacing.sm }}>
+            <View style={{ marginTop: spacing.sm, gap: spacing.xs }}>
               <TextInput
                 value={nameQuery}
                 onChangeText={(value) => { setNameQuery(value); setSelectedName(null); }}
@@ -502,7 +516,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
                 style={[styles.nameInput, typography.body, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.md }]}
                 accessibilityLabel="Buscar especie"
               />
-              {nameCandidates(nameQuery).map((candidate) => (
+              {nameCandidates(nameQuery).slice(0, 4).map((candidate) => (
                 <Pressable key={candidate.codigo} onPress={() => setSelectedName(candidate.codigo)} disabled={Boolean(answeredCodigo)} style={[styles.nameCandidate, { backgroundColor: selectedName === candidate.codigo ? colors.play : colors.surfaceVariant, borderRadius: radius.md }]}>
                   <Text style={[typography.label, { color: selectedName === candidate.codigo ? colors.onPlay : colors.text }]}>{candidate.displayName}</Text>
                   <Text style={[typography.caption, { color: selectedName === candidate.codigo ? colors.onPlay : colors.textMuted }]}>{candidate.scientificName}</Text>
@@ -578,6 +592,10 @@ const styles = StyleSheet.create({
   livesRow: { flexDirection: 'row', gap: 4 },
   heartGlyph: { fontSize: 18, lineHeight: 20 },
   photoFrame: { overflow: 'hidden' },
+  correctNameOverlay: { position: 'absolute', top: 13, left: 13, right: 13, paddingHorizontal: 15, paddingVertical: 11, borderRadius: 15, backgroundColor: 'rgba(15,24,17,.88)', borderWidth: StyleSheet.hairlineWidth, borderColor: 'rgba(255,255,255,.38)', shadowColor: '#000000', shadowOffset: { width: 0, height: 6 }, shadowOpacity: .24, shadowRadius: 12, elevation: 8 },
+  correctNameEyebrow: { color: 'rgba(255,255,255,.72)', fontSize: 10, lineHeight: 13, fontWeight: '800', letterSpacing: 1.1 },
+  correctNameTitle: { color: '#FFFFFF', fontSize: 19, lineHeight: 24, fontWeight: '800', marginTop: 2 },
+  correctNameScientific: { color: 'rgba(255,255,255,.78)', fontSize: 12, lineHeight: 16, fontStyle: 'italic' },
   zoomBadge: { position: 'absolute', right: 12, bottom: 12, width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(22,28,25,.72)', borderWidth: StyleSheet.hairlineWidth, borderColor: 'rgba(255,255,255,.34)' },
   option: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderWidth: StyleSheet.hairlineWidth },
   optionBadge: { width: 30, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
@@ -585,10 +603,10 @@ const styles = StyleSheet.create({
   wildcard: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 14, paddingVertical: 9, marginTop: 10 },
   reward: { position: 'absolute', top: 18, alignSelf: 'center', paddingHorizontal: 16, paddingVertical: 10, zIndex: 8 },
   scientific: { fontStyle: 'italic', textAlign: 'center' },
-  nameInput: { minHeight: 50, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 14 },
-  nameCandidate: { paddingHorizontal: 14, paddingVertical: 10 },
-  confirmName: { minHeight: 48, alignItems: 'center', justifyContent: 'center' },
-  audioLocked: { padding: 12, alignItems: 'center' },
+  nameInput: { minHeight: 44, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 13 },
+  nameCandidate: { paddingHorizontal: 13, paddingVertical: 7 },
+  confirmName: { minHeight: 44, alignItems: 'center', justifyContent: 'center' },
+  audioLocked: { padding: 8, alignItems: 'center' },
   result: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   trophyHalo: { width: 108, height: 108, borderRadius: 54, alignItems: 'center', justifyContent: 'center' },
   trophy: { width: 76, height: 76, borderRadius: 38, alignItems: 'center', justifyContent: 'center' },

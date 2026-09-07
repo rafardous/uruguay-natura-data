@@ -243,9 +243,9 @@ export const darkElevation: ElevationSet = {
 export const NAV_ISLAND_HEIGHT = 62;
 export const NAV_ISLAND_MARGIN = 14;
 
-/** Shared geometry for the three collapsible tab headers. */
-export const COLLAPSIBLE_HEADER_EXPANDED = 252;
-export const COLLAPSIBLE_HEADER_COLLAPSED = 116;
+/** Shared geometry excluding the device safe-area inset, which is added at runtime. */
+export const COLLAPSIBLE_HEADER_EXPANDED = 164;
+export const COLLAPSIBLE_HEADER_COLLAPSED = 64;
 export const COLLAPSIBLE_HEADER_SCROLL_DISTANCE = COLLAPSIBLE_HEADER_EXPANDED - COLLAPSIBLE_HEADER_COLLAPSED;
 
 /**

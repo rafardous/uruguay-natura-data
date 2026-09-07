@@ -148,7 +148,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
           <View style={styles.header}>
             <View style={styles.brand}>
               <Image
-                source={require('../../../assets/images/icon.png')}
+                source={require('../../../assets/images/logo.png')}
                 contentFit="cover"
                 style={[styles.logo, { borderRadius: radius.md, borderColor: colors.canvasBorder }]}
                 accessibilityLabel="Logo de Natura UY"

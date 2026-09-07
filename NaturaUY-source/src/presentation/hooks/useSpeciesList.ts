@@ -32,7 +32,7 @@ export interface SpeciesListState {
  * entirely image loading — which is why the list shows skeleton *cards* rather
  * than a blocking spinner.
  */
-export function useSpeciesList(filters: SpeciesFilters, enabled = true): SpeciesListState {
+export function useSpeciesList(filters: SpeciesFilters, enabled = true, refreshKey = 0): SpeciesListState {
   const db = useSQLiteContext();
   const [items, setItems] = useState<Species[]>([]);
   const [total, setTotal] = useState(0);
@@ -54,30 +54,38 @@ export function useSpeciesList(filters: SpeciesFilters, enabled = true): Species
     setLoading(true);
 
     void (async () => {
-      const [page, count] = await Promise.all([
-        speciesRepository.findPaged(db, filters, PAGE_SIZE, 0),
-        speciesRepository.count(db, filters),
-      ]);
+      try {
+        const [page, count] = await Promise.all([
+          speciesRepository.findPaged(db, filters, PAGE_SIZE, 0),
+          speciesRepository.count(db, filters),
+        ]);
 
-      if (id !== requestId.current) return;
+        if (id !== requestId.current) return;
 
-      const elapsed = Date.now() - startedAt;
-      if (elapsed < MIN_LOADING_MS) {
-        await new Promise((r) => setTimeout(r, MIN_LOADING_MS - elapsed));
+        const elapsed = Date.now() - startedAt;
+        if (elapsed < MIN_LOADING_MS) {
+          await new Promise((r) => setTimeout(r, MIN_LOADING_MS - elapsed));
+        }
+        // A newer request may have started during the wait — its own effect run
+        // will finish the job, so bail rather than overwrite with stale data.
+        if (id !== requestId.current) return;
+
+        setItems(page.items);
+        setHasMore(page.hasMore);
+        setTotal(count);
+        setLoading(false);
+      } catch {
+        if (id !== requestId.current) return;
+        setItems([]);
+        setHasMore(false);
+        setTotal(0);
+        setLoading(false);
       }
-      // A newer request may have started during the wait — its own effect run
-      // will finish the job, so bail rather than overwrite with stale data.
-      if (id !== requestId.current) return;
-
-      setItems(page.items);
-      setHasMore(page.hasMore);
-      setTotal(count);
-      setLoading(false);
     })();
     // `key` is the serialised form of `filters`; depending on the object itself
     // would refetch on every render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, key, enabled]);
+  }, [db, key, enabled, refreshKey]);
 
   const loadMore = useCallback(() => {
     if (!enabled || loading || loadingMore || !hasMore) return;

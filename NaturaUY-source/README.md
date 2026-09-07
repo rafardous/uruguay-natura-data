@@ -152,6 +152,18 @@ Requiere [EAS CLI](https://docs.expo.dev/eas/): `npm i -g eas-cli && eas login`.
 eas build -p android --profile preview
 ```
 
+Expo SDK 57 soporta Android 7 (API 24) o posterior. El APK `preview` conserva
+las arquitecturas nativas predeterminadas de Expo, incluida `armeabi-v7a` para
+teléfonos de 32 bits y `arm64-v8a` para los actuales. Al iniciar, la app valida
+integridad, esquema y contenido de `natura.db`; si la copia instalada está vacía
+o dañada intenta restaurar automáticamente el catálogo incluido sin tocar
+`user.db`. Si tampoco pudiera abrirlo, muestra una acción de reintento en vez de
+una pantalla vacía.
+
+Después de actualizar Expo o cualquier módulo nativo hay que generar un APK
+nuevo: una development build anterior no incorpora esos binarios aunque Metro
+entregue el JavaScript actualizado.
+
 Build local, sin pasar por la nube (necesita Android SDK + JDK):
 
 ```bash

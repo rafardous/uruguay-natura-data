@@ -30,7 +30,8 @@ import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
-import { ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
+import { FavoriteSparkles } from '../../src/presentation/components/FavoriteSparkles';
+import { BugIcon, ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
@@ -136,6 +137,38 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       }
     });
 
+  // The fixed grabber owns its own gesture, so pulling from the very top of
+  // the sheet never depends on the ScrollView having already reached offset 0.
+  const grabberGesture = Gesture.Pan()
+    .enabled(!lightboxOpen)
+    .activeOffsetY(8)
+    .failOffsetX([-28, 28])
+    .simultaneousWithExternalGesture(dismissGesture)
+    .onStart(() => {
+      draggingSheet.value = true;
+      sheetDragOrigin.value = 0;
+    })
+    .onUpdate((event) => {
+      if (!dismissing.value) sheetY.value = Math.max(0, event.translationY);
+    })
+    .onEnd((event) => {
+      const dragged = sheetY.value;
+      const shouldDismiss = dragged > Math.min(150, windowHeight * 0.18)
+        || (dragged > 24 && event.velocityY > 950);
+      if (shouldDismiss) {
+        dismissing.value = true;
+        sheetY.value = withTiming(windowHeight, { duration: 190 }, (finished) => {
+          if (finished) runOnJS(dismiss)();
+        });
+      } else {
+        sheetY.value = withSpring(0, { damping: 22, stiffness: 240 });
+      }
+    })
+    .onFinalize(() => {
+      draggingSheet.value = false;
+      sheetDragOrigin.value = 0;
+    });
+
   const onScroll = useAnimatedScrollHandler((event) => {
     scrollY.value = Math.max(0, event.contentOffset.y);
   });
@@ -157,6 +190,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   }, [db, codigo]);
 
   const favorite = species ? isFavorite(species.codigo) : false;
+  const [sparkleTrigger, setSparkleTrigger] = useState(0);
 
   const facts = species
     ? [
@@ -226,7 +260,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           ]}
         >
 
-      <View style={[styles.grabber, { backgroundColor: colors.border }]} />
+      <GestureDetector gesture={grabberGesture}>
+        <View style={styles.grabberHitArea} accessibilityRole="button" accessibilityLabel="Arrastrar para cerrar la ficha">
+          <View style={[styles.grabber, { backgroundColor: colors.border }]} />
+        </View>
+      </GestureDetector>
 
       {/* In-flow row, above the photo — not overlapping it. */}
       <View style={[styles.headerRow, { paddingHorizontal: spacing.lg }]}>
@@ -236,6 +274,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           <Pressable
             onPress={() => {
               haptics.press();
+              if (!favorite) setSparkleTrigger((value) => value + 1);
               toggle(species.codigo);
             }}
             hitSlop={8}
@@ -249,6 +288,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   own colour, which is reserved for the chrome below. */}
               <HeartIcon color={favorite ? colors.favorite : colors.text} size={20} filled={favorite} />
             </MotiView>
+            <FavoriteSparkles trigger={sparkleTrigger} color={colors.favorite} />
           </Pressable>
         )}
         <Pressable
@@ -462,9 +502,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
-                style={[styles.reportButton, { borderColor: colors.border, borderRadius: radius.pill, marginTop: spacing.xl }]}
+                style={[styles.reportButton, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.xxl }]}
               >
-                <Text style={[typography.label, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text>
+                <View style={styles.reportCopy}><BugIcon color={colors.textMuted} size={17} /><Text style={[typography.caption, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text></View>
                 <ChevronRightIcon color={colors.textMuted} size={16} />
               </Pressable>
             </Staggered>
@@ -489,7 +529,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   modalRoot: { flex: 1, justifyContent: 'flex-end' },
   sheet: { flex: 1, overflow: 'hidden' },
-  grabber: { width: 36, height: 4, borderRadius: 2, alignSelf: 'center', marginTop: 8 },
+  grabberHitArea: { height: 44, alignItems: 'center', justifyContent: 'center' },
+  grabber: { width: 42, height: 4, borderRadius: 2 },
   flex: { flex: 1 },
   headerRow: { flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 18 },
   action: { padding: 9, borderRadius: 12 },
@@ -506,5 +547,6 @@ const styles = StyleSheet.create({
   classification: { overflow: 'hidden', paddingHorizontal: 14 },
   classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
   classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },
-  reportButton: { minHeight: 48, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  reportButton: { minHeight: 52, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  reportCopy: { flexDirection: 'row', alignItems: 'center', gap: 8 },
 });

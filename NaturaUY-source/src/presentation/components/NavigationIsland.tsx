@@ -5,6 +5,7 @@ import { MotiView } from 'moti';
 import { CompassIcon, GameIcon, HomeIcon, type IconProps } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
 import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../theme/tokens';
+import { haptics } from '../haptics';
 
 export type MainTab = 'index' | 'explore' | 'games';
 
@@ -55,7 +56,10 @@ export function NavigationIsland({
               accessibilityRole="tab"
               accessibilityState={{ selected: focused }}
               accessibilityLabel={label}
-              onPress={() => onNavigate(name)}
+              onPress={() => {
+                if (!focused) haptics.press();
+                onNavigate(name);
+              }}
               style={styles.tab}
             >
               <MotiView

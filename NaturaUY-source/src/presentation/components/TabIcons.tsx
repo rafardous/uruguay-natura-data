@@ -15,6 +15,7 @@ import {
   Check,
   ArrowLeft,
   ChevronRight,
+  CircleHelp,
   Clock,
   CircleUserRound,
   Compass,
@@ -28,10 +29,13 @@ import {
   House,
   Images,
   Leaf,
+  Layers3,
   MapPinned,
   Menu,
   Newspaper,
+  Puzzle,
   RotateCcw,
+  Search,
   Settings,
   ShieldCheck,
   SlidersHorizontal,
@@ -60,6 +64,18 @@ export const CompassIcon = ({ color, size = 22 }: IconProps): React.JSX.Element 
 
 export const GameIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
   <Gamepad2 color={color} size={size} strokeWidth={1.75} />
+);
+
+export const TriviaIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <CircleHelp color={color} size={size} strokeWidth={1.75} />
+);
+
+export const PuzzleIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Puzzle color={color} size={size} strokeWidth={1.75} />
+);
+
+export const ClassifyIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Layers3 color={color} size={size} strokeWidth={1.75} />
 );
 
 export const HeartIcon = ({
@@ -158,6 +174,10 @@ export const DatabaseIcon = ({ color, size = 22 }: IconProps): React.JSX.Element
 
 export const GalleryIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
   <Images color={color} size={size} strokeWidth={1.75} />
+);
+
+export const SearchIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Search color={color} size={size} strokeWidth={1.75} />
 );
 
 export const BirdIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
