@@ -7,6 +7,15 @@ export interface ClassVisual {
   imageAccessibilityLabel: string;
 }
 
+export const CHORDATA_CLASS_ORDER: Record<string, number> = {
+  Mammalia: 0,
+  Reptilia: 1,
+  Aves: 2,
+  Amphibia: 3,
+  Actinopterygii: 4,
+  Chondrichthyes: 5,
+};
+
 /**
  * One visual language for vertebrate classes, reused by taxonomy and games.
  * Fish deliberately share a hue so both classes still read as one familiar
@@ -22,9 +31,9 @@ export const CLASS_VISUALS = {
     imageAccessibilityLabel: 'Cardenal copete rojo, ñandú, halconcito, biguá y tero',
   },
   Actinopterygii: {
-    colors: ['#D7E2E4', '#C4D3D6'],
-    foreground: '#29484F',
-    mutedForeground: 'rgba(41,72,79,.78)',
+    colors: ['#D8E4E6', '#C7D5D8'],
+    foreground: '#315058',
+    mutedForeground: '#3C5960',
     description: 'Peces de esqueleto óseo y aletas sostenidas por radios.',
     image: require('../../../assets/images/taxonomy/actinopterygii.png'),
     imageAccessibilityLabel: 'Dorado, tararira, pejerrey, bagre amarillo y pez anual',
@@ -54,9 +63,9 @@ export const CLASS_VISUALS = {
     imageAccessibilityLabel: 'Yacaré, lagarto overo, tortuga verde, culebra verde y lagartija de la arena',
   },
   Amphibia: {
-    colors: ['#CDE5D8', '#ACD2BF'],
-    foreground: '#245442',
-    mutedForeground: 'rgba(36,84,66,.78)',
+    colors: ['#D8E5DD', '#C5D5CA'],
+    foreground: '#385547',
+    mutedForeground: '#3F5E4E',
     description: 'Vertebrados de piel húmeda que alternan entre el agua y la tierra.',
     image: require('../../../assets/images/taxonomy/amphibia.png'),
     imageAccessibilityLabel: 'Escuerzo, ranita de zarzal, sapito de Darwin, rana monito y cecilia',

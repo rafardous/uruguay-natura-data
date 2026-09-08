@@ -4,6 +4,7 @@ import { File } from 'expo-file-system';
 import { defaultDatabaseDirectory, importDatabaseFromAssetAsync, openDatabaseAsync } from 'expo-sqlite';
 
 import { CATALOG_DATABASE_NAME } from './schema';
+import { OWNED_DATABASE_OPTIONS } from './sqliteOpenOptions';
 import { decideCatalogUpdate } from './catalogUpdatePolicy';
 import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from './catalogUpdateValidation';
 import { assertCatalogManifest, type CatalogManifestContract } from './catalogManifestValidation';
@@ -30,7 +31,10 @@ function databaseDirectoryUri(): string {
 const databaseFile = (name: string): File => new File(`${databaseDirectoryUri()}/${name}`);
 
 async function readMeta(databaseName: string): Promise<{ dataVersion: number; schemaVersion: number }> {
-  const database = await openDatabaseAsync(databaseName);
+  // Never share these validation handles with SQLiteProvider. In particular,
+  // closing a cached alias while React owns the catalogue can invalidate the
+  // native connection underneath the provider.
+  const database = await openDatabaseAsync(databaseName, OWNED_DATABASE_OPTIONS);
   try {
     const integrity = await database.getFirstAsync<{ integrity_check: string }>('PRAGMA integrity_check');
     assertCatalogIntegrity(integrity?.integrity_check);
@@ -84,7 +88,10 @@ export async function prepareCatalogDatabase(assetId: number): Promise<void> {
   await importDatabaseFromAssetAsync(CATALOG_DATABASE_NAME, { assetId, forceOverwrite: false });
   await importDatabaseFromAssetAsync(BUNDLED_DATABASE_NAME, { assetId, forceOverwrite: true });
   try { await readMeta(CATALOG_DATABASE_NAME); } catch { await recoverInstalledCatalog(assetId); }
-  const [installed, bundled] = await Promise.all([readMeta(CATALOG_DATABASE_NAME), readMeta(BUNDLED_DATABASE_NAME)]);
+  // Keep native close operations serialized. Concurrent statement teardown is
+  // the startup crash observed on Android 17 / Pixel 9 Pro XL.
+  const installed = await readMeta(CATALOG_DATABASE_NAME);
+  const bundled = await readMeta(BUNDLED_DATABASE_NAME);
   if (bundled.dataVersion > installed.dataVersion) await atomicReplace(BUNDLED_DATABASE_NAME);
   else { const bundledFile = databaseFile(BUNDLED_DATABASE_NAME); if (bundledFile.exists) bundledFile.delete(); }
 }

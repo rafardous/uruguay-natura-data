@@ -16,7 +16,7 @@ import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useSpeciesList } from '../../src/presentation/hooks/useSpeciesList';
 import { useScrollDetentHaptics } from '../../src/presentation/hooks/useScrollDetentHaptics';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
+import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { useDebouncedValue } from '../../src/shared/hooks/useDebouncedValue';
 import { useTaxonomyChildren } from '../../src/presentation/hooks/useTaxonomyChildren';
@@ -63,7 +63,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
       <CompactSpeciesRow species={item} favorite={isFavorite(item.codigo)} onPress={openSpecies} onToggleFavorite={toggle} />
     </View>
   ), [isFavorite, openSpecies, spacing.lg, spacing.sm, toggle]);
-  const bottom = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
+  const bottom = navigationBottomInset(insets.bottom, spacing.lg);
   const remove = (key: keyof SpeciesSelection, value?: string): void => setApplied((selection) => ({ ...selection, [key]: typeof selection[key] === 'boolean' ? false : (selection[key] as string[]).filter((item) => item !== value) }));
   const filterCount = speciesSelectionCount(applied);
 
@@ -79,7 +79,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
         {filterCount > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.activeFilters}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities'] as const).flatMap((key) => applied[key].map((value) => <Chip key={`${key}-${value}`} label={`${friendlyFilterValue(value)} ×`} selected onPress={() => remove(key, value)} />))}</ScrollView>}
       </View>
 
-      {list.loading ? <View style={{ flex: 1, padding: spacing.lg, gap: spacing.sm }}>{[0, 1, 2, 3, 4].map((i) => <CompactSpeciesRowSkeleton key={i} />)}</View> : list.items.length === 0 ? <EmptyState title="Sin resultados" message="Probá con otro nombre o filtro." /> : <View style={styles.listArea}><FlashList data={list.items} renderItem={renderItem} keyExtractor={(item) => item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={list.loadMore} onEndReachedThreshold={0.4} drawDistance={280} maxItemsInRecyclePool={12} ListHeaderComponent={<View style={{ height: spacing.lg }} />} ListFooterComponent={list.loadingMore ? <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottom }} /> : <View style={{ height: bottom }} />} showsVerticalScrollIndicator={false} /></View>}
+      {list.loading && list.items.length === 0 ? <View style={{ flex: 1, padding: spacing.lg, gap: spacing.sm }}>{[0, 1, 2, 3, 4].map((i) => <CompactSpeciesRowSkeleton key={i} />)}</View> : list.items.length === 0 ? <EmptyState title="Sin resultados" message="Probá con otro nombre o filtro." /> : <View style={styles.listArea}><FlashList data={list.items} renderItem={renderItem} keyExtractor={(item) => item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={list.loadMore} onEndReachedThreshold={0.4} drawDistance={280} maxItemsInRecyclePool={12} ListHeaderComponent={<View style={{ height: spacing.lg }} />} ListFooterComponent={list.loadingMore ? <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottom }} /> : <View style={{ height: bottom }} />} showsVerticalScrollIndicator={false} /></View>}
 
       <SpeciesFilterSheet
         visible={sheetOpen}

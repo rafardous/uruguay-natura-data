@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Chip } from './Chip';
 import { CloseIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
+import { haptics } from '../haptics';
 
 export interface SpeciesSelection {
   classes: string[];
@@ -83,7 +84,7 @@ export function SpeciesFilterSheet({
         <MotiView
           from={{ translateY: 80 }}
           animate={{ translateY: 0 }}
-          transition={{ type: 'timing', duration: 260 }}
+          transition={{ type: 'timing', duration: 200 }}
           style={[styles.sheet, { backgroundColor: colors.background, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl, paddingBottom: insets.bottom + spacing.sm }]}
         >
           <View style={[styles.header, { padding: spacing.lg }]}>
@@ -91,7 +92,7 @@ export function SpeciesFilterSheet({
               <Text style={[typography.title, { color: colors.text }]}>Filtrar especies</Text>
               <Text style={[typography.caption, { color: colors.textMuted }]}>Podés combinar varios criterios.</Text>
             </View>
-            <Pressable onPress={onClose} hitSlop={10} accessibilityRole="button" accessibilityLabel="Cerrar filtros"><CloseIcon color={colors.text} /></Pressable>
+            <Pressable onPress={() => { haptics.tap(); onClose(); }} hitSlop={10} accessibilityRole="button" accessibilityLabel="Cerrar filtros"><CloseIcon color={colors.text} /></Pressable>
           </View>
           <ScrollView contentContainerStyle={{ paddingHorizontal: spacing.lg, gap: spacing.lg }}>
             <Group title="CLASE" values={classes} selected={draft.classes} change={(value) => setList('classes', value)} />

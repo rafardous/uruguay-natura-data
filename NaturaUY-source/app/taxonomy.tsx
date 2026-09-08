@@ -26,7 +26,6 @@ import {
 } from '../src/data/repositories/speciesRepository';
 import { CARD_HEIGHT, SpeciesCard, SpeciesCardSkeleton } from '../src/presentation/components/SpeciesCard';
 import { FamilyGlyph } from '../src/presentation/components/FamilyGlyph';
-import { NavigationIsland, type MainTab } from '../src/presentation/components/NavigationIsland';
 import { BackIcon, ChevronRightIcon, TaxonomyIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
 import { useFavorites } from '../src/presentation/hooks/FavoritesProvider';
@@ -34,8 +33,9 @@ import { useScrollDetentHaptics, useViewableItemHaptics } from '../src/presentat
 import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
 import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
-import { classVisual, type ClassVisual } from '../src/presentation/taxonomy/classVisuals';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN, spacing as space } from '../src/presentation/theme/tokens';
+import { CHORDATA_CLASS_ORDER, classVisual, type ClassVisual } from '../src/presentation/taxonomy/classVisuals';
+import { spacing as space } from '../src/presentation/theme/tokens';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
 const TAXONOMY = { main: '#8A641B', pale: '#F1E3B9', text: '#293832' };
@@ -46,15 +46,6 @@ const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt:
   orden: { singular: 'Orden', plural: 'órdenes', prompt: 'Elegí un orden' },
   familia: { singular: 'Familia', plural: 'familias', prompt: 'Elegí una familia' },
   genero: { singular: 'Género', plural: 'géneros', prompt: 'Elegí un género' },
-};
-
-const CHORDATA_CLASS_ORDER: Record<string, number> = {
-  Mammalia: 0,
-  Reptilia: 1,
-  Aves: 2,
-  Amphibia: 3,
-  Actinopterygii: 4,
-  Chondrichthyes: 5,
 };
 
 const CHORDATA_DESCRIPTION =
@@ -107,7 +98,7 @@ function SpeciesResults({ path }: { path: TaxonomyPath }): React.JSX.Element {
   const { items, total, loading, loadingMore, hasMore, loadMore } = useSpeciesList(filters);
   const genus = path.genero ?? '';
   const onScroll = useScrollDetentHaptics(ROW_HEIGHT, genus);
-  const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
+  const bottomInset = navigationBottomInset(insets.bottom, spacing.lg);
 
   const renderItem = useCallback(
     ({ item, index }: { item: Species; index: number }) => (
@@ -191,7 +182,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   }, [currentRank, items, path.phylum]);
   const selectedRanks = TAXON_RANKS.filter((rank) => path[rank] !== undefined);
   const breadcrumbRef = useRef<ScrollView>(null);
-  const bottomInset = NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.lg;
+  const bottomInset = navigationBottomInset(insets.bottom, spacing.lg);
   const visibleHaptics = useViewableItemHaptics(`${currentRank ?? 'species'}:${TAXON_RANKS.map((rank) => path[rank] ?? '').join('|')}`);
 
   useEffect(() => {
@@ -201,6 +192,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   }, [paramsKey]);
 
   const goBack = useCallback(() => {
+    haptics.tap();
     if (params.returnToSpecies) {
       router.back();
       return;
@@ -251,12 +243,6 @@ export default function TaxonomyScreen(): React.JSX.Element {
       return next;
     });
   }, []);
-
-  const navigateMain = useCallback((tab: MainTab) => {
-    if (tab === 'index') router.replace('/');
-    if (tab === 'explore') router.replace('/explore');
-    if (tab === 'games') router.replace('/games');
-  }, [router]);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}> 
@@ -346,7 +332,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
                 <MotiView
                   from={{ opacity: 0, translateY: isClass ? 18 : 8, scale: isClass ? 0.96 : 1 }}
                   animate={{ opacity: 1, translateY: 0, scale: 1 }}
-                  transition={{ type: 'timing', duration: isClass ? 360 : 240, delay: Math.min(index, isClass ? 7 : 10) * (isClass ? 68 : 28) }}
+                  transition={{ type: 'timing', duration: isClass ? 220 : 180, delay: Math.min(index, isClass ? 4 : 6) * (isClass ? 28 : 18) }}
                 >
                   <Pressable
                     onPress={() => select(currentRank, item.value)}
@@ -420,7 +406,6 @@ export default function TaxonomyScreen(): React.JSX.Element {
         )}
       </View>
 
-      <NavigationIsland active="explore" onNavigate={navigateMain} />
     </View>
   );
 }

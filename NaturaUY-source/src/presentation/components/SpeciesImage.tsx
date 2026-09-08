@@ -16,6 +16,8 @@ export interface SpeciesImageProps {
   style?: ViewStyle;
   /** Use the large variant — the detail sheet wants the sharper file. */
   full?: boolean;
+  /** Fade duration for the loaded image. Set to 0 for already-prefetched media. */
+  transition?: number;
   borderRadius?: number;
   /**
    * Off when the photo *is* the surface (the species card), where the hairline
@@ -46,6 +48,7 @@ export function SpeciesImage({
   glyphSize = 56,
   style,
   full = false,
+  transition = 220,
   borderRadius = 0,
   bordered = true,
 }: SpeciesImageProps): React.JSX.Element {
@@ -101,7 +104,7 @@ export function SpeciesImage({
         <Image
           source={{ uri: remote }}
           contentFit="cover"
-          transition={220}
+          transition={transition}
           cachePolicy="memory-disk"
           recyclingKey={species.codigo}
           onLoad={() => setLoaded(true)}

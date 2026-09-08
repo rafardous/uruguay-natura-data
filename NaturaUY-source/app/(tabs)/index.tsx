@@ -31,7 +31,8 @@ import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { settingsRepository } from '../../src/data/repositories/settingsRepository';
 import { getMostFavoritedSpecies } from '../../src/lib/mobileApi';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { COLLAPSIBLE_HEADER_EXPANDED, NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
+import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
@@ -390,7 +391,7 @@ export default function HomeScreen(): React.JSX.Element {
         onScroll={onScroll}
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}
+        contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}
       >
         <MotiView
           from={{ opacity: 0, translateY: 16 }}

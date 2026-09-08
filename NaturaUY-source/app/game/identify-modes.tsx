@@ -20,7 +20,7 @@ export default function IdentifyModesScreen(): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
   return <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
     <View style={[styles.header, { paddingHorizontal: spacing.lg }]}>
-      <Pressable onPress={() => router.back()} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]} accessibilityLabel="Volver"><BackIcon color={colors.text} /></Pressable>
+      <Pressable onPress={() => { haptics.tap(); router.back(); }} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]} accessibilityLabel="Volver"><BackIcon color={colors.text} /></Pressable>
       <View style={styles.flex}><Text style={[typography.eyebrow, { color: colors.play }]}>IDENTIFICÁ LA ESPECIE</Text><Text style={[typography.title, { color: colors.text }]}>Elegí un modo</Text></View>
     </View>
     <Text style={[typography.body, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.md }]}>Cada modo propone una forma distinta de mirar y reconocer la fauna uruguaya.</Text>

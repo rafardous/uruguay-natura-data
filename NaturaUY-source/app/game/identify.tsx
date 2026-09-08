@@ -16,6 +16,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { QUIZ_MODES, QUIZ_SCOPES, type QuizMode, type QuizOption, type QuizScope } from '../../src/domain/entities/quiz';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
+import { RecordCelebration } from '../../src/presentation/components/RecordCelebration';
 import {
   CheckIcon,
   ClockIcon,
@@ -133,7 +134,7 @@ function CelebrationBurst({ trigger, palette }: { trigger: number; palette: stri
   if (trigger === 0) return null;
 
   const radius = Math.max(width * 0.72, height * 0.48);
-  const particles = Array.from({ length: 72 }, (_, index) => ({
+  const particles = Array.from({ length: 36 }, (_, index) => ({
     angle: index * 5 + (index % 4) * 2,
     distance: radius * (0.48 + (index % 7) * 0.085),
     size: 6 + (index % 4) * 3,
@@ -197,14 +198,13 @@ function CelebrationBurst({ trigger, palette }: { trigger: number; palette: stri
 interface AnswerTileProps {
   option: QuizOption;
   letter: string;
-  index: number;
   revealed: boolean;
   isPicked: boolean;
   onPress: () => void;
   theme: Theme;
 }
 
-function AnswerTile({ option, letter, index, revealed, isPicked, onPress, theme }: AnswerTileProps): React.JSX.Element {
+function AnswerTile({ option, letter, revealed, isPicked, onPress, theme }: AnswerTileProps): React.JSX.Element {
   const { colors, radius, typography } = theme;
 
   const badgeBg = !revealed
@@ -220,11 +220,7 @@ function AnswerTile({ option, letter, index, revealed, isPicked, onPress, theme 
   const dim = revealed && !option.correct && !isPicked;
 
   return (
-    <MotiView
-      from={{ opacity: 0, translateY: 10 }}
-      animate={{ opacity: dim ? 0.55 : 1, translateY: 0 }}
-      transition={{ type: 'timing', duration: 240, delay: index * 45 }}
-    >
+    <View style={{ opacity: dim ? 0.55 : 1 }}>
       <Pressable
         onPress={onPress}
         disabled={revealed}
@@ -253,7 +249,7 @@ function AnswerTile({ option, letter, index, revealed, isPicked, onPress, theme 
           {option.label}
         </Text>
       </Pressable>
-    </MotiView>
+    </View>
   );
 }
 
@@ -266,7 +262,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
   const insets = useSafeAreaInsets();
   const theme = useTheme();
   const { colors, radius, spacing, typography } = theme;
-  const { loading, state, question, secondsLeft, answeredCodigo, answer, next, restart, awardLife, nameCandidates } = useQuizRun(mode, scope);
+  const { loading, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates } = useQuizRun(mode, scope);
   const reducedMotion = useReducedMotion();
 
   /*
@@ -298,6 +294,9 @@ export default function IdentifyGameScreen(): React.JSX.Element {
   }, [answeredCodigo, lightboxOpen, state.finished, next]);
 
   useEffect(() => { setHiddenOptions([]); setNameQuery(''); setSelectedName(null); }, [question?.target.codigo]);
+  useEffect(() => {
+    if (isNewPersonalRecord) haptics.success();
+  }, [isNewPersonalRecord]);
   useEffect(() => {
     if (!reward) return;
     const timer = setTimeout(() => setReward(null), 1800);
@@ -376,7 +375,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
         ]}
       >
         <View style={styles.hudTop}>
-          <Pressable onPress={() => router.back()} hitSlop={10} accessibilityLabel="Salir del juego">
+          <Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Salir del juego">
             <CloseIcon color={hudFg} />
           </Pressable>
           <Text style={[typography.label, { color: hudFg }]}>{config.title}</Text>
@@ -437,6 +436,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           <Text style={[typography.caption, { color: colors.textMuted, marginTop: 6 }]}>
             Mejor racha: {state.bestStreakThisRun}
           </Text>
+          {isNewPersonalRecord && <RecordCelebration visible palette={[colors.play, colors.success, '#E7C65D', '#D97968']} reducedMotion={reducedMotion} />}
 
           <Pressable
             onPress={() => {
@@ -450,7 +450,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           >
             <Text style={[typography.label, { color: colors.onPlay }]}>Jugar de nuevo</Text>
           </Pressable>
-          <Pressable onPress={() => router.back()} style={[styles.secondaryButton, { marginTop: spacing.sm }]}>
+          <Pressable onPress={() => { haptics.tap(); router.back(); }} style={[styles.secondaryButton, { marginTop: spacing.sm }]}>
             <Text style={[typography.label, { color: colors.textSecondary }]}>Volver a Juegos</Text>
           </Pressable>
           <Pressable onPress={() => router.push('/game/records')} style={[styles.secondaryButton, { marginTop: spacing.xs }]}>
@@ -476,7 +476,7 @@ export default function IdentifyGameScreen(): React.JSX.Element {
           >
             <Animated.View style={photoStyle}>
               <View style={[styles.photoFrame, { borderRadius: radius.xl }]}>
-                <SpeciesImage species={question.target} height={mode === 'naming' ? 212 : 250} full borderRadius={radius.xl - 3} glyphSize={84} />
+                <SpeciesImage species={question.target} height={mode === 'naming' ? 212 : 250} transition={90} borderRadius={radius.xl - 3} glyphSize={84} />
                 {mode === 'naming' && answeredCodigo && answeredCodigo !== question.target.codigo && (
                   <MotiView
                     key={`correct-${question.target.codigo}`}
@@ -541,7 +541,6 @@ export default function IdentifyGameScreen(): React.JSX.Element {
                 key={option.codigo}
                 option={option}
                 letter={LETTERS[index] ?? '?'}
-                index={index}
                 revealed={answeredCodigo !== null}
                 isPicked={answeredCodigo === option.codigo}
                 onPress={() => onAnswer(option.codigo)}

@@ -10,6 +10,7 @@ import { BackIcon, CheckIcon, LoginIcon } from '../src/presentation/components/T
 import { haptics } from '../src/presentation/haptics';
 import { useMobileSync } from '../src/sync/MobileSyncProvider';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 function GoogleMark(): React.JSX.Element {
   return (
@@ -75,7 +76,7 @@ export default function LoginScreen(): React.JSX.Element {
         </Pressable>
       </View>
 
-      <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={[styles.content, { padding: spacing.lg, paddingBottom: insets.bottom + spacing.xl }]}>
+      <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={[styles.content, { padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }]}>
         <View style={[styles.card, elevation.medium, { backgroundColor: colors.surface, borderRadius: radius.xl, padding: spacing.xl }]}>
           <View style={[styles.icon, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
             {session && avatarUrl && !avatarFailed ? <Image source={{ uri: avatarUrl }} contentFit="cover" onError={() => setAvatarFailed(true)} style={styles.avatar} /> : session ? <CheckIcon color={colors.onPrimaryContainer} size={30} /> : <LoginIcon color={colors.onPrimaryContainer} size={30} />}
@@ -100,8 +101,8 @@ export default function LoginScreen(): React.JSX.Element {
               <Pressable onPress={() => void signOut()} style={styles.signOut}><Text style={[typography.label, { color: colors.textMuted }]}>Cerrar sesión</Text></Pressable>
             </View>
           </> : <>
-            <Text style={[typography.title, styles.center, { color: colors.text, marginTop: spacing.lg }]}>Guardá todo lo que aprendés</Text>
-            <Text style={[typography.body, styles.center, { color: colors.textMuted, marginTop: spacing.sm }]}>¡Iniciá sesión para no perder tus avances de aprendizaje, favoritos y récords de juego! También vas a acceder a nuevas funcionalidades a medida que lleguen.</Text>
+            <Text style={[typography.title, styles.center, { color: colors.text, marginTop: spacing.lg }]}>¡No pierdas tus avances!</Text>
+            <Text style={[typography.body, styles.center, { color: colors.textMuted, marginTop: spacing.sm }]}>Iniciá sesión para no perder tus avances de aprendizaje, favoritos y récords de juego. También vas a acceder a nuevas funcionalidades a medida que lleguen.</Text>
 
             <View style={[styles.benefits, { marginTop: spacing.lg }]}>
               {['Aprendizaje', 'Favoritos', 'Récords'].map((benefit) => <View key={benefit} style={[styles.benefit, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}><Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{benefit}</Text></View>)}

@@ -13,6 +13,8 @@ import { SpeciesCard, SpeciesCardSkeleton } from '../src/presentation/components
 import { CloseIcon } from '../src/presentation/components/TabIcons';
 import { useFavorites } from '../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { haptics } from '../src/presentation/haptics';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 export default function FavoritesScreen(): React.JSX.Element {
   const db = useSQLiteContext();
@@ -38,7 +40,7 @@ export default function FavoritesScreen(): React.JSX.Element {
       >
         <View style={styles.row}>
           <Pressable
-            onPress={() => router.back()}
+            onPress={() => { haptics.tap(); router.back(); }}
             hitSlop={10}
             accessibilityLabel="Volver"
             style={{ marginLeft: 'auto' }}
@@ -64,7 +66,7 @@ export default function FavoritesScreen(): React.JSX.Element {
         <FlashList
           data={items}
           keyExtractor={(item) => item.codigo}
-          contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xl }}
+          contentContainerStyle={{ paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}
           // FlashList doesn't reliably honour contentContainerStyle's paddingTop.
           ListHeaderComponent={<View style={{ height: spacing.xl }} />}
           showsVerticalScrollIndicator={false}

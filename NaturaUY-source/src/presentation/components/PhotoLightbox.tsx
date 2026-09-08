@@ -6,6 +6,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 import { Image } from 'expo-image';
 
 import { CloseIcon, ResetIcon, ZoomInIcon, ZoomOutIcon } from './TabIcons';
+import { haptics } from '../haptics';
 
 export interface PhotoLightboxProps {
   visible: boolean;
@@ -120,7 +121,7 @@ export function PhotoLightbox({ visible, uri, label, onClose }: PhotoLightboxPro
         </GestureDetector>
 
         <Pressable
-          onPress={onClose}
+          onPress={() => { haptics.tap(); onClose(); }}
           hitSlop={10}
           accessibilityRole="button"
           accessibilityLabel="Cerrar"

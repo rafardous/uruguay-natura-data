@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { openDatabaseAsync, type SQLiteDatabase } from 'expo-sqlite';
 
 import { USER_DATABASE_NAME, USER_MIGRATIONS } from './schema';
+import { OWNED_DATABASE_OPTIONS } from './sqliteOpenOptions';
 import { useStartup } from '../../presentation/components/StartupExperience';
 import { lightColors } from '../../presentation/theme/tokens';
 
@@ -28,7 +29,7 @@ export function UserDatabaseProvider({ children }: { children: ReactNode }): Rea
 
     void (async () => {
       try {
-        const database = await openDatabaseAsync(USER_DATABASE_NAME);
+        const database = await openDatabaseAsync(USER_DATABASE_NAME, OWNED_DATABASE_OPTIONS);
         for (const migration of USER_MIGRATIONS) await database.execAsync(migration);
 
         if (!active) {

@@ -1,5 +1,6 @@
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import {
@@ -14,6 +15,7 @@ import {
 } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 type SiteKind = 'protected' | 'data' | 'nature' | 'gallery' | 'birds';
 
@@ -87,6 +89,7 @@ function SiteIcon({ kind, color }: { kind: SiteKind; color: string }): React.JSX
 
 export default function InterestSitesScreen(): React.JSX.Element {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const { colors, elevation, radius, spacing, typography } = useTheme();
 
   const open = (site: InterestSite): void => {
@@ -97,14 +100,14 @@ export default function InterestSitesScreen(): React.JSX.Element {
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <AppHeader eyebrow="PARA SEGUIR EXPLORANDO" title="Sitios de interés">
-        <Pressable onPress={() => router.back()} hitSlop={10} accessibilityLabel="Volver" style={styles.close}>
+        <Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver" style={styles.close}>
           <CloseIcon color={colors.text} />
         </Pressable>
       </AppHeader>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: spacing.lg, paddingBottom: spacing.xxl }}
+        contentContainerStyle={{ padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.xxl) }}
       >
         <View style={[styles.intro, { backgroundColor: colors.primaryContainer, borderRadius: radius.lg, padding: spacing.lg }]}>
           <InterestSitesIcon color={colors.onPrimaryContainer} size={28} />

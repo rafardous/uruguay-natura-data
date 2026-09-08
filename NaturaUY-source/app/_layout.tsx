@@ -4,20 +4,24 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Fraunces_600SemiBold, useFonts } from '@expo-google-fonts/fraunces';
 import { StatusBar } from 'expo-status-bar';
-import { Stack, usePathname } from 'expo-router';
+import { Stack, usePathname, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { SQLiteProvider, type SQLiteDatabase } from 'expo-sqlite';
+import { SQLiteProvider } from 'expo-sqlite';
+import { BlurTargetView } from 'expo-blur';
 
 import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/CatalogUpdateProvider';
 import { prepareCatalogDatabase, SUPPORTED_CATALOG_SCHEMA } from '../src/data/db/catalogUpdater';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
+import { LONG_LIVED_DATABASE_OPTIONS } from '../src/data/db/sqliteOpenOptions';
 import { MobileAuthProvider } from '../src/auth/MobileAuthProvider';
 import { FavoritesProvider } from '../src/presentation/hooks/FavoritesProvider';
 import { MobileSyncProvider } from '../src/sync/MobileSyncProvider';
 import { ThemeProvider, useTheme } from '../src/presentation/theme/ThemeProvider';
 import { lightColors } from '../src/presentation/theme/tokens';
 import { StartupExperience, useStartup } from '../src/presentation/components/StartupExperience';
+import { NavigationIsland, type MainTab } from '../src/presentation/components/NavigationIsland';
+import { navigationTabForPath, shouldShowNavigation } from '../src/presentation/navigationPolicy';
 
 /**
  * The catalogue ships prebuilt, so `assetSource` copies one file on first launch
@@ -27,64 +31,66 @@ function Navigator(): React.JSX.Element {
   const { colors } = useTheme();
   const { mounted, ready } = useStartup();
   const pathname = usePathname();
+  const router = useRouter();
+  const blurTarget = useRef<View>(null);
+  const showNavigation = shouldShowNavigation(pathname);
+  const activeTab = navigationTabForPath(pathname);
   useEffect(() => {
     mounted();
     if (pathname !== '/' && pathname !== '/index') ready();
   }, [mounted, pathname, ready]);
 
-  return (
-    <>
-      <StatusBar style="dark" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: colors.background },
-          animation: 'fade',
-          animationDuration: 240,
-        }}
-      >
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="login" />
-        <Stack.Screen name="auth/callback" options={{ animation: 'fade', gestureEnabled: false }} />
-        <Stack.Screen name="report" />
-        <Stack.Screen name="collaborate" />
-        <Stack.Screen name="biomes" />
-        <Stack.Screen name="interest-sites" />
-        <Stack.Screen name="about" />
-        <Stack.Screen name="taxonomy" />
-        <Stack.Screen
-          name="species/[codigo]"
-          options={{
-            // Android's native formSheet keeps intercepting a downward finger
-            // movement even after its navigation gesture is disabled. A
-            // transparent modal preserves the card presentation, but assigns
-            // every vertical gesture exclusively to the inner ScrollView.
-            presentation: 'transparentModal',
-            animation: 'fade',
-            animationDuration: 180,
-            gestureEnabled: false,
-            contentStyle: { backgroundColor: 'transparent' },
-          }}
-        />
-        <Stack.Screen name="game/identify" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
-        <Stack.Screen name="game/identify-modes" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
-        <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
-        <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 260 }} />
-        <Stack.Screen name="credits" />
-      </Stack>
-    </>
-  );
-}
+  const navigateMain = useCallback((tab: MainTab) => {
+    if (tab === 'index') router.replace('/');
+    if (tab === 'explore') router.replace('/explore');
+    if (tab === 'games') router.replace('/games');
+  }, [router]);
 
-async function verifyOpenedCatalog(database: SQLiteDatabase): Promise<void> {
-  const [integrity, schema, species] = await Promise.all([
-    database.getFirstAsync<{ quick_check?: string; integrity_check?: string }>('PRAGMA quick_check'),
-    database.getFirstAsync<{ value: string }>("SELECT value FROM meta WHERE key = 'schema_version'"),
-    database.getFirstAsync<{ count: number }>('SELECT COUNT(*) AS count FROM species'),
-  ]);
-  if ((integrity?.quick_check ?? integrity?.integrity_check) !== 'ok') throw new Error('catalog_integrity_failed');
-  if (Number(schema?.value) !== SUPPORTED_CATALOG_SCHEMA) throw new Error('catalog_schema_unsupported');
-  if (!species?.count) throw new Error('catalog_empty');
+  return (
+    <View style={[styles.navigator, { backgroundColor: colors.background }]}>
+      <StatusBar style="dark" />
+      <BlurTargetView ref={blurTarget} style={styles.navigatorContent}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: colors.background },
+            animation: 'fade',
+            animationDuration: 170,
+          }}
+        >
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="login" />
+          <Stack.Screen name="auth/callback" options={{ animation: 'fade', gestureEnabled: false }} />
+          <Stack.Screen name="report" />
+          <Stack.Screen name="collaborate" />
+          <Stack.Screen name="biomes" />
+          <Stack.Screen name="interest-sites" />
+          <Stack.Screen name="about" />
+          <Stack.Screen name="taxonomy" />
+          <Stack.Screen
+            name="species/[codigo]"
+            options={{
+              // Android's native formSheet keeps intercepting a downward finger
+              // movement even after its navigation gesture is disabled. A
+              // transparent modal preserves the card presentation, but assigns
+              // every vertical gesture exclusively to the inner ScrollView.
+              presentation: 'transparentModal',
+              animation: 'fade',
+              animationDuration: 170,
+              gestureEnabled: false,
+              contentStyle: { backgroundColor: 'transparent' },
+            }}
+          />
+          <Stack.Screen name="game/identify" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/identify-modes" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="credits" />
+        </Stack>
+      </BlurTargetView>
+      {showNavigation && <NavigationIsland active={activeTab} blurTarget={blurTarget} onNavigate={navigateMain} />}
+    </View>
+  );
 }
 
 function LocalDataFailure({ onRetry }: { onRetry: () => void }): React.JSX.Element {
@@ -185,7 +191,7 @@ export default function RootLayout(): React.JSX.Element | null {
             key={`${catalogDatabaseName}-${bootstrapAttempt}-${forceBundledCatalog ? 'bundled' : 'installed'}`}
             databaseName={catalogDatabaseName}
             assetSource={catalogAssetSource}
-            onInit={verifyOpenedCatalog}
+            options={LONG_LIVED_DATABASE_OPTIONS}
             onError={handleDatabaseError}
           >
             <CatalogUpdateProvider>
@@ -212,6 +218,8 @@ export default function RootLayout(): React.JSX.Element | null {
 
 const styles = StyleSheet.create({
   root: { flex: 1 },
+  navigator: { flex: 1 },
+  navigatorContent: { flex: 1 },
   failure: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 28, backgroundColor: lightColors.background },
   failureTitle: { color: lightColors.text, fontSize: 22, fontWeight: '700', textAlign: 'center' },
   failureBody: { color: lightColors.textSecondary, fontSize: 15, lineHeight: 22, textAlign: 'center', marginTop: 10, maxWidth: 420 },

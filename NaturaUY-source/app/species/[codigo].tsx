@@ -43,7 +43,7 @@ function Staggered({ index, children }: { index: number; children: React.ReactNo
     <MotiView
       from={{ opacity: 0, translateY: 16 }}
       animate={{ opacity: 1, translateY: 0 }}
-      transition={{ type: 'timing', duration: 340, delay: 80 + index * 55 }}
+      transition={{ type: 'timing', duration: 220, delay: 40 + Math.min(index, 4) * 28 }}
     >
       {children}
     </MotiView>
@@ -87,6 +87,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const dismissing = useSharedValue(false);
 
   const dismiss = (): void => {
+    haptics.tap();
     router.back();
   };
 
@@ -292,7 +293,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           </Pressable>
         )}
         <Pressable
-          onPress={() => router.back()}
+          onPress={dismiss}
           hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel="Cerrar"

@@ -17,7 +17,8 @@ import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { ClassifyIcon, MenuIcon, PuzzleIcon, TriviaIcon, TrophyIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { COLLAPSIBLE_HEADER_EXPANDED, NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
+import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const COVER_SPECIES_CODES = ['O_bezoarti', 'S_magellan', 'P_coronata'] as const;
 
@@ -39,9 +40,9 @@ function IdentifyCover({ species, onPress }: { species: Species[]; onPress: () =
   const photoPositions = [styles.photoLeft, styles.photoRight, styles.photoCenter];
 
   return (
-    <MotiView from={{ opacity: 0, translateY: 10 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 320 }}>
+    <MotiView from={{ opacity: 0, translateY: 10 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220 }}>
       <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel="Abrir Identificá la especie" style={({ pressed }) => [{ transform: [{ scale: pressed ? 0.99 : 1 }] }]}>
-        <LinearGradient colors={['#805FBA', '#6E4E9E', '#4C356F']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.identifyCover, elevation.medium, { borderRadius: radius.xl, padding: spacing.xl }]}>
+        <LinearGradient colors={['#9277C7', '#7659A7', '#533D7C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.identifyCover, elevation.medium, { borderRadius: radius.xl, padding: spacing.xl }]}>
           <View style={styles.photoFan} accessibilityElementsHidden>
             {species.slice(0, 3).map((item, index) => (
               <View key={item.codigo} style={[styles.photoFrame, photoPositions[index]]}>
@@ -51,6 +52,7 @@ function IdentifyCover({ species, onPress }: { species: Species[]; onPress: () =
             ))}
           </View>
           <Text style={[typography.display, { color: colors.onPlay, marginTop: spacing.sm }]}>Identificá la especie</Text>
+          <Text style={[typography.body, { color: 'rgba(255,255,255,0.82)', marginTop: 4 }]}>Reconocé especies uruguayas a partir de sus fotos.</Text>
         </LinearGradient>
       </Pressable>
     </MotiView>
@@ -92,7 +94,7 @@ function ClassifyArt(): React.JSX.Element {
   const groups = [
     { clase: 'Aves', color: '#F1D6D2', foreground: '#5D302D' },
     { clase: 'Mammalia', color: '#EADCB8', foreground: '#554118' },
-    { clase: 'Amphibia', color: '#CDE5D8', foreground: '#245442' },
+    { clase: 'Amphibia', color: '#D8E5DD', foreground: '#385547' },
   ];
   return (
     <View style={styles.classifyArt} accessibilityElementsHidden>
@@ -110,7 +112,7 @@ function ClassifyArt(): React.JSX.Element {
 function UpcomingCover({ game, species, index }: { game: (typeof UPCOMING_GAMES)[number]; species?: Species; index: number }): React.JSX.Element {
   const { radius, spacing, typography, elevation } = useTheme();
   return (
-    <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 330, delay: 90 + index * 70 }}>
+    <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220, delay: 50 + index * 45 }}>
       <View accessibilityRole="button" accessibilityState={{ disabled: true }} accessibilityLabel={`${game.title}, próximamente`}>
         <LinearGradient colors={[...game.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.upcomingCover, elevation.low, { borderRadius: radius.xl, padding: spacing.lg }]}>
           <View style={styles.upcomingCopy}>
@@ -157,7 +159,7 @@ export default function GamesScreen(): React.JSX.Element {
         expandedContent={<View><Text style={[typography.cardTitle, { color: colors.canvasText, maxWidth: 345 }]}>Demostrá tu conocimiento de nuestra flora y fauna</Text><Text style={[typography.caption, { color: colors.canvasTextMuted, marginTop: 4 }]}>Elegí un modo de juego</Text></View>}
       />
 
-      <Animated.ScrollView onScroll={onScroll} scrollEventThrottle={16} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingBottom: NAV_ISLAND_HEIGHT + NAV_ISLAND_MARGIN + insets.bottom + spacing.xl }}>
+      <Animated.ScrollView onScroll={onScroll} scrollEventThrottle={16} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.lg }}>
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
@@ -175,7 +177,7 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   menuButton: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   recordsButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 13, height: 42 },
-  identifyCover: { height: 220, overflow: 'hidden' },
+  identifyCover: { minHeight: 244, overflow: 'hidden' },
   photoFan: { height: 126, width: 244, alignSelf: 'center', position: 'relative' },
   photoFrame: { position: 'absolute', top: 6, width: 96, height: 104, overflow: 'hidden', backgroundColor: '#EEE8D5' },
   photoLeft: { left: 10, transform: [{ rotate: '-7deg' }, { translateY: 9 }], zIndex: 1, borderRadius: 18 },

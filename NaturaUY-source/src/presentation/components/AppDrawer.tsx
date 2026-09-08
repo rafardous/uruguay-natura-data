@@ -84,7 +84,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
   const progress = useSharedValue(0);
 
   useEffect(() => {
-    progress.value = withTiming(open ? 1 : 0, { duration: 260 });
+    progress.value = withTiming(open ? 1 : 0, { duration: 190 });
   }, [open, progress]);
 
   useEffect(() => {
@@ -157,7 +157,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
                 <Text style={[typography.title, { color: colors.canvasText }]}>Natura UY</Text>
               </View>
             </View>
-            <Pressable onPress={onClose} hitSlop={10} accessibilityLabel="Cerrar menú">
+            <Pressable onPress={() => { haptics.tap(); onClose(); }} hitSlop={10} accessibilityLabel="Cerrar menú">
               <CloseIcon color={colors.canvasText} />
             </Pressable>
           </View>

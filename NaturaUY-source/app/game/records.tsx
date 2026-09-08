@@ -11,6 +11,7 @@ import { getQuizLeaderboard, type LeaderboardEntry } from '../../src/lib/mobileA
 import { Chip } from '../../src/presentation/components/Chip';
 import { BackIcon, ClockIcon, HeartIcon, NamingIcon, TrophyIcon, type IconProps } from '../../src/presentation/components/TabIcons';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
+import { haptics } from '../../src/presentation/haptics';
 
 const MODES: QuizMode[] = ['classic', 'timed', 'survival', 'naming'];
 const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: TrophyIcon, timed: ClockIcon, survival: HeartIcon, naming: NamingIcon };
@@ -36,7 +37,7 @@ export default function RecordsScreen(): React.JSX.Element {
   useFocusEffect(load);
 
   return <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
-    <View style={[styles.header, { paddingHorizontal: spacing.lg }]}><Pressable onPress={() => router.back()} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><BackIcon color={colors.text} /></Pressable><View style={styles.flex}><Text style={[typography.eyebrow, { color: colors.play }]}>JUEGOS</Text><Text style={[typography.title, { color: colors.text }]}>Récords y ranking</Text></View></View>
+    <View style={[styles.header, { paddingHorizontal: spacing.lg }]}><Pressable onPress={() => { haptics.tap(); router.back(); }} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><BackIcon color={colors.text} /></Pressable><View style={styles.flex}><Text style={[typography.eyebrow, { color: colors.play }]}>JUEGOS</Text><Text style={[typography.title, { color: colors.text }]}>Récords y ranking</Text></View></View>
     <View style={[styles.viewTabs, { paddingHorizontal: spacing.lg, marginTop: spacing.lg }]}>
       <Chip label="Mis récords" selected={view === 'personal'} accent={colors.play} onAccent={colors.onPlay} onPress={() => setView('personal')} />
       <Chip label="Ranking global" selected={view === 'global'} accent={colors.play} onAccent={colors.onPlay} onPress={() => setView('global')} />

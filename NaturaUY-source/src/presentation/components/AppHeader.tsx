@@ -51,7 +51,7 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
         <MotiView
           from={{ opacity: 0, translateY: 8 }}
           animate={{ opacity: 1, translateY: 0 }}
-          transition={{ type: 'timing', duration: 320 }}
+          transition={{ type: 'timing', duration: 180 }}
           style={[styles.titleRow, { marginTop: spacing.lg }]}
         >
           <View style={styles.flex}>

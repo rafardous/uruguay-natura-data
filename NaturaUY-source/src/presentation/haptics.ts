@@ -21,8 +21,8 @@ import * as Haptics from 'expo-haptics';
  * discrete click an alarm picker makes as the digits pass under your thumb —
  * each crossing feels individual instead of one continuous buzz.
  *
- * Deliberately absent: closing, and anything that fires continuously without a
- * detent to mark. Feedback on every touch stops being feedback.
+ * Closing/back controls use the light tap as well; continuous gestures and
+ * passive surfaces remain silent so feedback keeps its meaning.
  */
 
 /**

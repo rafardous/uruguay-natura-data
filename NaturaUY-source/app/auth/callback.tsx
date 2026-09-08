@@ -6,6 +6,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useMobileAuth } from '../../src/auth/MobileAuthProvider';
 import { BackIcon } from '../../src/presentation/components/TabIcons';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
+import { haptics } from '../../src/presentation/haptics';
 
 /**
  * Explicit deep-link landing screen for Google OAuth. The provider also listens
@@ -52,7 +53,7 @@ export default function AuthCallbackScreen(): React.JSX.Element {
         <View style={[styles.card, { backgroundColor: colors.surface, borderRadius: radius.xl, padding: spacing.xl }]}>
           <Text style={[typography.title, { color: colors.text, textAlign: 'center' }]}>No pudimos conectar tu cuenta</Text>
           <Text style={[typography.body, { color: colors.textMuted, marginTop: spacing.md, textAlign: 'center' }]}>{error}</Text>
-          <Pressable onPress={() => router.replace('/login')} style={[styles.button, { backgroundColor: colors.primary, borderRadius: radius.pill, marginTop: spacing.xl }]}>
+          <Pressable onPress={() => { haptics.tap(); router.replace('/login'); }} style={[styles.button, { backgroundColor: colors.primary, borderRadius: radius.pill, marginTop: spacing.xl }]}>
             <Text style={[typography.label, { color: colors.onPrimary }]}>Volver al acceso</Text>
           </Pressable>
         </View>
@@ -60,7 +61,7 @@ export default function AuthCallbackScreen(): React.JSX.Element {
         <View style={styles.loading}>
           <ActivityIndicator color={colors.primary} />
           <Text style={[typography.body, { color: colors.textMuted, marginTop: spacing.md }]}>Conectando tu cuenta…</Text>
-          <Pressable onPress={() => router.replace('/login')} accessibilityRole="button" accessibilityLabel="Cancelar acceso" style={styles.cancel}>
+          <Pressable onPress={() => { haptics.tap(); router.replace('/login'); }} accessibilityRole="button" accessibilityLabel="Cancelar acceso" style={styles.cancel}>
             <BackIcon color={colors.textMuted} size={18} />
             <Text style={[typography.label, { color: colors.textMuted }]}>Cancelar</Text>
           </Pressable>

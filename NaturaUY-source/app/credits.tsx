@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { speciesRepository } from '../src/data/repositories/speciesRepository';
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { CloseIcon, CreditsIcon, ExternalLinkIcon } from '../src/presentation/components/TabIcons';
+import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 interface Source {
   title: string;
@@ -51,6 +54,7 @@ const SOURCES: Source[] = [
 export default function CreditsScreen(): React.JSX.Element {
   const db = useSQLiteContext();
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const { colors, radius, spacing, typography } = useTheme();
   const [stats, setStats] = useState<{ total: number; withPhoto: number } | null>(null);
 
@@ -62,13 +66,13 @@ export default function CreditsScreen(): React.JSX.Element {
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <AppHeader eyebrow="PERSONAS, DATOS Y LICENCIAS" title="Créditos">
         <View style={styles.row}>
-          <Pressable onPress={() => router.back()} hitSlop={10} accessibilityLabel="Volver" style={{ marginLeft: 'auto' }}>
+          <Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver" style={{ marginLeft: 'auto' }}>
             <CloseIcon color={colors.text} />
           </Pressable>
         </View>
       </AppHeader>
 
-      <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: spacing.xxl }}>
+      <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.xxl) }}>
         {stats && <LinearGradient colors={['#5E8566', '#477052', '#315340']} style={[styles.summary, { borderRadius: radius.lg, padding: spacing.lg }]}><Text style={[typography.eyebrow, { color: colors.canvasTextMuted }]}>CATÁLOGO ACTUAL</Text><Text style={[typography.title, { color: colors.canvasText, marginTop: 5 }]}>{stats.total} especies</Text><Text style={[typography.body, { color: colors.canvasTextMuted, marginTop: 3 }]}>{stats.withPhoto} cuentan con fotografía de licencia libre.</Text></LinearGradient>}
 
         <Text style={[typography.eyebrow, styles.sectionTitle, { color: colors.textMuted }]}>EQUIPO</Text>

@@ -1,10 +1,12 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter, type Href } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { ChevronRightIcon, CloseIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 const MODES = [
   { id: 'light', label: 'Claro', hint: 'Siempre en tonos claros', disabled: false },
@@ -13,19 +15,20 @@ const MODES = [
 
 export default function SettingsScreen(): React.JSX.Element {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const { colors, radius, spacing, typography } = useTheme();
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <AppHeader eyebrow="PREFERENCIAS" title="Configuración">
         <View style={styles.row}>
-          <Pressable onPress={() => router.back()} hitSlop={10} accessibilityLabel="Volver" style={{ marginLeft: 'auto' }}>
+          <Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver" style={{ marginLeft: 'auto' }}>
             <CloseIcon color={colors.text} />
           </Pressable>
         </View>
       </AppHeader>
 
-      <ScrollView contentContainerStyle={{ padding: spacing.lg }}>
+      <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}>
         <Text style={[typography.eyebrow, { color: colors.textMuted }]}>APARIENCIA</Text>
 
         <View style={[styles.group, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}>

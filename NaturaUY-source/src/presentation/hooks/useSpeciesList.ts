@@ -12,7 +12,7 @@ const PAGE_SIZE = 24;
  * a glitch rather than a loading state. Holding it for at least this long
  * makes the transition feel deliberate instead of flickery.
  */
-const MIN_LOADING_MS = 380;
+const MIN_LOADING_MS = 120;
 
 export interface SpeciesListState {
   items: Species[];

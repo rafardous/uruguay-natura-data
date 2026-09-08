@@ -87,7 +87,7 @@ export const SpeciesCard = memo(function SpeciesCard({
     ? {
         from: { opacity: 0, translateY: 7 },
         animate: { opacity: 1, translateY: 0 },
-        transition: { type: 'timing' as const, duration: 240, delay: Math.min(index, 5) * 30 },
+        transition: { type: 'timing' as const, duration: 180, delay: Math.min(index, 3) * 22 },
       }
     : {};
 

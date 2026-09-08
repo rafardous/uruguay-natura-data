@@ -19,6 +19,21 @@ interface QuizScoreRow {
 }
 
 export const quizRepository = {
+  async getRecord(db: SQLiteDatabase, mode: QuizMode, scope: QuizScope): Promise<QuizRecord | null> {
+    const row = await db.getFirstAsync<QuizScoreRow>(
+      'SELECT * FROM quiz_records WHERE mode = ? AND scope = ? LIMIT 1',
+      [mode, scope],
+    );
+    if (!row) return null;
+    return {
+      mode: row.mode as QuizMode,
+      scope: row.scope as QuizScope,
+      bestScore: row.best_score,
+      bestStreak: row.best_streak,
+      playedAt: row.played_at,
+    };
+  },
+
   async listRecords(db: SQLiteDatabase, scope?: QuizScope): Promise<Record<string, QuizRecord>> {
     const rows = await db.getAllAsync<QuizScoreRow>(
       `SELECT * FROM quiz_records ${scope ? 'WHERE scope = ?' : ''}`,

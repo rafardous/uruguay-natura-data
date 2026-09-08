@@ -55,15 +55,15 @@ export interface IconProps {
 }
 
 export const HomeIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <House color={color} size={size} strokeWidth={1.75} />
+  <House color={color} size={size} strokeWidth={2} />
 );
 
 export const CompassIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Compass color={color} size={size} strokeWidth={1.75} />
+  <Compass color={color} size={size} strokeWidth={2} />
 );
 
 export const GameIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Gamepad2 color={color} size={size} strokeWidth={1.75} />
+  <Gamepad2 color={color} size={size} strokeWidth={2} />
 );
 
 export const TriviaIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

@@ -10,6 +10,7 @@ import { speciesRepository } from '../src/data/repositories/speciesRepository';
 import type { Species } from '../src/domain/entities/species';
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { BugIcon, CloseIcon, LeafIcon, SettingsIcon, TrophyIcon } from '../src/presentation/components/TabIcons';
+import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
 
 type Area = 'species' | 'general' | 'app' | 'games';
@@ -57,7 +58,7 @@ export default function ReportScreen(): React.JSX.Element {
   }
 
   return <View style={[styles.screen, { backgroundColor: colors.background }]}>
-    <AppHeader eyebrow="COLABORAR" title={title}><Pressable onPress={() => router.back()} hitSlop={10} accessibilityLabel="Volver"><CloseIcon color={colors.text} /></Pressable></AppHeader>
+    <AppHeader eyebrow="COLABORAR" title={title}><Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver"><CloseIcon color={colors.text} /></Pressable></AppHeader>
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.md }} keyboardShouldPersistTaps="handled">
       {!session ? <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.lg }]}><Text style={[typography.body, { color: colors.text }]}>Para evitar spam, los reportes requieren una cuenta.</Text><Pressable onPress={() => { pendingDraft = description; router.push({ pathname: '/login', params: { returnTo: `/report?area=${area}${params.codigo ? `&codigo=${params.codigo}` : ''}` } }); }} style={[styles.button, { backgroundColor: colors.primary, borderRadius: radius.pill, marginTop: spacing.md }]}><Text style={[typography.label, { color: colors.onPrimary }]}>Continuar con Google</Text></Pressable></View> : <>
         <Text style={[typography.label, { color: colors.text }]}>¿Qué querés reportar?</Text>
