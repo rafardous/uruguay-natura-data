@@ -22,6 +22,7 @@ import { lightColors } from '../src/presentation/theme/tokens';
 import { StartupExperience, useStartup } from '../src/presentation/components/StartupExperience';
 import { NavigationIsland, type MainTab } from '../src/presentation/components/NavigationIsland';
 import { navigationTabForPath, shouldShowNavigation } from '../src/presentation/navigationPolicy';
+import { NetworkProvider, OfflineSnackbar } from '../src/presentation/network/NetworkProvider';
 
 /**
  * The catalogue ships prebuilt, so `assetSource` copies one file on first launch
@@ -85,10 +86,13 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="game/identify-modes" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/puzzle-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/puzzle" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="credits" />
         </Stack>
       </BlurTargetView>
       {showNavigation && <NavigationIsland active={activeTab} blurTarget={blurTarget} onNavigate={navigateMain} />}
+      <OfflineSnackbar />
     </View>
   );
 }
@@ -200,9 +204,11 @@ export default function RootLayout(): React.JSX.Element | null {
                 <ThemeProvider>
                   <MobileAuthProvider>
                     <MobileSyncProvider>
-                      <FavoritesProvider>
-                        <Navigator />
-                      </FavoritesProvider>
+                      <NetworkProvider>
+                        <FavoritesProvider>
+                          <Navigator />
+                        </FavoritesProvider>
+                      </NetworkProvider>
                     </MobileSyncProvider>
                   </MobileAuthProvider>
                 </ThemeProvider>

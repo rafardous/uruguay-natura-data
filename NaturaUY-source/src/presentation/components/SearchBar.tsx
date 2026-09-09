@@ -14,9 +14,10 @@ export interface SearchBarProps {
   collapseOffset?: SharedValue<number>;
   onFocusChange?: (focused: boolean) => void;
   onLayout?: (event: LayoutChangeEvent) => void;
+  variant?: 'gradient' | 'surface';
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit, collapseOffset, onFocusChange, onLayout }: SearchBarProps): React.JSX.Element {
+export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit, collapseOffset, onFocusChange, onLayout, variant = 'gradient' }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
   const [focused, setFocused] = useState(false);
   const compactStyle = useAnimatedStyle(() => {
@@ -34,8 +35,8 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onS
         styles.wrapper,
         compactStyle,
         {
-          backgroundColor: '#E8E9D8',
-          borderColor: focused ? colors.primary : colors.border,
+          backgroundColor: variant === 'surface' ? colors.surface : '#E8E9D8',
+          borderColor: focused ? colors.primary : variant === 'surface' ? colors.primary : colors.border,
           borderRadius: radius.pill,
           shadowColor: colors.primary,
           shadowOffset: { width: 0, height: 3 },

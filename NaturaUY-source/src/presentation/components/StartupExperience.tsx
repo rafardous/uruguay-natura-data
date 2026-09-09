@@ -105,7 +105,7 @@ export function StartupExperience({ children }: { children: ReactNode }) {
             {letters.map((d, i) => <TracedPath key={i} d={d} length={letterLengths[i] ?? 280} delay={650 + i * 90} duration={350} reduced={reduced} lettering />)}
           </G>
         </Svg>}
-        <Text style={styles.caption}>CERCA DE NUESTRA NATURALEZA</Text>
+        <Text style={styles.caption}>Nuestra naturaleza en un solo lugar</Text>
       </Animated.View>}
     </View>
   </StartupContext.Provider>;

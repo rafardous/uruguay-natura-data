@@ -58,7 +58,7 @@ npm start          # solo el bundler (Expo Dev Client)
 
 Google se abre en el navegador seguro con PKCE y vuelve por `naturauy://auth/callback`; el mismo OAuth Client ID de tipo Web configurado en Supabase sirve para web y móvil. En Supabase agregá `naturauy://**` a las URL de redirección permitidas y configurá en Google únicamente el callback alojado de Supabase (`https://xbnbfekcxrkgteuijbzh.supabase.co/auth/v1/callback`).
 
-Las variables públicas de Expo/EAS son `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y, opcionalmente, `EXPO_PUBLIC_CATALOG_MANIFEST_URL`. Definilas en cada entorno de EAS antes de compilar:
+Las variables públicas de Expo/EAS son `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` y `EXPO_PUBLIC_CATALOG_MANIFEST_URL`. Definilas en los entornos `development`, `preview` y `production` antes de compilar (son públicas; nunca uses una `service_role`):
 
 ```powershell
 eas env:create --environment preview --name EXPO_PUBLIC_SUPABASE_URL --value https://xbnbfekcxrkgteuijbzh.supabase.co --visibility plaintext
@@ -69,6 +69,10 @@ eas build --platform android --profile preview
 El callback nativo requiere una build de desarrollo, preview o producción; Expo Go no es una prueba válida del retorno `naturauy://`. Nunca incluyas secretos de Google ni `service_role` en la app.
 
 El catálogo remoto se descarga a `natura.next.db`, se valida (HTTPS, SHA-256, tamaño, esquema e integridad SQLite) y se activa recién en el siguiente arranque. Favoritos, récords y preferencias permanecen en `user.db`.
+
+### Puzzle
+
+Desde Juegos → Puzzle podés elegir una grilla 3×3 o 4×4 y una categoría. Las piezas se recortan con SVG, funcionan con las miniaturas incluidas aun sin conexión y los mejores tiempos/movimientos se guardan offline. Al iniciar sesión se sincronizan de forma privada mediante `sync_puzzle_records`.
 
 ## Pipeline de datos
 

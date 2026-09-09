@@ -56,7 +56,7 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
         >
           <View style={styles.flex}>
             {eyebrow && <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{eyebrow}</Text>}
-            {title && <Text style={[typography.display, { color: colors.text, marginTop: eyebrow ? 4 : 0 }]}>{title}</Text>}
+            {title && <Text style={[typography.headerTitle, { color: colors.text, marginTop: eyebrow ? 4 : 0 }]}>{title}</Text>}
           </View>
 
           {badge && (

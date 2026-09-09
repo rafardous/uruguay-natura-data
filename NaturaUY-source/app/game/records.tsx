@@ -9,9 +9,11 @@ import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { quizRepository, type QuizRecord } from '../../src/data/repositories/quizRepository';
 import { getQuizLeaderboard, type LeaderboardEntry } from '../../src/lib/mobileApi';
 import { Chip } from '../../src/presentation/components/Chip';
-import { BackIcon, ClockIcon, HeartIcon, NamingIcon, TrophyIcon, type IconProps } from '../../src/presentation/components/TabIcons';
+import { BackIcon, ClockIcon, HeartIcon, NamingIcon, PuzzleIcon, TrophyIcon, type IconProps } from '../../src/presentation/components/TabIcons';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { haptics } from '../../src/presentation/haptics';
+import { puzzleRepository } from '../../src/data/repositories/puzzleRepository';
+import { PUZZLE_SCOPES, type PuzzleRecord } from '../../src/domain/entities/puzzle';
 
 const MODES: QuizMode[] = ['classic', 'timed', 'survival', 'naming'];
 const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: TrophyIcon, timed: ClockIcon, survival: HeartIcon, naming: NamingIcon };
@@ -25,9 +27,11 @@ export default function RecordsScreen(): React.JSX.Element {
   const [records, setRecords] = useState<Record<string, QuizRecord>>({});
   const [leaderboards, setLeaderboards] = useState<Partial<Record<QuizMode, LeaderboardEntry[]>>>({});
   const [loadingGlobal, setLoadingGlobal] = useState(false);
+  const [puzzleRecords, setPuzzleRecords] = useState<PuzzleRecord[]>([]);
 
   const load = useCallback(() => {
     void quizRepository.listRecords(db).then(setRecords);
+    void puzzleRepository.list(db).then(setPuzzleRecords);
     if (!configured) return;
     setLoadingGlobal(true);
     void Promise.all(MODES.map(async (mode) => [mode, await getQuizLeaderboard(mode, scope)] as const))
@@ -44,10 +48,10 @@ export default function RecordsScreen(): React.JSX.Element {
     </View>
     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.tabs, { paddingHorizontal: spacing.lg }]}>{QUIZ_SCOPE_ORDER.map((item) => <Chip key={item} label={QUIZ_SCOPES[item].label} selected={scope === item} accent={colors.play} onAccent={colors.onPlay} onPress={() => setScope(item)} />)}</ScrollView>
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.md }}>
-      {view === 'personal' ? MODES.map((mode) => {
+      {view === 'personal' ? <>{MODES.map((mode) => {
         const item = records[`${scope}:${mode}`]; const Icon = ICONS[mode];
         return <View key={mode} style={[styles.card, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><View style={[styles.icon, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]}><Icon color={colors.play} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{QUIZ_MODES[mode].title}</Text><Text style={[typography.caption, { color: colors.textMuted }]}>{item ? `Mejor racha ${item.bestStreak}` : 'Todavía no jugaste esta categoría'}</Text></View><Text style={[typography.display, { color: colors.play }]}>{item?.bestScore ?? '—'}</Text></View>;
-      }) : !configured ? <Text style={[typography.body, { color: colors.textMuted, textAlign: 'center' }]}>El ranking se habilitará al completar la conexión con Supabase.</Text> : loadingGlobal ? <ActivityIndicator color={colors.play} /> : MODES.map((mode) => {
+      })}<Text style={[typography.cardTitle, { color: colors.text, marginTop: spacing.md }]}>Puzzle</Text>{puzzleRecords.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted }]}>Todavía no completaste un puzzle.</Text> : puzzleRecords.filter((record) => record.scope === scope).map((record) => <View key={`${record.scope}-${record.gridSize}`} style={[styles.card, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><PuzzleIcon color={colors.play} /><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{record.gridSize} × {record.gridSize} · {PUZZLE_SCOPES[record.scope].label}</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Mejor tiempo {Math.round(record.bestTimeMs / 1000)} s · {record.fewestMoves} movimientos</Text></View></View>)}</> : !configured ? <Text style={[typography.body, { color: colors.textMuted, textAlign: 'center' }]}>El ranking se habilitará al completar la conexión con Supabase.</Text> : loadingGlobal ? <ActivityIndicator color={colors.play} /> : MODES.map((mode) => {
         const rows = leaderboards[mode] ?? []; const Icon = ICONS[mode];
         return <View key={mode} style={[styles.ranking, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><View style={styles.rankingTitle}><Icon color={colors.play} /><Text style={[typography.cardTitle, { color: colors.text }]}>{QUIZ_MODES[mode].title}</Text></View>{rows.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.md }]}>Todavía no hay puntajes públicos.</Text> : rows.slice(0, 10).map((entry) => <View key={`${mode}-${entry.position}-${entry.publicAlias}`} style={[styles.rankRow, { borderTopColor: colors.border }]}><Text style={[typography.label, { color: colors.play, width: 28 }]}>{entry.position}</Text><Text style={[typography.body, styles.flex, { color: colors.text }]}>{entry.publicAlias}</Text><Text style={[typography.label, { color: colors.text }]}>{entry.bestScore}</Text></View>)}</View>;
       })}

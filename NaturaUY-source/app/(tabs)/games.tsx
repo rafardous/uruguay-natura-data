@@ -109,20 +109,20 @@ function ClassifyArt(): React.JSX.Element {
   );
 }
 
-function UpcomingCover({ game, species, index }: { game: (typeof UPCOMING_GAMES)[number]; species?: Species; index: number }): React.JSX.Element {
+function UpcomingCover({ game, species, index, onPress }: { game: (typeof UPCOMING_GAMES)[number]; species?: Species; index: number; onPress?: () => void }): React.JSX.Element {
   const { radius, spacing, typography, elevation } = useTheme();
   return (
     <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220, delay: 50 + index * 45 }}>
-      <View accessibilityRole="button" accessibilityState={{ disabled: true }} accessibilityLabel={`${game.title}, próximamente`}>
+      <Pressable onPress={onPress} disabled={!onPress} accessibilityRole="button" accessibilityState={{ disabled: !onPress }} accessibilityLabel={game.id === 'puzzle' ? 'Abrir Puzzle' : `${game.title}, próximamente`}>
         <LinearGradient colors={[...game.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.upcomingCover, elevation.low, { borderRadius: radius.xl, padding: spacing.lg }]}>
           <View style={styles.upcomingCopy}>
-            <Text style={[typography.eyebrow, styles.upcomingKicker]}>PRÓXIMAMENTE</Text>
+            <Text style={[typography.eyebrow, styles.upcomingKicker]}>{game.id === 'puzzle' ? 'JUGÁ AHORA' : 'PRÓXIMAMENTE'}</Text>
             <Text style={[typography.display, styles.upcomingTitle]}>{game.title}</Text>
             <Text style={[typography.body, styles.upcomingDescription]}>{game.description}</Text>
           </View>
           {game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : <ClassifyArt />}
         </LinearGradient>
-      </View>
+      </Pressable>
     </MotiView>
   );
 }
@@ -156,7 +156,7 @@ export default function GamesScreen(): React.JSX.Element {
         scrollY={scrollY}
         gradient={['#7A5CAD', '#6E4E9E', '#4C356F']}
         controls={<><Pressable onPress={() => { haptics.tap(); setMenuOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Abrir menú" style={[styles.menuButton, { backgroundColor: 'rgba(255,255,255,0.12)', borderRadius: radius.pill }]}><MenuIcon color={colors.canvasText} /></Pressable><View style={styles.flex} /><Pressable onPress={() => { haptics.tap(); router.push('/game/records'); }} accessibilityRole="button" accessibilityLabel="Ver récords" style={[styles.recordsButton, { backgroundColor: 'rgba(255,255,255,0.16)', borderRadius: radius.pill }]}><TrophyIcon color="#E8C35A" size={18} /><Text style={[typography.label, { color: colors.canvasText }]}>Récords</Text></Pressable></>}
-        expandedContent={<View><Text style={[typography.cardTitle, { color: colors.canvasText, maxWidth: 345 }]}>Demostrá tu conocimiento de nuestra flora y fauna</Text><Text style={[typography.caption, { color: colors.canvasTextMuted, marginTop: 4 }]}>Elegí un modo de juego</Text></View>}
+        expandedContent={<Text style={[typography.headerTitle, { color: colors.canvasText, maxWidth: 345 }]}>Demostrá tu conocimiento de nuestra flora y fauna</Text>}
       />
 
       <Animated.ScrollView onScroll={onScroll} scrollEventThrottle={16} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}>
@@ -164,7 +164,7 @@ export default function GamesScreen(): React.JSX.Element {
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
-          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} />)}
+          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : undefined} />)}
         </View>
       </Animated.ScrollView>
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />

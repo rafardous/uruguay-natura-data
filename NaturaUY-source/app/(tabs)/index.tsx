@@ -1,7 +1,7 @@
 import { AppState, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import { Carousel } from 'react-native-reanimated-carousel';
@@ -84,7 +84,7 @@ function LargeSpeciesCard({
         <MotiView
           from={{ scale: 1 }}
           animate={{ scale: active ? 1.055 : 1 }}
-          transition={{ type: 'timing', duration: active ? 5500 : 280 }}
+          transition={{ type: 'timing', duration: active ? 3600 : 280 }}
           style={StyleSheet.absoluteFill}
         >
           <SpeciesImage species={species} height={CARD_HEIGHT} glyphSize={70} bordered={false} style={StyleSheet.absoluteFill} />
@@ -144,14 +144,14 @@ function SpeciesCarousel({
         data={slides}
         loop
         autoplay={slides.length > 1}
-        autoplayInterval={5500}
+        autoplayInterval={3600}
         scrollAnimationDuration={250}
         layout={{ type: 'parallax', scale: 0.92, offset: 48 }}
         onSnapToItem={setActiveIndex}
         renderItem={({ item, index }: { item: CarouselSlide; index: number }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} active={index === activeIndex} />}
       />
       {slides.length > 1 && (
-        <View style={[styles.dots, { marginTop: spacing.md }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
+        <View style={[styles.dots, { marginTop: spacing.md, paddingHorizontal: spacing.lg }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
           {slides.map((item, index) => (
             <View
               key={item.kind === 'metric' ? 'metric' : item.species.codigo}
@@ -170,7 +170,7 @@ function SpeciesCarousel({
 }
 
 export default function HomeScreen(): React.JSX.Element {
-  const { ready: startupReady } = useStartup();
+  const { ready: startupReady, visible: startupVisible } = useStartup();
   const db = useSQLiteContext();
   const userDb = useUserDatabase();
   const router = useRouter();
@@ -183,11 +183,13 @@ export default function HomeScreen(): React.JSX.Element {
   const onScroll = useAnimatedScrollHandler((event) => { scrollY.value = event.contentOffset.y; });
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [playHomeIntro] = useState(() => {
-    const shouldPlay = !hasPlayedHomeIntro;
-    hasPlayedHomeIntro = true;
-    return shouldPlay;
-  });
+  const [playHomeIntro, setPlayHomeIntro] = useState(false);
+  useEffect(() => {
+    if (!startupVisible && !hasPlayedHomeIntro) {
+      hasPlayedHomeIntro = true;
+      setPlayHomeIntro(true);
+    }
+  }, [startupVisible]);
   const [query, setQuery] = useState('');
   const [total, setTotal] = useState<number | null>(null);
   const [dailySpecies, setDailySpecies] = useState<Species | null>(null);
@@ -312,15 +314,19 @@ export default function HomeScreen(): React.JSX.Element {
     };
   }, [dailySpecies, spotlightSpecies, startupReady, total]);
 
-  useFocusEffect(useCallback(() => {
-    void loadHome().catch((error: unknown) => { console.warn('Home loading failed.', error); startupReady(); });
+  const loadedHome = useRef(false);
+  useEffect(() => {
+    if (!loadedHome.current) {
+      loadedHome.current = true;
+      void loadHome().catch((error: unknown) => { console.warn('Home loading failed.', error); startupReady(); });
+    }
     const subscription = AppState.addEventListener('change', (state) => {
       if (state === 'active') void loadHome().catch((error: unknown) => console.warn('Home refresh failed.', error));
     });
     return () => {
       subscription.remove();
     };
-  }, [loadHome, startupReady]));
+  }, [loadHome, startupReady]);
 
   useEffect(() => {
     if (revision > 0) void loadHome().catch((error: unknown) => console.warn('Home refresh failed.', error));
@@ -358,7 +364,7 @@ export default function HomeScreen(): React.JSX.Element {
         }
         expandedContent={
           <MotiView from={playHomeIntro ? { opacity: 0, translateY: 12 } : { opacity: 1, translateY: 0 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: playHomeIntro ? 480 : 0, delay: playHomeIntro ? 210 : 0 }}>
-            <Text style={[typography.title, { color: colors.canvasText, maxWidth: 320 }]}>Nuestra naturaleza en un solo lugar</Text>
+            <Text style={[typography.headerTitle, { color: colors.canvasText, maxWidth: 320 }]}>Nuestra naturaleza en un solo lugar</Text>
           </MotiView>
         }
       />
@@ -448,11 +454,11 @@ export default function HomeScreen(): React.JSX.Element {
           </View>
         </MotiView>
 
-        <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
-          <Text style={[typography.eyebrow, { color: colors.textMuted }]}>EXPLORÁ NATURA UY</Text>
-          <View>
+        <View style={{ marginTop: spacing.xl }}>
+          <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ NATURA UY</Text>
+          <View style={{ marginHorizontal: -spacing.lg }}>
             {spotlightSpecies.length > 0 && total !== null ? (
-              <SpeciesCarousel slides={carouselSlides} width={cardWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
+              <SpeciesCarousel slides={carouselSlides} width={windowWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
             ) : (
               <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
             )}

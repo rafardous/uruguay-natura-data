@@ -26,17 +26,17 @@ export function NavigationIsland({
   onNavigate: (tab: MainTab) => void;
   blurTarget?: RefObject<View | null>;
 }): React.JSX.Element {
-  const { colors, radius, typography, elevation, scheme } = useTheme();
+  const { radius, typography, elevation, scheme } = useTheme();
   const insets = useSafeAreaInsets();
   const light = scheme === 'light';
   // Material 3 assigns navigation components a tonal SurfaceContainer rather
   // than the brightest surface. It keeps the island distinct from ivory pages
   // without turning the whole control into another brand-colour statement.
-  const islandBackground = light ? 'rgba(255,249,234,0.84)' : 'rgba(15,25,19,0.84)';
-  const islandBorder = light ? colors.border : colors.canvasBorder;
-  const activeBackground = colors.accent;
-  const activeForeground = colors.onAccent;
-  const inactiveForeground = light ? colors.textSecondary : colors.navInactiveText;
+  const islandBackground = light ? 'rgba(201,216,196,0.94)' : 'rgba(35,65,50,0.94)';
+  const islandBorder = 'rgba(41,74,58,0.24)';
+  const activeBackground = '#BDD0B7';
+  const activeForeground = '#293832';
+  const inactiveForeground = '#294A3A';
 
   return (
     <View pointerEvents="box-none" style={[styles.dock, { paddingBottom: Math.max(insets.bottom, NAV_ISLAND_MARGIN) }]}>
@@ -64,6 +64,7 @@ export function NavigationIsland({
             style={StyleSheet.absoluteFill}
           />
         )}
+        <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: light ? 'rgba(190,211,184,0.42)' : 'rgba(42,83,61,0.3)' }]} />
         {ITEMS.map(({ name, label, icon: Icon }) => {
           return <NavigationItem key={name} icon={Icon} name={name} label={label} focused={active === name} onNavigate={onNavigate} radius={radius.pill} typography={typography} activeBackground={activeBackground} activeForeground={activeForeground} inactiveForeground={inactiveForeground} />;
         })}
@@ -121,7 +122,7 @@ function NavigationItem({
       style={({ pressed }) => [styles.tab, { opacity: pressed ? 0.78 : 1 }]}
     >
       <Animated.View style={[styles.pill, { borderRadius: radius }, pillStyle]}>
-        <Icon color={focused ? activeForeground : inactiveForeground} size={22} />
+        <Icon color={focused ? activeForeground : inactiveForeground} size={22} strokeWidth={2} />
         <Animated.View style={[styles.labelWrap, labelStyle]}>
           <Text style={[typography.label, { color: activeForeground }]}>{label}</Text>
         </Animated.View>

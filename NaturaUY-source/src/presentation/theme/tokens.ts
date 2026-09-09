@@ -266,7 +266,8 @@ export const typography = {
    */
   hero: { fontSize: 40, lineHeight: 40, fontFamily: HEADLINE_FONT, letterSpacing: -1.1 },
   display: { fontSize: 30, fontFamily: HEADLINE_FONT, letterSpacing: -0.5 },
-  title: { fontSize: 22, fontFamily: HEADLINE_FONT, letterSpacing: -0.3 },
+  title: { fontSize: 22, lineHeight: 28, fontFamily: HEADLINE_FONT, letterSpacing: -0.3 },
+  headerTitle: { fontSize: 22, lineHeight: 28, fontFamily: HEADLINE_FONT, letterSpacing: -0.3 },
   cardTitle: { fontSize: 17, fontFamily: HEADLINE_FONT },
   body: { fontSize: 15, fontWeight: '400' as const, lineHeight: 23 },
   label: { fontSize: 13, fontWeight: '600' as const },

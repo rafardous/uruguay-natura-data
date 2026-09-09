@@ -124,4 +124,13 @@ export const USER_MIGRATIONS: string[] = [
    );`,
   `INSERT OR IGNORE INTO game_sync (mode, scope, pending_games)
    SELECT mode, scope, 0 FROM quiz_records;`,
+  `CREATE TABLE IF NOT EXISTS puzzle_records (
+     scope TEXT NOT NULL,
+     grid_size INTEGER NOT NULL CHECK (grid_size IN (3,4)),
+     best_time_ms INTEGER NOT NULL,
+     fewest_moves INTEGER NOT NULL,
+     played_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (scope, grid_size)
+   );`,
 ];

@@ -52,18 +52,19 @@ import {
 export interface IconProps {
   color: string;
   size?: number;
+  strokeWidth?: number;
 }
 
-export const HomeIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <House color={color} size={size} strokeWidth={2} />
+export const HomeIcon = ({ color, size = 22, strokeWidth = 2 }: IconProps): React.JSX.Element => (
+  <House color={color} size={size} strokeWidth={strokeWidth} />
 );
 
-export const CompassIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Compass color={color} size={size} strokeWidth={2} />
+export const CompassIcon = ({ color, size = 22, strokeWidth = 2 }: IconProps): React.JSX.Element => (
+  <Compass color={color} size={size} strokeWidth={strokeWidth} />
 );
 
-export const GameIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
-  <Gamepad2 color={color} size={size} strokeWidth={2} />
+export const GameIcon = ({ color, size = 22, strokeWidth = 2 }: IconProps): React.JSX.Element => (
+  <Gamepad2 color={color} size={size} strokeWidth={strokeWidth} />
 );
 
 export const TriviaIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

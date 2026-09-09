@@ -67,7 +67,7 @@ export default function ExploreScreen(): React.JSX.Element {
       scrollY={scrollY}
       gradient={['#A67A25', '#8A641B', '#5D4515']}
       controls={<><Pressable onPress={() => { haptics.tap(); setMenuOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Abrir menú" style={[styles.menuButton, { backgroundColor: 'rgba(255,249,234,0.18)', borderRadius: radius.pill }]}><MenuIcon color="#FFF9EA" /></Pressable><View style={styles.headerTools}><SearchBar value={query} onChange={setQuery} collapseOffset={scrollY} /><AccountButton onPress={() => router.push('/login')} color="#FFF9EA" backgroundColor="rgba(255,249,234,0.16)" /></View></>}
-      expandedContent={<Text style={[typography.title, { color: '#FFF9EA', maxWidth: 330 }]}>Explorá nuestra flora y fauna</Text>}
+      expandedContent={<Text style={[typography.headerTitle, { color: '#FFF9EA', maxWidth: 330 }]}>Explorá nuestra flora y fauna</Text>}
     />
     {!canShowResults ? <Animated.ScrollView onScroll={(event) => { scrollY.value = event.nativeEvent.contentOffset.y; }} scrollEventThrottle={16} contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingHorizontal: spacing.lg, gap: spacing.md, paddingBottom: bottom }} showsVerticalScrollIndicator={false}>
       {taxonomyCard}

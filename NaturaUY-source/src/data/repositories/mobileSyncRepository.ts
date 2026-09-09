@@ -18,6 +18,7 @@ interface GameSyncRow {
   updated_at: number;
   pending_games: number;
 }
+interface PuzzleSyncRow { scope: string; grid_size: number; best_time_ms: number; fewest_moves: number; played_at: number; updated_at: number; }
 
 export interface RemoteFavorite {
   catalogCode: string;
@@ -52,6 +53,11 @@ export async function reconcileFavorites(db: SQLiteDatabase, remoteRows: RemoteF
 export const mobileSyncRepository = {
   async sync(db: SQLiteDatabase): Promise<void> {
     if (!mobileSupabase) return;
+    const puzzleRecords = await db.getAllAsync<PuzzleSyncRow>('SELECT scope, grid_size, best_time_ms, fewest_moves, played_at, updated_at FROM puzzle_records LIMIT 24');
+    if (puzzleRecords.length > 0) {
+      const { error } = await mobileSupabase.rpc('sync_puzzle_records', { p_records: puzzleRecords.map((row) => ({ scope: row.scope, gridSize: row.grid_size, bestTimeMs: row.best_time_ms, fewestMoves: row.fewest_moves, playedAt: row.played_at, updatedAt: row.updated_at })) });
+      if (error) throw error;
+    }
     const games = await db.getAllAsync<GameSyncRow>(
       `SELECT record.mode, record.scope, record.best_score, record.best_streak, COALESCE(record.played_at, 1) AS updated_at, sync.pending_games
        FROM quiz_records record JOIN game_sync sync ON sync.mode = record.mode AND sync.scope = record.scope

@@ -75,7 +75,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
           <View style={styles.titleWrap}><Text style={[typography.eyebrow, { color: colors.textMuted }]}>CATÁLOGO</Text><Text style={[typography.title, { color: colors.text, marginTop: 2 }]}>Todas las especies</Text></View>
           <Pressable onPress={() => { haptics.tap(); setDraft(applied); setSheetOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Filtrar especies" style={[styles.filterButton, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}><SlidersIcon color={colors.textSecondary} /><Text style={[typography.caption, { color: colors.textSecondary }]}>{filterCount || ''}</Text></Pressable>
         </View>
-        <View style={[styles.searchRow, { marginTop: spacing.md }]}><SearchBar value={query} onChange={setQuery} placeholder="Buscar una especie" /></View>
+        <View style={[styles.searchRow, { marginTop: spacing.md }]}><SearchBar value={query} onChange={setQuery} placeholder="Buscar una especie" variant="surface" /></View>
         {filterCount > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.activeFilters}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities'] as const).flatMap((key) => applied[key].map((value) => <Chip key={`${key}-${value}`} label={`${friendlyFilterValue(value)} ×`} selected onPress={() => remove(key, value)} />))}</ScrollView>}
       </View>
 
@@ -97,7 +97,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },
-  header: { borderBottomWidth: StyleSheet.hairlineWidth },
+  header: {},
   headerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   titleWrap: { flex: 1 },
   iconButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
