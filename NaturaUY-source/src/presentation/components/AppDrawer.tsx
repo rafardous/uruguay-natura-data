@@ -31,6 +31,7 @@ import {
 } from './TabIcons';
 
 const WIDTH = Math.min(Dimensions.get('window').width * 0.86, 380);
+const DRAWER = { background:'#314A3C', text:'#FFF9EA', muted:'#D5E3D8', active:'#456351', border:'rgba(255,249,234,.18)' } as const;
 
 interface DrawerLinkProps {
   icon: React.JSX.Element;
@@ -40,7 +41,7 @@ interface DrawerLinkProps {
 }
 
 function DrawerLink({ icon, label, onPress, trailing }: DrawerLinkProps): React.JSX.Element {
-  const { colors, radius, typography } = useTheme();
+  const { radius, typography } = useTheme();
 
   return (
     <Pressable
@@ -49,15 +50,15 @@ function DrawerLink({ icon, label, onPress, trailing }: DrawerLinkProps): React.
       accessibilityLabel={label}
       style={({ pressed }) => [
         styles.link,
-        { borderRadius: radius.md, backgroundColor: pressed ? colors.canvasActive : 'transparent' },
+        { borderRadius: radius.md, backgroundColor: pressed ? DRAWER.active : 'transparent' },
       ]}
     >
       {icon}
-      <Text style={[typography.body, styles.linkLabel, { color: colors.canvasText }]}>{label}</Text>
+      <Text style={[typography.body, styles.linkLabel, { color: DRAWER.text }]}>{label}</Text>
       {trailing ? (
-        <Text style={[typography.label, { color: colors.canvasTextMuted }]}>{trailing}</Text>
+        <Text style={[typography.label, { color: DRAWER.muted }]}>{trailing}</Text>
       ) : (
-        <ChevronRightIcon color={colors.canvasTextMuted} size={16} />
+        <ChevronRightIcon color={DRAWER.muted} size={16} />
       )}
     </Pressable>
   );
@@ -141,7 +142,7 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
         <Animated.View
           style={[
             styles.panel,
-            { width: WIDTH, backgroundColor: colors.canvas, paddingTop: insets.top + spacing.lg },
+            { width: WIDTH, backgroundColor: DRAWER.background, paddingTop: insets.top + spacing.lg },
             panelStyle,
           ]}
         >
@@ -150,15 +151,15 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               <Image
                 source={require('../../../assets/images/logo.png')}
                 contentFit="cover"
-                style={[styles.logo, { borderRadius: radius.md, borderColor: colors.canvasBorder }]}
+                style={[styles.logo, { borderRadius: radius.md, borderColor: DRAWER.border }]}
                 accessibilityLabel="Logo de Natura UY"
               />
               <View>
-                <Text style={[typography.title, { color: colors.canvasText }]}>Natura UY</Text>
+                <Text style={[typography.title, { color: DRAWER.text }]}>Natura UY</Text>
               </View>
             </View>
             <Pressable onPress={() => { haptics.tap(); onClose(); }} hitSlop={10} accessibilityLabel="Cerrar menú">
-              <CloseIcon color={colors.canvasText} />
+              <CloseIcon color={DRAWER.text} />
             </Pressable>
           </View>
 
@@ -166,61 +167,61 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
             <Pressable
               onPress={() => go('/favorites')}
               accessibilityRole="button"
-              style={[styles.favorites, { backgroundColor: colors.canvasActive, borderRadius: radius.lg }]}
+              style={[styles.favorites, { backgroundColor: DRAWER.active, borderRadius: radius.lg }]}
             >
-              <HeartIcon color={count > 0 ? colors.favorite : colors.canvasText} size={22} filled={count > 0} />
-              <Text style={[typography.cardTitle, styles.linkLabel, { color: colors.canvasText }]}>Favoritos</Text>
-              <Text style={[typography.cardTitle, { color: colors.canvasText }]}>{count}</Text>
+              <HeartIcon color={count > 0 ? colors.favorite : DRAWER.text} size={22} filled={count > 0} />
+              <Text style={[typography.cardTitle, styles.linkLabel, { color: DRAWER.text }]}>Favoritos</Text>
+              <Text style={[typography.cardTitle, { color: DRAWER.text }]}>{count}</Text>
             </Pressable>
 
-            <Text style={[typography.eyebrow, styles.section, { color: colors.canvasTextMuted }]}>EXPLORAR</Text>
+            <Text style={[typography.eyebrow, styles.section, { color: DRAWER.muted }]}>EXPLORAR</Text>
             <DrawerLink
-              icon={<ShieldIcon color={colors.canvasText} />}
+              icon={<ShieldIcon color={DRAWER.text} />}
               label="Especies prioritarias"
               onPress={() => go('/species?priority=1')}
             />
             <DrawerLink
-              icon={<LeafIcon color={colors.canvasText} />}
+              icon={<LeafIcon color={DRAWER.text} />}
               label="Especies nativas"
               onPress={() => go('/species?native=1')}
             />
             <DrawerLink
-              icon={<BiomesIcon color={colors.canvasText} />}
+              icon={<BiomesIcon color={DRAWER.text} />}
               label="Explorar ambientes"
               onPress={() => go('/biomes')}
               trailing="Próximamente"
             />
 
-            <View style={[styles.divider, { backgroundColor: colors.canvasBorder }]} />
+            <View style={[styles.divider, { backgroundColor: DRAWER.border }]} />
 
-            <Text style={[typography.eyebrow, styles.section, { color: colors.canvasTextMuted }]}>APP</Text>
+            <Text style={[typography.eyebrow, styles.section, { color: DRAWER.muted }]}>APP</Text>
             <DrawerLink
-              icon={<SettingsIcon color={colors.canvasText} />}
+              icon={<SettingsIcon color={DRAWER.text} />}
               label="Configuración"
               onPress={() => go('/settings')}
             />
             <DrawerLink
-              icon={<BugIcon color={colors.canvasText} />}
+              icon={<BugIcon color={DRAWER.text} />}
               label="Reportar un problema / bug"
               onPress={() => go('/report')}
             />
             <DrawerLink
-              icon={<CollaborateIcon color={colors.canvasText} />}
+              icon={<CollaborateIcon color={DRAWER.text} />}
               label="Colaborar"
               onPress={() => go('/collaborate')}
             />
             <DrawerLink
-              icon={<InterestSitesIcon color={colors.canvasText} />}
+              icon={<InterestSitesIcon color={DRAWER.text} />}
               label="Sitios de interés"
               onPress={() => go('/interest-sites')}
             />
             <DrawerLink
-              icon={<InfoIcon color={colors.canvasText} />}
+              icon={<InfoIcon color={DRAWER.text} />}
               label="Acerca de"
               onPress={() => go('/about')}
             />
             <DrawerLink
-              icon={<CreditsIcon color={colors.canvasText} />}
+              icon={<CreditsIcon color={DRAWER.text} />}
               label="Créditos y licencias"
               onPress={() => go('/credits')}
             />

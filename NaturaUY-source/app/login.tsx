@@ -68,6 +68,14 @@ export default function LoginScreen(): React.JSX.Element {
     setBusy(false);
   }
 
+  async function disconnect(): Promise<void> {
+    setBusy(true);
+    setMessage('');
+    await requestSync();
+    await signOut();
+    setBusy(false);
+  }
+
   return (
     <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
       <View style={{ paddingHorizontal: spacing.lg }}>
@@ -98,7 +106,7 @@ export default function LoginScreen(): React.JSX.Element {
                 <Text style={[typography.label, { color: colors.text }]}>{status === 'syncing' ? 'Sincronizando…' : status === 'error' ? 'Reintentar sincronización' : 'Sincronizar ahora'}</Text>
               </Pressable>
               <Text style={[typography.caption, { color: colors.textMuted }]}>Sincroniza tus favoritos y récords de este teléfono con tu cuenta para recuperarlos en otros dispositivos. El catálogo sigue disponible sin conexión.</Text>
-              <Pressable onPress={() => void signOut()} style={styles.signOut}><Text style={[typography.label, { color: colors.textMuted }]}>Cerrar sesión</Text></Pressable>
+              <Pressable disabled={busy} onPress={() => void disconnect()} style={styles.signOut}><Text style={[typography.label, { color: colors.textMuted }]}>Cerrar sesión</Text></Pressable>
             </View>
           </> : <>
             <Text style={[typography.title, styles.center, { color: colors.text, marginTop: spacing.lg }]}>¡No pierdas tus avances!</Text>

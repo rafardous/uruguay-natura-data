@@ -1,4 +1,11 @@
-import type { Species } from './species';
+import type { KnowledgeLevel, Species } from './species';
+export type { KnowledgeLevel } from './species';
+
+export const KNOWLEDGE_LEVELS: { id: KnowledgeLevel; label: string; description: string }[] = [
+  { id: 'easy', label: 'Fácil', description: 'Sólo especies muy reconocibles.' },
+  { id: 'medium', label: 'Medio', description: 'Incluye las de fácil y suma especies menos conocidas.' },
+  { id: 'hard', label: 'Difícil', description: 'Puede aparecer cualquier especie habilitada.' },
+];
 
 export type QuizMode = 'classic' | 'timed' | 'survival' | 'naming';
 export type QuizScope = 'animals_all' | 'birds' | 'mammals' | 'reptiles' | 'amphibians' | 'fish';

@@ -52,6 +52,10 @@ export interface SpeciesSource {
   record: string | null;
 }
 
+export type KnowledgeLevel = 'easy' | 'medium' | 'hard';
+export interface SpeciesFact { id: string; body: string; sortOrder: number }
+export interface SpeciesGameRule { gameKey: string; enabled: boolean; minKnowledgeLevel: KnowledgeLevel | null }
+
 export interface Species {
   codigo: string;
   /** What the card shows: vernacular name, or the scientific name when absent. */
@@ -71,6 +75,15 @@ export interface Species {
   origin: 'native' | 'introduced' | null;
   seasonality: string | null;
   abundanceStatus: string | null;
+  abundance: { category: string | null; label: string | null };
+  observability: {
+    methodVersion: string; periodStart: string; periodEnd: string; occurrenceCount: number;
+    occupiedCells: number; yearsObserved: number; score: number;
+    band: 'high' | 'medium' | 'low' | 'insufficient_data'; comparisonClass: string;
+  } | null;
+  knowledgeLevel: KnowledgeLevel;
+  gameRules: SpeciesGameRule[];
+  facts: SpeciesFact[];
   habitat: string[];
   diet: string[];
   relevantNote: string | null;
@@ -80,7 +93,7 @@ export interface Species {
   tamano: string;
   photo: SpeciesPhoto | null;
   audioUrl: string | null;
-  /** Full approved gallery from SQLite schema 6. Primary fields above remain for cards and games. */
+  /** Full approved gallery from SQLite schema 8. Primary fields above remain for cards and games. */
   media: SpeciesMedia[];
   palette: SpeciesPalette;
 }

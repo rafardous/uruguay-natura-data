@@ -17,7 +17,7 @@ import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
 import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
-type SiteKind = 'protected' | 'data' | 'nature' | 'gallery' | 'birds';
+type SiteKind = 'protected' | 'data' | 'nature' | 'gallery' | 'birds' | 'instagram' | 'x';
 
 interface InterestSite {
   title: string;
@@ -77,9 +77,25 @@ const SITES: InterestSite[] = [
     foreground: '#7C3F3A',
     local: true,
   },
+  {
+    title: 'Natura UY en Instagram',
+    category: 'COMUNIDAD · PRÓXIMAMENTE',
+    description: 'Fotos, especies destacadas y novedades del proyecto. Perfil reservado para su lanzamiento futuro.',
+    url: 'https://www.instagram.com/naturauy/',
+    kind: 'instagram', container: '#F2DDE8', foreground: '#873D66', local: true,
+  },
+  {
+    title: 'Natura UY en X',
+    category: 'COMUNIDAD · PRÓXIMAMENTE',
+    description: 'Actualizaciones breves sobre el catálogo y la biodiversidad uruguaya. Perfil ficticio por ahora.',
+    url: 'https://x.com/naturauy',
+    kind: 'x', container: '#DFE5E2', foreground: '#263B32', local: true,
+  },
 ];
 
 function SiteIcon({ kind, color }: { kind: SiteKind; color: string }): React.JSX.Element {
+  if (kind === 'instagram') return <Text style={{ color, fontSize: 24, fontWeight: '800' }}>◎</Text>;
+  if (kind === 'x') return <Text style={{ color, fontSize: 21, fontWeight: '800' }}>𝕏</Text>;
   if (kind === 'protected') return <ShieldIcon color={color} size={24} />;
   if (kind === 'data') return <DatabaseIcon color={color} size={24} />;
   if (kind === 'gallery') return <GalleryIcon color={color} size={24} />;

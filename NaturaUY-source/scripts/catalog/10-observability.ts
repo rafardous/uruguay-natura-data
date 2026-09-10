@@ -1,0 +1,22 @@
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { PATHS, readJson, sleep, writeJson } from './lib';
+
+const TARGETS=new Set(['Reptilia','Amphibia','Actinopterygii','Chondrichthyes']); const END_YEAR=new Date().getUTCFullYear()-1; const START_YEAR=END_YEAR-9;
+interface Catalog { id:string; scientificName:string; taxonomy:{class:string|null} }
+interface Occurrence { key?:number; occurrenceID?:string; decimalLatitude?:number; decimalLongitude?:number; year?:number }
+interface Cached { records:number;cells:number;years:number;capped:boolean }
+const cachePath=resolve(PATHS.cache,'gbif/observability-10y.json');
+const percentile=(values:number[],value:number)=>values.length<=1?1:values.filter((item)=>item<=value).length/values.length;
+async function metrics(name:string):Promise<Cached>{const seen=new Set<string>(),cells=new Set<string>(),years=new Set<number>();let offset=0,capped=false;
+  while(offset<100000){const query=new URLSearchParams({scientificName:name,country:'UY',occurrenceStatus:'PRESENT',hasCoordinate:'true',year:`${START_YEAR},${END_YEAR}`,limit:'300',offset:String(offset)});for(const basis of ['HUMAN_OBSERVATION','OBSERVATION','MACHINE_OBSERVATION'])query.append('basisOfRecord',basis);
+    const response=await fetch(`https://api.gbif.org/v1/occurrence/search?${query}`,{headers:{'User-Agent':'NaturaUY-data-pipeline/1.0'}});if(!response.ok)throw new Error(`GBIF ${response.status}: ${name}`);const page=await response.json() as {results:Occurrence[];endOfRecords:boolean;count:number};
+    for(const row of page.results){const key=row.occurrenceID??String(row.key);if(seen.has(key))continue;seen.add(key);if(row.year)years.add(row.year);if(row.decimalLatitude!=null&&row.decimalLongitude!=null){const y=Math.floor(row.decimalLatitude/0.09);const width=0.09/Math.max(0.2,Math.cos(row.decimalLatitude*Math.PI/180));cells.add(`${y}:${Math.floor(row.decimalLongitude/width)}`);}}
+    if(page.endOfRecords)break;offset+=page.results.length;if(offset>=100000){capped=page.count>offset;break;}await sleep(120);
+  }return{records:seen.size,cells:cells.size,years:years.size,capped};}
+async function main(){const all=['reptilia','amphibia','actinopterygii','chondrichthyes'].flatMap((file)=>readJson<Catalog[]>(resolve(PATHS.catalog,`${file}.json`))).filter((item)=>item.taxonomy.class&&TARGETS.has(item.taxonomy.class));const cache=existsSync(cachePath)?readJson<Record<string,Cached>>(cachePath):{};const arg=process.argv.find((value)=>value.startsWith('--batch='));const batch=arg?Number(arg.slice(8)):25;const pending=all.filter((item)=>!cache[item.scientificName]).slice(0,batch);
+  for(const [index,item] of pending.entries()){cache[item.scientificName]=await metrics(item.scientificName);writeJson(cachePath,cache);console.log(`  ${index+1}/${pending.length} ${item.scientificName}`);}
+  const available=all.filter((item)=>cache[item.scientificName]);const snapshots=available.map((item)=>{const value=cache[item.scientificName]!;const classItems=all.filter((peer)=>peer.taxonomy.class===item.taxonomy.class);const availablePeers=available.filter((peer)=>peer.taxonomy.class===item.taxonomy.class);const peers=availablePeers.map((peer)=>cache[peer.scientificName]!);const classComplete=availablePeers.length===classItems.length;const score=100*(.4*percentile(peers.map((p)=>Math.log1p(p.records)),Math.log1p(value.records))+.4*percentile(peers.map((p)=>p.cells),value.cells)+.2*Math.min(value.years,10)/10);return{speciesId:item.id,scientificName:item.scientificName,methodVersion:'gbif-uy-observability-v1',periodStart:`${START_YEAR}-01-01`,periodEnd:`${END_YEAR}-12-31`,occurrenceCount:value.records,occupiedCells:value.cells,yearsObserved:value.years,score:Number(score.toFixed(3)),band:!classComplete||value.records<3?'insufficient_data':score>=66?'high':score>=33?'medium':'low',comparisonClass:item.taxonomy.class,sourceCode:'gbif',metadata:{deduplication:'occurrenceID_or_gbif_key',gridKm:10,capped:value.capped,provisional:!classComplete}};});
+  writeJson(resolve(PATHS.reports,'observability-snapshots.json'),{schemaVersion:1,generatedAt:new Date().toISOString(),complete:available.length===all.length,totalSpecies:all.length,processedSpecies:available.length,snapshots});console.log(`10-observability: ${available.length}/${all.length}; ejecutá de nuevo para continuar.`);
+}
+main().catch((error)=>{console.error(error);process.exit(1);});

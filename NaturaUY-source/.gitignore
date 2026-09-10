@@ -22,3 +22,6 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+
+# Large, reproducible enrichment responses are never part of an app build.
+data/cache/gbif/observability-10y.json

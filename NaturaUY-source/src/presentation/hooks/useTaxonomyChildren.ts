@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite';
+import { Image } from 'expo-image';
 
 import {
   speciesRepository,
+  type TaxonOption,
   type TaxonRank,
   type TaxonomyPath,
 } from '../../data/repositories/speciesRepository';
 
-export interface TaxonOption {
-  value: string;
-  count: number;
-}
+const childrenCache = new Map<string, TaxonOption[]>();
+const prefetchedOrderPaths = new Set<string>();
 
 /** Loads one constrained level of the taxonomic tree from SQLite. */
 export function useTaxonomyChildren(
@@ -21,6 +21,7 @@ export function useTaxonomyChildren(
   const [items, setItems] = useState<TaxonOption[]>([]);
   const [loading, setLoading] = useState(true);
   const key = JSON.stringify(ancestors);
+  const cacheKey = `${rank ?? 'none'}:${key}`;
 
   useEffect(() => {
     if (!rank) {
@@ -28,10 +29,22 @@ export function useTaxonomyChildren(
       setLoading(false);
       return;
     }
+    const cached = childrenCache.get(cacheKey);
+    if (cached) {
+      setItems(cached);
+      setLoading(false);
+      return;
+    }
     let active = true;
     setLoading(true);
-    void speciesRepository.listTaxonomyChildren(db, rank, ancestors).then((rows) => {
+    void speciesRepository.listTaxonomyChildren(db, rank, ancestors).then(async (rows) => {
+      if (rank === 'orden' && !prefetchedOrderPaths.has(cacheKey)) {
+        const urls = [...new Set(rows.flatMap((row) => row.representativeImageUrl ? [row.representativeImageUrl] : []))];
+        if (urls.length > 0) await Image.prefetch(urls, 'memory-disk').catch(() => false);
+        prefetchedOrderPaths.add(cacheKey);
+      }
       if (active) {
+        childrenCache.set(cacheKey, rows);
         setItems(rows);
         setLoading(false);
       }
@@ -39,7 +52,7 @@ export function useTaxonomyChildren(
     return () => { active = false; };
     // `key` is the stable serialized form; the object is rebuilt by screens.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, rank, key]);
+  }, [cacheKey, db, rank]);
 
   return { items, loading };
 }

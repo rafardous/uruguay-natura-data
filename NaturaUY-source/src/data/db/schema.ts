@@ -22,6 +22,9 @@ export interface SpeciesRow {
   seasonality: string | null;
   presence_certainty?: 'confirmed' | 'probable' | 'uncertain' | null;
   abundance_status: string | null;
+  knowledge_level?: 'easy' | 'medium' | 'hard';
+  abundance_category?: string | null;
+  abundance_label?: string | null;
   conservation_system?: string | null;
   conservation_source?: string | null;
   conservation_assessed_at?: string | null;
@@ -62,6 +65,14 @@ export interface SpeciesMediaRow {
   source_url: string | null;
   duration_seconds: number | null;
 }
+
+export interface SpeciesFactRow { id: string; stable_id: string; body: string; sort_order: number }
+export interface SpeciesObservabilityRow {
+  stable_id: string; method_version: string; period_start: string; period_end: string;
+  occurrence_count: number; occupied_cells: number; years_observed: number; score: number;
+  band: 'high' | 'medium' | 'low' | 'insufficient_data'; comparison_class: string;
+}
+export interface SpeciesGameRuleRow { stable_id: string; game_key: string; enabled: number; min_knowledge_level: 'easy' | 'medium' | 'hard' | null }
 
 /**
  * The read-only catalogue. A verified remote database is staged in a separate
@@ -132,5 +143,51 @@ export const USER_MIGRATIONS: string[] = [
      played_at INTEGER NOT NULL,
      updated_at INTEGER NOT NULL,
      PRIMARY KEY (scope, grid_size)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_favorites (
+     owner_id TEXT NOT NULL,
+     codigo TEXT NOT NULL,
+     created_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, codigo)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_favorite_sync (
+     owner_id TEXT NOT NULL,
+     codigo TEXT NOT NULL,
+     is_favorite INTEGER NOT NULL CHECK (is_favorite IN (0, 1)),
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, codigo)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_quiz_records (
+     owner_id TEXT NOT NULL,
+     mode TEXT NOT NULL,
+     scope TEXT NOT NULL,
+     best_score INTEGER NOT NULL DEFAULT 0,
+     best_streak INTEGER NOT NULL DEFAULT 0,
+     played_at INTEGER,
+     PRIMARY KEY (owner_id, mode, scope)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_quiz_sync (
+     owner_id TEXT NOT NULL,
+     mode TEXT NOT NULL,
+     scope TEXT NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, mode, scope)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_game_sync (
+     owner_id TEXT NOT NULL,
+     mode TEXT NOT NULL,
+     scope TEXT NOT NULL,
+     pending_games INTEGER NOT NULL DEFAULT 0,
+     PRIMARY KEY (owner_id, mode, scope)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_puzzle_records (
+     owner_id TEXT NOT NULL,
+     scope TEXT NOT NULL,
+     grid_size INTEGER NOT NULL CHECK (grid_size IN (3,4)),
+     best_time_ms INTEGER NOT NULL,
+     fewest_moves INTEGER NOT NULL,
+     played_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, scope, grid_size)
    );`,
 ];

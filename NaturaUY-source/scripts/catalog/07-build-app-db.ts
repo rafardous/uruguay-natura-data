@@ -14,7 +14,8 @@ import { PATHS, readJson } from './lib';
 const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 6;
+const SCHEMA_VERSION = 8;
+const DATA_VERSION = 1;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -115,7 +116,9 @@ CREATE TABLE species (
   container_dark TEXT NOT NULL, on_container_dark TEXT NOT NULL,
   origin TEXT, establishment TEXT, seasonality TEXT, presence_certainty TEXT, abundance_status TEXT,
   habitat TEXT NOT NULL, diet TEXT NOT NULL, relevant_note TEXT,
-  sources TEXT NOT NULL
+  sources TEXT NOT NULL,
+  knowledge_level TEXT NOT NULL DEFAULT 'hard' CHECK(knowledge_level IN ('easy','medium','hard')),
+  abundance_category TEXT, abundance_label TEXT
 );
 CREATE INDEX idx_species_clase ON species(clase);
 CREATE INDEX idx_species_phylum ON species(phylum);
@@ -140,6 +143,34 @@ CREATE TABLE species_media (
   duration_seconds REAL
 );
 CREATE INDEX idx_species_media_species ON species_media(stable_id, media_type, ordinal);
+CREATE TABLE species_observability (
+  stable_id TEXT PRIMARY KEY REFERENCES species(stable_id), method_version TEXT NOT NULL,
+  period_start TEXT NOT NULL, period_end TEXT NOT NULL, occurrence_count INTEGER NOT NULL,
+  occupied_cells INTEGER NOT NULL, years_observed INTEGER NOT NULL, score REAL NOT NULL,
+  band TEXT NOT NULL, comparison_class TEXT NOT NULL
+);
+CREATE TABLE species_facts (
+  id TEXT PRIMARY KEY, stable_id TEXT NOT NULL REFERENCES species(stable_id), body TEXT NOT NULL, sort_order INTEGER NOT NULL
+);
+CREATE INDEX idx_species_facts_species ON species_facts(stable_id, sort_order);
+CREATE TABLE species_game_rules (
+  stable_id TEXT NOT NULL REFERENCES species(stable_id), game_key TEXT NOT NULL, enabled INTEGER NOT NULL,
+  min_knowledge_level TEXT, PRIMARY KEY(stable_id, game_key)
+);
+CREATE TABLE taxon_content (
+  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('order','family')),
+  kingdom TEXT NOT NULL, phylum TEXT NOT NULL, class_name TEXT NOT NULL, taxon_name TEXT NOT NULL,
+  language TEXT NOT NULL, description TEXT NOT NULL, source_code TEXT NOT NULL,
+  UNIQUE(taxon_rank,class_name,taxon_name,language)
+);
+CREATE INDEX idx_taxon_content_lookup ON taxon_content(class_name,taxon_rank,taxon_name);
+CREATE TABLE trivia_questions (
+  id TEXT PRIMARY KEY, stable_id TEXT REFERENCES species(stable_id), prompt TEXT NOT NULL, explanation TEXT, source_id TEXT NOT NULL,
+  image_url TEXT, image_attribution TEXT, image_license TEXT
+);
+CREATE TABLE trivia_options (
+  id TEXT PRIMARY KEY, question_id TEXT NOT NULL REFERENCES trivia_questions(id), body TEXT NOT NULL, is_correct INTEGER NOT NULL, sort_order INTEGER NOT NULL
+);
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
 `;
 
@@ -220,8 +251,9 @@ function main(): void {
     image_url, full_url, thumb_asset, audio_url,
     image_license, image_attribution, image_source, image_page,
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
-    origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources
-  ) VALUES (${Array.from({ length: 46 }, () => '?').join(', ')})`);
+    origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources,
+    knowledge_level, abundance_category, abundance_label
+  ) VALUES (${Array.from({ length: 49 }, () => '?').join(', ')})`);
 
   const usedCodes = new Set<string>();
   let existingCodes = 0;
@@ -279,8 +311,28 @@ function main(): void {
         palette.container_dark, palette.on_container_dark,
         origin, 'uncertain', first(rows, (row) => row.seasonality), 'uncertain', abundance,
         JSON.stringify(habitat), JSON.stringify(diet), first(rows, (row) => row.relevantNote),
-        JSON.stringify(sources),
+        JSON.stringify(sources), 'hard', null, abundance,
       );
+    }
+    const taxonomyDirectory = resolve(PATHS.catalog, '../taxonomy');
+    const orderContentFiles = readdirSync(taxonomyDirectory).filter((file) => file.endsWith('.json')).sort();
+    const insertTaxon = db.prepare('INSERT INTO taxon_content VALUES (?,?,?,?,?,?,?,?,?)');
+    for (const file of orderContentFiles) {
+      const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; items:Array<{name:string;description:string}> }>(resolve(taxonomyDirectory, file));
+      if (content.rank !== 'order') continue;
+      for (const item of content.items) {
+        insertTaxon.run(
+          `${content.taxonomicClass.toLocaleLowerCase()}-order-${item.name.toLocaleLowerCase()}`,
+          'order','Animalia','Chordata',content.taxonomicClass,item.name,content.language,item.description,content.source.code,
+        );
+      }
+    }
+    const trivia = readJson<{sourceCode:string;questions:Array<{id:string;prompt:string;explanation:string;options:string[];correctIndex:number}>}>(resolve(PATHS.catalog, '../trivia/demo.json'));
+    const insertTrivia = db.prepare('INSERT INTO trivia_questions VALUES (?,?,?,?,?,?,?,?)');
+    const insertOption = db.prepare('INSERT INTO trivia_options VALUES (?,?,?,?,?)');
+    for (const question of trivia.questions) {
+      insertTrivia.run(question.id,null,question.prompt,question.explanation,trivia.sourceCode,null,null,null);
+      question.options.forEach((body,index)=>insertOption.run(`${question.id}-${index}`,question.id,body,index===question.correctIndex?1:0,index));
     }
     db.exec(`
       INSERT INTO species_fts (rowid, common_names, scientific_name, familia, genero)
@@ -289,7 +341,7 @@ function main(): void {
     `);
     const meta = db.prepare('INSERT INTO meta (key, value) VALUES (?, ?)');
     meta.run('schema_version', String(SCHEMA_VERSION));
-    meta.run('data_version', '0');
+    meta.run('data_version', String(DATA_VERSION));
     meta.run('built_at', new Date().toISOString());
     meta.run('source', 'data/catalog/*.json');
     meta.run('catalog_record_count', String(input.length));

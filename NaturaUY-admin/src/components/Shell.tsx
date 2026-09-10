@@ -1,4 +1,4 @@
-import { FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Settings, Users } from 'lucide-react';
+import { BookOpenText, FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Settings, Users } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 
 import { useAuth } from '../auth/AuthProvider';
@@ -10,6 +10,7 @@ const items: Array<{ path: string; label: string; icon: typeof Leaf; admin?: boo
   { path: '/', label: 'Resumen', icon: LayoutDashboard },
   { path: '/species', label: 'Especies', icon: Leaf },
   { path: '/reviews', label: 'Revisiones', icon: FileCheck2, badge: 'pendingReviews' },
+  { path: '/content', label: 'Contenido y juegos', icon: BookOpenText, badge: 'pendingContent' },
   { path: '/media', label: 'Medios', icon: Image },
   { path: '/releases', label: 'Publicaciones', icon: FileClock },
   { path: '/reports', label: 'Reportes', icon: MessageSquareWarning, badge: 'openReports' },
@@ -18,7 +19,7 @@ const items: Array<{ path: string; label: string; icon: typeof Leaf; admin?: boo
 
 export function Shell({ path, children }: { path: string; children: ReactNode }): React.JSX.Element {
   const { profile, signOut } = useAuth();
-  const [counts, setCounts] = useState<NavigationCounts>({ pendingReviews: 0, openReports: 0 });
+  const [counts, setCounts] = useState<NavigationCounts>({ pendingReviews: 0, pendingContent: 0, openReports: 0 });
   useEffect(() => { void getNavigationCounts().then(setCounts).catch(() => undefined); }, [path]);
   return (
     <div className="app-shell">

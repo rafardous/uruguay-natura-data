@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "taxonomicClass": "Reptilia",
+  "rank": "order",
+  "language": "es-UY",
+  "source": {
+    "code": "natura_uy_editorial",
+    "name": "Síntesis editorial Natura UY",
+    "taxonomyReference": "https://reptile-database.reptarium.cz/",
+    "license": "CC BY 4.0"
+  },
+  "items": [
+    {
+      "name": "Crocodylia",
+      "description": "Reptiles semiacuáticos de cuerpo robusto, hocico alargado, mandíbulas potentes y piel reforzada por placas. Los ojos y las narinas elevados les permiten vigilar y respirar con gran parte del cuerpo sumergida."
+    },
+    {
+      "name": "Squamata",
+      "description": "Reptiles de piel cubierta por escamas que mudan periódicamente. Presentan un cráneo relativamente móvil y una enorme diversidad de formas y modos de desplazamiento; el orden reúne linajes con patas, sin patas y excavadores."
+    },
+    {
+      "name": "Testudines",
+      "description": "Reptiles cuyo tronco está protegido por un caparazón formado por espaldar y plastrón, integrado al esqueleto. Carecen de dientes y cortan el alimento con un pico córneo."
+    }
+  ]
+}

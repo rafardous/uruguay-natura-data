@@ -10,6 +10,7 @@ describe('navigation policy', () => {
 
   test('hides it on immersive and reporting routes', () => {
     expect(shouldShowNavigation('/game/identify')).toBe(false);
+    expect(shouldShowNavigation('/learn')).toBe(false);
     expect(shouldShowNavigation('/report')).toBe(false);
     expect(shouldShowNavigation('/species/O_bezoarti')).toBe(false);
   });

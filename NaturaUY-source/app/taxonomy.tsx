@@ -14,10 +14,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
+import { Image as ExpoImage } from 'expo-image';
 
 import type { Species } from '../src/domain/entities/species';
 import {
+  speciesRepository,
   TAXON_RANKS,
   UNASSIGNED_TAXON,
   type SpeciesFilters,
@@ -25,6 +28,7 @@ import {
   type TaxonomyPath,
 } from '../src/data/repositories/speciesRepository';
 import { CARD_HEIGHT, SpeciesCard, SpeciesCardSkeleton } from '../src/presentation/components/SpeciesCard';
+import { Skeleton } from '../src/presentation/components/Skeleton';
 import { FamilyGlyph } from '../src/presentation/components/FamilyGlyph';
 import { BackIcon, ChevronRightIcon, TaxonomyIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
@@ -39,6 +43,7 @@ import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
 const TAXONOMY = { main: '#8A641B', pale: '#F1E3B9', text: '#293832' };
+const loadedOrderImages = new Set<string>();
 
 const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt: string }> = {
   phylum: { singular: 'Filo', plural: 'filos', prompt: 'Elegí un filo' },
@@ -78,6 +83,20 @@ function ClassIllustration({ clase, visual }: { clase: string; visual: ClassVisu
       onError={() => setFailed(true)}
       accessibilityLabel={visual.imageAccessibilityLabel}
     />
+  );
+}
+
+function OrderIllustration({ uri, name, clase }: { uri: string | null; name: string; clase: string }): React.JSX.Element {
+  const { colors, radius } = useTheme();
+  const [loading, setLoading] = useState(Boolean(uri) && !loadedOrderImages.has(uri!));
+  const [failed, setFailed] = useState(false);
+  useEffect(() => { setLoading(Boolean(uri) && !loadedOrderImages.has(uri!)); setFailed(false); }, [uri]);
+  if (!uri || failed) return <View style={[styles.orderImage, styles.illustrationFallback, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}><FamilyGlyph clase={clase} color={colors.onPrimaryContainer} size={38} opacity={.9} /></View>;
+  return (
+    <View style={[styles.orderImage, { borderRadius: radius.md, backgroundColor: colors.surfaceVariant }]}>
+      {loading && <View style={StyleSheet.absoluteFill}><Skeleton height={118} radius={radius.md} /></View>}
+      <ExpoImage source={{ uri }} contentFit="cover" cachePolicy="memory-disk" onLoad={() => { loadedOrderImages.add(uri); setLoading(false); }} onError={() => setFailed(true)} style={StyleSheet.absoluteFill} accessibilityLabel={`Imagen ilustrativa: ${name}`} />
+    </View>
   );
 }
 
@@ -157,6 +176,7 @@ function SpeciesResults({ path }: { path: TaxonomyPath }): React.JSX.Element {
 }
 
 export default function TaxonomyScreen(): React.JSX.Element {
+  const db = useSQLiteContext();
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -172,6 +192,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
   const currentRank = TAXON_RANKS.find((rank) => path[rank] === undefined) ?? null;
   const { items, loading } = useTaxonomyChildren(currentRank, path);
+  const [selectedOrderDescription, setSelectedOrderDescription] = useState<string | null>(null);
   const orderedItems = useMemo(() => {
     if (currentRank !== 'clase' || path.phylum?.trim().toLocaleLowerCase() !== 'chordata') return items;
     return [...items].sort((left, right) => {
@@ -190,6 +211,18 @@ export default function TaxonomyScreen(): React.JSX.Element {
     // The serialized URL path changes only when another screen deep-links here.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paramsKey]);
+
+  useEffect(() => {
+    if (currentRank !== 'familia' || !path.clase || !path.orden || path.orden === UNASSIGNED_TAXON) {
+      setSelectedOrderDescription(null);
+      return;
+    }
+    let active = true;
+    void speciesRepository.getTaxonDescription(db, 'order', path.clase, path.orden).then((description) => {
+      if (active) setSelectedOrderDescription(description);
+    });
+    return () => { active = false; };
+  }, [currentRank, db, path.clase, path.orden]);
 
   const goBack = useCallback(() => {
     haptics.tap();
@@ -303,7 +336,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
         {currentRank === null ? (
           <SpeciesResults path={path} />
         ) : loading ? (
-          <View style={styles.loading}><ActivityIndicator color={colors.primary} /></View>
+          currentRank === 'orden' ? <View style={{ padding: spacing.lg, gap: spacing.sm }}>{Array.from({ length: 4 }, (_, index) => <Skeleton key={index} height={154} radius={radius.lg} />)}</View> : <View style={styles.loading}><ActivityIndicator color={colors.primary} /></View>
         ) : (
           <FlatList
             data={orderedItems}
@@ -313,26 +346,35 @@ export default function TaxonomyScreen(): React.JSX.Element {
             viewabilityConfig={visibleHaptics.viewabilityConfig}
             contentContainerStyle={{ padding: spacing.lg, paddingBottom: bottomInset, gap: spacing.sm }}
             ListHeaderComponent={
-              <Text style={[typography.body, { color: colors.textSecondary, marginBottom: spacing.sm }]}>
-                {items.length} {items.length === 1 ? RANK_LABELS[currentRank].singular.toLocaleLowerCase('es') : RANK_LABELS[currentRank].plural} en este nivel
-              </Text>
+              <View style={{ marginBottom: spacing.sm, gap: spacing.md }}>
+                {selectedOrderDescription && (
+                  <View style={[styles.orderDescription, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg }]}>
+                    <Text style={[typography.eyebrow, { color: TAXONOMY.main }]}>ACERCA DEL ORDEN</Text>
+                    <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>{selectedOrderDescription}</Text>
+                  </View>
+                )}
+                <Text style={[typography.body, { color: colors.textSecondary }]}>
+                  {items.length} {items.length === 1 ? RANK_LABELS[currentRank].singular.toLocaleLowerCase('es') : RANK_LABELS[currentRank].plural} en este nivel
+                </Text>
+              </View>
             }
             renderItem={({ item, index }) => {
               const isPhylum = currentRank === 'phylum';
               const isClass = currentRank === 'clase';
+              const isOrder = currentRank === 'orden';
               const visual = isClass ? classVisual(item.value) : undefined;
               const foreground = visual?.foreground ?? colors.text;
               const mutedForeground = visual?.mutedForeground ?? colors.textSecondary;
               const isChordata = isPhylum && item.value.trim().toLocaleLowerCase() === 'chordata';
               const description = isChordata
                 ? CHORDATA_DESCRIPTION
-                : visual?.description;
+                : item.description ?? visual?.description;
 
               return (
                 <MotiView
-                  from={{ opacity: 0, translateY: isClass ? 18 : 8, scale: isClass ? 0.96 : 1 }}
+                  from={{ opacity: isOrder ? 1 : 0, translateY: isOrder ? 0 : isClass ? 18 : 8, scale: isClass ? 0.96 : 1 }}
                   animate={{ opacity: 1, translateY: 0, scale: 1 }}
-                  transition={{ type: 'timing', duration: isClass ? 220 : 180, delay: Math.min(index, isClass ? 4 : 6) * (isClass ? 28 : 18) }}
+                  transition={{ type: 'timing', duration: isOrder ? 0 : isClass ? 220 : 180, delay: isOrder ? 0 : Math.min(index, isClass ? 4 : 6) * (isClass ? 28 : 18) }}
                 >
                   <Pressable
                     onPress={() => select(currentRank, item.value)}
@@ -342,6 +384,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
                       styles.taxonRow,
                       isPhylum && styles.phylumRow,
                       isClass && styles.classRow,
+                      isOrder && styles.orderRow,
                       elevation.low,
                       {
                         backgroundColor: visual ? visual.colors[0] : pressed ? colors.surfaceVariant : colors.surface,
@@ -369,13 +412,14 @@ export default function TaxonomyScreen(): React.JSX.Element {
                         <FamilyGlyph clase={item.value} color={colors.onPrimaryContainer} size={48} opacity={0.95} />
                       </View>
                     ))}
+                    {isOrder && <OrderIllustration uri={item.representativeImageUrl ?? null} name={item.representativeName ?? item.value} clase={path.clase ?? ''} />}
                     <View style={styles.flex}>
-                      <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>
+                      {!isOrder && <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>}
                       <Text style={[typography.cardTitle, styles.scientific, { color: foreground, marginTop: 4 }]}>
                         {taxonName(currentRank, item.value)}
                       </Text>
                       {description && (
-                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isClass ? 3 : isPhylum ? 4 : undefined}>
+                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isOrder ? 4 : isClass ? 3 : isPhylum ? 4 : undefined}>
                           {description}
                         </Text>
                       )}
@@ -391,7 +435,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
                         </View>
                       </View>
                     ) : (
-                      <View style={[styles.rowEnd, isClass && styles.classRowEnd]}>
+                      <View style={[styles.rowEnd, (isClass||isOrder) && styles.classRowEnd]}>
                         <View style={[styles.count, isClass && styles.classCount, { backgroundColor: visual ? 'rgba(255,255,255,.52)' : colors.primaryContainer, borderRadius: radius.pill }]}>
                           <Text style={[typography.caption, { color: visual?.foreground ?? colors.onPrimaryContainer }]}>{item.count}</Text>
                         </View>
@@ -425,6 +469,9 @@ const styles = StyleSheet.create({
   taxonRow: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
   phylumRow: { minHeight: 154, paddingVertical: 18 },
   classRow: { minHeight: 136, gap: 10, padding: 12 },
+  orderRow: { minHeight: 154, alignItems: 'stretch', gap: 12, padding: 12 },
+  orderImage: { width: 88, height: 118, alignSelf: 'center', overflow: 'hidden', position: 'relative' },
+  orderDescription: { padding: 16, borderWidth: StyleSheet.hairlineWidth },
   phylumVisual: { width: 108, alignItems: 'center', gap: 2 },
   phylumImage: { width: 96, height: 88 },
   illustrationFallback: { alignItems: 'center', justifyContent: 'center' },

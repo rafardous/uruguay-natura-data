@@ -17,15 +17,15 @@ export interface SearchBarProps {
   variant?: 'gradient' | 'surface';
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Buscar especie', onSubmit, collapseOffset, onFocusChange, onLayout, variant = 'gradient' }: SearchBarProps): React.JSX.Element {
+export function SearchBar({ value, onChange, placeholder = 'Buscar una especie', onSubmit, collapseOffset, onFocusChange, onLayout, variant = 'gradient' }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
   const [focused, setFocused] = useState(false);
   const compactStyle = useAnimatedStyle(() => {
     const offset = collapseOffset?.value ?? 0;
     return {
-      height: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [48, 40], Extrapolation.CLAMP),
+      height: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [46, 40], Extrapolation.CLAMP),
       marginHorizontal: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [0, 4], Extrapolation.CLAMP),
-      paddingHorizontal: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [14, 10], Extrapolation.CLAMP),
+      paddingHorizontal: interpolate(offset, [0, COLLAPSIBLE_HEADER_SCROLL_DISTANCE], [13, 10], Extrapolation.CLAMP),
     };
   });
 
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    height: 48,
-    paddingHorizontal: 14,
+    height: 46,
+    paddingHorizontal: 13,
     borderWidth: StyleSheet.hairlineWidth,
   },
   input: { flex: 1, padding: 0 },

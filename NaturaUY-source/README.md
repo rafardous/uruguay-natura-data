@@ -72,7 +72,13 @@ El catálogo remoto se descarga a `natura.next.db`, se valida (HTTPS, SHA-256, t
 
 ### Puzzle
 
-Desde Juegos → Puzzle podés elegir una grilla 3×3 o 4×4 y una categoría. Las piezas se recortan con SVG, funcionan con las miniaturas incluidas aun sin conexión y los mejores tiempos/movimientos se guardan offline. Al iniciar sesión se sincronizan de forma privada mediante `sync_puzzle_records`.
+Desde Juegos → Puzzle podés elegir una grilla 3×3 o 4×4, una categoría y el nivel de conocimiento de las especies. Es un puzzle deslizante: una casilla queda vacía y al tocar una ficha adyacente ésta ocupa el hueco. Las partidas se mezclan siempre con movimientos legales, funcionan con las miniaturas incluidas aun sin conexión y los mejores tiempos/movimientos se guardan offline por categoría, grilla y nivel. Al iniciar sesión se sincronizan de forma privada mediante `sync_puzzle_records` y se recuperan con `get_personal_mobile_progress`.
+
+### Dificultad, trivia y fichas enriquecidas
+
+Los juegos usan `easy`, `medium` y `hard` de manera acumulativa: medio incluye las especies fáciles y difícil puede incluirlas a todas. El nivel expresa familiaridad esperable, no dificultad taxonómica, rareza ni conservación. Identificación, Nombrar y Puzzle guardan récords separados por nivel. Trivia publica preguntas de cuatro opciones con una sola respuesta correcta; las preguntas vinculadas heredan el nivel de su especie y las generales aparecen siempre.
+
+Las fichas distinguen abundancia experta de observabilidad pública. La segunda se calcula sobre diez años completos de registros georreferenciados y muestra método/período; nunca se presenta como estimación poblacional. Cuando hay varias curiosidades aprobadas, la ficha rota una por día de forma determinista.
 
 ## Pipeline de datos
 
@@ -120,6 +126,22 @@ Luego `data:catalog-db` consolida las apariciones repetidas por especie, conserv
 los códigos históricos que reconoce y genera `assets/db/natura.db`. La última
 etapa (`data:catalog-verify`) prueba integridad, búsqueda FTS, filtros, paginado y
 la consulta del juego antes de dar el pipeline por terminado.
+
+Las descripciones editoriales de órdenes se guardan por clase en
+`data/taxonomy/*-orders.json`. El generador incorpora automáticamente todos los
+archivos con `rank: "order"` a `taxon_content`; para sumar otra clase alcanza con
+crear su JSON y publicar el contenido equivalente mediante una migración de
+Supabase. La compatibilidad de GBIF para Reptilia normaliza únicamente
+`Crocodylia`, `Squamata` y `Testudines` cuando llegan en el campo de clase.
+
+El registro de fuentes y licencias vive en `data/catalog-source-registry.json`. Para los cuatro grupos prioritarios, el flujo genera diferencias por campo y una lista explícita de posibles exclusiones; no borra ni rectifica especies automáticamente:
+
+```bash
+npm run data:enrichment-candidates
+npm run data:observability -- --batch=25
+```
+
+Los resultados quedan en `data/reports/target-group-enrichment-candidates.json` y `data/reports/observability-snapshots.json`. FishBase y cualquier fuente sin licencia redistribuible se usan sólo para revisión, nunca como contenido copiado al catálogo.
 
 Para validar una muestra pequeña antes de procesar todo el catálogo:
 

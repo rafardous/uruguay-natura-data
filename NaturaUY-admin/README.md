@@ -11,7 +11,10 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
-- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 6, incluida la galería sin binarios.
+- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 8, incluida la galería sin binarios, trivia ilustrable y descripciones de órdenes/familias.
+- `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
+- Abundancia experta (`species_abundance_assessments`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. Dificultad, reglas por juego, curiosidades y trivia tienen tablas propias y pasan por `content_changes`.
+- `/content` permite proponer y aprobar abundancia, nivel de conocimiento, datos curiosos y preguntas de cuatro opciones. La publicación sólo consume contenido aprobado.
 - El actualizador mobile valida versión, compatibilidad, tamaño, SHA-256 e integridad SQLite antes de activar la DB al siguiente inicio.
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. No se usa R2 ni un proxy de medios.
 
@@ -28,6 +31,8 @@ npm run build
 npm run typecheck:automation
 npm run catalog:import -- --dry-run
 npm run catalog:export-json
+npm run catalog:import-enrichment        # dry-run
+npm run catalog:import-enrichment -- --apply
 ```
 
 El panel requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` para funcionar. No existe un fallback de datos demo: si faltan esas variables, muestra un error de configuración. En Cloudflare Pages deben configurarse únicamente para el entorno Production; nunca colocar una `service_role` key en el frontend.

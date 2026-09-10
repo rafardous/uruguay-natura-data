@@ -21,6 +21,7 @@ import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const COVER_SPECIES_CODES = ['O_bezoarti', 'S_magellan', 'P_coronata'] as const;
+const GAME_CARD_HEIGHT = 184;
 
 const UPCOMING_GAMES = [
   { id: 'trivia', title: 'Trivia', description: 'Preguntas y curiosidades de nuestra naturaleza.', colors: ['#2F7280', '#214F65', '#283E62'] as const },
@@ -36,23 +37,26 @@ const PUZZLE_TILES = [
 ] as const;
 
 function IdentifyCover({ species, onPress }: { species: Species[]; onPress: () => void }): React.JSX.Element {
-  const { colors, radius, spacing, typography, elevation } = useTheme();
+  const { radius, spacing, typography, elevation } = useTheme();
   const photoPositions = [styles.photoLeft, styles.photoRight, styles.photoCenter];
 
   return (
     <MotiView from={{ opacity: 0, translateY: 10 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220 }}>
       <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel="Abrir Identificá la especie" style={({ pressed }) => [{ transform: [{ scale: pressed ? 0.99 : 1 }] }]}>
-        <LinearGradient colors={['#9277C7', '#7659A7', '#533D7C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.identifyCover, elevation.medium, { borderRadius: radius.xl, padding: spacing.xl }]}>
+        <LinearGradient colors={['#A95670', '#813F5E', '#5B334E']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.identifyCover, elevation.medium, { borderRadius: radius.xl, padding: spacing.lg }]}>
+          <View style={styles.identifyCopy}>
+            <Text style={[typography.eyebrow, styles.upcomingKicker]}>JUGÁ AHORA</Text>
+            <Text style={[typography.display, { color: '#FFFFFF', marginTop: 4 }]}>Identificá</Text>
+            <Text style={[typography.body, { color: 'rgba(255,255,255,0.84)', marginTop: 5 }]}>Reconocé especies uruguayas a partir de sus fotos.</Text>
+          </View>
           <View style={styles.photoFan} accessibilityElementsHidden>
             {species.slice(0, 3).map((item, index) => (
               <View key={item.codigo} style={[styles.photoFrame, photoPositions[index]]}>
-                <SpeciesImage species={item} height={116} borderRadius={17} bordered={false} glyphSize={40} />
+                <SpeciesImage species={item} height={92} borderRadius={17} bordered={false} glyphSize={40} />
                 <View style={[StyleSheet.absoluteFill, styles.photoBorder, { borderRadius: 17 }]} pointerEvents="none" />
               </View>
             ))}
           </View>
-          <Text style={[typography.display, { color: colors.onPlay, marginTop: spacing.sm }]}>Identificá la especie</Text>
-          <Text style={[typography.body, { color: 'rgba(255,255,255,0.82)', marginTop: 4 }]}>Reconocé especies uruguayas a partir de sus fotos.</Text>
         </LinearGradient>
       </Pressable>
     </MotiView>
@@ -113,10 +117,10 @@ function UpcomingCover({ game, species, index, onPress }: { game: (typeof UPCOMI
   const { radius, spacing, typography, elevation } = useTheme();
   return (
     <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220, delay: 50 + index * 45 }}>
-      <Pressable onPress={onPress} disabled={!onPress} accessibilityRole="button" accessibilityState={{ disabled: !onPress }} accessibilityLabel={game.id === 'puzzle' ? 'Abrir Puzzle' : `${game.title}, próximamente`}>
+      <Pressable onPress={onPress} disabled={!onPress} accessibilityRole="button" accessibilityState={{ disabled: !onPress }} accessibilityLabel={onPress ? `Abrir ${game.title}` : `${game.title}, próximamente`}>
         <LinearGradient colors={[...game.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.upcomingCover, elevation.low, { borderRadius: radius.xl, padding: spacing.lg }]}>
           <View style={styles.upcomingCopy}>
-            <Text style={[typography.eyebrow, styles.upcomingKicker]}>{game.id === 'puzzle' ? 'JUGÁ AHORA' : 'PRÓXIMAMENTE'}</Text>
+            <Text style={[typography.eyebrow, styles.upcomingKicker]}>{onPress ? 'JUGÁ AHORA' : 'PRÓXIMAMENTE'}</Text>
             <Text style={[typography.display, styles.upcomingTitle]}>{game.title}</Text>
             <Text style={[typography.body, styles.upcomingDescription]}>{game.description}</Text>
           </View>
@@ -164,7 +168,7 @@ export default function GamesScreen(): React.JSX.Element {
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
-          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : undefined} />)}
+          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : game.id === 'trivia' ? () => { haptics.press(); router.push('/game/trivia-setup' as never); } : () => { haptics.press(); router.push('/game/classify' as never); }} />)}
         </View>
       </Animated.ScrollView>
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -177,14 +181,15 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   menuButton: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   recordsButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 13, height: 42 },
-  identifyCover: { minHeight: 244, overflow: 'hidden' },
-  photoFan: { height: 126, width: 244, alignSelf: 'center', position: 'relative' },
-  photoFrame: { position: 'absolute', top: 6, width: 96, height: 104, overflow: 'hidden', backgroundColor: '#EEE8D5' },
-  photoLeft: { left: 10, transform: [{ rotate: '-7deg' }, { translateY: 9 }], zIndex: 1, borderRadius: 18 },
-  photoRight: { right: 10, transform: [{ rotate: '7deg' }, { translateY: 9 }], zIndex: 1, borderRadius: 18 },
-  photoCenter: { left: 71, top: 0, zIndex: 3, borderRadius: 18 },
+  identifyCover: { height: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
+  identifyCopy: { flex: 1, maxWidth: '58%', zIndex: 2 },
+  photoFan: { height: 132, width: 130, position: 'relative' },
+  photoFrame: { position: 'absolute', top: 12, width: 67, height: 92, overflow: 'hidden', backgroundColor: '#EEE8D5' },
+  photoLeft: { left: 0, transform: [{ rotate: '-8deg' }, { translateY: 13 }], zIndex: 1, borderRadius: 15 },
+  photoRight: { right: 0, transform: [{ rotate: '8deg' }, { translateY: 13 }], zIndex: 1, borderRadius: 15 },
+  photoCenter: { left: 32, top: 2, zIndex: 3, borderRadius: 15 },
   photoBorder: { borderWidth: 2, borderColor: 'rgba(255,255,255,0.78)' },
-  upcomingCover: { minHeight: 180, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
+  upcomingCover: { height: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
   upcomingCopy: { flex: 1, maxWidth: '59%', zIndex: 2 },
   upcomingKicker: { color: 'rgba(255,255,255,0.72)' },
   upcomingTitle: { color: '#FFFFFF', marginTop: 4 },

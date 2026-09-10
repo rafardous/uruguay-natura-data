@@ -70,10 +70,11 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 1. No editar `natura.db` a mano. Se genera y se valida desde datos editoriales.
 2. El ID UUID de Natura UY y `catalog_code` son estables; no romper favoritos, navegación ni enlaces al rectificar taxonomía.
 3. Una edición crea una revisión nueva. Nunca sobrescribir ni borrar revisiones ni especies físicamente.
-4. `abundanceStatus` no es conservación. Conservar separados abundancia, conservación, origen, establecimiento, estacionalidad y certeza.
-5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie.
+4. `abundanceStatus` no es conservación. Conservar separados abundancia, conservación, origen, establecimiento, estacionalidad y certeza. La abundancia experta y la observabilidad automática también permanecen separadas; observabilidad no es una estimación poblacional.
+5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie. Los candidatos automáticos de enriquecimiento nunca se publican sin aprobación humana. Fuentes `review_only` no pueden alimentar texto redistribuido.
 6. Favoritos, preferencias y juegos tienen fuente offline en `user.db`; nunca se mezclan con `natura.db`. Si hay cuenta Google, se sincronizan con Supabase sin volver al backend un requisito de arranque.
-   El Puzzle usa `puzzle_records` por categoría y dificultad (3/4), con mínimos independientes y sincronización privada mediante `sync_puzzle_records(jsonb)`.
+   El Puzzle deslizante usa `puzzle_records` por categoría y dificultad (3/4), con mínimos independientes, sincronización privada mediante `sync_puzzle_records(jsonb)` y recuperación por cuenta mediante `get_personal_mobile_progress()`.
+   El catálogo esquema 8 define `knowledge_level` acumulativo (`easy ⊂ medium ⊂ hard`), reglas por juego, curiosidades, observabilidad, trivia con imagen opcional y contenido editorial para órdenes/familias; los récords incorporan el nivel además de categoría y, en Puzzle, grilla.
 7. Cada medio nuevo debe registrar autoría y derechos. Sólo aceptar CC0, CC BY 4.0 o autorización verificable; las licencias heredadas se preservan como históricas.
 8. Los medios procesados se verifican en Supabase Storage antes de eliminar el original temporal. Si en el futuro se configura R2, también se verifica allí. Las URLs públicas siguen `/m/{assetId}/{variant}`.
 9. Las imágenes definitivas usan lado mayor de 1600 px y miniatura de 480 px. Los audios definitivos duran como máximo 15 s, son mono, MP3 96 kbps y 48 kHz.

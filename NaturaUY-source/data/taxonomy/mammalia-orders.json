@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "taxonomicClass": "Mammalia",
+  "rank": "order",
+  "language": "es-UY",
+  "source": {
+    "code": "natura_uy_editorial",
+    "name": "Síntesis editorial Natura UY",
+    "taxonomyReference": "https://www.mammaldiversity.org/order/",
+    "license": "CC BY 4.0"
+  },
+  "items": [
+    {
+      "name": "Artiodactyla",
+      "description": "Mamíferos ungulados cuyo peso se apoya principalmente sobre dos dedos centrales. La mayoría es herbívora y presenta distintas adaptaciones digestivas para aprovechar materiales vegetales."
+    },
+    {
+      "name": "Carnivora",
+      "description": "Mamíferos con caninos desarrollados y dientes carniceros adaptados para cortar, además de mandíbulas fuertes. Incluye formas terrestres y acuáticas, con dietas que no siempre son exclusivamente carnívoras."
+    },
+    {
+      "name": "Cetacea",
+      "description": "Mamíferos completamente acuáticos, de cuerpo hidrodinámico, miembros anteriores transformados en aletas y orificios respiratorios en la parte superior de la cabeza. Dependen especialmente del sonido para comunicarse, orientarse o localizar alimento."
+    },
+    {
+      "name": "Chiroptera",
+      "description": "Únicos mamíferos capaces de vuelo activo. Sus alas son membranas sostenidas principalmente por dedos muy alargados; muchas especies utilizan ecolocalización para orientarse y encontrar alimento."
+    },
+    {
+      "name": "Cingulata",
+      "description": "Mamíferos con una coraza de placas óseas dérmicas cubierta por escudos córneos. Poseen extremidades robustas y garras fuertes, adecuadas para excavar, y un hocico generalmente alargado."
+    },
+    {
+      "name": "Didelphimorphia",
+      "description": "Marsupiales americanos de gestación breve, cuyas crías nacen muy poco desarrolladas y completan gran parte de su crecimiento prendidas a las mamas. El marsupio puede estar bien formado, ser reducido o faltar."
+    },
+    {
+      "name": "Lagomorpha",
+      "description": "Mamíferos herbívoros con dos pares de incisivos superiores y dientes de crecimiento continuo. Su aparato digestivo aprovecha la vegetación mediante fermentación en el ciego y reingestión de cecotrofos."
+    },
+    {
+      "name": "Pilosa",
+      "description": "Mamíferos con garras grandes y curvas, metabolismo relativamente bajo y dentición reducida o ausente según el linaje. Sus cuerpos están adaptados para trepar, excavar o acceder a alimentos muy especializados."
+    },
+    {
+      "name": "Rodentia",
+      "description": "Mamíferos con un único par de incisivos superiores y otro inferior que crecen durante toda la vida. El esmalte más duro en la cara frontal mantiene un borde cortante al roer."
+    }
+  ]
+}

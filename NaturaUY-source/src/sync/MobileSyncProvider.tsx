@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { useMobileAuth } from '../auth/MobileAuthProvider';
 import { useUserDatabase } from '../data/db/UserDatabaseProvider';
 import { mobileSyncRepository } from '../data/repositories/mobileSyncRepository';
+import { activateLocalAccount } from '../data/repositories/accountDataRepository';
 
 type SyncStatus = 'guest' | 'idle' | 'syncing' | 'error';
 
@@ -18,13 +19,14 @@ const MobileSyncContext = createContext<MobileSyncContextValue | null>(null);
 export function MobileSyncProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const db = useUserDatabase();
   const { session } = useMobileAuth();
+  const ownerId = session?.user.id ?? null;
   const [status, setStatus] = useState<SyncStatus>(session ? 'idle' : 'guest');
   const [revision, setRevision] = useState(0);
   const running = useRef<Promise<void> | null>(null);
   const queued = useRef(false);
 
   const requestSync = useCallback(async () => {
-    if (!session) {
+    if (!ownerId) {
       setStatus('guest');
       return;
     }
@@ -40,6 +42,8 @@ export function MobileSyncProvider({ children }: { children: ReactNode }): React
           queued.current = false;
           setStatus('syncing');
           try {
+            const accountChanged = await activateLocalAccount(db, ownerId);
+            if (accountChanged) setRevision((current) => current + 1);
             await mobileSyncRepository.sync(db);
             setRevision((current) => current + 1);
             setStatus('idle');
@@ -48,17 +52,17 @@ export function MobileSyncProvider({ children }: { children: ReactNode }): React
             console.warn('No se pudo sincronizar user.db; se reintentará más adelante.', error);
             setStatus('error');
           }
-        } while (queued.current && session);
+        } while (queued.current && ownerId);
       } finally {
         running.current = null;
       }
     })();
     running.current = task;
     return task;
-  }, [db, session]);
+  }, [db, ownerId]);
 
   useEffect(() => {
-    if (!session) {
+    if (!ownerId) {
       setStatus('guest');
       return;
     }
@@ -67,7 +71,7 @@ export function MobileSyncProvider({ children }: { children: ReactNode }): React
       if (state === 'active') void requestSync();
     });
     return () => subscription.remove();
-  }, [requestSync, session]);
+  }, [ownerId, requestSync]);
 
   const value = useMemo(() => ({ status, revision, requestSync }), [requestSync, revision, status]);
   return <MobileSyncContext.Provider value={value}>{children}</MobileSyncContext.Provider>;

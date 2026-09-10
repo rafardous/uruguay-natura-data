@@ -1,4 +1,4 @@
-import { compareVersions, decideCatalogUpdate } from '../catalogUpdatePolicy';
+import { compareVersions, decideCatalogUpdate, shouldActivateBundledCatalog } from '../catalogUpdatePolicy';
 
 describe('catalog update policy', () => {
   test('skips the same or an older data release', () => {
@@ -18,5 +18,12 @@ describe('catalog update policy', () => {
   test('compares semantic numeric segments', () => {
     expect(compareVersions('1.10.0', '1.9.9')).toBeGreaterThan(0);
     expect(compareVersions('2.0', '2.0.0')).toBe(0);
+  });
+
+  test('activates a bundled schema upgrade even when the data release number is unchanged', () => {
+    expect(shouldActivateBundledCatalog({ dataVersion: 8, schemaVersion: 7 }, { dataVersion: 8, schemaVersion: 8 })).toBe(true);
+    expect(shouldActivateBundledCatalog({ dataVersion: 9, schemaVersion: 7 }, { dataVersion: 8, schemaVersion: 8 })).toBe(true);
+    expect(shouldActivateBundledCatalog({ dataVersion: 8, schemaVersion: 8 }, { dataVersion: 8, schemaVersion: 8 })).toBe(false);
+    expect(shouldActivateBundledCatalog({ dataVersion: 8, schemaVersion: 8 }, { dataVersion: 9, schemaVersion: 8 })).toBe(true);
   });
 });

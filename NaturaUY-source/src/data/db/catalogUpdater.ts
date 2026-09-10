@@ -5,14 +5,14 @@ import { defaultDatabaseDirectory, importDatabaseFromAssetAsync, openDatabaseAsy
 
 import { CATALOG_DATABASE_NAME } from './schema';
 import { OWNED_DATABASE_OPTIONS } from './sqliteOpenOptions';
-import { decideCatalogUpdate } from './catalogUpdatePolicy';
+import { decideCatalogUpdate, shouldActivateBundledCatalog } from './catalogUpdatePolicy';
 import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from './catalogUpdateValidation';
 import { assertCatalogManifest, type CatalogManifestContract } from './catalogManifestValidation';
 
 const STAGED_DATABASE_NAME = 'natura.next.db';
 const PREVIOUS_DATABASE_NAME = 'natura.previous.db';
 const BUNDLED_DATABASE_NAME = 'natura.bundled.db';
-export const SUPPORTED_CATALOG_SCHEMA = 6;
+export const SUPPORTED_CATALOG_SCHEMA = 8;
 
 export type CatalogManifest = CatalogManifestContract;
 export { assertCatalogManifest } from './catalogManifestValidation';
@@ -92,7 +92,7 @@ export async function prepareCatalogDatabase(assetId: number): Promise<void> {
   // the startup crash observed on Android 17 / Pixel 9 Pro XL.
   const installed = await readMeta(CATALOG_DATABASE_NAME);
   const bundled = await readMeta(BUNDLED_DATABASE_NAME);
-  if (bundled.dataVersion > installed.dataVersion) await atomicReplace(BUNDLED_DATABASE_NAME);
+  if (shouldActivateBundledCatalog(installed, bundled)) await atomicReplace(BUNDLED_DATABASE_NAME);
   else { const bundledFile = databaseFile(BUNDLED_DATABASE_NAME); if (bundledFile.exists) bundledFile.delete(); }
 }
 

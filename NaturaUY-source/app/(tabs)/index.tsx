@@ -51,12 +51,14 @@ function LargeSpeciesCard({
   onPress,
   kicker,
   active,
+  rounded = false,
 }: {
   species: Species;
   width: number;
   onPress: (codigo: string) => void;
   kicker?: string;
   active: boolean;
+  rounded?: boolean;
 }): React.JSX.Element {
   const { radius, spacing, typography, elevation, colors } = useTheme();
 
@@ -75,8 +77,8 @@ function LargeSpeciesCard({
           width,
           height: CARD_HEIGHT,
           backgroundColor: colors.surface,
-          borderRadius: radius.xl,
-          transform: [{ scale: pressed ? 0.99 : 1 }],
+          borderRadius: rounded ? radius.xl : 0,
+          transform: [{ scale: pressed ? 0.995 : 1 }],
         },
       ]}
     >
@@ -108,9 +110,9 @@ function LargeSpeciesCard({
 }
 
 function MetricCard({ value, width, backgroundSpecies }: { value: number | null; width: number; backgroundSpecies?: Species | null }): React.JSX.Element {
-  const { radius, spacing, typography, elevation } = useTheme();
+  const { spacing, typography, elevation } = useTheme();
   return (
-    <View style={[styles.metricCard, elevation.low, { width, height: CARD_HEIGHT, backgroundColor: '#53664F', borderRadius: radius.xl, padding: spacing.xl }]} accessibilityLabel={value === null ? 'Especies registradas, cargando' : `${value} especies registradas`}>
+    <View style={[styles.metricCard, elevation.low, { width, height: CARD_HEIGHT, backgroundColor: '#53664F', padding: spacing.xl }]} accessibilityLabel={value === null ? 'Especies registradas, cargando' : `${value} especies registradas`}>
       {backgroundSpecies?.photo?.url && <Image source={{ uri: backgroundSpecies.photo.url }} contentFit="cover" blurRadius={9} style={StyleSheet.absoluteFill} />}
       <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.metricScrim]} />
       <Text style={[typography.eyebrow, { color: '#FFF9EA' }]}>EL CATÁLOGO CRECE</Text>
@@ -144,9 +146,10 @@ function SpeciesCarousel({
         data={slides}
         loop
         autoplay={slides.length > 1}
-        autoplayInterval={3600}
-        scrollAnimationDuration={250}
-        layout={{ type: 'parallax', scale: 0.92, offset: 48 }}
+        autoplayInterval={6200}
+        scrollAnimationDuration={720}
+        pagingEnabled
+        snapEnabled
         onSnapToItem={setActiveIndex}
         renderItem={({ item, index }: { item: CarouselSlide; index: number }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} active={index === activeIndex} />}
       />
@@ -212,8 +215,8 @@ export default function HomeScreen(): React.JSX.Element {
   const submitSearch = useCallback(() => {
     const search = query.trim();
     setSearchFocused(false);
-    if (search) router.push({ pathname: '/explore', params: { q: search } });
-    else router.push('/explore');
+    if (search) router.push({ pathname: '/species', params: { q: search } });
+    else router.push('/species');
   }, [query, router]);
 
   const handleSearchFocusChange = useCallback((focused: boolean) => {
@@ -456,11 +459,11 @@ export default function HomeScreen(): React.JSX.Element {
 
         <View style={{ marginTop: spacing.xl }}>
           <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ NATURA UY</Text>
-          <View style={{ marginHorizontal: -spacing.lg }}>
+          <View>
             {spotlightSpecies.length > 0 && total !== null ? (
               <SpeciesCarousel slides={carouselSlides} width={windowWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
             ) : (
-              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
+              <Skeleton width="100%" height={CARD_HEIGHT} radius={0} />
             )}
           </View>
         </View>
@@ -474,7 +477,7 @@ export default function HomeScreen(): React.JSX.Element {
           <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ESPECIE DEL DÍA</Text>
           <View style={{ marginTop: spacing.md }}>
             {dailySpecies ? (
-              <LargeSpeciesCard species={dailySpecies} width={cardWidth} onPress={openSpecies} active={false} />
+              <LargeSpeciesCard species={dailySpecies} width={cardWidth} onPress={openSpecies} active={false} rounded />
             ) : <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />}
           </View>
         </MotiView>

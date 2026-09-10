@@ -1,4 +1,4 @@
-import type { QuizMode, QuizScope } from '../domain/entities/quiz';
+import type { KnowledgeLevel, QuizMode, QuizScope } from '../domain/entities/quiz';
 import { Platform } from 'react-native';
 import { mobileSupabase } from './supabase';
 
@@ -21,11 +21,11 @@ export async function getMostFavoritedSpecies(limit = 1): Promise<string[]> {
     .filter(Boolean);
 }
 
-export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope): Promise<LeaderboardEntry[]> {
+export async function getQuizLeaderboard(mode: QuizMode, scope: QuizScope, knowledgeLevel: KnowledgeLevel = 'hard'): Promise<LeaderboardEntry[]> {
   if (!mobileSupabase) return [];
   const { data, error } = await mobileSupabase.rpc('get_game_leaderboard', {
     p_mode_arg: mode,
-    p_scope_arg: scope,
+    p_scope_arg: `${scope}:${knowledgeLevel}`,
     p_limit: 50,
   });
   if (error) throw error;

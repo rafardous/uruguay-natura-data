@@ -244,19 +244,22 @@ export const NAV_ISLAND_HEIGHT = 62;
 export const NAV_ISLAND_MARGIN = 14;
 
 /** Shared geometry excluding the device safe-area inset, which is added at runtime. */
-export const COLLAPSIBLE_HEADER_EXPANDED = 164;
-export const COLLAPSIBLE_HEADER_COLLAPSED = 64;
+export const COLLAPSIBLE_HEADER_EXPANDED = 144;
+// Keep the compact chrome comfortably taller than the 48 px menu/account
+// targets. This leaves a small breathing band around the search field instead
+// of making it look pinned against the collapsed header edges.
+export const COLLAPSIBLE_HEADER_COLLAPSED = 68;
 export const COLLAPSIBLE_HEADER_SCROLL_DISTANCE = COLLAPSIBLE_HEADER_EXPANDED - COLLAPSIBLE_HEADER_COLLAPSED;
 
 /**
- * Fraunces carries the app's headline moments (Fraunces_600SemiBold is a
- * single loaded weight, so no `fontWeight` alongside it — Android won't
- * synthesize a heavier weight for a custom font file and will just distort
- * it). Body, label, caption and eyebrow stay on the platform system font:
- * it's already legible and neutral, and keeping them off a custom family
- * sidesteps having to load separate italic font files for scientific names.
+ * Manrope unifica toda la interfaz con una voz contemporánea, cálida y muy
+ * legible. Los pesos explícitos conservan una jerarquía clara en Android sin
+ * mezclar estilos editoriales con el contenido de catálogo.
  */
-const HEADLINE_FONT = 'Fraunces_600SemiBold';
+const HEADLINE_FONT = 'Manrope_700Bold';
+const BODY_FONT = 'Manrope_400Regular';
+const LABEL_FONT = 'Manrope_600SemiBold';
+const EMPHASIS_FONT = 'Manrope_700Bold';
 
 export const typography = {
   /**
@@ -264,15 +267,15 @@ export const typography = {
    * than the size, so a three-line headline reads as one block of type — that
    * density is what carries a screen without needing decoration behind it.
    */
-  hero: { fontSize: 40, lineHeight: 40, fontFamily: HEADLINE_FONT, letterSpacing: -1.1 },
-  display: { fontSize: 30, fontFamily: HEADLINE_FONT, letterSpacing: -0.5 },
-  title: { fontSize: 22, lineHeight: 28, fontFamily: HEADLINE_FONT, letterSpacing: -0.3 },
-  headerTitle: { fontSize: 22, lineHeight: 28, fontFamily: HEADLINE_FONT, letterSpacing: -0.3 },
+  hero: { fontSize: 38, lineHeight: 41, fontFamily: HEADLINE_FONT, letterSpacing: -1.05 },
+  display: { fontSize: 30, lineHeight: 36, fontFamily: HEADLINE_FONT, letterSpacing: -0.65 },
+  title: { fontSize: 21, lineHeight: 28, fontFamily: HEADLINE_FONT, letterSpacing: -0.38 },
+  headerTitle: { fontSize: 20, lineHeight: 26, fontFamily: HEADLINE_FONT, letterSpacing: -0.32 },
   cardTitle: { fontSize: 17, fontFamily: HEADLINE_FONT },
-  body: { fontSize: 15, fontWeight: '400' as const, lineHeight: 23 },
-  label: { fontSize: 13, fontWeight: '600' as const },
-  caption: { fontSize: 12, fontWeight: '600' as const },
-  eyebrow: { fontSize: 11, fontWeight: '700' as const, letterSpacing: 1.4 },
+  body: { fontSize: 15, fontFamily: BODY_FONT, lineHeight: 23 },
+  label: { fontSize: 13, fontFamily: LABEL_FONT },
+  caption: { fontSize: 12, fontFamily: LABEL_FONT },
+  eyebrow: { fontSize: 11, fontFamily: EMPHASIS_FONT, letterSpacing: 1.4 },
 } as const;
 
 /** Pairs that must hold at WCAG AA — asserted by tests and the data pipeline. */

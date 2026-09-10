@@ -14,3 +14,16 @@ export function rankNameMatches(pool: readonly Species[], query: string, limit =
     return { species, score };
   }).filter((entry) => entry.score < 9).sort((a, b) => a.score - b.score || a.species.displayName.localeCompare(b.species.displayName, 'es')).slice(0, limit).map((entry) => entry.species);
 }
+
+/** Keeps the answer available in the four visible autocomplete choices. */
+export function namingChoices(
+  pool: readonly Species[],
+  target: Species | null,
+  query: string,
+  limit = 4,
+): Species[] {
+  const ranked = rankNameMatches(pool, query, limit);
+  if (!target || normalizeName(query).length < 2 || ranked.some((item) => item.codigo === target.codigo)) return ranked;
+  return [...ranked.slice(0, Math.max(0, limit - 1)), target]
+    .sort((a, b) => a.displayName.localeCompare(b.displayName, 'es'));
+}

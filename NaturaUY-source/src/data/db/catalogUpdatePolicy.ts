@@ -6,6 +6,14 @@ export interface CatalogVersionPolicy {
 
 export type CatalogUpdateDecision = 'current' | 'stage' | 'app_update_required';
 
+export interface LocalCatalogVersion { dataVersion: number; schemaVersion: number }
+
+/** A schema upgrade must replace an older installed catalogue even if its data release number stayed the same. */
+export function shouldActivateBundledCatalog(installed: LocalCatalogVersion, bundled: LocalCatalogVersion): boolean {
+  return bundled.schemaVersion > installed.schemaVersion
+    || (bundled.schemaVersion === installed.schemaVersion && bundled.dataVersion > installed.dataVersion);
+}
+
 export function compareVersions(left: string, right: string): number {
   const a = left.split('.').map(Number); const b = right.split('.').map(Number);
   for (let index = 0; index < 3; index++) { const difference = (a[index] ?? 0) - (b[index] ?? 0); if (difference !== 0) return difference; }

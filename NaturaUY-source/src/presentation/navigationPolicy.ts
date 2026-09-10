@@ -3,7 +3,7 @@ import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from './theme/tokens';
 
 /** Routes where the bottom navigation is intentionally not part of the task. */
 export function shouldShowNavigation(pathname: string): boolean {
-  return pathname !== '/report' && pathname !== '/game' && !pathname.startsWith('/game/') && !pathname.startsWith('/species/');
+  return pathname !== '/report' && pathname !== '/learn' && pathname !== '/game' && !pathname.startsWith('/game/') && !pathname.startsWith('/species/');
 }
 
 /** Maps regular routes to the primary surface they belong to. */

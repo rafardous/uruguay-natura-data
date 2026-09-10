@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "publishableLicenses": ["CC0", "CC BY 4.0", "permission"],
+    "humanApprovalRequired": true,
+    "presenceRule": "current_confirmed_uruguay",
+    "excludedPresence": ["fossil", "doubtful", "error", "unresolved"]
+  },
+  "sources": [
+    { "code": "sibuy", "role": ["presence", "national_taxonomy"], "url": "https://sibuy.ambiente.gub.uy/", "usePolicy": "identifier_only" },
+    { "code": "biodiversidata", "role": ["presence", "vernacular_names", "taxonomy"], "url": "https://biodiversidata.org/", "usePolicy": "identifier_only" },
+    { "code": "lista_roja_uy", "role": ["national_conservation", "presence"], "url": "https://www.ambiente.gub.uy/", "usePolicy": "identifier_only" },
+    { "code": "dinara", "role": ["fish_presence", "fish_names"], "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/dinara", "usePolicy": "identifier_only" },
+    { "code": "catalogue_of_life", "role": ["accepted_taxonomy"], "url": "https://api.checklistbank.org/", "license": "CC BY 4.0", "usePolicy": "redistributable" },
+    { "code": "worms", "role": ["marine_taxonomy"], "url": "https://www.marinespecies.org/rest/AphiaRecordsByName/{name}", "license": "CC BY 4.0", "usePolicy": "redistributable" },
+    { "code": "gbif", "role": ["name_match_secondary", "public_observability"], "url": "https://api.gbif.org/v1/", "license": "CC BY 4.0", "usePolicy": "redistributable" },
+    { "code": "repttraits", "role": ["reptile_traits"], "usePolicy": "review_only" },
+    { "code": "tetrapodtraits", "role": ["tetrapod_traits"], "usePolicy": "review_only" },
+    { "code": "fishbase", "role": ["fish_traits"], "url": "https://www.fishbase.se/", "license": "CC BY-NC", "usePolicy": "review_only" }
+  ]
+}

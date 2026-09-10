@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Fraunces_600SemiBold, useFonts } from '@expo-google-fonts/fraunces';
+import { Manrope_400Regular, Manrope_600SemiBold, Manrope_700Bold, useFonts } from '@expo-google-fonts/manrope';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, usePathname, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -22,7 +22,7 @@ import { lightColors } from '../src/presentation/theme/tokens';
 import { StartupExperience, useStartup } from '../src/presentation/components/StartupExperience';
 import { NavigationIsland, type MainTab } from '../src/presentation/components/NavigationIsland';
 import { navigationTabForPath, shouldShowNavigation } from '../src/presentation/navigationPolicy';
-import { NetworkProvider, OfflineSnackbar } from '../src/presentation/network/NetworkProvider';
+import { NetworkProvider } from '../src/presentation/network/NetworkProvider';
 
 /**
  * The catalogue ships prebuilt, so `assetSource` copies one file on first launch
@@ -68,6 +68,7 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="interest-sites" />
           <Stack.Screen name="about" />
           <Stack.Screen name="taxonomy" />
+          <Stack.Screen name="learn" />
           <Stack.Screen
             name="species/[codigo]"
             options={{
@@ -88,11 +89,13 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/puzzle-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/puzzle" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/trivia-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/trivia" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/classify" options={{ animation: 'fade_from_bottom', animationDuration: 220 }} />
           <Stack.Screen name="credits" />
         </Stack>
       </BlurTargetView>
       {showNavigation && <NavigationIsland active={activeTab} blurTarget={blurTarget} onNavigate={navigateMain} />}
-      <OfflineSnackbar />
     </View>
   );
 }
@@ -120,12 +123,12 @@ function CatalogUpdateNotice(): null {
 }
 
 // Held open until fonts are ready, so headline text never flashes in the
-// system font first and then jumps to Fraunces mid-render.
+// system font first and then jumps to Manrope mid-render.
 void SplashScreen.preventAutoHideAsync();
 const BUNDLED_CATALOG_ASSET_ID = require('../assets/db/natura.db');
 
 export default function RootLayout(): React.JSX.Element | null {
-  const [fontsLoaded, fontError] = useFonts({ Fraunces_600SemiBold });
+  const [fontsLoaded, fontError] = useFonts({ Manrope_400Regular, Manrope_600SemiBold, Manrope_700Bold });
   const [catalogReady, setCatalogReady] = useState(false);
   const [forceBundledCatalog, setForceBundledCatalog] = useState(false);
   const [databaseError, setDatabaseError] = useState<Error | null>(null);

@@ -13,6 +13,7 @@
     "catalog:prepare-release": "tsx scripts/prepare-release.ts",
     "catalog:build": "tsx scripts/build-catalog.ts",
     "catalog:export-json": "tsx scripts/export-catalog-json.ts",
+    "catalog:import-enrichment": "tsx scripts/import-enrichment.ts",
     "catalog:finalize": "tsx scripts/finalize-release.ts",
     "media:process": "tsx scripts/process-media.ts",
     "media:migrate-external": "tsx scripts/migrate-external-images.ts",

@@ -205,13 +205,67 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
 
 export async function getNavigationCounts(): Promise<NavigationCounts> {
   const client = assertClient();
-  const [reviews, reports] = await Promise.all([
+  const [reviews, content, reports] = await Promise.all([
     client.from('species_changes').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
+    client.from('content_changes').select('id', { count: 'exact', head: true }).eq('status', 'pending'),
     client.from('feedback').select('id', { count: 'exact', head: true }).in('status', ['open', 'reviewing']),
   ]);
   if (reviews.error) throw reviews.error;
+  if (content.error) throw content.error;
   if (reports.error) throw reports.error;
-  return { pendingReviews: reviews.count ?? 0, openReports: reports.count ?? 0 };
+  return { pendingReviews: reviews.count ?? 0, pendingContent: content.count ?? 0, openReports: reports.count ?? 0 };
+}
+
+export interface CatalogSource { id: string; code: string; name: string; license: string; usePolicy: string }
+export interface ContentChangeRow { id: string; contentType: string; entityId: string | null; speciesId: string | null; speciesName: string | null; proposedValues: Record<string, unknown>; proposedByName: string; comment: string; createdAt: string }
+export interface EnrichmentCandidateRow { id:string; scientificName:string; fieldPath:string; currentValue:unknown; proposedValue:unknown; sourceCode:string; confidence:number|null; status:string; rationale:string }
+export interface TaxonContentRow { id:string; taxonRank:'order'|'family'; kingdom:string; phylum:string; className:string; taxonName:string; language:string; description:string; sourceId:string; active:boolean }
+export interface ApprovedImageRow { id:string; speciesId:string; label:string }
+
+export async function listCatalogSources(): Promise<CatalogSource[]> {
+  const { data, error } = await assertClient().from('catalog_sources').select('id,code,name,license,use_policy').eq('active', true).order('name');
+  if (error) throw error;
+  return (data ?? []).map((row) => ({ id: row.id, code: row.code, name: row.name, license: row.license, usePolicy: row.use_policy }));
+}
+
+export async function listContentChanges(): Promise<ContentChangeRow[]> {
+  const { data, error } = await assertClient().from('content_review_queue').select('*').eq('status', 'pending').order('created_at');
+  if (error) throw error;
+  return (data ?? []).map((row) => ({ id: row.id, contentType: row.content_type, entityId: row.entity_id, speciesId: row.species_id, speciesName: row.common_name ?? row.scientific_name ?? null, proposedValues: row.proposed_values ?? {}, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at }));
+}
+
+export async function listTaxonContent(): Promise<TaxonContentRow[]> {
+  const { data,error }=await assertClient().from('taxon_content').select('id,taxon_rank,kingdom,phylum,class_name,taxon_name,language,description,source_id,active').eq('active',true).order('class_name').order('taxon_rank').order('taxon_name');
+  if(error)throw error;
+  return (data??[]).map((row)=>({id:row.id,taxonRank:row.taxon_rank,kingdom:row.kingdom,phylum:row.phylum,className:row.class_name,taxonName:row.taxon_name,language:row.language,description:row.description,sourceId:row.source_id,active:row.active}));
+}
+
+export async function listApprovedImages(speciesId?:string):Promise<ApprovedImageRow[]> {
+  let request=assertClient().from('species_media').select('id,species_id,author,source,species(common_name)').eq('type','image').eq('status','approved').order('created_at',{ascending:false}).limit(250);
+  if(speciesId)request=request.eq('species_id',speciesId);
+  const {data,error}=await request;if(error)throw error;
+  return (data??[]).map((row:any)=>({id:row.id,speciesId:row.species_id,label:`${row.species?.common_name??'Especie'} · ${row.author} · ${row.source}`}));
+}
+
+export async function submitContentChange(input: { contentType: 'abundance'|'game_profile'|'game_rule'|'fact'|'trivia'|'taxon_content'; entityId?: string|null; speciesId?: string|null; operation?: 'upsert'|'archive'; values: Record<string, unknown>; comment?: string }): Promise<string> {
+  const { data, error } = await assertClient().rpc('submit_content_change', { p_content_type: input.contentType, p_entity_id: input.entityId ?? null, p_species_id: input.speciesId ?? null, p_operation: input.operation ?? 'upsert', p_proposed_values: input.values, p_comment: input.comment ?? null });
+  if (error) throw error;
+  return String(data);
+}
+
+export async function reviewContentChange(id: string, approve: boolean, confirmSelfValidation: boolean): Promise<void> {
+  const { error } = await assertClient().rpc('review_content_change', { p_change_id: id, p_approve: approve, p_confirm_self_validation: confirmSelfValidation });
+  if (error) throw error;
+}
+
+export async function listEnrichmentCandidates(): Promise<EnrichmentCandidateRow[]> {
+  const { data,error }=await assertClient().from('enrichment_candidates').select('id,scientific_name,field_path,current_value,proposed_value,confidence,status,rationale,catalog_sources(code)').in('status',['pending','conflict']).order('created_at').limit(500);
+  if(error)throw error;
+  return (data??[]).map((row:any)=>({id:row.id,scientificName:row.scientific_name,fieldPath:row.field_path,currentValue:row.current_value,proposedValue:row.proposed_value,sourceCode:row.catalog_sources?.code??'',confidence:row.confidence,status:row.status,rationale:row.rationale??''}));
+}
+
+export async function triageEnrichmentCandidate(id:string,accept:boolean):Promise<void>{
+  const {error}=await assertClient().rpc('triage_enrichment_candidate',{p_candidate_id:id,p_accept:accept,p_comment:accept?'Promovido a revisión editorial':'Descartado durante la curaduría'});if(error)throw error;
 }
 
 export async function approveChangeRequest(id: string, confirmSelfValidation: boolean) {

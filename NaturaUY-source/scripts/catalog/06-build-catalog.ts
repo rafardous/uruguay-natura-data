@@ -34,6 +34,21 @@ interface ExistingCatalogItem {
   media?: { image?: CatalogImage | null; audio?: unknown };
 }
 
+// GBIF's backbone historically exposes these reptile groups in `class`
+// instead of `order`. They are the three orders represented by the current
+// Uruguayan reptile catalogue, so normalize only this documented shape and
+// leave every other unresolved order visible to the audit pipeline.
+const REPTILE_ORDERS = new Set(['Crocodylia', 'Squamata', 'Testudines']);
+
+function resolvedOrder(group: string, row: Item): string | null {
+  const order = row.resolution.taxonomy.order;
+  if (order) return order;
+  const resolutionClass = row.resolution.taxonomy.class;
+  return group === 'Reptilia' && resolutionClass && REPTILE_ORDERS.has(resolutionClass)
+    ? resolutionClass
+    : null;
+}
+
 function queueExisting(items: ExistingCatalogItem[]): Map<string, ExistingCatalogItem[]> {
   const byId = new Map<string, ExistingCatalogItem[]>();
   for (const item of items) {
@@ -78,7 +93,7 @@ function main(): void {
             kingdom: 'Animalia',
             phylum: 'Chordata',
             class: group,
-            order: row.resolution.taxonomy.order,
+            order: resolvedOrder(group, row),
             family: row.resolution.taxonomy.family,
             genus: row.resolution.taxonomy.genus,
           },
@@ -94,12 +109,9 @@ function main(): void {
           sources: row.evidence.map((evidence) => ({ source: evidence.source, record: evidence.sourceRecord })),
           reviewStatus: row.resolution.status === 'resolved' ? 'unreviewed' : 'needs_review',
         };
-        // Catalogue records may be enriched manually or by auxiliary datasets
-        // that this source/taxonomy pipeline cannot reproduce. When an entry
-        // already exists, update only its media field and preserve the rest.
-        return previous
-          ? { ...previous, media: { image: cachedImage, audio: previous.media?.audio ?? null } }
-          : generated;
+        // Keep editorial enrichment, but always refresh identity, taxonomy,
+        // origin evidence and sources from the reproducible pipeline.
+        return previous ? { ...previous, ...generated } : generated;
       });
     if (JSON.stringify(existing) !== JSON.stringify(catalog)) writeJson(target, catalog);
     const withImage = catalog.filter((item) => item.media.image !== null).length;

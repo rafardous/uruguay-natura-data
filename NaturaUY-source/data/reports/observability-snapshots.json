@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-09T23:45:57.658Z",
+  "complete": false,
+  "totalSpecies": 343,
+  "processedSpecies": 2,
+  "snapshots": [
+    {
+      "speciesId": "acanthochelys-spixii",
+      "scientificName": "Acanthochelys spixii",
+      "methodVersion": "gbif-uy-observability-v1",
+      "periodStart": "2016-01-01",
+      "periodEnd": "2025-12-31",
+      "occurrenceCount": 20,
+      "occupiedCells": 19,
+      "yearsObserved": 7,
+      "score": 54,
+      "band": "insufficient_data",
+      "comparisonClass": "Reptilia",
+      "sourceCode": "gbif",
+      "metadata": {
+        "deduplication": "occurrenceID_or_gbif_key",
+        "gridKm": 10,
+        "capped": false,
+        "provisional": true
+      }
+    },
+    {
+      "speciesId": "amphisbaena-darwinii",
+      "scientificName": "Amphisbaena darwinii",
+      "methodVersion": "gbif-uy-observability-v1",
+      "periodStart": "2016-01-01",
+      "periodEnd": "2025-12-31",
+      "occurrenceCount": 61,
+      "occupiedCells": 26,
+      "yearsObserved": 10,
+      "score": 100,
+      "band": "insufficient_data",
+      "comparisonClass": "Reptilia",
+      "sourceCode": "gbif",
+      "metadata": {
+        "deduplication": "occurrenceID_or_gbif_key",
+        "gridKm": 10,
+        "capped": false,
+        "provisional": true
+      }
+    }
+  ]
+}

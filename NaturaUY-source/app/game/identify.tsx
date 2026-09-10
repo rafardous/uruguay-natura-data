@@ -13,7 +13,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { MotiView } from 'moti';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { QUIZ_MODES, QUIZ_SCOPES, type QuizMode, type QuizOption, type QuizScope } from '../../src/domain/entities/quiz';
+import { QUIZ_MODES, QUIZ_SCOPES, type KnowledgeLevel, type QuizMode, type QuizOption, type QuizScope } from '../../src/domain/entities/quiz';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { RecordCelebration } from '../../src/presentation/components/RecordCelebration';
@@ -254,15 +254,16 @@ function AnswerTile({ option, letter, revealed, isPicked, onPress, theme }: Answ
 }
 
 export default function IdentifyGameScreen(): React.JSX.Element {
-  const params = useLocalSearchParams<{ mode?: string; scope?: string }>();
+  const params = useLocalSearchParams<{ mode?: string; scope?: string; level?: string }>();
   const mode: QuizMode = isQuizMode(params.mode) ? params.mode : 'classic';
   const scope: QuizScope = isQuizScope(params.scope) ? params.scope : 'animals_all';
+  const level: KnowledgeLevel = params.level === 'easy' || params.level === 'medium' ? params.level : 'hard';
 
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const theme = useTheme();
   const { colors, radius, spacing, typography } = theme;
-  const { loading, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates } = useQuizRun(mode, scope);
+  const { loading, emptyPool, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates } = useQuizRun(mode, scope, level);
   const reducedMotion = useReducedMotion();
 
   /*
@@ -457,6 +458,8 @@ export default function IdentifyGameScreen(): React.JSX.Element {
             <Text style={[typography.label, { color: colors.play }]}>Ver récords</Text>
           </Pressable>
         </MotiView>
+      ) : emptyPool ? (
+        <View style={[styles.result, { padding: spacing.xl }]}><Text style={[typography.title, { color: colors.text, textAlign: 'center' }]}>Todavía no hay especies en este nivel</Text><Text style={[typography.body, { color: colors.textMuted, textAlign: 'center', marginTop: spacing.sm }]}>Probá un nivel más alto o elegí otra categoría mientras se completa la curaduría editorial.</Text><Pressable onPress={() => router.back()} style={[styles.primaryButton, { backgroundColor: colors.play, borderRadius: radius.md, marginTop: spacing.xl }]}><Text style={[typography.label, { color: colors.onPlay }]}>Cambiar selección</Text></Pressable></View>
       ) : loading || !question ? (
         <View style={{ padding: spacing.lg }}>
           <MotiView

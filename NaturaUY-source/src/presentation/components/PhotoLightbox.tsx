@@ -116,7 +116,7 @@ export function PhotoLightbox({ visible, uri, label, onClose }: PhotoLightboxPro
 
         <GestureDetector gesture={gesture}>
           <Animated.View style={[styles.imageWrap, imageStyle]}>
-            <Image source={{ uri }} contentFit="contain" style={styles.image} accessibilityLabel={label} />
+            <Image source={{ uri }} contentFit="contain" cachePolicy="memory-disk" style={styles.image} accessibilityLabel={label} />
           </Animated.View>
         </GestureDetector>
 

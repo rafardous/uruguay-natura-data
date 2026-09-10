@@ -151,6 +151,7 @@ export interface ChangeRequest {
 
 export interface NavigationCounts {
   pendingReviews: number;
+  pendingContent: number;
   openReports: number;
 }
 

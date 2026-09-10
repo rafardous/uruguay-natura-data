@@ -4,7 +4,7 @@ import { useFocusEffect, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useMobileAuth } from '../../src/auth/MobileAuthProvider';
-import { QUIZ_MODES, QUIZ_SCOPES, QUIZ_SCOPE_ORDER, type QuizMode, type QuizScope } from '../../src/domain/entities/quiz';
+import { KNOWLEDGE_LEVELS, QUIZ_MODES, QUIZ_SCOPES, QUIZ_SCOPE_ORDER, type KnowledgeLevel, type QuizMode, type QuizScope } from '../../src/domain/entities/quiz';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { quizRepository, type QuizRecord } from '../../src/data/repositories/quizRepository';
 import { getQuizLeaderboard, type LeaderboardEntry } from '../../src/lib/mobileApi';
@@ -14,6 +14,7 @@ import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { haptics } from '../../src/presentation/haptics';
 import { puzzleRepository } from '../../src/data/repositories/puzzleRepository';
 import { PUZZLE_SCOPES, type PuzzleRecord } from '../../src/domain/entities/puzzle';
+import { useMobileSync } from '../../src/sync/MobileSyncProvider';
 
 const MODES: QuizMode[] = ['classic', 'timed', 'survival', 'naming'];
 const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: TrophyIcon, timed: ClockIcon, survival: HeartIcon, naming: NamingIcon };
@@ -21,8 +22,10 @@ const ICONS: Record<QuizMode, (p: IconProps) => React.JSX.Element> = { classic: 
 export default function RecordsScreen(): React.JSX.Element {
   const db = useUserDatabase(); const router = useRouter(); const insets = useSafeAreaInsets();
   const { configured } = useMobileAuth();
+  const { revision } = useMobileSync();
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const [scope, setScope] = useState<QuizScope>('animals_all');
+  const [level, setLevel] = useState<KnowledgeLevel>('hard');
   const [view, setView] = useState<'personal' | 'global'>('personal');
   const [records, setRecords] = useState<Record<string, QuizRecord>>({});
   const [leaderboards, setLeaderboards] = useState<Partial<Record<QuizMode, LeaderboardEntry[]>>>({});
@@ -30,14 +33,15 @@ export default function RecordsScreen(): React.JSX.Element {
   const [puzzleRecords, setPuzzleRecords] = useState<PuzzleRecord[]>([]);
 
   const load = useCallback(() => {
+    void revision;
     void quizRepository.listRecords(db).then(setRecords);
     void puzzleRepository.list(db).then(setPuzzleRecords);
     if (!configured) return;
     setLoadingGlobal(true);
-    void Promise.all(MODES.map(async (mode) => [mode, await getQuizLeaderboard(mode, scope)] as const))
+    void Promise.all(MODES.map(async (mode) => [mode, await getQuizLeaderboard(mode, scope, level)] as const))
       .then((entries) => setLeaderboards(Object.fromEntries(entries)))
       .finally(() => setLoadingGlobal(false));
-  }, [configured, db, scope]);
+  }, [configured, db, level, revision, scope]);
   useFocusEffect(load);
 
   return <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
@@ -47,11 +51,12 @@ export default function RecordsScreen(): React.JSX.Element {
       <Chip label="Ranking global" selected={view === 'global'} accent={colors.play} onAccent={colors.onPlay} onPress={() => setView('global')} />
     </View>
     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.tabs, { paddingHorizontal: spacing.lg }]}>{QUIZ_SCOPE_ORDER.map((item) => <Chip key={item} label={QUIZ_SCOPES[item].label} selected={scope === item} accent={colors.play} onAccent={colors.onPlay} onPress={() => setScope(item)} />)}</ScrollView>
+    <View style={[styles.viewTabs, { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm }]}>{KNOWLEDGE_LEVELS.map((item) => <Chip key={item.id} label={item.label} selected={level === item.id} accent={colors.play} onAccent={colors.onPlay} onPress={() => setLevel(item.id)} />)}</View>
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.md }}>
       {view === 'personal' ? <>{MODES.map((mode) => {
-        const item = records[`${scope}:${mode}`]; const Icon = ICONS[mode];
+        const item = records[`${scope}:${level}:${mode}`]; const Icon = ICONS[mode];
         return <View key={mode} style={[styles.card, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><View style={[styles.icon, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]}><Icon color={colors.play} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{QUIZ_MODES[mode].title}</Text><Text style={[typography.caption, { color: colors.textMuted }]}>{item ? `Mejor racha ${item.bestStreak}` : 'Todavía no jugaste esta categoría'}</Text></View><Text style={[typography.display, { color: colors.play }]}>{item?.bestScore ?? '—'}</Text></View>;
-      })}<Text style={[typography.cardTitle, { color: colors.text, marginTop: spacing.md }]}>Puzzle</Text>{puzzleRecords.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted }]}>Todavía no completaste un puzzle.</Text> : puzzleRecords.filter((record) => record.scope === scope).map((record) => <View key={`${record.scope}-${record.gridSize}`} style={[styles.card, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><PuzzleIcon color={colors.play} /><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{record.gridSize} × {record.gridSize} · {PUZZLE_SCOPES[record.scope].label}</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Mejor tiempo {Math.round(record.bestTimeMs / 1000)} s · {record.fewestMoves} movimientos</Text></View></View>)}</> : !configured ? <Text style={[typography.body, { color: colors.textMuted, textAlign: 'center' }]}>El ranking se habilitará al completar la conexión con Supabase.</Text> : loadingGlobal ? <ActivityIndicator color={colors.play} /> : MODES.map((mode) => {
+      })}<Text style={[typography.cardTitle, { color: colors.text, marginTop: spacing.md }]}>Puzzle</Text>{puzzleRecords.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted }]}>Todavía no completaste un puzzle.</Text> : puzzleRecords.filter((record) => record.scope === scope && record.knowledgeLevel === level).map((record) => <View key={`${record.scope}-${record.knowledgeLevel}-${record.gridSize}`} style={[styles.card, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><PuzzleIcon color={colors.play} /><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{record.gridSize} × {record.gridSize} · {PUZZLE_SCOPES[record.scope].label}</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Mejor tiempo {Math.round(record.bestTimeMs / 1000)} s · {record.fewestMoves} movimientos</Text></View></View>)}</> : !configured ? <Text style={[typography.body, { color: colors.textMuted, textAlign: 'center' }]}>El ranking se habilitará al completar la conexión con Supabase.</Text> : loadingGlobal ? <ActivityIndicator color={colors.play} /> : MODES.map((mode) => {
         const rows = leaderboards[mode] ?? []; const Icon = ICONS[mode];
         return <View key={mode} style={[styles.ranking, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><View style={styles.rankingTitle}><Icon color={colors.play} /><Text style={[typography.cardTitle, { color: colors.text }]}>{QUIZ_MODES[mode].title}</Text></View>{rows.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.md }]}>Todavía no hay puntajes públicos.</Text> : rows.slice(0, 10).map((entry) => <View key={`${mode}-${entry.position}-${entry.publicAlias}`} style={[styles.rankRow, { borderTopColor: colors.border }]}><Text style={[typography.label, { color: colors.play, width: 28 }]}>{entry.position}</Text><Text style={[typography.body, styles.flex, { color: colors.text }]}>{entry.publicAlias}</Text><Text style={[typography.label, { color: colors.text }]}>{entry.bestScore}</Text></View>)}</View>;
       })}

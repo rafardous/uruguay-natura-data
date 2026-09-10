@@ -31,7 +31,7 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-Las migraciones mobile `202609060003_mobile_feedback_sync.sql`, `202609060004_mobile_popular_species.sql` y `202609080001_mobile_puzzle_records.sql` deben aplicarse junto con el resto del historial. La primera expone feedback por área (ficha, general, app o juegos), conserva plataforma/versión y exige nota al resolver o descartar. La segunda calcula la especie más favorita sobre `favorites` sin exponer usuarios ni conteos. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result`, `sync_puzzle_records`, `get_game_leaderboard` y `get_most_favorited_species`; los récords de Puzzle son privados y se fusionan como mínimos por categoría y grilla.
+Las migraciones mobile `202609060003_mobile_feedback_sync.sql`, `202609060004_mobile_popular_species.sql`, `202609080001_mobile_puzzle_records.sql`, `20260909032434_mobile_progress_pull.sql`, `20260910041400_catalog_enrichment_and_game_content.sql`, `20260910041420_taxon_content_and_trivia_media.sql`, `20260910041725_harden_schema8_rpc.sql` y `20260910163402_reptile_mammal_order_content.sql` deben aplicarse junto con el resto del historial. Las últimas incorporan fuentes, corridas/candidatos de enriquecimiento, abundancia y observabilidad separadas, perfiles de juego, curiosidades, trivia ilustrable, contenido editorial de órdenes/familias, el endurecimiento final de la RPC de publicación y la normalización de órdenes de Reptilia. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result`, `sync_puzzle_records`, `get_personal_mobile_progress`, `get_game_leaderboard` y `get_most_favorited_species`; los récords codifican categoría y nivel de conocimiento en el `scope`, y Puzzle además conserva su grilla. Trivia no persiste récords. El pull privado permite hidratar favoritos y récords al cambiar de cuenta sin mezclar el caché local de cada usuario.
 
 ## 2. Identidad editorial
 
@@ -90,6 +90,17 @@ El importador debe informar 1006 entradas, 902 especies y 902 coincidencias de c
 
 ## 5. Panel, Storage y publicación
 
+Antes de importar enriquecimiento, generar y revisar los artefactos locales. `data:observability` procesa 25 especies por defecto y conserva checkpoint; repetir hasta que el informe indique `complete: true`. La importación requiere `--apply` y nunca aprueba candidatos taxonómicos automáticamente.
+
+```powershell
+cd ../NaturaUY-source
+npm run data:enrichment-candidates
+npm run data:observability -- --batch=25
+cd ../NaturaUY-admin
+npm run catalog:import-enrichment
+npm run catalog:import-enrichment -- --apply
+```
+
 El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
 
 Los derivados se leen directamente desde el bucket público `media-public`; el manifest estable, desde `catalog-public/manifest.json`.
@@ -100,7 +111,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 6, incluida la tabla `species_media`, y conserva `user.db`. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 8: medios, abundancia estructurada, observabilidad, dificultad, reglas de juegos, curiosidades, trivia con imagen opcional y descripciones editoriales de órdenes/familias; conserva `user.db`. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source

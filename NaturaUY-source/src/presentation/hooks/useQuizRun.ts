@@ -2,18 +2,19 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite';
 import { Image } from 'expo-image';
 
-import { QUIZ_MODES, QUIZ_SCOPES, createRun, type QuizMode, type QuizQuestion, type QuizRunState, type QuizScope } from '../../domain/entities/quiz';
+import { QUIZ_MODES, QUIZ_SCOPES, createRun, type KnowledgeLevel, type QuizMode, type QuizQuestion, type QuizRunState, type QuizScope } from '../../domain/entities/quiz';
 import type { Species } from '../../domain/entities/species';
 import { useUserDatabase } from '../../data/db/UserDatabaseProvider';
 import { quizRepository } from '../../data/repositories/quizRepository';
 import { speciesRepository } from '../../data/repositories/speciesRepository';
 import { answerQuestion, buildQuestion, eligibleTargets, finishRun, grantExtraLife, shuffle } from '../../domain/services/quizEngine';
 import { useMobileSync } from '../../sync/MobileSyncProvider';
-import { rankNameMatches } from '../../domain/services/naming';
+import { namingChoices } from '../../domain/services/naming';
 import { isNewPersonalRecord as isNewPersonalRecordScore, upcomingQuizImageUrls } from '../quizUtils';
 
 export interface QuizRun {
   loading: boolean;
+  emptyPool: boolean;
   state: QuizRunState;
   question: QuizQuestion | null;
   secondsLeft: number | null;
@@ -33,7 +34,7 @@ export interface QuizRun {
  * Targets are drawn from a pre-shuffled queue rather than sampled at random,
  * which guarantees a species never repeats within a run.
  */
-export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
+export function useQuizRun(mode: QuizMode, scope: QuizScope, knowledgeLevel: KnowledgeLevel = 'hard'): QuizRun {
   // Questions come from the catalogue; records are written to the user database.
   const catalog = useSQLiteContext();
   const userDb = useUserDatabase();
@@ -71,8 +72,8 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
     let active = true;
 
     void Promise.all([
-      speciesRepository.findQuizPool(catalog, QUIZ_SCOPES[scope].classes),
-      quizRepository.getRecord(userDb, mode, scope).catch(() => null),
+      speciesRepository.findQuizPool(catalog, QUIZ_SCOPES[scope].classes, knowledgeLevel, mode === 'naming' ? 'naming' : 'quiz'),
+      quizRepository.getRecord(userDb, mode, scope, knowledgeLevel).catch(() => null),
     ]).then(([loaded, record]) => {
       if (!active) return;
       setPool(loaded);
@@ -85,7 +86,7 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
     return () => {
       active = false;
     };
-  }, [catalog, mode, scope, serveNext, userDb]);
+  }, [catalog, knowledgeLevel, mode, scope, serveNext, userDb]);
 
   // Countdown for the timed mode.
   useEffect(() => {
@@ -107,8 +108,8 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
     const newRecord = isNewPersonalRecordScore(previousBestScore.current, state.score);
     setIsNewPersonalRecord(newRecord);
     previousBestScore.current = Math.max(previousBestScore.current, state.score);
-    void quizRepository.submitRun(userDb, mode, scope, state.score, state.bestStreakThisRun).then(requestSync);
-  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode, scope, requestSync]);
+    void quizRepository.submitRun(userDb, mode, scope, knowledgeLevel, state.score, state.bestStreakThisRun).then(requestSync);
+  }, [state.finished, state.score, state.bestStreakThisRun, userDb, mode, scope, knowledgeLevel, requestSync]);
 
   const answer = useCallback(
     (codigo: string): boolean => {
@@ -139,11 +140,11 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope): QuizRun {
   const awardLife = useCallback(() => setState(grantExtraLife), []);
 
   const nameCandidates = useCallback((query: string): Species[] => {
-    return rankNameMatches(pool, query);
-  }, [pool]);
+    return namingChoices(pool, question?.target ?? null, query);
+  }, [pool, question?.target]);
 
   return useMemo(
-    () => ({ loading, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates }),
-    [loading, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates],
+    () => ({ loading, emptyPool: !loading && pool.length === 0, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates }),
+    [loading, pool.length, state, question, secondsLeft, answeredCodigo, isNewPersonalRecord, answer, next, restart, awardLife, nameCandidates],
   );
 }

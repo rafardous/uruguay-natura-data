@@ -31,7 +31,7 @@ import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
 import { FavoriteSparkles } from '../../src/presentation/components/FavoriteSparkles';
-import { BugIcon, ChevronRightIcon, CloseIcon, HeartIcon } from '../../src/presentation/components/TabIcons';
+import { BugIcon, ChevronRightIcon, CloseIcon, HeartIcon, InfoIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
@@ -78,6 +78,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [species, setSpecies] = useState<Species | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
   const palette = useSpeciesPalette(species);
 
   const scrollY = useSharedValue(0);
@@ -212,6 +213,10 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const dataSources = species
     ? [...new Set(species.sources.map((source) => sourceLabel(source.source)))]
     : [];
+  const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
+  const observabilityBand = species?.observability?.band === 'high' ? 'Alta'
+    : species?.observability?.band === 'medium' ? 'Media'
+      : species?.observability?.band === 'low' ? 'Baja' : 'Datos insuficientes';
 
   const openTaxonomyAt = (rank: TaxonRank): void => {
     if (!species) return;
@@ -271,6 +276,18 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       <View style={[styles.headerRow, { paddingHorizontal: spacing.lg }]}>
         {species ? <View style={[styles.classGlyph, { backgroundColor: palette.container, borderRadius: radius.md }]}><FamilyGlyph clase={species.taxonomy.clase} color={palette.accent} size={22} /></View> : null}
         <View style={styles.flex} />
+        {species && hasRelevantInfo && (
+          <Pressable
+            onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'}
+            accessibilityState={{ expanded: relevantInfoOpen }}
+            style={[styles.action, { backgroundColor: relevantInfoOpen ? palette.container : colors.surfaceVariant, marginRight: spacing.sm }]}
+          >
+            <InfoIcon color={relevantInfoOpen ? palette.onContainer : colors.text} size={20} />
+          </Pressable>
+        )}
         {species && (
           <Pressable
             onPress={() => {
@@ -389,6 +406,25 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </View>
             </Staggered>
 
+            {hasRelevantInfo && relevantInfoOpen && (
+              <MotiView
+                from={{ opacity: 0, translateY: -6 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{ type: 'timing', duration: 180 }}
+              >
+                <View style={[styles.note, { backgroundColor: palette.container, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                  <View style={styles.noteHeading}>
+                    <InfoIcon color={palette.onContainer} size={18} />
+                    <Text style={[typography.label, { color: palette.onContainer }]}>Información relevante</Text>
+                  </View>
+                  {species.relevantNote && <Text style={[typography.body, { color: palette.onContainer, marginTop: 7 }]}>{species.relevantNote}</Text>}
+                  {species.facts.map((fact) => (
+                    <Text key={fact.id} style={[typography.body, { color: palette.onContainer, marginTop: 7 }]}>• {fact.body}</Text>
+                  ))}
+                </View>
+              </MotiView>
+            )}
+
             {facts.length > 0 && (
               <Staggered index={2}>
                 <View style={[styles.facts, { marginTop: spacing.lg }]}>
@@ -445,16 +481,17 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.relevantNote && (
-              <Staggered index={7}>
+            {species.observability && (
+              <Staggered index={9}>
                 <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
-                  <Text style={[typography.label, { color: colors.text }]}>Dato relevante</Text>
-                  <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>{species.relevantNote}</Text>
+                  <Text style={[typography.label, { color: colors.text }]}>Observabilidad pública: {observabilityBand}</Text>
+                  <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Índice {Math.round(species.observability.score)}/100 · {species.observability.occurrenceCount} registros · {species.observability.occupiedCells} celdas de 10 km · {species.observability.periodStart.slice(0, 4)}–{species.observability.periodEnd.slice(0, 4)}</Text>
+                  <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>Es una medida automática de registros públicos, no una categoría de conservación ni una estimación poblacional.</Text>
                 </View>
               </Staggered>
             )}
 
-            <Staggered index={8}>
+            <Staggered index={10}>
               <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Clasificación</Text>
               <View style={[styles.classification, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.sm }]}>
                 {classification.map(({ label, rank, value }, index) => (
@@ -545,6 +582,7 @@ const styles = StyleSheet.create({
   tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   dataTag: { paddingHorizontal: 11, paddingVertical: 7 },
   note: { padding: 14 },
+  noteHeading: { flexDirection: 'row', alignItems: 'center', gap: 7 },
   classification: { overflow: 'hidden', paddingHorizontal: 14 },
   classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
   classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },

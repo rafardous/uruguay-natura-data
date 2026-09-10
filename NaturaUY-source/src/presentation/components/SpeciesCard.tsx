@@ -9,6 +9,8 @@ import { useTheme } from '../theme/ThemeProvider';
 import { Skeleton } from './Skeleton';
 import { SpeciesImage } from './SpeciesImage';
 import { FavoriteSparkles } from './FavoriteSparkles';
+import { PhotoLightbox } from './PhotoLightbox';
+import { ZoomInIcon } from './TabIcons';
 
 /** Exported so a list can derive its row pitch instead of hard-coding one. */
 export const CARD_HEIGHT = 268;
@@ -75,11 +77,13 @@ export const SpeciesCard = memo(function SpeciesCard({
 }: SpeciesCardProps): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const threatened = species.conservation.rank >= 3;
   // `displayName` falls back to the binomial when a species has no vernacular
   // name, and most plants don't — printing both then repeats the same words.
   const showScientific = species.scientificName !== species.displayName;
+  const zoomUri = species.photo?.fullUrl ?? species.photo?.url;
 
   const animated = index < ANIMATED_ROWS;
   const Wrapper = animated ? MotiView : View;
@@ -129,6 +133,17 @@ export const SpeciesCard = memo(function SpeciesCard({
               </View>
             </View>
           </Pressable>
+          {zoomUri ? (
+            <Pressable
+              onPress={() => { haptics.tap(); setLightboxOpen(true); }}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={`Ampliar foto de ${species.displayName}`}
+              style={[styles.zoom, { borderRadius: radius.sm }]}
+            >
+              <ZoomInIcon color={ON_PHOTO} size={18} />
+            </Pressable>
+          ) : null}
           <Pressable
             onPress={() => { haptics.press(); if (!favorite) setSparkleTrigger((value) => value + 1); onToggleFavorite(species.codigo); }}
             hitSlop={10}
@@ -141,6 +156,7 @@ export const SpeciesCard = memo(function SpeciesCard({
             </MotiView>
             <FavoriteSparkles trigger={sparkleTrigger} color={colors.favorite} />
           </Pressable>
+          <PhotoLightbox visible={lightboxOpen} uri={zoomUri} label={species.displayName} onClose={() => setLightboxOpen(false)} />
         </View>
       </View>
     </Wrapper>
@@ -166,6 +182,7 @@ const styles = StyleSheet.create({
   topRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
   chip: { backgroundColor: PANEL, paddingHorizontal: 10, paddingVertical: 5 },
   heart: { position: 'absolute', top: 12, right: 12, backgroundColor: PANEL, padding: 9 },
+  zoom: { position: 'absolute', top: 56, right: 12, backgroundColor: PANEL, padding: 9 },
   panel: { marginTop: 'auto', backgroundColor: PANEL },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   meta: { flexDirection: 'row', alignItems: 'center', gap: 10 },

@@ -29,9 +29,6 @@ export function NavigationIsland({
   const { radius, typography, elevation, scheme } = useTheme();
   const insets = useSafeAreaInsets();
   const light = scheme === 'light';
-  // Material 3 assigns navigation components a tonal SurfaceContainer rather
-  // than the brightest surface. It keeps the island distinct from ivory pages
-  // without turning the whole control into another brand-colour statement.
   const islandBackground = light ? 'rgba(201,216,196,0.94)' : 'rgba(35,65,50,0.94)';
   const islandBorder = 'rgba(41,74,58,0.24)';
   const activeBackground = '#BDD0B7';
@@ -91,7 +88,7 @@ function NavigationItem({
   focused: boolean;
   onNavigate: (tab: MainTab) => void;
   radius: number;
-  typography: { label: { fontSize: number; fontWeight: '600' } };
+  typography: { label: { fontSize: number; fontFamily?: string; fontWeight?: '600' } };
   activeBackground: string;
   activeForeground: string;
   inactiveForeground: string;

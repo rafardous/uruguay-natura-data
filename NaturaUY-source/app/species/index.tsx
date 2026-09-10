@@ -31,6 +31,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
   const { isFavorite, toggle } = useFavorites();
   const seeded = useMemo<SpeciesSelection>(() => ({ ...blankSpeciesSelection(), onlyNative: params.native === '1', onlyPriority: params.priority === '1' }), [params.native, params.priority]);
   const [query, setQuery] = useState(params.q ?? '');
+  useEffect(() => setQuery(params.q ?? ''), [params.q]);
   const search = useDebouncedValue(query, 220);
   const [applied, setApplied] = useState<SpeciesSelection>(seeded);
   const [draft, setDraft] = useState<SpeciesSelection>(seeded);
@@ -66,20 +67,21 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
   const bottom = navigationBottomInset(insets.bottom, spacing.lg);
   const remove = (key: keyof SpeciesSelection, value?: string): void => setApplied((selection) => ({ ...selection, [key]: typeof selection[key] === 'boolean' ? false : (selection[key] as string[]).filter((item) => item !== value) }));
   const filterCount = speciesSelectionCount(applied);
+  const headerHeight = insets.top + (filterCount > 0 ? 174 : 124);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
-      <View style={[styles.header, { paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
+      <View style={[styles.header, { height: headerHeight, paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: spacing.sm, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
           <Pressable onPress={() => { haptics.tap(); if (router.canGoBack()) router.back(); else router.replace('/explore'); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Volver a Descubrir" style={[styles.iconButton, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><BackIcon color={colors.text} /></Pressable>
-          <View style={styles.titleWrap}><Text style={[typography.eyebrow, { color: colors.textMuted }]}>CATÁLOGO</Text><Text style={[typography.title, { color: colors.text, marginTop: 2 }]}>Todas las especies</Text></View>
+          <View style={styles.titleWrap}><Text style={[typography.eyebrow, { color: colors.textMuted }]}>CATÁLOGO</Text><Text style={[typography.headerTitle, { color: colors.text, marginTop: 1 }]}>Todas las especies</Text></View>
           <Pressable onPress={() => { haptics.tap(); setDraft(applied); setSheetOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Filtrar especies" style={[styles.filterButton, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}><SlidersIcon color={colors.textSecondary} /><Text style={[typography.caption, { color: colors.textSecondary }]}>{filterCount || ''}</Text></Pressable>
         </View>
-        <View style={[styles.searchRow, { marginTop: spacing.md }]}><SearchBar value={query} onChange={setQuery} placeholder="Buscar una especie" variant="surface" /></View>
+        <View style={[styles.searchRow, { marginTop: spacing.sm }]}><SearchBar value={query} onChange={setQuery} variant="surface" /></View>
         {filterCount > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.activeFilters}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities'] as const).flatMap((key) => applied[key].map((value) => <Chip key={`${key}-${value}`} label={`${friendlyFilterValue(value)} ×`} selected onPress={() => remove(key, value)} />))}</ScrollView>}
       </View>
 
-      {list.loading && list.items.length === 0 ? <View style={{ flex: 1, padding: spacing.lg, gap: spacing.sm }}>{[0, 1, 2, 3, 4].map((i) => <CompactSpeciesRowSkeleton key={i} />)}</View> : list.items.length === 0 ? <EmptyState title="Sin resultados" message="Probá con otro nombre o filtro." /> : <View style={styles.listArea}><FlashList data={list.items} renderItem={renderItem} keyExtractor={(item) => item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={list.loadMore} onEndReachedThreshold={0.4} drawDistance={280} maxItemsInRecyclePool={12} ListHeaderComponent={<View style={{ height: spacing.lg }} />} ListFooterComponent={list.loadingMore ? <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottom }} /> : <View style={{ height: bottom }} />} showsVerticalScrollIndicator={false} /></View>}
+      {list.loading && list.items.length === 0 ? <View style={{ flex: 1, paddingTop: headerHeight + spacing.lg, paddingHorizontal: spacing.lg, gap: spacing.sm }}>{[0, 1, 2, 3, 4].map((i) => <CompactSpeciesRowSkeleton key={i} />)}</View> : list.items.length === 0 ? <View style={{ flex: 1, paddingTop: headerHeight }}><EmptyState title="Sin resultados" message="Probá con otro nombre o filtro." /></View> : <View style={styles.listArea}><FlashList data={list.items} renderItem={renderItem} keyExtractor={(item) => item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={list.loadMore} onEndReachedThreshold={0.4} drawDistance={280} maxItemsInRecyclePool={12} contentContainerStyle={{ paddingTop: headerHeight }} ListHeaderComponent={<View style={{ height: spacing.sm }} />} ListFooterComponent={list.loadingMore ? <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottom }} /> : <View style={{ height: bottom }} />} showsVerticalScrollIndicator={false} /></View>}
 
       <SpeciesFilterSheet
         visible={sheetOpen}
@@ -97,12 +99,12 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },
-  header: {},
+  header: { position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20, overflow: 'hidden', borderBottomWidth: StyleSheet.hairlineWidth },
   headerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   titleWrap: { flex: 1 },
   iconButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   filterButton: { minWidth: 44, height: 44, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
   searchRow: { flexDirection: 'row', alignItems: 'center' },
-  listArea: { flex: 1, paddingTop: 10 },
+  listArea: { flex: 1 },
   activeFilters: { gap: 8, paddingTop: 10, paddingBottom: 4 },
 });

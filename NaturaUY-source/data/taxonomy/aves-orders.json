@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "taxonomicClass": "Aves",
+  "rank": "order",
+  "language": "es-UY",
+  "source": {
+    "code": "natura_uy_editorial",
+    "name": "Síntesis editorial Natura UY",
+    "taxonomyReference": "https://www.worldbirdnames.org/new/ioc-lists/master-list-2/",
+    "license": "CC BY 4.0"
+  },
+  "items": [
+    { "name": "Accipitriformes", "description": "Aves rapaces principalmente diurnas, de vista aguda, pico curvo y garras fuertes. Suelen capturar presas o alimentarse de carroña." },
+    { "name": "Anseriformes", "description": "Aves acuáticas de cuerpo robusto, patas palmeadas y pico adaptado a filtrar, pastar o capturar alimento en el agua." },
+    { "name": "Apodiformes", "description": "Aves de vuelo muy ágil, alas largas y patas pequeñas. Incluye formas que se alimentan en el aire y otras especializadas en visitar flores." },
+    { "name": "Caprimulgiformes", "description": "Aves crepusculares o nocturnas, de plumaje críptico, ojos grandes y boca amplia para capturar insectos durante el vuelo." },
+    { "name": "Cariamiformes", "description": "Aves terrestres de patas largas y corredoras, con cuello erguido y pico fuerte. Buscan pequeños animales y otros alimentos sobre el suelo." },
+    { "name": "Charadriiformes", "description": "Grupo diverso ligado sobre todo a costas, humedales y campos abiertos. Reúne aves caminadoras o nadadoras con picos muy variados según su alimento." },
+    { "name": "Ciconiiformes", "description": "Aves zancudas grandes, de patas, cuello y pico largos. Recorren aguas someras y pastizales en busca de presas." },
+    { "name": "Columbiformes", "description": "Aves compactas, de cabeza pequeña y vuelo potente. Se alimentan principalmente de semillas y frutos y beben mediante succión." },
+    { "name": "Coraciiformes", "description": "Aves de cabeza relativamente grande, pico firme y colores a menudo vistosos. Muchas cazan desde una percha y nidifican en cavidades o barrancas." },
+    { "name": "Cuculiformes", "description": "Aves de cuerpo alargado y cola larga, con dos dedos orientados hacia adelante y dos hacia atrás. Varias especies tienen reproducción parasitaria." },
+    { "name": "Falconiformes", "description": "Rapaces diurnas de vuelo veloz, pico ganchudo y garras fuertes. Matan principalmente con el pico y persiguen presas en espacios abiertos." },
+    { "name": "Galliformes", "description": "Aves terrestres de cuerpo robusto, alas cortas y patas fuertes para caminar y escarbar. Su vuelo suele ser breve y explosivo." },
+    { "name": "Gruiformes", "description": "Conjunto variado de aves terrestres y de humedal. Muchas presentan patas largas, dedos extendidos y cuerpos aptos para moverse entre vegetación densa." },
+    { "name": "Nyctibiiformes", "description": "Aves nocturnas de plumaje críptico, boca ancha y ojos grandes. Permanecen inmóviles sobre ramas y capturan insectos al vuelo." },
+    { "name": "Passeriformes", "description": "El orden más diverso de aves. Se caracteriza por patas adaptadas a posarse, tres dedos hacia adelante y uno hacia atrás, y una gran variedad de cantos y dietas." },
+    { "name": "Pelecaniformes", "description": "Aves acuáticas medianas o grandes, por lo general de cuello y pico largos. Se alimentan de peces y otros animales en costas, lagunas y bañados." },
+    { "name": "Phoenicopteriformes", "description": "Aves acuáticas altas, de patas y cuello muy largos. Su pico curvado filtra pequeños organismos y partículas en aguas someras." },
+    { "name": "Piciformes", "description": "Aves con pies fuertes, habitualmente con dos dedos hacia adelante y dos hacia atrás. Muchas trepan troncos y poseen picos adaptados a perforar o extraer alimento." },
+    { "name": "Podicipediformes", "description": "Aves buceadoras de agua dulce o costera, con patas ubicadas muy atrás y dedos lobulados. Nadan con gran eficiencia, pero caminan con dificultad." },
+    { "name": "Procellariiformes", "description": "Aves marinas de alas largas y vuelo planeado, con narinas tubulares y gran sentido del olfato. Pasan la mayor parte de su vida en mar abierto." },
+    { "name": "Psittaciformes", "description": "Aves de pico curvo y potente, lengua carnosa y pies prensiles con dos dedos hacia adelante y dos hacia atrás. Manipulan frutos y semillas con gran destreza." },
+    { "name": "Rheiformes", "description": "Aves terrestres grandes e incapaces de volar, con cuello y patas largos. Corren a gran velocidad y recorren ambientes abiertos en busca de alimento." },
+    { "name": "Sphenisciformes", "description": "Aves marinas no voladoras, con alas transformadas en aletas y cuerpo hidrodinámico. Se impulsan bajo el agua para capturar peces y otros organismos." },
+    { "name": "Strigiformes", "description": "Rapaces principalmente nocturnas, con ojos orientados al frente, disco facial y vuelo silencioso. Detectan y capturan presas con oído y visión muy desarrollados." },
+    { "name": "Suliformes", "description": "Aves acuáticas con los cuatro dedos unidos por membranas. Muchas bucean o persiguen peces y descansan en costas, islas o árboles cercanos al agua." },
+    { "name": "Tinamiformes", "description": "Aves terrestres de cuerpo compacto, cabeza pequeña y plumaje discreto. Caminan y corren entre pastizales o montes y sólo vuelan distancias cortas." },
+    { "name": "Trogoniformes", "description": "Aves de bosque, de postura erguida, cola larga y plumaje llamativo. Capturan frutos e invertebrados y suelen nidificar en cavidades." }
+  ]
+}

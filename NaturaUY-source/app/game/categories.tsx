@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { QUIZ_MODES, QUIZ_SCOPE_ORDER, type QuizMode, type QuizScope } from '../../src/domain/entities/quiz';
+import { KNOWLEDGE_LEVELS, QUIZ_MODES, QUIZ_SCOPE_ORDER, type KnowledgeLevel, type QuizMode, type QuizScope } from '../../src/domain/entities/quiz';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { settingsRepository } from '../../src/data/repositories/settingsRepository';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
@@ -10,6 +11,7 @@ import { BackIcon, ChevronRightIcon, GameIcon, LeafIcon } from '../../src/presen
 import { haptics } from '../../src/presentation/haptics';
 import { CLASS_VISUALS } from '../../src/presentation/taxonomy/classVisuals';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
+import { Chip } from '../../src/presentation/components/Chip';
 
 const isMode = (value?: string): value is QuizMode => value === 'classic' || value === 'timed' || value === 'survival' || value === 'naming';
 const CONTENT: Record<QuizScope, { title: string; description: string; clase: string; colors: readonly [string, string]; foreground: string; mutedForeground: string }> = {
@@ -23,11 +25,13 @@ const CONTENT: Record<QuizScope, { title: string; description: string; clase: st
 
 export default function CategoriesScreen(): React.JSX.Element {
   const params = useLocalSearchParams<{ mode?: string }>(); const mode = isMode(params.mode) ? params.mode : 'classic';
+  const [level, setLevel] = useState<KnowledgeLevel>('hard');
   const router = useRouter(); const db = useUserDatabase(); const insets = useSafeAreaInsets(); const { colors, radius, spacing, typography, elevation } = useTheme();
-  const play = (scope: QuizScope): void => { haptics.press(); void settingsRepository.set(db, 'quiz_scope', scope); router.push(`/game/identify?mode=${mode}&scope=${scope}`); };
+  const play = (scope: QuizScope): void => { haptics.press(); void settingsRepository.set(db, 'quiz_scope', scope); void settingsRepository.set(db, 'knowledge_level', level); router.push(`/game/identify?mode=${mode}&scope=${scope}&level=${level}`); };
   return <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
     <View style={[styles.header, { paddingHorizontal: spacing.lg }]}><Pressable onPress={() => { haptics.tap(); router.back(); }} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]} accessibilityLabel="Volver"><BackIcon color={colors.text} /></Pressable><View><Text style={[typography.eyebrow, { color: colors.play }]}>{QUIZ_MODES[mode].title.toLocaleUpperCase('es')}</Text><Text style={[typography.title, { color: colors.text }]}>¿Con qué querés jugar?</Text></View></View>
     <Text style={[typography.body, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.md }]}>Elegí un grupo. Cada partida y cada récord quedan separados por categoría.</Text>
+    <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.sm }}><Text style={[typography.label, { color: colors.text }]}>Nivel de conocimiento</Text><View style={styles.levels}>{KNOWLEDGE_LEVELS.map((item) => <Chip key={item.id} label={item.label} selected={level === item.id} accent={colors.play} onAccent={colors.onPlay} onPress={() => setLevel(item.id)} />)}</View><Text style={[typography.caption, { color: colors.textMuted }]}>{KNOWLEDGE_LEVELS.find((item) => item.id === level)?.description}</Text></View>
     {mode === 'naming' && <View style={[styles.mediaNotice, { marginHorizontal: spacing.lg, marginTop: spacing.md, backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]}><Text style={[typography.label, { color: colors.text }]}>Imagen activa</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Sonido · Próximamente</Text></View>}
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.md, paddingBottom: insets.bottom + spacing.xl }} showsVerticalScrollIndicator={false}>
       {QUIZ_SCOPE_ORDER.map((scope) => { const item = CONTENT[scope]; return <Pressable key={scope} onPress={() => play(scope)} accessibilityRole="button" accessibilityLabel={`Jugar con ${item.title}`}>{({ pressed }) => <LinearGradient colors={[...item.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.card, elevation.low, { borderRadius: radius.lg, opacity: pressed ? .91 : 1 }]}><View style={[styles.glyph, { borderRadius: radius.md }]}>{scope === 'animals_all' ? <GameIcon color={item.foreground} size={38} /> : <FamilyGlyph clase={item.clase} color={item.foreground} size={48} />}</View><View style={styles.flex}><Text style={[typography.cardTitle, { color: item.foreground }]}>{item.title}</Text><Text style={[typography.body, { color: item.mutedForeground, marginTop: 3 }]}>{item.description}</Text></View><ChevronRightIcon color={item.foreground} /></LinearGradient>}</Pressable>; })}
@@ -35,4 +39,4 @@ export default function CategoriesScreen(): React.JSX.Element {
     </ScrollView>
   </View>;
 }
-const styles = StyleSheet.create({ screen: { flex: 1 }, flex: { flex: 1 }, header: { flexDirection: 'row', alignItems: 'center', gap: 12 }, back: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }, card: { minHeight: 116, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 }, glyph: { width: 70, height: 70, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,.13)' }, mediaNotice: { padding: 12, gap: 3 } });
+const styles = StyleSheet.create({ screen: { flex: 1 }, flex: { flex: 1 }, levels: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' }, header: { flexDirection: 'row', alignItems: 'center', gap: 12 }, back: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }, card: { minHeight: 116, flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 }, glyph: { width: 70, height: 70, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,.13)' }, mediaNotice: { padding: 12, gap: 3 } });
