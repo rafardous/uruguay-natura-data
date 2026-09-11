@@ -37,6 +37,24 @@ function publicMediaUrl(path: string | null | undefined) {
   return path ? `${required('SUPABASE_URL').replace(/\/$/, '')}/storage/v1/object/public/media-public/${path}` : null;
 }
 
+function resolveImageUrl(
+  image: DatabaseRow | null | undefined,
+  preferThumbnail = true,
+): string | null {
+  if (!image) return null;
+
+  const storagePath = preferThumbnail
+    ? image.thumbnail_path ?? image.storage_path
+    : image.storage_path;
+
+  return publicMediaUrl(storagePath)
+    ?? (
+      typeof image.source_url === 'string' && image.source_url.length > 0
+        ? image.source_url
+        : null
+    );
+}
+
 export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
   const [speciesRows, mediaRows, abundanceRows, observabilityRows, gameProfiles, gameRules, facts] = await Promise.all([
     fetchAll('species'), fetchAll('species_media'), fetchAll('species_abundance_assessments'),
@@ -44,6 +62,15 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
     fetchAll('species_game_rules'), fetchAll('species_facts'),
   ]);
   const approved = mediaRows.filter((row) => row.status === 'approved' && row.storage_path);
+
+  const legacyImages = mediaRows.filter((row) =>
+  row.type === 'image'
+  && row.status === 'archived'
+  && row.license === 'legacy'
+  && !row.storage_path
+  && typeof row.source_url === 'string'
+  && row.source_url.length > 0
+);
 
   return speciesRows
     .filter((row) => row.status === 'active')
