@@ -75,12 +75,41 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
   return speciesRows
     .filter((row) => row.status === 'active')
     .map((species) => {
-      const assets = approved.filter((asset) => asset.species_id === species.id).sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
-      const image = assets.find((asset) => asset.id === species.primary_image_id && asset.type === 'image')
-        ?? assets.find((asset) => asset.type === 'image')
-        ?? null;
-      const audio = assets.find((asset) => asset.type === 'audio') ?? null;
-      const images = assets.filter((asset) => asset.type === 'image').slice(0, 2);
+
+      const assets = approved
+  .filter((asset) => asset.species_id === species.id)
+  .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
+
+const approvedImage =
+  assets.find(
+    (asset) =>
+      asset.id === species.primary_image_id
+      && asset.type === 'image',
+  )
+  ?? assets.find((asset) => asset.type === 'image')
+  ?? null;
+
+const legacyAssets = legacyImages
+  .filter((asset) => asset.species_id === species.id)
+  .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
+
+const legacyImage =
+  legacyAssets.find((asset) => asset.id === species.primary_image_id)
+  ?? legacyAssets[0]
+  ?? null;
+
+const image = approvedImage ?? legacyImage;
+
+const audio =
+  assets.find((asset) => asset.type === 'audio')
+  ?? null;
+
+// Las imágenes procesadas siguen entrando en species_media.
+// La legacy se usa solamente como fallback de imagen principal.
+const images = assets
+  .filter((asset) => asset.type === 'image')
+  .slice(0, 2);
+      
       const abundance = abundanceRows.find((row) => row.species_id === species.id && row.is_current) ?? null;
       const observability = observabilityRows.filter((row) => row.species_id === species.id)
         .sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)))[0] ?? null;
@@ -88,8 +117,8 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
         species,
         image, images,
         audio,
-        imageUrl: publicMediaUrl(image?.thumbnail_path ?? image?.storage_path),
-        thumbnailUrl: publicMediaUrl(image?.thumbnail_path),
+        imageUrl: resolveImageUrl(image),
+        thumbnailUrl: resolveImageUrl(image),
         audioUrl: publicMediaUrl(audio?.storage_path),
         abundance,
         observability,
@@ -173,7 +202,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     media: {
       image: record.image ? {
         url: record.imageUrl,
-        fullUrl: publicMediaUrl(record.image.storage_path),
+        fullUrl: resolveImageUrl(record.image, false),
         license: record.image.license,
         attribution: record.image.author,
         source: record.image.source,
