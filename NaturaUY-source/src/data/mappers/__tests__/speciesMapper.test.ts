@@ -28,6 +28,7 @@ const baseRow: SpeciesRow = {
   descripcion: 'Ave común de pastizales.',
   alimentacion: 'Insectos y lombrices.',
   tamano: '32-38 cm',
+  traits: '{"measurements":[{"kind":"body_mass","value":280,"unit":"g","basis":null,"estimated":false}],"lifeModes":["terrestrial"],"activity":[],"aquaticEnvironments":[],"waterZones":[],"depthMinM":null,"depthMaxM":null,"sources":["avonet"]}',
   image_url: 'https://example.test/tero.jpg',
   full_url: 'https://example.test/tero-large.jpg',
   thumb_asset: 'V_chilensi.webp',
@@ -57,6 +58,7 @@ describe('rowToSpecies', () => {
     expect(species.diet).toEqual(['invertebrates']);
     expect(species.seasonality).toBe('resident');
     expect(species.sources).toEqual([{ source: 'snap', record: 'V_chilensi' }]);
+    expect(species.traits.measurements[0]?.value).toBe(280);
     expect(species.photo?.fullUrl).toBe('https://example.test/tero-large.jpg');
   });
 
@@ -79,7 +81,24 @@ describe('rowToSpecies', () => {
     expect(species.displayName).toBe('Tero');
   });
 
+  it('drops malformed structured measurements instead of exposing them to the UI', () => {
+    const species = rowToSpecies({ ...baseRow, traits: '{"measurements":[{"kind":"body_mass","value":"mucho","unit":"g","basis":null,"estimated":false}],"lifeModes":[],"activity":[],"aquaticEnvironments":[],"waterZones":[],"depthMinM":null,"depthMaxM":null,"sources":[]}' });
+    expect(species.traits.measurements).toEqual([]);
+  });
+
   it('treats nativa as a boolean, not a truthy number', () => {
     expect(rowToSpecies({ ...baseRow, nativa: 0 }).nativa).toBe(false);
+  });
+
+  it('keeps schema 10 source metadata while reading the legacy shape', () => {
+    const species = rowToSpecies({
+      ...baseRow,
+      sources: JSON.stringify([{
+        source: 'avonet', record: 'AVO-42', fieldPath: 'traits', sourceCode: 'avonet',
+        name: 'AVONET', url: 'https://example.test/avonet', citation: 'Tobias et al. 2022', license: 'CC BY 4.0',
+      }]),
+    });
+    expect(species.sources[0]).toMatchObject({ sourceCode: 'avonet', fieldPath: 'traits', name: 'AVONET', record: 'AVO-42' });
+    expect(species.sources[0]?.url).toBe('https://example.test/avonet');
   });
 });

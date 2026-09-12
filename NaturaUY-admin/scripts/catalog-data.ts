@@ -18,6 +18,7 @@ export interface CatalogRecord {
   gameProfile: DatabaseRow | null;
   gameRules: DatabaseRow[];
   facts: DatabaseRow[];
+  catalogSources: DatabaseRow[];
 }
 
 const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes'] as const;
@@ -56,21 +57,12 @@ function resolveImageUrl(
 }
 
 export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
-  const [speciesRows, mediaRows, abundanceRows, observabilityRows, gameProfiles, gameRules, facts] = await Promise.all([
+  const [speciesRows, mediaRows, abundanceRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources] = await Promise.all([
     fetchAll('species'), fetchAll('species_media'), fetchAll('species_abundance_assessments'),
     fetchAll('species_observability_snapshots'), fetchAll('species_game_profiles'),
-    fetchAll('species_game_rules'), fetchAll('species_facts'),
+    fetchAll('species_game_rules'), fetchAll('species_facts'), fetchAll('catalog_sources'),
   ]);
   const approved = mediaRows.filter((row) => row.status === 'approved' && row.storage_path);
-
-  const legacyImages = mediaRows.filter((row) =>
-  row.type === 'image'
-  && row.status === 'archived'
-  && row.license === 'legacy'
-  && !row.storage_path
-  && typeof row.source_url === 'string'
-  && row.source_url.length > 0
-);
 
   return speciesRows
     .filter((row) => row.status === 'active')
@@ -89,23 +81,13 @@ const approvedImage =
   ?? assets.find((asset) => asset.type === 'image')
   ?? null;
 
-const legacyAssets = legacyImages
-  .filter((asset) => asset.species_id === species.id)
-  .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
-
-const legacyImage =
-  legacyAssets.find((asset) => asset.id === species.primary_image_id)
-  ?? legacyAssets[0]
-  ?? null;
-
-const image = approvedImage ?? legacyImage;
+const image = approvedImage;
 
 const audio =
   assets.find((asset) => asset.type === 'audio')
   ?? null;
 
 // Las imágenes procesadas siguen entrando en species_media.
-// La legacy se usa solamente como fallback de imagen principal.
 const images = assets
   .filter((asset) => asset.type === 'image')
   .slice(0, 2);
@@ -126,6 +108,7 @@ const images = assets
         gameRules: gameRules.filter((row) => row.species_id === species.id),
         facts: facts.filter((row) => row.species_id === species.id && row.active)
           .sort((a, b) => Number(a.sort_order) - Number(b.sort_order)),
+        catalogSources,
       };
     })
     .sort((a, b) => String(a.species.catalog_code).localeCompare(String(b.species.catalog_code), 'es'));
@@ -148,6 +131,32 @@ export async function loadApprovedTaxonContent():Promise<DatabaseRow[]> {
 export function serializeCatalogRecord(record: CatalogRecord) {
   const species = record.species;
   const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];
+  const sourcesByCode = new Map(record.catalogSources.map((source) => [String(source.code), source]));
+  const sourcesById = new Map(record.catalogSources.map((source) => [String(source.id), source]));
+  const reference = (fieldPath: string, value: string) => {
+    const separator = value.indexOf(': ');
+    const sourceCode = separator > 0 ? value.slice(0, separator) : value;
+    const sourceRecordId = separator > 0 ? value.slice(separator + 2) : null;
+    const source = sourcesByCode.get(sourceCode);
+    return {
+      source: sourceCode,
+      record: sourceRecordId,
+      fieldPath,
+      sourceCode,
+      name: source?.name ?? sourceCode,
+      url: source?.url ?? null,
+      citation: source?.citation ?? null,
+      license: source?.license ?? null,
+    };
+  };
+  const fieldReferences = Object.entries(species.field_sources ?? {}).flatMap(([field, references]) =>
+    (references as string[]).map((value) => reference(field, value)));
+  const traitReferences = ((species.traits?.sources ?? []) as string[]).map((value) => reference('traits', value));
+  const factReferences = record.facts.flatMap((fact) => {
+    const source = sourcesById.get(String(fact.source_id));
+    const code = source?.code;
+    return code ? [reference('relevant_note', `${code}${fact.source_record_id ? `: ${fact.source_record_id}` : ''}`)] : [];
+  });
   return {
     id: species.id,
     catalogCode: species.catalog_code,
@@ -184,7 +193,13 @@ export function serializeCatalogRecord(record: CatalogRecord) {
       knowledgeLevel: record.gameProfile?.knowledge_level ?? 'hard',
       rules: record.gameRules.map((rule) => ({ gameKey: rule.game_key, enabled: rule.enabled, minKnowledgeLevel: rule.min_knowledge_level })),
     },
-    facts: record.facts.map((fact) => ({ id: fact.id, body: fact.body, sortOrder: fact.sort_order })),
+    facts: record.facts.map((fact) => ({
+      id: fact.id,
+      body: fact.body,
+      sortOrder: fact.sort_order,
+      sourceCode: sourcesById.get(String(fact.source_id))?.code ?? null,
+      sourceRecordId: fact.source_record_id ?? null,
+    })),
     conservation: {
       system: species.conservation_system,
       category: species.conservation_category,
@@ -197,8 +212,10 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     habitat: species.habitat ?? [],
     diet: species.diet ?? [],
     size: species.size,
+    traits: species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
     relevantNote: species.relevant_note,
-    sources: Object.entries(species.field_sources ?? {}).flatMap(([field, references]) => (references as string[]).map((reference) => ({ source: reference, record: field }))),
+    sources: [...fieldReferences, ...traitReferences, ...factReferences].filter((item, index, all) =>
+      all.findIndex((candidate) => `${candidate.fieldPath}|${candidate.sourceCode}|${candidate.record}` === `${item.fieldPath}|${item.sourceCode}|${item.record}`) === index),
     media: {
       image: record.image ? {
         url: record.imageUrl,
@@ -207,12 +224,29 @@ export function serializeCatalogRecord(record: CatalogRecord) {
         attribution: record.image.author,
         source: record.image.source,
         sourcePage: record.image.source_url,
+        licenseUrl: record.image.license_url,
+        externalId: record.image.external_id,
+        sourceTaxonId: record.image.source_taxon_id,
+        width: record.image.source_width,
+        height: record.image.source_height,
+        selectionScore: record.image.selection_score,
+        selectionDetails: record.image.selection_details,
+        retrievedAt: record.image.retrieved_at,
       } : null,
       images: record.images.map((image) => ({
         url: publicMediaUrl(image.thumbnail_path ?? image.storage_path), fullUrl: publicMediaUrl(image.storage_path), license: image.license,
         attribution: image.author, source: image.source, sourcePage: image.source_url,
       })),
-      audio: record.audioUrl,
+      audio: record.audio ? {
+        url: record.audioUrl,
+        license: record.audio.license,
+        attribution: record.audio.author,
+        source: record.audio.source,
+        sourcePage: record.audio.source_url,
+        externalId: record.audio.external_id ?? null,
+        originalLicense: record.audio.original_license ?? null,
+        durationSeconds: Number(record.audio.clip_duration_seconds ?? record.audio.duration_seconds ?? 15),
+      } : null,
     },
   };
 }

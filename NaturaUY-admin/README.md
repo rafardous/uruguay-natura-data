@@ -7,11 +7,11 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 - `profiles` representa cualquier cuenta; `editor_access` agrega una invitación o permiso editorial, sin tablas de usuarios duplicadas.
 - `species` contiene únicamente la ficha aprobada; `species_changes` conserva propuesta, validación e historial en una sola entidad. La autovalidación exige confirmación explícita.
 - Los administradores son los únicos que pueden solicitar una publicación manual. Durante la etapa inicial ingresan con Google OAuth y una autorización activa en `editor_access`; MFA queda postergado.
-- `species_media` limita cada especie a dos imágenes y un audio. El navegador sube imágenes WebP 1600 px y WAV mono de hasta 15 s; GitHub Actions verifica y produce WebP 480 px o MP3 96 kbps/48 kHz.
+- `species_media` limita cada especie a dos imágenes y un audio. Las imágenes nuevas exigen CC0, CC BY 4.0 o autorización verificable y guardan origen, identificador externo, dimensiones, checksum y puntaje; las heredadas ambiguas nunca se publican como fallback.
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
-- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 8, incluida la galería sin binarios, trivia ilustrable y descripciones de órdenes/familias.
+- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, seis JSON por clase, manifest e informe público con esquema 10. Incluye nombres alternativos buscables, rasgos estructurados con evidencia, fuentes resolubles por campo, datos relevantes y contenido taxonómico en filo/clase/orden/familia, además de galería y trivia.
 - `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
 - Abundancia experta (`species_abundance_assessments`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. Dificultad, reglas por juego, curiosidades y trivia tienen tablas propias y pasan por `content_changes`.
 - `/content` permite proponer y aprobar abundancia, nivel de conocimiento, datos curiosos y preguntas de cuatro opciones. La publicación sólo consume contenido aprobado.
@@ -33,6 +33,10 @@ npm run catalog:import -- --dry-run
 npm run catalog:export-json
 npm run catalog:import-enrichment        # dry-run
 npm run catalog:import-enrichment -- --apply
+
+cd ../NaturaUY-source
+npm run data:traits
+npm run data:catalog-media -- --reelect-all
 ```
 
 El panel requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` para funcionar. No existe un fallback de datos demo: si faltan esas variables, muestra un error de configuración. En Cloudflare Pages deben configurarse únicamente para el entorno Production; nunca colocar una `service_role` key en el frontend.

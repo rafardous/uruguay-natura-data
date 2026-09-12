@@ -18,6 +18,7 @@ import Animated, {
 
 import type { Species } from '../../src/domain/entities/species';
 import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel } from '../../src/domain/catalogLabels';
+import { formatLegacyMeasurementText, formatSpeciesMeasurement } from '../../src/domain/services/measurementFormatting';
 import {
   speciesRepository,
   TAXON_RANKS,
@@ -27,11 +28,14 @@ import {
 } from '../../src/data/repositories/speciesRepository';
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
+import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
+import { TransientZoomView } from '../../src/presentation/components/TransientZoomView';
+import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
 import { FavoriteSparkles } from '../../src/presentation/components/FavoriteSparkles';
-import { BugIcon, ChevronRightIcon, CloseIcon, HeartIcon, InfoIcon } from '../../src/presentation/components/TabIcons';
+import { BugIcon, ChevronRightIcon, CloseIcon, DatabaseIcon, HeartIcon, InfoIcon, MoreIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
@@ -65,6 +69,14 @@ function Fact({ label, value, container, onContainer }: { label: string; value: 
   );
 }
 
+const TRAIT_LABELS: Record<string, string> = {
+  body_length: 'Longitud corporal', max_length: 'Longitud máxima', body_mass: 'Masa', wing_length: 'Ala',
+  tail_length: 'Cola', tarsus_length: 'Tarso', terrestrial: 'Terrestre', arboreal: 'Arborícola', aquatic: 'Acuático',
+  aerial: 'Aéreo', fossorial: 'Fosorial', perching: 'Posador', generalist: 'Generalista', diurnal: 'Diurno',
+  nocturnal: 'Nocturno', both: 'Diurno y nocturno', freshwater: 'Agua dulce', brackish: 'Salobre', marine: 'Marino',
+  benthic: 'Bentónico', demersal: 'Demersal', pelagic: 'Pelágico',
+};
+
 /** A custom sheet keeps Android scrolling predictable and owns its dismiss gesture. */
 export default function SpeciesDetailScreen(): React.JSX.Element {
   const { codigo } = useLocalSearchParams<{ codigo: string }>();
@@ -72,13 +84,16 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
-  const { colors, radius, spacing, typography } = useTheme();
+  const { colors, radius, spacing, typography, elevation } = useTheme();
   const { isFavorite, toggle } = useFavorites();
 
   const [species, setSpecies] = useState<Species | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
+  const [traitsOpen, setTraitsOpen] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const [sourcesOpen, setSourcesOpen] = useState(false);
   const palette = useSpeciesPalette(species);
 
   const scrollY = useSharedValue(0);
@@ -95,6 +110,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const scrollGesture = Gesture.Native();
   const dismissGesture = Gesture.Pan()
     .enabled(!lightboxOpen)
+    .maxPointers(1)
     .activeOffsetY(8)
     .failOffsetX([-28, 28])
     .simultaneousWithExternalGesture(scrollGesture)
@@ -196,7 +212,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
   const facts = species
     ? [
-        { label: 'Tamaño', value: species.tamano },
+        ...(species.traits.measurements.length === 0 ? [{ label: 'Tamaño', value: formatLegacyMeasurementText(species.tamano) }] : []),
         { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
       ].filter((fact) => fact.value.length > 0)
     : [];
@@ -210,9 +226,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         { label: 'Género', rank: 'genero', value: species.taxonomy.genero },
       ]
     : [];
-  const dataSources = species
-    ? [...new Set(species.sources.map((source) => sourceLabel(source.source)))]
-    : [];
+  const alternateNames = species ? species.commonNames.filter((name) => name.toLocaleLowerCase('es') !== species.displayName.toLocaleLowerCase('es')) : [];
+  const traitSources = species ? species.traits.sources.map(sourceLabel) : [];
+  const hasTraits = Boolean(species && (species.traits.measurements.length || species.traits.lifeModes.length || species.traits.activity.length || species.traits.aquaticEnvironments.length || species.traits.waterZones.length || species.traits.depthMinM !== null || species.traits.depthMaxM !== null));
   const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
   const observabilityBand = species?.observability?.band === 'high' ? 'Alta'
     : species?.observability?.band === 'medium' ? 'Media'
@@ -274,18 +290,18 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
       {/* In-flow row, above the photo — not overlapping it. */}
       <View style={[styles.headerRow, { paddingHorizontal: spacing.lg }]}>
-        {species ? <View style={[styles.classGlyph, { backgroundColor: palette.container, borderRadius: radius.md }]}><FamilyGlyph clase={species.taxonomy.clase} color={palette.accent} size={22} /></View> : null}
+        {species ? <View style={styles.classIdentity}><View style={[styles.classGlyph, { backgroundColor: palette.container, borderRadius: radius.md }]}><FamilyGlyph clase={species.taxonomy.clase} color={palette.accent} size={22} /></View><Text style={[typography.label, { color: colors.text }]}>{species.taxonomy.clase}</Text></View> : null}
         <View style={styles.flex} />
-        {species && hasRelevantInfo && (
+        {species && (
           <Pressable
-            onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }}
+            onPress={() => { haptics.tap(); setOptionsOpen((open) => !open); }}
             hitSlop={8}
             accessibilityRole="button"
-            accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'}
-            accessibilityState={{ expanded: relevantInfoOpen }}
-            style={[styles.action, { backgroundColor: relevantInfoOpen ? palette.container : colors.surfaceVariant, marginRight: spacing.sm }]}
+            accessibilityLabel="Ver opciones de la especie"
+            accessibilityState={{ expanded: optionsOpen }}
+            style={[styles.action, { backgroundColor: colors.surfaceVariant, marginRight: spacing.sm }]}
           >
-            <InfoIcon color={relevantInfoOpen ? palette.onContainer : colors.text} size={20} />
+            <MoreIcon color={colors.text} size={20} />
           </Pressable>
         )}
         {species && (
@@ -319,6 +335,14 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           <CloseIcon color={colors.text} size={20} />
         </Pressable>
       </View>
+      {species && optionsOpen && (
+        <View style={[styles.optionsMenu, elevation.high, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.md, right: spacing.lg + 94 }]}>
+          <Pressable onPress={() => { haptics.tap(); setOptionsOpen(false); setSourcesOpen(true); }} accessibilityRole="menuitem" style={styles.optionItem}>
+            <DatabaseIcon color={colors.primary} size={19} />
+            <Text style={[typography.label, { color: colors.text }]}>Fuentes de datos</Text>
+          </Pressable>
+        </View>
+      )}
 
       {notFound ? (
         <View style={{ padding: spacing.xl }}>
@@ -344,14 +368,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
           >
           <View style={{ paddingHorizontal: spacing.lg }}>
-            <Pressable
-              onPress={() => species.photo && setLightboxOpen(true)}
-              disabled={!species.photo}
-              accessibilityRole={species.photo ? 'imagebutton' : undefined}
-              accessibilityLabel={species.photo ? `Ver ${species.displayName} en tamaño completo` : undefined}
-            >
+            <View style={{ height: 230 }}>
+              <TransientZoomView onPress={species.photo ? () => setLightboxOpen(true) : undefined} accessibilityLabel={species.photo ? `Ver ${species.displayName} en tamaño completo` : `Ilustración de ${species.displayName}`} borderRadius={radius.lg}>
               <SpeciesImage species={species} height={230} full borderRadius={radius.lg} glyphSize={78} />
-            </Pressable>
+              </TransientZoomView>
+            </View>
             {species.photo && species.photo.attribution.length > 0 && (
               <Pressable
                 onPress={() => species.photo?.page && void Linking.openURL(species.photo.page)}
@@ -359,28 +380,30 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 accessibilityRole={species.photo.page ? 'link' : undefined}
                 style={styles.photoCredit}
               >
-                <Text style={[typography.caption, { color: colors.textMuted, fontSize: 10, lineHeight: 14 }]} numberOfLines={2}>
+                <Text style={[typography.caption, { color: colors.textMuted, fontSize: 9, lineHeight: 12 }]} numberOfLines={2}>
                   Foto: {species.photo.attribution}
                   {species.photo.license ? ` · ${species.photo.license}` : ''}
                 </Text>
               </Pressable>
             )}
+            <SpeciesAudioButton species={species} />
           </View>
 
           <View style={{ padding: spacing.lg }}>
             <Staggered index={0}>
-              <Text style={[typography.eyebrow, { color: palette.accent }]}>
-                {species.taxonomy.clase.toUpperCase()} · FAUNA DEL URUGUAY
-              </Text>
-              <Text style={[typography.display, { color: colors.text, marginTop: 6 }]}>
-                {species.displayName}
-              </Text>
+              <View style={styles.nameRow}>
+                <Text style={[typography.display, styles.name, { color: colors.text }]}>{species.displayName}</Text>
+                {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: relevantInfoOpen ? palette.container : colors.surfaceVariant, borderRadius: radius.pill }]}><InfoIcon color={relevantInfoOpen ? palette.onContainer : palette.accent} size={20} /></Pressable>}
+              </View>
               {/* Only when it adds something: `displayName` is the binomial itself
                   whenever a species has no vernacular name. */}
               {species.scientificName !== species.displayName && (
                 <Text style={[typography.body, styles.scientific, { color: colors.textSecondary }]}>
                   {species.scientificName}
                 </Text>
+              )}
+              {alternateNames.length > 0 && (
+                <Text style={[typography.caption, { color: colors.textMuted, marginTop: 6 }]}>Otros nombres: {alternateNames.join(' · ')}</Text>
               )}
             </Staggered>
 
@@ -437,6 +460,26 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                       onContainer={palette.onContainer}
                     />
                   ))}
+                </View>
+              </Staggered>
+            )}
+
+            {hasTraits && (
+              <Staggered index={3}>
+                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                  <Pressable onPress={() => setTraitsOpen((open) => !open)} accessibilityRole="button" accessibilityState={{ expanded: traitsOpen }} style={styles.traitsHeader}>
+                    <Text style={[typography.label, { color: colors.text }]}>Tamaño y ecología</Text>
+                    <Text style={[typography.label, { color: palette.accent }]}>{traitsOpen ? '−' : '+'}</Text>
+                  </Pressable>
+                  {traitsOpen && <View style={{ gap: 8 }}>
+                    {species.traits.measurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind] ?? measurement.kind}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}
+                    {species.traits.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Modo de vida: {species.traits.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {species.traits.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Actividad: {species.traits.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {species.traits.aquaticEnvironments.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Ambiente: {species.traits.aquaticEnvironments.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {species.traits.waterZones.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Zona de agua: {species.traits.waterZones.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {(species.traits.depthMinM !== null || species.traits.depthMaxM !== null) && <Text style={[typography.body, { color: colors.textSecondary }]}>Profundidad: {species.traits.depthMinM ?? 0}–{species.traits.depthMaxM ?? '?'} m</Text>}
+                    {traitSources.length > 0 && <Text style={[typography.caption, { color: colors.textMuted }]}>Fuente: {[...new Set(traitSources)].join(' · ')}</Text>}
+                  </View>}
                 </View>
               </Staggered>
             )}
@@ -526,17 +569,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {dataSources.length > 0 && (
-              <Staggered index={10}>
-                <View style={{ marginTop: spacing.xl }}>
-                  <Text style={[typography.caption, { color: colors.textMuted }]}>FUENTES DEL REGISTRO</Text>
-                  <Text style={[typography.body, { color: colors.textSecondary, marginTop: 4 }]}>
-                    {dataSources.join(' · ')}
-                  </Text>
-                </View>
-              </Staggered>
-            )}
-
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
@@ -558,6 +590,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         label={species?.displayName ?? ''}
         onClose={() => setLightboxOpen(false)}
       />
+      {species && <SpeciesSourcesSheet visible={sourcesOpen} species={species} onClose={() => setSourcesOpen(false)} />}
         </Animated.View>
       </GestureDetector>
     </View>
@@ -572,12 +605,21 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   headerRow: { flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 18 },
   action: { padding: 9, borderRadius: 12 },
+  classIdentity: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   classGlyph: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
+  optionsMenu: { position: 'absolute', top: 84, zIndex: 40, minWidth: 188, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
+  optionItem: { minHeight: 52, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  nameRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  name: { flex: 1 },
+  infoAction: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   badgeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   pill: { paddingHorizontal: 9, paddingVertical: 5 },
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   fact: { flexGrow: 1, flexBasis: '46%', padding: 12 },
+  traits: { padding: 14 },
+  traitsHeader: { minHeight: 32, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   photoCredit: { alignSelf: 'flex-start', paddingTop: 7, paddingHorizontal: 3 },
   tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   dataTag: { paddingHorizontal: 11, paddingVertical: 7 },

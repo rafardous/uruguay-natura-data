@@ -24,10 +24,30 @@ const duplicateCodes = scalar('SELECT COUNT(*) AS n FROM (SELECT codigo FROM spe
 const missingRequired = scalar(`SELECT COUNT(*) AS n FROM species
   WHERE scientific_name = '' OR common_name = '' OR common_names = '' OR phylum = '' OR clase = ''`);
 const photos = scalar('SELECT COUNT(*) AS n FROM species WHERE image_url IS NOT NULL');
+const invalidPhotoLicenses = scalar("SELECT COUNT(*) AS n FROM species WHERE image_url IS NOT NULL AND image_license NOT IN ('CC0','CC-BY-4.0','permission')");
 const unknownOrigin = scalar('SELECT COUNT(*) AS n FROM species WHERE origin IS NULL');
 const schemaVersion = (db.prepare("SELECT value FROM meta WHERE key = 'schema_version'").get() as { value: string } | undefined)?.value;
 const dataVersion = (db.prepare("SELECT value FROM meta WHERE key = 'data_version'").get() as { value: string } | undefined)?.value;
 const hasMediaTable = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type = 'table' AND name = 'species_media'");
+const hasAudioExternalId = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species_media') WHERE name = 'external_id'");
+const hasAudioOriginalLicense = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species_media') WHERE name = 'original_license'");
+const invalidAudioDurations = scalar("SELECT COUNT(*) AS n FROM species_media WHERE media_type='audio' AND (duration_seconds IS NULL OR duration_seconds <= 0 OR duration_seconds > 15)");
+const duplicateAudioExternalIds = scalar("SELECT COUNT(*) AS n FROM (SELECT external_id FROM species_media WHERE media_type='audio' AND external_id IS NOT NULL GROUP BY external_id HAVING COUNT(*) > 1)");
+const hasTraitsColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'traits'");
+const invalidTraits = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(traits) = 0 OR json_type(traits) <> 'object'");
+const missingPrimarySearchNames = scalar(`SELECT COUNT(*) AS n FROM species
+  WHERE NOT EXISTS (
+    SELECT 1 FROM json_each(species.common_names)
+    WHERE LOWER(TRIM(json_each.value)) = LOWER(TRIM(species.common_name))
+  )`);
+const duplicateCommonNames = scalar(`SELECT COUNT(*) AS n FROM species
+  WHERE json_array_length(common_names) > (
+    SELECT COUNT(DISTINCT lower(replace(replace(replace(trim(json_each.value),char(173),''),char(8203),''),char(65279),'')))
+    FROM json_each(species.common_names)
+  )`);
+const redistributedFishBase = scalar(`SELECT COUNT(*) AS n FROM species
+  WHERE EXISTS (SELECT 1 FROM json_each(species.sources) WHERE lower(json_extract(json_each.value,'$.source'))='fishbase')
+     OR EXISTS (SELECT 1 FROM json_each(json_extract(species.traits,'$.sources')) WHERE lower(json_each.value)='fishbase')`);
 const birdOrders = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name='Aves' AND taxon_rank='order'");
 const linkedBirdOrderDescriptions = scalar(`SELECT COUNT(*) AS n FROM (
   SELECT DISTINCT species.orden
@@ -54,6 +74,12 @@ const linkedMammalOrderDescriptions = scalar(`SELECT COUNT(*) AS n FROM (
   WHERE species.clase='Mammalia' AND TRIM(content.description)<>''
 )`);
 const triviaQuestions = scalar('SELECT COUNT(*) AS n FROM trivia_questions');
+const catalogSources = scalar('SELECT COUNT(*) AS n FROM catalog_sources');
+const featuredFacts = scalar("SELECT COUNT(*) AS n FROM species_facts WHERE id LIKE 'featured-%' AND source_code IS NOT NULL");
+const simpleTaxa = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE simple_name IS NOT NULL AND TRIM(simple_name) <> ''");
+const simpleChordata = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='phylum' AND taxon_name='Chordata' AND simple_name='Vertebrados'");
+const simpleMammalia = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='class' AND taxon_name='Mammalia' AND simple_name='Mamíferos'");
+const redundantBirdSimpleName = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Aves','Actinopterygii','Chondrichthyes') AND taxon_rank='class' AND simple_name IS NOT NULL");
 
 // Same joins/filters/order used by speciesRepository.findPaged.
 const searchProbe = db.prepare(`SELECT species.codigo FROM species
@@ -72,7 +98,7 @@ const unassignedOrderBranch = db.prepare(`SELECT
 
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
-  schemaVersion !== '8' && `schema_version=${schemaVersion ?? 'missing'}, expected 8`,
+  schemaVersion !== '10' && `schema_version=${schemaVersion ?? 'missing'}, expected 10`,
   dataVersion !== '1' && `data_version=${dataVersion ?? 'missing'}, expected 1`,
   birdOrders !== 27 && `bird order descriptions=${birdOrders}, expected 27`,
   linkedBirdOrderDescriptions !== 27 && `bird order descriptions linked to catalogue=${linkedBirdOrderDescriptions}, expected 27`,
@@ -81,11 +107,27 @@ const failures = [
   linkedReptileOrderDescriptions !== 3 && `reptile order descriptions linked=${linkedReptileOrderDescriptions}, expected 3`,
   linkedMammalOrderDescriptions !== 9 && `mammal order descriptions linked=${linkedMammalOrderDescriptions}, expected 9`,
   triviaQuestions < 10 && `trivia questions=${triviaQuestions}, expected at least 10`,
+  catalogSources < 10 && `catalog sources=${catalogSources}, expected at least 10`,
+  featuredFacts !== 8 && `featured facts=${featuredFacts}, expected 8`,
+  simpleTaxa < 10 && `taxa with simple names=${simpleTaxa}, expected at least 10`,
+  simpleChordata !== 1 && 'Chordata simple name missing',
+  simpleMammalia !== 1 && 'Mammalia simple name missing',
+  redundantBirdSimpleName > 0 && 'redundant simple names were added for birds or fish classes',
   hasMediaTable !== 1 && 'species_media table missing',
+  hasAudioExternalId !== 1 && 'species_media.external_id column missing',
+  hasAudioOriginalLicense !== 1 && 'species_media.original_license column missing',
+  invalidAudioDurations > 0 && `audio clips outside the 15 second contract=${invalidAudioDurations}`,
+  duplicateAudioExternalIds > 0 && `duplicate audio external IDs=${duplicateAudioExternalIds}`,
+  hasTraitsColumn !== 1 && 'species.traits column missing',
+  invalidTraits > 0 && `invalid structured traits=${invalidTraits}`,
+  missingPrimarySearchNames > 0 && `species whose primary name is absent from common_names=${missingPrimarySearchNames}`,
+  duplicateCommonNames > 0 && `species with duplicate common names=${duplicateCommonNames}`,
+  redistributedFishBase > 0 && `FishBase data leaked into the offline catalog=${redistributedFishBase}`,
   species !== catalogIds.size && `species=${species}, expected unique catalog ids=${catalogIds.size}`,
   fts !== species && `fts=${fts}, species=${species}`,
   duplicateCodes > 0 && `duplicate codigo values=${duplicateCodes}`,
   missingRequired > 0 && `rows missing required app fields=${missingRequired}`,
+  invalidPhotoLicenses > 0 && `published images with unacceptable license=${invalidPhotoLicenses}`,
   photos > 0 && quizProbe.length === 0 && 'quiz query returned no rows',
   photos > 0 && searchProbe.length === 0 && 'FTS/photo query returned no rows',
   taxaProbe.length === 0 && 'taxon aggregation returned no rows',
@@ -98,4 +140,4 @@ db.close();
 if (failures.length > 0) throw new Error(`app database verification failed:\n- ${failures.join('\n- ')}`);
 
 console.log(`08-verify-app-db: OK — ${species} species, ${photos} photos, ${unknownOrigin} without established origin`);
-console.log(`  integrity, unique IDs, FTS, paging, filters, taxonomy hierarchy and quiz queries passed`);
+console.log(`  integrity, schema 10 sources/taxonomy/facts, traits, common names, FTS, paging, filters and quiz queries passed`);

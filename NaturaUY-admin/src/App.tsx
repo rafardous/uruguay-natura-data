@@ -12,6 +12,7 @@ import { SpeciesEditorV2Page } from './pages/SpeciesEditorV2Page';
 import { SpeciesListPage } from './pages/SpeciesListPage';
 import { UsersPage } from './pages/UsersPage';
 import { CatalogContentPage } from './pages/CatalogContentPage';
+import { NewsPage } from './pages/NewsPage';
 
 function Router(): React.JSX.Element {
   const path = usePathname(); const { loading, profile, configurationError, accessDenied } = useAuth();
@@ -29,6 +30,7 @@ function Router(): React.JSX.Element {
   else if (path === '/releases') page = <ReleasesPage />;
   else if (path === '/reports') page = <ReportsPage />;
   else if (path === '/users' && profile.role === 'admin') page = <UsersPage />;
+  else if (path === '/news' && profile.role === 'admin') page = <NewsPage />;
   else page = <DashboardPage />;
   return <Shell path={path}>{page}</Shell>;
 }

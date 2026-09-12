@@ -13,6 +13,8 @@ const PAGE_SIZE = 24;
  * makes the transition feel deliberate instead of flickery.
  */
 const MIN_LOADING_MS = 120;
+type CachedList = { items: Species[]; total: number; hasMore: boolean };
+const listCache = new Map<string, CachedList>();
 
 export interface SpeciesListState {
   items: Species[];
@@ -34,15 +36,15 @@ export interface SpeciesListState {
  */
 export function useSpeciesList(filters: SpeciesFilters, enabled = true, refreshKey = 0): SpeciesListState {
   const db = useSQLiteContext();
-  const [items, setItems] = useState<Species[]>([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const key = JSON.stringify(filters);
+  const [items, setItems] = useState<Species[]>(() => listCache.get(key)?.items ?? []);
+  const [total, setTotal] = useState(() => listCache.get(key)?.total ?? 0);
+  const [loading, setLoading] = useState(() => !listCache.has(key));
   const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(false);
+  const [hasMore, setHasMore] = useState(() => listCache.get(key)?.hasMore ?? false);
 
   // Guards against a stale page landing after the filters changed.
   const requestId = useRef(0);
-  const key = JSON.stringify(filters);
 
   useEffect(() => {
     const id = ++requestId.current;
@@ -51,7 +53,9 @@ export function useSpeciesList(filters: SpeciesFilters, enabled = true, refreshK
       return;
     }
     const startedAt = Date.now();
-    setLoading(true);
+    // Existing rows remain visible while a changed query is resolved. Only a
+    // genuinely empty list gets the full-page skeleton treatment.
+    setLoading(items.length === 0);
 
     void (async () => {
       try {
@@ -74,6 +78,7 @@ export function useSpeciesList(filters: SpeciesFilters, enabled = true, refreshK
         setHasMore(page.hasMore);
         setTotal(count);
         setLoading(false);
+        listCache.set(key, { items: page.items, total: count, hasMore: page.hasMore });
       } catch {
         if (id !== requestId.current) return;
         setItems([]);

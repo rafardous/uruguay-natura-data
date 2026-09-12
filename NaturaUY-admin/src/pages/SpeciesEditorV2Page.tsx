@@ -119,7 +119,35 @@ function ContentAndMedia(props: ContentAndMediaProps): React.JSX.Element {
     {creating ? <NewSpeciesMedia drafts={mediaDrafts} onChange={setMediaDrafts} profile={profile} /> : <FormSection title="Multimedia" detail="La ficha usa primero los medios aprobados y, mientras no existan, muestra la referencia externa heredada."><div className="media-overview"><span className="media-overview-image">{species?.imageUrl ? <img src={species.imageUrl} alt={`Imagen principal de ${title}`} /> : <ImagePlus />}</span><div><strong>{species?.imageUrl ? species.imageIsLegacy ? 'Imagen externa heredada' : 'Imagen principal aprobada' : 'Sin imagen asociada'}</strong>{species?.imageSourceUrl && <a className="media-source-link" href={species.imageSourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={15} /><span>{species.imageSourceUrl}</span></a>}<p>{species?.hasAudio ? 'Audio aprobado disponible.' : 'Sin audio aprobado.'}</p><button className="secondary" onClick={() => species && navigate(`/media?species=${species.id}`)}><ImagePlus size={17} /> Gestionar medios</button>{species?.hasAudio && <span className="media-audio"><Volume2 size={16} /> Audio disponible</span>}</div></div></FormSection>}
     <SectionDivider />
     <div className="content-media-fields"><ContentAndMediaFields {...props} /></div>
+    <SectionDivider />
+    <TraitEditor payload={props.payload} patch={props.patch} />
   </>;
+}
+
+function TraitEditor({ payload, patch }: EditorSectionProps): React.JSX.Element {
+  const find = (kind: SpeciesPayload['traits']['measurements'][number]['kind']) => payload.traits.measurements.find((item) => item.kind === kind);
+  const setMeasurement = (kind: SpeciesPayload['traits']['measurements'][number]['kind'], raw: string, unit: 'mm' | 'g', basis: SpeciesPayload['traits']['measurements'][number]['basis'] = null) => {
+    const rest = payload.traits.measurements.filter((item) => item.kind !== kind);
+    const value = Number(raw.replace(',', '.'));
+    patch('traits', { ...payload.traits, measurements: raw.trim() && Number.isFinite(value) && value > 0 ? [...rest, { kind, value, unit, basis, estimated: false }] : rest });
+  };
+  const list = (label: string, key: 'lifeModes'|'activity'|'aquaticEnvironments'|'waterZones', hint: string) => <Field label={label} value={payload.traits[key].join(', ')} onChange={(value) => patch('traits', { ...payload.traits, [key]: split(value) })} hint={hint} />;
+  return <FormSection title="Tamaño y ecología" detail="Rasgos estructurados. Hábitat y alimentación históricos pueden rectificarse cuando exista mejor evidencia."><div className="form-grid three">
+    <Field label="Longitud corporal (mm)" value={find('body_length')?.value.toString() ?? ''} onChange={(value) => setMeasurement('body_length', value, 'mm', 'body_length')} />
+    <Field label="Longitud máxima (mm)" value={find('max_length')?.value.toString() ?? ''} onChange={(value) => setMeasurement('max_length', value, 'mm', find('max_length')?.basis ?? null)} />
+    <SelectField label="Convención de longitud" value={find('max_length')?.basis ?? ''} onChange={(value) => { const current = find('max_length'); if (current) patch('traits', { ...payload.traits, measurements: payload.traits.measurements.map((item) => item.kind === 'max_length' ? { ...item, basis: value ? value as 'TL'|'SL'|'FL' : null } : item) }); }} options={[["","Sin especificar"],["TL","TL · longitud total"],["SL","SL · longitud estándar"],["FL","FL · longitud a la horquilla"]]} />
+    <Field label="Masa (g)" value={find('body_mass')?.value.toString() ?? ''} onChange={(value) => setMeasurement('body_mass', value, 'g')} />
+    <Field label="Ala (mm)" value={find('wing_length')?.value.toString() ?? ''} onChange={(value) => setMeasurement('wing_length', value, 'mm')} />
+    <Field label="Cola (mm)" value={find('tail_length')?.value.toString() ?? ''} onChange={(value) => setMeasurement('tail_length', value, 'mm')} />
+    <Field label="Tarso (mm)" value={find('tarsus_length')?.value.toString() ?? ''} onChange={(value) => setMeasurement('tarsus_length', value, 'mm')} />
+    {list('Modos de vida','lifeModes','terrestrial, arboreal, aquatic, aerial, fossorial, perching, generalist')}
+    {list('Actividad','activity','diurnal, nocturnal, both')}
+    {list('Ambientes acuáticos','aquaticEnvironments','freshwater, brackish, marine')}
+    {list('Zonas de agua','waterZones','benthic, demersal, pelagic')}
+    <Field label="Fuentes de rasgos" value={payload.traits.sources.join(', ')} onChange={(value) => patch('traits', { ...payload.traits, sources: split(value) })} hint="Códigos registrados, por ejemplo avonet o amphibio" />
+    <Field label="Profundidad mínima (m)" value={payload.traits.depthMinM?.toString() ?? ''} onChange={(value) => patch('traits', { ...payload.traits, depthMinM: value.trim() ? Number(value.replace(',','.')) : null })} />
+    <Field label="Profundidad máxima (m)" value={payload.traits.depthMaxM?.toString() ?? ''} onChange={(value) => patch('traits', { ...payload.traits, depthMaxM: value.trim() ? Number(value.replace(',','.')) : null })} />
+  </div></FormSection>;
 }
 
 function ContentAndMediaFields({ payload, patch, creating, species, title, mediaDrafts, setMediaDrafts, profile }: ContentAndMediaProps): React.JSX.Element {

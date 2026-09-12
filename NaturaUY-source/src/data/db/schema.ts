@@ -35,6 +35,7 @@ export interface SpeciesRow {
   descripcion: string;
   alimentacion: string;
   tamano: string;
+  traits?: string;
   image_url: string | null;
   full_url: string | null;
   thumb_asset: string | null;
@@ -61,12 +62,21 @@ export interface SpeciesMediaRow {
   thumbnail_url: string | null;
   author: string;
   license: string;
+  original_license?: string | null;
   source: string;
   source_url: string | null;
   duration_seconds: number | null;
+  external_id?: string | null;
 }
 
-export interface SpeciesFactRow { id: string; stable_id: string; body: string; sort_order: number }
+export interface SpeciesFactRow {
+  id: string;
+  stable_id: string;
+  body: string;
+  sort_order: number;
+  source_code?: string | null;
+  source_record_id?: string | null;
+}
 export interface SpeciesObservabilityRow {
   stable_id: string; method_version: string; period_start: string; period_end: string;
   occurrence_count: number; occupied_cells: number; years_observed: number; score: number;

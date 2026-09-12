@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { gzipSync } from 'node:zlib';
 
-import { loadApprovedCatalog, loadApprovedTaxonContent, loadApprovedTrivia, writeCatalogJson } from './catalog-data';
+import { loadApprovedCatalog, loadApprovedTaxonContent, loadApprovedTrivia, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
 import { adminClient, required } from './shared';
 
 const client = adminClient();
@@ -58,7 +58,7 @@ create table species (
   stable_id text not null unique, codigo text primary key, scientific_name text not null, accepted_name text, common_name text not null, common_names text not null,
   kingdom text not null, phylum text not null, clase text not null, orden text not null, familia text not null, genero text not null, epiteto text not null,
   estado_conservacion text not null, conservation_label text not null, conservation_rank integer not null, conservation_system text, conservation_source text, conservation_assessed_at text,
-  nativa integer not null, descripcion text not null, alimentacion text not null, tamano text not null,
+  nativa integer not null, descripcion text not null, alimentacion text not null, tamano text not null, traits text not null,
   image_url text, full_url text, thumb_asset text, audio_url text, image_license text, image_attribution text, image_source text, image_page text,
   accent_light text not null, accent_dark text not null, container_light text not null, on_container_light text not null, container_dark text not null, on_container_dark text not null,
   origin text, establishment text, seasonality text, presence_certainty text, abundance_status text, habitat text not null, diet text not null, relevant_note text, sources text not null,
@@ -77,9 +77,10 @@ create virtual table species_fts using fts5(common_names, scientific_name, famil
 create table species_media (
   id text primary key, stable_id text not null references species(stable_id), media_type text not null check(media_type in ('image','audio')),
   ordinal integer not null, is_primary integer not null default 0, url text not null, thumbnail_url text,
-  author text not null, license text not null, source text not null, source_url text, duration_seconds real
+  author text not null, license text not null, source text not null, source_url text, duration_seconds real, external_id text, original_license text
 );
 create index idx_species_media_species on species_media(stable_id, media_type, ordinal);
+create unique index idx_species_media_audio_external on species_media(external_id) where media_type='audio' and external_id is not null;
 create table species_observability (
   stable_id text primary key references species(stable_id), method_version text not null,
   period_start text not null, period_end text not null, occurrence_count integer not null,
@@ -87,7 +88,8 @@ create table species_observability (
   band text not null, comparison_class text not null
 );
 create table species_facts (
-  id text primary key, stable_id text not null references species(stable_id), body text not null, sort_order integer not null
+  id text primary key, stable_id text not null references species(stable_id), body text not null, sort_order integer not null,
+  source_code text, source_record_id text
 );
 create index idx_species_facts_species on species_facts(stable_id, sort_order);
 create table species_game_rules (
@@ -96,10 +98,13 @@ create table species_game_rules (
 );
 create table taxon_content (
   id text primary key, taxon_rank text not null, kingdom text not null, phylum text not null,
-  class_name text not null, taxon_name text not null, language text not null, description text not null, source_code text not null,
+  class_name text not null, taxon_name text not null, language text not null, description text not null, simple_name text, source_code text not null,
   unique(taxon_rank,class_name,taxon_name,language)
 );
 create index idx_taxon_content_lookup on taxon_content(class_name,taxon_rank,taxon_name);
+create table catalog_sources (
+  code text primary key, name text not null, url text, publisher text, license text, citation text, use_policy text not null
+);
 create table trivia_questions (
   id text primary key, stable_id text references species(stable_id), prompt text not null,
   explanation text, source_id text not null, image_url text, image_attribution text, image_license text
@@ -113,28 +118,35 @@ create table meta (key text primary key, value text not null);
 `);
 
 const defaults = ['#477052', '#BDD0B7', '#DCE8D8', '#293832', '#31533D', '#E5F1E2'];
-const insert = db.prepare(`insert into species values (${Array.from({ length: 49 }, () => '?').join(',')})`);
-const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?)');
+const insert = db.prepare(`insert into species values (${Array.from({ length: 50 }, () => '?').join(',')})`);
+const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 const insertObservability = db.prepare('insert into species_observability values (?,?,?,?,?,?,?,?,?,?)');
-const insertFact = db.prepare('insert into species_facts values (?,?,?,?)');
+const insertFact = db.prepare('insert into species_facts values (?,?,?,?,?,?)');
 const insertGameRule = db.prepare('insert into species_game_rules values (?,?,?,?)');
-const insertTaxon = db.prepare('insert into taxon_content values (?,?,?,?,?,?,?,?,?)');
+const insertTaxon = db.prepare('insert into taxon_content values (?,?,?,?,?,?,?,?,?,?)');
+const insertCatalogSource = db.prepare('insert into catalog_sources values (?,?,?,?,?,?,?)');
 const insertTrivia = db.prepare('insert into trivia_questions values (?,?,?,?,?,?,?,?)');
 const insertTriviaOption = db.prepare('insert into trivia_options values (?,?,?,?,?)');
 db.exec('begin');
 try {
+  const catalogSources = items[0]?.catalogSources ?? [];
+  const sourcesById = new Map(catalogSources.map((source) => [String(source.id), source]));
+  catalogSources.filter((source) => source.active !== false).forEach((source) => insertCatalogSource.run(
+    source.code, source.name, source.url ?? null, source.publisher ?? null, source.license ?? null,
+    source.citation ?? null, source.use_policy,
+  ));
   for (const item of items) {
     const species = item.species;
     const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];
     const category = species.conservation_category || 'NE';
-    const references = Object.entries(species.field_sources ?? {}).flatMap(([field, values]) => (values as string[]).map((source) => ({ source, record: field })));
+    const references = serializeCatalogRecord(item).sources;
     const values = [
       species.id, species.catalog_code, species.scientific_name, species.accepted_name || species.scientific_name,
       species.common_name, JSON.stringify(commonNames), species.kingdom ?? '', species.phylum ?? '', species.class ?? '',
       species.order_name ?? '', species.family ?? '', species.genus ?? '', String(species.scientific_name).split(' ')[1] ?? '',
       category, species.conservation_label || category, Number(species.conservation_rank ?? 0), species.conservation_system,
       species.conservation_source, species.conservation_assessed_at, species.origin === 'native' ? 1 : 0,
-      species.description ?? '', (species.diet ?? []).join(', '), species.size ?? '', item.imageUrl,
+      species.description ?? '', (species.diet ?? []).join(', '), species.size ?? '', JSON.stringify(species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }), item.imageUrl,
       item.image?.storage_path ? `${required('SUPABASE_URL').replace(/\/$/, '')}/storage/v1/object/public/media-public/${item.image.storage_path}` : null,
       null, item.audioUrl, item.image?.license ?? null, item.image?.author ?? null, item.image?.source ?? null,
       item.image?.source_url ?? null, ...defaults, species.origin, species.establishment, species.seasonality,
@@ -142,18 +154,21 @@ try {
       JSON.stringify(species.diet ?? []), species.relevant_note, JSON.stringify(references),
       item.gameProfile?.knowledge_level ?? 'hard', item.abundance?.category ?? null, item.abundance?.label ?? null,
     ];
-    if (values.length !== 49) throw new Error(`SQLite column mismatch: expected 49, got ${values.length}`);
+    if (values.length !== 50) throw new Error(`SQLite column mismatch: expected 50, got ${values.length}`);
     insert.run(...values);
     item.images.forEach((image, index) => insertMedia.run(image.id, species.id, 'image', index + 1, image.id === item.image?.id ? 1 : 0,
-      mediaUrl(image.storage_path), mediaUrl(image.thumbnail_path ?? image.storage_path), image.author, image.license, image.source, image.source_url, null));
+      mediaUrl(image.storage_path), mediaUrl(image.thumbnail_path ?? image.storage_path), image.author, image.license, image.source, image.source_url, null, image.external_id ?? null, null));
     if (item.audio?.storage_path) insertMedia.run(item.audio.id, species.id, 'audio', 1, 0, mediaUrl(item.audio.storage_path), null,
-      item.audio.author, item.audio.license, item.audio.source, item.audio.source_url, 15);
+      item.audio.author, item.audio.license, item.audio.source, item.audio.source_url, Number(item.audio.clip_duration_seconds ?? item.audio.duration_seconds ?? 15), item.audio.external_id ?? null, item.audio.original_license ?? null);
     if (item.observability) insertObservability.run(
       species.id, item.observability.method_version, item.observability.period_start, item.observability.period_end,
       item.observability.occurrence_count, item.observability.occupied_cells, item.observability.years_observed,
       item.observability.score, item.observability.band, item.observability.comparison_class,
     );
-    item.facts.forEach((fact) => insertFact.run(fact.id, species.id, fact.body, fact.sort_order));
+    item.facts.forEach((fact) => insertFact.run(
+      fact.id, species.id, fact.body, fact.sort_order,
+      sourcesById.get(String(fact.source_id))?.code ?? null, fact.source_record_id ?? null,
+    ));
     item.gameRules.forEach((rule) => insertGameRule.run(species.id, rule.game_key, rule.enabled ? 1 : 0, rule.min_knowledge_level));
   }
   trivia.forEach((question) => {
@@ -161,7 +176,10 @@ try {
       mediaUrl(question.image?.thumbnail_path ?? question.image?.storage_path),question.image?.author??null,question.image?.license??null);
     question.options.forEach((option) => insertTriviaOption.run(option.id, question.id, option.body, option.is_correct ? 1 : 0, option.sort_order));
   });
-  taxonContent.forEach((item)=>insertTaxon.run(item.id,item.taxon_rank,item.kingdom,item.phylum,item.class_name,item.taxon_name,item.language,item.description,item.source_id));
+  taxonContent.forEach((item)=>insertTaxon.run(
+    item.id,item.taxon_rank,item.kingdom,item.phylum,item.class_name,item.taxon_name,item.language,
+    item.description,item.simple_name ?? null,sourcesById.get(String(item.source_id))?.code ?? String(item.source_id),
+  ));
   db.exec(`insert into species_fts(rowid, common_names, scientific_name, familia, genero)
     select rowid, replace(replace(replace(common_names, '["', ''), '"]', ''), '","', ' '), scientific_name, familia, genero from species;`);
   const meta = db.prepare('insert into meta values (?,?)');

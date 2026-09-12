@@ -124,7 +124,7 @@ export const SpeciesCard = memo(function SpeciesCard({
               <View style={[styles.meta, { marginTop: spacing.sm }]}>
                 {threatened ? (
                   <View style={[styles.status, { borderRadius: radius.sm, backgroundColor: colors.danger }]}>
-                    <Text style={[typography.caption, { color: colors.onDanger }]} numberOfLines={1}>{species.conservation.label}</Text>
+                    <Text style={[typography.caption, styles.statusText, { color: colors.onDanger }]} numberOfLines={1}>{species.conservation.label}</Text>
                   </View>
                 ) : (
                   <Text style={[typography.caption, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.conservation.label}</Text>
@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
   panel: { marginTop: 'auto', backgroundColor: PANEL },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   meta: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  status: { paddingHorizontal: 9, paddingVertical: 3 },
+  status: { paddingHorizontal: 8, paddingVertical: 3 },
+  statusText: { fontSize: 11.5, lineHeight: 15 },
   family: { marginLeft: 'auto', flexShrink: 1 },
 });

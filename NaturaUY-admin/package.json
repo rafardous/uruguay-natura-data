@@ -19,7 +19,9 @@
     "media:migrate-external": "tsx scripts/migrate-external-images.ts",
     "media:cleanup": "tsx scripts/cleanup-incoming.ts",
     "media:verify": "tsx scripts/verify-media-primary.ts",
-    "catalog:fail": "tsx scripts/fail-release.ts"
+    "catalog:fail": "tsx scripts/fail-release.ts",
+    "audio:xenocanto-inventory": "tsx scripts/xenocanto-inventory.ts",
+    "audio:xenocanto-prepare": "tsx scripts/prepare-xenocanto-audio.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

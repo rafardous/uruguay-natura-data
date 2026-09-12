@@ -1,0 +1,24 @@
+{
+  "language": "es-UY",
+  "sourceCode": "natura_uy_editorial",
+  "items": [
+    { "rank": "phylum", "className": "", "name": "Chordata", "simpleName": "Vertebrados", "description": "Animales con notocorda en alguna etapa de su desarrollo. En el catálogo actual incluye peces, anfibios, reptiles, aves y mamíferos." },
+    { "rank": "class", "className": "Mammalia", "name": "Mammalia", "simpleName": "Mamíferos", "description": "Vertebrados que poseen pelo y cuyas hembras producen leche para alimentar a sus crías. Presentan formas terrestres, acuáticas y voladoras." },
+    { "rank": "class", "className": "Reptilia", "name": "Reptilia", "simpleName": "Reptiles", "description": "Vertebrados ectotermos de piel queratinizada. Incluye tortugas, lagartos, serpientes y yacarés presentes en Uruguay." },
+    { "rank": "class", "className": "Amphibia", "name": "Amphibia", "simpleName": "Anfibios", "description": "Vertebrados ectotermos de piel permeable, generalmente vinculados al agua durante la reproducción y con metamorfosis durante su desarrollo." },
+    { "rank": "order", "className": "Mammalia", "name": "Artiodactyla", "simpleName": "Ciervos y pecaríes", "description": "Mamíferos ungulados cuyo peso se apoya principalmente en un número par de dedos; incluye ciervos y pecaríes." },
+    { "rank": "order", "className": "Mammalia", "name": "Carnivora", "simpleName": "Zorros, felinos y parientes", "description": "Mamíferos con dentición y sentidos adaptados a obtener alimento animal, aunque algunas especies también consumen frutos y otros recursos." },
+    { "rank": "order", "className": "Mammalia", "name": "Cetacea", "simpleName": "Ballenas y delfines", "description": "Mamíferos completamente acuáticos, de cuerpo hidrodinámico, aletas anteriores y respiración pulmonar." },
+    { "rank": "order", "className": "Mammalia", "name": "Chiroptera", "simpleName": "Murciélagos", "description": "Únicos mamíferos capaces de vuelo sostenido, con las manos transformadas en alas membranosas." },
+    { "rank": "order", "className": "Mammalia", "name": "Cingulata", "simpleName": "Mulitas y tatúes", "description": "Mamíferos con placas óseas cubiertas por escudos córneos que forman una armadura flexible sobre el cuerpo." },
+    { "rank": "order", "className": "Mammalia", "name": "Didelphimorphia", "simpleName": "Comadrejas marsupiales", "description": "Marsupiales americanos cuyas crías nacen muy poco desarrolladas y completan gran parte de su crecimiento junto a la madre." },
+    { "rank": "order", "className": "Mammalia", "name": "Lagomorpha", "simpleName": "Liebres y conejos", "description": "Mamíferos herbívoros con dos pares de incisivos superiores y patas posteriores generalmente adaptadas al salto." },
+    { "rank": "order", "className": "Mammalia", "name": "Pilosa", "simpleName": "Osos hormigueros", "description": "Mamíferos de dentición reducida o ausente; en Uruguay está representado por osos hormigueros y tamanduás." },
+    { "rank": "order", "className": "Mammalia", "name": "Rodentia", "simpleName": "Roedores", "description": "Mamíferos con un par de incisivos de crecimiento continuo en cada mandíbula, adaptados para roer." },
+    { "rank": "order", "className": "Reptilia", "name": "Crocodylia", "simpleName": "Yacarés", "description": "Reptiles semiacuáticos de cuerpo robusto, hocico alargado y cuidado parental desarrollado." },
+    { "rank": "order", "className": "Reptilia", "name": "Squamata", "simpleName": "Lagartos y serpientes", "description": "El orden más diverso de reptiles, caracterizado por escamas y una mandíbula con gran movilidad." },
+    { "rank": "order", "className": "Reptilia", "name": "Testudines", "simpleName": "Tortugas", "description": "Reptiles cuyo tronco está protegido por un caparazón óseo formado por espaldar y plastrón." },
+    { "rank": "order", "className": "Amphibia", "name": "Anura", "simpleName": "Ranas y sapos", "description": "Anfibios adultos sin cola, con patas posteriores generalmente adaptadas al salto y larvas acuáticas llamadas renacuajos." },
+    { "rank": "order", "className": "Amphibia", "name": "Gymnophiona", "simpleName": "Anfibios sin patas", "description": "Anfibios alargados y sin patas, conocidos como cecilias y adaptados principalmente a vivir bajo tierra o entre sustratos húmedos." }
+  ]
+}

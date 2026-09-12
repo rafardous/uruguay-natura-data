@@ -23,6 +23,7 @@ import { StartupExperience, useStartup } from '../src/presentation/components/St
 import { NavigationIsland, type MainTab } from '../src/presentation/components/NavigationIsland';
 import { navigationTabForPath, shouldShowNavigation } from '../src/presentation/navigationPolicy';
 import { NetworkProvider } from '../src/presentation/network/NetworkProvider';
+import { AudioProvider } from '../src/presentation/audio/AudioProvider';
 
 /**
  * The catalogue ships prebuilt, so `assetSource` copies one file on first launch
@@ -42,9 +43,12 @@ function Navigator(): React.JSX.Element {
   }, [mounted, pathname, ready]);
 
   const navigateMain = useCallback((tab: MainTab) => {
-    if (tab === 'index') router.replace('/');
-    if (tab === 'explore') router.replace('/explore');
-    if (tab === 'games') router.replace('/games');
+    // `navigate` selects an existing tab route and preserves its mounted
+    // screen state. `replace` recreated the route in some native versions,
+    // which made lists and headers visibly reload after switching sections.
+    if (tab === 'index') router.navigate('/');
+    if (tab === 'explore') router.navigate('/explore');
+    if (tab === 'games') router.navigate('/games');
   }, [router]);
 
   return (
@@ -55,8 +59,9 @@ function Navigator(): React.JSX.Element {
           screenOptions={{
             headerShown: false,
             contentStyle: { backgroundColor: colors.background },
-            animation: 'fade',
-            animationDuration: 170,
+            // Avoid exposing the shell background during native transitions
+            // when returning from a nested screen.
+            animation: 'none',
           }}
         >
           <Stack.Screen name="(tabs)" />
@@ -77,8 +82,7 @@ function Navigator(): React.JSX.Element {
               // transparent modal preserves the card presentation, but assigns
               // every vertical gesture exclusively to the inner ScrollView.
               presentation: 'transparentModal',
-              animation: 'fade',
-              animationDuration: 170,
+              animation: 'none',
               gestureEnabled: false,
               contentStyle: { backgroundColor: 'transparent' },
             }}
@@ -92,6 +96,7 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="game/trivia-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/trivia" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/classify" options={{ animation: 'fade_from_bottom', animationDuration: 220 }} />
+          <Stack.Screen name="game/habitat" options={{ animation: 'fade_from_bottom', animationDuration: 220 }} />
           <Stack.Screen name="credits" />
         </Stack>
       </BlurTargetView>
@@ -208,9 +213,11 @@ export default function RootLayout(): React.JSX.Element | null {
                   <MobileAuthProvider>
                     <MobileSyncProvider>
                       <NetworkProvider>
-                        <FavoritesProvider>
-                          <Navigator />
-                        </FavoritesProvider>
+                        <AudioProvider>
+                          <FavoritesProvider>
+                            <Navigator />
+                          </FavoritesProvider>
+                        </AudioProvider>
                       </NetworkProvider>
                     </MobileSyncProvider>
                   </MobileAuthProvider>

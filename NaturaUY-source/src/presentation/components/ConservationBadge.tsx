@@ -31,7 +31,7 @@ export function ConservationBadge({
   return (
     <View style={[styles.badge, { backgroundColor: background, borderRadius: radius.sm }]}>
       {!threatened && <View style={[styles.dot, { backgroundColor: accent }]} />}
-      <Text style={[typography.caption, { color: foreground }]} numberOfLines={1}>
+      <Text style={[typography.caption, styles.badgeText, { color: foreground }]} numberOfLines={1}>
         {label}
       </Text>
     </View>
@@ -39,6 +39,7 @@ export function ConservationBadge({
 }
 
 const styles = StyleSheet.create({
-  badge: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 9, paddingVertical: 5 },
+  badge: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 8, paddingVertical: 4 },
+  badgeText: { fontSize: 12, lineHeight: 16 },
   dot: { width: 6, height: 6, borderRadius: 3 },
 });

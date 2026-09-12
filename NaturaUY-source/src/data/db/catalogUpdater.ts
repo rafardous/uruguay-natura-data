@@ -12,7 +12,7 @@ import { assertCatalogManifest, type CatalogManifestContract } from './catalogMa
 const STAGED_DATABASE_NAME = 'natura.next.db';
 const PREVIOUS_DATABASE_NAME = 'natura.previous.db';
 const BUNDLED_DATABASE_NAME = 'natura.bundled.db';
-export const SUPPORTED_CATALOG_SCHEMA = 8;
+export const SUPPORTED_CATALOG_SCHEMA = 10;
 
 export type CatalogManifest = CatalogManifestContract;
 export { assertCatalogManifest } from './catalogManifestValidation';

@@ -36,8 +36,28 @@ const SOURCES: Source[] = [
   },
   {
     title: 'Nombres científicos',
-    body: 'GBIF Backbone Taxonomy — usada para corregir grafías y resolver sinónimos.',
+    body: 'GBIF, Catalogue of Life y WoRMS se usan para contrastar nombres aceptados, grafías y sinónimos. La procedencia concreta se conserva por campo.',
     url: 'https://www.gbif.org',
+  },
+  {
+    title: 'Rasgos de aves — AVONET',
+    body: 'Mediciones corporales y rasgos ecológicos redistribuidos bajo CC BY 4.0, con atribución a Tobias et al. (2022).',
+    url: 'https://figshare.com/articles/dataset/16586228',
+  },
+  {
+    title: 'Rasgos de tetrápodos',
+    body: 'TetrapodTraits 3 y AmphiBIO aportan mediciones y modos de vida aprobados editorialmente. Cada valor mantiene la fuente y la convención de medición.',
+    url: 'https://zenodo.org/records/21815609',
+  },
+  {
+    title: 'Rasgos de peces',
+    body: 'COMBINE, FISHMORPH y Global Freshwater Fish Knowledge Shortfalls aportan rasgos estructurados con su licencia y referencia de origen.',
+    url: 'https://doi.org/10.1111/geb.12826',
+  },
+  {
+    title: 'Síntesis editorial Natura UY',
+    body: 'Descripciones, explicaciones taxonómicas y datos relevantes redactados para público general a partir de fuentes verificables. Licencia CC BY 4.0.',
+    url: 'https://uruguay-natura-data.pages.dev/',
   },
   {
     title: 'Fotografías de iNaturalist',
@@ -48,6 +68,10 @@ const SOURCES: Source[] = [
     title: 'Wikimedia Commons',
     body: 'Archivo complementario de fotografías y recursos multimedia con licencias abiertas.',
     url: 'https://commons.wikimedia.org',
+  },
+  {
+    title: 'Cómo se muestran las fuentes',
+    body: 'Los datos y textos publicables se distinguen de las fuentes usadas sólo para revisión. La autoría y licencia de cada fotografía permanecen visibles junto a la imagen.',
   },
 ];
 

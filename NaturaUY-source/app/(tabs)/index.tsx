@@ -1,4 +1,4 @@
-import { AppState, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, AppState, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -6,7 +6,8 @@ import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import { Carousel } from 'react-native-reanimated-carousel';
 import { Image } from 'expo-image';
-import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { cancelAnimation, runOnJS, useAnimatedScrollHandler, useSharedValue, withTiming } from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
 import { rankNameMatches } from '../../src/domain/services/naming';
@@ -20,6 +21,7 @@ import { useStartup } from '../../src/presentation/components/StartupExperience'
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import {
   GameIcon,
+  ExternalLinkIcon,
   HeartIcon,
   MenuIcon,
   NewsIcon,
@@ -29,21 +31,43 @@ import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useMobileSync } from '../../src/sync/MobileSyncProvider';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { settingsRepository } from '../../src/data/repositories/settingsRepository';
-import { getMostFavoritedSpecies } from '../../src/lib/mobileApi';
+import { getHomeNews, getMostFavoritedSpecies, type MobileHomeNews } from '../../src/lib/mobileApi';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
-const PHOTO_PANEL = 'rgba(0,0,0,0.84)';
 const CARD_HEIGHT = 230;
 const POPULAR_CODE_CACHE_KEY = 'home.most_favorited_code';
+const CAROUSEL_AUTOPLAY_INTERVAL = 7200;
+const CAROUSEL_AUTOPLAY_DURATION = 1440;
 let hasPlayedHomeIntro = false;
+
+const NEWS_LINKS: MobileHomeNews[] = [
+  { id: 'fallback-ministerio', source: 'Ministerio de Ambiente', title: 'Noticias de biodiversidad', articleUrl: 'https://www.gub.uy/ministerio-ambiente/comunicacion/noticias?field_fecha_by_month=All&field_fecha_by_year=All&field_publico_gubuy=All&field_publico_target_id=All&field_tematica_gubuy=All&field_tematica_target_id=1112&month=all&page=1&year=all', imageUrl: null, publishedAt: null },
+  { id: 'fallback-ambienta', source: 'Ambienta Uruguay', title: 'Naturaleza y ambiente en Uruguay', articleUrl: 'https://ambienta.uy/category/uruguay/', imageUrl: null, publishedAt: null },
+  { id: 'fallback-ciencias', source: 'Ciencias.uy', title: 'Clima, ambiente y ciencia', articleUrl: 'https://ciencias.uy/categorias/tierra-ambiente-y-espacio/clima-y-ambiente/', imageUrl: null, publishedAt: null },
+] as const;
+
+function NewsThumbnail({ item, color, backgroundColor }: { item: MobileHomeNews; color: string; backgroundColor: string }): React.JSX.Element {
+  const [failed, setFailed] = useState(false);
+  return item.imageUrl && !failed ? (
+    <Image source={{ uri: item.imageUrl }} contentFit="cover" onError={() => setFailed(true)} style={styles.newsThumb} accessibilityLabel={`Imagen de ${item.title}`} />
+  ) : <View style={[styles.newsIcon, { backgroundColor, borderRadius: 12 }]}><NewsIcon color={color} size={21} /></View>;
+}
 
 type CarouselSlide =
   | { kind: 'metric'; value: number | null }
-  | { kind: 'species'; species: Species; kicker?: string };
+  | { kind: 'species'; species: Species; kicker: string; variant: 'threatened' | 'favorite' | 'curiosity' | 'native' };
+
+const SLIDE_ACCENTS = {
+  threatened: '#E79A57',
+  favorite: '#F0A7B9',
+  curiosity: '#E7C767',
+  native: '#9FD0A8',
+  daily: '#B7D7A8',
+} as const;
 
 function LargeSpeciesCard({
   species,
@@ -52,6 +76,7 @@ function LargeSpeciesCard({
   kicker,
   active,
   rounded = false,
+  variant = 'daily',
 }: {
   species: Species;
   width: number;
@@ -59,6 +84,7 @@ function LargeSpeciesCard({
   kicker?: string;
   active: boolean;
   rounded?: boolean;
+  variant?: keyof typeof SLIDE_ACCENTS;
 }): React.JSX.Element {
   const { radius, spacing, typography, elevation, colors } = useTheme();
 
@@ -92,34 +118,27 @@ function LargeSpeciesCard({
           <SpeciesImage species={species} height={CARD_HEIGHT} glyphSize={70} bordered={false} style={StyleSheet.absoluteFill} />
         </MotiView>
       </View>
-      <View style={[styles.speciesPanel, { margin: spacing.md, borderRadius: radius.lg, padding: spacing.md, borderColor: 'rgba(103,126,97,0.28)' }]}>
-        {kicker && (
-          <Text style={[typography.eyebrow, { color: '#DDEFCF', marginBottom: 4 }]}>
-            {kicker}
-          </Text>
-        )}
-        <Text style={[typography.cardTitle, { color: ON_PHOTO }]} numberOfLines={1}>
-          {species.displayName}
-        </Text>
-        <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>
-          {species.taxonomy.clase} · {species.conservation.label}
-        </Text>
+      <LinearGradient pointerEvents="none" colors={['rgba(9,18,12,0)', 'rgba(9,18,12,.32)', 'rgba(9,18,12,.9)']} locations={[0.2, 0.55, 1]} style={StyleSheet.absoluteFill} />
+      <View style={[styles.speciesCopy, { padding: spacing.lg }]}>
+        {kicker && <View style={[styles.kickerPill, { backgroundColor: SLIDE_ACCENTS[variant], borderRadius: radius.pill }]}><Text style={[typography.eyebrow, { color: '#233129' }]}>{kicker}</Text></View>}
+        <Text style={[typography.cardTitle, { color: ON_PHOTO, marginTop: 8 }]} numberOfLines={1}>{species.displayName}</Text>
+        <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>{species.taxonomy.clase} · {species.conservation.label}</Text>
       </View>
     </Pressable>
   );
 }
 
 function MetricCard({ value, width, backgroundSpecies }: { value: number | null; width: number; backgroundSpecies?: Species | null }): React.JSX.Element {
-  const { spacing, typography, elevation } = useTheme();
+  const { radius, spacing, typography, elevation } = useTheme();
   return (
-    <View style={[styles.metricCard, elevation.low, { width, height: CARD_HEIGHT, backgroundColor: '#53664F', padding: spacing.xl }]} accessibilityLabel={value === null ? 'Especies registradas, cargando' : `${value} especies registradas`}>
-      {backgroundSpecies?.photo?.url && <Image source={{ uri: backgroundSpecies.photo.url }} contentFit="cover" blurRadius={9} style={StyleSheet.absoluteFill} />}
-      <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.metricScrim]} />
+    <View style={[styles.metricCard, elevation.low, { width, height: CARD_HEIGHT, borderRadius: radius.xl, backgroundColor: '#53664F', padding: spacing.xl }]} accessibilityLabel={value === null ? 'Especies registradas, cargando' : `${value} especies registradas`}>
+      {backgroundSpecies?.photo?.url && <Image source={{ uri: backgroundSpecies.photo.url }} contentFit="cover" blurRadius={5} style={StyleSheet.absoluteFill} />}
+      <LinearGradient pointerEvents="none" colors={['rgba(18,31,20,.38)', 'rgba(18,31,20,.84)']} start={{ x: .8, y: 0 }} end={{ x: .15, y: 1 }} style={StyleSheet.absoluteFill} />
       <Text style={[typography.eyebrow, { color: '#FFF9EA' }]}>EL CATÁLOGO CRECE</Text>
       <Text style={[typography.hero, { color: '#FFF9EA', marginTop: spacing.sm }]}>{value ?? '—'}</Text>
-      <Text style={[typography.body, { color: '#FFF9EA', maxWidth: 270 }]}>especies registradas para descubrir la naturaleza de Uruguay.</Text>
+      <Text style={[typography.body, { color: '#FFF9EA', maxWidth: 280 }]}>especies registradas de nuestra naturaleza</Text>
       <View style={[styles.metricRule, { backgroundColor: 'rgba(255,249,234,0.30)', marginTop: spacing.md }]} />
-      <Text style={[typography.caption, { color: '#FFF9EA', marginTop: spacing.sm }]}>Catálogo disponible sin conexión</Text>
+      <Text style={[typography.caption, { color: '#FFF9EA', marginTop: spacing.sm }]}>Accedé al catálogo incluso si no tenés conexión</Text>
     </View>
   );
 }
@@ -137,6 +156,33 @@ function SpeciesCarousel({
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollOffset = useSharedValue(0);
+  const autoplayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const stopAutoplay = useCallback(() => {
+    if (autoplayTimer.current) {
+      clearTimeout(autoplayTimer.current);
+      autoplayTimer.current = null;
+    }
+  }, []);
+
+  const scheduleAutoplay = useCallback(() => {
+    stopAutoplay();
+    if (slides.length < 2) return;
+    autoplayTimer.current = setTimeout(() => {
+      const currentPage = Math.round(-scrollOffset.value / Math.max(width, 1));
+      const nextPage = currentPage + 1;
+      const nextIndex = ((nextPage % slides.length) + slides.length) % slides.length;
+      scrollOffset.value = withTiming(-nextPage * width, { duration: CAROUSEL_AUTOPLAY_DURATION }, (finished) => {
+        if (finished) runOnJS(setActiveIndex)(nextIndex);
+      });
+    }, CAROUSEL_AUTOPLAY_INTERVAL);
+  }, [slides.length, stopAutoplay, width, scrollOffset]);
+
+  useEffect(() => {
+    scheduleAutoplay();
+    return stopAutoplay;
+  }, [scheduleAutoplay, stopAutoplay]);
 
   return (
     <View>
@@ -145,19 +191,28 @@ function SpeciesCarousel({
         style={{ width, height: CARD_HEIGHT }}
         data={slides}
         loop
-        autoplay={slides.length > 1}
-        autoplayInterval={6200}
-        scrollAnimationDuration={720}
-        pagingEnabled
-        snapEnabled
-        onSnapToItem={setActiveIndex}
-        renderItem={({ item, index }: { item: CarouselSlide; index: number }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} active={index === activeIndex} />}
+        autoplay={false}
+        scrollOffsetValue={scrollOffset}
+        // The library uses this config for the gesture snap. Autoplay is
+        // driven separately above so a quick finger never inherits 1440ms.
+        animation={{ type: 'spring', damping: 18, stiffness: 220, mass: 0.72 }}
+        snapMode="page"
+        layout={{ type: 'parallax', offset: 24, scale: 0.94, adjacentScale: 0.86 }}
+        onScrollStart={() => {
+          stopAutoplay();
+          cancelAnimation(scrollOffset);
+        }}
+        onSnapToItem={(index) => {
+          setActiveIndex(index);
+          scheduleAutoplay();
+        }}
+        renderItem={({ item, index }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}
       />
       {slides.length > 1 && (
         <View style={[styles.dots, { marginTop: spacing.md, paddingHorizontal: spacing.lg }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
           {slides.map((item, index) => (
             <View
-              key={item.kind === 'metric' ? 'metric' : item.species.codigo}
+              key={item.kind === 'metric' ? 'metric' : `${item.variant}-${item.species.codigo}`}
               style={{
                 width: index === activeIndex ? 22 : 7,
                 height: 7,
@@ -196,22 +251,38 @@ export default function HomeScreen(): React.JSX.Element {
   const [query, setQuery] = useState('');
   const [total, setTotal] = useState<number | null>(null);
   const [dailySpecies, setDailySpecies] = useState<Species | null>(null);
-  const [spotlightSpecies, setSpotlightSpecies] = useState<Species[]>([]);
+  const [threatenedSpecies, setThreatenedSpecies] = useState<Species | null>(null);
+  const [favoriteSpecies, setFavoriteSpecies] = useState<Species | null>(null);
+  const [curiositySpecies, setCuriositySpecies] = useState<Species | null>(null);
+  const [nativeSpecies, setNativeSpecies] = useState<Species | null>(null);
   const [metricBackgroundSpecies, setMetricBackgroundSpecies] = useState<Species | null>(null);
-  const [hasPopularSpecies, setHasPopularSpecies] = useState(false);
+  const [newsItems, setNewsItems] = useState<MobileHomeNews[]>(NEWS_LINKS);
   const [searchFocused, setSearchFocused] = useState(false);
   const [searchMatches, setSearchMatches] = useState<Species[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchWidth, setSearchWidth] = useState<number | null>(null);
   const searchBlurTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const cardWidth = Math.max(280, windowWidth - spacing.lg * 2);
+  const NEWS_CACHE_KEY = 'home.news.v1';
+  const carouselPadding = 12;
+  const cardWidth = Math.max(280, windowWidth - carouselPadding * 2);
 
   const carouselSlides = useMemo<CarouselSlide[]>(() => [
     { kind: 'metric', value: total },
-    ...spotlightSpecies.map((species, index) => ({ kind: 'species' as const, species, kicker: hasPopularSpecies && index === 0 ? 'MÁS GUSTADA' : undefined })),
-  ], [hasPopularSpecies, spotlightSpecies, total]);
+    ...(threatenedSpecies ? [{ kind: 'species' as const, species: threatenedSpecies, kicker: 'NUESTRAS ESPECIES AMENAZADAS', variant: 'threatened' as const }] : []),
+    ...(favoriteSpecies ? [{ kind: 'species' as const, species: favoriteSpecies, kicker: 'MÁS GUSTADA', variant: 'favorite' as const }] : []),
+    ...(curiositySpecies ? [{ kind: 'species' as const, species: curiositySpecies, kicker: 'UN DATO PARA DESCUBRIR', variant: 'curiosity' as const }] : []),
+    ...(nativeSpecies ? [{ kind: 'species' as const, species: nativeSpecies, kicker: 'NATIVA DE URUGUAY', variant: 'native' as const }] : []),
+  ], [curiositySpecies, favoriteSpecies, nativeSpecies, threatenedSpecies, total]);
 
   const openSpecies = useCallback((codigo: string) => router.push(`/species/${codigo}`), [router]);
+  const openExternal = useCallback(async (url: string) => {
+    try {
+      if (!await Linking.canOpenURL(url)) throw new Error('unsupported_url');
+      await Linking.openURL(url);
+    } catch {
+      Alert.alert('No pudimos abrir el enlace', 'Revisá tu conexión e intentá nuevamente.');
+    }
+  }, []);
   const submitSearch = useCallback(() => {
     const search = query.trim();
     setSearchFocused(false);
@@ -255,35 +326,54 @@ export default function HomeScreen(): React.JSX.Element {
     };
   }, [db, query, searchFocused]);
 
+  useEffect(() => {
+    let active = true;
+    void settingsRepository.get(userDb, NEWS_CACHE_KEY).then((cached) => {
+      if (!active || !cached) return;
+      try {
+        const parsed = JSON.parse(cached) as MobileHomeNews[];
+        if (Array.isArray(parsed) && parsed.length > 0) setNewsItems(parsed.slice(0, 3));
+      } catch { /* A stale cache should never hide the static fallback. */ }
+    });
+    void getHomeNews(3).then(async (remote) => {
+      if (!active || remote.length === 0) return;
+      setNewsItems(remote);
+      await settingsRepository.set(userDb, NEWS_CACHE_KEY, JSON.stringify(remote));
+    }).catch(() => undefined);
+    return () => { active = false; };
+  }, [userDb]);
+
   const loadHome = useCallback(async () => {
-    const [stats, withPhoto, popularCode] = await Promise.all([
+    const [stats, withPhoto, popularCode, threatenedCount, curiosityCount, nativeCount] = await Promise.all([
       speciesRepository.stats(db),
       speciesRepository.count(db, { onlyWithPhoto: true }),
       settingsRepository.get(userDb, POPULAR_CODE_CACHE_KEY),
+      speciesRepository.count(db, { onlyWithPhoto: true, conservationRank: 3 }),
+      speciesRepository.count(db, { onlyWithPhoto: true, onlyWithRelevantNote: true }),
+      speciesRepository.count(db, { onlyWithPhoto: true, onlyNative: true }),
     ]);
-    const poolSize = Math.min(10, withPhoto);
     const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Montevideo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).replaceAll('-', '');
-    const maxOffset = Math.max(0, withPhoto - poolSize);
-    const offset = maxOffset === 0 ? 0 : Number(dateKey) % (maxOffset + 1);
-    const page = await speciesRepository.findPaged(db, { onlyWithPhoto: true }, poolSize, offset);
+    const day = Number(dateKey);
+    const pick = async (filters: Parameters<typeof speciesRepository.findPaged>[1], count: number, salt: number): Promise<Species | null> => {
+      if (!count) return null;
+      const page = await speciesRepository.findPaged(db, filters, 1, (day + salt) % count);
+      return page.items[0] ?? null;
+    };
+    const [daily, threatened, curiosity, native] = await Promise.all([
+      pick({ onlyWithPhoto: true }, withPhoto, 0),
+      pick({ onlyWithPhoto: true, conservationRank: 3 }, threatenedCount, 17),
+      pick({ onlyWithPhoto: true, onlyWithRelevantNote: true }, curiosityCount, 31),
+      pick({ onlyWithPhoto: true, onlyNative: true }, nativeCount, 47),
+    ]);
     setTotal(stats.total);
-    setDailySpecies(page.items[0] ?? null);
-    const dailyCode = page.items[0]?.codigo;
+    setDailySpecies(daily);
     const popular = popularCode ? await speciesRepository.findByCodigo(db, popularCode) : null;
-    const usablePopular = popular?.codigo !== dailyCode ? popular : null;
-    const candidates = page.items.filter((item) => item.codigo !== dailyCode && item.codigo !== usablePopular?.codigo);
-    const spotlight = [usablePopular, ...candidates].filter((item): item is Species => Boolean(item)).slice(0, 3);
-    if (spotlight.length < 3) {
-      for (const item of page.items) {
-        if (spotlight.some((current) => current.codigo === item.codigo)) continue;
-        spotlight.push(item);
-        if (spotlight.length === 3) break;
-      }
-    }
-    const usedCodes = new Set([dailyCode, ...spotlight.map((item) => item.codigo)]);
-    setMetricBackgroundSpecies(page.items.find((item) => !usedCodes.has(item.codigo)) ?? null);
-    setHasPopularSpecies(Boolean(usablePopular));
-    setSpotlightSpecies(spotlight);
+    const fallbackFavorite = await pick({ onlyWithPhoto: true }, withPhoto, 73);
+    setFavoriteSpecies(popular?.photo ? popular : fallbackFavorite);
+    setThreatenedSpecies(threatened);
+    setCuriositySpecies(curiosity);
+    setNativeSpecies(native);
+    setMetricBackgroundSpecies(await pick({ onlyWithPhoto: true }, withPhoto, 91));
   }, [db, userDb]);
 
   useEffect(() => {
@@ -302,7 +392,7 @@ export default function HomeScreen(): React.JSX.Element {
   useEffect(() => {
     if (total === null) return;
     let active = true;
-    const urls = [...new Set([dailySpecies, ...spotlightSpecies].flatMap((species) => species?.photo?.url ? [species.photo.url] : []))];
+    const urls = [...new Set([dailySpecies, threatenedSpecies, favoriteSpecies, curiositySpecies, nativeSpecies].flatMap((species) => species?.photo?.url ? [species.photo.url] : []))];
     let frame: number | undefined;
     const finish = () => {
       if (active) frame = requestAnimationFrame(startupReady);
@@ -315,7 +405,7 @@ export default function HomeScreen(): React.JSX.Element {
       clearTimeout(timer);
       if (frame !== undefined) cancelAnimationFrame(frame);
     };
-  }, [dailySpecies, spotlightSpecies, startupReady, total]);
+  }, [curiositySpecies, dailySpecies, favoriteSpecies, nativeSpecies, startupReady, threatenedSpecies, total]);
 
   const loadedHome = useRef(false);
   useEffect(() => {
@@ -459,11 +549,11 @@ export default function HomeScreen(): React.JSX.Element {
 
         <View style={{ marginTop: spacing.xl }}>
           <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ NATURA UY</Text>
-          <View>
-            {spotlightSpecies.length > 0 && total !== null ? (
-              <SpeciesCarousel slides={carouselSlides} width={windowWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
+          <View style={{ paddingHorizontal: carouselPadding, marginTop: spacing.md }}>
+            {carouselSlides.length > 1 && total !== null ? (
+            <SpeciesCarousel slides={carouselSlides} width={cardWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
             ) : (
-              <Skeleton width="100%" height={CARD_HEIGHT} radius={0} />
+              <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />
             )}
           </View>
         </View>
@@ -484,27 +574,15 @@ export default function HomeScreen(): React.JSX.Element {
 
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.xl }}>
           <Text style={[typography.title, { color: colors.text }]}>Noticias</Text>
-          <View
-            style={[
-              styles.newsCard,
-              elevation.low,
-              {
-                backgroundColor: colors.surface,
-                borderColor: colors.border,
-                borderRadius: radius.xl,
-                padding: spacing.lg,
-                marginTop: spacing.md,
-              },
-            ]}
-          >
-            <View style={[styles.newsIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
-              <NewsIcon color={colors.onPrimaryContainer} size={24} />
-            </View>
-            <View style={styles.flex}>
-              <Text style={[typography.eyebrow, { color: colors.primary }]}>PRÓXIMAMENTE</Text>
-              <Text style={[typography.cardTitle, { color: colors.text, marginTop: 5 }]}>Noticias de la naturaleza uruguaya</Text>
-              <Text style={[typography.body, { color: colors.textMuted, marginTop: 4 }]}>Este espacio reunirá novedades, hallazgos y proyectos de conservación.</Text>
-            </View>
+          <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Selección de fuentes externas sobre naturaleza uruguaya.</Text>
+          <View style={{ gap: spacing.sm, marginTop: spacing.md }}>
+            {newsItems.map((item, index) => (
+              <Pressable key={item.id} onPress={() => void openExternal(item.articleUrl)} accessibilityRole="link" accessibilityLabel={`${item.title}, contenido externo`} style={({ pressed }) => [styles.newsCard, elevation.low, { backgroundColor: pressed ? colors.surfaceContainer : colors.surface, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.md }]}>
+                <NewsThumbnail item={item} color={index === 0 ? colors.onPrimaryContainer : colors.primary} backgroundColor={index === 0 ? colors.primaryContainer : colors.surfaceVariant} />
+                <View style={styles.flex}><Text style={[typography.eyebrow, { color: colors.primary }]}>{item.source.toLocaleUpperCase('es')}</Text><Text style={[typography.label, { color: colors.text, marginTop: 3 }]}>{item.title}</Text>{item.publishedAt && <Text style={[typography.caption, { color: colors.textMuted, marginTop: 3 }]}>{new Date(item.publishedAt).toLocaleDateString('es-UY')}</Text>}</View>
+                <ExternalLinkIcon color={colors.textMuted} />
+              </Pressable>
+            ))}
           </View>
         </View>
       </Animated.ScrollView>
@@ -541,9 +619,10 @@ const styles = StyleSheet.create({
   quickIcon: { width: 38, height: 38, alignItems: 'center', justifyContent: 'center' },
   quickDivider: { width: StyleSheet.hairlineWidth, alignSelf: 'stretch', marginHorizontal: 12 },
   speciesCard: { overflow: 'hidden', justifyContent: 'flex-end' },
-  speciesPanel: { backgroundColor: PHOTO_PANEL, borderWidth: StyleSheet.hairlineWidth },
-  metricScrim: { backgroundColor: 'rgba(15,24,17,0.52)' },
+  speciesCopy: { justifyContent: 'flex-end' },
+  kickerPill: { alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: 6 },
   dots: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7 },
   newsCard: { flexDirection: 'row', gap: 14, borderWidth: StyleSheet.hairlineWidth },
+  newsThumb: { width: 48, height: 48, borderRadius: 12, backgroundColor: '#E8EEE6' },
   newsIcon: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
 });

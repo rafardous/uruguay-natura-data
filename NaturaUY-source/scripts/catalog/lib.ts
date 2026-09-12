@@ -155,4 +155,12 @@ export interface CatalogImage {
   attribution: string;
   source: 'inaturalist' | 'wikimedia';
   sourcePage: string | null;
+  licenseUrl?: string;
+  externalId?: string;
+  sourceTaxonId?: string;
+  width?: number;
+  height?: number;
+  selectionScore?: number;
+  selectionDetails?: Record<string, number | string | boolean>;
+  retrievedAt?: string;
 }

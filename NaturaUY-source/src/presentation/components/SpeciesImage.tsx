@@ -78,7 +78,7 @@ export function SpeciesImage({
         style,
       ]}
     >
-      {showSkeleton && <Skeleton width="100%" height="100%" radius={0} style={styles.fill} />}
+      {showSkeleton && <Skeleton width="100%" height="100%" radius={borderRadius} style={styles.fill} />}
 
       {(showGlyph || showSkeleton) && (
         <MotiView
@@ -115,7 +115,7 @@ export function SpeciesImage({
       )}
 
       {/* A hairline keeps pale photos from bleeding into a pale surface. */}
-      {bordered && (
+      {bordered && (!showSkeleton || noPhoto) && (
         <View
           pointerEvents="none"
           style={[styles.hairline, { borderRadius, borderColor: colors.border }]}

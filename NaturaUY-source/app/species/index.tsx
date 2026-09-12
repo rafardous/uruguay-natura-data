@@ -67,14 +67,15 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
   const bottom = navigationBottomInset(insets.bottom, spacing.lg);
   const remove = (key: keyof SpeciesSelection, value?: string): void => setApplied((selection) => ({ ...selection, [key]: typeof selection[key] === 'boolean' ? false : (selection[key] as string[]).filter((item) => item !== value) }));
   const filterCount = speciesSelectionCount(applied);
-  const headerHeight = insets.top + (filterCount > 0 ? 174 : 124);
+  const showingCount = filterCount > 0 || search.trim().length >= 2;
+  const headerHeight = insets.top + (filterCount > 0 ? 190 : showingCount ? 142 : 124);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { height: headerHeight, paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: spacing.sm, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
           <Pressable onPress={() => { haptics.tap(); if (router.canGoBack()) router.back(); else router.replace('/explore'); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Volver a Descubrir" style={[styles.iconButton, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><BackIcon color={colors.text} /></Pressable>
-          <View style={styles.titleWrap}><Text style={[typography.eyebrow, { color: colors.textMuted }]}>CATÁLOGO</Text><Text style={[typography.headerTitle, { color: colors.text, marginTop: 1 }]}>Todas las especies</Text></View>
+          <View style={styles.titleWrap}><Text style={[typography.eyebrow, { color: colors.textMuted }]}>CATÁLOGO</Text><Text style={[typography.headerTitle, { color: colors.text, marginTop: 1 }]}>Todas las especies</Text>{showingCount && <Text style={[typography.caption, { color: colors.primary, marginTop: 1 }]}>{list.loading ? 'Actualizando resultados…' : `${list.total} ${list.total === 1 ? 'resultado' : 'resultados'}`}</Text>}</View>
           <Pressable onPress={() => { haptics.tap(); setDraft(applied); setSheetOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Filtrar especies" style={[styles.filterButton, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}><SlidersIcon color={colors.textSecondary} /><Text style={[typography.caption, { color: colors.textSecondary }]}>{filterCount || ''}</Text></Pressable>
         </View>
         <View style={[styles.searchRow, { marginTop: spacing.sm }]}><SearchBar value={query} onChange={setQuery} variant="surface" /></View>

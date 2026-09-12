@@ -32,6 +32,7 @@ import {
   Layers3,
   MapPinned,
   Menu,
+  EllipsisVertical,
   Newspaper,
   Puzzle,
   RotateCcw,
@@ -89,6 +90,10 @@ export const HeartIcon = ({
 
 export const MenuIcon = ({ color, size = 24 }: IconProps): React.JSX.Element => (
   <Menu color={color} size={size} strokeWidth={1.75} />
+);
+
+export const MoreIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <EllipsisVertical color={color} size={size} strokeWidth={1.9} />
 );
 
 export const CloseIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (

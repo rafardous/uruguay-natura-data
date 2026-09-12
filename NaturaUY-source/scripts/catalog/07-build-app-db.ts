@@ -14,7 +14,7 @@ import { PATHS, readJson } from './lib';
 const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 8;
+const SCHEMA_VERSION = 10;
 const DATA_VERSION = 1;
 
 type Origin = 'native' | 'introduced' | null;
@@ -23,6 +23,7 @@ interface CatalogItem {
   id: string;
   scientificName: string;
   commonName: string | null;
+  commonNames?: string[];
   taxonomy: {
     kingdom: string | null;
     phylum: string | null;
@@ -39,6 +40,7 @@ interface CatalogItem {
   diet: string[] | null;
   size: string | null;
   relevantNote: string | null;
+  traits?: unknown;
   media: {
     image: {
       url: string;
@@ -47,11 +49,52 @@ interface CatalogItem {
       attribution: string;
       source: string;
       sourcePage: string | null;
+      externalId?: string | null;
     } | null;
-    audio: string | null;
+    audio: string | {
+      url: string;
+      license?: string;
+      attribution?: string;
+      source?: string;
+      sourcePage?: string | null;
+      externalId?: string | null;
+      originalLicense?: string | null;
+      durationSeconds?: number | null;
+    } | null;
   };
-  sources: Array<{ source: string; record: string | null }>;
+  sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
   reviewStatus: string;
+}
+
+interface CatalogSource {
+  code: string;
+  name?: string;
+  url?: string;
+  publisher?: string;
+  license?: string;
+  citation?: string;
+  usePolicy: string;
+}
+
+interface FeaturedFact {
+  id: string;
+  scientificName: string;
+  body: string;
+  sourceCode: string;
+  sourceRecordId: string;
+  sortOrder: number;
+}
+
+interface SimpleTaxonContent {
+  language: string;
+  sourceCode: string;
+  items: Array<{
+    rank: 'phylum' | 'class' | 'order';
+    className: string;
+    name: string;
+    simpleName: string;
+    description: string;
+  }>;
 }
 
 interface OldRow {
@@ -108,7 +151,7 @@ CREATE TABLE species (
   estado_conservacion TEXT NOT NULL, conservation_label TEXT NOT NULL,
   conservation_rank INTEGER NOT NULL, conservation_system TEXT, conservation_source TEXT, conservation_assessed_at TEXT,
   nativa INTEGER NOT NULL,
-  descripcion TEXT NOT NULL, alimentacion TEXT NOT NULL, tamano TEXT NOT NULL,
+  descripcion TEXT NOT NULL, alimentacion TEXT NOT NULL, tamano TEXT NOT NULL, traits TEXT NOT NULL,
   image_url TEXT, full_url TEXT, thumb_asset TEXT, audio_url TEXT,
   image_license TEXT, image_attribution TEXT, image_source TEXT, image_page TEXT,
   accent_light TEXT NOT NULL, accent_dark TEXT NOT NULL,
@@ -140,9 +183,10 @@ CREATE TABLE species_media (
   ordinal INTEGER NOT NULL, is_primary INTEGER NOT NULL DEFAULT 0,
   url TEXT NOT NULL, thumbnail_url TEXT, author TEXT NOT NULL,
   license TEXT NOT NULL, source TEXT NOT NULL, source_url TEXT,
-  duration_seconds REAL
+  duration_seconds REAL, external_id TEXT, original_license TEXT
 );
 CREATE INDEX idx_species_media_species ON species_media(stable_id, media_type, ordinal);
+CREATE UNIQUE INDEX idx_species_media_audio_external ON species_media(external_id) WHERE media_type='audio' AND external_id IS NOT NULL;
 CREATE TABLE species_observability (
   stable_id TEXT PRIMARY KEY REFERENCES species(stable_id), method_version TEXT NOT NULL,
   period_start TEXT NOT NULL, period_end TEXT NOT NULL, occurrence_count INTEGER NOT NULL,
@@ -150,7 +194,8 @@ CREATE TABLE species_observability (
   band TEXT NOT NULL, comparison_class TEXT NOT NULL
 );
 CREATE TABLE species_facts (
-  id TEXT PRIMARY KEY, stable_id TEXT NOT NULL REFERENCES species(stable_id), body TEXT NOT NULL, sort_order INTEGER NOT NULL
+  id TEXT PRIMARY KEY, stable_id TEXT NOT NULL REFERENCES species(stable_id), body TEXT NOT NULL, sort_order INTEGER NOT NULL,
+  source_code TEXT, source_record_id TEXT
 );
 CREATE INDEX idx_species_facts_species ON species_facts(stable_id, sort_order);
 CREATE TABLE species_game_rules (
@@ -158,12 +203,16 @@ CREATE TABLE species_game_rules (
   min_knowledge_level TEXT, PRIMARY KEY(stable_id, game_key)
 );
 CREATE TABLE taxon_content (
-  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('order','family')),
+  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('phylum','class','order','family')),
   kingdom TEXT NOT NULL, phylum TEXT NOT NULL, class_name TEXT NOT NULL, taxon_name TEXT NOT NULL,
-  language TEXT NOT NULL, description TEXT NOT NULL, source_code TEXT NOT NULL,
+  language TEXT NOT NULL, description TEXT NOT NULL, simple_name TEXT, source_code TEXT NOT NULL,
   UNIQUE(taxon_rank,class_name,taxon_name,language)
 );
 CREATE INDEX idx_taxon_content_lookup ON taxon_content(class_name,taxon_rank,taxon_name);
+CREATE TABLE catalog_sources (
+  code TEXT PRIMARY KEY, name TEXT NOT NULL, url TEXT, publisher TEXT, license TEXT,
+  citation TEXT, use_policy TEXT NOT NULL
+);
 CREATE TABLE trivia_questions (
   id TEXT PRIMARY KEY, stable_id TEXT REFERENCES species(stable_id), prompt TEXT NOT NULL, explanation TEXT, source_id TEXT NOT NULL,
   image_url TEXT, image_attribution TEXT, image_license TEXT
@@ -178,6 +227,16 @@ function unique<T>(values: T[]): T[] {
   return [...new Set(values)];
 }
 
+function uniqueCommonNames(values: string[]): string[] {
+  const names = new Map<string, string>();
+  for (const raw of values) {
+    const value = raw.normalize('NFC').replace(/\s+/g, ' ').trim();
+    const key = value.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es');
+    if (value && !names.has(key)) names.set(key, value);
+  }
+  return [...names.values()];
+}
+
 function parseNames(value: string): string[] {
   try {
     const parsed: unknown = JSON.parse(value);
@@ -185,6 +244,20 @@ function parseNames(value: string): string[] {
   } catch {
     return [];
   }
+}
+
+function sourceReference(source: { source: string; record: string | null; fieldPath?: string }, registry: Map<string, CatalogSource>) {
+  const metadata = registry.get(source.source);
+  return {
+    source: source.source,
+    record: source.record,
+    fieldPath: source.fieldPath ?? 'general',
+    sourceCode: source.source,
+    name: metadata?.name ?? metadata?.code,
+    url: metadata?.url,
+    citation: metadata?.citation,
+    license: metadata?.license,
+  };
 }
 
 function loadCatalog(): CatalogItem[] {
@@ -235,6 +308,10 @@ function first<T>(rows: CatalogItem[], pick: (row: CatalogItem) => T | null | un
 function main(): void {
   const input = loadCatalog();
   if (input.length === 0) throw new Error('data/catalog has no records');
+  const sourceRegistry = readJson<{ sources: CatalogSource[] }>(resolve(PATHS.catalog, '../catalog-source-registry.json')).sources;
+  const sourcesByCode = new Map(sourceRegistry.map((source) => [source.code, source]));
+  const featuredFacts = readJson<{ facts: FeaturedFact[] }>(resolve(PATHS.catalog, '../facts/featured.json')).facts;
+  const featuredByScientificName = new Map(featuredFacts.map((fact) => [fact.scientificName, fact]));
   const historical = loadHistorical();
   const grouped = new Map<string, CatalogItem[]>();
   for (const item of input) grouped.set(item.id, [...(grouped.get(item.id) ?? []), item]);
@@ -243,17 +320,23 @@ function main(): void {
   const db = new DatabaseSync(NEXT_PATH);
   db.exec('PRAGMA journal_mode=DELETE; PRAGMA foreign_keys=ON;');
   db.exec(SCHEMA);
+  const insertCatalogSource = db.prepare('INSERT INTO catalog_sources VALUES (?,?,?,?,?,?,?)');
+  const mediaInsert = db.prepare('INSERT INTO species_media VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+  for (const source of sourceRegistry) insertCatalogSource.run(
+    source.code, source.name ?? source.code, source.url ?? null, source.publisher ?? null,
+    source.license ?? null, source.citation ?? null, source.usePolicy,
+  );
   const insert = db.prepare(`INSERT INTO species (
     stable_id, codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum,
     clase, orden, familia, genero, epiteto,
     estado_conservacion, conservation_label, conservation_rank, conservation_system, conservation_source, conservation_assessed_at, nativa,
-    descripcion, alimentacion, tamano,
+    descripcion, alimentacion, tamano, traits,
     image_url, full_url, thumb_asset, audio_url,
     image_license, image_attribution, image_source, image_page,
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
     origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources,
     knowledge_level, abundance_category, abundance_label
-  ) VALUES (${Array.from({ length: 49 }, () => '?').join(', ')})`);
+  ) VALUES (${Array.from({ length: 50 }, () => '?').join(', ')})`);
 
   const usedCodes = new Set<string>();
   let existingCodes = 0;
@@ -268,12 +351,10 @@ function main(): void {
       if (old) existingCodes++;
 
       const scientificName = first(rows, (row) => row.scientificName) ?? id;
-      const catalogCommonNames = unique(
-        rows.map((row) => row.commonName).filter((name): name is string => Boolean(name?.trim())),
-      );
+      const catalogCommonNames = uniqueCommonNames(rows.flatMap((row) => row.commonNames ?? (row.commonName ? [row.commonName] : [])));
       const commonNames = catalogCommonNames.length > 0
         ? catalogCommonNames
-        : old ? unique([old.common_name, ...parseNames(old.common_names)].filter(Boolean)) : [];
+        : old ? uniqueCommonNames([old.common_name, ...parseNames(old.common_names)].filter(Boolean)) : [];
       const displayName = commonNames[0] ?? scientificName;
       const origins = unique(rows.map((row) => row.origin).filter((value): value is Exclude<Origin, null> => value !== null));
       const origin: Origin = origins.length === 1 ? origins[0]! : null;
@@ -282,7 +363,12 @@ function main(): void {
       const image = first(rows, (row) => row.media?.image);
       const diet = unique(rows.flatMap((row) => row.diet ?? []));
       const habitat = unique(rows.flatMap((row) => row.habitat ?? []));
-      const sources = unique(rows.flatMap((row) => row.sources).map((source) => JSON.stringify(source))).map((source) => JSON.parse(source));
+      const fact = featuredByScientificName.get(scientificName);
+      const sourceRows = fact
+        ? [...rows.flatMap((row) => row.sources), { source: fact.sourceCode, record: fact.sourceRecordId, fieldPath: 'relevant_note' }]
+        : rows.flatMap((row) => row.sources);
+      const sources = unique(sourceRows.map((source) => JSON.stringify(sourceReference(source, sourcesByCode))))
+        .map((source) => JSON.parse(source));
       const abundance = first(rows, (row) => row.abundanceStatus);
       // Abundance and conservation are different biological concepts. Until
       // the catalogue has an explicit conservation object, preserve a prior
@@ -296,6 +382,8 @@ function main(): void {
       const dietText = diet.length > 0
         ? diet.map((value) => DIET_LABELS[value] ?? value.replaceAll('_', ' ')).join(', ')
         : old?.alimentacion ?? '';
+      const audioCandidate = first(rows, (row) => row.media?.audio);
+      const audioUrl = typeof audioCandidate === 'string' ? audioCandidate : audioCandidate?.url ?? old?.audio_url ?? null;
       insert.run(
         id, codigo, scientificName, scientificName, displayName, JSON.stringify(commonNames),
         first(rows, (row) => row.taxonomy.kingdom) ?? 'Animalia',
@@ -303,9 +391,9 @@ function main(): void {
         first(rows, (row) => row.taxonomy.class) ?? '', first(rows, (row) => row.taxonomy.order) ?? '',
         first(rows, (row) => row.taxonomy.family) ?? '', genus, epithet,
         conservationRaw, conservationLabel, conservationRank, 'Prioridad nacional/SNAP (legado)', null, null, origin === 'native' ? 1 : 0,
-        description, dietText, size,
+        description, dietText, size, JSON.stringify(first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }),
         image?.url ?? null, image?.fullUrl ?? null, old?.thumb_asset ?? null,
-        first(rows, (row) => row.media?.audio) ?? old?.audio_url ?? null,
+        audioUrl,
         image?.license ?? null, image?.attribution ?? null, image?.source ?? null, image?.sourcePage ?? null,
         palette.accent_light, palette.accent_dark, palette.container_light, palette.on_container_light,
         palette.container_dark, palette.on_container_dark,
@@ -313,19 +401,46 @@ function main(): void {
         JSON.stringify(habitat), JSON.stringify(diet), first(rows, (row) => row.relevantNote),
         JSON.stringify(sources), 'hard', null, abundance,
       );
+      const imageMedia = image ? {
+        id: `${id}-image`, stableId: id, type: 'image' as const, ordinal: 1, isPrimary: 1,
+        url: image.url, thumbnailUrl: image.url, author: image.attribution, license: image.license,
+        source: image.source, sourceUrl: image.sourcePage, duration: null, externalId: image.externalId ?? null, originalLicense: null,
+      } : null;
+      if (imageMedia) mediaInsert.run(imageMedia.id, imageMedia.stableId, imageMedia.type, imageMedia.ordinal, imageMedia.isPrimary, imageMedia.url, imageMedia.thumbnailUrl, imageMedia.author, imageMedia.license, imageMedia.source, imageMedia.sourceUrl, imageMedia.duration, imageMedia.externalId, imageMedia.originalLicense);
+      if (audioCandidate) {
+        const audioData = typeof audioCandidate === 'string' ? { url: audioCandidate } : audioCandidate;
+        mediaInsert.run(`${id}-audio`, id, 'audio', 1, 0, audioData.url, null, audioData.attribution ?? 'Pedro Rinaldi', audioData.license ?? 'permission', audioData.source ?? 'Xeno-canto', audioData.sourcePage ?? null, audioData.durationSeconds ?? 15, audioData.externalId ?? null, audioData.originalLicense ?? null);
+      }
     }
     const taxonomyDirectory = resolve(PATHS.catalog, '../taxonomy');
     const orderContentFiles = readdirSync(taxonomyDirectory).filter((file) => file.endsWith('.json')).sort();
-    const insertTaxon = db.prepare('INSERT INTO taxon_content VALUES (?,?,?,?,?,?,?,?,?)');
+    const insertTaxon = db.prepare(`INSERT INTO taxon_content VALUES (?,?,?,?,?,?,?,?,?,?)
+      ON CONFLICT(taxon_rank,class_name,taxon_name,language) DO UPDATE SET
+        description=excluded.description,simple_name=COALESCE(excluded.simple_name,taxon_content.simple_name),source_code=excluded.source_code`);
     for (const file of orderContentFiles) {
       const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; items:Array<{name:string;description:string}> }>(resolve(taxonomyDirectory, file));
       if (content.rank !== 'order') continue;
       for (const item of content.items) {
         insertTaxon.run(
           `${content.taxonomicClass.toLocaleLowerCase()}-order-${item.name.toLocaleLowerCase()}`,
-          'order','Animalia','Chordata',content.taxonomicClass,item.name,content.language,item.description,content.source.code,
+          'order','Animalia','Chordata',content.taxonomicClass,item.name,content.language,item.description,null,content.source.code,
         );
       }
+    }
+    const simpleContent = readJson<SimpleTaxonContent>(resolve(taxonomyDirectory, 'simple-names.json'));
+    for (const item of simpleContent.items) {
+      insertTaxon.run(
+        `simple-${item.rank}-${item.className || 'all'}-${item.name}`.toLocaleLowerCase('es'),
+        item.rank, 'Animalia', 'Chordata', item.className, item.name, simpleContent.language,
+        item.description, item.simpleName, simpleContent.sourceCode,
+      );
+    }
+    const insertFact = db.prepare('INSERT INTO species_facts VALUES (?,?,?,?,?,?)');
+    for (const fact of featuredFacts) {
+      const species = db.prepare('SELECT stable_id FROM species WHERE scientific_name=?').get(fact.scientificName) as { stable_id: string } | undefined;
+      if (!species) throw new Error(`featured fact species not found: ${fact.scientificName}`);
+      if (!sourcesByCode.has(fact.sourceCode)) throw new Error(`featured fact source not registered: ${fact.sourceCode}`);
+      insertFact.run(fact.id, species.stable_id, fact.body, fact.sortOrder, fact.sourceCode, fact.sourceRecordId);
     }
     const trivia = readJson<{sourceCode:string;questions:Array<{id:string;prompt:string;explanation:string;options:string[];correctIndex:number}>}>(resolve(PATHS.catalog, '../trivia/demo.json'));
     const insertTrivia = db.prepare('INSERT INTO trivia_questions VALUES (?,?,?,?,?,?,?,?)');

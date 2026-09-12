@@ -27,6 +27,25 @@ export interface ConservationPayload {
   assessedAt: string;
 }
 
+export interface TraitMeasurement {
+  kind: 'body_length' | 'body_mass' | 'wing_length' | 'tail_length' | 'tarsus_length' | 'max_length';
+  value: number;
+  unit: 'mm' | 'g';
+  basis: 'TL' | 'SL' | 'FL' | 'SVL' | 'body_length' | null;
+  estimated: boolean;
+}
+
+export interface SpeciesTraitsPayload {
+  measurements: TraitMeasurement[];
+  lifeModes: string[];
+  activity: string[];
+  aquaticEnvironments: string[];
+  waterZones: string[];
+  depthMinM: number | null;
+  depthMaxM: number | null;
+  sources: string[];
+}
+
 export interface SpeciesPayload {
   scientificName: string;
   acceptedName: string;
@@ -42,6 +61,7 @@ export interface SpeciesPayload {
   habitat: string[];
   diet: string[];
   size: string;
+  traits: SpeciesTraitsPayload;
   relevantNote: string;
   sourceReferences: string[];
 }
@@ -96,6 +116,9 @@ export interface MediaAsset {
   state: 'incoming' | 'processing' | 'pending' | 'ready' | 'failed' | 'rejected' | 'archived';
   author: string;
   license: 'CC0' | 'CC-BY-4.0' | 'permission' | 'legacy';
+  originalLicense: string | null;
+  externalId: string | null;
+  authorizationEvidenceRef: string | null;
   sourceUrl: string;
   uploadedBy: string;
   createdAt: string;
@@ -155,10 +178,40 @@ export interface NavigationCounts {
   openReports: number;
 }
 
+export interface HomeNews {
+  id: string;
+  title: string;
+  source: string;
+  articleUrl: string;
+  imageUrl: string | null;
+  publishedAt: string | null;
+  status: 'draft' | 'published' | 'archived';
+  sortOrder: number;
+  updatedAt: string;
+}
+
+export type CollaboratorApplicationStatus = 'pending' | 'reviewing' | 'accepted' | 'rejected' | 'withdrawn';
+export interface CollaboratorApplication {
+  id: string;
+  contactName: string;
+  contactEmail: string;
+  interests: string[];
+  experience: string;
+  motivation: string;
+  availability: string;
+  referenceUrl: string | null;
+  status: CollaboratorApplicationStatus;
+  reviewerNote: string | null;
+  createdAt: string;
+  reviewedAt: string | null;
+}
+
 export const emptySpeciesPayload = (): SpeciesPayload => ({
   scientificName: '', acceptedName: '', commonNames: [],
   taxonomy: { kingdom: 'Animalia', phylum: 'Chordata', class: '', order: '', family: '', genus: '' },
   origin: 'unknown', establishment: 'uncertain', seasonality: 'unknown', presenceCertainty: 'uncertain',
   abundanceStatus: '', conservation: { system: 'UICN', category: 'NE', source: '', assessedAt: '' },
-  description: '', habitat: [], diet: [], size: '', relevantNote: '', sourceReferences: [],
+  description: '', habitat: [], diet: [], size: '',
+  traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+  relevantNote: '', sourceReferences: [],
 });

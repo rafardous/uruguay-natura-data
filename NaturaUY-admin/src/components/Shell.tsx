@@ -1,4 +1,4 @@
-import { BookOpenText, FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Settings, Users } from 'lucide-react';
+import { BookOpenText, FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Newspaper, Settings, Users } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 
 import { useAuth } from '../auth/AuthProvider';
@@ -15,6 +15,7 @@ const items: Array<{ path: string; label: string; icon: typeof Leaf; admin?: boo
   { path: '/releases', label: 'Publicaciones', icon: FileClock },
   { path: '/reports', label: 'Reportes', icon: MessageSquareWarning, badge: 'openReports' },
   { path: '/users', label: 'Usuarios', icon: Users, admin: true },
+  { path: '/news', label: 'Noticias', icon: Newspaper, admin: true },
 ];
 
 export function Shell({ path, children }: { path: string; children: ReactNode }): React.JSX.Element {

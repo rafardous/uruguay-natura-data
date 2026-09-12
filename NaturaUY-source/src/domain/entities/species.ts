@@ -19,6 +19,7 @@ export interface SpeciesPhoto {
   /** Filename inside `assets/thumbs`, or null when none was bundled. */
   thumbAsset: string | null;
   license: string;
+  originalLicense?: string | null;
   attribution: string;
   source: string;
   page: string | null;
@@ -33,8 +34,10 @@ export interface SpeciesMedia {
   thumbnailUrl: string | null;
   attribution: string;
   license: string;
+  originalLicense?: string | null;
   source: string;
   page: string | null;
+  durationSeconds: number | null;
 }
 
 export interface Taxonomy {
@@ -50,10 +53,43 @@ export interface Taxonomy {
 export interface SpeciesSource {
   source: string;
   record: string | null;
+  /** Schema 10 field path. Older catalogues use `record` for this value. */
+  fieldPath?: string;
+  sourceCode?: string | null;
+  name?: string | null;
+  url?: string | null;
+  citation?: string | null;
+  license?: string | null;
+}
+
+export type MeasurementKind = 'body_length' | 'body_mass' | 'wing_length' | 'tail_length' | 'tarsus_length' | 'max_length';
+export type MeasurementBasis = 'TL' | 'SL' | 'FL' | 'SVL' | 'body_length' | null;
+export interface SpeciesMeasurement {
+  kind: MeasurementKind;
+  value: number;
+  unit: 'mm' | 'g';
+  basis: MeasurementBasis;
+  estimated: boolean;
+}
+export interface SpeciesTraits {
+  measurements: SpeciesMeasurement[];
+  lifeModes: ('terrestrial' | 'arboreal' | 'aquatic' | 'aerial' | 'fossorial' | 'perching' | 'generalist')[];
+  activity: ('diurnal' | 'nocturnal' | 'both')[];
+  aquaticEnvironments: ('freshwater' | 'brackish' | 'marine')[];
+  waterZones: ('benthic' | 'demersal' | 'pelagic')[];
+  depthMinM: number | null;
+  depthMaxM: number | null;
+  sources: string[];
 }
 
 export type KnowledgeLevel = 'easy' | 'medium' | 'hard';
-export interface SpeciesFact { id: string; body: string; sortOrder: number }
+export interface SpeciesFact {
+  id: string;
+  body: string;
+  sortOrder: number;
+  sourceCode?: string | null;
+  sourceRecordId?: string | null;
+}
 export interface SpeciesGameRule { gameKey: string; enabled: boolean; minKnowledgeLevel: KnowledgeLevel | null }
 
 export interface Species {
@@ -91,6 +127,8 @@ export interface Species {
   descripcion: string;
   alimentacion: string;
   tamano: string;
+  /** Structured schema-9 traits. Schema 10 adds source metadata around them. */
+  traits: SpeciesTraits;
   photo: SpeciesPhoto | null;
   audioUrl: string | null;
   /** Full approved gallery from SQLite schema 8. Primary fields above remain for cards and games. */

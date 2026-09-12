@@ -51,6 +51,7 @@ export function makeSpecies(overrides: Partial<Species> = {}): Species {
     descripcion: '',
     alimentacion: '',
     tamano: '',
+    traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
     photo: {
       url: `https://example.test/${codigo}.jpg`,
       fullUrl: `https://example.test/${codigo}-large.jpg`,

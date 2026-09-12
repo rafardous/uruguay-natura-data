@@ -16,20 +16,17 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [
-      "monte_nativo"
+      "monte_nativo",
+      "humedal",
+      "agroecosistema"
     ],
-    "diet": null,
-    "size": null,
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 83 mm · Masa: 44 g",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
-        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
-        "license": "CC BY-SA 4.0",
-        "attribution": "Renato Augusto Martins (CC BY-SA 4.0) vía Wikimedia Commons",
-        "source": "wikimedia",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Perereca-de-capacete_-_Aparasphenodon_bokermanni.jpg"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -42,7 +39,45 @@
         "record": "Arg_siemer"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Rana motor"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 83,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 44,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "boana-pulchella",
@@ -66,12 +101,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260963557/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/260963557/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/54740875"
+        "sourcePage": "https://www.inaturalist.org/observations/151263443",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:260963557",
+        "sourceTaxonId": "555143",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:14:40.917Z"
       },
       "audio": null
     },
@@ -221,7 +269,20 @@
         "record": "Biodiversidata:UY:Amphibia:2304"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana trepadora"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "ceratophrys-ornata",
@@ -239,18 +300,36 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal"
+    ],
+    "diet": [
+      "ectotherm_vertebrates"
+    ],
+    "size": "Largo corporal: 140 mm · Masa: 400 g · Largo corporal: 112.4 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353799373/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353799373/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Abril Bastons, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/446283425/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/446283425/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/200519662"
+        "sourcePage": "https://www.inaturalist.org/observations/249634265",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:446283425",
+        "sourceTaxonId": "22849",
+        "width": 1600,
+        "height": 1200,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1600,
+          "resolutionHeight": 1200
+        },
+        "retrievedAt": "2026-09-11T16:17:03.781Z"
       },
       "audio": null
     },
@@ -264,7 +343,53 @@
         "record": "Cer_ornata"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Escuerzo",
+      "Escuerzo grande"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 140,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 400,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 112.4,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "fossorial",
+        "terrestrial"
+      ],
+      "activity": [
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "chthonerpeton-indistinctum",
@@ -282,19 +407,19 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "ectotherm_vertebrates"
+    ],
+    "size": "Largo corporal: 360 mm · Masa: 37 g · Largo corporal: 435 mm",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Chthonerpeton_indistinctum.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
-        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Chthonerpeton_indistinctum.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
-        "license": "CC BY-SA 2.5",
-        "attribution": "Axel Kwet (CC BY-SA 2.5) vía Wikimedia Commons",
-        "source": "wikimedia",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chthonerpeton_indistinctum.jpg"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -307,7 +432,53 @@
         "record": "Cht_indist"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Cecilia"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 360,
+          "unit": "mm",
+          "basis": "body_length",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 37,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 435,
+          "unit": "mm",
+          "basis": "TL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "fossorial",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "dendropsophus-minutus",
@@ -325,18 +496,40 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "seeds",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 24.8 mm · Masa: 0.81 g · Largo corporal: 27.6 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337243480/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337243480/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Patrícia Mees, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447066152/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447066152/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/192144648"
+        "sourcePage": "https://www.inaturalist.org/observations/250027159",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:447066152",
+        "sourceTaxonId": "65377",
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:21:38.570Z"
       },
       "audio": null
     },
@@ -390,7 +583,52 @@
         "record": "Den_minutu"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita rayada"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 24.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 0.81,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 27.6,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "dendropsophus-nanus",
@@ -408,18 +646,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 40 mm · Masa: 5.89 g · Largo corporal: 23.8 mm · Masa: 0.7 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617957707/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/617957707/large.jpg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/299914507/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/299914507/large.jpeg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/339670975"
+        "sourcePage": "https://www.inaturalist.org/observations/172744388",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:299914507",
+        "sourceTaxonId": "65380",
+        "width": 2048,
+        "height": 2011,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2011
+        },
+        "retrievedAt": "2026-09-11T16:21:41.219Z"
       },
       "audio": null
     },
@@ -437,7 +696,62 @@
         "record": "Den_nanus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita enana del chaco",
+      "Ranita enana de Chaco"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 40,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 5.89,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 23.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 0.7,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "arboreal",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "dendropsophus-sanborni",
@@ -455,18 +769,37 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 17.5 mm · Masa: 0.34 g · Largo corporal: 21.1 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447903341/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447903341/large.jpeg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/315082542/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/315082542/large.jpeg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/250439347"
+        "sourcePage": "https://www.inaturalist.org/observations/180842719",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:315082542",
+        "sourceTaxonId": "65398",
+        "width": 1862,
+        "height": 1828,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1862,
+          "resolutionHeight": 1828
+        },
+        "retrievedAt": "2026-09-11T16:21:44.030Z"
       },
       "audio": null
     },
@@ -548,7 +881,54 @@
         "record": "Den_sanbor"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita enana de sanborn",
+      "Ranita de Sanborn"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 17.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 0.34,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 21.1,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "arboreal",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "elachistocleis-bicolor",
@@ -566,18 +946,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 43 mm · Masa: 5.6 g · Masa: 3.6 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/238929267/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/238929267/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) William G. Borges, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337717773/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337717773/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/139668693"
+        "sourcePage": "https://www.inaturalist.org/observations/192387367",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:337717773",
+        "sourceTaxonId": "25092",
+        "width": 1711,
+        "height": 1684,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1711,
+          "resolutionHeight": 1684
+        },
+        "retrievedAt": "2026-09-11T16:22:28.016Z"
       },
       "audio": null
     },
@@ -655,7 +1055,53 @@
         "record": "Ela_bicolo"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito oval"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 43,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 5.6,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 3.6,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "fossorial",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "boana-albopunctata",
@@ -679,12 +1125,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/610656338/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/610656338/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Jean Martins, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353779982/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/353779982/large.jpeg",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Lucas Mantelo Cruz, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/316651405"
+        "sourcePage": "https://www.inaturalist.org/observations/200509481",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:353779982",
+        "sourceTaxonId": "555076",
+        "width": 2048,
+        "height": 1987,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1987
+        },
+        "retrievedAt": "2026-09-11T16:27:20.409Z"
       },
       "audio": null
     },
@@ -698,7 +1157,21 @@
         "record": "Hyp_albopu"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita punteada de blanco",
+      "Rana punteada de blanco"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "boana-pulchella",
@@ -722,12 +1195,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/87121541/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260963557/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/260963557/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/54740875"
+        "sourcePage": "https://www.inaturalist.org/observations/151263443",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:260963557",
+        "sourceTaxonId": "555143",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:14:40.917Z"
       },
       "audio": null
     },
@@ -741,7 +1227,21 @@
         "record": "Hyp_pulche"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita de zarzal",
+      "Rana trepadora"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "julianus-uruguayus",
@@ -767,10 +1267,23 @@
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/medium.jpeg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/large.jpeg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/250235211"
+        "sourcePage": "https://www.inaturalist.org/observations/250235211",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:447488226",
+        "sourceTaxonId": "1530459",
+        "width": 2048,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:27:40.180Z"
       },
       "audio": null
     },
@@ -796,7 +1309,20 @@
         "record": "Biodiversidata:UY:Amphibia:1852"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita uruguaya"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "leptodactylus-chaquensis",
@@ -814,19 +1340,20 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "ectotherm_vertebrates"
+    ],
+    "size": "Largo corporal: 82.8 mm · Masa: 63 g · Largo corporal: 82 mm",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354445906/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354445906/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/200853786"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -847,7 +1374,53 @@
         "record": "Lep_chaque"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana del chaco"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 82.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 63,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 82,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-furnarius",
@@ -865,18 +1438,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 34.4 mm · Masa: 4.21 g · Largo corporal: 44 mm",
     "relevantNote": null,
     "media": {
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169573439/medium.jpeg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/169573439/large.jpeg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Jean Martins, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/101526564"
+        "sourcePage": "https://www.inaturalist.org/observations/101526564",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:169573439",
+        "sourceTaxonId": "22927",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 58,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:28:42.905Z"
       },
       "audio": null
     },
@@ -894,7 +1487,55 @@
         "record": "Lep_furnar"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana de campo grande"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 34.4,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 4.21,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 44,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "aquatic",
+        "arboreal",
+        "fossorial",
+        "terrestrial"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-gracilis",
@@ -912,18 +1553,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "matorral",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 43.9 mm · Masa: 5.8 g · Largo corporal: 45.5 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462885173/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/462885173/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Lourdes Mariel Quarin, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424306/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424306/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/258034142"
+        "sourcePage": "https://www.inaturalist.org/observations/196787619",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:346424306",
+        "sourceTaxonId": "22981",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:28:45.470Z"
       },
       "audio": null
     },
@@ -1021,7 +1682,53 @@
         "record": "Lep_gracil"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana saltadora"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 43.9,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 5.8,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 45.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal",
+        "diurnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-latinasus",
@@ -1039,18 +1746,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "matorral",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 34 mm · Masa: 4 g · Largo corporal: 40 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113336558/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/113336558/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Bahiano Ayala, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/333675323/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/333675323/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/69795730"
+        "sourcePage": "https://www.inaturalist.org/observations/190355401",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:333675323",
+        "sourceTaxonId": "22974",
+        "width": 1671,
+        "height": 2048,
+        "selectionScore": 72,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1671,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:28:47.718Z"
       },
       "audio": null
     },
@@ -1168,7 +1895,52 @@
         "record": "Lep_latina"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana piadora"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 34,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 4,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 40,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "diurnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-latrans",
@@ -1186,18 +1958,40 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "ectotherm_vertebrates"
+    ],
+    "size": "Largo corporal: 65.4 mm · Masa: 20.05 g · Largo corporal: 120 mm · Masa: 113.4 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53757566/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/53757566/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Diogo Luiz, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105285069/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/105285069/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/34178852"
+        "sourcePage": "https://www.inaturalist.org/observations/65416153",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:105285069",
+        "sourceTaxonId": "70710",
+        "width": 1691,
+        "height": 2048,
+        "selectionScore": 62,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1691,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:28:50.745Z"
       },
       "audio": null
     },
@@ -1343,7 +2137,60 @@
         "record": "Lep_latran"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana común"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 65.4,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 20.05,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 120,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 113.4,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-mystacinus",
@@ -1361,18 +2208,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 69.9 mm · Masa: 25 g · Largo corporal: 65 mm · Masa: 15.3 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443937257/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/443937257/large.jpeg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/243266680/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/243266680/large.jpg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/248453198"
+        "sourcePage": "https://www.inaturalist.org/observations/141939754",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:243266680",
+        "sourceTaxonId": "22956",
+        "width": 2048,
+        "height": 1740,
+        "selectionScore": 73,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1740
+        },
+        "retrievedAt": "2026-09-11T16:28:52.506Z"
       },
       "audio": null
     },
@@ -1422,7 +2290,61 @@
         "record": "Lep_mystac"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana de bigotes"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 69.9,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 25,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 65,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 15.3,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "fossorial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "leptodactylus-podicipinus",
@@ -1440,18 +2362,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "ectotherm_vertebrates"
+    ],
+    "size": "Largo corporal: 44 mm · Masa: 8.17 g · Largo corporal: 54 mm · Masa: 8.1 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/461409910/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/461409910/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Lucas Mantelo Cruz, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354679289/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354679289/large.jpeg",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Thomaz Ricardo Favreto Sinani, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/257237444"
+        "sourcePage": "https://www.inaturalist.org/observations/200970296",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:354679289",
+        "sourceTaxonId": "22961",
+        "width": 2048,
+        "height": 2048,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:28:55.572Z"
       },
       "audio": null
     },
@@ -1465,7 +2408,59 @@
         "record": "Lep_podici"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Rana de vientre moteado"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 44,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 8.17,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 54,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 8.1,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "limnomedusa-macroglossa",
@@ -1483,18 +2478,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 62.6 mm · Masa: 35.5 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/341418067/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/341418067/large.jpg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/365826466/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/365826466/large.jpg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/194260385"
+        "sourcePage": "https://www.inaturalist.org/observations/206855585",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:365826466",
+        "sourceTaxonId": "23244",
+        "width": 1898,
+        "height": 2048,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1898,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:29:12.650Z"
       },
       "audio": null
     },
@@ -1568,7 +2583,46 @@
         "record": "Lim_macrog"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana de las piedras"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 62.6,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 35.5,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "lithobates-catesbeianus",
@@ -1587,17 +2641,34 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [],
-    "diet": null,
-    "size": null,
+    "diet": [
+      "invertebrates",
+      "ectotherm_vertebrates",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 203 mm · Masa: 467.8 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161936314/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/161936314/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Nell Cant, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337719837/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337719837/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/97376714"
+        "sourcePage": "https://www.inaturalist.org/observations/192388548",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:337719837",
+        "sourceTaxonId": "65979",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:29:31.938Z"
       },
       "audio": null
     },
@@ -1611,7 +2682,42 @@
         "record": "lit_catesb"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Rana toro"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 203,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 467.8,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "both"
+      ],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "lysapsus-limellum",
@@ -1629,19 +2735,18 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 20.5 mm · Masa: 1.46 g · Largo corporal: 24.8 mm",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347256814/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/347256814/large.jpeg",
-        "license": "CC0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/197197982"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -1658,7 +2763,52 @@
         "record": "Pse_limell"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana boyadora chica"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 20.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 1.46,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 24.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "aquatic",
+        "fossorial"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-atroluteus",
@@ -1676,18 +2826,37 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 22.6 mm · Masa: 1.9 g · Largo corporal: 28 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/531011492/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/531011492/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/333680923/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/333680923/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/285747818"
+        "sourcePage": "https://www.inaturalist.org/observations/190358224",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:333680923",
+        "sourceTaxonId": "21769",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:30:52.600Z"
       },
       "audio": null
     },
@@ -1737,7 +2906,54 @@
         "record": "Mel_atrolu"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito banderita española"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 22.6,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 1.9,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 28,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "fossorial",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "both",
+        "diurnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-devincenzii",
@@ -1756,17 +2972,32 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [],
-    "diet": null,
-    "size": null,
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 29 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/596317153/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/596317153/large.jpg",
-        "license": "CC-BY",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/596493479/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/596493479/large.jpg",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/329014778"
+        "sourcePage": "https://www.inaturalist.org/observations/329014778",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:596493479",
+        "sourceTaxonId": "21770",
+        "width": 1204,
+        "height": 1600,
+        "selectionScore": 68,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1204,
+          "resolutionHeight": 1600
+        },
+        "retrievedAt": "2026-09-11T16:30:54.419Z"
       },
       "audio": null
     },
@@ -1796,7 +3027,36 @@
         "record": "Mel_devinc"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito de devicenzi",
+      "Sapito de Devincenzii"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 29,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "diurnal"
+      ],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-langonei",
@@ -1816,7 +3076,7 @@
     "description": null,
     "habitat": [],
     "diet": null,
-    "size": null,
+    "size": "Largo corporal: 20.5 mm",
     "relevantNote": null,
     "media": {
       "image": null,
@@ -1832,7 +3092,32 @@
         "record": "Mel_langon"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapito de Langone"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 20.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-montevidensis",
@@ -1850,18 +3135,36 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "matorral",
+      "humedal"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 29 mm · Masa: 2.1 g · Largo corporal: 28 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/350556399/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/350556399/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Leo Lagos, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/81427822/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/81427822/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/198848150"
+        "sourcePage": "https://www.inaturalist.org/observations/51260037",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:81427822",
+        "sourceTaxonId": "21768",
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:31:00.176Z"
       },
       "audio": null
     },
@@ -1879,7 +3182,52 @@
         "record": "Mel_montev"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito de darwin"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 29,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 2.1,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 28,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "diurnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-pachyrhynus",
@@ -1905,10 +3253,23 @@
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+        "sourcePage": "https://www.inaturalist.org/observations/369599728",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:675140296",
+        "sourceTaxonId": "326238",
+        "width": 2048,
+        "height": 1525,
+        "selectionScore": 58,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1525
+        },
+        "retrievedAt": "2026-09-11T16:31:02.460Z"
       },
       "audio": null
     },
@@ -1918,7 +3279,20 @@
         "record": "Mel_orejas"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapito de orejas miranda"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "melanophryniscus-pachyrhynus",
@@ -1944,10 +3318,23 @@
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+        "sourcePage": "https://www.inaturalist.org/observations/369599728",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:675140296",
+        "sourceTaxonId": "326238",
+        "width": 2048,
+        "height": 1525,
+        "selectionScore": 58,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1525
+        },
+        "retrievedAt": "2026-09-11T16:31:02.460Z"
       },
       "audio": null
     },
@@ -1957,7 +3344,20 @@
         "record": "Mel_pachyr"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapito de nariz gorda"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "melanophryniscus-pachyrhynus",
@@ -1983,10 +3383,23 @@
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/medium.jpg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/675140296/large.jpg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Martin Klippel, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/369599728"
+        "sourcePage": "https://www.inaturalist.org/observations/369599728",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:675140296",
+        "sourceTaxonId": "326238",
+        "width": 2048,
+        "height": 1525,
+        "selectionScore": 58,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1525
+        },
+        "retrievedAt": "2026-09-11T16:31:02.460Z"
       },
       "audio": null
     },
@@ -2000,7 +3413,25 @@
         "record": "https://www.gbif.org/species/2422160"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito de nariz gorda"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "melanophryniscus-sanmartini",
@@ -2020,7 +3451,7 @@
     "description": null,
     "habitat": [],
     "diet": null,
-    "size": null,
+    "size": "Largo corporal: 26 mm",
     "relevantNote": null,
     "media": {
       "image": null,
@@ -2036,7 +3467,34 @@
         "record": "Mel_sanmar"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapito de San Martin",
+      "Sapito de san martín"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 26,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "odontophrynus-americanus",
@@ -2054,18 +3512,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 49.5 mm · Masa: 17.1 g · Largo corporal: 51 mm",
     "relevantNote": null,
     "media": {
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106905720/medium.jpeg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/106905720/large.jpeg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Agustín Zarco, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/66329639"
+        "sourcePage": "https://www.inaturalist.org/observations/66329639",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:106905720",
+        "sourceTaxonId": "22859",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 58,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:33:44.464Z"
       },
       "audio": null
     },
@@ -2159,7 +3638,54 @@
         "record": "Odo_americ"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "escuerzo chico"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 49.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 17.1,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 51,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "fossorial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal",
+        "diurnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "odontophrynus-maisuma",
@@ -2179,16 +3705,29 @@
     "description": null,
     "habitat": [],
     "diet": null,
-    "size": null,
+    "size": "Largo corporal: 43.6 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530703/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530703/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Ibere Machado, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/367366990/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/367366990/large.jpeg",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Diego Dos Anjos Souza, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/316346183"
+        "sourcePage": "https://www.inaturalist.org/observations/207676782",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:367366990",
+        "sourceTaxonId": "70767",
+        "width": 1600,
+        "height": 1554,
+        "selectionScore": 60,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1600,
+          "resolutionHeight": 1554
+        },
+        "retrievedAt": "2026-09-11T16:33:47.174Z"
       },
       "audio": null
     },
@@ -2202,7 +3741,33 @@
         "record": "Odo_maisum"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Escuarcito",
+      "Escuercito"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 43.6,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "ololygon-aromothyella",
@@ -2242,7 +3807,20 @@
         "record": "Biodiversidata:UY:Amphibia:1932"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de las tormentas"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "ololygon-berthae",
@@ -2266,12 +3844,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/279243473/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/279243473/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/36498789"
+        "sourcePage": "https://www.inaturalist.org/observations/161547130",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:279243473",
+        "sourceTaxonId": "1530457",
+        "width": 1080,
+        "height": 1920,
+        "selectionScore": 59,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1080,
+          "resolutionHeight": 1920
+        },
+        "retrievedAt": "2026-09-11T16:34:11.287Z"
       },
       "audio": null
     },
@@ -2281,7 +3872,20 @@
         "record": "Biodiversidata:UY:Amphibia:1933"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de pintas naranja"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "phyllomedusa-iheringii",
@@ -2299,18 +3903,34 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
+    "habitat": [
+      "matorral",
+      "humedal"
+    ],
     "diet": null,
-    "size": null,
+    "size": "Largo corporal: 53.2 mm · Masa: 9 g · Largo corporal: 75 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55048189/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/55048189/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Noelia, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337190051/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337190051/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/34936672"
+        "sourcePage": "https://www.inaturalist.org/observations/192117503",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:337190051",
+        "sourceTaxonId": "23736",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:36:49.031Z"
       },
       "audio": null
     },
@@ -2372,7 +3992,52 @@
         "record": "Phy_iherin"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana monito"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 53.2,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 9,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 75,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "arboreal",
+        "terrestrial"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-albonotatus",
@@ -2390,18 +4055,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 27 mm · Masa: 2.3 g · Largo corporal: 34.1 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111467589/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/111467589/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Morten Ross, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650720649/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/650720649/large.jpg",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Raquel Mondino, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/68787066"
+        "sourcePage": "https://www.inaturalist.org/observations/356812070",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:650720649",
+        "sourceTaxonId": "23158",
+        "width": 2026,
+        "height": 2048,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2026,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:36:54.116Z"
       },
       "audio": null
     },
@@ -2411,7 +4097,52 @@
         "record": "Biodiversidata:UY:Amphibia:1944"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "NA"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 27,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 2.3,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 34.1,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-biligonigerus",
@@ -2429,18 +4160,40 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "matorral",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 30 mm · Masa: 4.41 g · Largo corporal: 40 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/334875253/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/334875253/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Kane Sandoval, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/597571494/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/597571494/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/190957856"
+        "sourcePage": "https://www.inaturalist.org/observations/329639443",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:597571494",
+        "sourceTaxonId": "326272",
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:36:56.018Z"
       },
       "audio": null
     },
@@ -2490,7 +4243,52 @@
         "record": "Phy_biligo"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de cuatro ojos"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 30,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 4.41,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 40,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-cuvieri",
@@ -2508,18 +4306,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 37 mm · Masa: 5.2 g · Largo corporal: 36.5 mm · Masa: 4.7 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248350063/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/248350063/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Henrique Nogueira, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/578062695/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/578062695/large.jpg",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Vincent Mia Edie Verheyen, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/144670362"
+        "sourcePage": "https://www.inaturalist.org/observations/319764795",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:578062695",
+        "sourceTaxonId": "23144",
+        "width": 1660,
+        "height": 1644,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1660,
+          "resolutionHeight": 1644
+        },
+        "retrievedAt": "2026-09-11T16:36:59.106Z"
       },
       "audio": null
     },
@@ -2537,7 +4355,61 @@
         "record": "Phy_cuvier"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana perro"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 37,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 5.2,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 36.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 4.7,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-fernandezae",
@@ -2557,17 +4429,10 @@
     "description": null,
     "habitat": [],
     "diet": null,
-    "size": null,
+    "size": "Largo corporal: 24 mm · Masa: 1.6 g",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Physalaemus_fernandezae_distribution.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
-        "fullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Physalaemus_fernandezae_distribution.png?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=original",
-        "license": "CC BY-SA 3.0",
-        "attribution": "map data: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.* distribution: Esteban Lavilla, Jose Langone 2004. Physalaemus fernandezae. In: IUCN 2012. IUCN Red List of Threatened Species. Version 2012.2. &lt;www.iucnredlist.org&gt;. Downloaded on 25 October 2012. compilation: rbrausse (CC BY-SA 3.0) vía Wikimedia Commons",
-        "source": "wikimedia",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physalaemus_fernandezae_distribution.png"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -2580,7 +4445,40 @@
         "record": "Phy_fernan"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita de Fernández"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 24,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 1.6,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-gracilis",
@@ -2598,18 +4496,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 29.9 mm · Masa: 2.25 g · Largo corporal: 40 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242520224/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/242520224/large.jpeg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424285/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424285/large.jpeg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/141547938"
+        "sourcePage": "https://www.inaturalist.org/observations/196787614",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:346424285",
+        "sourceTaxonId": "23124",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:37:04.369Z"
       },
       "audio": null
     },
@@ -2659,7 +4578,52 @@
         "record": "Phy_gracil"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita gato"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 29.9,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 2.25,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 40,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-henselii",
@@ -2677,18 +4641,37 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 27.7 mm · Masa: 2.1 g · Largo corporal: 20.92 mm",
     "relevantNote": null,
     "media": {
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/196057023/medium.jpg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/196057023/large.jpg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Nico Fernandez-Sauleda, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/116176001"
+        "sourcePage": "https://www.inaturalist.org/observations/116176001",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:196057023",
+        "sourceTaxonId": "23137",
+        "width": 2048,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:37:06.428Z"
       },
       "audio": null
     },
@@ -2714,7 +4697,52 @@
         "record": "Phy_hensel"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de hensel"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 27.7,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 2.1,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 20.92,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "physalaemus-riograndensis",
@@ -2732,9 +4760,15 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 23.7 mm · Masa: 1.72 g · Largo corporal: 16.91 mm",
     "relevantNote": null,
     "media": {
       "image": {
@@ -2743,7 +4777,20 @@
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/193041327"
+        "sourcePage": "https://www.inaturalist.org/observations/193041327",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:339029776",
+        "sourceTaxonId": "23136",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:37:08.057Z"
       },
       "audio": null
     },
@@ -2769,7 +4816,54 @@
         "record": "Phy_riogra"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de río grande",
+      "Ranita de Rio Grande"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 23.7,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 1.72,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 16.91,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "fossorial",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "pleurodema-bibroni",
@@ -2792,14 +4886,7 @@
     "size": null,
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530559/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/571530559/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Ibere Machado, some rights reserved (CC BY)",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/316346141"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -2816,7 +4903,26 @@
         "record": "Ple_bibron"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de bibron",
+      "Ranaita de Bibron"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "pseudis-minuta",
@@ -2834,18 +4940,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 51.1 mm · Masa: 20.8 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32340851/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/32340851/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339462327/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/339462327/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/20949089"
+        "sourcePage": "https://www.inaturalist.org/observations/193256815",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:339462327",
+        "sourceTaxonId": "24411",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:39:10.137Z"
       },
       "audio": null
     },
@@ -2995,7 +5121,45 @@
         "record": "Pse_minuta"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana boyadora grande"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 51.1,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 20.8,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "aquatic",
+        "fossorial"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "pseudopaludicola-falcipes",
@@ -3013,18 +5177,37 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 18.8 mm · Masa: 0.48 g · Largo corporal: 18.1 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178861563/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/178861563/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) vinicius_s_domingues, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/450925415/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/450925415/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/106471323"
+        "sourcePage": "https://www.inaturalist.org/observations/251953952",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:450925415",
+        "sourceTaxonId": "23174",
+        "width": 1843,
+        "height": 1782,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1843,
+          "resolutionHeight": 1782
+        },
+        "retrievedAt": "2026-09-11T16:39:27.117Z"
       },
       "audio": null
     },
@@ -3170,7 +5353,53 @@
         "record": "Pse_falcip"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana de vientre moteado",
+      "Macaquito"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 18.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 0.48,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 18.1,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-achavali",
@@ -3189,7 +5418,9 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [],
-    "diet": null,
+    "diet": [
+      "invertebrates"
+    ],
     "size": null,
     "relevantNote": null,
     "media": {
@@ -3199,7 +5430,20 @@
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/192383500"
+        "sourcePage": "https://www.inaturalist.org/observations/192383500",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:337709490",
+        "sourceTaxonId": "67086",
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:40:39.715Z"
       },
       "audio": null
     },
@@ -3233,7 +5477,26 @@
         "record": "Rhi_achava"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapo grande de achaval",
+      "Sapo de Achaval"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-arenarum",
@@ -3251,18 +5514,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "humedal",
+      "costa_playa_dunas",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 109.4 mm · Masa: 155.9 g · Largo corporal: 115.5 mm · Masa: 258 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101654626/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/101654626/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Matias Cabezas, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/257817479/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/257817479/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/63351196"
+        "sourcePage": "https://www.inaturalist.org/observations/149603172",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:257817479",
+        "sourceTaxonId": "67093",
+        "width": 1845,
+        "height": 2048,
+        "selectionScore": 73,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1845,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:40:41.990Z"
       },
       "audio": null
     },
@@ -3296,7 +5580,59 @@
         "record": "Rhi_arenar"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapo común"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 109.4,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 155.9,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 115.5,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 258,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-diptycha",
@@ -3320,12 +5656,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Thomaz de Carvalho Callado, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/593248782/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/593248782/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/342600069"
+        "sourcePage": "https://www.inaturalist.org/observations/327455478",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:593248782",
+        "sourceTaxonId": "67107",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:40:44.093Z"
       },
       "audio": null
     },
@@ -3343,7 +5692,20 @@
         "record": "Biodiversidata:UY:Amphibia:2150"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapo cururú"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "rhinella-dorbignyi",
@@ -3362,17 +5724,32 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [],
-    "diet": null,
-    "size": null,
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 70 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/large.jpeg",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/608007787/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/608007787/large.jpg",
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/200770179"
+        "sourcePage": "https://www.inaturalist.org/observations/334768466",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:608007787",
+        "sourceTaxonId": "67108",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:40:46.257Z"
       },
       "audio": null
     },
@@ -3390,7 +5767,35 @@
         "record": "https://www.gbif.org/species/5216923"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito de jardín de d’Orbigny",
+      "Sapito de jardín de d'Orbigny"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 70,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial"
+      ],
+      "activity": [
+        "both"
+      ],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-fernandezae",
@@ -3408,19 +5813,19 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal",
+      "costa_playa_dunas",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 62.3 mm · Masa: 20.8 g · Largo corporal: 76 mm · Masa: 65 g",
     "relevantNote": null,
     "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/354281287/large.jpeg",
-        "license": "CC0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/200770179"
-      },
+      "image": null,
       "audio": null
     },
     "sources": [
@@ -3441,7 +5846,60 @@
         "record": "https://www.gbif.org/species/5216893"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "sapito de jardín de Fernández",
+      "Sapito de jardín de Fernandez"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 62.3,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 20.8,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 76,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 65,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial"
+      ],
+      "activity": [
+        "nocturnal",
+        "both"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-granulosa",
@@ -3459,18 +5917,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 71 mm · Masa: 62.59 g · Largo corporal: 90 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/610575417/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/610575417/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Mayane Alves, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613441457/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613441457/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/336036932"
+        "sourcePage": "https://www.inaturalist.org/observations/337449212",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:613441457",
+        "sourceTaxonId": "67114",
+        "width": 2048,
+        "height": 1638,
+        "selectionScore": 62,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1638
+        },
+        "retrievedAt": "2026-09-11T16:40:51.110Z"
       },
       "audio": null
     },
@@ -3480,7 +5959,52 @@
         "record": "Rhi_granul"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapitos de jardín"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 71,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 62.59,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 90,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "rhinella-diptycha",
@@ -3498,18 +6022,37 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "humedal"
+    ],
+    "diet": [
+      "invertebrates",
+      "other_plant_material"
+    ],
+    "size": "Largo corporal: 184.8 mm · Masa: 500 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/623922151/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Thomaz de Carvalho Callado, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/593248782/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/593248782/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/342600069"
+        "sourcePage": "https://www.inaturalist.org/observations/327455478",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:593248782",
+        "sourceTaxonId": "67107",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:40:44.093Z"
       },
       "audio": null
     },
@@ -3523,7 +6066,45 @@
         "record": "Rhi_schnei"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Sapo cucurú",
+      "Sapo cururú"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 184.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 500,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "ololygon-aromothyella",
@@ -3559,7 +6140,20 @@
         "record": "Sci_aromot"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita de las tormentas"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "ololygon-berthae",
@@ -3583,12 +6177,25 @@
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/57702778/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) RAP, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/279243473/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/279243473/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/36498789"
+        "sourcePage": "https://www.inaturalist.org/observations/161547130",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:279243473",
+        "sourceTaxonId": "1530457",
+        "width": 1080,
+        "height": 1920,
+        "selectionScore": 59,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1080,
+          "resolutionHeight": 1920
+        },
+        "retrievedAt": "2026-09-11T16:34:11.287Z"
       },
       "audio": null
     },
@@ -3602,7 +6209,21 @@
         "record": "Sci_bertha"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita de pintas naranjas",
+      "Ranita de pintas naranja"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   },
   {
     "id": "scinax-fuscovarius",
@@ -3620,18 +6241,38 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 47.6 mm · Masa: 7.6 g · Largo corporal: 55.3 mm · Masa: 17.6 g",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/581885449/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/581885449/large.jpg",
-        "license": "CC-BY",
-        "attribution": "(c) Jefferson Ferreira, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253166600/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/253166600/large.jpeg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/321730520"
+        "sourcePage": "https://www.inaturalist.org/observations/147157757",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:253166600",
+        "sourceTaxonId": "24285",
+        "width": 1600,
+        "height": 1200,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1600,
+          "resolutionHeight": 1200
+        },
+        "retrievedAt": "2026-09-11T16:42:05.430Z"
       },
       "audio": null
     },
@@ -3689,7 +6330,61 @@
         "record": "Sci_fuscov"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana de flancos amarillos",
+      "Ranita de francos amarillos"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 47.6,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 7.6,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 55.3,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 17.6,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "arboreal",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "scinax-granulatus",
@@ -3708,17 +6403,32 @@
     "abundanceStatus": null,
     "description": null,
     "habitat": [],
-    "diet": null,
-    "size": null,
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 43 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/174956355/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/174956355/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Romi Galeota Lencina, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625706427/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/625706427/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/104416672"
+        "sourcePage": "https://www.inaturalist.org/observations/343488473",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:625706427",
+        "sourceTaxonId": "24363",
+        "width": 2048,
+        "height": 2041,
+        "selectionScore": 74,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2041
+        },
+        "retrievedAt": "2026-09-11T16:42:07.853Z"
       },
       "audio": null
     },
@@ -3840,7 +6550,36 @@
         "record": "Sci_granul"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "rana roncadora",
+      "Ranita roncadora"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 43,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "scinax-nasicus",
@@ -3858,9 +6597,17 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 29.8 mm · Masa: 1.8 g · Largo corporal: 39 mm",
     "relevantNote": null,
     "media": {
       "image": {
@@ -3869,7 +6616,20 @@
         "license": "CC0",
         "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/193256816"
+        "sourcePage": "https://www.inaturalist.org/observations/193256816",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:339462329",
+        "sourceTaxonId": "24279",
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-11T16:42:09.792Z"
       },
       "audio": null
     },
@@ -3891,7 +6651,53 @@
         "record": "Sci_nasicu"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita de pecho manchado"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 29.8,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 1.8,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 39,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "terrestrial",
+        "aquatic",
+        "arboreal"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "scinax-squalirostris",
@@ -3909,18 +6715,39 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
+    "habitat": [
+      "monte_nativo",
+      "pastizal_campo_natural",
+      "matorral",
+      "humedal",
+      "agroecosistema"
+    ],
+    "diet": [
+      "invertebrates"
+    ],
+    "size": "Largo corporal: 20.9 mm · Masa: 0.43 g · Largo corporal: 29 mm",
     "relevantNote": null,
     "media": {
       "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/483265695/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/483265695/large.jpeg",
-        "license": "CC-BY",
-        "attribution": "(c) Sebastián Fornés, some rights reserved (CC BY)",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337349892/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337349892/large.jpg",
+        "license": "CC0",
+        "attribution": "no rights reserved",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/268827888"
+        "sourcePage": "https://www.inaturalist.org/observations/192198187",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:337349892",
+        "sourceTaxonId": "24357",
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:42:11.791Z"
       },
       "audio": null
     },
@@ -4030,7 +6857,53 @@
         "record": "Sci_squali"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "ranita hocicuda"
+    ],
+    "traits": {
+      "measurements": [
+        {
+          "kind": "body_length",
+          "value": 20.9,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        },
+        {
+          "kind": "body_mass",
+          "value": 0.43,
+          "unit": "g",
+          "basis": null,
+          "estimated": false
+        },
+        {
+          "kind": "body_length",
+          "value": 29,
+          "unit": "mm",
+          "basis": "SVL",
+          "estimated": false
+        }
+      ],
+      "lifeModes": [
+        "arboreal",
+        "terrestrial",
+        "aquatic"
+      ],
+      "activity": [
+        "nocturnal"
+      ],
+      "aquaticEnvironments": [
+        "freshwater"
+      ],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": [
+        "tetrapodtraits3",
+        "amphibio"
+      ]
+    }
   },
   {
     "id": "julianus-uruguayus",
@@ -4056,10 +6929,23 @@
       "image": {
         "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/medium.jpeg",
         "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447488226/large.jpeg",
-        "license": "CC-BY",
+        "license": "CC-BY-4.0",
         "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
         "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/250235211"
+        "sourcePage": "https://www.inaturalist.org/observations/250235211",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:447488226",
+        "sourceTaxonId": "1530459",
+        "width": 2048,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-11T16:27:40.180Z"
       },
       "audio": null
     },
@@ -4073,6 +6959,19 @@
         "record": "Sci_urugua"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "commonNames": [
+      "Ranita uruguaya"
+    ],
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    }
   }
 ]

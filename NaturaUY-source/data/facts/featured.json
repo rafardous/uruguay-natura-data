@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "facts": [
+    { "id": "featured-tordo-brood-parasitism", "scientificName": "Molothrus bonariensis", "body": "Practica parasitismo de cría: la hembra deposita sus huevos en nidos de otras aves, que luego pueden incubarlos y alimentar a los pichones.", "sourceCode": "animal_diversity_web", "sourceRecordId": "Molothrus bonariensis", "sortOrder": 0 },
+    { "id": "featured-hornero-duet", "scientificName": "Furnarius rufus", "body": "La pareja construye un nido cerrado principalmente con barro y coordina buena parte de sus cantos en dúos que ayudan a defender el territorio común.", "sourceCode": "journal_of_avian_biology", "sourceRecordId": "10.1111/jav.01637", "sortOrder": 0 },
+    { "id": "featured-nandu-parental-care", "scientificName": "Rhea americana", "body": "El macho incuba los huevos del nido comunal y, después de la eclosión, protege y guía a los charabones durante varios meses.", "sourceCode": "the_auk", "sourceRecordId": "10.1642/0004-8038(2003)120[0418:MPCIGR]2.0.CO;2", "sortOrder": 0 },
+    { "id": "featured-carpincho-semiacuatic", "scientificName": "Hydrochoerus hydrochaeris", "body": "Es el roedor viviente de mayor tamaño. Sus ojos, orejas y narinas ubicados en la parte alta de la cabeza favorecen su vida semiacuática.", "sourceCode": "usgs_nas", "sourceRecordId": "Hydrochoerus hydrochaeris", "sortOrder": 0 },
+    { "id": "featured-mulita-polyembryony", "scientificName": "Dasypus hybridus", "body": "Presenta poliembrionía: un único embrión inicial se divide y puede originar una camada de varias crías genéticamente casi idénticas.", "sourceCode": "mammalian_species", "sourceRecordId": "10.1093/mspecies/sew001", "sortOrder": 0 },
+    { "id": "featured-yacare-care", "scientificName": "Caiman latirostris", "body": "La hembra construye y vigila el nido, puede defenderlo frente a amenazas y hasta colaborar durante la eclosión de las crías.", "sourceCode": "global_ecology_conservation", "sourceRecordId": "10.1016/j.gecco.2026.e04088", "sortOrder": 0 },
+    { "id": "featured-sapito-warning", "scientificName": "Melanophryniscus montevidensis", "body": "Cuando se siente amenazado puede arquear el cuerpo y exhibir sus zonas amarillas y rojizas, una señal visual defensiva conocida como reflejo de Unken.", "sourceCode": "udelar_colibri", "sourceRecordId": "20.500.12008/17190", "sortOrder": 0 },
+    { "id": "featured-venado-scent", "scientificName": "Ozotoceros bezoarticus", "body": "Posee varias glándulas de olor; estas señales químicas forman parte de la comunicación entre individuos y del reconocimiento de su entorno social.", "sourceCode": "mammalian_species", "sourceRecordId": "Ozotoceros bezoarticus scent glands", "sortOrder": 0 }
+  ]
+}

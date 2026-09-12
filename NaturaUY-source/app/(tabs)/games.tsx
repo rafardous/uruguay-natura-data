@@ -14,7 +14,7 @@ import { AppDrawer } from '../../src/presentation/components/AppDrawer';
 import { CollapsibleGradientHeader } from '../../src/presentation/components/CollapsibleGradientHeader';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
-import { ClassifyIcon, MenuIcon, PuzzleIcon, TriviaIcon, TrophyIcon } from '../../src/presentation/components/TabIcons';
+import { BiomesIcon, ClassifyIcon, MenuIcon, PuzzleIcon, TriviaIcon, TrophyIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
@@ -27,6 +27,7 @@ const UPCOMING_GAMES = [
   { id: 'trivia', title: 'Trivia', description: 'Preguntas y curiosidades de nuestra naturaleza.', colors: ['#2F7280', '#214F65', '#283E62'] as const },
   { id: 'puzzle', title: 'Puzzle', description: 'Reconstruí una especie, pieza por pieza.', colors: ['#B56B3E', '#8D4D3A', '#633847'] as const },
   { id: 'classify', title: 'Clasificar', description: 'Ordená especies por sus grupos y características.', colors: ['#66805B', '#4D684D', '#344F48'] as const },
+  { id: 'habitat', title: '¿Dónde vive?', description: 'Relacioná cada especie con su ambiente.', colors: ['#4F8A78', '#35675C', '#284F4A'] as const },
 ] as const;
 
 const PUZZLE_TILES = [
@@ -113,6 +114,10 @@ function ClassifyArt(): React.JSX.Element {
   );
 }
 
+function HabitatArt(): React.JSX.Element {
+  return <View style={styles.habitatArt} accessibilityElementsHidden><View style={styles.habitatCircle}><BiomesIcon color="#285349" size={46} /></View><View style={[styles.habitatDot, styles.habitatDotOne]} /><View style={[styles.habitatDot, styles.habitatDotTwo]} /><View style={[styles.habitatDot, styles.habitatDotThree]} /></View>;
+}
+
 function UpcomingCover({ game, species, index, onPress }: { game: (typeof UPCOMING_GAMES)[number]; species?: Species; index: number; onPress?: () => void }): React.JSX.Element {
   const { radius, spacing, typography, elevation } = useTheme();
   return (
@@ -124,7 +129,7 @@ function UpcomingCover({ game, species, index, onPress }: { game: (typeof UPCOMI
             <Text style={[typography.display, styles.upcomingTitle]}>{game.title}</Text>
             <Text style={[typography.body, styles.upcomingDescription]}>{game.description}</Text>
           </View>
-          {game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : <ClassifyArt />}
+          {game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : game.id === 'classify' ? <ClassifyArt /> : <HabitatArt />}
         </LinearGradient>
       </Pressable>
     </MotiView>
@@ -168,7 +173,7 @@ export default function GamesScreen(): React.JSX.Element {
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
-          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : game.id === 'trivia' ? () => { haptics.press(); router.push('/game/trivia-setup' as never); } : () => { haptics.press(); router.push('/game/classify' as never); }} />)}
+          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : game.id === 'trivia' ? () => { haptics.press(); router.push('/game/trivia-setup' as never); } : game.id === 'classify' ? () => { haptics.press(); router.push('/game/classify' as never); } : () => { haptics.press(); router.push('/game/habitat' as never); }} />)}
         </View>
       </Animated.ScrollView>
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -207,4 +212,8 @@ const styles = StyleSheet.create({
   classifyIcon: { position: 'absolute', left: 1, top: 47, width: 42, height: 42, borderRadius: 21, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.16)' },
   classChip: { position: 'absolute', right: 0, width: 72, height: 33, borderRadius: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, borderWidth: 1, borderColor: 'rgba(255,255,255,0.48)' },
   classLetter: { fontSize: 12, fontWeight: '800' },
+  habitatArt: { width: 128, height: 126, alignItems: 'center', justifyContent: 'center' },
+  habitatCircle: { width: 82, height: 82, borderRadius: 41, alignItems: 'center', justifyContent: 'center', backgroundColor: '#D9EFE3', borderWidth: 2, borderColor: 'rgba(255,255,255,.55)' },
+  habitatDot: { position: 'absolute', width: 14, height: 14, borderRadius: 7, backgroundColor: '#F2D27B', borderWidth: 2, borderColor: 'rgba(255,255,255,.7)' },
+  habitatDotOne: { left: 7, top: 28 }, habitatDotTwo: { right: 3, top: 20, backgroundColor: '#B9D5A8' }, habitatDotThree: { right: 12, bottom: 12, backgroundColor: '#E7A77E' },
 });

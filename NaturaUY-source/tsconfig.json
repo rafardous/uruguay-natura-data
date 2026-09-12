@@ -10,7 +10,7 @@
     "types": ["jest", "node"],
     "paths": {
       "@/*": ["./src/*"],
-      "react-native-reanimated-carousel": ["./src/types/react-native-reanimated-carousel.d.ts"]
+      "react-native-reanimated-carousel": ["./node_modules/react-native-reanimated-carousel/lib/typescript/module/index.d.ts"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],

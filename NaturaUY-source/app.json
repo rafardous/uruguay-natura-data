@@ -9,7 +9,10 @@
     "icon": "./assets/images/icon.png",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "uy.naturauy.app"
+      "bundleIdentifier": "uy.naturauy.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "uy.naturauy.app",
@@ -35,7 +38,8 @@
       ],
       "expo-asset",
       "expo-secure-store",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-audio"
     ],
     "assetBundlePatterns": [
       "assets/db/*",

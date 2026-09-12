@@ -18,10 +18,10 @@ export function useTaxonomyChildren(
   ancestors: TaxonomyPath,
 ): { items: TaxonOption[]; loading: boolean } {
   const db = useSQLiteContext();
-  const [items, setItems] = useState<TaxonOption[]>([]);
-  const [loading, setLoading] = useState(true);
   const key = JSON.stringify(ancestors);
   const cacheKey = `${rank ?? 'none'}:${key}`;
+  const [items, setItems] = useState<TaxonOption[]>(() => childrenCache.get(cacheKey) ?? []);
+  const [loading, setLoading] = useState(() => !childrenCache.has(cacheKey));
 
   useEffect(() => {
     if (!rank) {
@@ -36,6 +36,9 @@ export function useTaxonomyChildren(
       return;
     }
     let active = true;
+    // A new level has no rows to preserve; cached levels returned to later are
+    // initialized synchronously above and skip this loader entirely.
+    setItems([]);
     setLoading(true);
     void speciesRepository.listTaxonomyChildren(db, rank, ancestors).then(async (rows) => {
       if (rank === 'orden' && !prefetchedOrderPaths.has(cacheKey)) {

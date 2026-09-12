@@ -31,7 +31,7 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-Las migraciones mobile `202609060003_mobile_feedback_sync.sql`, `202609060004_mobile_popular_species.sql`, `202609080001_mobile_puzzle_records.sql`, `20260909032434_mobile_progress_pull.sql`, `20260910041400_catalog_enrichment_and_game_content.sql`, `20260910041420_taxon_content_and_trivia_media.sql`, `20260910041725_harden_schema8_rpc.sql` y `20260910163402_reptile_mammal_order_content.sql` deben aplicarse junto con el resto del historial. Las últimas incorporan fuentes, corridas/candidatos de enriquecimiento, abundancia y observabilidad separadas, perfiles de juego, curiosidades, trivia ilustrable, contenido editorial de órdenes/familias, el endurecimiento final de la RPC de publicación y la normalización de órdenes de Reptilia. La app sólo usa las RPC lean `submit_feedback`, `sync_favorites`, `record_game_result`, `sync_puzzle_records`, `get_personal_mobile_progress`, `get_game_leaderboard` y `get_most_favorited_species`; los récords codifican categoría y nivel de conocimiento en el `scope`, y Puzzle además conserva su grilla. Trivia no persiste récords. El pull privado permite hidratar favoritos y récords al cambiar de cuenta sin mezclar el caché local de cada usuario.
+Las migraciones mobile existentes, `20260911153819_catalog_schema_9_traits.sql` y `20260912021348_catalog_schema_10_taxon_sources.sql` deben aplicarse junto con todo el historial. La última incorpora nombres simples y descripciones para filo/clase/orden, fuentes resolubles por campo, datos relevantes versionados y fuerza que las publicaciones nuevas declaren esquema 10. La app sólo usa las RPC lean documentadas y los candidatos de enriquecimiento continúan requiriendo revisión humana.
 
 ## 2. Identidad editorial
 
@@ -95,11 +95,15 @@ Antes de importar enriquecimiento, generar y revisar los artefactos locales. `da
 ```powershell
 cd ../NaturaUY-source
 npm run data:enrichment-candidates
+npm run data:traits
+npm run data:catalog-media -- --reelect-all
 npm run data:observability -- --batch=25
 cd ../NaturaUY-admin
 npm run catalog:import-enrichment
 npm run catalog:import-enrichment -- --apply
 ```
+
+Antes de publicar, revisar `data/reports/trait-enrichment-candidates.json`, `common-name-report.json` e `image-selection-report.json`. Los sinónimos, valores imputados y fuentes `review_only` deben permanecer como conflictos hasta su aprobación; una especie sin imagen válida usa el fallback visual.
 
 El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
 
@@ -111,7 +115,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 8: medios, abundancia estructurada, observabilidad, dificultad, reglas de juegos, curiosidades, trivia con imagen opcional y descripciones editoriales de órdenes/familias; conserva `user.db`. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 9: conserva el contrato anterior y agrega nombres alternativos buscables y rasgos estructurados (medición, convención, ecología y procedencia); conserva `user.db`. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source

@@ -55,6 +55,9 @@ const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt:
 
 const CHORDATA_DESCRIPTION =
   'Animales con notocorda en alguna etapa de su desarrollo. Incluye a todos los vertebrados: peces, anfibios, reptiles, aves y mamíferos.';
+const SIMPLE_TAXON_NAMES: Record<string, string> = {
+  Chordata: 'Vertebrados', Mammalia: 'Mamíferos', Reptilia: 'Reptiles', Amphibia: 'Anfibios',
+};
 
 const taxonName = (rank: TaxonRank, value: string): string =>
   value === UNASSIGNED_TAXON ? `Sin ${RANK_LABELS[rank].singular.toLocaleLowerCase('es')} asignado` : value;
@@ -192,7 +195,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
   const currentRank = TAXON_RANKS.find((rank) => path[rank] === undefined) ?? null;
   const { items, loading } = useTaxonomyChildren(currentRank, path);
-  const [selectedOrderDescription, setSelectedOrderDescription] = useState<string | null>(null);
+  const [selectedTaxonContent, setSelectedTaxonContent] = useState<{ rank: TaxonRank; description: string; simpleName: string | null } | null>(null);
   const orderedItems = useMemo(() => {
     if (currentRank !== 'clase' || path.phylum?.trim().toLocaleLowerCase() !== 'chordata') return items;
     return [...items].sort((left, right) => {
@@ -212,17 +215,22 @@ export default function TaxonomyScreen(): React.JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paramsKey]);
 
+  const selectedTaxonKey = selectedRanks.map((rank) => `${rank}:${path[rank]}`).join('|');
   useEffect(() => {
-    if (currentRank !== 'familia' || !path.clase || !path.orden || path.orden === UNASSIGNED_TAXON) {
-      setSelectedOrderDescription(null);
-      return;
-    }
+    const rank = selectedRanks.at(-1);
+    const value = rank ? path[rank] : undefined;
+    if (!rank || !value || value === UNASSIGNED_TAXON) { setSelectedTaxonContent(null); return; }
+    const fallback = rank === 'phylum' && value.toLocaleLowerCase('es') === 'chordata'
+      ? CHORDATA_DESCRIPTION
+      : rank === 'clase' ? classVisual(value)?.description ?? null : null;
     let active = true;
-    void speciesRepository.getTaxonDescription(db, 'order', path.clase, path.orden).then((description) => {
-      if (active) setSelectedOrderDescription(description);
+    void speciesRepository.getTaxonContent(db, rank, path.clase ?? '', value).then((content) => {
+      if (active) setSelectedTaxonContent(content || fallback ? { rank, description: content?.description ?? fallback ?? '', simpleName: content?.simpleName ?? SIMPLE_TAXON_NAMES[value] ?? null } : null);
     });
     return () => { active = false; };
-  }, [currentRank, db, path.clase, path.orden]);
+    // selectedTaxonKey is the stable serialized path; selectedRanks is derived from it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [db, selectedTaxonKey]);
 
   const goBack = useCallback(() => {
     haptics.tap();
@@ -297,7 +305,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
             <TaxonomyIcon color={colors.onPrimaryContainer} size={23} />
           </View>
           <View style={styles.flex}>
-            <Text style={[typography.eyebrow, { color: colors.textMuted }]}>BÚSQUEDA TAXONÓMICA</Text>
+            <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{currentRank ? RANK_LABELS[currentRank].singular.toLocaleUpperCase('es') : 'RESULTADOS'}</Text>
             <Text style={[typography.title, { color: colors.text, marginTop: 2 }]}>
               {currentRank ? RANK_LABELS[currentRank].prompt : 'Especies del género'}
             </Text>
@@ -335,7 +343,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
       <View style={styles.flex}>
         {currentRank === null ? (
           <SpeciesResults path={path} />
-        ) : loading ? (
+        ) : loading && items.length === 0 ? (
           currentRank === 'orden' ? <View style={{ padding: spacing.lg, gap: spacing.sm }}>{Array.from({ length: 4 }, (_, index) => <Skeleton key={index} height={154} radius={radius.lg} />)}</View> : <View style={styles.loading}><ActivityIndicator color={colors.primary} /></View>
         ) : (
           <FlatList
@@ -347,10 +355,12 @@ export default function TaxonomyScreen(): React.JSX.Element {
             contentContainerStyle={{ padding: spacing.lg, paddingBottom: bottomInset, gap: spacing.sm }}
             ListHeaderComponent={
               <View style={{ marginBottom: spacing.sm, gap: spacing.md }}>
-                {selectedOrderDescription && (
+                {selectedTaxonContent && (
                   <View style={[styles.orderDescription, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg }]}>
-                    <Text style={[typography.eyebrow, { color: TAXONOMY.main }]}>ACERCA DEL ORDEN</Text>
-                    <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>{selectedOrderDescription}</Text>
+                    <Text style={[typography.eyebrow, { color: TAXONOMY.main }]}>ACERCA DEL {RANK_LABELS[selectedTaxonContent.rank].singular.toLocaleUpperCase('es')}</Text>
+                    <Text style={[typography.cardTitle, styles.scientific, { color: colors.text, marginTop: 5 }]}>{taxonName(selectedTaxonContent.rank, path[selectedTaxonContent.rank]!)}</Text>
+                    {selectedTaxonContent.simpleName && <Text style={[typography.label, { color: TAXONOMY.main, marginTop: 2 }]}>{selectedTaxonContent.simpleName}</Text>}
+                    <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>{selectedTaxonContent.description}</Text>
                   </View>
                 )}
                 <Text style={[typography.body, { color: colors.textSecondary }]}>
@@ -369,6 +379,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
               const description = isChordata
                 ? CHORDATA_DESCRIPTION
                 : item.description ?? visual?.description;
+              const simpleName = item.simpleName ?? SIMPLE_TAXON_NAMES[item.value] ?? null;
 
               return (
                 <MotiView
@@ -414,10 +425,13 @@ export default function TaxonomyScreen(): React.JSX.Element {
                     ))}
                     {isOrder && <OrderIllustration uri={item.representativeImageUrl ?? null} name={item.representativeName ?? item.value} clase={path.clase ?? ''} />}
                     <View style={styles.flex}>
-                      {!isOrder && <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>}
-                      <Text style={[typography.cardTitle, styles.scientific, { color: foreground, marginTop: 4 }]}>
-                        {taxonName(currentRank, item.value)}
-                      </Text>
+                      {(!isOrder && !isClass) && <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>}
+                      <View style={styles.taxonTitleRow}>
+                        <Text style={[typography.cardTitle, styles.scientific, styles.taxonScientific, { color: foreground, marginTop: 4 }]} numberOfLines={2}>
+                          {taxonName(currentRank, item.value)}
+                        </Text>
+                        {simpleName && <Text style={[typography.label, styles.simpleName, { color: visual?.foreground ?? TAXONOMY.main }]} numberOfLines={2}>{simpleName}</Text>}
+                      </View>
                       {description && (
                         <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isOrder ? 4 : isClass ? 3 : isPhylum ? 4 : undefined}>
                           {description}
@@ -480,6 +494,9 @@ const styles = StyleSheet.create({
   classIcon: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
   rowEnd: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   classRowEnd: { flexDirection: 'column', justifyContent: 'center', flexShrink: 0, gap: 6 },
+  taxonTitleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
+  taxonScientific: { flex: 1, minWidth: 0 },
+  simpleName: { flexBasis: '42%', maxWidth: '42%', textAlign: 'right', lineHeight: 18, marginTop: 4 },
   count: { minWidth: 36, alignItems: 'center', paddingHorizontal: 9, paddingVertical: 6 },
   classCount: { minWidth: 30, paddingHorizontal: 6, paddingVertical: 4 },
   scientific: { fontStyle: 'italic' },

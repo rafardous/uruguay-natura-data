@@ -1,4 +1,4 @@
-import type { CatalogRelease, ChangeRequest, DashboardStats, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
+import type { CatalogRelease, ChangeRequest, CollaboratorApplication, DashboardStats, HomeNews, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { supabase } from './supabase';
 
 const assertClient = () => {
@@ -36,6 +36,7 @@ function resolveSpeciesImage(media: Array<Record<string, any>>) {
 }
 
 function rowToPayload(row: Record<string, any>): SpeciesPayload {
+  const traits = row.traits && typeof row.traits === 'object' ? row.traits : {};
   return {
     scientificName: row.scientific_name,
     acceptedName: row.accepted_name ?? '',
@@ -51,13 +52,25 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
     habitat: row.habitat ?? [],
     diet: row.diet ?? [],
     size: row.size ?? '',
+    traits: {
+      measurements: Array.isArray(traits.measurements) ? traits.measurements : [],
+      lifeModes: Array.isArray(traits.lifeModes) ? traits.lifeModes : [],
+      activity: Array.isArray(traits.activity) ? traits.activity : [],
+      aquaticEnvironments: Array.isArray(traits.aquaticEnvironments) ? traits.aquaticEnvironments : [],
+      waterZones: Array.isArray(traits.waterZones) ? traits.waterZones : [],
+      depthMinM: typeof traits.depthMinM === 'number' ? traits.depthMinM : null,
+      depthMaxM: typeof traits.depthMaxM === 'number' ? traits.depthMaxM : null,
+      sources: Array.isArray(traits.sources) ? traits.sources : [],
+    },
     relevantNote: row.relevant_note ?? '',
     sourceReferences: row.field_sources?.general ?? [],
   };
 }
 
 function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
-  const names = payload.commonNames.map((name) => name.trim()).filter(Boolean);
+  const names = [...new Map(payload.commonNames
+    .map((name) => name.normalize('NFC').replace(/\s+/g, ' ').trim()).filter(Boolean)
+    .map((name) => [name.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es'), name])).values()];
   return {
     catalog_code: catalogCode.trim(), scientific_name: payload.scientificName.trim(), accepted_name: payload.acceptedName.trim() || null,
     common_name: names[0] || payload.scientificName.trim(), alternate_common_names: names.slice(1),
@@ -67,7 +80,7 @@ function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
     presence_certainty: payload.presenceCertainty, abundance_status: payload.abundanceStatus,
     conservation_system: payload.conservation.system, conservation_category: payload.conservation.category,
     conservation_source: payload.conservation.source, conservation_assessed_at: payload.conservation.assessedAt || null,
-    description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size,
+    description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size, traits: payload.traits,
     relevant_note: payload.relevantNote, field_sources: { general: payload.sourceReferences.filter(Boolean) },
   };
 }
@@ -108,7 +121,7 @@ export async function listSpecies(filters: SpeciesFilters = {}): Promise<{ rows:
   let request = assertClient().from('species_editor').select('*', { count: 'exact' });
   if (filters.query) {
     const query = filters.query.replaceAll(',', '').trim();
-    request = request.or(`common_name.ilike.%${query}%,scientific_name.ilike.%${query}%,family.ilike.%${query}%,catalog_code.ilike.%${query}%`);
+    request = request.or(`search_names.ilike.%${query}%,scientific_name.ilike.%${query}%,family.ilike.%${query}%,catalog_code.ilike.%${query}%`);
   }
   if (filters.taxonomicClass) request = request.eq('class', filters.taxonomicClass);
   if (filters.lifecycle) request = request.eq('status', filters.lifecycle === 'retired' ? 'archived' : filters.lifecycle);
@@ -219,7 +232,7 @@ export async function getNavigationCounts(): Promise<NavigationCounts> {
 export interface CatalogSource { id: string; code: string; name: string; license: string; usePolicy: string }
 export interface ContentChangeRow { id: string; contentType: string; entityId: string | null; speciesId: string | null; speciesName: string | null; proposedValues: Record<string, unknown>; proposedByName: string; comment: string; createdAt: string }
 export interface EnrichmentCandidateRow { id:string; scientificName:string; fieldPath:string; currentValue:unknown; proposedValue:unknown; sourceCode:string; confidence:number|null; status:string; rationale:string }
-export interface TaxonContentRow { id:string; taxonRank:'order'|'family'; kingdom:string; phylum:string; className:string; taxonName:string; language:string; description:string; sourceId:string; active:boolean }
+export interface TaxonContentRow { id:string; taxonRank:'phylum'|'class'|'order'|'family'; kingdom:string; phylum:string; className:string; taxonName:string; simpleName:string|null; language:string; description:string; sourceId:string; active:boolean }
 export interface ApprovedImageRow { id:string; speciesId:string; label:string }
 
 export async function listCatalogSources(): Promise<CatalogSource[]> {
@@ -235,9 +248,9 @@ export async function listContentChanges(): Promise<ContentChangeRow[]> {
 }
 
 export async function listTaxonContent(): Promise<TaxonContentRow[]> {
-  const { data,error }=await assertClient().from('taxon_content').select('id,taxon_rank,kingdom,phylum,class_name,taxon_name,language,description,source_id,active').eq('active',true).order('class_name').order('taxon_rank').order('taxon_name');
+  const { data,error }=await assertClient().from('taxon_content').select('id,taxon_rank,kingdom,phylum,class_name,taxon_name,simple_name,language,description,source_id,active').eq('active',true).order('class_name').order('taxon_rank').order('taxon_name');
   if(error)throw error;
-  return (data??[]).map((row)=>({id:row.id,taxonRank:row.taxon_rank,kingdom:row.kingdom,phylum:row.phylum,className:row.class_name,taxonName:row.taxon_name,language:row.language,description:row.description,sourceId:row.source_id,active:row.active}));
+  return (data??[]).map((row)=>({id:row.id,taxonRank:row.taxon_rank,kingdom:row.kingdom,phylum:row.phylum,className:row.class_name,taxonName:row.taxon_name,simpleName:row.simple_name??null,language:row.language,description:row.description,sourceId:row.source_id,active:row.active}));
 }
 
 export async function listApprovedImages(speciesId?:string):Promise<ApprovedImageRow[]> {
@@ -284,7 +297,8 @@ export async function listMedia(): Promise<MediaAsset[]> {
   return (data ?? []).map((row) => ({
     id: row.id, jobId: row.id, speciesId: row.species_id, speciesName: row.species_name ?? 'Alta pendiente',
     kind: row.type, state: row.status === 'reserved' ? 'incoming' : row.status === 'ready' ? 'pending' : row.status === 'approved' ? 'ready' : row.status,
-    author: row.author, license: row.license, sourceUrl: row.source_url ?? '', uploadedBy: row.uploaded_by_name,
+    author: row.author, license: row.license, originalLicense: row.original_license ?? null, externalId: row.external_id ?? null,
+    authorizationEvidenceRef: row.authorization_evidence_ref ?? null, sourceUrl: row.source_url ?? '', uploadedBy: row.uploaded_by_name,
     createdAt: row.created_at, error: row.processing_error ?? null,
   }));
 }
@@ -344,5 +358,57 @@ export async function listUserReports(): Promise<UserReport[]> {
 
 export async function resolveUserReport(report: UserReport, status: 'reviewing' | 'resolved' | 'dismissed', note?: string): Promise<void> {
   const { error } = await assertClient().rpc('resolve_feedback', { p_id: report.id, p_status: status, p_note: note ?? null });
+  if (error) throw error;
+}
+
+export async function updateSpeciesAudioMetadata(input: { mediaId: string; externalId: string; originalLicense: string; authorizationEvidenceRef: string }): Promise<void> {
+  const { error } = await assertClient().rpc('update_species_audio_metadata', {
+    p_media_id: input.mediaId,
+    p_external_id: input.externalId,
+    p_original_license: input.originalLicense,
+    p_authorization_evidence_ref: input.authorizationEvidenceRef,
+  });
+  if (error) throw error;
+}
+
+export async function listHomeNews(): Promise<HomeNews[]> {
+  const { data, error } = await assertClient().from('home_news').select('*').order('status').order('sort_order').order('published_at', { ascending: false });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({
+    id: row.id, title: row.title, source: row.source, articleUrl: row.article_url,
+    imageUrl: row.image_url ?? null, publishedAt: row.published_at ?? null,
+    status: row.status, sortOrder: row.sort_order, updatedAt: row.updated_at,
+  }));
+}
+
+export async function saveHomeNews(input: Omit<HomeNews, 'id' | 'updatedAt'> & { id?: string }): Promise<string> {
+  const { data, error } = await assertClient().rpc('save_home_news', {
+    p_id: input.id ?? null, p_title: input.title, p_source: input.source,
+    p_article_url: input.articleUrl, p_image_url: input.imageUrl,
+    p_published_at: input.publishedAt, p_status: input.status, p_sort_order: input.sortOrder,
+  });
+  if (error) throw error;
+  return String(data);
+}
+
+export async function archiveHomeNews(id: string): Promise<void> {
+  const { error } = await assertClient().rpc('archive_home_news', { p_id: id });
+  if (error) throw error;
+}
+
+export async function listCollaboratorApplications(): Promise<CollaboratorApplication[]> {
+  const { data, error } = await assertClient().from('collaborator_applications').select('*').order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data ?? []).map((row) => ({
+    id: row.id, contactName: row.contact_name, contactEmail: row.contact_email,
+    interests: row.interests ?? [], experience: row.experience, motivation: row.motivation,
+    availability: row.availability, referenceUrl: row.reference_url ?? null,
+    status: row.status, reviewerNote: row.reviewer_note ?? null,
+    createdAt: row.created_at, reviewedAt: row.reviewed_at ?? null,
+  }));
+}
+
+export async function reviewCollaboratorApplication(id: string, status: CollaboratorApplication['status'], note?: string): Promise<void> {
+  const { error } = await assertClient().rpc('review_collaborator_application', { p_id: id, p_status: status, p_note: note ?? null });
   if (error) throw error;
 }

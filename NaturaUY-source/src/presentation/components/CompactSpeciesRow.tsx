@@ -46,7 +46,7 @@ export const CompactSpeciesRow = memo(function CompactSpeciesRow({
             <View style={styles.meta}>
               {showScientific && <Text style={[typography.caption, styles.scientific, { color: colors.textSecondary }]} numberOfLines={1}>{species.scientificName}</Text>}
               <View style={[styles.status, { backgroundColor: threatened ? colors.danger : colors.surfaceVariant, borderRadius: radius.sm }]}>
-                <Text style={[typography.caption, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{species.conservation.label}</Text>
+                <Text style={[typography.caption, styles.statusText, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{species.conservation.label}</Text>
               </View>
             </View>
           </View>
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
   copy: { flex: 1, minWidth: 0, justifyContent: 'center' },
   meta: { flexDirection: 'row', alignItems: 'center', minWidth: 0, gap: 6, marginTop: 6 },
   scientific: { fontStyle: 'italic', flex: 1, minWidth: 0 },
-  status: { maxWidth: 122, paddingHorizontal: 6, paddingVertical: 2 },
+  status: { maxWidth: 116, paddingHorizontal: 7, paddingVertical: 3 },
+  statusText: { fontSize: 11.5, lineHeight: 15 },
   heart: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   skeleton: { height: COMPACT_ROW_HEIGHT, padding: 4, flexDirection: 'row', alignItems: 'center', gap: 10 },
   skeletonImage: { width: 104, height: 104 },

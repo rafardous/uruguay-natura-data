@@ -9,7 +9,11 @@ export const TAXON_RANKS = ['phylum', 'clase', 'orden', 'familia', 'genero'] as 
 export type TaxonRank = (typeof TAXON_RANKS)[number];
 export type TaxonomyPath = Partial<Record<TaxonRank, string>>;
 export const UNASSIGNED_TAXON = '__unassigned__';
-export interface TaxonOption { value:string; count:number; description:string|null; representativeImageUrl:string|null; representativeName:string|null }
+export interface TaxonOption { value:string; count:number; description:string|null; simpleName:string|null; representativeImageUrl:string|null; representativeName:string|null }
+
+function databaseRank(rank: TaxonRank): string {
+  return rank === 'orden' ? 'order' : rank === 'familia' ? 'family' : rank === 'clase' ? 'class' : rank === 'genero' ? 'genus' : rank;
+}
 
 export interface SpeciesFilters {
   /** Free text, matched against vernacular names, binomial, family and genus. */
@@ -19,7 +23,10 @@ export interface SpeciesFilters {
   onlyNative?: boolean;
   /** Conservation rank >= 2 (priority or threatened). */
   onlyPriority?: boolean;
+  /** Exact conservation rank, used by curated home highlights. */
+  conservationRank?: number;
   onlyWithPhoto?: boolean;
+  onlyWithRelevantNote?: boolean;
   classes?: string[];
   habitats?: string[];
   diets?: string[];
@@ -104,7 +111,12 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
   }
   if (filters.onlyNative) clauses.push('species.nativa = 1');
   if (filters.onlyPriority) clauses.push('species.conservation_rank >= 2');
+  if (filters.conservationRank !== undefined) {
+    clauses.push('species.conservation_rank = ?');
+    params.push(filters.conservationRank);
+  }
   if (filters.onlyWithPhoto) clauses.push('species.image_url IS NOT NULL');
+  if (filters.onlyWithRelevantNote) clauses.push("species.relevant_note IS NOT NULL AND TRIM(species.relevant_note) <> ''");
 
   const addIn = (column: string, values?: string[]): void => {
     if (!values?.length) return;
@@ -180,7 +192,13 @@ export const speciesRepository = {
       ]);
       return {
         ...rowToSpecies(row, media),
-        facts: facts.map((fact) => ({ id: fact.id, body: fact.body, sortOrder: fact.sort_order })),
+        facts: facts.map((fact) => ({
+          id: fact.id,
+          body: fact.body,
+          sortOrder: fact.sort_order,
+          sourceCode: fact.source_code ?? null,
+          sourceRecordId: fact.source_record_id ?? null,
+        })),
         observability: observability ? {
           methodVersion: observability.method_version, periodStart: observability.period_start, periodEnd: observability.period_end,
           occurrenceCount: observability.occurrence_count, occupiedCells: observability.occupied_cells,
@@ -230,37 +248,53 @@ export const speciesRepository = {
     );
     return Promise.all(rows.map(async (row) => {
       let description: string | null = null;
+      let simpleName: string | null = null;
       try {
-        const content = await db.getFirstAsync<{description:string}>(
-          `SELECT description FROM taxon_content WHERE taxon_rank=? AND class_name=? AND taxon_name=? AND language='es-UY'`,
-          [rank === 'orden' ? 'order' : rank === 'familia' ? 'family' : rank, ancestors.clase ?? '', row.value],
+        const content = await db.getFirstAsync<{description:string;simple_name:string|null}>(
+          `SELECT description,simple_name FROM taxon_content WHERE taxon_rank=? AND class_name=? AND taxon_name=? AND language='es-UY'`,
+          [databaseRank(rank), rank === 'clase' ? row.value : ancestors.clase ?? '', row.value],
         );
         description = content?.description ?? null;
-      } catch { /* A schema-7 catalogue remains readable while schema 8 is staged. */ }
+        simpleName = content?.simple_name ?? null;
+      } catch {
+        try {
+          const content = await db.getFirstAsync<{description:string}>(
+            `SELECT description FROM taxon_content WHERE taxon_rank=? AND class_name=? AND taxon_name=? AND language='es-UY'`,
+            [databaseRank(rank), ancestors.clase ?? '', row.value],
+          );
+          description = content?.description ?? null;
+        } catch { /* A pre-schema-8 catalogue remains readable. */ }
+      }
       const imageClauses = [...clauses, `${rank} = ?`, 'image_url IS NOT NULL'];
       const representative = await db.getFirstAsync<{image_url:string;common_name:string}>(
         `SELECT image_url,common_name FROM species WHERE ${imageClauses.join(' AND ')} ORDER BY RANDOM() LIMIT 1`,
         [...params, row.value === UNASSIGNED_TAXON ? '' : row.value],
       );
-      return { ...row, description, representativeImageUrl: representative?.image_url ?? null, representativeName: representative?.common_name ?? null };
+      return { ...row, description, simpleName, representativeImageUrl: representative?.image_url ?? null, representativeName: representative?.common_name ?? null };
     }));
   },
 
-  async getTaxonDescription(
+  async getTaxonContent(
     db: SQLiteDatabase,
-    rank: 'order' | 'family',
+    rank: TaxonRank,
     className: string,
     taxonName: string,
-  ): Promise<string | null> {
+  ): Promise<{ description: string; simpleName: string | null } | null> {
     try {
-      const row = await db.getFirstAsync<{ description: string }>(
-        `SELECT description FROM taxon_content
+      const row = await db.getFirstAsync<{ description: string; simple_name: string | null }>(
+        `SELECT description,simple_name FROM taxon_content
          WHERE taxon_rank=? AND class_name=? AND taxon_name=? AND language='es-UY'`,
-        [rank, className, taxonName],
+        [databaseRank(rank), rank === 'clase' ? taxonName : className, taxonName],
       );
-      return row?.description ?? null;
+      return row ? { description: row.description, simpleName: row.simple_name } : null;
     } catch {
-      return null;
+      try {
+        const row = await db.getFirstAsync<{ description: string }>(
+          `SELECT description FROM taxon_content WHERE taxon_rank=? AND class_name=? AND taxon_name=? AND language='es-UY'`,
+          [databaseRank(rank), className, taxonName],
+        );
+        return row ? { description: row.description, simpleName: null } : null;
+      } catch { return null; }
     }
   },
 
@@ -287,6 +321,19 @@ export const speciesRepository = {
       `SELECT species.* FROM species
        LEFT JOIN species_game_rules rule ON rule.stable_id=species.stable_id AND rule.game_key='classify'
        WHERE image_url IS NOT NULL AND clase <> '' AND orden <> '' AND familia <> ''
+         AND COALESCE(rule.enabled, 1)=1
+       ORDER BY RANDOM() LIMIT ?`,
+      [limit],
+    );
+    return rows.map((row) => rowToSpecies(row));
+  },
+
+  /** Offline pool for ¿Dónde vive?, restricted to species with a photo and habitat data. */
+  async findHabitatPool(db: SQLiteDatabase, limit = 300): Promise<Species[]> {
+    const rows = await db.getAllAsync<SpeciesRow>(
+      `SELECT species.* FROM species
+       LEFT JOIN species_game_rules rule ON rule.stable_id=species.stable_id AND rule.game_key='habitat'
+       WHERE image_url IS NOT NULL AND json_valid(habitat) AND json_array_length(habitat) > 0
          AND COALESCE(rule.enabled, 1)=1
        ORDER BY RANDOM() LIMIT ?`,
       [limit],

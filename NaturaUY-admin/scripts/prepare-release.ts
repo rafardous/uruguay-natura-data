@@ -31,7 +31,7 @@ if (!releaseId) {
       if (latestError) throw latestError;
       const { data: created, error: createError } = await client.from('catalog_releases').insert({
         version: Number(latest?.version ?? 0) + 1,
-        schema_version: 7,
+        schema_version: 10,
         requested_by: required('EDITORIAL_SYSTEM_USER_ID'),
       }).select('id').single();
       if (createError) throw createError;

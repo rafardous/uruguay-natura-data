@@ -28,6 +28,8 @@
     "data:catalog-verify": "tsx scripts/catalog/08-verify-app-db.ts",
     "data:enrichment-candidates": "tsx scripts/catalog/09-enrichment-candidates.ts",
     "data:observability": "tsx scripts/catalog/10-observability.ts",
+    "data:traits": "tsx scripts/catalog/11-traits.ts",
+    "data:traits-apply": "node scripts/catalog/12-apply-approved-traits.mjs",
     "data:catalog-all": "npm run data:sources && npm run data:catalog-normalize && npm run data:catalog-taxonomy && npm run data:audit && npm run data:catalog-media && npm run data:build-catalog && npm run data:catalog-db && npm run data:catalog-verify"
   },
   "dependencies": {
@@ -37,6 +39,7 @@
     "@supabase/supabase-js": "^2.112.4",
     "expo": "~57.0.21",
     "expo-asset": "~57.0.16",
+    "expo-audio": "~57.0.5",
     "expo-auth-session": "~57.0.11",
     "expo-blur": "~57.0.2",
     "expo-constants": "~57.0.17",

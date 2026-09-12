@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-11T17:58:03.876Z",
+  "speciesCount": 902,
+  "speciesWithAlternateNames": 83,
+  "possibleVariants": [
+    {
+      "speciesId": "busarellus-nigricollis",
+      "scientificName": "Busarellus nigricollis",
+      "names": [
+        "Aguila Pampa",
+        "Águila pampa"
+      ]
+    },
+    {
+      "speciesId": "buteo-albicaudatus",
+      "scientificName": "Buteo albicaudatus",
+      "names": [
+        "Águila cola blanca",
+        "Aguila Cola Blanca"
+      ]
+    },
+    {
+      "speciesId": "buteogallus-meridionalis",
+      "scientificName": "Buteogallus meridionalis",
+      "names": [
+        "águila colorada",
+        "Aguila Colorada"
+      ]
+    },
+    {
+      "speciesId": "buteogallus-urubitinga",
+      "scientificName": "Buteogallus urubitinga",
+      "names": [
+        "Aguila Negra",
+        "Águila negra"
+      ]
+    },
+    {
+      "speciesId": "elaenia-mesoleuca",
+      "scientificName": "Elaenia mesoleuca",
+      "names": [
+        "Fiofío Olivaceo",
+        "Fiofío oliváceo"
+      ]
+    },
+    {
+      "speciesId": "euphonia-chlorotica",
+      "scientificName": "Euphonia chlorotica",
+      "names": [
+        "Tangará Garganta Violacea",
+        "Tangará garganta violácea"
+      ]
+    },
+    {
+      "speciesId": "falco-sparverius",
+      "scientificName": "Falco sparverius",
+      "names": [
+        "halcóncito común",
+        "Halconcito Común"
+      ]
+    },
+    {
+      "speciesId": "geranoaetus-melanoleucus",
+      "scientificName": "Geranoaetus melanoleucus",
+      "names": [
+        "águila mora",
+        "Aguila Mora"
+      ]
+    },
+    {
+      "speciesId": "oceanites-oceanicus",
+      "scientificName": "Oceanites oceanicus",
+      "names": [
+        "Paiño Pardo",
+        "Paíño pardo"
+      ]
+    },
+    {
+      "speciesId": "oceanodroma-leucorhoa",
+      "scientificName": "Oceanodroma leucorhoa",
+      "names": [
+        "Paiño de Leach",
+        "Paíño de leach"
+      ]
+    },
+    {
+      "speciesId": "pandion-haliaetus",
+      "scientificName": "Pandion haliaetus",
+      "names": [
+        "Aguila Pescadora",
+        "Águila pescadora"
+      ]
+    },
+    {
+      "speciesId": "pelagodroma-marina",
+      "scientificName": "Pelagodroma marina",
+      "names": [
+        "Paiño Cara Blanca",
+        "Paíño cara blanca"
+      ]
+    },
+    {
+      "speciesId": "pyrrhura-frontalis",
+      "scientificName": "Pyrrhura frontalis",
+      "names": [
+        "chiripepe",
+        "Chiripepé"
+      ]
+    },
+    {
+      "speciesId": "ramphastos-toco",
+      "scientificName": "Ramphastos toco",
+      "names": [
+        "tucán grande",
+        "Tucan grande"
+      ]
+    },
+    {
+      "speciesId": "stercorarius-antarcticus",
+      "scientificName": "Stercorarius antarcticus",
+      "names": [
+        "Escúa antartica",
+        "Escúa antártica"
+      ]
+    },
+    {
+      "speciesId": "thalurania-glaucopis",
+      "scientificName": "Thalurania glaucopis",
+      "names": [
+        "Picaflor Corona Violacea",
+        "Picaflor corona violácea"
+      ]
+    },
+    {
+      "speciesId": "melanophryniscus-sanmartini",
+      "scientificName": "Melanophryniscus sanmartini",
+      "names": [
+        "Sapito de San Martin",
+        "Sapito de san martín"
+      ]
+    },
+    {
+      "speciesId": "physalaemus-riograndensis",
+      "scientificName": "Physalaemus riograndensis",
+      "names": [
+        "ranita de río grande",
+        "Ranita de Rio Grande"
+      ]
+    },
+    {
+      "speciesId": "rhinella-dorbignyi",
+      "scientificName": "Rhinella dorbignyi",
+      "names": [
+        "sapito de jardín de d’Orbigny",
+        "Sapito de jardín de d'Orbigny"
+      ]
+    },
+    {
+      "speciesId": "rhinella-fernandezae",
+      "scientificName": "Rhinella fernandezae",
+      "names": [
+        "sapito de jardín de Fernández",
+        "Sapito de jardín de Fernandez"
+      ]
+    }
+  ]
+}

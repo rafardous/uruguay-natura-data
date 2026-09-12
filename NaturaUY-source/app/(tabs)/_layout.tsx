@@ -3,6 +3,8 @@ import { Tabs } from 'expo-router';
 export default function TabsLayout(): React.JSX.Element {
   return (
     <Tabs
+      // Keep inactive tabs mounted, including their lists and scroll state.
+      detachInactiveScreens={false}
       screenOptions={{
         headerShown: false,
         // The three primary surfaces stay mounted and switch immediately. A

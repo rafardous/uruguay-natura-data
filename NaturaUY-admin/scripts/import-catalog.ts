@@ -8,6 +8,7 @@ interface CatalogItem {
   id: string;
   scientificName: string;
   commonName: string | null;
+  commonNames?: string[];
   taxonomy: {
     kingdom: string | null;
     phylum: string | null;
@@ -24,6 +25,7 @@ interface CatalogItem {
   diet: string[] | null;
   size: string | null;
   relevantNote: string | null;
+  traits?: Record<string, unknown>;
   media: {
     image: {
       url: string;
@@ -32,6 +34,8 @@ interface CatalogItem {
       attribution: string;
       source: string;
       sourcePage: string | null;
+      licenseUrl?: string; externalId?: string; sourceTaxonId?: string; width?: number; height?: number;
+      selectionScore?: number; selectionDetails?: Record<string, unknown>; retrievedAt?: string;
     } | null;
     audio: string | null;
   };
@@ -81,6 +85,7 @@ interface ImportedSpecies {
   habitat: string[];
   diet: string[];
   size: string;
+  traits: Record<string, unknown>;
   relevant_note: string;
   field_sources: Record<string, string[]>;
   status: 'active';
@@ -94,12 +99,31 @@ interface ImportedImage {
   attribution: string;
   source: string;
   sourcePage: string | null;
+  licenseUrl?: string;
+  externalId?: string;
+  sourceTaxonId?: string;
+  width?: number;
+  height?: number;
+  selectionScore?: number;
+  selectionDetails?: Record<string, unknown>;
+  retrievedAt?: string;
+}
+
+interface FeaturedFact {
+  id: string;
+  scientificName: string;
+  body: string;
+  sourceCode: string;
+  sourceRecordId: string;
+  sortOrder: number;
 }
 
 const sourceRoot = resolve(import.meta.dirname, '../../NaturaUY-source');
 const catalogDir = process.env.CATALOG_DIR ?? resolve(sourceRoot, 'data/catalog');
 const dbPath = process.env.LEGACY_DB ?? resolve(sourceRoot, 'assets/db/natura.db');
 const dryRun = process.argv.includes('--dry-run');
+const approvedImageLicense=(license:string):'CC0'|'CC-BY-4.0'|'legacy'=>license==='CC0'||license==='CC-BY-4.0'?license:'legacy';
+const featuredFacts = (JSON.parse(readFileSync(resolve(sourceRoot, 'data/facts/featured.json'), 'utf8')) as { facts: FeaturedFact[] }).facts;
 
 const items = readdirSync(catalogDir)
   .filter((file) => file.endsWith('.json'))
@@ -129,12 +153,14 @@ const first = <T>(rows: CatalogItem[], pick: (row: CatalogItem) => T | null | un
   }
   return null;
 };
-const uniqueStrings = (values: Array<string | null | undefined>) => [...new Set(values.map((value) => value?.trim()).filter((value): value is string => Boolean(value)))];
+const uniqueStrings = (values: Array<string | null | undefined>) => [...new Map(values
+  .map((value) => value?.normalize('NFC').replace(/\s+/g, ' ').trim()).filter((value): value is string => Boolean(value))
+  .map((value) => [value.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es'), value])).values()];
 
 const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
   const scientificName = first(rows, (row) => row.scientificName) ?? slug;
   const old = legacy.get(scientificName.toLocaleLowerCase('es'));
-  const commonNames = uniqueStrings(rows.map((row) => row.commonName));
+  const commonNames = uniqueStrings(rows.flatMap((row) => row.commonNames ?? (row.commonName ? [row.commonName] : [])));
   const sourceReferences = uniqueStrings(rows.flatMap((row) => row.sources.map((source) => source.record ? `${source.source}: ${source.record}` : source.source)));
   const image = first(rows, (row) => row.media?.image) ?? (old?.image_url ? {
     url: old.image_url,
@@ -173,6 +199,7 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
     habitat: uniqueStrings(rows.flatMap((row) => row.habitat ?? [])),
     diet: uniqueStrings(rows.flatMap((row) => row.diet ?? [])),
     size: first(rows, (row) => row.size) ?? '',
+    traits: first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
     relevant_note: first(rows, (row) => row.relevantNote) ?? '',
     field_sources: { general: sourceReferences },
     status: 'active' as const,
@@ -180,7 +207,10 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
   };
 }).sort((a, b) => a.catalog_code.localeCompare(b.catalog_code, 'es'));
 
-console.log(JSON.stringify({ catalogRecords: items.length, uniqueSpecies: speciesRows.length, legacyMatches: speciesRows.filter((row) => legacy.has(row.scientific_name.toLocaleLowerCase('es'))).length }));
+const speciesByScientificName = new Map(speciesRows.map((row) => [row.scientific_name.toLocaleLowerCase('es'), row]));
+const missingFactSpecies = featuredFacts.filter((fact) => !speciesByScientificName.has(fact.scientificName.toLocaleLowerCase('es')));
+if (missingFactSpecies.length) throw new Error(`Featured fact species not found: ${missingFactSpecies.map((fact) => fact.scientificName).join(', ')}`);
+console.log(JSON.stringify({ catalogRecords: items.length, uniqueSpecies: speciesRows.length, featuredFacts: featuredFacts.length, legacyMatches: speciesRows.filter((row) => legacy.has(row.scientific_name.toLocaleLowerCase('es'))).length }));
 if (dryRun) process.exit(0);
 
 const client = adminClient();
@@ -233,12 +263,20 @@ for (const batch of chunks(speciesRows, 100)) {
     storage_path: null,
     thumbnail_path: null,
     author: row.image!.attribution || 'Fuente externa',
-    license: 'legacy',
+    license: approvedImageLicense(row.image!.license),
     source: `${row.image!.source || 'Catálogo anterior'}${row.image!.sourcePage ? ` · ${row.image!.sourcePage}` : ''}`,
     source_url: row.image!.fullUrl ?? row.image!.url,
     original_filename: null,
     uploaded_by: actor,
     status: 'archived',
+    license_url: row.image!.licenseUrl ?? null,
+    external_id: row.image!.externalId ?? null,
+    source_taxon_id: row.image!.sourceTaxonId ?? null,
+    source_width: row.image!.width ?? null,
+    source_height: row.image!.height ?? null,
+    selection_score: row.image!.selectionScore ?? null,
+    selection_details: row.image!.selectionDetails ?? null,
+    retrieved_at: row.image!.retrievedAt ?? null,
   }));
   if (media.length) {
     const { error: mediaError } = await client.from('species_media').upsert(media, { onConflict: 'id' });
@@ -249,4 +287,45 @@ for (const batch of chunks(speciesRows, 100)) {
   console.log(`Imported ${imported}/${speciesRows.length}`);
 }
 
-console.log('Initial catalog import completed; legacy media remains archived pending license review.');
+const { data: factSources, error: factSourcesError } = await client
+  .from('catalog_sources')
+  .select('id,code')
+  .in('code', [...new Set(featuredFacts.map((fact) => fact.sourceCode))]);
+if (factSourcesError) throw factSourcesError;
+const sourceIdByCode = new Map((factSources ?? []).map((source) => [source.code, source.id]));
+const missingFactSources = [...new Set(featuredFacts.map((fact) => fact.sourceCode))].filter((code) => !sourceIdByCode.has(code));
+if (missingFactSources.length) throw new Error(`Featured fact sources not registered: ${missingFactSources.join(', ')}`);
+
+const factRows = featuredFacts.map((fact) => ({
+  id: stableUuid(`featured-fact:${fact.id}`),
+  species_id: speciesByScientificName.get(fact.scientificName.toLocaleLowerCase('es'))!.id,
+  body: fact.body,
+  source_id: sourceIdByCode.get(fact.sourceCode)!,
+  source_record_id: fact.sourceRecordId,
+  sort_order: fact.sortOrder,
+  active: true,
+  created_by: actor,
+  reviewed_by: actor,
+}));
+const { error: factsError } = await client.from('species_facts').upsert(factRows, { onConflict: 'id' });
+if (factsError) throw factsError;
+const factChanges = factRows.map((fact) => ({
+  id: stableUuid(`initial-featured-fact-change:${fact.id}`),
+  content_type: 'fact',
+  entity_id: fact.id,
+  species_id: fact.species_id,
+  operation: 'upsert',
+  proposed_values: { body: fact.body, source_id: fact.source_id, source_record_id: fact.source_record_id, sort_order: fact.sort_order },
+  proposed_by: actor,
+  status: 'approved',
+  reviewed_by: actor,
+  reviewed_at: new Date(0).toISOString(),
+  before_values: {},
+  after_values: { body: fact.body, source_id: fact.source_id, source_record_id: fact.source_record_id, sort_order: fact.sort_order },
+  comment: 'Contenido semilla versionado',
+  self_validation_confirmed: true,
+}));
+const { error: factChangesError } = await client.from('content_changes').upsert(factChanges, { onConflict: 'id' });
+if (factChangesError) throw factChangesError;
+
+console.log(`Initial catalog import completed with ${factRows.length} featured facts; legacy media remains archived pending license review.`);
