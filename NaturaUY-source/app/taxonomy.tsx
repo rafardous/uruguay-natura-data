@@ -1,526 +1,85 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  ActivityIndicator,
-  BackHandler,
-  FlatList,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image as NativeImage,
-} from 'react-native';
+import { ActivityIndicator, BackHandler, FlatList, Image as NativeImage, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Image as ExpoImage } from 'expo-image';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
-import { Image as ExpoImage } from 'expo-image';
 
 import type { Species } from '../src/domain/entities/species';
-import {
-  speciesRepository,
-  TAXON_RANKS,
-  UNASSIGNED_TAXON,
-  type SpeciesFilters,
-  type TaxonRank,
-  type TaxonomyPath,
-} from '../src/data/repositories/speciesRepository';
+import { speciesRepository, TAXON_RANKS, type SpeciesFilters } from '../src/data/repositories/speciesRepository';
 import { CARD_HEIGHT, SpeciesCard, SpeciesCardSkeleton } from '../src/presentation/components/SpeciesCard';
-import { Skeleton } from '../src/presentation/components/Skeleton';
 import { FamilyGlyph } from '../src/presentation/components/FamilyGlyph';
-import { BackIcon, ChevronRightIcon, TaxonomyIcon } from '../src/presentation/components/TabIcons';
+import { BackIcon, ChevronRightIcon, LeafIcon, TaxonomyIcon } from '../src/presentation/components/TabIcons';
 import { haptics } from '../src/presentation/haptics';
 import { useFavorites } from '../src/presentation/hooks/FavoritesProvider';
 import { useScrollDetentHaptics, useViewableItemHaptics } from '../src/presentation/hooks/useScrollDetentHaptics';
 import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
-import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
-import { CHORDATA_CLASS_ORDER, classVisual, type ClassVisual } from '../src/presentation/taxonomy/classVisuals';
-import { orderPhylumOptions } from '../src/presentation/taxonomy/taxonOrdering';
+import { classVisual } from '../src/presentation/taxonomy/classVisuals';
 import { spacing as space } from '../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
+type Node = Awaited<ReturnType<typeof speciesRepository.listTaxonChildren>>[number];
+type TrailNode = Awaited<ReturnType<typeof speciesRepository.getTaxonTrail>>[number];
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
-const TAXONOMY = { main: '#8A641B', pale: '#F1E3B9', text: '#293832' };
-const loadedOrderImages = new Set<string>();
-
-const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt: string }> = {
-  phylum: { singular: 'Filo', plural: 'filos', prompt: 'Elegí un filo' },
-  subfilo: { singular: 'Subfilo', plural: 'subfilos', prompt: 'Elegí un subfilo' },
-  clase: { singular: 'Clase', plural: 'clases', prompt: 'Elegí una clase' },
-  orden: { singular: 'Orden', plural: 'órdenes', prompt: 'Elegí un orden' },
-  familia: { singular: 'Familia', plural: 'familias', prompt: 'Elegí una familia' },
-  genero: { singular: 'Género', plural: 'géneros', prompt: 'Elegí un género' },
+const COLORS = { main: '#8A641B', pale: '#F1E3B9', text: '#293832', plant: '#396B4A' };
+const RANKS: Record<string, { singular:string; plural:string }> = {
+  kingdom:{singular:'Reino',plural:'reinos'}, phylum:{singular:'Filo',plural:'filos'}, subphylum:{singular:'Subfilo',plural:'subfilos'},
+  class:{singular:'Clase',plural:'clases'}, order:{singular:'Orden',plural:'órdenes'}, family:{singular:'Familia',plural:'familias'}, genus:{singular:'Género',plural:'géneros'}, clade:{singular:'Grupo',plural:'grupos'},
 };
+const rankLabel=(rank:string)=>RANKS[rank]??{singular:'Grupo',plural:'grupos'};
 
-const CHORDATA_DESCRIPTION =
-  'Animales con notocorda en alguna etapa de su desarrollo. Incluye a todos los vertebrados: peces, anfibios, reptiles, aves y mamíferos.';
-const ARTHROPODA_DESCRIPTION =
-  'Animales invertebrados con exoesqueleto y apéndices articulados. En Uruguay incluye insectos, arácnidos y crustáceos.';
-const SIMPLE_TAXON_NAMES: Record<string, string> = {
-  Chordata: 'Vertebrados', Arthropoda: 'Artrópodos', Chelicerata: 'Quelicerados', Hexapoda: 'Hexápodos', Crustacea: 'Crustáceos', Mammalia: 'Mamíferos', Reptilia: 'Reptiles', Amphibia: 'Anfibios',
-  Arachnida: 'Arácnidos', Insecta: 'Insectos', Malacostraca: 'Crustáceos',
-};
-
-const taxonName = (rank: TaxonRank, value: string): string =>
-  value === UNASSIGNED_TAXON ? `Sin ${RANK_LABELS[rank].singular.toLocaleLowerCase('es')} asignado` : value;
-
-function ChordataIllustration(): React.JSX.Element {
-  const { colors } = useTheme();
-  const [failed, setFailed] = useState(false);
-  if (failed) return <View style={[styles.phylumImage, styles.illustrationFallback]}><TaxonomyIcon color={colors.primary} size={38} /></View>;
-  return <NativeImage source={require('../assets/images/taxonomy/chordata-vertebrates.png')} resizeMode="contain" style={styles.phylumImage} onError={() => setFailed(true)} accessibilityLabel="Pez, ave, anfibio, reptil y mamífero representando a los vertebrados" />;
+function TaxonArt({node}:{node:Node}):React.JSX.Element {
+  const {colors,radius}=useTheme(); const key=node.canonicalName.toLocaleLowerCase('es');
+  if(key==='chordata')return <NativeImage source={require('../assets/images/taxonomy/chordata-vertebrates.png')} resizeMode="contain" style={styles.art} accessibilityLabel="Diversidad de vertebrados"/>;
+  if(key==='arthropoda')return <NativeImage source={require('../assets/images/taxonomy/arthropoda-invertebrates.png')} resizeMode="contain" style={styles.art} accessibilityLabel="Diversidad de artrópodos"/>;
+  if(key==='plantae'||key==='tracheophyta')return <View style={[styles.art,styles.artFallback,{backgroundColor:'#DDEBDD',borderRadius:radius.md}]}><LeafIcon color={COLORS.plant} size={50}/></View>;
+  const visual=node.rank==='class'?classVisual(node.canonicalName):undefined;
+  if(visual)return <NativeImage source={visual.image} resizeMode="contain" style={[styles.art,{backgroundColor:'#FDF7E7',borderRadius:radius.md}]} accessibilityLabel={visual.imageAccessibilityLabel}/>;
+  if(node.representativeImageUrl)return <ExpoImage source={{uri:node.representativeImageUrl}} contentFit="cover" cachePolicy="memory-disk" style={[styles.art,{borderRadius:radius.md,backgroundColor:colors.surfaceVariant}]} accessibilityLabel={`Imagen ilustrativa de ${node.representativeName??node.canonicalName}`}/>;
+  return <View style={[styles.art,styles.artFallback,{backgroundColor:colors.primaryContainer,borderRadius:radius.md}]}><FamilyGlyph clase={node.canonicalName} color={colors.onPrimaryContainer} size={45} opacity={.9}/></View>;
 }
 
-function PhylumIllustration({ phylum }: { phylum: string }): React.JSX.Element {
-  const { colors } = useTheme();
-  if (phylum.trim().toLocaleLowerCase() === 'chordata') return <ChordataIllustration />;
-  if (phylum.trim().toLocaleLowerCase() === 'arthropoda') return <NativeImage source={require('../assets/images/taxonomy/arthropoda-invertebrates.png')} resizeMode="contain" style={styles.phylumImage} accessibilityLabel="Mariposa espejitos, bicho torito, libélula, araña pollito y cangrejo estuarino representando a los artrópodos" />;
-  return <View style={[styles.phylumImage, styles.illustrationFallback]}><FamilyGlyph clase={phylum} color={colors.primary} size={48} /></View>;
+function SpeciesResults({taxonId,title}:{taxonId:string;title:string}):React.JSX.Element {
+  const {colors,spacing,typography}=useTheme(); const insets=useSafeAreaInsets(); const router=useRouter(); const {isFavorite,toggle}=useFavorites();
+  const filters=useMemo<SpeciesFilters>(()=>({taxonId}),[taxonId]); const {items,total,loading,loadingMore,loadMore}=useSpeciesList(filters);
+  const onScroll=useScrollDetentHaptics(ROW_HEIGHT,taxonId); const bottomInset=navigationBottomInset(insets.bottom,spacing.lg);
+  const renderItem=useCallback(({item,index}:{item:Species;index:number})=><View style={{paddingHorizontal:spacing.lg,paddingBottom:spacing.lg}}><SpeciesCard species={item} index={index} favorite={isFavorite(item.codigo)} onPress={(codigo)=>router.push(`/species/${codigo}`)} onToggleFavorite={toggle}/></View>,[isFavorite,router,spacing.lg,toggle]);
+  if(loading)return <ScrollView contentContainerStyle={{padding:spacing.lg,gap:spacing.lg}}>{Array.from({length:3},(_,index)=><SpeciesCardSkeleton key={index}/>)}</ScrollView>;
+  return <FlashList data={items} renderItem={renderItem} keyExtractor={(item)=>item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={loadMore} onEndReachedThreshold={.6} showsVerticalScrollIndicator={false}
+    ListHeaderComponent={<View style={{paddingHorizontal:spacing.lg,paddingTop:spacing.md,paddingBottom:spacing.lg}}><Text style={[typography.eyebrow,{color:colors.primary}]}>{title.toLocaleUpperCase('es')}</Text><Text style={[typography.title,{color:colors.text,marginTop:5}]}>{total} {total===1?'especie':'especies'}</Text></View>}
+    ListFooterComponent={loadingMore?<ActivityIndicator color={colors.primary} style={{paddingBottom:bottomInset}}/>:<View style={{height:bottomInset}}/>}/>;
 }
 
-function ClassIllustration({ clase, visual }: { clase: string; visual: ClassVisual }): React.JSX.Element {
-  const [failed, setFailed] = useState(false);
-  if (failed) {
-    return (
-      <View style={[styles.classImage, styles.illustrationFallback]}>
-        <FamilyGlyph clase={clase} color={visual.foreground} size={48} opacity={0.82} />
-      </View>
-    );
-  }
-  return (
-    <NativeImage
-      source={visual.image}
-      resizeMode="contain"
-      style={styles.classImage}
-      onError={() => setFailed(true)}
-      accessibilityLabel={visual.imageAccessibilityLabel}
-    />
-  );
-}
-
-function OrderIllustration({ uri, name, clase }: { uri: string | null; name: string; clase: string }): React.JSX.Element {
-  const { colors, radius } = useTheme();
-  const [loading, setLoading] = useState(Boolean(uri) && !loadedOrderImages.has(uri!));
-  const [failed, setFailed] = useState(false);
-  useEffect(() => { setLoading(Boolean(uri) && !loadedOrderImages.has(uri!)); setFailed(false); }, [uri]);
-  if (!uri || failed) return <View style={[styles.orderImage, styles.illustrationFallback, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}><FamilyGlyph clase={clase} color={colors.onPrimaryContainer} size={38} opacity={.9} /></View>;
-  return (
-    <View style={[styles.orderImage, { borderRadius: radius.md, backgroundColor: colors.surfaceVariant }]}>
-      {loading && <View style={StyleSheet.absoluteFill}><Skeleton height={118} radius={radius.md} /></View>}
-      <ExpoImage source={{ uri }} contentFit="cover" cachePolicy="memory-disk" onLoad={() => { loadedOrderImages.add(uri); setLoading(false); }} onError={() => setFailed(true)} style={StyleSheet.absoluteFill} accessibilityLabel={`Imagen ilustrativa: ${name}`} />
-    </View>
-  );
-}
-
-function pathFromParams(params: Partial<Record<TaxonRank, string | undefined>>): TaxonomyPath {
-  const path: TaxonomyPath = {};
-  for (const rank of TAXON_RANKS) {
-    if (params[rank]) path[rank] = params[rank];
-  }
-  return path;
-}
-
-function SpeciesResults({ path }: { path: TaxonomyPath }): React.JSX.Element {
-  const { colors, spacing, typography } = useTheme();
-  const insets = useSafeAreaInsets();
-  const router = useRouter();
-  const { isFavorite, toggle } = useFavorites();
-  const filters = useMemo<SpeciesFilters>(() => ({ taxonomy: path }), [path]);
-  const { items, total, loading, loadingMore, hasMore, loadMore } = useSpeciesList(filters);
-  const genus = path.genero ?? '';
-  const onScroll = useScrollDetentHaptics(ROW_HEIGHT, genus);
-  const bottomInset = navigationBottomInset(insets.bottom, spacing.lg);
-
-  const renderItem = useCallback(
-    ({ item, index }: { item: Species; index: number }) => (
-      <View style={{ paddingHorizontal: spacing.lg, paddingBottom: spacing.lg }}>
-        <SpeciesCard
-          species={item}
-          index={index}
-          favorite={isFavorite(item.codigo)}
-          onPress={(codigo) => router.push(`/species/${codigo}`)}
-          onToggleFavorite={toggle}
-        />
-      </View>
-    ),
-    [isFavorite, router, spacing.lg, toggle],
-  );
-
-  if (loading) {
-    return (
-      <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: bottomInset, gap: spacing.lg }}>
-        {Array.from({ length: 3 }, (_, index) => <SpeciesCardSkeleton key={index} />)}
-      </ScrollView>
-    );
-  }
-
-  return (
-    <FlashList
-      data={items}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.codigo}
-      onScroll={onScroll}
-      scrollEventThrottle={32}
-      onEndReached={loadMore}
-      onEndReachedThreshold={0.6}
-      showsVerticalScrollIndicator={false}
-      ListHeaderComponent={
-        <View style={{ paddingHorizontal: spacing.lg, paddingTop: spacing.md, paddingBottom: spacing.lg }}>
-          <Text style={[typography.eyebrow, { color: colors.primary }]}>GÉNERO {taxonName('genero', genus).toLocaleUpperCase('es')}</Text>
-          <Text style={[typography.title, { color: colors.text, marginTop: 5 }]}>
-            {total} {total === 1 ? 'especie' : 'especies'}
-          </Text>
-        </View>
-      }
-      ListFooterComponent={
-        loadingMore ? (
-          <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottomInset }} />
-        ) : hasMore ? (
-          <View style={{ height: bottomInset }} />
-        ) : (
-          <Text style={[typography.caption, styles.end, { color: colors.textMuted, paddingBottom: bottomInset }]}>
-            Fin del género · {total} {total === 1 ? 'especie' : 'especies'}
-          </Text>
-        )
-      }
-    />
-  );
-}
-
-export default function TaxonomyScreen(): React.JSX.Element {
-  const db = useSQLiteContext();
-  const { colors, radius, spacing, typography, elevation } = useTheme();
-  const insets = useSafeAreaInsets();
-  const router = useRouter();
-  const params = useLocalSearchParams<{
-    phylum?: string;
-    subfilo?: string;
-    clase?: string;
-    orden?: string;
-    familia?: string;
-    genero?: string;
-    returnToSpecies?: string;
-  }>();
-  const paramsKey = TAXON_RANKS.map((rank) => params[rank] ?? '').join('|');
-  const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
-  const selectedPhylum = path.phylum;
-  const activeRanks = selectedPhylum?.toLocaleLowerCase('es') === 'arthropoda' ? TAXON_RANKS : TAXON_RANKS.filter((rank) => rank !== 'subfilo');
-  const currentRank = activeRanks.find((rank) => path[rank] === undefined) ?? null;
-  const { items, loading } = useTaxonomyChildren(currentRank, path);
-  const [selectedTaxonContent, setSelectedTaxonContent] = useState<{ rank: TaxonRank; description: string; simpleName: string | null } | null>(null);
-  const orderedItems = currentRank === 'phylum'
-    ? orderPhylumOptions(items)
-    : currentRank === 'clase' && selectedPhylum?.trim().toLocaleLowerCase() === 'chordata'
-    ? [...items].sort((left, right) => {
-        const leftOrder = CHORDATA_CLASS_ORDER[left.value] ?? Number.MAX_SAFE_INTEGER;
-        const rightOrder = CHORDATA_CLASS_ORDER[right.value] ?? Number.MAX_SAFE_INTEGER;
-        return leftOrder - rightOrder || left.value.localeCompare(right.value, 'es');
-      })
-    : items;
-  const selectedRanks = activeRanks.filter((rank) => path[rank] !== undefined);
-  const breadcrumbRef = useRef<ScrollView>(null);
-  const bottomInset = navigationBottomInset(insets.bottom, spacing.lg);
-  const visibleHaptics = useViewableItemHaptics(`${currentRank ?? 'species'}:${TAXON_RANKS.map((rank) => path[rank] ?? '').join('|')}`);
-
-  useEffect(() => {
-    setPath(pathFromParams(params));
-    // The serialized URL path changes only when another screen deep-links here.
+export default function TaxonomyScreen():React.JSX.Element {
+  const db=useSQLiteContext(); const {colors,radius,spacing,typography,elevation}=useTheme(); const insets=useSafeAreaInsets(); const router=useRouter();
+  const params=useLocalSearchParams<{taxonId?:string;phylum?:string;subfilo?:string;clase?:string;orden?:string;familia?:string;genero?:string;returnToSpecies?:string}>();
+  const legacyTarget=[...TAXON_RANKS].reverse().map((rank)=>[rank,params[rank]] as const).find(([,value])=>Boolean(value));
+  const legacyTargetKey=legacyTarget?`${legacyTarget[0]}|${legacyTarget[1]}`:'';
+  const [trail,setTrail]=useState<TrailNode[]>([]); const [children,setChildren]=useState<Node[]>([]); const [loading,setLoading]=useState(true); const breadcrumbRef=useRef<ScrollView>(null);
+  const current=trail.at(-1)??null; const currentId=current?.taxonId??null; const bottomInset=navigationBottomInset(insets.bottom,spacing.lg); const visibleHaptics=useViewableItemHaptics(currentId??'taxonomy-root');
+  useEffect(()=>{let active=true;setLoading(true);void speciesRepository.listTaxonChildren(db,currentId).then((items)=>{if(active){setChildren(items);setLoading(false);}}).catch(()=>{if(active){setChildren([]);setLoading(false);}});return()=>{active=false;};},[db,currentId]);
+  useEffect(()=>{let active=true;const load=async()=>{let id=params.taxonId??null;if(!id&&legacyTarget){id=await speciesRepository.resolveLegacyTaxon(db,legacyTarget[0],legacyTarget[1]!);}if(id){const next=await speciesRepository.getTaxonTrail(db,id);if(active)setTrail(next);}};void load();return()=>{active=false;};
+    // The serialized key is stable; legacyTarget is derived from it.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paramsKey]);
-
-  const selectedTaxonKey = selectedRanks.map((rank) => `${rank}:${path[rank]}`).join('|');
-  useEffect(() => {
-    const rank = selectedRanks.at(-1);
-    const value = rank ? path[rank] : undefined;
-    if (!rank || !value || value === UNASSIGNED_TAXON) { setSelectedTaxonContent(null); return; }
-    const fallback = rank === 'phylum' && value.toLocaleLowerCase('es') === 'chordata'
-      ? CHORDATA_DESCRIPTION
-      : rank === 'phylum' && value.toLocaleLowerCase('es') === 'arthropoda'
-        ? ARTHROPODA_DESCRIPTION
-      : rank === 'clase' ? classVisual(value)?.description ?? null : null;
-    let active = true;
-    void speciesRepository.getTaxonContent(db, rank, path.clase ?? '', value).then((content) => {
-      if (active) setSelectedTaxonContent(content || fallback ? { rank, description: content?.description ?? fallback ?? '', simpleName: content?.simpleName ?? SIMPLE_TAXON_NAMES[value] ?? null } : null);
-    });
-    return () => { active = false; };
-    // selectedTaxonKey is the stable serialized path; selectedRanks is derived from it.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, selectedTaxonKey]);
-
-  const goBack = useCallback(() => {
-    haptics.tap();
-    if (params.returnToSpecies) {
-      router.back();
-      return;
-    }
-    const last = selectedRanks.at(-1);
-    if (!last) {
-      router.back();
-      return;
-    }
-    setPath((current) => {
-      const next = { ...current };
-      delete next[last];
-      return next;
-    });
-  }, [params.returnToSpecies, router, selectedRanks]);
-
-  useFocusEffect(useCallback(() => {
-    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      goBack();
-      return true;
-    });
-    return () => subscription.remove();
-  }, [goBack]));
-
-  const select = useCallback((rank: TaxonRank, value: string) => {
-    haptics.tick();
-    setPath((current) => {
-      const next: TaxonomyPath = {};
-      for (const candidate of activeRanks) {
-        if (candidate === rank) {
-          next[candidate] = value;
-          break;
-        }
-        if (current[candidate] !== undefined) next[candidate] = current[candidate];
-      }
-      return next;
-    });
-  }, [activeRanks]);
-
-  const returnTo = useCallback((rank: TaxonRank) => {
-    haptics.tick();
-    setPath((current) => {
-      const next: TaxonomyPath = {};
-      for (const candidate of activeRanks) {
-        if (current[candidate] !== undefined) next[candidate] = current[candidate];
-        if (candidate === rank) break;
-      }
-      return next;
-    });
-  }, [activeRanks]);
-
-  return (
-    <View style={[styles.screen, { backgroundColor: colors.background }]}> 
-      <View style={{ paddingTop: insets.top + spacing.sm, paddingHorizontal: spacing.lg }}>
-        <View style={styles.headerRow}>
-          <Pressable
-            onPress={goBack}
-            accessibilityRole="button"
-            accessibilityLabel={selectedRanks.length > 0 ? 'Volver un nivel' : 'Volver a Descubrir'}
-            style={({ pressed }) => [
-              styles.backButton,
-              elevation.low,
-              { backgroundColor: pressed ? colors.surfaceVariant : colors.surface, borderRadius: radius.pill },
-            ]}
-          >
-            <BackIcon color={colors.text} />
-          </Pressable>
-          <View style={[styles.iconTile, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
-            <TaxonomyIcon color={colors.onPrimaryContainer} size={23} />
-          </View>
-          <View style={styles.flex}>
-            <Text style={[typography.eyebrow, { color: colors.textMuted }]}>{currentRank ? RANK_LABELS[currentRank].singular.toLocaleUpperCase('es') : 'RESULTADOS'}</Text>
-            <Text style={[typography.title, { color: colors.text, marginTop: 2 }]}>
-              {currentRank ? RANK_LABELS[currentRank].prompt : 'Especies del género'}
-            </Text>
-          </View>
-        </View>
-
-        {selectedRanks.length > 0 && (
-          <ScrollView
-            ref={breadcrumbRef}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            onContentSizeChange={() => breadcrumbRef.current?.scrollToEnd({ animated: true })}
-            contentContainerStyle={[styles.breadcrumb, { paddingTop: spacing.lg, paddingBottom: spacing.sm }]}
-          >
-            {selectedRanks.map((rank, index) => (
-              <View key={rank} style={styles.crumbGroup}>
-                {index > 0 && <View style={[styles.crumbConnector, { backgroundColor: TAXONOMY.main }]}><ChevronRightIcon color={TAXONOMY.main} size={14} /></View>}
-                <Pressable
-                  onPress={() => returnTo(rank)}
-                  accessibilityRole="link"
-                  accessibilityLabel={`${RANK_LABELS[rank].singular}: ${taxonName(rank, path[rank]!)}`}
-                  style={[styles.crumb, { backgroundColor: index === selectedRanks.length - 1 ? TAXONOMY.main : TAXONOMY.pale, borderRadius: radius.md }]}
-                >
-                  <Text style={[typography.caption, { color: index === selectedRanks.length - 1 ? '#F5E8C4' : colors.textMuted }]}>{RANK_LABELS[rank].singular}</Text>
-                  <Text style={[typography.label, { color: index === selectedRanks.length - 1 ? '#FFF9EA' : TAXONOMY.text }]}>{taxonName(rank, path[rank]!)}</Text>
-                </Pressable>
-              </View>
-            ))}
-          </ScrollView>
-        )}
-      </View>
-
-      <View style={[styles.divider, { backgroundColor: colors.border, marginTop: spacing.md }]} />
-
-      <View style={styles.flex}>
-        {currentRank === null ? (
-          <SpeciesResults path={path} />
-        ) : loading && items.length === 0 ? (
-          currentRank === 'orden' ? <View style={{ padding: spacing.lg, gap: spacing.sm }}>{Array.from({ length: 4 }, (_, index) => <Skeleton key={index} height={154} radius={radius.lg} />)}</View> : <View style={styles.loading}><ActivityIndicator color={colors.primary} /></View>
-        ) : (
-          <FlatList
-            data={orderedItems}
-            keyExtractor={(item) => item.value}
-            showsVerticalScrollIndicator={false}
-            onViewableItemsChanged={visibleHaptics.onViewableItemsChanged}
-            viewabilityConfig={visibleHaptics.viewabilityConfig}
-            contentContainerStyle={{ padding: spacing.lg, paddingBottom: bottomInset, gap: spacing.sm }}
-            ListHeaderComponent={
-              <View style={{ marginBottom: spacing.sm, gap: spacing.md }}>
-                {selectedTaxonContent && (
-                  <View style={[styles.orderDescription, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg }]}>
-                    <Text style={[typography.eyebrow, { color: TAXONOMY.main }]}>ACERCA DEL {RANK_LABELS[selectedTaxonContent.rank].singular.toLocaleUpperCase('es')}</Text>
-                    <View style={[styles.taxonTitleRow, { marginTop: 5 }]}>
-                      <Text style={[typography.cardTitle, styles.scientific, styles.taxonScientific, { color: colors.text }]}>{taxonName(selectedTaxonContent.rank, path[selectedTaxonContent.rank]!)}</Text>
-                      {selectedTaxonContent.simpleName && <Text style={[typography.label, styles.simpleName, { color: TAXONOMY.main }]} numberOfLines={2}>{selectedTaxonContent.simpleName}</Text>}
-                    </View>
-                    <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>{selectedTaxonContent.description}</Text>
-                  </View>
-                )}
-                <Text style={[typography.body, { color: colors.textSecondary }]}>
-                  {items.length} {items.length === 1 ? RANK_LABELS[currentRank].singular.toLocaleLowerCase('es') : RANK_LABELS[currentRank].plural} en este nivel
-                </Text>
-              </View>
-            }
-            renderItem={({ item, index }) => {
-              const isPhylum = currentRank === 'phylum';
-              const isClass = currentRank === 'clase';
-              const isOrder = currentRank === 'orden';
-              const visual = isClass ? classVisual(item.value) : undefined;
-              const foreground = visual?.foreground ?? colors.text;
-              const mutedForeground = visual?.mutedForeground ?? colors.textSecondary;
-              const isChordata = isPhylum && item.value.trim().toLocaleLowerCase() === 'chordata';
-              const description = isChordata
-                ? CHORDATA_DESCRIPTION
-                : isPhylum && item.value.trim().toLocaleLowerCase() === 'arthropoda'
-                  ? ARTHROPODA_DESCRIPTION
-                : item.description ?? visual?.description;
-              const simpleName = item.simpleName ?? SIMPLE_TAXON_NAMES[item.value] ?? null;
-
-              return (
-                <MotiView
-                  from={{ opacity: isOrder ? 1 : 0, translateY: isOrder ? 0 : isClass ? 18 : 8, scale: isClass ? 0.96 : 1 }}
-                  animate={{ opacity: 1, translateY: 0, scale: 1 }}
-                  transition={{ type: 'timing', duration: isOrder ? 0 : isClass ? 220 : 180, delay: isOrder ? 0 : Math.min(index, isClass ? 4 : 6) * (isClass ? 28 : 18) }}
-                >
-                  <Pressable
-                    onPress={() => select(currentRank, item.value)}
-                    accessibilityRole="button"
-                    accessibilityLabel={`${taxonName(currentRank, item.value)}, ${item.count} especies`}
-                    style={({ pressed }) => [
-                      styles.taxonRow,
-                      isPhylum && styles.phylumRow,
-                      isClass && styles.classRow,
-                      isOrder && styles.orderRow,
-                      elevation.low,
-                      {
-                        backgroundColor: visual ? visual.colors[0] : pressed ? colors.surfaceVariant : colors.surface,
-                        borderColor: visual ? 'rgba(41,56,50,.14)' : colors.border,
-                        borderRadius: radius.lg,
-                        opacity: pressed ? 0.92 : 1,
-                      },
-                    ]}
-                  >
-                    {visual && (
-                      <LinearGradient
-                        pointerEvents="none"
-                        colors={[...visual.colors]}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                        style={[StyleSheet.absoluteFill, { borderRadius: radius.lg }]}
-                      />
-                    )}
-                    {isClass && (visual ? (
-                      <View style={[styles.classImageFrame, { borderRadius: radius.md }]}>
-                        <ClassIllustration clase={item.value} visual={visual} />
-                      </View>
-                    ) : (
-                      <View style={[styles.classIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}>
-                        <FamilyGlyph clase={item.value} color={colors.onPrimaryContainer} size={48} opacity={0.95} />
-                      </View>
-                    ))}
-                    {isOrder && <OrderIllustration uri={item.representativeImageUrl ?? null} name={item.representativeName ?? item.value} clase={path.clase ?? ''} />}
-                    <View style={styles.flex}>
-                      {(!isOrder && !isClass) && <Text style={[typography.eyebrow, { color: visual?.mutedForeground ?? colors.textMuted }]}>{RANK_LABELS[currentRank].singular.toLocaleUpperCase('es')}</Text>}
-                      <View style={styles.taxonTitleRow}>
-                        <Text style={[typography.cardTitle, styles.scientific, styles.taxonScientific, { color: foreground, marginTop: 4 }]} numberOfLines={2}>
-                          {taxonName(currentRank, item.value)}
-                        </Text>
-                        {simpleName && <Text style={[typography.label, styles.simpleName, { color: visual?.foreground ?? TAXONOMY.main }]} numberOfLines={2}>{simpleName}</Text>}
-                      </View>
-                      {description && (
-                        <Text style={[typography.body, { color: mutedForeground, marginTop: 5 }]} numberOfLines={isOrder ? 4 : isClass ? 3 : isPhylum ? 4 : undefined}>
-                          {description}
-                        </Text>
-                      )}
-                    </View>
-                    {isPhylum ? (
-                      <View style={styles.phylumVisual}>
-                        <PhylumIllustration phylum={item.value} />
-                        <View style={styles.rowEnd}>
-                          <View style={[styles.count, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
-                            <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{item.count}</Text>
-                          </View>
-                          <ChevronRightIcon color={colors.textMuted} />
-                        </View>
-                      </View>
-                    ) : (
-                      <View style={[styles.rowEnd, (isClass||isOrder) && styles.classRowEnd]}>
-                        <View style={[styles.count, isClass && styles.classCount, { backgroundColor: visual ? 'rgba(255,255,255,.52)' : colors.primaryContainer, borderRadius: radius.pill }]}>
-                          <Text style={[typography.caption, { color: visual?.foreground ?? colors.onPrimaryContainer }]}>{item.count}</Text>
-                        </View>
-                        <ChevronRightIcon color={visual?.foreground ?? colors.textMuted} size={isClass ? 18 : undefined} />
-                      </View>
-                    )}
-                  </Pressable>
-                </MotiView>
-              );
-            }}
-          />
-        )}
-      </View>
-
-    </View>
-  );
+  },[db,params.taxonId,legacyTargetKey]);
+  const goBack=useCallback(()=>{haptics.tap();if(params.returnToSpecies){router.back();return;}if(trail.length)setTrail((value)=>value.slice(0,-1));else router.back();},[params.returnToSpecies,router,trail.length]);
+  useFocusEffect(useCallback(()=>{const sub=BackHandler.addEventListener('hardwareBackPress',()=>{goBack();return true;});return()=>sub.remove();},[goBack]));
+  const select=(node:Node)=>{haptics.tick();setTrail((value)=>[...value,{taxonId:node.taxonId,parentId:node.parentId,rank:node.rank,canonicalName:node.canonicalName,simpleName:node.simpleName,description:node.description}]);};
+  const nextRank=children[0]?.rank??null; const nextLabel=nextRank?rankLabel(nextRank):null;
+  const nextArticle=nextLabel&&['Reino','Filo','Subfilo','Orden','Género','Grupo'].includes(nextLabel.singular)?'un':'una';
+  // SQLite already applies the editorial sort_order. This preserves Chordata
+  // before Arthropoda and the botanical groups in their didactic sequence.
+  const ordered=useMemo(()=>children,[children]);
+  const showSpecies=Boolean(current)&&!loading&&children.length===0;
+  return <View style={[styles.screen,{backgroundColor:colors.background}]}><View style={{paddingTop:insets.top+spacing.sm,paddingHorizontal:spacing.lg}}><View style={styles.headerRow}><Pressable onPress={goBack} accessibilityRole="button" accessibilityLabel={trail.length?'Volver un nivel':'Volver a Descubrir'} style={({pressed})=>[styles.backButton,elevation.low,{backgroundColor:pressed?colors.surfaceVariant:colors.surface,borderRadius:radius.pill}]}><BackIcon color={colors.text}/></Pressable><View style={[styles.iconTile,{backgroundColor:colors.primaryContainer,borderRadius:radius.md}]}>{trail.some((node)=>node.canonicalName==='Plantae')?<LeafIcon color={colors.onPrimaryContainer}/>:<TaxonomyIcon color={colors.onPrimaryContainer} size={23}/>}</View><View style={styles.flex}><Text style={[typography.eyebrow,{color:colors.textMuted}]}>{nextLabel?.singular.toLocaleUpperCase('es')??'ESPECIES'}</Text><Text style={[typography.title,{color:colors.text,marginTop:2}]}>{nextLabel?`Elegí ${nextArticle} ${nextLabel.singular.toLocaleLowerCase('es')}`:`Especies de ${current?.simpleName??current?.canonicalName??'Natura UY'}`}</Text></View></View>
+    {trail.length>0&&<ScrollView ref={breadcrumbRef} horizontal showsHorizontalScrollIndicator={false} onContentSizeChange={()=>breadcrumbRef.current?.scrollToEnd({animated:true})} contentContainerStyle={[styles.breadcrumb,{paddingTop:spacing.lg,paddingBottom:spacing.sm}]}>{trail.map((node,index)=><View key={node.taxonId} style={styles.crumbGroup}>{index>0&&<View style={[styles.crumbConnector,{backgroundColor:COLORS.main}]}><ChevronRightIcon color={COLORS.main} size={14}/></View>}<Pressable onPress={()=>setTrail(trail.slice(0,index+1))} style={[styles.crumb,{backgroundColor:index===trail.length-1?COLORS.main:COLORS.pale,borderRadius:radius.md}]}><Text style={[typography.caption,{color:index===trail.length-1?'#F5E8C4':colors.textMuted}]}>{rankLabel(node.rank).singular}</Text><Text style={[typography.label,{color:index===trail.length-1?'#FFF9EA':COLORS.text}]}>{node.canonicalName}</Text></Pressable></View>)}</ScrollView>}</View><View style={[styles.divider,{backgroundColor:colors.border,marginTop:spacing.md}]}/><View style={styles.flex}>
+    {showSpecies?<SpeciesResults taxonId={currentId!} title={current?.simpleName??current?.canonicalName??'Especies'}/>:loading&&children.length===0?<View style={styles.loading}><ActivityIndicator color={colors.primary}/></View>:<FlatList data={ordered} keyExtractor={(item)=>item.taxonId} showsVerticalScrollIndicator={false} onViewableItemsChanged={visibleHaptics.onViewableItemsChanged} viewabilityConfig={visibleHaptics.viewabilityConfig} contentContainerStyle={{padding:spacing.lg,paddingBottom:bottomInset,gap:spacing.sm}}
+      ListHeaderComponent={<View style={{marginBottom:spacing.sm,gap:spacing.md}}>{current&&Boolean(current.description)&&<View style={[styles.description,{backgroundColor:colors.surfaceVariant,borderColor:colors.border,borderRadius:radius.lg}]}><Text style={[typography.eyebrow,{color:COLORS.main}]}>ACERCA DEL {rankLabel(current.rank).singular.toLocaleUpperCase('es')}</Text><View style={styles.titleRow}><Text style={[typography.cardTitle,styles.scientific,styles.flex,{color:colors.text}]}>{current.canonicalName}</Text>{current.simpleName&&<Text style={[typography.label,styles.simpleName,{color:current.canonicalName==='Plantae'?COLORS.plant:COLORS.main}]}>{current.simpleName}</Text>}</View><Text style={[typography.body,{color:colors.textSecondary,marginTop:7}]}>{current.description}</Text></View>}<Text style={[typography.body,{color:colors.textSecondary}]}>{children.length} {children.length===1?nextLabel?.singular.toLocaleLowerCase('es'):nextLabel?.plural} en este nivel</Text></View>}
+      renderItem={({item,index})=>{const visual=item.rank==='class'?classVisual(item.canonicalName):undefined;const prominent=['kingdom','phylum','class','order'].includes(item.rank);return <MotiView from={{opacity:0,translateY:8}} animate={{opacity:1,translateY:0}} transition={{type:'timing',duration:180,delay:Math.min(index,6)*18}}><Pressable onPress={()=>select(item)} accessibilityRole="button" accessibilityLabel={`${item.canonicalName}, ${item.count} especies`} style={({pressed})=>[styles.taxonRow,prominent&&styles.prominentRow,elevation.low,{backgroundColor:visual?visual.colors[0]:pressed?colors.surfaceVariant:colors.surface,borderColor:colors.border,borderRadius:radius.lg,opacity:pressed?.92:1}]}>{visual&&<LinearGradient pointerEvents="none" colors={[...visual.colors]} style={[StyleSheet.absoluteFill,{borderRadius:radius.lg}]}/>} {prominent&&<TaxonArt node={item}/>}<View style={styles.flex}><Text style={[typography.eyebrow,{color:visual?.mutedForeground??colors.textMuted}]}>{rankLabel(item.rank).singular.toLocaleUpperCase('es')}</Text><View style={styles.titleRow}><Text style={[typography.cardTitle,styles.scientific,styles.flex,{color:visual?.foreground??colors.text}]} numberOfLines={2}>{item.canonicalName}</Text>{item.simpleName&&<Text style={[typography.label,styles.simpleName,{color:item.canonicalName==='Plantae'?COLORS.plant:visual?.foreground??COLORS.main}]} numberOfLines={2}>{item.simpleName}</Text>}</View>{item.description&&<Text style={[typography.body,{color:visual?.mutedForeground??colors.textSecondary,marginTop:5}]} numberOfLines={prominent?3:2}>{item.description}</Text>}</View><View style={styles.rowEnd}><View style={[styles.count,{backgroundColor:colors.primaryContainer,borderRadius:radius.pill}]}><Text style={[typography.caption,{color:colors.onPrimaryContainer}]}>{item.count}</Text></View><ChevronRightIcon color={colors.textMuted}/></View></Pressable></MotiView>;}}/>}</View></View>;
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1 },
-  flex: { flex: 1 },
-  headerRow: { flexDirection: 'row', alignItems: 'center', gap: 11 },
-  backButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
-  iconTile: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
-  breadcrumb: { alignItems: 'center' },
-  crumbGroup: { flexDirection: 'row', alignItems: 'center' },
-  crumbConnector: { width: 24, height: 2, alignItems: 'center', justifyContent: 'center' },
-  crumb: { minWidth: 92, paddingHorizontal: 12, paddingVertical: 8 },
-  divider: { height: StyleSheet.hairlineWidth },
-  loading: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  taxonRow: { minHeight: 78, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
-  phylumRow: { minHeight: 154, paddingVertical: 18 },
-  classRow: { minHeight: 136, gap: 10, padding: 12 },
-  orderRow: { minHeight: 154, alignItems: 'stretch', gap: 12, padding: 12 },
-  orderImage: { width: 88, height: 118, alignSelf: 'center', overflow: 'hidden', position: 'relative' },
-  orderDescription: { padding: 16, borderWidth: StyleSheet.hairlineWidth },
-  phylumVisual: { width: 108, alignItems: 'center', gap: 2 },
-  phylumImage: { width: 96, height: 88 },
-  illustrationFallback: { alignItems: 'center', justifyContent: 'center' },
-  classImageFrame: { width: 96, height: 96, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FDF7E7', overflow: 'hidden' },
-  classImage: { width: 96, height: 96 },
-  classIcon: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
-  rowEnd: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  classRowEnd: { flexDirection: 'column', justifyContent: 'center', flexShrink: 0, gap: 6 },
-  taxonTitleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
-  taxonScientific: { flex: 1, minWidth: 0 },
-  simpleName: { flexBasis: '42%', maxWidth: '42%', textAlign: 'right', lineHeight: 18, marginTop: 4 },
-  count: { minWidth: 36, alignItems: 'center', paddingHorizontal: 9, paddingVertical: 6 },
-  classCount: { minWidth: 30, paddingHorizontal: 6, paddingVertical: 4 },
-  scientific: { fontStyle: 'italic' },
-  end: { textAlign: 'center', paddingTop: 24 },
-});
+const styles=StyleSheet.create({screen:{flex:1},flex:{flex:1},headerRow:{flexDirection:'row',alignItems:'center',gap:11},backButton:{width:44,height:44,alignItems:'center',justifyContent:'center'},iconTile:{width:44,height:44,alignItems:'center',justifyContent:'center'},breadcrumb:{alignItems:'center'},crumbGroup:{flexDirection:'row',alignItems:'center'},crumbConnector:{width:24,height:2,alignItems:'center',justifyContent:'center'},crumb:{minWidth:92,paddingHorizontal:12,paddingVertical:8},divider:{height:StyleSheet.hairlineWidth},loading:{flex:1,alignItems:'center',justifyContent:'center'},description:{padding:16,borderWidth:StyleSheet.hairlineWidth},taxonRow:{minHeight:82,flexDirection:'row',alignItems:'center',gap:12,padding:14,borderWidth:StyleSheet.hairlineWidth,overflow:'hidden'},prominentRow:{minHeight:132},art:{width:88,height:88},artFallback:{alignItems:'center',justifyContent:'center'},titleRow:{flexDirection:'row',alignItems:'flex-start',gap:8,marginTop:4},simpleName:{flexBasis:'42%',maxWidth:'42%',textAlign:'right',lineHeight:18},scientific:{fontStyle:'italic'},rowEnd:{alignItems:'center',gap:7},count:{minWidth:36,alignItems:'center',paddingHorizontal:8,paddingVertical:6}});

@@ -12,11 +12,11 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 ## Estado actual
 
-- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está operativo y tiene aplicada la arquitectura lean. El panel ya está publicado en `https://uruguay-natura-data.pages.dev`, pero todavía faltan Google OAuth, la importación inicial, los secretos de GitHub y el despliegue de Edge Functions. R2 no forma parte del primer despliegue.
+- El proyecto Supabase `xbnbfekcxrkgteuijbzh` está operativo con schema 12 y el catálogo inicial importado: 4105 especies, 3157 perfiles botánicos, 2113 nodos y 2132 nombres taxonómicos. El panel está publicado en `https://uruguay-natura-data.pages.dev`; todavía faltan los secretos de GitHub y el despliegue de Edge Functions. R2 no forma parte del primer despliegue.
 - El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.
-- La base heredada sigue en `NaturaUY-source/assets/db/natura.db`; sus fuentes de entrada tienen 1006 registros que consolidan 902 especies. El catálogo schema 11 derivado en `NaturaUY-source/data/catalog/` queda en 1052 registros/948 especies (45 registros históricos de artrópodos sin conflicto más una incorporación abierta verificable); el backlog candidate-only de GBIF se mantiene separado.
-- Después de realizar la importación inicial a Supabase, la fuente editorial definitiva pasa a ser PostgreSQL. Los JSON y `natura.db` serán artefactos derivados y versionados.
-- La base heredada tiene 1006 registros de entrada que se consolidan en 902 especies únicas; el derivado schema 11 actual tiene 1052 registros y 948 especies. No asumir que “registro JSON” y “especie” son equivalentes.
+- La línea base animal tiene 1052 registros/948 especies. El catálogo schema 12 agrega el snapshot v1.3 de Flora Uruguaya Online (3157 plantas vasculares) y queda en 4209 registros/4105 especies; el backlog candidate-only externo se mantiene separado.
+- La fuente editorial definitiva ya es PostgreSQL. Los JSON y `natura.db` son artefactos derivados y versionados.
+- La base histórica animal tuvo 1006 entradas/902 especies. El derivado schema 12 actual tiene 4209 registros/4105 especies y conserva los 948 códigos de la línea base animal. No asumir que “registro JSON” y “especie” son equivalentes.
 
 ### Panel web disponible actualmente
 
@@ -74,7 +74,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie. Los candidatos automáticos de enriquecimiento nunca se publican sin aprobación humana. Fuentes `review_only` no pueden alimentar texto redistribuido.
 6. Favoritos, preferencias y juegos tienen fuente offline en `user.db`; nunca se mezclan con `natura.db`. Si hay cuenta Google, se sincronizan con Supabase sin volver al backend un requisito de arranque.
    El Puzzle deslizante usa `puzzle_records` por categoría y dificultad (3/4), con mínimos independientes, sincronización privada mediante `sync_puzzle_records(jsonb)` y recuperación por cuenta mediante `get_personal_mobile_progress()`.
-   El catálogo schema 11 agrega nombres simples y descripciones para filo/clase/orden, identificadores externos, `natural_history` para artrópodos, `distribution_summary`, fuentes resolubles por campo y datos relevantes con registro al contrato del schema 11. También conserva los rasgos estructurados, mediciones con unidad/convención y nombres comunes alternativos buscables. `knowledge_level` es acumulativo (`easy ⊂ medium ⊂ hard`); los récords incorporan el nivel además de categoría y, en Puzzle, grilla.
+   El catálogo schema 12 conserva el contrato schema 11 y agrega Plantae/Tracheophyta, perfil botánico, nombres taxonómicos y cierre de ancestros. La navegación usa `taxon_id` y omite rangos vacíos. `knowledge_level` es acumulativo (`easy ⊂ medium ⊂ hard`); los récords incorporan el nivel además de categoría y, en Puzzle, grilla.
    La expansión inicial incorpora `Arthropoda → Arachnida | Insecta | Malacostraca`. Los 49 registros históricos de artrópodos se contabilizan en el pipeline; el registro incompleto `Bothriurus` queda en revisión y no se descarta.
 7. Cada medio nuevo debe registrar autoría y derechos. Sólo aceptar CC0, CC BY 4.0 o autorización verificable; las licencias heredadas se preservan como históricas.
 8. Los medios procesados se verifican en Supabase Storage antes de eliminar el original temporal. Si en el futuro se configura R2, también se verifica allí. Las URLs públicas siguen `/m/{assetId}/{variant}`.
@@ -83,7 +83,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 
 ## Pipeline de expansión
 
-`NaturaUY-source/scripts/catalog/` ejecuta fuentes locales y endpoints externos durante el pipeline, nunca desde la app offline. `data:catalog-all` encadena el discovery candidate-only de artrópodos en GBIF, normalización, resolución GBIF, auditoría, selección de medios, candidatos taxonómicos/traits, observabilidad y descubrimiento secundario de Catalogue of Life, WoRMS y BOLD antes de construir el artefacto schema 11. El discovery puede mostrar miles de taxones observados en Uruguay, pero no los agrega a `data/catalog/`: los reportes externos y de discovery requieren revisión humana antes de entrar en Supabase o en un release.
+`NaturaUY-source/scripts/catalog/` ejecuta fuentes locales y endpoints externos durante el pipeline, nunca desde la app offline. `data:catalog-all` fija e importa Flora Uruguaya v1.3, encadena el discovery candidate-only de artrópodos en GBIF, normalización, resolución, auditoría, medios y enriquecimientos antes de construir schema 12. Los medios botánicos se descubren aparte con `data:plant-media` por lotes; iNaturalist sólo es publicable con CC0 y Wikimedia con CC0 o CC BY 4.0 exacta. `data:plant-taxonomy` contrasta por lotes con WFO Plant List 2026-06/ChecklistBank y nunca aplica sinónimos, órdenes o IDs automáticamente. Los candidatos externos requieren revisión humana antes de entrar en Supabase o en un release.
 
 ## Reglas de seguridad
 

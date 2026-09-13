@@ -8,6 +8,7 @@ import { thumbnailFor } from '../../data/assets/thumbMap';
 import { useTheme } from '../theme/ThemeProvider';
 import { FamilyGlyph } from './FamilyGlyph';
 import { Skeleton } from './Skeleton';
+import { LeafIcon } from './TabIcons';
 
 export interface SpeciesImageProps {
   species: Species;
@@ -87,7 +88,9 @@ export function SpeciesImage({
           transition={{ type: 'timing', duration: 260 }}
           style={styles.center}
         >
-          <FamilyGlyph clase={species.taxonomy.clase} color={colors.outline} size={glyphSize} opacity={0.5} />
+          {species.taxonomy.kingdom === 'Plantae'
+            ? <LeafIcon color={colors.outline} size={glyphSize} strokeWidth={1.35} />
+            : <FamilyGlyph clase={species.taxonomy.clase} color={colors.outline} size={glyphSize} opacity={0.5} />}
         </MotiView>
       )}
 

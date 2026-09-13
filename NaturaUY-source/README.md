@@ -82,7 +82,7 @@ Las fichas distinguen abundancia experta de observabilidad pública. La segunda 
 
 ## Pipeline de datos
 
-El pipeline histórico (`data:all`) convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Para el catálogo editorial vigente se usa el pipeline por grupos de schema 11 descrito abajo; los endpoints sólo se consultan durante esas etapas y la app sigue funcionando con SQLite y medios publicados.
+El pipeline histórico (`data:all`) convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Para el catálogo editorial vigente se usa el pipeline schema 12 descrito abajo; los endpoints sólo se consultan durante refresh y la app sigue funcionando offline con SQLite.
 
 ```bash
 npm run data:all
@@ -129,12 +129,11 @@ lote para revisión, pero nunca se publica automáticamente. La promoción al
 catálogo exige resolver el nombre, comprobar presencia en Uruguay, conseguir
 medios con licencia válida y aprobar la ficha en el panel.
 
-### Catálogo editorial por grupos (`data/catalog`, schema 11)
+### Catálogo editorial por grupos (`data/catalog`, schema 12)
 
 El catálogo nuevo combina fuentes locales, resuelve nombres con GBIF v2 y
 busca una imagen redistribuible por nombre científico aceptado. La jerarquía ya
-no está limitada a Chordata: incluye `Arthropoda`, `Arachnida`, `Insecta` y
-`Malacostraca`.
+no está limitada a animales: parte de `Animalia` y `Plantae`, conserva Chordata/Arthropoda y agrega las 3157 plantas vasculares del snapshot v1.3 de Flora Uruguaya Online.
 
 ```bash
 npm run data:catalog-all
@@ -151,8 +150,11 @@ Git y usada sólo para contraste editorial. El parser reconoce la planilla HTML
 Latin-1 (1.221 filas: 876 nombres binomiales y 344 entradas incompletas o
 inciertas) y nunca convierte sus filas en especies publicables.
 
+Flora Uruguaya queda en `data/raw/florauruguaya.org/vascular-plants/v1.3/` con manifiesto, DOI, licencia y SHA-256. `data:plants` contabiliza sus 3157 filas y genera `data/catalog/plantae.json` de forma determinista. El CSV respalda presencia nacional, familia, hábito, forma de vida y formaciones vegetales; origen, conservación y fenología quedan desconocidos hasta incorporar una fuente específica. `data:plant-taxonomy` contrasta nombres en lotes con WFO Plant List 2026-06 mediante ChecklistBank y deja sinónimos, órdenes e identificadores en `plant-taxonomy-candidates.json`: nunca los aplica sin revisión editorial. La licencia de cada imagen se valida por separado.
+
 La etapa de imágenes consulta iNaturalist primero y Wikimedia como respaldo.
-Sólo acepta CC0 o CC BY 4.0 verificable; conserva la licencia original exacta,
+En iNaturalist sólo acepta CC0, porque el código genérico `cc-by` de su API no
+demuestra una versión concreta; en Wikimedia acepta CC0 o CC BY 4.0 verificable. Conserva la licencia original exacta,
 rechaza CC BY-NC/SA/ND, licencias ausentes y dimensiones insuficientes, y guarda
 URL mediana y grande, atribución, fuente, página, checksum/ID cuando existe.
 El resultado reanudable queda en
@@ -199,8 +201,7 @@ FishBase, iNaturalist taxonómica y cualquier fuente sin licencia redistribuible
 se usan sólo para revisión, nunca como contenido copiado automáticamente al
 catálogo.
 
-El modelo schema 11 agrega `taxonIdentifiers`, `naturalHistory` específico de
-artrópodos y `distributionSummary`. La galería conserva hasta dos imágenes con
+El modelo schema 12 agrega perfil botánico a `naturalHistory`, raíces por reino y navegación por nodos estables, además de conservar identificadores y distribución de schema 11. La galería conserva hasta dos imágenes con
 rol editorial implícito (principal, diagnóstica, etapa o detalle) y los filtros
 offline incluyen metamorfosis, rol trófico y microhábitat cuando hay datos.
 
@@ -211,6 +212,17 @@ npm run data:catalog-media -- --limit=20
 npm run data:build-catalog
 npm run data:catalog-db
 npm run data:catalog-verify
+```
+
+Las plantas se procesan por separado para que una actualización normal de
+animales no dispare miles de consultas. Este comando guarda candidatos
+reanudables; al ejecutar nuevamente `data:plants`, las imágenes que cumplen el
+contrato de licencia y resolución se incorporan al JSON botánico:
+
+```bash
+npm run data:plant-media -- --limit=20
+npm run data:plant-taxonomy -- --batch=20
+npm run data:plants
 ```
 
 Las especies ya consultadas no se vuelven a pedir. Para reintentar únicamente

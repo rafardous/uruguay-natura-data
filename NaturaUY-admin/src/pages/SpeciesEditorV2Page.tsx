@@ -152,6 +152,22 @@ function TraitEditor({ payload, patch }: EditorSectionProps): React.JSX.Element 
 }
 
 function NaturalHistoryEditor({ payload, patch }: EditorSectionProps): React.JSX.Element | null {
+  if (payload.taxonomy.kingdom === 'Plantae') {
+    const history = payload.naturalHistory ?? { version: 1 as const };
+    const plant = history.plant ?? {};
+    const update = (next: NonNullable<SpeciesNaturalHistoryPayload['plant']>): void => patch('naturalHistory', { ...history, version: 1, plant: next });
+    return <><SectionDivider/><FormSection title="Perfil botánico" detail="Hábito, forma de vida y ambiente se publican sólo cuando una fuente del catálogo los respalda."><div className="form-grid three">
+      <Field label="Hábito" value={plant.habit ?? ''} onChange={(value)=>update({...plant,habit:value||null})} hint="Árbol, arbusto, hierba perenne…"/>
+      <Field label="Forma de vida" value={plant.lifeForm ?? ''} onChange={(value)=>update({...plant,lifeForm:value||null})} hint="Fanerófita, caméfita…"/>
+      <Field label="Formaciones vegetales" value={(plant.vegetationFormations??[]).join(', ')} onChange={(value)=>update({...plant,vegetationFormations:split(value)})}/>
+      <Field label="Meses de floración" value={(plant.phenology?.floweringMonths??[]).join(', ')} onChange={(value)=>update({...plant,phenology:{...plant.phenology,floweringMonths:split(value).map(Number).filter((month)=>month>=1&&month<=12)}})} hint="1 a 12, separados por comas"/>
+      <Field label="Meses de fructificación" value={(plant.phenology?.fruitingMonths??[]).join(', ')} onChange={(value)=>update({...plant,phenology:{...plant.phenology,fruitingMonths:split(value).map(Number).filter((month)=>month>=1&&month<=12)}})}/>
+      <Field label="Autoría del nombre" value={plant.nomenclature?.authorship ?? ''} onChange={(value)=>update({...plant,nomenclature:{...plant.nomenclature,authorship:value||null}})}/>
+      <Field label="Publicación original" value={plant.nomenclature?.publication ?? ''} onChange={(value)=>update({...plant,nomenclature:{...plant.nomenclature,publication:value||null}})}/>
+      <Field label="Nombres alternativos de familia" value={(plant.nomenclature?.familyAliases??[]).join(', ')} onChange={(value)=>update({...plant,nomenclature:{...plant.nomenclature,familyAliases:split(value)}})}/>
+      <Field label="Fuentes del perfil" value={(plant.sources??[]).join(', ')} onChange={(value)=>update({...plant,sources:split(value)})}/>
+    </div></FormSection></>;
+  }
   if (payload.taxonomy.phylum !== 'Arthropoda' && !['Arachnida', 'Insecta', 'Malacostraca'].includes(payload.taxonomy.class)) return null;
   const history = payload.naturalHistory ?? { version: 1 as const };
   const arthropod = history.arthropod ?? {};

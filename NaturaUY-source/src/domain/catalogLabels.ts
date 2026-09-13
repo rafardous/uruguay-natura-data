@@ -52,6 +52,7 @@ const SOURCE_LABELS: Record<string, string> = {
   combine: 'COMBINE',
   fishbase: 'FishBase (referencia editorial)',
   fishmorph: 'FISHMORPH',
+  flora_uruguaya: 'Flora Uruguaya Online',
   freshwater_fish_shortfalls: 'Global Freshwater Fish Knowledge Shortfalls',
   mobs: 'MOBS',
   snap: 'SNAP',
@@ -67,6 +68,7 @@ const SOURCE_LABELS: Record<string, string> = {
   natura_uy_editorial: 'Síntesis editorial Natura UY',
   uruguay_species_database: 'Base de especies de Uruguay',
   wikimedia: 'Wikimedia Commons',
+  world_flora_online: 'World Flora Online',
 };
 
 function humanize(value: string): string {

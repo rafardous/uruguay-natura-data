@@ -31,7 +31,7 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-Las migraciones mobile existentes, `20260911153819_catalog_schema_9_traits.sql`, `20260912021348_catalog_schema_10_taxon_sources.sql` y `20260912120000_catalog_schema_11_arthropods.sql` deben aplicarse junto con todo el historial. El dry-run actual confirma que la remota todavía está en schema 10 y que schema 11 queda pendiente; esta rectificación no hace push a producción. La última migración incorpora identificadores externos, historia natural de artrópodos, distribución agregada, el árbol `taxa`/`species_taxa`, contenido para Arthropoda/Arachnida/Insecta/Malacostraca, reglas de juegos `classify`/`habitat` y fuerza que las publicaciones nuevas declaren schema 11. La app sólo usa las RPC lean documentadas y los candidatos de enriquecimiento continúan requiriendo revisión humana.
+Las migraciones schema 9–12 están aplicadas en el proyecto remoto. Schema 12 agrega perfiles vegetales, nombres y cierre taxonómico, raíces por reino, el scope de juegos `plants` y fuerza publicaciones nuevas a schema 12/min app 1.2.0. La importación inicial se completó el 2026-09-13 con 4105 especies, 3157 perfiles botánicos, 2113 nodos y 2132 nombres taxonómicos; futuras corridas del importador son idempotentes.
 
 ## 2. Identidad editorial
 
@@ -86,7 +86,7 @@ npm run media:migrate-external -- --dry-run
 npm run media:migrate-external
 ```
 
-El importador schema 11 informa actualmente 1052 registros, 948 especies y 947 coincidencias de código heredado. La línea base histórica sigue siendo 1006 entradas/902 especies. Crea 948 cambios iniciales aprobados de “Importación inicial”. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
+El importador schema 12 informa 4209 registros y 4105 especies. La línea base animal conserva 948 códigos y el snapshot Flora Uruguaya aporta 3157 plantas. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
 
 ## 5. Panel, Storage y publicación
 
@@ -98,6 +98,9 @@ npm run data:arthropod-discovery -- --batch=50
 npm run data:enrichment-candidates
 npm run data:traits
 npm run data:catalog-media -- --reelect-all
+npm run data:plant-media -- --limit=100
+npm run data:plant-taxonomy -- --batch=100
+npm run data:plants
 npm run data:observability -- --batch=25
 npm run data:external-discovery -- --batch=25
 cd ../NaturaUY-admin
@@ -105,7 +108,7 @@ npm run catalog:import-enrichment
 npm run catalog:import-enrichment -- --apply
 ```
 
-Antes de publicar, revisar `data/reports/arthropod-discovery-candidates.json`, `data/reports/trait-enrichment-candidates.json`, `common-name-report.json`, `image-selection-report.json` y `external-enrichment-candidates.json`. El discovery de GBIF es candidate-only: aunque encuentre miles de taxones, no se importan al catálogo sin una decisión editorial. Los sinónimos, valores imputados, IDs de Catalogue of Life/WoRMS y fuentes `review_only` deben permanecer como conflictos hasta su aprobación; BOLD sólo se conserva como evidencia de cobertura; una especie sin imagen válida usa el fallback visual.
+Antes de publicar, revisar `data/reports/arthropod-discovery-candidates.json`, `data/reports/trait-enrichment-candidates.json`, `common-name-report.json`, `image-selection-report.json`, `plant-image-selection-report.json`, `plant-taxonomy-candidates.json` y `external-enrichment-candidates.json`. El discovery de GBIF es candidate-only: aunque encuentre miles de taxones, no se importan al catálogo sin una decisión editorial. Los sinónimos, órdenes e IDs de WFO, valores imputados, IDs de Catalogue of Life/WoRMS y fuentes `review_only` deben permanecer como conflictos hasta su aprobación; BOLD sólo se conserva como evidencia de cobertura; una especie sin imagen válida usa el fallback visual. La consulta botánica se hace en lotes para no bloquear el pipeline y sólo acepta CC0 de iNaturalist o CC0/CC BY 4.0 exacta de Wikimedia.
 
 El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
 

@@ -46,6 +46,7 @@ interface CatalogItem {
     audio: string | null;
   };
   sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
+  presenceCertainty?: 'confirmed' | 'probable' | 'uncertain' | null;
 }
 
 interface LegacyRow {
@@ -171,6 +172,20 @@ const uniqueStrings = (values: Array<string | null | undefined>) => [...new Map(
 const slug = (value: string): string => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const taxonId = (parent: string | null, rank: string, name: string): string => `taxon-${slug(`${parent ?? 'root'}-${rank}-${name}`)}`;
 const subphylumFor = (row: CatalogItem): string => row.taxonomy.phylum !== 'Arthropoda' ? '' : row.taxonomy.class === 'Arachnida' ? 'Chelicerata' : row.taxonomy.class === 'Insecta' ? 'Hexapoda' : row.taxonomy.class === 'Malacostraca' ? 'Crustacea' : '';
+const TAXON_PRESENTATION: Record<string,{simpleName:string;description:string;sortOrder:number}> = {
+  Animalia:{simpleName:'Animales',description:'Seres vivos que obtienen energía alimentándose de otros organismos y, en alguna etapa, suelen poder desplazarse.',sortOrder:0},
+  Plantae:{simpleName:'Plantas',description:'Seres vivos que realizan fotosíntesis y sostienen gran parte de las redes de vida terrestres y acuáticas.',sortOrder:1},
+  Chordata:{simpleName:'Vertebrados',description:'Animales con notocorda en alguna etapa del desarrollo; incluye peces, anfibios, reptiles, aves y mamíferos.',sortOrder:0},
+  Arthropoda:{simpleName:'Artrópodos',description:'Animales con exoesqueleto y apéndices articulados, como insectos, arácnidos y crustáceos.',sortOrder:1},
+  Tracheophyta:{simpleName:'Plantas vasculares',description:'Plantas con tejidos especializados que transportan agua y nutrientes. Incluye licófitas, helechos, gimnospermas y plantas con flor.',sortOrder:0},
+  Chelicerata:{simpleName:'Quelicerados',description:'Artrópodos con quelíceros, como arañas y escorpiones.',sortOrder:0},
+  Hexapoda:{simpleName:'Hexápodos',description:'Artrópodos con seis patas; incluye a los insectos.',sortOrder:1},
+  Crustacea:{simpleName:'Crustáceos',description:'Artrópodos principalmente acuáticos o de ambientes húmedos.',sortOrder:2},
+  Lycopodiopsida:{simpleName:'Licófitas',description:'Un linaje antiguo de plantas vasculares que se reproduce por esporas.',sortOrder:0},
+  Polypodiopsida:{simpleName:'Helechos y afines',description:'Plantas vasculares sin semillas que se reproducen mediante esporas.',sortOrder:1},
+  Gymnospermae:{simpleName:'Gimnospermas',description:'Plantas con semillas no encerradas en un fruto, como pinos, araucarias y efedras.',sortOrder:2},
+  Angiospermae:{simpleName:'Plantas con flor',description:'Plantas que producen flores y semillas protegidas dentro de frutos.',sortOrder:3},
+};
 
 const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
   const scientificName = first(rows, (row) => row.scientificName) ?? slug;
@@ -209,7 +224,7 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
     origin: first(rows, (row) => row.origin) ?? 'unknown',
     establishment: 'uncertain',
     seasonality: first(rows, (row) => row.seasonality) ?? 'unknown',
-    presence_certainty: 'uncertain',
+    presence_certainty: first(rows, (row) => row.presenceCertainty) ?? 'uncertain',
     abundance_status: first(rows, (row) => row.abundanceStatus) ?? '',
     conservation_system: old?.estado_conservacion ? 'Prioridad nacional/SNAP (legado)' : 'UICN',
     conservation_category: 'NE',
@@ -235,13 +250,12 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
 const speciesByScientificName = new Map(speciesRows.map((row) => [row.scientific_name.toLocaleLowerCase('es'), row]));
 const missingFactSpecies = featuredFacts.filter((fact) => !speciesByScientificName.has(fact.scientificName.toLocaleLowerCase('es')));
 if (missingFactSpecies.length) throw new Error(`Featured fact species not found: ${missingFactSpecies.map((fact) => fact.scientificName).join(', ')}`);
-const legacyCodes = new Set([...legacy.values()].map((row) => row.codigo));
 console.log(JSON.stringify({
   catalogRecords: items.length,
   uniqueSpecies: speciesRows.length,
+  animals: speciesRows.filter((row) => row.kingdom === 'Animalia').length,
+  vascularPlants: speciesRows.filter((row) => row.kingdom === 'Plantae').length,
   featuredFacts: featuredFacts.length,
-  legacyMatches: speciesRows.filter((row) => legacyCodes.has(row.catalog_code)).length,
-  legacyNameMatches: speciesRows.filter((row) => legacy.has(row.scientific_name.toLocaleLowerCase('es'))).length,
 }));
 if (dryRun) process.exit(0);
 
@@ -322,19 +336,35 @@ for (const batch of chunks(speciesRows, 100)) {
 
 const taxonRows: Array<Record<string, unknown>> = [];
 const speciesTaxonRows: Array<Record<string, unknown>> = [];
+const closureRows: Array<Record<string, unknown>> = [];
+const taxonNameRows: Array<Record<string, unknown>> = [];
 for (const row of speciesRows) {
-  const values: Array<{ rank: string; name: string }> = [];
-  if (row.phylum) values.push({ rank: 'phylum', name: row.phylum });
+  const values: Array<{ rank: string; name: string; preserveRootId?: boolean }> = [];
+  if (row.kingdom) values.push({ rank: 'kingdom', name: row.kingdom });
+  if (row.phylum) values.push({ rank: 'phylum', name: row.phylum, preserveRootId: true });
   if (row.subphylum) values.push({ rank: 'subphylum', name: row.subphylum });
   if (row.class) values.push({ rank: 'class', name: row.class });
   if (row.order_name) values.push({ rank: 'order', name: row.order_name });
   if (row.family) values.push({ rank: 'family', name: row.family });
   if (row.genus) values.push({ rank: 'genus', name: row.genus });
   let parent: string | null = null;
+  const pathIds: string[] = [];
   values.forEach((value, index) => {
-    const id = taxonId(parent, value.rank, value.name);
-    taxonRows.push({ taxon_id: id, parent_id: parent, rank: value.rank, canonical_name: value.name, simple_name: null, description: '', identifiers: {}, source_ids: [], sort_order: index });
+    const id = taxonId(value.preserveRootId ? null : parent, value.rank, value.name);
+    const presentation = TAXON_PRESENTATION[value.name];
+    taxonRows.push({ taxon_id: id, parent_id: parent, rank: value.rank, canonical_name: value.name, simple_name: presentation?.simpleName ?? null, description: presentation?.description ?? '', identifiers: {}, source_ids: [], sort_order: presentation?.sortOrder ?? index });
+    taxonNameRows.push({taxon_id:id,name:value.name,language:'la',name_type:'canonical',source_id:null});
+    if (presentation?.simpleName) taxonNameRows.push({taxon_id:id,name:presentation.simpleName,language:'es-UY',name_type:'simple',source_id:null});
+    if (value.rank === 'family' && row.kingdom === 'Plantae') {
+      const plant = (row.natural_history.plant ?? {}) as Record<string,unknown>;
+      const nomenclature = (plant.nomenclature ?? {}) as Record<string,unknown>;
+      const aliases = Array.isArray(nomenclature.familyAliases) ? nomenclature.familyAliases.filter((item):item is string=>typeof item==='string'&&item.trim().length>1) : [];
+      aliases.forEach((alias)=>taxonNameRows.push({taxon_id:id,name:alias,language:'la',name_type:'alternative_family',source_id:null}));
+    }
     speciesTaxonRows.push({ species_id: row.id, taxon_id: id, is_primary: true });
+    pathIds.forEach((ancestorId, ancestorIndex) => closureRows.push({ ancestor_id:ancestorId,descendant_id:id,depth:pathIds.length-ancestorIndex }));
+    closureRows.push({ ancestor_id:id,descendant_id:id,depth:0 });
+    pathIds.push(id);
     parent = id;
   });
 }
@@ -345,6 +375,25 @@ if (!dryRun) {
   }
   for (const batch of chunks(speciesTaxonRows, 500)) {
     const { error } = await client.from('species_taxa').upsert(batch, { onConflict: 'species_id,taxon_id' });
+    if (error) throw error;
+  }
+  const uniqueTaxonNames = [...new Map(taxonNameRows.map((row)=>[`${row.taxon_id}|${row.name}|${row.language}|${row.name_type}`,row])).values()];
+  for (const batch of chunks(uniqueTaxonNames,500)) {
+    const { error } = await client.from('taxon_names').upsert(batch,{onConflict:'taxon_id,name,language,name_type'});
+    if (error) throw error;
+  }
+  const uniqueClosure = [...new Map(closureRows.map((row) => [`${row.ancestor_id}|${row.descendant_id}`,row])).values()];
+  for (const batch of chunks(uniqueClosure,500)) {
+    const { error } = await client.from('taxon_closure').upsert(batch,{onConflict:'ancestor_id,descendant_id'});
+    if (error) throw error;
+  }
+  const plantProfiles = speciesRows.filter((row)=>row.kingdom==='Plantae').map((row)=>{
+    const plant = (row.natural_history.plant ?? {}) as Record<string,unknown>;
+    const nomenclature = (plant.nomenclature ?? {}) as Record<string,unknown>;
+    return { species_id:row.id,habit:typeof plant.habit==='string'?plant.habit:null,life_form:typeof plant.lifeForm==='string'?plant.lifeForm:null,vegetation_formations:Array.isArray(plant.vegetationFormations)?plant.vegetationFormations:[],flowering_months:[],fruiting_months:[],nomenclatural_authorship:typeof nomenclature.authorship==='string'?nomenclature.authorship:null,original_publication:typeof nomenclature.publication==='string'?nomenclature.publication:null,source_ids:[] };
+  });
+  for (const batch of chunks(plantProfiles,200)) {
+    const { error } = await client.from('plant_profiles').upsert(batch,{onConflict:'species_id'});
     if (error) throw error;
   }
 }

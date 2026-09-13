@@ -80,8 +80,18 @@ export interface ArthropodNaturalHistory {
   sources?: SpeciesSource[];
 }
 
-export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory }
+export interface PlantNaturalHistory {
+  habit?: string | null;
+  lifeForm?: string | null;
+  vegetationFormations?: string[];
+  phenology?: { floweringMonths?: number[]; fruitingMonths?: number[] };
+  nomenclature?: { authorship?: string | null; publication?: string | null; familyAliases?: string[] };
+  sources?: SpeciesSource[];
+}
+
+export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory; plant?: PlantNaturalHistory }
 export interface SpeciesDistributionSummary {
+  country?: string;
   departments?: string[]; cells?: string[]; periodStart?: string | null; periodEnd?: string | null;
   occurrenceCount?: number; confidence?: 'high' | 'medium' | 'low' | 'insufficient_data';
 }

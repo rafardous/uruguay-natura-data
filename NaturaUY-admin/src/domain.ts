@@ -56,6 +56,14 @@ export interface SpeciesNaturalHistoryPayload {
     humanRelevance?: { vector?: boolean; pest?: boolean; venomous?: boolean; veterinaryImportance?: boolean; note?: string; sources?: string[] };
     sources?: string[];
   };
+  plant?: {
+    habit?: string | null;
+    lifeForm?: string | null;
+    vegetationFormations?: string[];
+    phenology?: { floweringMonths?: number[]; fruitingMonths?: number[] };
+    nomenclature?: { authorship?: string | null; publication?: string | null; familyAliases?: string[] };
+    sources?: string[];
+  };
 }
 
 export interface SpeciesPayload {

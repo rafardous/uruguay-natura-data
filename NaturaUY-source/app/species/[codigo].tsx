@@ -22,10 +22,7 @@ import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel 
 import { formatLegacyMeasurementText, formatSpeciesMeasurement } from '../../src/domain/services/measurementFormatting';
 import {
   speciesRepository,
-  TAXON_RANKS,
-  UNASSIGNED_TAXON,
   type TaxonRank,
-  type TaxonomyPath,
 } from '../../src/data/repositories/speciesRepository';
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
@@ -224,7 +221,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         { label: 'Filo', rank: 'phylum', value: species.taxonomy.phylum },
         ...(species.taxonomy.subfilo ? [{ label: 'Subfilo', rank: 'subfilo' as const, value: species.taxonomy.subfilo }] : []),
         { label: 'Clase', rank: 'clase', value: species.taxonomy.clase },
-        { label: 'Orden', rank: 'orden', value: species.taxonomy.orden || 'Sin determinar' },
+        ...(species.taxonomy.orden ? [{ label: 'Orden', rank: 'orden' as const, value: species.taxonomy.orden }] : []),
         { label: 'Familia', rank: 'familia', value: species.taxonomy.familia },
         { label: 'Género', rank: 'genero', value: species.taxonomy.genero },
       ]
@@ -238,6 +235,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
     ...species.media.filter((media) => media.type === 'image').map((media) => ({ id: media.id, url: media.url, thumbnailUrl: media.thumbnailUrl ?? media.url, attribution: media.attribution })),
   ].filter((item, index, all) => item.url && all.findIndex((candidate) => candidate.url === item.url) === index) : [];
   const arthropodHistory = species?.naturalHistory?.arthropod;
+  const plantHistory = species?.naturalHistory?.plant;
   const observabilityBand = species?.observability?.band === 'high' ? 'Alta'
     : species?.observability?.band === 'medium' ? 'Media'
       : species?.observability?.band === 'low' ? 'Baja' : 'Datos insuficientes';
@@ -245,26 +243,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const openTaxonomyAt = (rank: TaxonRank): void => {
     if (!species) return;
     haptics.tap();
-    const values: Record<TaxonRank, string> = {
-      phylum: species.taxonomy.phylum,
-      subfilo: species.taxonomy.subfilo ?? '',
-      clase: species.taxonomy.clase,
-      orden: species.taxonomy.orden || UNASSIGNED_TAXON,
-      familia: species.taxonomy.familia,
-      genero: species.taxonomy.genero,
-    };
-    const params: TaxonomyPath = {};
-    for (const candidate of TAXON_RANKS) {
-      params[candidate] = values[candidate];
-      if (candidate === rank) break;
-    }
-    // Keep this detail route on the navigation stack. The taxonomy screen knows
-    // this came from a species card, so either Android's Back button or its
-    // own back affordance returns to this exact, still-open detail.
-    router.push({
-      pathname: '/taxonomy',
-      params: { ...params, returnToSpecies: species.codigo },
-    });
+    const values: Record<TaxonRank, string> = { phylum:species.taxonomy.phylum,subfilo:species.taxonomy.subfilo??'',clase:species.taxonomy.clase,orden:species.taxonomy.orden,familia:species.taxonomy.familia,genero:species.taxonomy.genero };
+    void speciesRepository.resolveLegacyTaxon(db,rank,values[rank]).then((taxonId)=>router.push({pathname:'/taxonomy',params:{...(taxonId?{taxonId}:{[rank]:values[rank]}),returnToSpecies:species.codigo}}));
   };
 
   return (
@@ -543,6 +523,20 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {arthropodHistory.ecology?.plantAssociations?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Asociaciones con plantas: {arthropodHistory.ecology.plantAssociations.join(' · ')}</Text> : null}
                   {arthropodHistory.humanRelevance && (arthropodHistory.humanRelevance.vector || arthropodHistory.humanRelevance.pest || arthropodHistory.humanRelevance.venomous || arthropodHistory.humanRelevance.veterinaryImportance) ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Indicadores documentados: {[arthropodHistory.humanRelevance.vector && 'vector', arthropodHistory.humanRelevance.pest && 'plaga', arthropodHistory.humanRelevance.venomous && 'veneno', arthropodHistory.humanRelevance.veterinaryImportance && 'importancia veterinaria'].filter(Boolean).join(' · ')}</Text> : null}
                   {arthropodHistory.humanRelevance?.note ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Relevancia humana: {arthropodHistory.humanRelevance.note}</Text> : null}
+                </View>
+              </Staggered>
+            )}
+
+            {plantHistory && (
+              <Staggered index={7}>
+                <View style={[styles.naturalHistory, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}>
+                  <Text style={[typography.label, { color: palette.accent }]}>Perfil botánico</Text>
+                  {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Hábito: {plantHistory.habit}</Text> : null}
+                  {plantHistory.lifeForm ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Forma de vida: {plantHistory.lifeForm}</Text> : null}
+                  {plantHistory.vegetationFormations?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Formaciones vegetales: {plantHistory.vegetationFormations.join(' · ')}</Text> : null}
+                  {plantHistory.nomenclature?.authorship ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Autoría del nombre: {plantHistory.nomenclature.authorship}</Text> : null}
+                  {plantHistory.nomenclature?.publication ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Publicación original: {plantHistory.nomenclature.publication}</Text> : null}
+                  {plantHistory.nomenclature?.familyAliases?.length ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Familia también conocida como: {plantHistory.nomenclature.familyAliases.join(' · ')}</Text> : null}
                 </View>
               </Staggered>
             )}

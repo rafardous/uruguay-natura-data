@@ -1,0 +1,16 @@
+{
+  "source": "flora_uruguaya",
+  "version": "1.3",
+  "sha256": "b0b301134f7476e34ab2b98adabaccfd43e6cf1c62616821d68198f5e96d7956",
+  "inputRows": 3157,
+  "publishedSpecies": 3157,
+  "duplicates": 0,
+  "excluded": 0,
+  "images": 0,
+  "groups": {
+    "Angiospermae": 2977,
+    "Gymnospermae": 6,
+    "Lycopodiopsida": 15,
+    "Polypodiopsida": 159
+  }
+}

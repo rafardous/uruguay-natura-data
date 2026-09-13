@@ -98,6 +98,10 @@ const incompleteArthropodCardContent = scalar(`SELECT COUNT(*) AS n FROM taxon_c
   OR (taxon_rank='order' AND class_name IN ('Arachnida','Insecta','Malacostraca'))
   ) AND (simple_name IS NULL OR TRIM(simple_name)='' OR LENGTH(TRIM(description)) < 100)`);
 const redundantBirdSimpleName = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Aves','Actinopterygii','Chondrichthyes') AND taxon_rank='class' AND simple_name IS NOT NULL");
+const plantSpecies = scalar("SELECT COUNT(*) AS n FROM species WHERE kingdom='Plantae'");
+const confirmedPlants = scalar("SELECT COUNT(*) AS n FROM species WHERE kingdom='Plantae' AND presence_certainty='confirmed'");
+const plantRoots = scalar("SELECT COUNT(*) AS n FROM taxa WHERE canonical_name IN ('Plantae','Tracheophyta','Angiospermae','Gymnospermae','Lycopodiopsida','Polypodiopsida') AND TRIM(description)<>'' AND simple_name IS NOT NULL");
+const kingdomRoots = scalar("SELECT COUNT(*) AS n FROM taxa WHERE parent_id IS NULL AND rank='kingdom' AND canonical_name IN ('Animalia','Plantae')");
 
 // Same joins/filters/order used by speciesRepository.findPaged.
 const searchProbe = db.prepare(`SELECT species.codigo FROM species
@@ -116,8 +120,12 @@ const unassignedOrderBranch = db.prepare(`SELECT
 
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
-  schemaVersion !== '11' && `schema_version=${schemaVersion ?? 'missing'}, expected 11`,
-  dataVersion !== '1' && `data_version=${dataVersion ?? 'missing'}, expected 1`,
+  schemaVersion !== '12' && `schema_version=${schemaVersion ?? 'missing'}, expected 12`,
+  dataVersion !== '2' && `data_version=${dataVersion ?? 'missing'}, expected 2`,
+  plantSpecies !== 3157 && `plant species=${plantSpecies}, expected 3157`,
+  confirmedPlants !== plantSpecies && `confirmed plants=${confirmedPlants}, expected ${plantSpecies}`,
+  plantRoots !== 6 && `described plant navigation nodes=${plantRoots}, expected 6`,
+  kingdomRoots !== 2 && `kingdom roots=${kingdomRoots}, expected 2`,
   birdOrders !== 27 && `bird order descriptions=${birdOrders}, expected 27`,
   linkedBirdOrderDescriptions !== 27 && `bird order descriptions linked to catalogue=${linkedBirdOrderDescriptions}, expected 27`,
   reptileOrders !== 3 && `reptile orders=${reptileOrders}, expected 3`,
@@ -171,4 +179,4 @@ db.close();
 if (failures.length > 0) throw new Error(`app database verification failed:\n- ${failures.join('\n- ')}`);
 
 console.log(`08-verify-app-db: OK — ${species} species, ${photos} photos, ${unknownOrigin} without established origin`);
-console.log(`  integrity, schema 11 sources/taxonomy/facts, traits, arthropod history, common names, FTS, paging, filters and quiz queries passed`);
+console.log(`  integrity, schema 12 animal/plant taxonomy, sources, traits, natural history, FTS, paging, filters and game queries passed`);

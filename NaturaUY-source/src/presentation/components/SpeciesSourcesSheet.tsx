@@ -62,6 +62,7 @@ export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSource
     ...(species.naturalHistory?.arthropod?.ecology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.ecology'))),
     ...(species.naturalHistory?.arthropod?.humanRelevance?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'relevant_note'))),
     ...(species.naturalHistory?.arthropod?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory'))),
+    ...(species.naturalHistory?.plant?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.plant'))),
     ...species.facts.flatMap((fact) => fact.sourceCode && !species.sources.some((source) => (source.sourceCode ?? source.source) === fact.sourceCode && source.record === (fact.sourceRecordId ?? null))
       ? [normalizedReference({ source: fact.sourceCode, record: fact.sourceRecordId ?? null, fieldPath: 'relevant_note', sourceCode: fact.sourceCode })]
       : []),

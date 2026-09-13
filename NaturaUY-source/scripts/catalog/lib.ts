@@ -18,6 +18,7 @@ export const PATHS = {
   catalog: resolve(DATA, 'catalog'),
   reports: resolve(DATA, 'reports'),
   arthropodDiscovery: resolve(DATA, 'cache/gbif/arthropod-discovery.json'),
+  floraUruguaya: resolve(DATA, 'raw/florauruguaya.org/vascular-plants/v1.3/especies_20260604_152756.csv'),
   arthropodOpen: {
     udelarSpiders: resolve(DATA, 'raw/udelar/coleccion-aranas-u6fa5g.zip'),
     hymenoptera: resolve(DATA, 'raw/gbif/parasitoides-hymenoptera-mu3rcs.zip'),
@@ -48,7 +49,7 @@ export const GROUP_METADATA: Record<Group, { kingdom: string; phylum: string }> 
 export function ensureDirs(): void {
   for (const dir of [PATHS.raw, resolve(PATHS.raw, 'biodiversidata'), resolve(PATHS.raw, 'ministerio'), resolve(PATHS.raw, 'udelar'), resolve(PATHS.raw, 'gbif'),
     resolve(PATHS.raw, 'otras_fuentes'), PATHS.cache, resolve(PATHS.cache, 'gbif'), resolve(PATHS.cache, 'media'), PATHS.normalized,
-    PATHS.catalog, PATHS.reports]) mkdirSync(dir, { recursive: true });
+    PATHS.catalog, PATHS.reports, resolve(PATHS.raw, 'florauruguaya.org/vascular-plants/v1.3')]) mkdirSync(dir, { recursive: true });
 }
 
 export function writeJson(file: string, value: unknown): void {

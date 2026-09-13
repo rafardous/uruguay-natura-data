@@ -6,6 +6,7 @@ import { PATHS, ROOT, downloadOnce, ensureDirs, writeJson } from './lib';
 const SOURCES = [
   { id: 'biodiversidata', title: 'Tetrápodos de Uruguay', type: 'occurrence', license: 'CC BY 4.0', url: 'https://cloud.gbif.org/uy/archive.do?r=tetrapodos_de_uruguay', target: PATHS.biodiversity },
   { id: 'ministerio', title: 'Especies de fauna del Uruguay evaluadas y reportadas en Listas Rojas', type: 'checklist', license: null, url: 'https://cloud.gbif.org/uy/archive.do?r=listas_rojas_fauna_uy', target: PATHS.ministry },
+  { id: 'flora_uruguaya', title: 'Flora Uruguaya Online — plantas vasculares v1.3', type: 'checklist', license: 'CC BY 4.0', url: 'https://zenodo.org/api/records/20547117/files/especies_20260604_152756.csv/content', target: PATHS.floraUruguaya },
 ] as const;
 
 const OPTIONAL_OPEN_ARTHROPOD_SOURCES = [

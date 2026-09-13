@@ -14,8 +14,8 @@ import { GROUP_METADATA, PATHS, readJson, slug, type Group } from './lib';
 const DB_PATH = process.env.NATURA_CATALOG_DB_PATH ?? resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 11;
-const DATA_VERSION = 1;
+const SCHEMA_VERSION = 12;
+const DATA_VERSION = 2;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -73,6 +73,7 @@ interface CatalogItem {
   };
   sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
   reviewStatus: string;
+  presenceCertainty?: 'confirmed' | 'probable' | 'uncertain' | null;
 }
 
 interface CatalogSource {
@@ -236,7 +237,7 @@ CREATE TABLE species_game_rules (
   min_knowledge_level TEXT, PRIMARY KEY(stable_id, game_key)
 );
 CREATE TABLE taxon_content (
-  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('phylum','subphylum','class','order','family','genus')),
+  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('kingdom','phylum','subphylum','class','order','family','genus')),
   kingdom TEXT NOT NULL, phylum TEXT NOT NULL, class_name TEXT NOT NULL, taxon_name TEXT NOT NULL,
   language TEXT NOT NULL, description TEXT NOT NULL, simple_name TEXT, source_code TEXT NOT NULL,
   UNIQUE(taxon_rank,class_name,taxon_name,language)
@@ -283,9 +284,22 @@ function stableTaxonId(parentId: string | null, rank: string, name: string): str
   return `taxon-${slug(`${parentId ?? 'root'}-${rank}-${name}`)}`;
 }
 
-function taxonPath(item: CatalogItem): Array<{ rank: string; name: string; parent: string | null }> {
-  const values: Array<{ rank: string; name: string }> = [];
-  if (item.taxonomy.phylum) values.push({ rank: 'phylum', name: item.taxonomy.phylum });
+const TAXON_PRESENTATION: Record<string, { simpleName: string; description: string; sortOrder: number }> = {
+  Animalia: { simpleName: 'Animales', description: 'Seres vivos que obtienen energía alimentándose de otros organismos y, en alguna etapa, suelen poder desplazarse.', sortOrder: 0 },
+  Plantae: { simpleName: 'Plantas', description: 'Seres vivos que realizan fotosíntesis y sostienen gran parte de las redes de vida terrestres y acuáticas.', sortOrder: 1 },
+  Chordata: { simpleName: 'Vertebrados', description: 'Animales con notocorda en alguna etapa del desarrollo; incluye peces, anfibios, reptiles, aves y mamíferos.', sortOrder: 0 },
+  Arthropoda: { simpleName: 'Artrópodos', description: 'Animales con exoesqueleto y apéndices articulados, como insectos, arácnidos y crustáceos.', sortOrder: 1 },
+  Tracheophyta: { simpleName: 'Plantas vasculares', description: 'Plantas con tejidos especializados que transportan agua y nutrientes. Incluye licófitas, helechos, gimnospermas y plantas con flor.', sortOrder: 0 },
+  Lycopodiopsida: { simpleName: 'Licófitas', description: 'Un linaje antiguo de plantas vasculares que se reproduce por esporas.', sortOrder: 0 },
+  Polypodiopsida: { simpleName: 'Helechos y afines', description: 'Plantas vasculares sin semillas que se reproducen mediante esporas.', sortOrder: 1 },
+  Gymnospermae: { simpleName: 'Gimnospermas', description: 'Plantas con semillas no encerradas en un fruto, como pinos, araucarias y efedras.', sortOrder: 2 },
+  Angiospermae: { simpleName: 'Plantas con flor', description: 'Plantas que producen flores y semillas protegidas dentro de frutos.', sortOrder: 3 },
+};
+
+function taxonPath(item: CatalogItem): Array<{ id: string; rank: string; name: string; parent: string | null }> {
+  const values: Array<{ rank: string; name: string; preserveRootId?: boolean }> = [];
+  if (item.taxonomy.kingdom) values.push({ rank: 'kingdom', name: item.taxonomy.kingdom });
+  if (item.taxonomy.phylum) values.push({ rank: 'phylum', name: item.taxonomy.phylum, preserveRootId: true });
   if (item.taxonomy.phylum === 'Arthropoda') {
     const bridge = item.taxonomy.class === 'Arachnida' ? 'Chelicerata' : item.taxonomy.class === 'Insecta' ? 'Hexapoda' : item.taxonomy.class === 'Malacostraca' ? 'Crustacea' : null;
     if (bridge) values.push({ rank: 'subphylum', name: bridge });
@@ -295,7 +309,14 @@ function taxonPath(item: CatalogItem): Array<{ rank: string; name: string; paren
   if (item.taxonomy.family) values.push({ rank: 'family', name: item.taxonomy.family });
   if (item.taxonomy.genus) values.push({ rank: 'genus', name: item.taxonomy.genus });
   let parent: string | null = null;
-  return values.map((value) => { const result = { ...value, parent }; parent = stableTaxonId(parent, value.rank, value.name); return result; });
+  return values.map((value) => {
+    // Schema 11 exposed root phylum IDs. Keep those IDs stable while moving
+    // the nodes below Animalia or Plantae.
+    const id = stableTaxonId(value.preserveRootId ? null : parent, value.rank, value.name);
+    const result = { id, rank: value.rank, name: value.name, parent };
+    parent = id;
+    return result;
+  });
 }
 
 function subphylumFor(item: CatalogItem): string {
@@ -509,7 +530,7 @@ function main(): void {
         image?.license ?? null, image?.attribution ?? null, image?.source ?? null, image?.sourcePage ?? null,
         palette.accent_light, palette.accent_dark, palette.container_light, palette.on_container_light,
         palette.container_dark, palette.on_container_dark,
-        origin, 'uncertain', first(rows, (row) => row.seasonality), 'uncertain', abundance,
+        origin, 'uncertain', first(rows, (row) => row.seasonality), first(rows, (row) => row.presenceCertainty) ?? 'uncertain', abundance,
         JSON.stringify(habitat), JSON.stringify(diet), first(rows, (row) => row.relevantNote),
         JSON.stringify(sources), 'hard', null, abundance,
       );
@@ -525,9 +546,10 @@ function main(): void {
       }
       const representative = rows[0]!;
       for (const [index, node] of taxonPath(representative).entries()) {
-        const taxonId = stableTaxonId(node.parent, node.rank, node.name);
-        insertTaxonNode.run(taxonId, node.parent, node.rank, node.name, null, '', '{}', '[]', index);
-        insertSpeciesTaxon.run(id, taxonId);
+        const presentation = TAXON_PRESENTATION[node.name];
+        const taxonomySources = rows.flatMap((row) => row.sources).filter((source) => source.fieldPath?.startsWith('taxonomy.'));
+        insertTaxonNode.run(node.id, node.parent, node.rank, node.name, presentation?.simpleName ?? null, presentation?.description ?? '', '{}', JSON.stringify(taxonomySources), presentation?.sortOrder ?? index);
+        insertSpeciesTaxon.run(id, node.id);
       }
     }
     const taxonomyDirectory = resolve(PATHS.catalog, '../taxonomy');
@@ -553,6 +575,15 @@ function main(): void {
         item.description, item.simpleName, simpleContent.sourceCode,
       );
     }
+    // Taxon cards now read the tree directly. Carry the reviewed schema-11
+    // prose into those nodes so switching to dynamic navigation does not lose
+    // the substantial Chordata/Arthropoda/class/order descriptions.
+    db.exec(`
+      UPDATE taxa SET
+        simple_name=COALESCE((SELECT content.simple_name FROM taxon_content content WHERE content.taxon_rank=taxa.rank AND content.taxon_name=taxa.canonical_name AND content.language='es-UY' ORDER BY content.class_name<>'' DESC LIMIT 1),simple_name),
+        description=COALESCE(NULLIF((SELECT content.description FROM taxon_content content WHERE content.taxon_rank=taxa.rank AND content.taxon_name=taxa.canonical_name AND content.language='es-UY' ORDER BY content.class_name<>'' DESC LIMIT 1),''),description)
+      WHERE EXISTS (SELECT 1 FROM taxon_content content WHERE content.taxon_rank=taxa.rank AND content.taxon_name=taxa.canonical_name AND content.language='es-UY');
+    `);
     const insertFact = db.prepare('INSERT INTO species_facts VALUES (?,?,?,?,?,?)');
     for (const fact of featuredFacts) {
       const species = db.prepare('SELECT stable_id FROM species WHERE scientific_name=?').get(fact.scientificName) as { stable_id: string } | undefined;
@@ -570,7 +601,9 @@ function main(): void {
     db.exec(`
       INSERT INTO species_fts (rowid, common_names, scientific_name, familia, genero)
       SELECT rowid, replace(replace(replace(common_names, '["', ''), '"]', ''), '","', ' '),
-             scientific_name, familia, genero FROM species;
+             scientific_name,
+             familia || ' ' || replace(replace(replace(COALESCE(json_extract(natural_history,'$.plant.nomenclature.familyAliases'),'[]'),'["',''),'"]',''),'","',' '),
+             genero FROM species;
     `);
     const meta = db.prepare('INSERT INTO meta (key, value) VALUES (?, ?)');
     meta.run('schema_version', String(SCHEMA_VERSION));

@@ -11,7 +11,7 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 - La app conserva `user.db`, modo invitado y funcionamiento offline. Favoritos y resultados se sincronizan sólo al iniciar sesión.
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
-- La publicación genera `natura.db`, `natura.db.gz`, `catalog-full.json`, nueve JSON por clase, manifest e informe público con schema 11. Incluye nombres alternativos buscables, IDs GBIF/CoL/WoRMS/iNaturalist, historia natural específica de artrópodos, distribución agregada, rasgos estructurados con evidencia, fuentes resolubles por campo, datos relevantes y contenido taxonómico en filo/clase/orden/familia, además de galería y trivia.
+- La publicación genera SQLite/JSON/manifest con schema 12. Incluye Animalia y 3157 plantas vasculares de Flora Uruguaya v1.3, árbol por reino con IDs estables, perfil botánico, taxonomía, fuentes por campo, galería y trivia.
 - La taxonomía publicada contempla `Arthropoda`, `Arachnida`, `Insecta` y `Malacostraca`. Catalogue of Life y WoRMS llegan como candidatos revisables; BOLD queda limitado a cobertura molecular y no alimenta texto ni medios.
 - `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
 - Abundancia experta (`species_abundance_assessments`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. Dificultad, reglas por juego, curiosidades y trivia tienen tablas propias y pasan por `content_changes`.
@@ -19,7 +19,7 @@ Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserv
 - El actualizador mobile valida versión, compatibilidad, tamaño, SHA-256 e integridad SQLite antes de activar la DB al siguiente inicio.
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. No se usa R2 ni un proxy de medios.
 
-La base histórica consolida 1006 entradas en 902 especies; el artefacto schema 11 actual suma 45 registros históricos de artrópodos sin conflicto y una especie verificable de las fuentes abiertas, quedando en 1052 registros/948 especies, con 947 códigos heredados estables. Los medios con licencia ambigua quedan archivados para revisión.
+La línea base animal queda en 1052 registros/948 especies. El artefacto schema 12 suma 3157 plantas vasculares y alcanza 4209 registros/4105 especies, conservando los 948 códigos animales existentes. Schema 12 y el catálogo completo están aplicados en Supabase; el panel autenticado ve las 4105 especies y los 3157 perfiles botánicos. Los medios con licencia ambigua quedan archivados para revisión.
 
 ## Desarrollo y verificación
 

@@ -36,6 +36,12 @@ alter table public.content_changes drop constraint if exists content_changes_con
 alter table public.content_changes add constraint content_changes_content_type_check
   check (content_type in ('abundance','game_profile','game_rule','fact','trivia','taxon_content'));
 
+-- Schema 10 only admitted phylum/class/order/family. The flexible tree and
+-- the schema-11 content below also need the intermediate and terminal ranks.
+alter table public.taxon_content drop constraint if exists taxon_content_taxon_rank_check;
+alter table public.taxon_content add constraint taxon_content_taxon_rank_check
+  check (taxon_rank in ('kingdom','phylum','subphylum','class','order','family','genus'));
+
 -- The generic editor RPC already applies the legacy columns. This trigger
 -- applies the additive schema-11 JSON fields after that RPC has recorded an
 -- approved change, preserving the immutable species_changes audit trail.

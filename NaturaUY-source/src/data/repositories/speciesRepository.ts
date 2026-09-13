@@ -20,6 +20,8 @@ export interface SpeciesFilters {
   search?: string;
   /** Several ranks at once, used by the hierarchical taxonomy browser. */
   taxonomy?: TaxonomyPath;
+  /** Stable node ID; includes every descendant species because the build links all ancestors. */
+  taxonId?: string;
   onlyNative?: boolean;
   /** Conservation rank >= 2 (priority or threatened). */
   onlyPriority?: boolean;
@@ -99,9 +101,10 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
         ${normalizedColumn('common_name')} LIKE ? OR
         ${normalizedColumn('scientific_name')} LIKE ? OR
         ${normalizedColumn('familia')} LIKE ? OR
-        ${normalizedColumn('genero')} LIKE ?
+        ${normalizedColumn('genero')} LIKE ? OR
+        LOWER(COALESCE(json_extract(species.natural_history, '$.plant.nomenclature.familyAliases'), '')) LIKE ?
       )`);
-      params.push(...Array<string>(4).fill(`%${token}%`));
+      params.push(...Array<string>(5).fill(`%${token}%`));
     }
   }
 
@@ -117,6 +120,10 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
   if (filters.conservationRank !== undefined) {
     clauses.push('species.conservation_rank = ?');
     params.push(filters.conservationRank);
+  }
+  if (filters.taxonId) {
+    clauses.push('EXISTS (SELECT 1 FROM species_taxa selected_taxon WHERE selected_taxon.stable_id=species.stable_id AND selected_taxon.taxon_id=?)');
+    params.push(filters.taxonId);
   }
   if (filters.onlyWithPhoto) clauses.push('species.image_url IS NOT NULL');
   if (filters.onlyWithRelevantNote) clauses.push("species.relevant_note IS NOT NULL AND TRIM(species.relevant_note) <> ''");
@@ -163,6 +170,38 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
  * everywhere.
  */
 export const speciesRepository = {
+  async listTaxonChildren(db: SQLiteDatabase, parentId: string | null): Promise<{
+    taxonId: string; parentId: string | null; rank: string; canonicalName: string; simpleName: string | null;
+    description: string; count: number; representativeImageUrl: string | null; representativeName: string | null;
+  }[]> {
+    const rows = await db.getAllAsync<{
+      taxon_id:string; parent_id:string|null; rank:string; canonical_name:string; simple_name:string|null;
+      description:string; count:number; representative_image_url:string|null; representative_name:string|null;
+    }>(`SELECT t.taxon_id,t.parent_id,t.rank,t.canonical_name,t.simple_name,t.description,
+              COUNT(DISTINCT st.stable_id) AS count,
+              (SELECT s.image_url FROM species_taxa sample JOIN species s ON s.stable_id=sample.stable_id WHERE sample.taxon_id=t.taxon_id AND s.image_url IS NOT NULL ORDER BY s.common_name COLLATE NOCASE LIMIT 1) AS representative_image_url,
+              (SELECT s.common_name FROM species_taxa sample JOIN species s ON s.stable_id=sample.stable_id WHERE sample.taxon_id=t.taxon_id AND s.image_url IS NOT NULL ORDER BY s.common_name COLLATE NOCASE LIMIT 1) AS representative_name
+       FROM taxa t LEFT JOIN species_taxa st ON st.taxon_id=t.taxon_id
+       WHERE ${parentId === null ? 't.parent_id IS NULL' : 't.parent_id=?'}
+       GROUP BY t.taxon_id ORDER BY t.sort_order,t.canonical_name COLLATE NOCASE`, parentId === null ? [] : [parentId]);
+    return rows.map((row) => ({ taxonId:row.taxon_id,parentId:row.parent_id,rank:row.rank,canonicalName:row.canonical_name,simpleName:row.simple_name,description:row.description,count:row.count,representativeImageUrl:row.representative_image_url,representativeName:row.representative_name }));
+  },
+
+  async getTaxonTrail(db: SQLiteDatabase, taxonId: string): Promise<{ taxonId:string; parentId:string|null; rank:string; canonicalName:string; simpleName:string|null; description:string }[]> {
+    const rows = await db.getAllAsync<{ taxon_id:string;parent_id:string|null;rank:string;canonical_name:string;simple_name:string|null;description:string;depth:number }>(
+      `WITH RECURSIVE trail(taxon_id,parent_id,rank,canonical_name,simple_name,description,depth) AS (
+         SELECT taxon_id,parent_id,rank,canonical_name,simple_name,description,0 FROM taxa WHERE taxon_id=?
+         UNION ALL
+         SELECT parent.taxon_id,parent.parent_id,parent.rank,parent.canonical_name,parent.simple_name,parent.description,trail.depth+1
+         FROM taxa parent JOIN trail ON parent.taxon_id=trail.parent_id
+       ) SELECT * FROM trail ORDER BY depth DESC`, [taxonId]);
+    return rows.map((row) => ({ taxonId:row.taxon_id,parentId:row.parent_id,rank:row.rank,canonicalName:row.canonical_name,simpleName:row.simple_name,description:row.description }));
+  },
+
+  async resolveLegacyTaxon(db: SQLiteDatabase, rank: TaxonRank, name: string): Promise<string | null> {
+    const row = await db.getFirstAsync<{taxon_id:string}>('SELECT taxon_id FROM taxa WHERE rank=? AND canonical_name=? ORDER BY taxon_id LIMIT 1', [databaseRank(rank), name]);
+    return row?.taxon_id ?? null;
+  },
   async findPaged(
     db: SQLiteDatabase,
     filters: SpeciesFilters,
