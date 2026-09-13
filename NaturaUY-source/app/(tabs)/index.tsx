@@ -208,7 +208,7 @@ function SpeciesCarousel({
         renderItem={({ item, index }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}
       />
       {slides.length > 1 && (
-        <View style={[styles.dots, { marginTop: spacing.md, backgroundColor: colors.surface, borderColor: colors.border, borderWidth: StyleSheet.hairlineWidth, borderRadius: radius.pill, paddingHorizontal: spacing.sm, paddingVertical: 6 }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
+        <View style={[styles.dots, { marginTop: spacing.md }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
           {slides.map((item, index) => (
             <View
               key={item.kind === 'metric' ? 'metric' : `${item.variant}-${item.species.codigo}`}

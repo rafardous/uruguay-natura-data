@@ -91,6 +91,12 @@ const arthropodSubphylumContent = scalar("SELECT COUNT(*) AS n FROM taxon_conten
 const linkedTaxa = scalar('SELECT COUNT(*) AS n FROM species_taxa');
 const arthropodClasses = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='class' AND taxon_name IN ('Arachnida','Insecta','Malacostraca') AND simple_name IS NOT NULL");
 const arthropodOrderDescriptions = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Arachnida','Insecta','Malacostraca') AND taxon_rank='order' AND TRIM(description) <> ''");
+const incompleteArthropodCardContent = scalar(`SELECT COUNT(*) AS n FROM taxon_content WHERE (
+  (taxon_rank='phylum' AND taxon_name='Arthropoda')
+  OR (taxon_rank='subphylum' AND taxon_name IN ('Chelicerata','Hexapoda','Crustacea'))
+  OR (taxon_rank='class' AND taxon_name IN ('Arachnida','Insecta','Malacostraca'))
+  OR (taxon_rank='order' AND class_name IN ('Arachnida','Insecta','Malacostraca'))
+  ) AND (simple_name IS NULL OR TRIM(simple_name)='' OR LENGTH(TRIM(description)) < 100)`);
 const redundantBirdSimpleName = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Aves','Actinopterygii','Chondrichthyes') AND taxon_rank='class' AND simple_name IS NOT NULL");
 
 // Same joins/filters/order used by speciesRepository.findPaged.
@@ -132,6 +138,7 @@ const failures = [
   linkedTaxa < species && `species taxon links=${linkedTaxa}, expected at least ${species}`,
   arthropodClasses !== 3 && `arthropod class descriptions=${arthropodClasses}, expected 3`,
   arthropodOrderDescriptions < 3 && `arthropod order descriptions=${arthropodOrderDescriptions}, expected at least 3`,
+  incompleteArthropodCardContent > 0 && `arthropod cards missing a simple name or substantial description=${incompleteArthropodCardContent}`,
   redundantBirdSimpleName > 0 && 'redundant simple names were added for birds or fish classes',
   hasMediaTable !== 1 && 'species_media table missing',
   hasAudioExternalId !== 1 && 'species_media.external_id column missing',

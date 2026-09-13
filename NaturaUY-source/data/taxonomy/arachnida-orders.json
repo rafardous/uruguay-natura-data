@@ -4,9 +4,9 @@
   "language": "es-UY",
   "source": { "code": "natura_uy_editorial" },
   "items": [
-    { "name": "Araneae", "description": "Arañas con quelíceros, pedipalpos y glándulas de seda; ocupan desde el suelo y la hojarasca hasta el dosel y los ambientes domésticos." },
-    { "name": "Opiliones", "description": "Arácnidos de cuerpo compacto, patas generalmente largas y sin una separación marcada entre prosoma y abdomen; cumplen roles de depredadores y detritívoros." },
-    { "name": "Scorpiones", "description": "Arácnidos con pinzas y una cola articulada que termina en el telson; se refugian bajo piedras, troncos y otros sustratos." },
-    { "name": "Solifugae", "description": "Arácnidos corredores con grandes quelíceros y hábitos principalmente terrestres; suelen refugiarse durante las horas de mayor calor." }
+    { "name": "Araneae", "simpleName": "Arañas", "description": "Producen seda mediante glándulas ubicadas en el abdomen, aunque no todas construyen telas para cazar. Usan sus quelíceros para capturar alimento y ocupan ambientes muy variados, desde la hojarasca y el pastizal hasta viviendas humanas." },
+    { "name": "Opiliones", "simpleName": "Opiliones", "description": "A diferencia de las arañas, su cuerpo parece una sola pieza y no producen seda ni veneno. Muchos tienen patas largas y se alimentan de pequeños organismos, restos animales, hongos o materia vegetal." },
+    { "name": "Scorpiones", "simpleName": "Escorpiones", "description": "Se reconocen por sus pedipalpos en forma de pinza y por la cola articulada que termina en un aguijón. Son depredadores principalmente nocturnos y durante el día suelen refugiarse bajo piedras, cortezas o troncos." },
+    { "name": "Solifugae", "simpleName": "Solífugos", "description": "Son corredores terrestres de grandes quelíceros, pero no poseen cola con aguijón ni glándulas de veneno. Cazan pequeños invertebrados y suelen evitar las horas de mayor calor buscando refugio en grietas o bajo objetos." }
   ]
 }

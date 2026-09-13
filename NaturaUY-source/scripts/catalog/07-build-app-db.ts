@@ -99,7 +99,7 @@ interface SimpleTaxonContent {
   language: string;
   sourceCode: string;
   items: Array<{
-    rank: 'phylum' | 'class' | 'order';
+    rank: 'phylum' | 'subphylum' | 'class' | 'order';
     className: string;
     name: string;
     simpleName: string;
@@ -536,12 +536,12 @@ function main(): void {
       ON CONFLICT(taxon_rank,class_name,taxon_name,language) DO UPDATE SET
         description=excluded.description,simple_name=COALESCE(excluded.simple_name,taxon_content.simple_name),source_code=excluded.source_code`);
     for (const file of orderContentFiles) {
-      const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; kingdom?:string; phylum?:string; items:Array<{name:string;description:string}> }>(resolve(taxonomyDirectory, file));
+      const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; kingdom?:string; phylum?:string; items:Array<{name:string;simpleName?:string;description:string}> }>(resolve(taxonomyDirectory, file));
       if (content.rank !== 'order') continue;
       for (const item of content.items) {
         insertTaxon.run(
           `${content.taxonomicClass.toLocaleLowerCase()}-order-${item.name.toLocaleLowerCase()}`,
-          'order',content.kingdom ?? 'Animalia',content.phylum ?? GROUP_METADATA[content.taxonomicClass as Group]?.phylum ?? 'Chordata',content.taxonomicClass,item.name,content.language,item.description,null,content.source.code,
+          'order',content.kingdom ?? 'Animalia',content.phylum ?? GROUP_METADATA[content.taxonomicClass as Group]?.phylum ?? 'Chordata',content.taxonomicClass,item.name,content.language,item.description,item.simpleName ?? null,content.source.code,
         );
       }
     }

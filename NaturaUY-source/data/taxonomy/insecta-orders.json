@@ -4,8 +4,8 @@
   "language": "es-UY",
   "source": { "code": "natura_uy_editorial" },
   "items": [
-    { "name": "Diptera", "description": "Insectos con un solo par de alas funcionales; el segundo par está transformado en estructuras que ayudan a estabilizar el vuelo." },
-    { "name": "Hemiptera", "description": "Insectos con piezas bucales adaptadas para perforar y succionar; incluye chinches, pulgones y otros grupos asociados a plantas o animales." },
-    { "name": "Blattodea", "description": "Orden que incluye cucarachas y termitas. Las termitas son insectos sociales y el nombre histórico Isoptera se conserva sólo como referencia." }
+    { "name": "Diptera", "simpleName": "Moscas y mosquitos", "description": "Tienen un solo par de alas funcionales; el segundo se transformó en pequeños balancines que estabilizan el vuelo. Sus larvas viven en ambientes muy diversos y los adultos pueden actuar como polinizadores, descomponedores, depredadores o parásitos." },
+    { "name": "Hemiptera", "simpleName": "Chinches, cigarras y pulgones", "description": "Comparten un aparato bucal parecido a un pico, adaptado para perforar y succionar líquidos. Muchas especies se alimentan de savia, mientras otras son depredadoras o consumen sangre; incluye chinches, cigarras, chicharras y pulgones." },
+    { "name": "Blattodea", "simpleName": "Cucarachas y termitas", "description": "Incluye a las cucarachas y también a las termitas, que son cucarachas sociales especializadas. Muchas especies ayudan a descomponer materia orgánica; sólo una pequeña parte vive asociada a ambientes domésticos." }
   ]
 }

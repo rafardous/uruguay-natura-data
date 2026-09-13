@@ -15,8 +15,8 @@ import { SpeciesFilterSheet, blankSpeciesSelection, friendlyFilterValue, species
 import { EmptyState } from '../../src/presentation/components/EmptyState';
 import { SearchBar } from '../../src/presentation/components/SearchBar';
 import { CARD_HEIGHT, SpeciesCard, SpeciesCardSkeleton } from '../../src/presentation/components/SpeciesCard';
-import { LearnFieldGuideArt, SpeciesLensArt, TaxonomyMiniMap } from '../../src/presentation/components/DiscoverArtwork';
-import { ChevronRightIcon, MenuIcon, SlidersIcon } from '../../src/presentation/components/TabIcons';
+import { SpeciesLensArt, TaxonomyMiniMap } from '../../src/presentation/components/DiscoverArtwork';
+import { BookIcon, ChevronRightIcon, MenuIcon, SlidersIcon } from '../../src/presentation/components/TabIcons';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useSpeciesList } from '../../src/presentation/hooks/useSpeciesList';
@@ -85,7 +85,7 @@ export default function ExploreScreen(): React.JSX.Element {
         <View style={[styles.featureAccent, { backgroundColor: '#52705A' }]} /><View style={[styles.featureIcon, { backgroundColor: '#C7DABE', borderRadius: radius.md }]}><SpeciesLensArt species={discoverSpecies} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: '#304C3A' }]}>Ver todas las especies</Text><Text style={[typography.caption, { color: '#526559', marginTop: 3 }]}>Catálogo completo con filtros y búsqueda</Text></View><ChevronRightIcon color="#41634B" />
       </Pressable>
       <Pressable onPress={() => { haptics.tap(); router.push('/learn' as never); }} style={[styles.featureCard, elevation.low, { backgroundColor: '#F3E4BE', borderColor: '#D8BC76', borderRadius: radius.lg }]} accessibilityRole="button" accessibilityLabel="Aprender sobre taxonomía">
-        <View style={[styles.featureAccent, { backgroundColor: '#A17528' }]} /><View style={[styles.featureIcon, { backgroundColor: '#E9D298', borderRadius: radius.md }]}><LearnFieldGuideArt /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: '#604815' }]}>Aprender</Text><Text style={[typography.caption, { color: '#705F38', marginTop: 3 }]}>Guía paso a paso de taxonomía y clasificación</Text></View><ChevronRightIcon color="#765819" />
+        <View style={[styles.featureAccent, { backgroundColor: '#A17528' }]} /><View style={[styles.featureIcon, { backgroundColor: '#E9D298', borderRadius: radius.md }]}><BookIcon color="#765819" size={38} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: '#604815' }]}>Aprender</Text><Text style={[typography.caption, { color: '#705F38', marginTop: 3 }]}>Guía paso a paso de taxonomía y clasificación</Text></View><ChevronRightIcon color="#765819" />
       </Pressable>
       <Pressable onPress={() => { haptics.tap(); router.push('/biomes' as never); }} style={[styles.featureCard, elevation.low, { backgroundColor: '#DCEBE7', borderColor: '#9DBFB6', borderRadius: radius.lg }]}>
         <View style={[styles.featureAccent, { backgroundColor: '#47776C' }]} /><View style={[styles.featureIcon, { backgroundColor: '#BFDAD3', borderRadius: radius.md }]}><NativeImage source={require('../../assets/images/discover/habitats.png')} resizeMode="contain" style={styles.featureArt} accessibilityLabel="Pastizal, humedal y monte nativo de Uruguay" /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: '#294F48' }]}>Explorar ambientes</Text><Text style={[typography.caption, { color: '#4E6761', marginTop: 3 }]}>Pastizales, humedales, montes y costas de Uruguay</Text></View><ChevronRightIcon color="#35675C" />
