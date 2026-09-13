@@ -1,6 +1,6 @@
 {
   "name": "natura-uy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "expo-router/entry",
   "private": true,
   "scripts": {
@@ -19,6 +19,8 @@
     "data:verify": "tsx scripts/07-verify.ts",
     "data:all": "npm run data:normalize && npm run data:taxonomy && npm run data:media && npm run data:thumbs && npm run data:accent && npm run data:db && npm run data:verify",
     "data:sources": "tsx scripts/catalog/01-sources.ts",
+    "data:arthropod-discovery": "tsx scripts/catalog/01b-discover-arthropods.ts",
+    "data:ecoregistros-reference": "tsx scripts/catalog/01c-parse-ecoregistros.ts",
     "data:catalog-normalize": "tsx scripts/catalog/02-normalize.ts",
     "data:catalog-taxonomy": "tsx scripts/catalog/03-taxonomy.ts",
     "data:audit": "tsx scripts/catalog/04-audit.ts",
@@ -26,11 +28,16 @@
     "data:build-catalog": "tsx scripts/catalog/06-build-catalog.ts",
     "data:catalog-db": "tsx scripts/catalog/07-build-app-db.ts",
     "data:catalog-verify": "tsx scripts/catalog/08-verify-app-db.ts",
+    "data:audio-assets": "tsx scripts/catalog/14-build-audio-assets.ts",
     "data:enrichment-candidates": "tsx scripts/catalog/09-enrichment-candidates.ts",
     "data:observability": "tsx scripts/catalog/10-observability.ts",
     "data:traits": "tsx scripts/catalog/11-traits.ts",
+    "data:external-discovery": "tsx scripts/catalog/13-external-discovery.ts",
     "data:traits-apply": "node scripts/catalog/12-apply-approved-traits.mjs",
-    "data:catalog-all": "npm run data:sources && npm run data:catalog-normalize && npm run data:catalog-taxonomy && npm run data:audit && npm run data:catalog-media && npm run data:build-catalog && npm run data:catalog-db && npm run data:catalog-verify"
+    "data:catalog-candidates": "npm run data:arthropod-discovery && npm run data:enrichment-candidates && npm run data:observability -- --batch=25 && npm run data:traits && npm run data:external-discovery -- --batch=25",
+    "data:catalog-refresh": "npm run data:sources && npm run data:arthropod-discovery -- --refresh && npm run data:ecoregistros-reference && npm run data:catalog-normalize && npm run data:catalog-taxonomy && npm run data:catalog-media",
+    "data:catalog-build": "npm run data:catalog-normalize && npm run data:audit && npm run data:enrichment-candidates && npm run data:traits && npm run data:build-catalog && npm run data:catalog-db && npm run data:catalog-verify",
+    "data:catalog-all": "npm run data:catalog-refresh && npm run data:catalog-build"
   },
   "dependencies": {
     "@expo-google-fonts/manrope": "^0.4.2",

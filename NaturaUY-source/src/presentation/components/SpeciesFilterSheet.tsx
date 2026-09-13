@@ -12,6 +12,9 @@ export interface SpeciesSelection {
   habitats: string[];
   diets: string[];
   seasonalities: string[];
+  metamorphoses: string[];
+  trophicRoles: string[];
+  microhabitats: string[];
   onlyNative: boolean;
   onlyPriority: boolean;
 }
@@ -20,10 +23,13 @@ export interface SpeciesFilterOptions {
   habitats: string[];
   diets: string[];
   seasonalities: string[];
+  metamorphoses: string[];
+  trophicRoles: string[];
+  microhabitats: string[];
 }
 
 export const blankSpeciesSelection = (): SpeciesSelection => ({
-  classes: [], habitats: [], diets: [], seasonalities: [], onlyNative: false, onlyPriority: false,
+  classes: [], habitats: [], diets: [], seasonalities: [], metamorphoses: [], trophicRoles: [], microhabitats: [], onlyNative: false, onlyPriority: false,
 });
 
 export const toggleSpeciesSelection = (items: string[], value: string): string[] => (
@@ -31,12 +37,12 @@ export const toggleSpeciesSelection = (items: string[], value: string): string[]
 );
 
 export const speciesSelectionCount = (selection: SpeciesSelection): number => (
-  selection.classes.length + selection.habitats.length + selection.diets.length + selection.seasonalities.length
+  selection.classes.length + selection.habitats.length + selection.diets.length + selection.seasonalities.length + selection.metamorphoses.length + selection.trophicRoles.length + selection.microhabitats.length
   + Number(selection.onlyNative) + Number(selection.onlyPriority)
 );
 
 export const friendlyFilterValue = (value: string): string => (
-  ({ migratory: 'Migratoria', resident: 'Residente', summer_visitor: 'Visitante estival' }[value]
+  ({ migratory: 'Migratoria', resident: 'Residente', summer_visitor: 'Visitante estival', incomplete: 'Incompleta', complete: 'Completa', none: 'Sin metamorfosis', variable: 'Variable' }[value]
     ?? value.replaceAll('_', ' '))
 );
 
@@ -74,7 +80,7 @@ export function SpeciesFilterSheet({
 }): React.JSX.Element {
   const { colors, radius, spacing, typography } = useTheme();
   const insets = useSafeAreaInsets();
-  const setList = (key: 'classes' | 'habitats' | 'diets' | 'seasonalities', value: string): void => {
+  const setList = (key: 'classes' | 'habitats' | 'diets' | 'seasonalities' | 'metamorphoses' | 'trophicRoles' | 'microhabitats', value: string): void => {
     onChange({ ...draft, [key]: toggleSpeciesSelection(draft[key], value) });
   };
   return (
@@ -99,6 +105,9 @@ export function SpeciesFilterSheet({
             <Group title="HÁBITAT" values={options.habitats} selected={draft.habitats} change={(value) => setList('habitats', value)} />
             <Group title="ALIMENTACIÓN" values={options.diets} selected={draft.diets} change={(value) => setList('diets', value)} />
             <Group title="ESTACIONALIDAD" values={options.seasonalities} selected={draft.seasonalities} change={(value) => setList('seasonalities', value)} />
+            <Group title="METAMORFOSIS" values={options.metamorphoses} selected={draft.metamorphoses} change={(value) => setList('metamorphoses', value)} />
+            <Group title="ROL ECOLÓGICO" values={options.trophicRoles} selected={draft.trophicRoles} change={(value) => setList('trophicRoles', value)} />
+            <Group title="MICROHÁBITAT" values={options.microhabitats} selected={draft.microhabitats} change={(value) => setList('microhabitats', value)} />
             <View style={styles.chips}>
               <Chip label="Solo nativas" selected={draft.onlyNative} onPress={() => onChange({ ...draft, onlyNative: !draft.onlyNative })} />
               <Chip label="Prioridad de conservación" selected={draft.onlyPriority} onPress={() => onChange({ ...draft, onlyPriority: !draft.onlyPriority })} />

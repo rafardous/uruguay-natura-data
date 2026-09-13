@@ -30,6 +30,7 @@ function groupFor(fieldPath: string): typeof GROUPS[number][0] {
   if (field.includes('habitat')) return 'habitat';
   if (field.includes('diet') || field.includes('aliment')) return 'diet';
   if (field.includes('description')) return 'description';
+  if (field.includes('naturalhistory')) return 'traits';
   if (field.includes('relevant') || field.includes('fact')) return 'relevant';
   return 'general';
 }
@@ -44,15 +45,33 @@ function normalizedReference(reference: SpeciesSource): SpeciesSource & { group:
   return { ...reference, fieldPath, sourceCode: inferredCode, group: groupFor(fieldPath), label };
 }
 
+function naturalHistoryReference(value: SpeciesSource | string, fieldPath: string): SpeciesSource {
+  if (typeof value !== 'string') return { ...value, fieldPath: value.fieldPath ?? fieldPath };
+  const separator = value.indexOf(': ');
+  return { source: separator > 0 ? value.slice(0, separator) : value, record: separator > 0 ? value.slice(separator + 2) : null, fieldPath, sourceCode: separator > 0 ? value.slice(0, separator) : value };
+}
+
 export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSourcesSheetProps): React.JSX.Element {
   const { colors, radius, spacing, typography } = useTheme();
   const references = [
     ...species.sources.map(normalizedReference),
     ...species.traits.sources.map((code) => normalizedReference({ source: code, record: null, fieldPath: 'traits', sourceCode: code })),
+    ...(species.naturalHistory?.arthropod?.morphology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.morphology'))),
+    ...(species.naturalHistory?.arthropod?.identification?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.identification'))),
+    ...(species.naturalHistory?.arthropod?.lifeCycle?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.lifeCycle'))),
+    ...(species.naturalHistory?.arthropod?.ecology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.ecology'))),
+    ...(species.naturalHistory?.arthropod?.humanRelevance?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'relevant_note'))),
+    ...(species.naturalHistory?.arthropod?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory'))),
     ...species.facts.flatMap((fact) => fact.sourceCode && !species.sources.some((source) => (source.sourceCode ?? source.source) === fact.sourceCode && source.record === (fact.sourceRecordId ?? null))
       ? [normalizedReference({ source: fact.sourceCode, record: fact.sourceRecordId ?? null, fieldPath: 'relevant_note', sourceCode: fact.sourceCode })]
       : []),
   ].filter((item, index, all) => all.findIndex((candidate) => `${candidate.group}|${candidate.sourceCode}|${candidate.record}|${candidate.url}` === `${item.group}|${item.sourceCode}|${item.record}|${item.url}`) === index);
+  const identifiers = [
+    species.taxonIdentifiers?.gbif?.usageKey && { label: 'GBIF', value: String(species.taxonIdentifiers.gbif.usageKey), url: `https://www.gbif.org/species/${species.taxonIdentifiers.gbif.usageKey}` },
+    species.taxonIdentifiers?.catalogueOfLife?.taxonId && { label: 'Catalogue of Life', value: species.taxonIdentifiers.catalogueOfLife.taxonId, url: `https://www.catalogueoflife.org/data/taxon/${encodeURIComponent(species.taxonIdentifiers.catalogueOfLife.taxonId)}` },
+    species.taxonIdentifiers?.worms?.aphiaId && { label: 'WoRMS', value: String(species.taxonIdentifiers.worms.aphiaId), url: `https://www.marinespecies.org/aphia.php?p=taxdetails&id=${species.taxonIdentifiers.worms.aphiaId}` },
+    species.taxonIdentifiers?.iNaturalist?.taxonId && { label: 'iNaturalist', value: String(species.taxonIdentifiers.iNaturalist.taxonId), url: `https://www.inaturalist.org/taxa/${species.taxonIdentifiers.iNaturalist.taxonId}` },
+  ].filter((item): item is { label: string; value: string; url: string } => Boolean(item));
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose} statusBarTranslucent>
@@ -66,6 +85,7 @@ export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSource
           </View>
           <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: spacing.xxl, gap: spacing.lg }}>
             {references.length === 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Este registro todavía sólo conserva referencias generales del catálogo histórico.</Text>}
+            {identifiers.length > 0 && <View style={{ gap: spacing.sm }}><Text style={[typography.eyebrow, { color: colors.primary }]}>IDENTIFICADORES TÉCNICOS</Text>{identifiers.map((identifier) => <Pressable key={identifier.label} onPress={() => void Linking.openURL(identifier.url)} style={[styles.reference, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]} accessibilityRole="link"><View style={styles.flex}><Text style={[typography.label, { color: colors.text }]}>{identifier.label}</Text><Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>{identifier.value}</Text></View><ExternalLinkIcon color={colors.primary} /></Pressable>)}</View>}
             {GROUPS.map(([group, title]) => {
               const items = references.filter((reference) => reference.group === group);
               if (!items.length) return null;

@@ -197,7 +197,6 @@ function SpeciesCarousel({
         // driven separately above so a quick finger never inherits 1440ms.
         animation={{ type: 'spring', damping: 18, stiffness: 220, mass: 0.72 }}
         snapMode="page"
-        layout={{ type: 'parallax', offset: 24, scale: 0.94, adjacentScale: 0.86 }}
         onScrollStart={() => {
           stopAutoplay();
           cancelAnimation(scrollOffset);
@@ -209,7 +208,7 @@ function SpeciesCarousel({
         renderItem={({ item, index }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}
       />
       {slides.length > 1 && (
-        <View style={[styles.dots, { marginTop: spacing.md, paddingHorizontal: spacing.lg }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
+        <View style={[styles.dots, { marginTop: spacing.md, backgroundColor: colors.surface, borderColor: colors.border, borderWidth: StyleSheet.hairlineWidth, borderRadius: radius.pill, paddingHorizontal: spacing.sm, paddingVertical: 6 }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
           {slides.map((item, index) => (
             <View
               key={item.kind === 'metric' ? 'metric' : `${item.variant}-${item.species.codigo}`}
@@ -263,8 +262,9 @@ export default function HomeScreen(): React.JSX.Element {
   const [searchWidth, setSearchWidth] = useState<number | null>(null);
   const searchBlurTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const NEWS_CACHE_KEY = 'home.news.v1';
-  const carouselPadding = 12;
-  const cardWidth = Math.max(280, windowWidth - carouselPadding * 2);
+  // Keep the carousel aligned with the daily species card below.
+  const carouselPadding = spacing.lg;
+  const cardWidth = Math.max(240, windowWidth - carouselPadding * 2);
 
   const carouselSlides = useMemo<CarouselSlide[]>(() => [
     { kind: 'metric', value: total },

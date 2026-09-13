@@ -59,6 +59,7 @@ create table species (
   kingdom text not null, phylum text not null, clase text not null, orden text not null, familia text not null, genero text not null, epiteto text not null,
   estado_conservacion text not null, conservation_label text not null, conservation_rank integer not null, conservation_system text, conservation_source text, conservation_assessed_at text,
   nativa integer not null, descripcion text not null, alimentacion text not null, tamano text not null, traits text not null,
+  taxon_identifiers text not null, natural_history text not null, distribution_summary text not null,
   image_url text, full_url text, thumb_asset text, audio_url text, image_license text, image_attribution text, image_source text, image_page text,
   accent_light text not null, accent_dark text not null, container_light text not null, on_container_light text not null, container_dark text not null, on_container_dark text not null,
   origin text, establishment text, seasonality text, presence_certainty text, abundance_status text, habitat text not null, diet text not null, relevant_note text, sources text not null,
@@ -118,7 +119,7 @@ create table meta (key text primary key, value text not null);
 `);
 
 const defaults = ['#477052', '#BDD0B7', '#DCE8D8', '#293832', '#31533D', '#E5F1E2'];
-const insert = db.prepare(`insert into species values (${Array.from({ length: 50 }, () => '?').join(',')})`);
+const insert = db.prepare(`insert into species values (${Array.from({ length: 53 }, () => '?').join(',')})`);
 const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 const insertObservability = db.prepare('insert into species_observability values (?,?,?,?,?,?,?,?,?,?)');
 const insertFact = db.prepare('insert into species_facts values (?,?,?,?,?,?)');
@@ -146,7 +147,8 @@ try {
       species.order_name ?? '', species.family ?? '', species.genus ?? '', String(species.scientific_name).split(' ')[1] ?? '',
       category, species.conservation_label || category, Number(species.conservation_rank ?? 0), species.conservation_system,
       species.conservation_source, species.conservation_assessed_at, species.origin === 'native' ? 1 : 0,
-      species.description ?? '', (species.diet ?? []).join(', '), species.size ?? '', JSON.stringify(species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }), item.imageUrl,
+      species.description ?? '', (species.diet ?? []).join(', '), species.size ?? '', JSON.stringify(species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }),
+      JSON.stringify(species.taxon_identifiers ?? {}), JSON.stringify(species.natural_history ?? {}), JSON.stringify(species.distribution_summary ?? {}), item.imageUrl,
       item.image?.storage_path ? `${required('SUPABASE_URL').replace(/\/$/, '')}/storage/v1/object/public/media-public/${item.image.storage_path}` : null,
       null, item.audioUrl, item.image?.license ?? null, item.image?.author ?? null, item.image?.source ?? null,
       item.image?.source_url ?? null, ...defaults, species.origin, species.establishment, species.seasonality,
@@ -154,10 +156,10 @@ try {
       JSON.stringify(species.diet ?? []), species.relevant_note, JSON.stringify(references),
       item.gameProfile?.knowledge_level ?? 'hard', item.abundance?.category ?? null, item.abundance?.label ?? null,
     ];
-    if (values.length !== 50) throw new Error(`SQLite column mismatch: expected 50, got ${values.length}`);
+    if (values.length !== 53) throw new Error(`SQLite column mismatch: expected 53, got ${values.length}`);
     insert.run(...values);
     item.images.forEach((image, index) => insertMedia.run(image.id, species.id, 'image', index + 1, image.id === item.image?.id ? 1 : 0,
-      mediaUrl(image.storage_path), mediaUrl(image.thumbnail_path ?? image.storage_path), image.author, image.license, image.source, image.source_url, null, image.external_id ?? null, null));
+      mediaUrl(image.storage_path), mediaUrl(image.thumbnail_path ?? image.storage_path), image.author, image.license, image.source, image.source_url, null, image.external_id ?? null, image.original_license ?? null));
     if (item.audio?.storage_path) insertMedia.run(item.audio.id, species.id, 'audio', 1, 0, mediaUrl(item.audio.storage_path), null,
       item.audio.author, item.audio.license, item.audio.source, item.audio.source_url, Number(item.audio.clip_duration_seconds ?? item.audio.duration_seconds ?? 15), item.audio.external_id ?? null, item.audio.original_license ?? null);
     if (item.observability) insertObservability.run(

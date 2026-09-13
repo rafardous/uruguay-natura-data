@@ -38,6 +38,7 @@ import { useSpeciesList } from '../src/presentation/hooks/useSpeciesList';
 import { useTaxonomyChildren } from '../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
 import { CHORDATA_CLASS_ORDER, classVisual, type ClassVisual } from '../src/presentation/taxonomy/classVisuals';
+import { orderPhylumOptions } from '../src/presentation/taxonomy/taxonOrdering';
 import { spacing as space } from '../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
@@ -47,6 +48,7 @@ const loadedOrderImages = new Set<string>();
 
 const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt: string }> = {
   phylum: { singular: 'Filo', plural: 'filos', prompt: 'Elegí un filo' },
+  subfilo: { singular: 'Subfilo', plural: 'subfilos', prompt: 'Elegí un subfilo' },
   clase: { singular: 'Clase', plural: 'clases', prompt: 'Elegí una clase' },
   orden: { singular: 'Orden', plural: 'órdenes', prompt: 'Elegí un orden' },
   familia: { singular: 'Familia', plural: 'familias', prompt: 'Elegí una familia' },
@@ -55,8 +57,11 @@ const RANK_LABELS: Record<TaxonRank, { singular: string; plural: string; prompt:
 
 const CHORDATA_DESCRIPTION =
   'Animales con notocorda en alguna etapa de su desarrollo. Incluye a todos los vertebrados: peces, anfibios, reptiles, aves y mamíferos.';
+const ARTHROPODA_DESCRIPTION =
+  'Animales invertebrados con exoesqueleto y apéndices articulados. En Uruguay incluye insectos, arácnidos y crustáceos.';
 const SIMPLE_TAXON_NAMES: Record<string, string> = {
-  Chordata: 'Vertebrados', Mammalia: 'Mamíferos', Reptilia: 'Reptiles', Amphibia: 'Anfibios',
+  Chordata: 'Vertebrados', Arthropoda: 'Artrópodos', Chelicerata: 'Quelicerados', Hexapoda: 'Hexápodos', Crustacea: 'Crustáceos', Mammalia: 'Mamíferos', Reptilia: 'Reptiles', Amphibia: 'Anfibios',
+  Arachnida: 'Arácnidos', Insecta: 'Insectos', Malacostraca: 'Crustáceos',
 };
 
 const taxonName = (rank: TaxonRank, value: string): string =>
@@ -67,6 +72,13 @@ function ChordataIllustration(): React.JSX.Element {
   const [failed, setFailed] = useState(false);
   if (failed) return <View style={[styles.phylumImage, styles.illustrationFallback]}><TaxonomyIcon color={colors.primary} size={38} /></View>;
   return <NativeImage source={require('../assets/images/taxonomy/chordata-vertebrates.png')} resizeMode="contain" style={styles.phylumImage} onError={() => setFailed(true)} accessibilityLabel="Pez, ave, anfibio, reptil y mamífero representando a los vertebrados" />;
+}
+
+function PhylumIllustration({ phylum }: { phylum: string }): React.JSX.Element {
+  const { colors } = useTheme();
+  if (phylum.trim().toLocaleLowerCase() === 'chordata') return <ChordataIllustration />;
+  if (phylum.trim().toLocaleLowerCase() === 'arthropoda') return <NativeImage source={require('../assets/images/taxonomy/arthropoda-invertebrates.png')} resizeMode="contain" style={styles.phylumImage} accessibilityLabel="Mariposa espejitos, bicho torito, libélula, araña pollito y cangrejo estuarino representando a los artrópodos" />;
+  return <View style={[styles.phylumImage, styles.illustrationFallback]}><FamilyGlyph clase={phylum} color={colors.primary} size={48} /></View>;
 }
 
 function ClassIllustration({ clase, visual }: { clase: string; visual: ClassVisual }): React.JSX.Element {
@@ -185,6 +197,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
   const router = useRouter();
   const params = useLocalSearchParams<{
     phylum?: string;
+    subfilo?: string;
     clase?: string;
     orden?: string;
     familia?: string;
@@ -193,18 +206,21 @@ export default function TaxonomyScreen(): React.JSX.Element {
   }>();
   const paramsKey = TAXON_RANKS.map((rank) => params[rank] ?? '').join('|');
   const [path, setPath] = useState<TaxonomyPath>(() => pathFromParams(params));
-  const currentRank = TAXON_RANKS.find((rank) => path[rank] === undefined) ?? null;
+  const selectedPhylum = path.phylum;
+  const activeRanks = selectedPhylum?.toLocaleLowerCase('es') === 'arthropoda' ? TAXON_RANKS : TAXON_RANKS.filter((rank) => rank !== 'subfilo');
+  const currentRank = activeRanks.find((rank) => path[rank] === undefined) ?? null;
   const { items, loading } = useTaxonomyChildren(currentRank, path);
   const [selectedTaxonContent, setSelectedTaxonContent] = useState<{ rank: TaxonRank; description: string; simpleName: string | null } | null>(null);
-  const orderedItems = useMemo(() => {
-    if (currentRank !== 'clase' || path.phylum?.trim().toLocaleLowerCase() !== 'chordata') return items;
-    return [...items].sort((left, right) => {
-      const leftOrder = CHORDATA_CLASS_ORDER[left.value] ?? Number.MAX_SAFE_INTEGER;
-      const rightOrder = CHORDATA_CLASS_ORDER[right.value] ?? Number.MAX_SAFE_INTEGER;
-      return leftOrder - rightOrder || left.value.localeCompare(right.value, 'es');
-    });
-  }, [currentRank, items, path.phylum]);
-  const selectedRanks = TAXON_RANKS.filter((rank) => path[rank] !== undefined);
+  const orderedItems = currentRank === 'phylum'
+    ? orderPhylumOptions(items)
+    : currentRank === 'clase' && selectedPhylum?.trim().toLocaleLowerCase() === 'chordata'
+    ? [...items].sort((left, right) => {
+        const leftOrder = CHORDATA_CLASS_ORDER[left.value] ?? Number.MAX_SAFE_INTEGER;
+        const rightOrder = CHORDATA_CLASS_ORDER[right.value] ?? Number.MAX_SAFE_INTEGER;
+        return leftOrder - rightOrder || left.value.localeCompare(right.value, 'es');
+      })
+    : items;
+  const selectedRanks = activeRanks.filter((rank) => path[rank] !== undefined);
   const breadcrumbRef = useRef<ScrollView>(null);
   const bottomInset = navigationBottomInset(insets.bottom, spacing.lg);
   const visibleHaptics = useViewableItemHaptics(`${currentRank ?? 'species'}:${TAXON_RANKS.map((rank) => path[rank] ?? '').join('|')}`);
@@ -222,6 +238,8 @@ export default function TaxonomyScreen(): React.JSX.Element {
     if (!rank || !value || value === UNASSIGNED_TAXON) { setSelectedTaxonContent(null); return; }
     const fallback = rank === 'phylum' && value.toLocaleLowerCase('es') === 'chordata'
       ? CHORDATA_DESCRIPTION
+      : rank === 'phylum' && value.toLocaleLowerCase('es') === 'arthropoda'
+        ? ARTHROPODA_DESCRIPTION
       : rank === 'clase' ? classVisual(value)?.description ?? null : null;
     let active = true;
     void speciesRepository.getTaxonContent(db, rank, path.clase ?? '', value).then((content) => {
@@ -262,7 +280,7 @@ export default function TaxonomyScreen(): React.JSX.Element {
     haptics.tick();
     setPath((current) => {
       const next: TaxonomyPath = {};
-      for (const candidate of TAXON_RANKS) {
+      for (const candidate of activeRanks) {
         if (candidate === rank) {
           next[candidate] = value;
           break;
@@ -271,19 +289,19 @@ export default function TaxonomyScreen(): React.JSX.Element {
       }
       return next;
     });
-  }, []);
+  }, [activeRanks]);
 
   const returnTo = useCallback((rank: TaxonRank) => {
     haptics.tick();
     setPath((current) => {
       const next: TaxonomyPath = {};
-      for (const candidate of TAXON_RANKS) {
+      for (const candidate of activeRanks) {
         if (current[candidate] !== undefined) next[candidate] = current[candidate];
         if (candidate === rank) break;
       }
       return next;
     });
-  }, []);
+  }, [activeRanks]);
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.background }]}> 
@@ -358,8 +376,10 @@ export default function TaxonomyScreen(): React.JSX.Element {
                 {selectedTaxonContent && (
                   <View style={[styles.orderDescription, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg }]}>
                     <Text style={[typography.eyebrow, { color: TAXONOMY.main }]}>ACERCA DEL {RANK_LABELS[selectedTaxonContent.rank].singular.toLocaleUpperCase('es')}</Text>
-                    <Text style={[typography.cardTitle, styles.scientific, { color: colors.text, marginTop: 5 }]}>{taxonName(selectedTaxonContent.rank, path[selectedTaxonContent.rank]!)}</Text>
-                    {selectedTaxonContent.simpleName && <Text style={[typography.label, { color: TAXONOMY.main, marginTop: 2 }]}>{selectedTaxonContent.simpleName}</Text>}
+                    <View style={[styles.taxonTitleRow, { marginTop: 5 }]}>
+                      <Text style={[typography.cardTitle, styles.scientific, styles.taxonScientific, { color: colors.text }]}>{taxonName(selectedTaxonContent.rank, path[selectedTaxonContent.rank]!)}</Text>
+                      {selectedTaxonContent.simpleName && <Text style={[typography.label, styles.simpleName, { color: TAXONOMY.main }]} numberOfLines={2}>{selectedTaxonContent.simpleName}</Text>}
+                    </View>
                     <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>{selectedTaxonContent.description}</Text>
                   </View>
                 )}
@@ -378,6 +398,8 @@ export default function TaxonomyScreen(): React.JSX.Element {
               const isChordata = isPhylum && item.value.trim().toLocaleLowerCase() === 'chordata';
               const description = isChordata
                 ? CHORDATA_DESCRIPTION
+                : isPhylum && item.value.trim().toLocaleLowerCase() === 'arthropoda'
+                  ? ARTHROPODA_DESCRIPTION
                 : item.description ?? visual?.description;
               const simpleName = item.simpleName ?? SIMPLE_TAXON_NAMES[item.value] ?? null;
 
@@ -438,9 +460,9 @@ export default function TaxonomyScreen(): React.JSX.Element {
                         </Text>
                       )}
                     </View>
-                    {isChordata ? (
+                    {isPhylum ? (
                       <View style={styles.phylumVisual}>
-                        <ChordataIllustration />
+                        <PhylumIllustration phylum={item.value} />
                         <View style={styles.rowEnd}>
                           <View style={[styles.count, { backgroundColor: colors.primaryContainer, borderRadius: radius.pill }]}>
                             <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{item.count}</Text>

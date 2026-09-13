@@ -57,7 +57,7 @@ export default function PuzzleScreen(): React.JSX.Element {
     setSpecies(null);
     setImageSource(null);
     setLightboxOpen(false);
-    const pool = await speciesRepository.findQuizPool(db, PUZZLE_SCOPES[scope].classes, knowledgeLevel, 'puzzle');
+    const pool = await speciesRepository.findQuizPool(db, PUZZLE_SCOPES[scope].classes, knowledgeLevel, 'puzzle', PUZZLE_SCOPES[scope].taxa);
     const available = pool.filter((item) => item.codigo !== previousCode.current && (item.photo || thumbnailFor(item.codigo)));
     const choices = available.length > 0 ? available : pool.filter((item) => item.photo || thumbnailFor(item.codigo));
     const pick = choices[Math.floor(Math.random() * choices.length)];

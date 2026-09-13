@@ -1,0 +1,22 @@
+{
+  "asset": "arthropoda-invertebrates.png",
+  "kind": "taxonomy_illustration",
+  "dimensions": { "width": 384, "height": 384 },
+  "background": "ivory",
+  "style_reference": "chordata-vertebrates.png",
+  "subjects": [
+    "Dione/Agraulis vanillae (mariposa espejitos)",
+    "Diloboderus abderus (bicho torito)",
+    "Anax concolor (libélula)",
+    "Grammostola anthracina (araña pollito)",
+    "Neohelice granulata (cangrejo estuarino)"
+  ],
+  "provenance": {
+    "generator": "OpenAI image generation",
+    "prompt": "Scientific educational natural-history plate, warm ivory background, five recognizable Uruguay arthropods, no text, no labels, no watermark, anatomically plausible, clear at 384px.",
+    "generated_at": "2026-09-12",
+    "review": "Visual review completed; taxonomy and Uruguay presence are resolved by catalog pipeline before species publication."
+  },
+  "usage": "Taxonomy card illustration only; not species-media evidence.",
+  "accessibility_label": "Ilustración de artrópodos: mariposa, escarabajo, libélula, araña y cangrejo"
+}

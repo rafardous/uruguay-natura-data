@@ -31,7 +31,7 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-Las migraciones mobile existentes, `20260911153819_catalog_schema_9_traits.sql` y `20260912021348_catalog_schema_10_taxon_sources.sql` deben aplicarse junto con todo el historial. La última incorpora nombres simples y descripciones para filo/clase/orden, fuentes resolubles por campo, datos relevantes versionados y fuerza que las publicaciones nuevas declaren esquema 10. La app sólo usa las RPC lean documentadas y los candidatos de enriquecimiento continúan requiriendo revisión humana.
+Las migraciones mobile existentes, `20260911153819_catalog_schema_9_traits.sql`, `20260912021348_catalog_schema_10_taxon_sources.sql` y `20260912120000_catalog_schema_11_arthropods.sql` deben aplicarse junto con todo el historial. El dry-run actual confirma que la remota todavía está en schema 10 y que schema 11 queda pendiente; esta rectificación no hace push a producción. La última migración incorpora identificadores externos, historia natural de artrópodos, distribución agregada, el árbol `taxa`/`species_taxa`, contenido para Arthropoda/Arachnida/Insecta/Malacostraca, reglas de juegos `classify`/`habitat` y fuerza que las publicaciones nuevas declaren schema 11. La app sólo usa las RPC lean documentadas y los candidatos de enriquecimiento continúan requiriendo revisión humana.
 
 ## 2. Identidad editorial
 
@@ -86,7 +86,7 @@ npm run media:migrate-external -- --dry-run
 npm run media:migrate-external
 ```
 
-El importador debe informar 1006 entradas, 902 especies y 902 coincidencias de código. Crea 902 cambios iniciales aprobados de “Importación inicial”. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
+El importador schema 11 informa actualmente 1052 registros, 948 especies y 947 coincidencias de código heredado. La línea base histórica sigue siendo 1006 entradas/902 especies. Crea 948 cambios iniciales aprobados de “Importación inicial”. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
 
 ## 5. Panel, Storage y publicación
 
@@ -94,16 +94,18 @@ Antes de importar enriquecimiento, generar y revisar los artefactos locales. `da
 
 ```powershell
 cd ../NaturaUY-source
+npm run data:arthropod-discovery -- --batch=50
 npm run data:enrichment-candidates
 npm run data:traits
 npm run data:catalog-media -- --reelect-all
 npm run data:observability -- --batch=25
+npm run data:external-discovery -- --batch=25
 cd ../NaturaUY-admin
 npm run catalog:import-enrichment
 npm run catalog:import-enrichment -- --apply
 ```
 
-Antes de publicar, revisar `data/reports/trait-enrichment-candidates.json`, `common-name-report.json` e `image-selection-report.json`. Los sinónimos, valores imputados y fuentes `review_only` deben permanecer como conflictos hasta su aprobación; una especie sin imagen válida usa el fallback visual.
+Antes de publicar, revisar `data/reports/arthropod-discovery-candidates.json`, `data/reports/trait-enrichment-candidates.json`, `common-name-report.json`, `image-selection-report.json` y `external-enrichment-candidates.json`. El discovery de GBIF es candidate-only: aunque encuentre miles de taxones, no se importan al catálogo sin una decisión editorial. Los sinónimos, valores imputados, IDs de Catalogue of Life/WoRMS y fuentes `review_only` deben permanecer como conflictos hasta su aprobación; BOLD sólo se conserva como evidencia de cobertura; una especie sin imagen válida usa el fallback visual.
 
 El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
 
@@ -115,7 +117,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta esquema de catálogo 9: conserva el contrato anterior y agrega nombres alternativos buscables y rasgos estructurados (medición, convención, ecología y procedencia); conserva `user.db`. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta schema de catálogo 11: conserva el contrato anterior y agrega nombres alternativos buscables, rasgos estructurados, IDs externos, historia natural de artrópodos y distribución agregada; conserva `user.db`. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source

@@ -4,16 +4,16 @@ import { fetchJson, RateLimiter } from '../lib/http';
 import { PATHS, ensureDirs, readJson, writeJson, type CatalogImage } from './lib';
 
 interface ResolvedItem { scientificName:string; resolution:{acceptedName:string|null} }
-interface InatPhoto { id?:number; url?:string; license_code?:string|null; attribution?:string; original_dimensions?:{width?:number;height?:number} }
+interface InatPhoto { id?:number; sha1?:string|null; url?:string; license_code?:string|null; attribution?:string; original_dimensions?:{width?:number;height?:number} }
 interface InatObservation { id?:number; photos?:InatPhoto[] }
 interface InatResponse { results?:InatObservation[] }
 interface InatTaxa { results?:Array<{id?:number;name?:string;taxon_photos?:Array<{photo?:InatPhoto}>}> }
 interface WikiPages { query?:{pages?:Record<string,{pageimage?:string;original?:{source?:string}}>} }
-interface WikiInfo { query?:{pages?:Record<string,{imageinfo?:Array<{descriptionurl?:string;width?:number;height?:number;extmetadata?:Record<string,{value?:string}>}>}>} }
+interface WikiInfo { query?:{pages?:Record<string,{imageinfo?:Array<{descriptionurl?:string;sha1?:string;width?:number;height?:number;extmetadata?:Record<string,{value?:string}>}>}>} }
 
 const ALLOWED_INAT=new Set(['cc0','cc-by']);
 const ALLOWED_WIKI=/^(cc0|cc by 4\.0)/i;
-const LICENSE_URLS:Record<string,string>={cc0:'https://creativecommons.org/publicdomain/zero/1.0/','cc-by':'https://creativecommons.org/licenses/by/4.0/'};
+const LICENSE_URLS:Record<string,string>={cc0:'https://creativecommons.org/publicdomain/zero/1.0/'};
 const URUGUAY_PLACE_ID=7259;
 const inatLimiter=new RateLimiter(1_000); const wikiLimiter=new RateLimiter(150);
 const inatSize=(url:string,size:'medium'|'large')=>url.replace(/\/(square|small|medium|large|original)\.(jpe?g|png|gif)/i,`/${size}.$2`);
@@ -29,7 +29,7 @@ function score(photo:InatPhoto,curated:boolean,uruguay:boolean):number{
 function inatImage(photo:InatPhoto,taxonId:number,observationId:number|null,curated:boolean,uruguay:boolean):CatalogImage|null{
   const license=photo.license_code?.toLowerCase(); if(!photo.url||!license||!ALLOWED_INAT.has(license))return null;
   const width=photo.original_dimensions?.width; const height=photo.original_dimensions?.height;if(!width||!height||Math.max(width,height)<1200)return null;
-  return {url:inatSize(photo.url,'medium'),fullUrl:inatSize(photo.url,'large'),license:license==='cc0'?'CC0':'CC-BY-4.0',attribution:photo.attribution??'iNaturalist',source:'inaturalist',sourcePage:observationId?`https://www.inaturalist.org/observations/${observationId}`:`https://www.inaturalist.org/taxa/${taxonId}`,licenseUrl:LICENSE_URLS[license],externalId:photo.id?`inat-photo:${photo.id}`:undefined,sourceTaxonId:String(taxonId),width,height,selectionScore:score(photo,curated,uruguay),selectionDetails:{curated,uruguay,resolutionWidth:width??0,resolutionHeight:height??0},retrievedAt:new Date().toISOString()};
+  return {url:inatSize(photo.url,'medium'),fullUrl:inatSize(photo.url,'large'),license:license==='cc0'?'CC0':'CC-BY',originalLicense:license,attribution:photo.attribution??'iNaturalist',source:'inaturalist',sourcePage:observationId?`https://www.inaturalist.org/observations/${observationId}`:`https://www.inaturalist.org/taxa/${taxonId}`,licenseUrl:LICENSE_URLS[license],externalId:photo.id?`inat-photo:${photo.id}`:undefined,sourceTaxonId:String(taxonId),sourceChecksum:photo.sha1??null,width,height,selectionScore:score(photo,curated,uruguay),selectionDetails:{curated,uruguay,resolutionWidth:width??0,resolutionHeight:height??0},retrievedAt:new Date().toISOString()};
 }
 
 async function resolveTaxon(name:string):Promise<{id:number;photos:InatPhoto[]}|null>{
@@ -46,8 +46,8 @@ async function observations(taxonId:number,uruguay:boolean):Promise<CatalogImage
 
 async function wikimedia(name:string,lang:'es'|'en'):Promise<CatalogImage|null>{
   const pageParams=new URLSearchParams({action:'query',prop:'pageimages',piprop:'original|name',format:'json',redirects:'1',titles:name});const page=await fetchJson<WikiPages>(`https://${lang}.wikipedia.org/w/api.php?${pageParams}`,{limiter:wikiLimiter});const entry=Object.values(page?.query?.pages??{})[0];if(!entry?.pageimage||!entry.original?.source)return null;
-  const infoParams=new URLSearchParams({action:'query',prop:'imageinfo',iiprop:'url|size|extmetadata',format:'json',titles:`File:${entry.pageimage}`});const info=await fetchJson<WikiInfo>(`https://commons.wikimedia.org/w/api.php?${infoParams}`,{limiter:wikiLimiter});const imageInfo=Object.values(info?.query?.pages??{})[0]?.imageinfo?.[0];const metadata=imageInfo?.extmetadata;const license=stripHtml(metadata?.LicenseShortName?.value??'');if(!license||!ALLOWED_WIKI.test(license))return null;if(!imageInfo?.width||!imageInfo.height||Math.max(imageInfo.width,imageInfo.height)<1200)return null;
-  const ccBy=/^cc by 4\.0/i.test(license);const cc0=/^cc0/i.test(license);if(!ccBy&&!cc0)return null;const artist=stripHtml(metadata?.Artist?.value??'')||'Wikimedia Commons';return {url:entry.original.source,fullUrl:entry.original.source,license:ccBy?'CC-BY-4.0':'CC0',attribution:`${artist} vía Wikimedia Commons`,source:'wikimedia',sourcePage:imageInfo?.descriptionurl??null,licenseUrl:ccBy?LICENSE_URLS['cc-by']:LICENSE_URLS.cc0,externalId:`commons:${entry.pageimage}`,width:imageInfo?.width,height:imageInfo?.height,selectionScore:20,selectionDetails:{curated:false,uruguay:false,wikimedia:true,licenseLabel:license},retrievedAt:new Date().toISOString()};
+  const infoParams=new URLSearchParams({action:'query',prop:'imageinfo',iiprop:'url|size|sha1|extmetadata',format:'json',titles:`File:${entry.pageimage}`});const info=await fetchJson<WikiInfo>(`https://commons.wikimedia.org/w/api.php?${infoParams}`,{limiter:wikiLimiter});const imageInfo=Object.values(info?.query?.pages??{})[0]?.imageinfo?.[0];const metadata=imageInfo?.extmetadata;const license=stripHtml(metadata?.LicenseShortName?.value??'');if(!license||!ALLOWED_WIKI.test(license))return null;if(!imageInfo?.width||!imageInfo.height||Math.max(imageInfo.width,imageInfo.height)<1200)return null;
+  const ccBy=/^cc by 4\.0/i.test(license);const cc0=/^cc0/i.test(license);if(!ccBy&&!cc0)return null;const artist=stripHtml(metadata?.Artist?.value??'')||'Wikimedia Commons';return {url:entry.original.source,fullUrl:entry.original.source,license:ccBy?'CC-BY-4.0':'CC0',originalLicense:license,attribution:`${artist} vía Wikimedia Commons`,source:'wikimedia',sourcePage:imageInfo?.descriptionurl??null,licenseUrl:ccBy?'https://creativecommons.org/licenses/by/4.0/':LICENSE_URLS.cc0,externalId:`commons:${entry.pageimage}`,sourceChecksum:imageInfo?.sha1??null,width:imageInfo?.width,height:imageInfo?.height,selectionScore:20,selectionDetails:{curated:false,uruguay:false,wikimedia:true,licenseLabel:license},retrievedAt:new Date().toISOString()};
 }
 
 function readLimit():number{const inline=process.argv.find((arg)=>arg.startsWith('--limit='));if(inline)return Number(inline.slice(8));const index=process.argv.indexOf('--limit');return index>=0?Number(process.argv[index+1]):Number.POSITIVE_INFINITY;}

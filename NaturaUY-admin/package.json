@@ -21,6 +21,7 @@
     "media:verify": "tsx scripts/verify-media-primary.ts",
     "catalog:fail": "tsx scripts/fail-release.ts",
     "audio:xenocanto-inventory": "tsx scripts/xenocanto-inventory.ts",
+    "audio:xenocanto-auto-approve": "tsx scripts/auto-approve-xenocanto-audio.ts",
     "audio:xenocanto-prepare": "tsx scripts/prepare-xenocanto-audio.ts"
   },
   "dependencies": {

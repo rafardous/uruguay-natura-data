@@ -61,8 +61,9 @@ function catalogBirdNames(): Set<string> {
       return rows
         .filter((row) => normalizeName(String(row.taxonomy?.class ?? '')) === 'aves')
         .map((row) => stringValue(row.scientificName))
-        .filter((name): name is string => Boolean(name));
-    }));
+        .filter((name): name is string => Boolean(name))
+        .map(normalizeName);
+  }));
 }
 
 async function fetchPage(apiKey: string, page: number): Promise<{ recordings: JsonObject[]; numPages: number }> {

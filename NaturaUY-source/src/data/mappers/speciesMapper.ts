@@ -26,6 +26,7 @@ function parseSources(raw: string): Species['sources'] {
       if (typeof source.fieldPath === 'string') reference.fieldPath = source.fieldPath;
       if (typeof source.sourceCode === 'string') reference.sourceCode = source.sourceCode;
       if (typeof source.name === 'string') reference.name = source.name;
+      if (typeof source.version === 'string') reference.version = source.version;
       if (typeof source.url === 'string') reference.url = source.url;
       if (typeof source.citation === 'string') reference.citation = source.citation;
       if (typeof source.license === 'string') reference.license = source.license;
@@ -34,6 +35,14 @@ function parseSources(raw: string): Species['sources'] {
   } catch {
     return [];
   }
+}
+
+function parseObject<T extends object>(raw: string | undefined, fallback: T): T {
+  if (!raw) return fallback;
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed) ? parsed as T : fallback;
+  } catch { return fallback; }
 }
 
 const EMPTY_TRAITS: Species['traits'] = {
@@ -75,6 +84,10 @@ function parseTraits(raw: string | undefined): Species['traits'] {
  * so a schema change stops here instead of rippling through the UI.
  */
 export function rowToSpecies(row: SpeciesRow, mediaRows: SpeciesMediaRow[] = []): Species {
+  const taxonIdentifiers = parseObject<NonNullable<Species['taxonIdentifiers']>>(row.taxon_identifiers, {});
+  const naturalHistoryRaw = parseObject<Record<string, unknown>>(row.natural_history, {});
+  const distributionRaw = parseObject<Record<string, unknown>>(row.distribution_summary, {});
+  const primaryImage = mediaRows.find((media) => media.media_type === 'image' && media.is_primary === 1) ?? mediaRows.find((media) => media.media_type === 'image');
   return {
     codigo: row.codigo,
     displayName: row.common_name,
@@ -84,12 +97,14 @@ export function rowToSpecies(row: SpeciesRow, mediaRows: SpeciesMediaRow[] = [])
     taxonomy: {
       kingdom: row.kingdom,
       phylum: row.phylum,
+      subfilo: row.subfilo,
       clase: row.clase,
       orden: row.orden,
       familia: row.familia,
       genero: row.genero,
       epiteto: row.epiteto,
     },
+    taxonIdentifiers,
     conservation: {
       raw: row.estado_conservacion,
       label: row.conservation_label,
@@ -112,12 +127,15 @@ export function rowToSpecies(row: SpeciesRow, mediaRows: SpeciesMediaRow[] = [])
     alimentacion: row.alimentacion,
     tamano: row.tamano,
     traits: parseTraits(row.traits),
+    naturalHistory: Object.keys(naturalHistoryRaw).length > 0 ? naturalHistoryRaw as unknown as Species['naturalHistory'] : null,
+    distributionSummary: Object.keys(distributionRaw).length > 0 ? distributionRaw as unknown as Species['distributionSummary'] : null,
     photo: row.image_url
       ? {
           url: row.image_url,
           fullUrl: row.full_url ?? row.image_url,
           thumbAsset: row.thumb_asset,
           license: row.image_license ?? '',
+          originalLicense: primaryImage?.original_license ?? null,
           attribution: row.image_attribution ?? '',
           source: row.image_source ?? '',
           page: row.image_page,

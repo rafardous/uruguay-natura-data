@@ -1,0 +1,6118 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-12T21:24:53.466Z",
+  "sourceCode": "ecoregistros_insectos_uruguay",
+  "sourcePath": "raw/ecoregistros.org/insectos-uruguay/restricted/insectos-Uruguay.xls",
+  "policy": "discovery_only_no_redistribution",
+  "parser": "html-table-latin1-v1",
+  "rowCount": 1221,
+  "uniqueNameCount": 1220,
+  "rankCounts": {
+    "species": 876,
+    "genus": 0,
+    "higher": 1,
+    "uncertain": 343
+  },
+  "candidates": [
+    {
+      "name": "Abracris flavolineata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acanthagrion lancea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acanthocera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acharia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Achryson foersteri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Achryson surinamum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Achryson undulatum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Achyra bifidalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acidomeria cincticornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aclytia heber",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acraga moorei",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acrididae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acroleucus coxalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acromyrmex heyeri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acromyrmex lundi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acromyrmex sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acrotomopus microspilotus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Actinote mamita",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Actinote melanisans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Actinote pellenea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Actinote pyrrha",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Actinote surima",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Acyrthosiphon pisum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adaina sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adejeania sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adelotypa tinea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adelpha mythra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adelpha syma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adelpha zea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adhemarius gannascus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Adurgoa gonagra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aedeomyia squamipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aedes aegypti",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aedes albifasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aedes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aegithus clavicornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aegomorphus jaspideus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aellopos sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aellopos tantalus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aellopos titan",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aethalion reticulatum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Afrida oligoglotta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agasicles hygrophila",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aglossa caprealis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agmoblatta thaxteri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrilus frigidus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrilus thoracicus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrius cingulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrotis bilitura",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrotis ipsilon",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrotis malefida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agrotis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Agylla argentea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Alabagrus stigma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Alcaeorrhynchus grandis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aleuas lineatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aleuas vitticollis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aleurothrixus floccosus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Allograpta exotica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Allograpta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Allotruxalis gracilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Alydidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Amblytropidia australis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Amblytropidia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ammophila sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anacassis cribrum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anartia amathea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anartia jatrophae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anasa guttifera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anastrepha fraterculus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anaulacomera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anax amazili",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anax concolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anaxipha sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ancyloxypha nitedula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anicla infecta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anisobrotica nordenskioeldi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anisophya sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anoplius sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anthanassa hermas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anthomyia punctipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anthoptus epictetus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anthrax sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anthrenus verbasci",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anticarsia gemmatalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Antigonus liborius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Antiteuchus mixtus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anurogryllus muticus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Anurogryllus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aphididae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aphis nerii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aphylla distinguenda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aphylla theodorina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Apidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Apiomerus barbiellini",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Apis mellifera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Appia appia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arawacus binangula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arawacus meliboeus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arawacus separata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Archophileurus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Archytas sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arctiini sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argentagrion ambiguum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argentoleon irrigatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argia albistigma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argia serva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argizala sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argyrarcha margarita",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argyria lacteella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argyrosticta decumana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argyrotaenia sphaleropa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Argyrotome mira",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aricoris gauchoana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aricoris montana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aricoris notialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Artace cribraria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Artace itatiaya",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arvelius albopunctatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arzecla nubilum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Arzecla tucumanensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ascalapha odorata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ascia monuste",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Asilidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aspisoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Aspisoma stictica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Astraptes elorus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Astraptes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Astylus antis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Astylus atromaculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Astylus quadrilineatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atillum sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atlides polama",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atomosia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atopozelus omalus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atrachelus cinereus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atta vollenweideri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Atteva pustulella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Augochlora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Augochloropsis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Augochloropsis tupacamaru",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Automeris coresus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Automeris naranja",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Automeris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Badecla argentinensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Badecla clarissa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Baeacris pseudopunctulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Baeacris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Baetidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Balacha melanocephala",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Baranowskiobius bimaculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Battus polydamas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belostoma dilatatum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belostoma elegans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belostoma elongatum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belostoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belotus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Belvosia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bembecinus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bembix citripes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bertholdia almeidai",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bertholdia detracta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Berytidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Biblis hyperia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bicyrtes discisus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bicyrtes variegatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Biturix rectilinea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Blaptica dubia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Blepharepium cajennensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Blepharotoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Blepolenis batea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bombus bellicosus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bombus pauloensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bombus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bombyliidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Borellia alejomesai",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Borellia bruneri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Botanochara angulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Botanochara macularia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bothynus fabius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brachygastra lecheguana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brachymesia furcata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brachystethus geniculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brassolis astyra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brassolis sophorae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brentus rufiventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brontostoma colossus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Brunneria subaptera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Bucephalogonia xanthophis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cacoscelis nigripennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Caenonomada bruneri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calephelis aymaran",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Callibaetis fasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calligrapha polyspila",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Callimormus rivera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calliphora vicina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calliphoridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calodesma collaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calosoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Calycopis caulonia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus mus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus punctulatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus rufipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus sexguttatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camponotus substitutus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Campsomeris bistrimacula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Campsomeris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camptischium clavipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Camptischium sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Canthon quinquemaculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Canthon sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Capronnieria abretia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Carabidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Carales astur",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cardigenius sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Castoraeschna decurvata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cecropterus dorantes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Centris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Centris trigonoides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cephisus siccifolius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ceraia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cerambycidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cerastipsocus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ceratitis capitata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cerceris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cerodirphia vagans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ceroplastes grandis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chalcolepidius limbatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chalcophana sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chalepides sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chalodeta theodora",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Charidotella sexpunctata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chauliognathus flavipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chauliognathus octomaculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chauliognathus scriptus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chelymorpha varians",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chinavia erythrocnemis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chinavia longicorialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chioides catillus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chiomara asychis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chironomidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chlamophora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chlanidophora albicancellata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chloridea virescens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chlorion hemipyrrhum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chloropteryx sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chlorostrymon simaethis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cholus annulatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Choreutidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chromacris speciosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysomelidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysomya albiceps",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysomya megacephala",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysoperla externa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysoperla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysopidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysoprasis aurigena",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysoprasis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysops varians",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chrysotus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Chydarteres striatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cicadellidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cicadidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cissia phronius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cissites maculata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Citheronia brissotii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Clogmia albipunctata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coelichneumon sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coelioxys sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Colaspis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coleomegilla quadrifasciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Colias lesbia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Colla rhodope",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Colletes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Compsocerus violaceus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Compsocryptus melanostigma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Compsomyiops fulvicrura",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Condylorrhiza vestigialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Condylostylus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conga chydaea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conga iheringii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conga urqua",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conocephalus cinnamonifrons",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conocephalus longipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conoderus germari",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conoderus leucophaeatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conoderus scalaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conoderus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conognatha klugi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Conopidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Copestylum sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Copidita sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coptocycla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coptopteryx argentina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coptopteryx gayi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coptopteryx sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coraliomela quadrimaculata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coremagnatha orionalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cornops aquaticum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cornulactica sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Correbia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Corticea immocerinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coryacris angustipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Corydalus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Coryphaeschna adnexa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cosmisoma brullei",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cosmoclopius nigroannulatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Crabronidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Crambidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cranistus colliurides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cranistus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cryptanura sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ctenolepisma lineata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ctenolepisma longicaudata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ctenucha rubriceps",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cucullia argyrina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Curculionidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Curicta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Curinus coeruleus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Curtara sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyanallagma bonariense",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyanopepla jucunda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyanopepla orbona",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyanophrys acaste",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyanophrys remus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyclocephala putrida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cyclocephala sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cycloneda sanguinea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cydamus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cydnidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cydosia rimata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cylindera apiata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cylindera nivea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cylindromyia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cymaenes odilia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cymaenes tripunctata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Cynea cannae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Danaus eresimus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Danaus erippus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Danaus gilippus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dardarina jonesi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dardarina sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dargida albilinea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dasyscelus normalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dasythemis mincki",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Debilia fusciventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dechacona missionum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Deois flexuosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Deois mourei",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diabrotica speciosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diacia diadema",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diaethria candrena",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diaphania hyalinata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diaphania nitidalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diastatops intensa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diceraeus furcatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichelacera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichroplus conspersus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichroplus elongatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichroplus obscurus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichroplus pratensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dichroplus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dicladocera nubipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dicromantispa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diloboderus abderus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dilobopterus dispar",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dilophus pectoralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dilophus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dimesus rubricatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dinocoris sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dinoponera grandis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Diogmites sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dione juno",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dione vanillae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dioprosopa clavata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dirocoremia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dirphia dolosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dirphia moderata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dirphia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Discodon nigricorne",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dorcacerus barbatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dorisiana drewseni",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dorisiana metcalfi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Doru sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dorymyrmex bicolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dorymyrmex sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Doxocopa kallina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Doxocopa laurentia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Drosophila melanogaster",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dryadula phaetusa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dryas iulia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dynamine myrrhina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dyscinetus gagates",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dyscinetus rugifrons",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dyscinetus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dysdercus albofasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dysdercus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dysschema centenaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Dysschema sacrifica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eacles imperialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eantis thraso",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eccritosia rubriventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eccritotarsini sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ectemnius sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ectobiidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Edessa meditabunda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Edessa rufomarginata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Efferia sp. sensu lato",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eicherax sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Elaphria agrotina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Elaphria villicosta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Elasmopalpus lignosella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Elasmothemis constricta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Elateridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Electrostrymon endymion",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eloria sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Emesis ocypore",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Emesis russula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Enchenopa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Enicospilus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Entypus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epargyreus tmolis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ephoria marginalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epicauta atomaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epicauta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epilachna paenulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epilampra sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epimecis anonaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Epitragus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erbessa dominula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erebidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erilophodes spinosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erinnyis ello",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eriopis connexa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eristalinus taeniops",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eristalis tenax",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erynnis funeralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythemis attala",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythemis peruviana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythemis plebeja",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythemis vesiculosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrochiton jucundum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax atroterminata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax corallina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax fusca",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax media",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax melanorubra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax nigricans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax ochracea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Erythrodiplax umbrata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eubaphe sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euborellia annulipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eubule sculpta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eubulus miniatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eucyrtothynnus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eudesmia australis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eudiagogus episcopalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eudule sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eudulophasia invaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eudyaria zeta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euglyphis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eumorpha analis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eumorpha fasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eumorpha labruscae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eunica eburnea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euphoria lurida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euplectrotettix ferrugineus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euplectrotettix schulzi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eupogonius sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euprepina nuda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euptoieta hortensia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurata hermione",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurata hilaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurata marcia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurema albula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurema elathea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euryades corethrus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurymerus eburioides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Eurymetopus birabeni",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euschistus picticornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euselasia eucerus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Euselasia hygenius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Evania appendigaster",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Exaireta spinigera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Exitianus obscurinervis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Exurus verticillatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Fazia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Fenestra bohlsii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Flatidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Formicidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Fulgoridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Galerita collaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gargaphia lunulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gasteruptiidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gelastocoris oculatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Geniates sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Geometridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Geraeus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gibbobruchus speculifer",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Glena sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Glutophrissa drusilla",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Goniini sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gonipterus scutellatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gonocausta voralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gonogramma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gorgythion begga",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Grammadera clara",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Graptocleptes bicolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gryllodes sigillatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gryllotalpidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gryllus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Guyalna bonaerensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gymnetis chalcipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gymnosomatini sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Gypona sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Halictidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Halysidota ruscheweyhi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hamadryas epinome",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Harmonia axyridis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Harmonia quadripunctata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Haroldgrantia lignosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Haywardella edmondsii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hedone catilina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hedriodiscus pulcher",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heilipodus erythropus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heilipodus scabripennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heilipodus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliconisa pagenstecheri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliconius erato",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliconius ethilla",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Helicoverpa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliopetes arsalte",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliopetes omrina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heliopyrgus americanus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hellica nitida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hemerobiidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hemerobius bolivari",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hemipenthes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hemirhipus elegantissimus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heniartes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Herbita sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hermetia illucens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hermeuptychia isabella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hesperiidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hesperocharis erota",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hesperocharis paranensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hetaerina rosea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heterachthes flavicornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heteroderes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heterogomphus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heterusia quadruplicaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Heza binotata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hippodamia variegata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Holhymenia histrio",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Homeoura chelifera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hoplitimyia mutabilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hoplitimyia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Horciasoides nobilellus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyalorista taeniolalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hydrophilus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hylaeus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hylephila phyleus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyles lineata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hylesia nigricans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hylotrupes bajulus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hymenia perspectalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypanartia bella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyperalonia morio",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyperaspis festiva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypercompe abdominalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypercompe indecisa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypercompe sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyperplatys argentinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypselonotus interruptus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hypsopygia amoenalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Hyptia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Icerya purchasi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ichneumonidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Idaea sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Idalus agastus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Igapophilus rufus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Imara satrapes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Iridopsis defectaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Iscadia aperta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ischnoptera bilunata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ischnura capreolus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ischnura fluviatilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ithomisa kinkelini",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Jadera coturnix",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Jadera parapectoralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Jadera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Jalysus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Joppa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Josia mononeura",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Junonia evarete",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Junonia genoveva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Jurinella sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Kanaima fluvialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Kanaima sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Kronides incumbens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Kuschelina nigrovittata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Labedera proxima",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Labidura riparia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lagria villosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Laplatacris dispar",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Largus fasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Largus rufipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Largus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Larra bicolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lasioglossum sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lauxaniidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leiopodus lacertinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lema bilineata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lema sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lemonias albofasciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lepiselaga crassipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptoglossus concaviusculus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptoglossus neovexillatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptoglossus occidentalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptoglossus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptophobia aripa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leptotes cassius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lerodea eufala",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leschenaultia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lestes paulistus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lestes spatula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lestes undulatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lethocerus annulipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lethocerus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leucanella viridescens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leucania sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leucanopsis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leucophenga maculosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Leucothyreus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lexiphanes biplagiatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Libra aligula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Libytheana carinenta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ligocatinus spinatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Limnophora narona",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Linepithema humile",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Linogeraeus urbanus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lipoptilocnema koehleri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lixus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lobopoda sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lonomia obliqua",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lophocampa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Loxa deducta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Loxa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lucilia eximia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lucilia sericata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lucilia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lycorea ilione",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lygaeus alboornatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lypsimena nodipennis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Lysathia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macapta lurida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macaria sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macraspis cribrata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macrocneme leucostigma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macrocneme sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macrosiagon flavipenne",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macrosiphum rosae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macrothemis imitans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Macugonalia cavifrons",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mallodon spinibarbis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mallophora bigoti",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mallophora ruficauda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mallophora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Manduca contracta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Manduca paphus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Manduca rustica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Manduca sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mantispidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mechanitis lysimnia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megabaris quadriguttata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megachile sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene acuta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene boryi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene insignita",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene latreillei",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene mellyi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megacyllene unicolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megadytes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megalographa biloba",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megalographa bonaerensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megalopyge sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Megalopyge urens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melanchroia aterea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melanoliarus dimidiatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melipotis bisinuata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melipotis fasciolaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melipotis ochrodes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melipotis perpendicularis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Melissoptila bonaerensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Meromacrus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metacuterebra sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metaleptea adspersa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metallactus albipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metallactus albopictus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metallactus pollens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Metius circumfusus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Miathyria marcella",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Michaelus ira",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micrathyria hypodidyma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micrathyria longifasciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micrathyria ringueleti",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micrathyria spuria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micrathyria tibialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Micropezidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Microsema gladiaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Milaris gigas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mimocalla bonariensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ministrymon fostera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ministrymon sanguinalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Miogryllus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Miogryllus verticalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Miridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mischocyttarus drewseni",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mischocyttarus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mnesarete pruinosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mocis latipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mocis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mogoplistidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Molippa sabina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Molomea lineiceps",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Monca penda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Monocrepidius scalaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mordella sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mormidea v-luteum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Morpheis putridus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Morpheis xylotribus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Morpho epistrophus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Musca domestica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Muscina stabulans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mutilla amabilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mydas testaceiventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mylaris gigas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mylon maimon",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Myolepta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Myrmeleon sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Myrmeleontidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mysoria barcastus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mythimna sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Mythimna unipuncta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Myzinum sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nacerdes melanura",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus auricinctus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus cervinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus dissimulator",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus leucoloma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus purpureoviolaceus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus tremolerasi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Naupactus xanthographus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neda callispilota",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nemognatha nigrotarsata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nemoria lixaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neoconocephalus brevis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neoconocephalus parvus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neoconocephalus procerus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neoconocephalus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neocorynura sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neodillonia albisparsa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neodiplogrammus quadrivittatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neolema dorsalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neomyennis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neomyennis zebra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neoscapteriscus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Neotheronia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nephepeltia flavifrons",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nerthra sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nezara viridula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Niesthrea sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nitidulidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Noctuidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nodozana coresa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nolidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nomophila sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nonnus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Notozulia entreriana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nyctelia picipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Nyctelius nyctelius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Odontocera flavicauda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Odontocheila chrysis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oebalus poecilus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oecanthus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oechydrus chersis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oenopiella punctaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oiketicus geyeri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oiketicus platensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oligotoma humbertiana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oligotomidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Olla v-nigrum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ommexecha virens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oncopeltus bergianus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oncopeltus unifasciatellus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ontherus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ontherus sulcator",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oospila flavilimes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ophion sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oplomus cruentus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Opsiphanes invirae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oreodera aerumnosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orienscopia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ormia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ornidia obesa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orphulella punctata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orthemis ambinigra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orthemis discolor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orthemis nodiplaga",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Orthonama obstipata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ortilia ithra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ortilia velica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxidus gracilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxyagrion rubidum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxyagrion terminale",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxychila femoralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxydia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxyepalpus flavoscutellatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxymerus aculeatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxymerus chevrolatii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxysarcodexia paulistanensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxysarcodexia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxysarcodexia terminalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Oxysarcodexia varia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachodynerus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachycondyla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachylia ficus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachylis argentinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachylis laticornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachymerocerus purpurissatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachymerus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachymorphus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pachyossa signata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paederus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpada furcata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpada pygolampa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpada rufiventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpada rufoscutellata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpada sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpita flegia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpita quadristigmalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palpita vitrealis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Palthis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pampasatyrus gyrtone",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pampasatyrus quies",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Panca mictra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Panca subpunctuli",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Panchlora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Panchlora thalassina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Panoquina ocola",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pantala flavescens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pantherodes pardalaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pantomorus cervinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pantomorus postfasciatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Papilio anchisiades",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Papilio astyalus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Papilio hectorides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Papilio hellanichus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Papilio thoas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paracles azollae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paracles deserticola",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paracles fusca",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paracles sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paragrallomyia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paramantispa ambusta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paranaita opima",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Parastagmatoptera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Parastagmatoptera theresopolitana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Parasubria vittipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paratype univitta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Parchicola sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Parides bunichus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paromoeocerus barbicornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Paryphthimoides poltys",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Patalene hamulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pawiloma victima",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pelecinus polyturator",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Penepodium sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pentatomidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pentobruchus germaini",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pepsis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Periga circumstans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Periplaneta americana",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Periplaneta fuliginosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Perithemis icteroptera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Perithemis tenera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pero honestaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pero sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Perreyia flavipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phaedon sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phaeochlaena lampra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phaeoxanta cruciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phaleria sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phaonia trispila",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phereoeca sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phileurus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phlugis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phobetron hipparchia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phocides polybius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phoebis neocypris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phoebis sennae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phoeniostacta haematabasis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phoracantha recurva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Photinus signaticollis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phrixothrix sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phthiacnemia picta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phyllocycla propinqua",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phyllocycla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Phymata sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pimpla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pissodes castaneus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Plagiodera erythroptera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Plagiodera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Plagiometriona herbea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Planiplax erythropyga",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Platycheirus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Platydracus scabrosus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Plecia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Podisus nigrispinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Poecilopompilus algidus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Poecilopompilus mixtus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Poecilopompilus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polemius denticornis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes billardieri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes cavapyta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes cinerascens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes consobrinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes simillimus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polistes sp. subg. Aphanilopterus",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polybia ignobilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polybia occidentalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polybia scutellaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polybia sericea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polytomus abdominalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polytomus dalmanni",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Polytomus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pompilidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Porosagrotis gypaetina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Praemallaspis leucaspis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Prionyx sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Proarna sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Protodictya sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Proxys albopunctulatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudolycaena marsyas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudolynchia canariensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudomacrocorupha wagneri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudomethoca sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudomops neglectus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudomyrmex gracilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudomyrmex phyllophilus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudosarbia phoenicicola",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudoscaeva meridionalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pseudovates iheringi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Psilonyx sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Psilopygida walkeri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Psorophora ferox",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Psyllobora lenta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ptecticus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pterophoridae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pterotaenia fasciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pterourus hellanichus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pterourus scamander",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ptesimopsia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ptichodis basilans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pycnoscelus surinamensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pygodasis ephippium",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pygodasis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyralidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyralis farinalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrausta bicoloralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrausta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrgus orcus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrgus orcynoides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrisitia nise",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrophorus punctatissimus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrophorus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrrhogyra neaerea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Pyrrhopyge charybdis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Quesada gigas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rachiplusia nu",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rasahus hamatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Reduviidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rekoa malina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rekoa palegon",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Retrachydes thoracicus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhammatocerus pictus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhinostomus barbirostris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhinotora sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhionaeschna absoluta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhionaeschna bonariensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhionaeschna confusa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhionaeschna diffinis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhionaeschna planaltica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhodometra sacraria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhodorhipha fulminans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhynchophorus ferrugineus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhynchophorus palmarum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhynchopyga meisteri",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhyparochromidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rhyssomatus marginatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Riodina lycisca",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Riodina lysippoides",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ripipteryx notata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ronderosia bergii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rothschildia arethusa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rothschildia aurota",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rothschildia jacobaeae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rubrica nasuta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rupela sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Rutela lineola",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Samea ecclesialis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Samea multiplicalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Samea sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sarbia damippe",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sarconesia chlorogaster",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sarcophaga sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sarcophagidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Saturniidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Saurita cassandra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scaphura elegans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scaphura nigra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scaphytopius sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scarites sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sceliphron asiaticum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sceliphron fistularium",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scepsis appendiculata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Schistocerca flavofasciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotobius muricatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotobius ovalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotobius pilularius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotussa cliens",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotussa impudica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotussa lemniscata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scotussa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Scyllinula sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Seco aphanis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Semaeopus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Semiothisa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sibovia sagata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sigara sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Singularia alternaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sinipta dalmani",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Siproeta epaphus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Siproeta stelenes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Solenopsis sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spartocera batatas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spartocera dentiventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spartocera fusca",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spartocera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spathalium audouinii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphecidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphenophorus rusticus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphenophorus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphex ichneumoneus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphex sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sphictyrtus chrysis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spicauda procne",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spicauda simplicius",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spintherophyta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Spodoptera frugiperda",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stagmatoptera hyaloptera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Staleochlora viridicata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Staphylinidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Staphylus musculus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Statira sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stator limbatus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stator sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Staurophlebia reticulata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stegobium paniceum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stegosatyrus periphas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Steirastoma stellio",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stenopoda sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stenopola pallida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stenoptilodes sematodactyla",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stenoptilodes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stevenia deceptoria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stictia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stilpnochlora nanna",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stiretrus decastigmus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stolas festiva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stomoxys calcitrans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strangalia melanura",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strongylium aurichalceum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strongylium testaceotibiale",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strymon bazochii",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strymon eurytulus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Strymon lucena",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Stylura forficula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Sulcophanaeus menelas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Symplecta pilipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Synargis gorpa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Synchlora frondaria",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Synchlora gerularia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Syritta flaviventris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Syrphidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Syrphus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Systoechus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Systropus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tabanidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachinidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachypompilus banksi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachypompilus mendozae",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachypompilus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachypompilus xanthopterus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachysphex sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tachytes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Taedia stigmosa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Taeniaptera sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Talima postica",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Talima sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tanaemyrmex sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tatochila autodice",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tatochila mercedis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tatochila sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Taurhynchus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tecmessa annulipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tecmessa rivera",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tegosa claudina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tegosa orobia",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Telebasis willinki",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Temnodachrys cruciata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Temnosoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tenebrionidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tephritidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Teriocolias deva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Termitidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tessella sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tessellota cancellata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tetanorhynchini sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tetracha brasiliensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tetracha fulgida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tetragonisca fiebrigi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tetraonyx kirschi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thasus gigas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Theagenes dichrous",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thespidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thespieus catochra",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thespieus jora",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thespieus xarina",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Theudoria melanocnemis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thronistes rouxi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thyanta sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Thynnidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tibraca limbativentris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tibraca sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Timulla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tipula sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tolype sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tortricidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Toxomerus cf. duplicatus",
+      "rank": "higher",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Toxomerus politus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Toxomerus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Toxoptera citricida",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trachypus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trajectina trajecta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tramea cophysa",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Traumatomutilla bivittata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Traumatomutilla ocellaris",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Traumatomutilla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Traumatomutilla tetrastigma",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tretogonia sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Triatoma sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trichaltica sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trichopoda pennipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Triepeolus osiriformis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Triorla sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Triploechus bellus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tripseuxoa strigata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trogidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trupanea sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trypanidius proximus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Trypoxylon sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tuberolachnus salignus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tucayaca gracilis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Tympanoterpes elegans",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Ululodes sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Urbanus doryssus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Urbanus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Urbanus teleus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Urbanus zagorus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Vanessa braziliensis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Vanessa carye",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Vespidae sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Villa festiva",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Villa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Viola minor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Virga austrinus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Wallengrenia premnas",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Wallengrenia sapuca",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xenicola dohrni",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xenophanes tryxus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xenopygus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xyleus discoideus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xyleus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xylocopa artifex",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xylocopa augusti",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xylocopa frontalis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xylocopa sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Xylocopa splendidula",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Yphthimoides celmis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zagreus bimaculosus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zale galactea",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zammara tympanum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zaprionus indianus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zatrephina sexlunata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zelurus femoralis",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zelurus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zelus leucogrammus",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zelus longipes",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zelus sp.",
+      "rank": "uncertain",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zeta argillaceum",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zeugomantispa minuta",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zoniopoda iheringi",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zoniopoda tarsata",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    },
+    {
+      "name": "Zopyrion evenor",
+      "rank": "species",
+      "requiresIndependentOpenEvidence": true
+    }
+  ]
+}

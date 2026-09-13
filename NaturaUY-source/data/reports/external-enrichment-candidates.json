@@ -1,0 +1,2580 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-12T18:16:32.786Z",
+  "dataset": "arthropods_uy",
+  "sourceVersions": {
+    "catalogue_of_life": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "worms": "WoRMS Aphia webservice",
+    "bold": "BOLD Portal API"
+  },
+  "catalogueOfLifeDatasetId": "3LR",
+  "speciesCount": 47,
+  "queriedSpeciesCount": 18,
+  "pendingSpeciesCount": 29,
+  "candidateCount": 28,
+  "policy": "Sólo candidatos: una persona editora debe aprobar cualquier dato antes del release.",
+  "candidates": [
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:20.789Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Acanthogonatus tacuariensis"
+      },
+      "remoteId": "8XPC",
+      "originalName": "Acanthogonatus tacuariensis",
+      "normalizedName": "Acanthogonatus tacuariensis",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "8XPC",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Acanthogonatus tacuariensis",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Acanthogonatus+tacuariensis",
+      "checksum": "00caa8df17074c865cf0c6c625a04ee5e7e0874496914b0b5d0be437d02d0374",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "8XPC",
+            "name": "Acanthogonatus tacuariensis",
+            "authorship": "(Pérez-Miles & Capocasale, 1982)",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 62806,
+            "namesIndexId": 62806,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTSBL",
+                "name": "Acanthogonatus",
+                "authorship": "Karsch, 1880",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 62734,
+                "namesIndexId": 62734,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Acanthogonatus Karsch, 1880",
+                "labelHtml": "<i>Acanthogonatus</i> Karsch, 1880",
+                "parentId": "CVHP3"
+              },
+              {
+                "id": "CVHP3",
+                "name": "Pycnothelidae",
+                "authorship": "Chamberlin, 1917",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 6451967,
+                "namesIndexId": 6451967,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Pycnothelidae Chamberlin, 1917",
+                "labelHtml": "Pycnothelidae Chamberlin, 1917",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Acanthogonatus tacuariensis (Pérez-Miles & Capocasale, 1982)",
+            "labelHtml": "<i>Acanthogonatus tacuariensis</i> (Pérez-Miles & Capocasale, 1982)",
+            "parentId": "CTSBL"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Acanthogonatus tacuariensis",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Acanthogonatus tacuariensis",
+            "labelHtml": "Acanthogonatus tacuariensis"
+          },
+          "issues": {},
+          "id": "8XPC",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:20.740Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Acanthogonatus tacuariensis;geo:country/ocean:Uruguay",
+        "query": "tax:species:Acanthogonatus tacuariensis;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Acanthogonatus tacuariensis",
+      "normalizedName": "Acanthogonatus tacuariensis",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Acanthogonatus tacuariensis",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAcanthogonatus+tacuariensis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "624b0c9d566d00f45367d96b86b71e6d65e44da3703b87b3b53f6f63819d45f4",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Acanthogonatus tacuariensis",
+                "matched": "ids:processid:Acanthogonatus tacuariensis;ids:sampleid:Acanthogonatus tacuariensis;ids:insdcacs:Acanthogonatus tacuariensis"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:21.033Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Actinopus longipalpis"
+      },
+      "remoteId": "64PKW",
+      "originalName": "Actinopus longipalpis",
+      "normalizedName": "Actinopus longipalpis",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "64PKW",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Actinopus longipalpis",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Actinopus+longipalpis",
+      "checksum": "46ec5e23968f3b97bd37eb5c6279d0719354b1b83f0b00f97069a37b09750689",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "64PKW",
+            "name": "Actinopus longipalpis",
+            "authorship": "C. L. Koch, 1842",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 165561,
+            "namesIndexId": 165561,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTN6T",
+                "name": "Actinopus",
+                "authorship": "Perty, 1833",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 165418,
+                "namesIndexId": 165418,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Actinopus Perty, 1833",
+                "labelHtml": "<i>Actinopus</i> Perty, 1833",
+                "parentId": "CTN6P"
+              },
+              {
+                "id": "CTN6P",
+                "name": "Actinopodidae",
+                "authorship": "Simon, 1892",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 18744,
+                "namesIndexId": 18744,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Actinopodidae Simon, 1892",
+                "labelHtml": "Actinopodidae Simon, 1892",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Actinopus longipalpis C. L. Koch, 1842",
+            "labelHtml": "<i>Actinopus longipalpis</i> C. L. Koch, 1842",
+            "parentId": "CTN6T"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Actinopus longipalpis",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Actinopus longipalpis",
+            "labelHtml": "Actinopus longipalpis"
+          },
+          "issues": {},
+          "id": "64PKW",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:21.760Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Actinopus longipalpis;geo:country/ocean:Uruguay",
+        "query": "tax:species:Actinopus longipalpis;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Actinopus longipalpis",
+      "normalizedName": "Actinopus longipalpis",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Actinopus longipalpis",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AActinopus+longipalpis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "37ffa030ddd4fd93f5bb22ed5cc73738356cc9940f11f4b1bd7cc962df76673c",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Actinopus longipalpis",
+                "matched": "ids:processid:Actinopus longipalpis;ids:sampleid:Actinopus longipalpis;ids:insdcacs:Actinopus longipalpis"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:22.000Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Aedes aegypti"
+      },
+      "remoteId": "89W72",
+      "originalName": "Aedes aegypti",
+      "normalizedName": "Aedes aegypti",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "89W72",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Aedes aegypti",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Aedes+aegypti",
+      "checksum": "b5ec959b71df8197216e75460a9fd14c28d745871c805340a2a72a797670d73b",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "89W72",
+            "name": "Aedes (Stegomyia) aegypti",
+            "authorship": "(Linnaeus, 1762)",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 141533,
+            "namesIndexId": 141533,
+            "namesIndexMatchType": "none",
+            "sectorKey": 1386,
+            "classification": [
+              {
+                "id": "BY56N",
+                "name": "Aedes (Stegomyia)",
+                "authorship": "Theobald, 1901",
+                "rank": "subgenus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 141538,
+                "namesIndexId": 141538,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Aedes (Stegomyia) Theobald, 1901",
+                "labelHtml": "<i>Aedes (Stegomyia)</i> Theobald, 1901",
+                "parentId": "BXWKF"
+              },
+              {
+                "id": "BXWKF",
+                "name": "Aedes",
+                "authorship": "Meigen, 1818",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 142072,
+                "namesIndexId": 142072,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Aedes Meigen, 1818",
+                "labelHtml": "<i>Aedes</i> Meigen, 1818",
+                "parentId": "89P5V"
+              },
+              {
+                "id": "89P5V",
+                "name": "Aedini",
+                "rank": "tribe",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 146775,
+                "namesIndexId": 146775,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Aedini",
+                "labelHtml": "Aedini",
+                "parentId": "87CGC"
+              },
+              {
+                "id": "87CGC",
+                "name": "Culicinae",
+                "rank": "subfamily",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 2546201,
+                "namesIndexId": 2546201,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Culicinae",
+                "labelHtml": "Culicinae",
+                "parentId": "8SG"
+              },
+              {
+                "id": "8SG",
+                "name": "Culicidae",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 10375,
+                "namesIndexId": 10375,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Culicidae",
+                "labelHtml": "Culicidae",
+                "parentId": "D2P"
+              },
+              {
+                "id": "D2P",
+                "name": "Diptera",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 10445,
+                "namesIndexId": 10445,
+                "namesIndexMatchType": "none",
+                "sectorKey": 1386,
+                "canonical": true,
+                "label": "Diptera",
+                "labelHtml": "Diptera",
+                "parentId": "H6"
+              },
+              {
+                "id": "H6",
+                "name": "Insecta",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 17393,
+                "namesIndexId": 17393,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Insecta",
+                "labelHtml": "Insecta",
+                "parentId": "L2655"
+              },
+              {
+                "id": "L2655",
+                "name": "Hexapoda",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 17333,
+                "namesIndexId": 17333,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Hexapoda",
+                "labelHtml": "Hexapoda",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Aedes (Stegomyia) aegypti (Linnaeus, 1762)",
+            "labelHtml": "<i>Aedes (Stegomyia) aegypti</i> (Linnaeus, 1762)",
+            "parentId": "BY56N"
+          },
+          "sectorKey": 1386,
+          "type": "variant",
+          "original": {
+            "name": "Aedes aegypti",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Aedes aegypti",
+            "labelHtml": "Aedes aegypti"
+          },
+          "issues": {},
+          "id": "89W72",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:23.161Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Aedes aegypti;geo:country/ocean:Uruguay",
+        "query": "tax:species:Aedes aegypti;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Aedes aegypti",
+      "normalizedName": "Aedes aegypti",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Aedes aegypti",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAedes+aegypti%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "25c3943ac2a4dd6e679f85d6e124c9ac6278b194d942d711983642f8c8d4ba6b",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Aedes aegypti",
+                "matched": "tax:species:Aedes aegypti"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {},
+            "counts": {
+              "bin_uri": 0,
+              "species": 1,
+              "specimens": 2
+            },
+            "species": {
+              "Aedes aegypti": 2
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:23.399Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Aglaoctenus lagotis"
+      },
+      "remoteId": "5TRBV",
+      "originalName": "Aglaoctenus lagotis",
+      "normalizedName": "Aglaoctenus lagotis",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "5TRBV",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Aglaoctenus lagotis",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Aglaoctenus+lagotis",
+      "checksum": "e59458e70058c522e459b44ce141f16b0638826e08054980acce9d1302844990",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "5TRBV",
+            "name": "Aglaoctenus lagotis",
+            "authorship": "(Holmberg, 1876)",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 269490,
+            "namesIndexId": 269490,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTPKM",
+                "name": "Aglaoctenus",
+                "authorship": "Tullgren, 1905",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 269470,
+                "namesIndexId": 269470,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Aglaoctenus Tullgren, 1905",
+                "labelHtml": "<i>Aglaoctenus</i> Tullgren, 1905",
+                "parentId": "CV7YH"
+              },
+              {
+                "id": "CV7YH",
+                "name": "Lycosidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 4709462,
+                "namesIndexId": 4709462,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Lycosidae Sundevall, 1833",
+                "labelHtml": "Lycosidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Aglaoctenus lagotis (Holmberg, 1876)",
+            "labelHtml": "<i>Aglaoctenus lagotis</i> (Holmberg, 1876)",
+            "parentId": "CTPKM"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Aglaoctenus lagotis",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Aglaoctenus lagotis",
+            "labelHtml": "Aglaoctenus lagotis"
+          },
+          "issues": {},
+          "id": "5TRBV",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:23.883Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Aglaoctenus lagotis;geo:country/ocean:Uruguay",
+        "query": "tax:species:Aglaoctenus lagotis;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Aglaoctenus lagotis",
+      "normalizedName": "Aglaoctenus lagotis",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Aglaoctenus lagotis",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAglaoctenus+lagotis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "63430f9a72e34016692aa3308c1a89b8e75c24cba61324733216247452f1d2be",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Aglaoctenus lagotis",
+                "matched": "tax:species:Aglaoctenus lagotis"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {
+              "BOLD:ACI9464": 3,
+              "BOLD:ACI9466": 97,
+              "BOLD:AHC5503": 1,
+              "BOLD:ACI9465": 5
+            },
+            "counts": {
+              "bin_uri": 8,
+              "species": 7,
+              "specimens": 108
+            },
+            "species": {
+              "Aglaoctenus lagotis": 108
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:24.119Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Aglaoctenus oblongus"
+      },
+      "remoteId": "5TRC7",
+      "originalName": "Aglaoctenus oblongus",
+      "normalizedName": "Aglaoctenus oblongus",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "5TRC7",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Aglaoctenus oblongus",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Aglaoctenus+oblongus",
+      "checksum": "5ab1eaa64ac5bd81ef2274cb20f298ea52fb9985e08cb4811c0ad709cc28fb4b",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "5TRC7",
+            "name": "Aglaoctenus oblongus",
+            "authorship": "(C. L. Koch, 1847)",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 269492,
+            "namesIndexId": 269492,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTPKM",
+                "name": "Aglaoctenus",
+                "authorship": "Tullgren, 1905",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 269470,
+                "namesIndexId": 269470,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Aglaoctenus Tullgren, 1905",
+                "labelHtml": "<i>Aglaoctenus</i> Tullgren, 1905",
+                "parentId": "CV7YH"
+              },
+              {
+                "id": "CV7YH",
+                "name": "Lycosidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 4709462,
+                "namesIndexId": 4709462,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Lycosidae Sundevall, 1833",
+                "labelHtml": "Lycosidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Aglaoctenus oblongus (C. L. Koch, 1847)",
+            "labelHtml": "<i>Aglaoctenus oblongus</i> (C. L. Koch, 1847)",
+            "parentId": "CTPKM"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Aglaoctenus oblongus",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Aglaoctenus oblongus",
+            "labelHtml": "Aglaoctenus oblongus"
+          },
+          "issues": {},
+          "id": "5TRC7",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:25.593Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Aglaoctenus oblongus;geo:country/ocean:Uruguay",
+        "query": "tax:species:Aglaoctenus oblongus;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Aglaoctenus oblongus",
+      "normalizedName": "Aglaoctenus oblongus",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Aglaoctenus oblongus",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAglaoctenus+oblongus%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "782071c614689e31dc3cdc16a86fbafc3b4fc1e9d7ce0039bcd18741121daeb1",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Aglaoctenus oblongus",
+                "matched": "tax:species:Aglaoctenus oblongus"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {},
+            "counts": {
+              "bin_uri": 0,
+              "species": 1,
+              "specimens": 1
+            },
+            "species": {
+              "Aglaoctenus oblongus": 1
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:26.195Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Allocosa marindia"
+      },
+      "remoteId": "BVRW",
+      "originalName": "Allocosa marindia",
+      "normalizedName": "Allocosa marindia",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "BVRW",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Allocosa marindia",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Allocosa+marindia",
+      "checksum": "d31d4502c6fd53db5a241bb53ad0887b4b49aa0c8e0271f438988c0798e77065",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "BVRW",
+            "name": "Allocosa marindia",
+            "authorship": "Simó, Lise, Pompozzi & Laborda, 2017",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 359317,
+            "namesIndexId": 359317,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTPHB",
+                "name": "Allocosa",
+                "authorship": "Banks, 1900",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 359058,
+                "namesIndexId": 359058,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Allocosa Banks, 1900",
+                "labelHtml": "<i>Allocosa</i> Banks, 1900",
+                "parentId": "CV7YH"
+              },
+              {
+                "id": "CV7YH",
+                "name": "Lycosidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 4709462,
+                "namesIndexId": 4709462,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Lycosidae Sundevall, 1833",
+                "labelHtml": "Lycosidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Allocosa marindia Simó, Lise, Pompozzi & Laborda, 2017",
+            "labelHtml": "<i>Allocosa marindia</i> Simó, Lise, Pompozzi & Laborda, 2017",
+            "parentId": "CTPHB"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Allocosa marindia",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Allocosa marindia",
+            "labelHtml": "Allocosa marindia"
+          },
+          "issues": {},
+          "id": "BVRW",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:26.958Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Allocosa marindia;geo:country/ocean:Uruguay",
+        "query": "tax:species:Allocosa marindia;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Allocosa marindia",
+      "normalizedName": "Allocosa marindia",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Allocosa marindia",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAllocosa+marindia%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "bca46190ad9b1afd78e9236bbee14533c8c95abf9695077835778eee449c36c2",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Allocosa marindia",
+                "matched": "tax:species:Allocosa marindia"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {
+              "BOLD:AED7506": 3,
+              "BOLD:AHC6483": 2
+            },
+            "counts": {
+              "bin_uri": 2,
+              "species": 1,
+              "specimens": 11
+            },
+            "species": {
+              "Allocosa marindia": 11
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:27.776Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Allocosa senex"
+      },
+      "remoteId": "BVTJ",
+      "originalName": "Allocosa senex",
+      "normalizedName": "Allocosa senex",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "BVTJ",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Allocosa senex",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Allocosa+senex",
+      "checksum": "55be582dd273ca925f50e16cbd86a6e8edf84fb2cb2c0874161f83be7aa487bb",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "BVTJ",
+            "name": "Allocosa senex",
+            "authorship": "(Mello-Leitão, 1945)",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 359564,
+            "namesIndexId": 359564,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTPHB",
+                "name": "Allocosa",
+                "authorship": "Banks, 1900",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 359058,
+                "namesIndexId": 359058,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Allocosa Banks, 1900",
+                "labelHtml": "<i>Allocosa</i> Banks, 1900",
+                "parentId": "CV7YH"
+              },
+              {
+                "id": "CV7YH",
+                "name": "Lycosidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 4709462,
+                "namesIndexId": 4709462,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Lycosidae Sundevall, 1833",
+                "labelHtml": "Lycosidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Allocosa senex (Mello-Leitão, 1945)",
+            "labelHtml": "<i>Allocosa senex</i> (Mello-Leitão, 1945)",
+            "parentId": "CTPHB"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Allocosa senex",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Allocosa senex",
+            "labelHtml": "Allocosa senex"
+          },
+          "issues": {},
+          "id": "BVTJ",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:27.923Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Allocosa senex;geo:country/ocean:Uruguay",
+        "query": "tax:species:Allocosa senex;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Allocosa senex",
+      "normalizedName": "Allocosa senex",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Allocosa senex",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAllocosa+senex%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "a9e8b4c3195cb713e6c607c62bbe8340fa94eb7ca8ab004314f012ceb66f88ad",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Allocosa senex",
+                "matched": "tax:species:Allocosa senex"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {
+              "BOLD:ACO0451": 6,
+              "BOLD:AED9038": 1
+            },
+            "counts": {
+              "bin_uri": 2,
+              "species": 1,
+              "specimens": 47
+            },
+            "species": {
+              "Allocosa senex": 47
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:28.155Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Anelosimus lorenzo"
+      },
+      "remoteId": "DWMV",
+      "originalName": "Anelosimus lorenzo",
+      "normalizedName": "Anelosimus lorenzo",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "DWMV",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Anelosimus lorenzo",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Anelosimus+lorenzo",
+      "checksum": "cdff8f5bafa311a1fc9db8c8c222653b8618aebb3b20112a2335896f80046d5e",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "DWMV",
+            "name": "Anelosimus lorenzo",
+            "authorship": "Fowler & Levi, 1979",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 556856,
+            "namesIndexId": 556856,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTP32",
+                "name": "Anelosimus",
+                "authorship": "Simon, 1891",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 556599,
+                "namesIndexId": 556599,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Anelosimus Simon, 1891",
+                "labelHtml": "<i>Anelosimus</i> Simon, 1891",
+                "parentId": "CVQNX"
+              },
+              {
+                "id": "CVQNX",
+                "name": "Theridiidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 18411,
+                "namesIndexId": 18411,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Theridiidae Sundevall, 1833",
+                "labelHtml": "Theridiidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Anelosimus lorenzo Fowler & Levi, 1979",
+            "labelHtml": "<i>Anelosimus lorenzo</i> Fowler & Levi, 1979",
+            "parentId": "CTP32"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Anelosimus lorenzo",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Anelosimus lorenzo",
+            "labelHtml": "Anelosimus lorenzo"
+          },
+          "issues": {},
+          "id": "DWMV",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:28.953Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Anelosimus lorenzo;geo:country/ocean:Uruguay",
+        "query": "tax:species:Anelosimus lorenzo;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Anelosimus lorenzo",
+      "normalizedName": "Anelosimus lorenzo",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Anelosimus lorenzo",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAnelosimus+lorenzo%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "5b43e606ca380ffa295498592acaddcab33df2c994eee76a5d538bce5f8a01e8",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Anelosimus lorenzo",
+                "matched": "ids:processid:Anelosimus lorenzo;ids:sampleid:Anelosimus lorenzo;ids:insdcacs:Anelosimus lorenzo"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:29.188Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Anelosimus vierae"
+      },
+      "remoteId": "DWP2",
+      "originalName": "Anelosimus vierae",
+      "normalizedName": "Anelosimus vierae",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "DWP2",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Anelosimus vierae",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Anelosimus+vierae",
+      "checksum": "50956d57bcce13b18d23b21bbc3cd4b239b67c208f7f9c1564f87598fbee9040",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "DWP2",
+            "name": "Anelosimus vierae",
+            "authorship": "Agnarsson, 2012",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 557011,
+            "namesIndexId": 557011,
+            "namesIndexMatchType": "none",
+            "sectorKey": 59356,
+            "classification": [
+              {
+                "id": "CTP32",
+                "name": "Anelosimus",
+                "authorship": "Simon, 1891",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 556599,
+                "namesIndexId": 556599,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Anelosimus Simon, 1891",
+                "labelHtml": "<i>Anelosimus</i> Simon, 1891",
+                "parentId": "CVQNX"
+              },
+              {
+                "id": "CVQNX",
+                "name": "Theridiidae",
+                "authorship": "Sundevall, 1833",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 18411,
+                "namesIndexId": 18411,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Theridiidae Sundevall, 1833",
+                "labelHtml": "Theridiidae Sundevall, 1833",
+                "parentId": "RN"
+              },
+              {
+                "id": "RN",
+                "name": "Araneae",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 258723,
+                "namesIndexId": 258723,
+                "namesIndexMatchType": "none",
+                "sectorKey": 59356,
+                "canonical": true,
+                "label": "Araneae",
+                "labelHtml": "Araneae",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Anelosimus vierae Agnarsson, 2012",
+            "labelHtml": "<i>Anelosimus vierae</i> Agnarsson, 2012",
+            "parentId": "CTP32"
+          },
+          "sectorKey": 59356,
+          "type": "variant",
+          "original": {
+            "name": "Anelosimus vierae",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Anelosimus vierae",
+            "labelHtml": "Anelosimus vierae"
+          },
+          "issues": {},
+          "id": "DWP2",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:30.878Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Anelosimus vierae;geo:country/ocean:Uruguay",
+        "query": "tax:species:Anelosimus vierae;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Anelosimus vierae",
+      "normalizedName": "Anelosimus vierae",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Anelosimus vierae",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAnelosimus+vierae%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "2d15e3a10102fc7da150f9574a6abff34c20456f19a9b2607857c5a026452099",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Anelosimus vierae",
+                "matched": "tax:species:Anelosimus vierae"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {
+              "BOLD:ACI1613": 1
+            },
+            "counts": {
+              "bin_uri": 1,
+              "species": 2,
+              "specimens": 3
+            },
+            "species": {
+              "Anelosimus vierae": 3
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "catalogue_of_life",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+      "retrievedAt": "2026-09-12T18:16:31.110Z",
+      "parameters": {
+        "datasetId": "3LR",
+        "q": "Bothriurus rochensis"
+      },
+      "remoteId": "MNLZ",
+      "originalName": "Bothriurus rochensis",
+      "normalizedName": "Bothriurus rochensis",
+      "fieldPath": "taxonIdentifiers.catalogueOfLife",
+      "proposedValue": {
+        "taxonId": "MNLZ",
+        "datasetId": "3LR",
+        "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+      },
+      "referenceAcceptedName": "Bothriurus rochensis",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Bothriurus+rochensis",
+      "checksum": "d17a2580c7d9539514c80fe4fdcd8bd233cd07d8f32898b18fddf58a58b157b5",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "usage": {
+            "id": "MNLZ",
+            "name": "Bothriurus rochensis",
+            "authorship": "San Martin, 1965",
+            "rank": "species",
+            "code": "zoological",
+            "status": "accepted",
+            "canonicalId": 1227417,
+            "namesIndexId": 1227417,
+            "namesIndexMatchType": "none",
+            "sectorKey": 868,
+            "classification": [
+              {
+                "id": "62GWZ",
+                "name": "Bothriurus",
+                "authorship": "Peters, 1861",
+                "rank": "genus",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1227379,
+                "namesIndexId": 1227379,
+                "namesIndexMatchType": "none",
+                "sectorKey": 868,
+                "canonical": true,
+                "label": "Bothriurus Peters, 1861",
+                "labelHtml": "<i>Bothriurus</i> Peters, 1861",
+                "parentId": "7BQ"
+              },
+              {
+                "id": "7BQ",
+                "name": "Bothriuridae",
+                "authorship": "Simon, 1880",
+                "rank": "family",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1227366,
+                "namesIndexId": 1227366,
+                "namesIndexMatchType": "none",
+                "sectorKey": 868,
+                "canonical": true,
+                "label": "Bothriuridae Simon, 1880",
+                "labelHtml": "Bothriuridae Simon, 1880",
+                "parentId": "42N"
+              },
+              {
+                "id": "42N",
+                "name": "Scorpiones",
+                "rank": "order",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 8250516,
+                "namesIndexId": 8250516,
+                "namesIndexMatchType": "none",
+                "sectorKey": 868,
+                "canonical": true,
+                "label": "Scorpiones",
+                "labelHtml": "Scorpiones",
+                "parentId": "CCQKT"
+              },
+              {
+                "id": "CCQKT",
+                "name": "Arachnida",
+                "rank": "class",
+                "status": "accepted",
+                "canonicalId": 680272,
+                "namesIndexId": 680272,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arachnida",
+                "labelHtml": "Arachnida",
+                "parentId": "KZWYC"
+              },
+              {
+                "id": "KZWYC",
+                "name": "Chelicerata",
+                "rank": "subphylum",
+                "code": "zoological",
+                "status": "accepted",
+                "canonicalId": 1947564,
+                "namesIndexId": 1947564,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Chelicerata",
+                "labelHtml": "Chelicerata",
+                "parentId": "RT"
+              },
+              {
+                "id": "RT",
+                "name": "Arthropoda",
+                "rank": "phylum",
+                "status": "accepted",
+                "canonicalId": 9289,
+                "namesIndexId": 9289,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Arthropoda",
+                "labelHtml": "Arthropoda",
+                "parentId": "N"
+              },
+              {
+                "id": "N",
+                "name": "Animalia",
+                "rank": "kingdom",
+                "status": "accepted",
+                "canonicalId": 9237,
+                "namesIndexId": 9237,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Animalia",
+                "labelHtml": "Animalia",
+                "parentId": "CS5HF"
+              },
+              {
+                "id": "CS5HF",
+                "name": "Eukaryota",
+                "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+                "rank": "domain",
+                "status": "accepted",
+                "canonicalId": 3444548,
+                "namesIndexId": 3444548,
+                "namesIndexMatchType": "none",
+                "canonical": true,
+                "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+                "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+              }
+            ],
+            "canonical": true,
+            "label": "Bothriurus rochensis San Martin, 1965",
+            "labelHtml": "<i>Bothriurus rochensis</i> San Martin, 1965",
+            "parentId": "62GWZ"
+          },
+          "sectorKey": 868,
+          "type": "variant",
+          "original": {
+            "name": "Bothriurus rochensis",
+            "status": "accepted",
+            "canonical": true,
+            "label": "Bothriurus rochensis",
+            "labelHtml": "Bothriurus rochensis"
+          },
+          "issues": {},
+          "id": "MNLZ",
+          "match": true
+        },
+        "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:16:32.752Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Bothriurus rochensis;geo:country/ocean:Uruguay",
+        "query": "tax:species:Bothriurus rochensis;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Bothriurus rochensis",
+      "normalizedName": "Bothriurus rochensis",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Bothriurus rochensis",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3ABothriurus+rochensis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "48bd530889c4d949497cf5976115425d773c6f1958717fd3f63cd5f779e014e1",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Bothriurus rochensis",
+                "matched": "ids:processid:Bothriurus rochensis;ids:sampleid:Bothriurus rochensis;ids:insdcacs:Bothriurus rochensis"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:47.906Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Chaco castanea;geo:country/ocean:Uruguay",
+        "query": "tax:species:Chaco castanea;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Chaco castanea",
+      "normalizedName": "Chaco castanea",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Chaco castanea",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AChaco+castanea%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "930b9e9ca76ae6f6d2f22ff15e6f01bd8efdfef635cf6adb42a211e1e10ee8ae",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Chaco castanea",
+                "matched": "ids:processid:Chaco castanea;ids:sampleid:Chaco castanea;ids:insdcacs:Chaco castanea"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:48.906Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Chaco costai;geo:country/ocean:Uruguay",
+        "query": "tax:species:Chaco costai;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Chaco costai",
+      "normalizedName": "Chaco costai",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Chaco costai",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AChaco+costai%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "fc227e15ae6035cfee3e91b2da7af709ad0e68b9a0aba3b3612dc6211b528766",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Chaco costai",
+                "matched": "ids:processid:Chaco costai;ids:sampleid:Chaco costai;ids:insdcacs:Chaco costai"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:49.897Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Guasuctenus longipes;geo:country/ocean:Uruguay",
+        "query": "tax:species:Guasuctenus longipes;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Guasuctenus longipes",
+      "normalizedName": "Guasuctenus longipes",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Guasuctenus longipes",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGuasuctenus+longipes%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "54f7d64f4b7132299a7263c75eb7bf25fa5f4c729c5d7684eabde8c91aa2e864",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Guasuctenus longipes",
+                "matched": "tax:species:Guasuctenus longipes"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {},
+            "counts": {
+              "bin_uri": 0,
+              "species": 1,
+              "specimens": 1
+            },
+            "species": {
+              "Guasuctenus longipes": 1
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:50.918Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Cybaeodamus taim;geo:country/ocean:Uruguay",
+        "query": "tax:species:Cybaeodamus taim;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Cybaeodamus taim",
+      "normalizedName": "Cybaeodamus taim",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Cybaeodamus taim",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3ACybaeodamus+taim%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "78f25d3b2fbea5ea5fc2169a584a69bc9c00a8a53d71a8985c37b8d59599e6cb",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Cybaeodamus taim",
+                "matched": "tax:species:Cybaeodamus taim"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:51.915Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Deinopis amica;geo:country/ocean:Uruguay",
+        "query": "tax:species:Deinopis amica;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Deinopis amica",
+      "normalizedName": "Deinopis amica",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Deinopis amica",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3ADeinopis+amica%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "8647e93b2e2d0d9eff331813eeac8e42f3f28a3a62e5675b9eaf19341d82bb6f",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Deinopis amica",
+                "matched": "ids:processid:Deinopis amica;ids:sampleid:Deinopis amica;ids:insdcacs:Deinopis amica"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:52.909Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Gaucha fasciata;geo:country/ocean:Uruguay",
+        "query": "tax:species:Gaucha fasciata;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Gaucha fasciata",
+      "normalizedName": "Gaucha fasciata",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Gaucha fasciata",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGaucha+fasciata%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "cc0d7d56ba157f8b2de9039fa234a11891c4c3479e8e911e6da04cacd36d5920",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Gaucha fasciata",
+                "matched": "tax:species:Gaucha fasciata"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:53.899Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Gelanor zonatus;geo:country/ocean:Uruguay",
+        "query": "tax:species:Gelanor zonatus;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Gelanor zonatus",
+      "normalizedName": "Gelanor zonatus",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Gelanor zonatus",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGelanor+zonatus%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "072982630113ad28e2bd536db864a5982a4fba05675fb0f89c3e6da0f45afa3e",
+      "status": "unresolved",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Gelanor zonatus",
+                "matched": "tax:species:Gelanor zonatus"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {}
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    },
+    {
+      "source": "bold",
+      "version": "BOLD Portal API",
+      "retrievedAt": "2026-09-12T18:02:54.901Z",
+      "parameters": {
+        "preprocessorQuery": "tax:species:Grammostola andreleetzi;geo:country/ocean:Uruguay",
+        "query": "tax:species:Grammostola andreleetzi;geo:country/ocean:Uruguay",
+        "fields": "specimens,bin_uri,species"
+      },
+      "remoteId": null,
+      "originalName": "Grammostola andreleetzi",
+      "normalizedName": "Grammostola andreleetzi",
+      "fieldPath": "external.bold",
+      "proposedValue": null,
+      "referenceAcceptedName": "Grammostola andreleetzi",
+      "license": null,
+      "licenseUrl": null,
+      "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGrammostola+andreleetzi%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+      "checksum": "bb138fb19bfcccdc09bab413c30c68ad6db33a5e26f5cbc07ae6aa609959402c",
+      "status": "needs_review",
+      "evidence": {
+        "response": {
+          "preprocessor": {
+            "successful_terms": [
+              {
+                "submitted": "tax:species:Grammostola andreleetzi",
+                "matched": "tax:species:Grammostola andreleetzi"
+              },
+              {
+                "submitted": "geo:country/ocean:Uruguay",
+                "matched": "geo:country/ocean:Uruguay"
+              }
+            ]
+          },
+          "summary": {
+            "bin_uri": {
+              "BOLD:AFC0846": 1
+            },
+            "counts": {
+              "bin_uri": 1,
+              "species": 1,
+              "specimens": 1
+            },
+            "species": {
+              "Grammostola andreleetzi": 1
+            }
+          }
+        },
+        "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+      }
+    }
+  ]
+}

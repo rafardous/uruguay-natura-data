@@ -36,7 +36,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
   const [applied, setApplied] = useState<SpeciesSelection>(seeded);
   const [draft, setDraft] = useState<SpeciesSelection>(seeded);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [options, setOptions] = useState({ habitats: [] as string[], diets: [] as string[], seasonalities: [] as string[] });
+  const [options, setOptions] = useState({ habitats: [] as string[], diets: [] as string[], seasonalities: [] as string[], metamorphoses: [] as string[], trophicRoles: [] as string[], microhabitats: [] as string[] });
   const { items: classes } = useTaxonomyChildren('clase', {});
 
   useEffect(() => {
@@ -44,7 +44,10 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
       speciesRepository.listFilterValues(db, 'habitat'),
       speciesRepository.listFilterValues(db, 'diet'),
       speciesRepository.listFilterValues(db, 'seasonality'),
-    ]).then(([habitats, diets, seasonalities]) => setOptions({ habitats, diets, seasonalities }));
+      speciesRepository.listFilterValues(db, 'metamorphosis'),
+      speciesRepository.listFilterValues(db, 'trophicRole'),
+      speciesRepository.listFilterValues(db, 'microhabitat'),
+    ]).then(([habitats, diets, seasonalities, metamorphoses, trophicRoles, microhabitats]) => setOptions({ habitats, diets, seasonalities, metamorphoses, trophicRoles, microhabitats })).catch(() => undefined);
   }, [db]);
 
   const filters = useMemo(() => ({
@@ -55,6 +58,9 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
     habitats: applied.habitats.length ? applied.habitats : undefined,
     diets: applied.diets.length ? applied.diets : undefined,
     seasonalities: applied.seasonalities.length ? applied.seasonalities : undefined,
+    metamorphoses: applied.metamorphoses.length ? applied.metamorphoses : undefined,
+    trophicRoles: applied.trophicRoles.length ? applied.trophicRoles : undefined,
+    microhabitats: applied.microhabitats.length ? applied.microhabitats : undefined,
   }), [applied, search]);
   const list = useSpeciesList(filters);
   const onScroll = useScrollDetentHaptics(COMPACT_ROW_HEIGHT + spacing.sm);
@@ -79,7 +85,7 @@ export default function SpeciesIndexScreen(): React.JSX.Element {
           <Pressable onPress={() => { haptics.tap(); setDraft(applied); setSheetOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Filtrar especies" style={[styles.filterButton, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}><SlidersIcon color={colors.textSecondary} /><Text style={[typography.caption, { color: colors.textSecondary }]}>{filterCount || ''}</Text></Pressable>
         </View>
         <View style={[styles.searchRow, { marginTop: spacing.sm }]}><SearchBar value={query} onChange={setQuery} variant="surface" /></View>
-        {filterCount > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.activeFilters}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities'] as const).flatMap((key) => applied[key].map((value) => <Chip key={`${key}-${value}`} label={`${friendlyFilterValue(value)} ×`} selected onPress={() => remove(key, value)} />))}</ScrollView>}
+        {filterCount > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.activeFilters}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities', 'metamorphoses', 'trophicRoles', 'microhabitats'] as const).flatMap((key) => applied[key].map((value) => <Chip key={`${key}-${value}`} label={`${friendlyFilterValue(value)} ×`} selected onPress={() => remove(key, value)} />))}</ScrollView>}
       </View>
 
       {list.loading && list.items.length === 0 ? <View style={{ flex: 1, paddingTop: headerHeight + spacing.lg, paddingHorizontal: spacing.lg, gap: spacing.sm }}>{[0, 1, 2, 3, 4].map((i) => <CompactSpeciesRowSkeleton key={i} />)}</View> : list.items.length === 0 ? <View style={{ flex: 1, paddingTop: headerHeight }}><EmptyState title="Sin resultados" message="Probá con otro nombre o filtro." /></View> : <View style={styles.listArea}><FlashList data={list.items} renderItem={renderItem} keyExtractor={(item) => item.codigo} onScroll={onScroll} scrollEventThrottle={32} onEndReached={list.loadMore} onEndReachedThreshold={0.4} drawDistance={280} maxItemsInRecyclePool={12} contentContainerStyle={{ paddingTop: headerHeight }} ListHeaderComponent={<View style={{ height: spacing.sm }} />} ListFooterComponent={list.loadingMore ? <ActivityIndicator color={colors.primary} style={{ paddingBottom: bottom }} /> : <View style={{ height: bottom }} />} showsVerticalScrollIndicator={false} /></View>}

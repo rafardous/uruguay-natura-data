@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { Image } from 'expo-image';
-import Svg, { Circle, Line, Path, Rect } from 'react-native-svg';
+import Svg, { Circle, Line, Path } from 'react-native-svg';
 
 import type { Species } from '../../domain/entities/species';
 
@@ -46,12 +46,16 @@ export function SpeciesLensArt({ species }: { species: Species | null }): React.
 /** Small field-guide scene built entirely from SVG primitives. */
 export function LearnFieldGuideArt(): React.JSX.Element {
   return (
-    <Svg width="94" height="74" viewBox="0 0 94 74" accessibilityLabel="Guía de campo con hoja, pluma y huella">
-      <Rect x="10" y="11" width="57" height="52" rx="6" fill="#FFF9EA" stroke={INK} strokeWidth="2" transform="rotate(-5 10 11)" />
-      <Path d="M22 24h30M20 32h22M19 40h27" stroke="#9ABDA3" strokeWidth="3" strokeLinecap="round" />
-      <Path d="M65 7c-7 13-6 25 1 34 6 7 10 13 10 23M65 7c5 4 9 9 11 16M64 19c-4 1-8 0-12-3M66 30c-4 2-8 2-12 0" fill="none" stroke={INK} strokeWidth="2.3" strokeLinecap="round" />
-      <Path d="M72 59c3-7 9-7 12 0 2 4 0 8-4 8h-4c-4 0-6-4-4-8Z" fill={GOLD} stroke={INK} strokeWidth="1.8" />
-      <Path d="M76 56v7M72 60h9" stroke={INK} strokeWidth="1.3" strokeLinecap="round" />
+    <Svg width="94" height="74" viewBox="0 0 94 74" accessibilityLabel="Libro abierto con ramas de clasificación">
+      <Path d="M10 17c14-5 25-3 37 5v39c-12-8-23-10-37-5Z" fill="#FFF9EA" stroke={INK} strokeWidth="2.2" strokeLinejoin="round" />
+      <Path d="M84 17c-14-5-25-3-37 5v39c12-8 23-10 37-5Z" fill="#FFF9EA" stroke={INK} strokeWidth="2.2" strokeLinejoin="round" />
+      <Path d="M47 22v-9M47 13H31M47 13h16M31 13v-5M31 13v5M63 13v-5M63 13v5" stroke={INK} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <Circle cx="47" cy="12" r="3.5" fill={GOLD} stroke={INK} strokeWidth="1.5" />
+      <Circle cx="31" cy="5" r="3" fill={MINT} stroke={INK} strokeWidth="1.4" />
+      <Circle cx="31" cy="21" r="3" fill={SAGE} stroke={INK} strokeWidth="1.4" />
+      <Circle cx="63" cy="5" r="3" fill={MINT} stroke={INK} strokeWidth="1.4" />
+      <Circle cx="63" cy="21" r="3" fill={SAGE} stroke={INK} strokeWidth="1.4" />
+      <Path d="M20 32h18M20 40h21M56 32h18M56 40h15" stroke="#9ABDA3" strokeWidth="3" strokeLinecap="round" />
     </Svg>
   );
 }

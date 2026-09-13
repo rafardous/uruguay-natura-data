@@ -17,13 +17,36 @@ export const PATHS = {
   resolved: resolve(DATA, 'normalized/resolved.json'),
   catalog: resolve(DATA, 'catalog'),
   reports: resolve(DATA, 'reports'),
+  arthropodDiscovery: resolve(DATA, 'cache/gbif/arthropod-discovery.json'),
+  arthropodOpen: {
+    udelarSpiders: resolve(DATA, 'raw/udelar/coleccion-aranas-u6fa5g.zip'),
+    hymenoptera: resolve(DATA, 'raw/gbif/parasitoides-hymenoptera-mu3rcs.zip'),
+    rochaPools: resolve(DATA, 'raw/biodiversidata/charcos-temporales-rocha-s7yrey.zip'),
+  },
 } as const;
 
-export const GROUPS = ['Mammalia', 'Aves', 'Reptilia', 'Amphibia', 'Actinopterygii', 'Chondrichthyes'] as const;
+/** Taxonomic classes currently in the Uruguay catalogue. Keep this registry
+ * data-driven: adding a class must not require a new branch in every stage. */
+export const GROUPS = [
+  'Mammalia', 'Aves', 'Reptilia', 'Amphibia', 'Actinopterygii', 'Chondrichthyes',
+  'Arachnida', 'Insecta', 'Malacostraca',
+] as const;
 export type Group = (typeof GROUPS)[number];
+export const ARTHROPOD_GROUPS = ['Arachnida', 'Insecta', 'Malacostraca'] as const;
+export const GROUP_METADATA: Record<Group, { kingdom: string; phylum: string }> = {
+  Mammalia: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Aves: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Reptilia: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Amphibia: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Actinopterygii: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Chondrichthyes: { kingdom: 'Animalia', phylum: 'Chordata' },
+  Arachnida: { kingdom: 'Animalia', phylum: 'Arthropoda' },
+  Insecta: { kingdom: 'Animalia', phylum: 'Arthropoda' },
+  Malacostraca: { kingdom: 'Animalia', phylum: 'Arthropoda' },
+};
 
 export function ensureDirs(): void {
-  for (const dir of [PATHS.raw, resolve(PATHS.raw, 'biodiversidata'), resolve(PATHS.raw, 'ministerio'),
+  for (const dir of [PATHS.raw, resolve(PATHS.raw, 'biodiversidata'), resolve(PATHS.raw, 'ministerio'), resolve(PATHS.raw, 'udelar'), resolve(PATHS.raw, 'gbif'),
     resolve(PATHS.raw, 'otras_fuentes'), PATHS.cache, resolve(PATHS.cache, 'gbif'), resolve(PATHS.cache, 'media'), PATHS.normalized,
     PATHS.catalog, PATHS.reports]) mkdirSync(dir, { recursive: true });
 }
@@ -152,15 +175,26 @@ export interface CatalogImage {
   url: string;
   fullUrl: string;
   license: string;
+  /** Exact upstream value; never infer a Creative Commons version. */
+  originalLicense?: string | null;
   attribution: string;
   source: 'inaturalist' | 'wikimedia';
   sourcePage: string | null;
   licenseUrl?: string;
   externalId?: string;
   sourceTaxonId?: string;
+  /** Hash supplied by the remote media service, not the processed Storage hash. */
+  sourceChecksum?: string | null;
   width?: number;
   height?: number;
   selectionScore?: number;
   selectionDetails?: Record<string, number | string | boolean>;
   retrievedAt?: string;
+}
+
+/** Keeps a genus-only source record visible for the review report. */
+export function cleanGenus(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const cleaned = value.replace(/\s+/g, ' ').trim().replace(/\s+\([^)]*\)$/, '');
+  return /^[A-Z][a-z-]+$/.test(cleaned) ? cleaned : null;
 }

@@ -1,0 +1,11 @@
+{
+  "taxonomicClass": "Insecta",
+  "rank": "order",
+  "language": "es-UY",
+  "source": { "code": "natura_uy_editorial" },
+  "items": [
+    { "name": "Diptera", "description": "Insectos con un solo par de alas funcionales; el segundo par está transformado en estructuras que ayudan a estabilizar el vuelo." },
+    { "name": "Hemiptera", "description": "Insectos con piezas bucales adaptadas para perforar y succionar; incluye chinches, pulgones y otros grupos asociados a plantas o animales." },
+    { "name": "Blattodea", "description": "Orden que incluye cucarachas y termitas. Las termitas son insectos sociales y el nombre histórico Isoptera se conserva sólo como referencia." }
+  ]
+}

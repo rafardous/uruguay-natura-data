@@ -43,6 +43,7 @@ export interface SpeciesMedia {
 export interface Taxonomy {
   kingdom: string;
   phylum: string;
+  subfilo?: string;
   clase: string;
   orden: string;
   familia: string;
@@ -53,13 +54,36 @@ export interface Taxonomy {
 export interface SpeciesSource {
   source: string;
   record: string | null;
-  /** Schema 10 field path. Older catalogues use `record` for this value. */
+  /** Schema 11 field path. Older catalogues use `record` for this value. */
   fieldPath?: string;
   sourceCode?: string | null;
   name?: string | null;
+  version?: string | null;
   url?: string | null;
   citation?: string | null;
   license?: string | null;
+}
+
+export interface SpeciesTaxonIdentifiers {
+  gbif?: { usageKey: number; name?: string | null };
+  catalogueOfLife?: { taxonId: string; datasetId?: string | null; version?: string | null };
+  worms?: { aphiaId: number; name?: string | null };
+  iNaturalist?: { taxonId: number; name?: string | null };
+}
+
+export interface ArthropodNaturalHistory {
+  morphology?: { bodyRegions?: string[]; exoskeleton?: string | null; legs?: number | null; antennae?: string | null; wings?: string | null; cheliceraePedipalps?: string | null; sources?: SpeciesSource[] };
+  identification?: { diagnosticCharacters?: string[]; similarSpecies?: string[]; sources?: SpeciesSource[] };
+  lifeCycle?: { stages?: string[]; metamorphosis?: 'none' | 'incomplete' | 'complete' | 'variable' | null; sources?: SpeciesSource[] };
+  ecology?: { microhabitat?: string[]; activity?: string[]; trophicRole?: string[]; hosts?: string[]; plantAssociations?: string[]; sources?: SpeciesSource[] };
+  humanRelevance?: { vector?: boolean; pest?: boolean; venomous?: boolean; veterinaryImportance?: boolean; note?: string | null; sources?: SpeciesSource[] };
+  sources?: SpeciesSource[];
+}
+
+export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory }
+export interface SpeciesDistributionSummary {
+  departments?: string[]; cells?: string[]; periodStart?: string | null; periodEnd?: string | null;
+  occurrenceCount?: number; confidence?: 'high' | 'medium' | 'low' | 'insufficient_data';
 }
 
 export type MeasurementKind = 'body_length' | 'body_mass' | 'wing_length' | 'tail_length' | 'tarsus_length' | 'max_length';
@@ -100,6 +124,7 @@ export interface Species {
   acceptedName: string | null;
   commonNames: string[];
   taxonomy: Taxonomy;
+  taxonIdentifiers?: SpeciesTaxonIdentifiers;
   conservation: {
     raw: string;
     label: string;
@@ -129,6 +154,8 @@ export interface Species {
   tamano: string;
   /** Structured schema-9 traits. Schema 10 adds source metadata around them. */
   traits: SpeciesTraits;
+  naturalHistory?: SpeciesNaturalHistory | null;
+  distributionSummary?: SpeciesDistributionSummary | null;
   photo: SpeciesPhoto | null;
   audioUrl: string | null;
   /** Full approved gallery from SQLite schema 8. Primary fields above remain for cards and games. */

@@ -15766,5 +15766,117 @@
       "resolutionHeight": 2048
     },
     "retrievedAt": "2026-09-11T16:47:19.356Z"
+  },
+  "Acanthogonatus tacuariensis": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/358376189/medium.jpg",
+    "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/358376189/large.jpg",
+    "license": "CC0",
+    "originalLicense": "cc0",
+    "attribution": "no rights reserved",
+    "source": "inaturalist",
+    "sourcePage": "https://www.inaturalist.org/observations/202884570",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "externalId": "inat-photo:358376189",
+    "sourceTaxonId": "810284",
+    "sourceChecksum": null,
+    "width": 1536,
+    "height": 2048,
+    "selectionScore": 71,
+    "selectionDetails": {
+      "curated": false,
+      "uruguay": true,
+      "resolutionWidth": 1536,
+      "resolutionHeight": 2048
+    },
+    "retrievedAt": "2026-09-12T21:09:36.070Z"
+  },
+  "Actinopus longipalpis": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/632943155/medium.jpg",
+    "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/632943155/large.jpg",
+    "license": "CC-BY",
+    "originalLicense": "cc-by",
+    "attribution": "(c) Martin Coronel Varela, some rights reserved (CC BY)",
+    "source": "inaturalist",
+    "sourcePage": "https://www.inaturalist.org/observations/347159902",
+    "externalId": "inat-photo:632943155",
+    "sourceTaxonId": "810288",
+    "sourceChecksum": null,
+    "width": 1536,
+    "height": 2048,
+    "selectionScore": 68,
+    "selectionDetails": {
+      "curated": false,
+      "uruguay": true,
+      "resolutionWidth": 1536,
+      "resolutionHeight": 2048
+    },
+    "retrievedAt": "2026-09-12T21:09:38.068Z"
+  },
+  "Aedes aegypti": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362071624/medium.jpeg",
+    "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/362071624/large.jpeg",
+    "license": "CC-BY",
+    "originalLicense": "cc-by",
+    "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+    "source": "inaturalist",
+    "sourcePage": "https://www.inaturalist.org/observations/204820685",
+    "externalId": "inat-photo:362071624",
+    "sourceTaxonId": "155453",
+    "sourceChecksum": null,
+    "width": 1287,
+    "height": 1838,
+    "selectionScore": 67,
+    "selectionDetails": {
+      "curated": false,
+      "uruguay": true,
+      "resolutionWidth": 1287,
+      "resolutionHeight": 1838
+    },
+    "retrievedAt": "2026-09-12T21:09:40.227Z"
+  },
+  "Aglaoctenus lagotis": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/196056238/medium.jpg",
+    "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/196056238/large.jpg",
+    "license": "CC-BY",
+    "originalLicense": "cc-by",
+    "attribution": "(c) Nico Fernandez-Sauleda, some rights reserved (CC BY)",
+    "source": "inaturalist",
+    "sourcePage": "https://www.inaturalist.org/observations/116175978",
+    "externalId": "inat-photo:196056238",
+    "sourceTaxonId": "416422",
+    "sourceChecksum": null,
+    "width": 2048,
+    "height": 2048,
+    "selectionScore": 71,
+    "selectionDetails": {
+      "curated": false,
+      "uruguay": true,
+      "resolutionWidth": 2048,
+      "resolutionHeight": 2048
+    },
+    "retrievedAt": "2026-09-12T21:09:42.739Z"
+  },
+  "Aglaoctenus oblongus": {
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/433541386/medium.jpeg",
+    "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/433541386/large.jpeg",
+    "license": "CC0",
+    "originalLicense": "cc0",
+    "attribution": "no rights reserved",
+    "source": "inaturalist",
+    "sourcePage": "https://www.inaturalist.org/observations/243153552",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "externalId": "inat-photo:433541386",
+    "sourceTaxonId": "810291",
+    "sourceChecksum": null,
+    "width": 2048,
+    "height": 1536,
+    "selectionScore": 71,
+    "selectionDetails": {
+      "curated": false,
+      "uruguay": true,
+      "resolutionWidth": 2048,
+      "resolutionHeight": 1536
+    },
+    "retrievedAt": "2026-09-12T21:09:44.307Z"
   }
 }

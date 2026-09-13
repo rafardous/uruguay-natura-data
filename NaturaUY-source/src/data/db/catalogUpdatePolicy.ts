@@ -20,8 +20,12 @@ export function compareVersions(left: string, right: string): number {
   return 0;
 }
 
-export function decideCatalogUpdate(policy: CatalogVersionPolicy, installedDataVersion: number, supportedSchema: number, appVersion: string): CatalogUpdateDecision {
+export function decideCatalogUpdate(policy: CatalogVersionPolicy, installedDataVersion: number, installedSchemaVersion: number, supportedSchema: number, appVersion: string): CatalogUpdateDecision {
   if (!Number.isInteger(policy.dataVersion) || policy.dataVersion <= installedDataVersion) return 'current';
+  // A newer release number must never replace a catalogue with an older schema.
+  // Besides losing fields, that downgrade makes bundled and staged databases
+  // replace each other on consecutive app starts.
+  if (policy.schemaVersion < installedSchemaVersion) return 'current';
   if (policy.schemaVersion > supportedSchema || compareVersions(appVersion, policy.minAppVersion) < 0) return 'app_update_required';
   return 'stage';
 }

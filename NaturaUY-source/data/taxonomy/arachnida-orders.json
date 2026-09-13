@@ -1,0 +1,12 @@
+{
+  "taxonomicClass": "Arachnida",
+  "rank": "order",
+  "language": "es-UY",
+  "source": { "code": "natura_uy_editorial" },
+  "items": [
+    { "name": "Araneae", "description": "Arañas con quelíceros, pedipalpos y glándulas de seda; ocupan desde el suelo y la hojarasca hasta el dosel y los ambientes domésticos." },
+    { "name": "Opiliones", "description": "Arácnidos de cuerpo compacto, patas generalmente largas y sin una separación marcada entre prosoma y abdomen; cumplen roles de depredadores y detritívoros." },
+    { "name": "Scorpiones", "description": "Arácnidos con pinzas y una cola articulada que termina en el telson; se refugian bajo piedras, troncos y otros sustratos." },
+    { "name": "Solifugae", "description": "Arácnidos corredores con grandes quelíceros y hábitos principalmente terrestres; suelen refugiarse durante las horas de mayor calor." }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-12",
+  "purpose": "Verificación de taxonomía y presencia uruguaya para la ilustración de la tarjeta Arthropoda.",
+  "policy": "Este reporte valida la selección visual; no publica especies ni sustituye la revisión editorial de medios y contenido.",
+  "source": {
+    "provider": "GBIF",
+    "speciesMatchEndpoint": "https://api.gbif.org/v1/species/match",
+    "occurrenceEndpoint": "https://api.gbif.org/v1/occurrence/search",
+    "country": "UY",
+    "retrievedAt": "2026-09-12"
+  },
+  "taxa": [
+    {
+      "scientificName": "Dione vanillae",
+      "commonName": "mariposa espejitos",
+      "gbifUsageKey": 11701883,
+      "matchType": "EXACT",
+      "acceptedName": "Dione vanillae",
+      "uruguayOccurrenceCount": 470
+    },
+    {
+      "scientificName": "Diloboderus abderus",
+      "commonName": "bicho torito",
+      "gbifUsageKey": 1076392,
+      "matchType": "EXACT",
+      "acceptedName": "Diloboderus abderus",
+      "uruguayOccurrenceCount": 239
+    },
+    {
+      "scientificName": "Anax concolor",
+      "commonName": "libélula",
+      "gbifUsageKey": 5051769,
+      "matchType": "EXACT",
+      "acceptedName": "Anax concolor",
+      "uruguayOccurrenceCount": 1
+    },
+    {
+      "scientificName": "Grammostola anthracina",
+      "commonName": "araña pollito",
+      "gbifUsageKey": 8128825,
+      "matchType": "EXACT",
+      "acceptedName": "Grammostola anthracina",
+      "uruguayOccurrenceCount": 66
+    },
+    {
+      "scientificName": "Neohelice granulata",
+      "commonName": "cangrejo estuarino",
+      "gbifUsageKey": 5863345,
+      "matchType": "EXACT",
+      "acceptedName": "Neohelice granulata",
+      "uruguayOccurrenceCount": 182
+    }
+  ]
+}

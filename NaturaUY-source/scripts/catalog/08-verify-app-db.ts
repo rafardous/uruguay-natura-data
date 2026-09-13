@@ -5,7 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 
 import { PATHS, readJson } from './lib';
 
-const dbPath = resolve(PATHS.catalog, '../../assets/db/natura.db');
+const dbPath = process.env.NATURA_CATALOG_DB_PATH ?? resolve(PATHS.catalog, '../../assets/db/natura.db');
 if (!existsSync(dbPath)) throw new Error('assets/db/natura.db does not exist — run data:catalog-db');
 
 const catalogIds = new Set(
@@ -34,7 +34,11 @@ const hasAudioOriginalLicense = scalar("SELECT COUNT(*) AS n FROM pragma_table_i
 const invalidAudioDurations = scalar("SELECT COUNT(*) AS n FROM species_media WHERE media_type='audio' AND (duration_seconds IS NULL OR duration_seconds <= 0 OR duration_seconds > 15)");
 const duplicateAudioExternalIds = scalar("SELECT COUNT(*) AS n FROM (SELECT external_id FROM species_media WHERE media_type='audio' AND external_id IS NOT NULL GROUP BY external_id HAVING COUNT(*) > 1)");
 const hasTraitsColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'traits'");
+const hasTaxonIdentifiersColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'taxon_identifiers'");
+const hasNaturalHistoryColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'natural_history'");
+const hasDistributionSummaryColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'distribution_summary'");
 const invalidTraits = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(traits) = 0 OR json_type(traits) <> 'object'");
+const invalidSchema11Objects = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(taxon_identifiers) = 0 OR json_type(taxon_identifiers) <> 'object' OR json_valid(natural_history) = 0 OR json_type(natural_history) <> 'object' OR json_valid(distribution_summary) = 0 OR json_type(distribution_summary) <> 'object'");
 const missingPrimarySearchNames = scalar(`SELECT COUNT(*) AS n FROM species
   WHERE NOT EXISTS (
     SELECT 1 FROM json_each(species.common_names)
@@ -79,6 +83,14 @@ const featuredFacts = scalar("SELECT COUNT(*) AS n FROM species_facts WHERE id L
 const simpleTaxa = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE simple_name IS NOT NULL AND TRIM(simple_name) <> ''");
 const simpleChordata = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='phylum' AND taxon_name='Chordata' AND simple_name='Vertebrados'");
 const simpleMammalia = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='class' AND taxon_name='Mammalia' AND simple_name='Mamíferos'");
+const simpleArthropoda = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='phylum' AND taxon_name='Arthropoda' AND simple_name='Artrópodos'");
+const taxaNodes = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type='table' AND name='taxa'");
+const speciesTaxaTable = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type='table' AND name='species_taxa'");
+const arthropodSubphyla = scalar("SELECT COUNT(*) AS n FROM taxa WHERE rank='subphylum' AND canonical_name IN ('Chelicerata','Hexapoda','Crustacea')");
+const arthropodSubphylumContent = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='subphylum' AND taxon_name IN ('Chelicerata','Hexapoda','Crustacea') AND simple_name IS NOT NULL AND TRIM(description) <> ''");
+const linkedTaxa = scalar('SELECT COUNT(*) AS n FROM species_taxa');
+const arthropodClasses = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE taxon_rank='class' AND taxon_name IN ('Arachnida','Insecta','Malacostraca') AND simple_name IS NOT NULL");
+const arthropodOrderDescriptions = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Arachnida','Insecta','Malacostraca') AND taxon_rank='order' AND TRIM(description) <> ''");
 const redundantBirdSimpleName = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Aves','Actinopterygii','Chondrichthyes') AND taxon_rank='class' AND simple_name IS NOT NULL");
 
 // Same joins/filters/order used by speciesRepository.findPaged.
@@ -98,7 +110,7 @@ const unassignedOrderBranch = db.prepare(`SELECT
 
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
-  schemaVersion !== '10' && `schema_version=${schemaVersion ?? 'missing'}, expected 10`,
+  schemaVersion !== '11' && `schema_version=${schemaVersion ?? 'missing'}, expected 11`,
   dataVersion !== '1' && `data_version=${dataVersion ?? 'missing'}, expected 1`,
   birdOrders !== 27 && `bird order descriptions=${birdOrders}, expected 27`,
   linkedBirdOrderDescriptions !== 27 && `bird order descriptions linked to catalogue=${linkedBirdOrderDescriptions}, expected 27`,
@@ -112,6 +124,14 @@ const failures = [
   simpleTaxa < 10 && `taxa with simple names=${simpleTaxa}, expected at least 10`,
   simpleChordata !== 1 && 'Chordata simple name missing',
   simpleMammalia !== 1 && 'Mammalia simple name missing',
+  simpleArthropoda !== 1 && 'Arthropoda simple name missing',
+  taxaNodes !== 1 && 'taxa table missing',
+  speciesTaxaTable !== 1 && 'species_taxa table missing',
+  arthropodSubphyla !== 3 && `arthropod subphyla=${arthropodSubphyla}, expected 3`,
+  arthropodSubphylumContent !== 3 && `arthropod subphylum content=${arthropodSubphylumContent}, expected 3`,
+  linkedTaxa < species && `species taxon links=${linkedTaxa}, expected at least ${species}`,
+  arthropodClasses !== 3 && `arthropod class descriptions=${arthropodClasses}, expected 3`,
+  arthropodOrderDescriptions < 3 && `arthropod order descriptions=${arthropodOrderDescriptions}, expected at least 3`,
   redundantBirdSimpleName > 0 && 'redundant simple names were added for birds or fish classes',
   hasMediaTable !== 1 && 'species_media table missing',
   hasAudioExternalId !== 1 && 'species_media.external_id column missing',
@@ -119,7 +139,11 @@ const failures = [
   invalidAudioDurations > 0 && `audio clips outside the 15 second contract=${invalidAudioDurations}`,
   duplicateAudioExternalIds > 0 && `duplicate audio external IDs=${duplicateAudioExternalIds}`,
   hasTraitsColumn !== 1 && 'species.traits column missing',
+  hasTaxonIdentifiersColumn !== 1 && 'species.taxon_identifiers column missing',
+  hasNaturalHistoryColumn !== 1 && 'species.natural_history column missing',
+  hasDistributionSummaryColumn !== 1 && 'species.distribution_summary column missing',
   invalidTraits > 0 && `invalid structured traits=${invalidTraits}`,
+  invalidSchema11Objects > 0 && `invalid schema 11 JSON objects=${invalidSchema11Objects}`,
   missingPrimarySearchNames > 0 && `species whose primary name is absent from common_names=${missingPrimarySearchNames}`,
   duplicateCommonNames > 0 && `species with duplicate common names=${duplicateCommonNames}`,
   redistributedFishBase > 0 && `FishBase data leaked into the offline catalog=${redistributedFishBase}`,
@@ -140,4 +164,4 @@ db.close();
 if (failures.length > 0) throw new Error(`app database verification failed:\n- ${failures.join('\n- ')}`);
 
 console.log(`08-verify-app-db: OK — ${species} species, ${photos} photos, ${unknownOrigin} without established origin`);
-console.log(`  integrity, schema 10 sources/taxonomy/facts, traits, common names, FTS, paging, filters and quiz queries passed`);
+console.log(`  integrity, schema 11 sources/taxonomy/facts, traits, arthropod history, common names, FTS, paging, filters and quiz queries passed`);

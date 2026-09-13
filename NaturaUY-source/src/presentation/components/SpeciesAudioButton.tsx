@@ -4,12 +4,14 @@ import { Volume2, Pause } from 'lucide-react-native';
 import type { Species } from '../../domain/entities/species';
 import { useAudioPlayerContext, type PlayableSpeciesAudio } from '../audio/AudioProvider';
 import { useTheme } from '../theme/ThemeProvider';
+import { bundledAudioAsset } from '../../data/assets/audioMap';
 
 function audioForSpecies(species: Species): PlayableSpeciesAudio | null {
   const media = species.media.find((item) => item.type === 'audio');
   if (media) return {
     id: media.id,
     url: media.url,
+    assetModule: bundledAudioAsset(media.url),
     durationSeconds: media.durationSeconds,
     attribution: media.attribution,
     source: media.source,

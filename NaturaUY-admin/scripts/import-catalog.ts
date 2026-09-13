@@ -6,7 +6,9 @@ import { adminClient, chunks, required, stableUuid } from './shared';
 
 interface CatalogItem {
   id: string;
+  catalogCode?: string;
   scientificName: string;
+  acceptedName?: string | null;
   commonName: string | null;
   commonNames?: string[];
   taxonomy: {
@@ -26,20 +28,24 @@ interface CatalogItem {
   size: string | null;
   relevantNote: string | null;
   traits?: Record<string, unknown>;
+  taxonIdentifiers?: Record<string, unknown>;
+  naturalHistory?: Record<string, unknown>;
+  distributionSummary?: Record<string, unknown>;
   media: {
     image: {
       url: string;
       fullUrl: string;
       license: string;
+      originalLicense?: string | null;
       attribution: string;
       source: string;
       sourcePage: string | null;
-      licenseUrl?: string; externalId?: string; sourceTaxonId?: string; width?: number; height?: number;
+      licenseUrl?: string; externalId?: string; sourceTaxonId?: string; sourceChecksum?: string | null; width?: number; height?: number;
       selectionScore?: number; selectionDetails?: Record<string, unknown>; retrievedAt?: string;
     } | null;
     audio: string | null;
   };
-  sources: Array<{ source: string; record: string | null }>;
+  sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
 }
 
 interface LegacyRow {
@@ -66,6 +72,7 @@ interface ImportedSpecies {
   alternate_common_names: string[];
   kingdom: string;
   phylum: string;
+  subphylum: string;
   class: string;
   order_name: string;
   family: string;
@@ -86,6 +93,9 @@ interface ImportedSpecies {
   diet: string[];
   size: string;
   traits: Record<string, unknown>;
+  taxon_identifiers: Record<string, unknown>;
+  natural_history: Record<string, unknown>;
+  distribution_summary: Record<string, unknown>;
   relevant_note: string;
   field_sources: Record<string, string[]>;
   status: 'active';
@@ -96,12 +106,14 @@ interface ImportedImage {
   url: string;
   fullUrl: string;
   license: string;
+  originalLicense?: string | null;
   attribution: string;
   source: string;
   sourcePage: string | null;
   licenseUrl?: string;
   externalId?: string;
   sourceTaxonId?: string;
+  sourceChecksum?: string | null;
   width?: number;
   height?: number;
   selectionScore?: number;
@@ -156,12 +168,21 @@ const first = <T>(rows: CatalogItem[], pick: (row: CatalogItem) => T | null | un
 const uniqueStrings = (values: Array<string | null | undefined>) => [...new Map(values
   .map((value) => value?.normalize('NFC').replace(/\s+/g, ' ').trim()).filter((value): value is string => Boolean(value))
   .map((value) => [value.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es'), value])).values()];
+const slug = (value: string): string => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const taxonId = (parent: string | null, rank: string, name: string): string => `taxon-${slug(`${parent ?? 'root'}-${rank}-${name}`)}`;
+const subphylumFor = (row: CatalogItem): string => row.taxonomy.phylum !== 'Arthropoda' ? '' : row.taxonomy.class === 'Arachnida' ? 'Chelicerata' : row.taxonomy.class === 'Insecta' ? 'Hexapoda' : row.taxonomy.class === 'Malacostraca' ? 'Crustacea' : '';
 
 const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
   const scientificName = first(rows, (row) => row.scientificName) ?? slug;
   const old = legacy.get(scientificName.toLocaleLowerCase('es'));
   const commonNames = uniqueStrings(rows.flatMap((row) => row.commonNames ?? (row.commonName ? [row.commonName] : [])));
   const sourceReferences = uniqueStrings(rows.flatMap((row) => row.sources.map((source) => source.record ? `${source.source}: ${source.record}` : source.source)));
+  const fieldSources: Record<string, string[]> = {};
+  for (const source of rows.flatMap((row) => row.sources)) {
+    const field = source.fieldPath ?? 'general';
+    const reference = source.record ? `${source.source}: ${source.record}` : source.source;
+    fieldSources[field] = uniqueStrings([...(fieldSources[field] ?? []), reference]);
+  }
   const image = first(rows, (row) => row.media?.image) ?? (old?.image_url ? {
     url: old.image_url,
     fullUrl: old.full_url ?? old.image_url,
@@ -173,13 +194,14 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
 
   return {
     id: stableUuid(`species:${slug}`),
-    catalog_code: old?.codigo ?? slug,
+    catalog_code: old?.codigo ?? first(rows, (row) => row.catalogCode) ?? slug,
     scientific_name: scientificName,
-    accepted_name: old?.accepted_name ?? scientificName,
+    accepted_name: first(rows, (row) => row.acceptedName ?? null) ?? old?.accepted_name ?? scientificName,
     common_name: commonNames[0] ?? scientificName,
     alternate_common_names: commonNames.slice(1),
     kingdom: first(rows, (row) => row.taxonomy.kingdom) ?? 'Animalia',
     phylum: first(rows, (row) => row.taxonomy.phylum) ?? '',
+    subphylum: subphylumFor(rows[0]!),
     class: first(rows, (row) => row.taxonomy.class) ?? '',
     order_name: first(rows, (row) => row.taxonomy.order) ?? '',
     family: first(rows, (row) => row.taxonomy.family) ?? '',
@@ -200,8 +222,11 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
     diet: uniqueStrings(rows.flatMap((row) => row.diet ?? [])),
     size: first(rows, (row) => row.size) ?? '',
     traits: first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+    taxon_identifiers: first(rows, (row) => row.taxonIdentifiers) ?? {},
+    natural_history: first(rows, (row) => row.naturalHistory) ?? {},
+    distribution_summary: first(rows, (row) => row.distributionSummary) ?? {},
     relevant_note: first(rows, (row) => row.relevantNote) ?? '',
-    field_sources: { general: sourceReferences },
+    field_sources: { general: sourceReferences, ...fieldSources },
     status: 'active' as const,
     image,
   };
@@ -210,7 +235,14 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
 const speciesByScientificName = new Map(speciesRows.map((row) => [row.scientific_name.toLocaleLowerCase('es'), row]));
 const missingFactSpecies = featuredFacts.filter((fact) => !speciesByScientificName.has(fact.scientificName.toLocaleLowerCase('es')));
 if (missingFactSpecies.length) throw new Error(`Featured fact species not found: ${missingFactSpecies.map((fact) => fact.scientificName).join(', ')}`);
-console.log(JSON.stringify({ catalogRecords: items.length, uniqueSpecies: speciesRows.length, featuredFacts: featuredFacts.length, legacyMatches: speciesRows.filter((row) => legacy.has(row.scientific_name.toLocaleLowerCase('es'))).length }));
+const legacyCodes = new Set([...legacy.values()].map((row) => row.codigo));
+console.log(JSON.stringify({
+  catalogRecords: items.length,
+  uniqueSpecies: speciesRows.length,
+  featuredFacts: featuredFacts.length,
+  legacyMatches: speciesRows.filter((row) => legacyCodes.has(row.catalog_code)).length,
+  legacyNameMatches: speciesRows.filter((row) => legacy.has(row.scientific_name.toLocaleLowerCase('es'))).length,
+}));
 if (dryRun) process.exit(0);
 
 const client = adminClient();
@@ -269,13 +301,14 @@ for (const batch of chunks(speciesRows, 100)) {
     original_filename: null,
     uploaded_by: actor,
     status: 'archived',
+    original_license: row.image!.originalLicense ?? null,
     license_url: row.image!.licenseUrl ?? null,
     external_id: row.image!.externalId ?? null,
     source_taxon_id: row.image!.sourceTaxonId ?? null,
     source_width: row.image!.width ?? null,
     source_height: row.image!.height ?? null,
     selection_score: row.image!.selectionScore ?? null,
-    selection_details: row.image!.selectionDetails ?? null,
+    selection_details: row.image!.selectionDetails || row.image!.sourceChecksum ? { ...(row.image!.selectionDetails ?? {}), ...(row.image!.sourceChecksum ? { sourceChecksum: row.image!.sourceChecksum } : {}) } : null,
     retrieved_at: row.image!.retrievedAt ?? null,
   }));
   if (media.length) {
@@ -285,6 +318,35 @@ for (const batch of chunks(speciesRows, 100)) {
 
   imported += batch.length;
   console.log(`Imported ${imported}/${speciesRows.length}`);
+}
+
+const taxonRows: Array<Record<string, unknown>> = [];
+const speciesTaxonRows: Array<Record<string, unknown>> = [];
+for (const row of speciesRows) {
+  const values: Array<{ rank: string; name: string }> = [];
+  if (row.phylum) values.push({ rank: 'phylum', name: row.phylum });
+  if (row.subphylum) values.push({ rank: 'subphylum', name: row.subphylum });
+  if (row.class) values.push({ rank: 'class', name: row.class });
+  if (row.order_name) values.push({ rank: 'order', name: row.order_name });
+  if (row.family) values.push({ rank: 'family', name: row.family });
+  if (row.genus) values.push({ rank: 'genus', name: row.genus });
+  let parent: string | null = null;
+  values.forEach((value, index) => {
+    const id = taxonId(parent, value.rank, value.name);
+    taxonRows.push({ taxon_id: id, parent_id: parent, rank: value.rank, canonical_name: value.name, simple_name: null, description: '', identifiers: {}, source_ids: [], sort_order: index });
+    speciesTaxonRows.push({ species_id: row.id, taxon_id: id, is_primary: true });
+    parent = id;
+  });
+}
+if (!dryRun) {
+  for (const batch of chunks([...new Map(taxonRows.map((row) => [row.taxon_id, row])).values()], 200)) {
+    const { error } = await client.from('taxa').upsert(batch, { onConflict: 'taxon_id' });
+    if (error) throw error;
+  }
+  for (const batch of chunks(speciesTaxonRows, 500)) {
+    const { error } = await client.from('species_taxa').upsert(batch, { onConflict: 'species_id,taxon_id' });
+    if (error) throw error;
+  }
 }
 
 const { data: factSources, error: factSourcesError } = await client

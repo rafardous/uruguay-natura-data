@@ -1,0 +1,404 @@
+[
+  {
+    "id": "aedes-aegypti",
+    "catalogCode": "aedes-aegypti",
+    "scientificName": "Aedes aegypti",
+    "acceptedName": null,
+    "commonName": "Mosquito del dengue",
+    "commonNames": [
+      "Mosquito del dengue"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Culicidae",
+      "genus": "Aedes"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 1651891
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "haematobia-irritans",
+    "catalogCode": "haematobia-irritans",
+    "scientificName": "Haematobia irritans",
+    "acceptedName": null,
+    "commonName": "Mosca de los cuernos",
+    "commonNames": [
+      "Mosca de los cuernos"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Muscidae",
+      "genus": "Haematobia"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 1531912
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lutzomyia-longipalpis",
+    "catalogCode": "lutzomyia-longipalpis",
+    "scientificName": "Lutzomyia longipalpis",
+    "acceptedName": null,
+    "commonName": "Flebótomo",
+    "commonNames": [
+      "Flebótomo"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Psychodidae",
+      "genus": "Lutzomyia"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5089079
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "reticulitermes-flavipes",
+    "catalogCode": "reticulitermes-flavipes",
+    "scientificName": "Reticulitermes flavipes",
+    "acceptedName": null,
+    "commonName": "Termite",
+    "commonNames": [
+      "Termite",
+      "Cupin",
+      "Comejen"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Blattodea",
+      "family": "Rhinotermitidae",
+      "genus": "Reticulitermes"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2007366
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "triatoma-infestans",
+    "catalogCode": "triatoma-infestans",
+    "scientificName": "Triatoma infestans",
+    "acceptedName": null,
+    "commonName": "Vinchuca",
+    "commonNames": [
+      "Vinchuca"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Reduviidae",
+      "genus": "Triatoma"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7603975
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

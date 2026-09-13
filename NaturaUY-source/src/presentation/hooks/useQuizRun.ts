@@ -72,7 +72,7 @@ export function useQuizRun(mode: QuizMode, scope: QuizScope, knowledgeLevel: Kno
     let active = true;
 
     void Promise.all([
-      speciesRepository.findQuizPool(catalog, QUIZ_SCOPES[scope].classes, knowledgeLevel, mode === 'naming' ? 'naming' : 'quiz'),
+      speciesRepository.findQuizPool(catalog, QUIZ_SCOPES[scope].classes, knowledgeLevel, mode === 'naming' ? 'naming' : 'quiz', QUIZ_SCOPES[scope].taxa),
       quizRepository.getRecord(userDb, mode, scope, knowledgeLevel).catch(() => null),
     ]).then(([loaded, record]) => {
       if (!active) return;

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth/AuthProvider';
 import { NewSpeciesMedia, mediaDraftIsComplete, type NewSpeciesMediaDraft, uploadNewSpeciesMedia } from '../components/NewSpeciesMedia';
 import { Empty, Loading, Modal, Notice, PageHeader } from '../components/Ui';
-import { emptySpeciesPayload, type Revision, type SpeciesPayload, type SpeciesSummary } from '../domain';
+import { emptySpeciesPayload, type Revision, type SpeciesNaturalHistoryPayload, type SpeciesPayload, type SpeciesSummary } from '../domain';
 import { findOwnPendingCreateRequest, getSpecies, saveSpecies, submitLifecycleChange } from '../lib/api';
 import { navigate } from '../lib/router';
 
@@ -121,6 +121,7 @@ function ContentAndMedia(props: ContentAndMediaProps): React.JSX.Element {
     <div className="content-media-fields"><ContentAndMediaFields {...props} /></div>
     <SectionDivider />
     <TraitEditor payload={props.payload} patch={props.patch} />
+    <NaturalHistoryEditor payload={props.payload} patch={props.patch} />
   </>;
 }
 
@@ -148,6 +149,46 @@ function TraitEditor({ payload, patch }: EditorSectionProps): React.JSX.Element 
     <Field label="Profundidad mínima (m)" value={payload.traits.depthMinM?.toString() ?? ''} onChange={(value) => patch('traits', { ...payload.traits, depthMinM: value.trim() ? Number(value.replace(',','.')) : null })} />
     <Field label="Profundidad máxima (m)" value={payload.traits.depthMaxM?.toString() ?? ''} onChange={(value) => patch('traits', { ...payload.traits, depthMaxM: value.trim() ? Number(value.replace(',','.')) : null })} />
   </div></FormSection>;
+}
+
+function NaturalHistoryEditor({ payload, patch }: EditorSectionProps): React.JSX.Element | null {
+  if (payload.taxonomy.phylum !== 'Arthropoda' && !['Arachnida', 'Insecta', 'Malacostraca'].includes(payload.taxonomy.class)) return null;
+  const history = payload.naturalHistory ?? { version: 1 as const };
+  const arthropod = history.arthropod ?? {};
+  const update = (next: SpeciesNaturalHistoryPayload['arthropod']): void => patch('naturalHistory', { ...history, version: 1, arthropod: next });
+  const list = (value: string[] | undefined): string => (value ?? []).join(', ');
+  const human = arthropod.humanRelevance ?? {};
+  const relevance = (key: 'vector' | 'pest' | 'venomous' | 'veterinaryImportance', label: string) => <label className="check-field"><input type="checkbox" checked={human[key] === true} onChange={(event) => update({ ...arthropod, humanRelevance: { ...human, [key]: event.target.checked } })} /><span>{label}</span></label>;
+  return <>
+    <SectionDivider />
+    <FormSection title="Historia natural de artrópodos" detail="Contenido técnico opcional para reconocer el grupo. Cada afirmación sobre vectores, plagas o veneno debe tener una fuente aprobada.">
+      <div className="form-grid three">
+        <Field label="Regiones corporales" value={list(arthropod.morphology?.bodyRegions)} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, bodyRegions: split(value) } })} hint="cabeza, tórax, abdomen…" />
+        <Field label="Patas" value={arthropod.morphology?.legs?.toString() ?? ''} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, legs: value.trim() ? Number(value) : null } })} />
+        <Field label="Exoesqueleto" value={arthropod.morphology?.exoskeleton ?? ''} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, exoskeleton: value } })} />
+        <Field label="Antenas" value={arthropod.morphology?.antennae ?? ''} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, antennae: value } })} />
+        <Field label="Alas" value={arthropod.morphology?.wings ?? ''} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, wings: value } })} />
+        <Field label="Quelíceros / pedipalpos" value={arthropod.morphology?.cheliceraePedipalps ?? ''} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, cheliceraePedipalps: value } })} />
+        <Field label="Fuentes de morfología" value={list(arthropod.morphology?.sources)} onChange={(value) => update({ ...arthropod, morphology: { ...arthropod.morphology, sources: split(value) } })} hint="Códigos o URLs aprobados" />
+        <Field label="Caracteres diagnósticos" value={list(arthropod.identification?.diagnosticCharacters)} onChange={(value) => update({ ...arthropod, identification: { ...arthropod.identification, diagnosticCharacters: split(value) } })} hint="Separados por comas" />
+        <Field label="Especies similares" value={list(arthropod.identification?.similarSpecies)} onChange={(value) => update({ ...arthropod, identification: { ...arthropod.identification, similarSpecies: split(value) } })} />
+        <Field label="Fuentes de identificación" value={list(arthropod.identification?.sources)} onChange={(value) => update({ ...arthropod, identification: { ...arthropod.identification, sources: split(value) } })} hint="Códigos o URLs aprobados" />
+        <Field label="Etapas del ciclo" value={list(arthropod.lifeCycle?.stages)} onChange={(value) => update({ ...arthropod, lifeCycle: { ...arthropod.lifeCycle, stages: split(value) } })} hint="huevo, larva, ninfa, adulto…" />
+        <SelectField label="Metamorfosis" value={arthropod.lifeCycle?.metamorphosis ?? ''} onChange={(value) => update({ ...arthropod, lifeCycle: { ...arthropod.lifeCycle, metamorphosis: (value || null) as NonNullable<NonNullable<SpeciesNaturalHistoryPayload['arthropod']>['lifeCycle']>['metamorphosis'] } })} options={[['','Sin especificar'],['none','Sin metamorfosis'],['incomplete','Incompleta'],['complete','Completa'],['variable','Variable']]} />
+        <Field label="Fuentes del ciclo de vida" value={list(arthropod.lifeCycle?.sources)} onChange={(value) => update({ ...arthropod, lifeCycle: { ...arthropod.lifeCycle, sources: split(value) } })} hint="Códigos o URLs aprobados" />
+        <Field label="Microhábitat" value={list(arthropod.ecology?.microhabitat)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, microhabitat: split(value) } })} />
+        <Field label="Actividad" value={list(arthropod.ecology?.activity)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, activity: split(value) } })} />
+        <Field label="Rol trófico" value={list(arthropod.ecology?.trophicRole)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, trophicRole: split(value) } })} />
+        <Field label="Hospedadores" value={list(arthropod.ecology?.hosts)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, hosts: split(value) } })} />
+        <Field label="Asociaciones con plantas" value={list(arthropod.ecology?.plantAssociations)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, plantAssociations: split(value) } })} />
+        <Field label="Fuentes de ecología" value={list(arthropod.ecology?.sources)} onChange={(value) => update({ ...arthropod, ecology: { ...arthropod.ecology, sources: split(value) } })} hint="Códigos o URLs aprobados" />
+        <div className="field full"><span>Relevancia humana (sólo con evidencia)</span><div className="form-grid two">{relevance('vector', 'Puede actuar como vector')}{relevance('pest', 'Puede ser plaga')}{relevance('venomous', 'Tiene veneno o estructuras venenosas')}{relevance('veterinaryImportance', 'Tiene importancia veterinaria')}</div><small>Estas marcas no se publican como diagnóstico ni implican riesgo por sí solas.</small></div>
+        <Field label="Nota de relevancia humana" value={human.note ?? ''} onChange={(value) => update({ ...arthropod, humanRelevance: { ...human, note: value } })} hint="No usar lenguaje médico sin respaldo editorial." />
+        <Field label="Fuentes de relevancia" value={list(human.sources)} onChange={(value) => update({ ...arthropod, humanRelevance: { ...human, sources: split(value) } })} />
+        <Field label="Fuentes de historia natural" value={list(arthropod.sources)} onChange={(value) => update({ ...arthropod, sources: split(value) })} />
+      </div>
+    </FormSection>
+  </>;
 }
 
 function ContentAndMediaFields({ payload, patch, creating, species, title, mediaDrafts, setMediaDrafts, profile }: ContentAndMediaProps): React.JSX.Element {

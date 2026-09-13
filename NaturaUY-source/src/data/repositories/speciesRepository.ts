@@ -5,14 +5,14 @@ import type { KnowledgeLevel, Species } from '../../domain/entities/species';
 import { rowToSpecies } from '../mappers/speciesMapper';
 import type { SpeciesFactRow, SpeciesGameRuleRow, SpeciesMediaRow, SpeciesObservabilityRow, SpeciesRow } from '../db/schema';
 
-export const TAXON_RANKS = ['phylum', 'clase', 'orden', 'familia', 'genero'] as const;
+export const TAXON_RANKS = ['phylum', 'subfilo', 'clase', 'orden', 'familia', 'genero'] as const;
 export type TaxonRank = (typeof TAXON_RANKS)[number];
 export type TaxonomyPath = Partial<Record<TaxonRank, string>>;
 export const UNASSIGNED_TAXON = '__unassigned__';
 export interface TaxonOption { value:string; count:number; description:string|null; simpleName:string|null; representativeImageUrl:string|null; representativeName:string|null }
 
 function databaseRank(rank: TaxonRank): string {
-  return rank === 'orden' ? 'order' : rank === 'familia' ? 'family' : rank === 'clase' ? 'class' : rank === 'genero' ? 'genus' : rank;
+  return rank === 'subfilo' ? 'subphylum' : rank === 'orden' ? 'order' : rank === 'familia' ? 'family' : rank === 'clase' ? 'class' : rank === 'genero' ? 'genus' : rank;
 }
 
 export interface SpeciesFilters {
@@ -31,6 +31,9 @@ export interface SpeciesFilters {
   habitats?: string[];
   diets?: string[];
   seasonalities?: string[];
+  metamorphoses?: string[];
+  trophicRoles?: string[];
+  microhabitats?: string[];
 }
 
 export interface Page<T> {
@@ -125,6 +128,17 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
   };
   addIn('clase', filters.classes);
   addIn('seasonality', filters.seasonalities);
+  if (filters.metamorphoses?.length) {
+    clauses.push(`json_extract(species.natural_history, '$.arthropod.lifeCycle.metamorphosis') IN (${filters.metamorphoses.map(() => '?').join(',')})`);
+    params.push(...filters.metamorphoses);
+  }
+  const addNaturalHistoryArray = (path: string, values?: string[]): void => {
+    if (!values?.length) return;
+    clauses.push(`json_valid(species.natural_history) AND EXISTS (SELECT 1 FROM json_each(json_extract(species.natural_history, '${path}')) WHERE json_each.value IN (${values.map(() => '?').join(',')}))`);
+    params.push(...values);
+  };
+  addNaturalHistoryArray('$.arthropod.ecology.trophicRole', filters.trophicRoles);
+  addNaturalHistoryArray('$.arthropod.ecology.microhabitat', filters.microhabitats);
 
   const addJsonAny = (column: 'habitat' | 'diet', values?: string[]): void => {
     if (!values?.length) return;
@@ -302,15 +316,16 @@ export const speciesRepository = {
    * Quiz pool: only species with a photo, since the question *is* the photo.
    * Loaded once per run so question generation stays synchronous and instant.
    */
-  async findQuizPool(db: SQLiteDatabase, classes: string[] = [], knowledgeLevel: KnowledgeLevel = 'hard', gameKey = 'quiz'): Promise<Species[]> {
+  async findQuizPool(db: SQLiteDatabase, classes: string[] = [], knowledgeLevel: KnowledgeLevel = 'hard', gameKey = 'quiz', taxa: string[] = []): Promise<Species[]> {
     const classClause = classes.length > 0 ? `AND clase IN (${classes.map(() => '?').join(',')})` : '';
+    const taxonClause = taxa.length > 0 ? `AND EXISTS (SELECT 1 FROM species_taxa st JOIN taxa t ON t.taxon_id=st.taxon_id WHERE st.stable_id=species.stable_id AND t.canonical_name IN (${taxa.map(() => '?').join(',')}))` : '';
     const allowed = knowledgeLevel === 'easy' ? ['easy'] : knowledgeLevel === 'medium' ? ['easy', 'medium'] : ['easy', 'medium', 'hard'];
     const rows = await db.getAllAsync<SpeciesRow>(
       `SELECT species.* FROM species
        LEFT JOIN species_game_rules rule ON rule.stable_id=species.stable_id AND rule.game_key=?
        WHERE image_url IS NOT NULL AND COALESCE(rule.enabled,1)=1
-         AND COALESCE(rule.min_knowledge_level,species.knowledge_level,'hard') IN (${allowed.map(() => '?').join(',')}) ${classClause}`,
-      [gameKey, ...allowed, ...classes],
+         AND COALESCE(rule.min_knowledge_level,species.knowledge_level,'hard') IN (${allowed.map(() => '?').join(',')}) ${classClause}${taxonClause}`,
+      [gameKey, ...allowed, ...classes, ...taxa],
     );
     return rows.map((row) => rowToSpecies(row));
   },
@@ -341,7 +356,7 @@ export const speciesRepository = {
     return rows.map((row) => rowToSpecies(row));
   },
 
-  async listFilterValues(db: SQLiteDatabase, field: 'habitat' | 'diet' | 'seasonality'): Promise<string[]> {
+  async listFilterValues(db: SQLiteDatabase, field: 'habitat' | 'diet' | 'seasonality' | 'metamorphosis' | 'trophicRole' | 'microhabitat'): Promise<string[]> {
     if (field === 'seasonality') {
       const rows = await db.getAllAsync<{ value: string }>(
         `SELECT DISTINCT seasonality AS value FROM species
@@ -349,11 +364,16 @@ export const speciesRepository = {
       );
       return rows.map((row) => row.value);
     }
-    const rows = await db.getAllAsync<{ value: string }>(
-      `SELECT DISTINCT json_each.value AS value FROM species, json_each(species.${field})
-       WHERE json_valid(species.${field}) AND json_each.value <> '' ORDER BY value COLLATE NOCASE`,
-    );
-    return rows.map((row) => row.value);
+    try {
+      if (field === 'metamorphosis') {
+        const expression = "json_extract(natural_history,'$.arthropod.lifeCycle.metamorphosis')";
+        const rows = await db.getAllAsync<{ value: string }>(`SELECT DISTINCT ${expression} AS value FROM species WHERE ${expression} IS NOT NULL AND ${expression} <> '' ORDER BY value COLLATE NOCASE`);
+        return rows.map((row) => row.value);
+      }
+      const column = field === 'habitat' || field === 'diet' ? field : field === 'trophicRole' ? "json_extract(species.natural_history,'$.arthropod.ecology.trophicRole')" : "json_extract(species.natural_history,'$.arthropod.ecology.microhabitat')";
+      const rows = await db.getAllAsync<{ value: string }>(`SELECT DISTINCT json_each.value AS value FROM species, json_each(${column}) WHERE json_valid(${field === 'habitat' || field === 'diet' ? `species.${field}` : column}) AND json_each.value <> '' ORDER BY value COLLATE NOCASE`);
+      return rows.map((row) => row.value);
+    } catch { return []; }
   },
 
   async stats(db: SQLiteDatabase): Promise<{ total: number; withPhoto: number; families: number }> {

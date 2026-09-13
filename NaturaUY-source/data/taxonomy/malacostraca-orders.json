@@ -1,0 +1,11 @@
+{
+  "taxonomicClass": "Malacostraca",
+  "rank": "order",
+  "language": "es-UY",
+  "source": { "code": "natura_uy_editorial" },
+  "items": [
+    { "name": "Isopoda", "description": "Crustáceos con cuerpo aplanado y apéndices locomotores semejantes entre sí; en Uruguay aparecen formas marinas, costeras y terrestres." },
+    { "name": "Mysida", "description": "Pequeños crustáceos nadadores, generalmente marinos o de aguas salobres, que forman parte importante del plancton y de las redes tróficas acuáticas." },
+    { "name": "Mysidacea", "description": "Nombre histórico usado para los misidáceos; la autoridad taxonómica puede tratarlo como grupo equivalente o integrado en Mysida y debe revisarse por registro." }
+  ]
+}

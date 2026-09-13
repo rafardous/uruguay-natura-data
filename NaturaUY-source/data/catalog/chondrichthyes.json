@@ -49,10 +49,36 @@
     "sources": [
       {
         "source": "snap",
-        "record": "P_brachyur"
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed",
+    "reviewStatus": "needs_review",
     "commonNames": [
       "Raya"
     ],
@@ -65,7 +91,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_brachyur",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2419347
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "potamotrygon-motoro",
@@ -114,10 +149,36 @@
     "sources": [
       {
         "source": "snap",
-        "record": "P_motoro"
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed",
+    "reviewStatus": "needs_review",
     "commonNames": [
       "Raya"
     ],
@@ -130,6 +191,15 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_motoro",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2419333
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   }
 ]

@@ -86,19 +86,40 @@ describe('rowToSpecies', () => {
     expect(species.traits.measurements).toEqual([]);
   });
 
+  it('maps schema 11 identifiers, natural history, distribution and exact media license', () => {
+    const species = rowToSpecies({
+      ...baseRow,
+      taxon_identifiers: JSON.stringify({ gbif: { usageKey: 12345 }, iNaturalist: { taxonId: 67890 } }),
+      natural_history: JSON.stringify({ version: 1, arthropod: { lifeCycle: { metamorphosis: 'complete' } } }),
+      distribution_summary: JSON.stringify({ departments: ['Rocha'], occurrenceCount: 12, confidence: 'medium' }),
+    }, [{
+      id: 'tero-image', stable_id: 'V_chilensi', media_type: 'image', ordinal: 1, is_primary: 1,
+      url: 'https://example.test/tero.jpg', thumbnail_url: null, author: 'Fotógrafo', license: 'CC-BY',
+      original_license: 'cc-by', source: 'inaturalist', source_url: 'https://example.test/observation',
+      duration_seconds: null, external_id: 'inat-photo:1',
+    }]);
+
+    expect(species.taxonIdentifiers?.gbif?.usageKey).toBe(12345);
+    expect(species.naturalHistory?.arthropod?.lifeCycle?.metamorphosis).toBe('complete');
+    expect(species.distributionSummary?.departments).toEqual(['Rocha']);
+    expect(species.photo?.originalLicense).toBe('cc-by');
+    expect(species.media[0]?.originalLicense).toBe('cc-by');
+  });
+
   it('treats nativa as a boolean, not a truthy number', () => {
     expect(rowToSpecies({ ...baseRow, nativa: 0 }).nativa).toBe(false);
   });
 
-  it('keeps schema 10 source metadata while reading the legacy shape', () => {
+  it('keeps schema 11 source metadata while reading the legacy shape', () => {
     const species = rowToSpecies({
       ...baseRow,
       sources: JSON.stringify([{
-        source: 'avonet', record: 'AVO-42', fieldPath: 'traits', sourceCode: 'avonet',
+        source: 'avonet', record: 'AVO-42', fieldPath: 'traits', sourceCode: 'avonet', version: 'AVONET 1.0',
         name: 'AVONET', url: 'https://example.test/avonet', citation: 'Tobias et al. 2022', license: 'CC BY 4.0',
       }]),
     });
     expect(species.sources[0]).toMatchObject({ sourceCode: 'avonet', fieldPath: 'traits', name: 'AVONET', record: 'AVO-42' });
     expect(species.sources[0]?.url).toBe('https://example.test/avonet');
+    expect(species.sources[0]?.version).toBe('AVONET 1.0');
   });
 });

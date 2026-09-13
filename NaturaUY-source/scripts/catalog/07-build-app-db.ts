@@ -9,24 +9,38 @@ import { existsSync, readdirSync, renameSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 
-import { PATHS, readJson } from './lib';
+import { GROUP_METADATA, PATHS, readJson, slug, type Group } from './lib';
 
-const DB_PATH = resolve(PATHS.catalog, '../../assets/db/natura.db');
+const DB_PATH = process.env.NATURA_CATALOG_DB_PATH ?? resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 10;
+const SCHEMA_VERSION = 11;
 const DATA_VERSION = 1;
 
 type Origin = 'native' | 'introduced' | null;
 
+interface AudioCandidate {
+  url: string;
+  license?: string;
+  attribution?: string;
+  source?: string;
+  sourcePage?: string | null;
+  externalId?: string | null;
+  originalLicense?: string | null;
+  durationSeconds?: number | null;
+}
+
 interface CatalogItem {
   id: string;
+  catalogCode?: string;
   scientificName: string;
+  acceptedName?: string | null;
   commonName: string | null;
   commonNames?: string[];
   taxonomy: {
     kingdom: string | null;
     phylum: string | null;
+    subphylum?: string | null;
     class: string | null;
     order: string | null;
     family: string | null;
@@ -41,26 +55,21 @@ interface CatalogItem {
   size: string | null;
   relevantNote: string | null;
   traits?: unknown;
+  taxonIdentifiers?: unknown;
+  naturalHistory?: unknown;
+  distributionSummary?: unknown;
   media: {
     image: {
       url: string;
       fullUrl: string;
       license: string;
+      originalLicense?: string | null;
       attribution: string;
       source: string;
       sourcePage: string | null;
       externalId?: string | null;
     } | null;
-    audio: string | {
-      url: string;
-      license?: string;
-      attribution?: string;
-      source?: string;
-      sourcePage?: string | null;
-      externalId?: string | null;
-      originalLicense?: string | null;
-      durationSeconds?: number | null;
-    } | null;
+    audio: string | AudioCandidate | null;
   };
   sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
   reviewStatus: string;
@@ -69,6 +78,7 @@ interface CatalogItem {
 interface CatalogSource {
   code: string;
   name?: string;
+  version?: string;
   url?: string;
   publisher?: string;
   license?: string;
@@ -145,13 +155,14 @@ const SCHEMA = `
 CREATE TABLE species (
   stable_id TEXT NOT NULL UNIQUE, codigo TEXT PRIMARY KEY, scientific_name TEXT NOT NULL, accepted_name TEXT,
   common_name TEXT NOT NULL, common_names TEXT NOT NULL,
-  kingdom TEXT NOT NULL, phylum TEXT NOT NULL,
+  kingdom TEXT NOT NULL, phylum TEXT NOT NULL, subfilo TEXT NOT NULL,
   clase TEXT NOT NULL, orden TEXT NOT NULL, familia TEXT NOT NULL,
   genero TEXT NOT NULL, epiteto TEXT NOT NULL,
   estado_conservacion TEXT NOT NULL, conservation_label TEXT NOT NULL,
   conservation_rank INTEGER NOT NULL, conservation_system TEXT, conservation_source TEXT, conservation_assessed_at TEXT,
   nativa INTEGER NOT NULL,
   descripcion TEXT NOT NULL, alimentacion TEXT NOT NULL, tamano TEXT NOT NULL, traits TEXT NOT NULL,
+  taxon_identifiers TEXT NOT NULL, natural_history TEXT NOT NULL, distribution_summary TEXT NOT NULL,
   image_url TEXT, full_url TEXT, thumb_asset TEXT, audio_url TEXT,
   image_license TEXT, image_attribution TEXT, image_source TEXT, image_page TEXT,
   accent_light TEXT NOT NULL, accent_dark TEXT NOT NULL,
@@ -165,6 +176,7 @@ CREATE TABLE species (
 );
 CREATE INDEX idx_species_clase ON species(clase);
 CREATE INDEX idx_species_phylum ON species(phylum);
+CREATE INDEX idx_species_subfilo ON species(subfilo);
 CREATE INDEX idx_species_orden ON species(orden);
 CREATE INDEX idx_species_familia ON species(familia);
 CREATE INDEX idx_species_genero ON species(genero);
@@ -172,6 +184,27 @@ CREATE INDEX idx_species_taxonomy_path ON species(phylum, clase, orden, familia,
 CREATE INDEX idx_species_rank ON species(conservation_rank);
 CREATE INDEX idx_species_has_photo ON species(image_url);
 CREATE INDEX idx_species_sort ON species(common_name);
+CREATE TABLE taxa (
+  taxon_id TEXT PRIMARY KEY,
+  parent_id TEXT REFERENCES taxa(taxon_id),
+  rank TEXT NOT NULL,
+  canonical_name TEXT NOT NULL,
+  simple_name TEXT,
+  description TEXT NOT NULL DEFAULT '',
+  identifiers TEXT NOT NULL DEFAULT '{}',
+  sources TEXT NOT NULL DEFAULT '[]',
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  UNIQUE(parent_id, rank, canonical_name)
+);
+CREATE INDEX idx_taxa_parent_sort ON taxa(parent_id, sort_order, canonical_name);
+CREATE INDEX idx_taxa_rank_name ON taxa(rank, canonical_name);
+CREATE TABLE species_taxa (
+  stable_id TEXT NOT NULL REFERENCES species(stable_id),
+  taxon_id TEXT NOT NULL REFERENCES taxa(taxon_id),
+  is_primary INTEGER NOT NULL DEFAULT 1,
+  PRIMARY KEY(stable_id, taxon_id)
+);
+CREATE INDEX idx_species_taxa_taxon ON species_taxa(taxon_id, stable_id);
 CREATE VIRTUAL TABLE species_fts USING fts5(
   common_names, scientific_name, familia, genero,
   content='species', content_rowid='rowid',
@@ -203,7 +236,7 @@ CREATE TABLE species_game_rules (
   min_knowledge_level TEXT, PRIMARY KEY(stable_id, game_key)
 );
 CREATE TABLE taxon_content (
-  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('phylum','class','order','family')),
+  id TEXT PRIMARY KEY, taxon_rank TEXT NOT NULL CHECK(taxon_rank IN ('phylum','subphylum','class','order','family','genus')),
   kingdom TEXT NOT NULL, phylum TEXT NOT NULL, class_name TEXT NOT NULL, taxon_name TEXT NOT NULL,
   language TEXT NOT NULL, description TEXT NOT NULL, simple_name TEXT, source_code TEXT NOT NULL,
   UNIQUE(taxon_rank,class_name,taxon_name,language)
@@ -246,6 +279,31 @@ function parseNames(value: string): string[] {
   }
 }
 
+function stableTaxonId(parentId: string | null, rank: string, name: string): string {
+  return `taxon-${slug(`${parentId ?? 'root'}-${rank}-${name}`)}`;
+}
+
+function taxonPath(item: CatalogItem): Array<{ rank: string; name: string; parent: string | null }> {
+  const values: Array<{ rank: string; name: string }> = [];
+  if (item.taxonomy.phylum) values.push({ rank: 'phylum', name: item.taxonomy.phylum });
+  if (item.taxonomy.phylum === 'Arthropoda') {
+    const bridge = item.taxonomy.class === 'Arachnida' ? 'Chelicerata' : item.taxonomy.class === 'Insecta' ? 'Hexapoda' : item.taxonomy.class === 'Malacostraca' ? 'Crustacea' : null;
+    if (bridge) values.push({ rank: 'subphylum', name: bridge });
+  }
+  if (item.taxonomy.class) values.push({ rank: 'class', name: item.taxonomy.class });
+  if (item.taxonomy.order) values.push({ rank: 'order', name: item.taxonomy.order });
+  if (item.taxonomy.family) values.push({ rank: 'family', name: item.taxonomy.family });
+  if (item.taxonomy.genus) values.push({ rank: 'genus', name: item.taxonomy.genus });
+  let parent: string | null = null;
+  return values.map((value) => { const result = { ...value, parent }; parent = stableTaxonId(parent, value.rank, value.name); return result; });
+}
+
+function subphylumFor(item: CatalogItem): string {
+  if (item.taxonomy.subphylum) return item.taxonomy.subphylum;
+  if (item.taxonomy.phylum !== 'Arthropoda') return '';
+  return item.taxonomy.class === 'Arachnida' ? 'Chelicerata' : item.taxonomy.class === 'Insecta' ? 'Hexapoda' : item.taxonomy.class === 'Malacostraca' ? 'Crustacea' : '';
+}
+
 function sourceReference(source: { source: string; record: string | null; fieldPath?: string }, registry: Map<string, CatalogSource>) {
   const metadata = registry.get(source.source);
   return {
@@ -254,6 +312,7 @@ function sourceReference(source: { source: string; record: string | null; fieldP
     fieldPath: source.fieldPath ?? 'general',
     sourceCode: source.source,
     name: metadata?.name ?? metadata?.code,
+    version: metadata?.version,
     url: metadata?.url,
     citation: metadata?.citation,
     license: metadata?.license,
@@ -265,6 +324,36 @@ function loadCatalog(): CatalogItem[] {
     .filter((file) => file.endsWith('.json'))
     .sort()
     .flatMap((file) => readJson<CatalogItem[]>(resolve(PATHS.catalog, file)));
+}
+
+function normalizeScientificName(value: string): string {
+  return value.normalize('NFKC').replace(/\s+/g, ' ').trim().toLocaleLowerCase('es');
+}
+
+function loadApprovedAudio(): Map<string, AudioCandidate> {
+  const file = resolve(PATHS.cache, 'audio/xenocanto-approved.json');
+  if (!existsSync(file)) return new Map();
+  const manifest = readJson<{ candidates?: Array<{
+    id: string;
+    scientificName: string;
+    recordist?: string | null;
+    pageUrl?: string | null;
+    originalLicense?: string | null;
+    clipDurationSeconds?: number | null;
+    approved?: boolean;
+  }> }>(file);
+  return new Map((manifest.candidates ?? [])
+    .filter((candidate) => candidate.approved !== false && candidate.id && candidate.scientificName)
+    .map((candidate) => [normalizeScientificName(candidate.scientificName), {
+      url: `bundled://xc-${candidate.id}.mp3`,
+      license: 'Autorización adicional del titular',
+      attribution: candidate.recordist ?? 'Pedro Rinaldi',
+      source: 'Xeno-canto',
+      sourcePage: candidate.pageUrl ?? `https://xeno-canto.org/${candidate.id}`,
+      externalId: `XC${candidate.id}`,
+      originalLicense: candidate.originalLicense ?? null,
+      durationSeconds: candidate.clipDurationSeconds ?? 15,
+    }] as const));
 }
 
 function loadHistorical(): { byCode: Map<string, OldRow>; byName: Map<string, OldRow> } {
@@ -305,12 +394,21 @@ function first<T>(rows: CatalogItem[], pick: (row: CatalogItem) => T | null | un
   return null;
 }
 
+function deterministicBuildTimestamp(): string {
+  try {
+    const manifest = readJson<{ retrievedAt?: string }>(resolve(PATHS.raw, 'sources.json'));
+    if (manifest.retrievedAt && !Number.isNaN(Date.parse(manifest.retrievedAt))) return manifest.retrievedAt;
+  } catch { /* older checkouts may not have a source manifest yet */ }
+  return '1970-01-01T00:00:00.000Z';
+}
+
 function main(): void {
   const input = loadCatalog();
   if (input.length === 0) throw new Error('data/catalog has no records');
   const sourceRegistry = readJson<{ sources: CatalogSource[] }>(resolve(PATHS.catalog, '../catalog-source-registry.json')).sources;
   const sourcesByCode = new Map(sourceRegistry.map((source) => [source.code, source]));
   const featuredFacts = readJson<{ facts: FeaturedFact[] }>(resolve(PATHS.catalog, '../facts/featured.json')).facts;
+  const approvedAudioByScientificName = loadApprovedAudio();
   const featuredByScientificName = new Map(featuredFacts.map((fact) => [fact.scientificName, fact]));
   const historical = loadHistorical();
   const grouped = new Map<string, CatalogItem[]>();
@@ -326,17 +424,20 @@ function main(): void {
     source.code, source.name ?? source.code, source.url ?? null, source.publisher ?? null,
     source.license ?? null, source.citation ?? null, source.usePolicy,
   );
-  const insert = db.prepare(`INSERT INTO species (
-    stable_id, codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum,
+    const insert = db.prepare(`INSERT INTO species (
+    stable_id, codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum, subfilo,
     clase, orden, familia, genero, epiteto,
     estado_conservacion, conservation_label, conservation_rank, conservation_system, conservation_source, conservation_assessed_at, nativa,
-    descripcion, alimentacion, tamano, traits,
+    descripcion, alimentacion, tamano, traits, taxon_identifiers, natural_history, distribution_summary,
     image_url, full_url, thumb_asset, audio_url,
     image_license, image_attribution, image_source, image_page,
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
     origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources,
     knowledge_level, abundance_category, abundance_label
-  ) VALUES (${Array.from({ length: 50 }, () => '?').join(', ')})`);
+    ) VALUES (${Array.from({ length: 54 }, () => '?').join(', ')})`);
+  const insertTaxonNode = db.prepare(`INSERT INTO taxa(taxon_id,parent_id,rank,canonical_name,simple_name,description,identifiers,sources,sort_order)
+    VALUES (?,?,?,?,?,?,?,?,?) ON CONFLICT(taxon_id) DO UPDATE SET parent_id=excluded.parent_id,rank=excluded.rank,canonical_name=excluded.canonical_name`);
+  const insertSpeciesTaxon = db.prepare('INSERT OR IGNORE INTO species_taxa(stable_id,taxon_id,is_primary) VALUES (?,?,1)');
 
   const usedCodes = new Set<string>();
   let existingCodes = 0;
@@ -344,7 +445,10 @@ function main(): void {
   try {
     for (const [id, rows] of [...grouped].sort(([a], [b]) => a.localeCompare(b))) {
       const old = chooseOld(rows, historical);
-      let codigo = old?.codigo ?? id;
+      // `catalogCode` is persisted by stage 06. Prefer the historical SQLite
+      // code when the species already existed, then the identity map for new
+      // species; never derive a new code from a mutable accepted name here.
+      let codigo = old?.codigo ?? first(rows, (row) => row.catalogCode) ?? id;
       if (usedCodes.has(codigo)) codigo = id;
       if (usedCodes.has(codigo)) throw new Error(`duplicate app code after merge: ${codigo}`);
       usedCodes.add(codigo);
@@ -355,10 +459,14 @@ function main(): void {
       const commonNames = catalogCommonNames.length > 0
         ? catalogCommonNames
         : old ? uniqueCommonNames([old.common_name, ...parseNames(old.common_names)].filter(Boolean)) : [];
-      const displayName = commonNames[0] ?? scientificName;
+      // A scientific name is the explicit offline fallback when no vernacular
+      // name exists; keep it in the searchable aliases as well.
+      const searchNames = commonNames.length > 0 ? commonNames : [scientificName];
+      const displayName = searchNames[0]!;
       const origins = unique(rows.map((row) => row.origin).filter((value): value is Exclude<Origin, null> => value !== null));
       const origin: Origin = origins.length === 1 ? origins[0]! : null;
       const genus = first(rows, (row) => row.taxonomy.genus) ?? scientificName.split(' ')[0] ?? '';
+      const subphylum = subphylumFor(rows[0]!);
       const epithet = scientificName.split(' ')[1] ?? '';
       const image = first(rows, (row) => row.media?.image);
       const diet = unique(rows.flatMap((row) => row.diet ?? []));
@@ -382,16 +490,20 @@ function main(): void {
       const dietText = diet.length > 0
         ? diet.map((value) => DIET_LABELS[value] ?? value.replaceAll('_', ' ')).join(', ')
         : old?.alimentacion ?? '';
-      const audioCandidate = first(rows, (row) => row.media?.audio);
+      const audioCandidate = approvedAudioByScientificName.get(normalizeScientificName(scientificName))
+        ?? first(rows, (row) => row.media?.audio);
       const audioUrl = typeof audioCandidate === 'string' ? audioCandidate : audioCandidate?.url ?? old?.audio_url ?? null;
       insert.run(
-        id, codigo, scientificName, scientificName, displayName, JSON.stringify(commonNames),
+        id, codigo, scientificName, first(rows, (row) => row.acceptedName ?? null), displayName, JSON.stringify(searchNames),
         first(rows, (row) => row.taxonomy.kingdom) ?? 'Animalia',
-        first(rows, (row) => row.taxonomy.phylum) ?? '',
+        first(rows, (row) => row.taxonomy.phylum) ?? '', subphylum,
         first(rows, (row) => row.taxonomy.class) ?? '', first(rows, (row) => row.taxonomy.order) ?? '',
         first(rows, (row) => row.taxonomy.family) ?? '', genus, epithet,
         conservationRaw, conservationLabel, conservationRank, 'Prioridad nacional/SNAP (legado)', null, null, origin === 'native' ? 1 : 0,
         description, dietText, size, JSON.stringify(first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }),
+        JSON.stringify(first(rows, (row) => row.taxonIdentifiers) ?? {}),
+        JSON.stringify(first(rows, (row) => row.naturalHistory) ?? {}),
+        JSON.stringify(first(rows, (row) => row.distributionSummary) ?? {}),
         image?.url ?? null, image?.fullUrl ?? null, old?.thumb_asset ?? null,
         audioUrl,
         image?.license ?? null, image?.attribution ?? null, image?.source ?? null, image?.sourcePage ?? null,
@@ -404,12 +516,18 @@ function main(): void {
       const imageMedia = image ? {
         id: `${id}-image`, stableId: id, type: 'image' as const, ordinal: 1, isPrimary: 1,
         url: image.url, thumbnailUrl: image.url, author: image.attribution, license: image.license,
-        source: image.source, sourceUrl: image.sourcePage, duration: null, externalId: image.externalId ?? null, originalLicense: null,
+        source: image.source, sourceUrl: image.sourcePage, duration: null, externalId: image.externalId ?? null, originalLicense: image.originalLicense ?? null,
       } : null;
       if (imageMedia) mediaInsert.run(imageMedia.id, imageMedia.stableId, imageMedia.type, imageMedia.ordinal, imageMedia.isPrimary, imageMedia.url, imageMedia.thumbnailUrl, imageMedia.author, imageMedia.license, imageMedia.source, imageMedia.sourceUrl, imageMedia.duration, imageMedia.externalId, imageMedia.originalLicense);
       if (audioCandidate) {
         const audioData = typeof audioCandidate === 'string' ? { url: audioCandidate } : audioCandidate;
         mediaInsert.run(`${id}-audio`, id, 'audio', 1, 0, audioData.url, null, audioData.attribution ?? 'Pedro Rinaldi', audioData.license ?? 'permission', audioData.source ?? 'Xeno-canto', audioData.sourcePage ?? null, audioData.durationSeconds ?? 15, audioData.externalId ?? null, audioData.originalLicense ?? null);
+      }
+      const representative = rows[0]!;
+      for (const [index, node] of taxonPath(representative).entries()) {
+        const taxonId = stableTaxonId(node.parent, node.rank, node.name);
+        insertTaxonNode.run(taxonId, node.parent, node.rank, node.name, null, '', '{}', '[]', index);
+        insertSpeciesTaxon.run(id, taxonId);
       }
     }
     const taxonomyDirectory = resolve(PATHS.catalog, '../taxonomy');
@@ -418,12 +536,12 @@ function main(): void {
       ON CONFLICT(taxon_rank,class_name,taxon_name,language) DO UPDATE SET
         description=excluded.description,simple_name=COALESCE(excluded.simple_name,taxon_content.simple_name),source_code=excluded.source_code`);
     for (const file of orderContentFiles) {
-      const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; items:Array<{name:string;description:string}> }>(resolve(taxonomyDirectory, file));
+      const content = readJson<{ taxonomicClass:string; rank:string; language:string; source:{code:string}; kingdom?:string; phylum?:string; items:Array<{name:string;description:string}> }>(resolve(taxonomyDirectory, file));
       if (content.rank !== 'order') continue;
       for (const item of content.items) {
         insertTaxon.run(
           `${content.taxonomicClass.toLocaleLowerCase()}-order-${item.name.toLocaleLowerCase()}`,
-          'order','Animalia','Chordata',content.taxonomicClass,item.name,content.language,item.description,null,content.source.code,
+          'order',content.kingdom ?? 'Animalia',content.phylum ?? GROUP_METADATA[content.taxonomicClass as Group]?.phylum ?? 'Chordata',content.taxonomicClass,item.name,content.language,item.description,null,content.source.code,
         );
       }
     }
@@ -431,7 +549,7 @@ function main(): void {
     for (const item of simpleContent.items) {
       insertTaxon.run(
         `simple-${item.rank}-${item.className || 'all'}-${item.name}`.toLocaleLowerCase('es'),
-        item.rank, 'Animalia', 'Chordata', item.className, item.name, simpleContent.language,
+        item.rank, 'Animalia', GROUP_METADATA[item.className as Group]?.phylum ?? (item.name === 'Arthropoda' ? 'Arthropoda' : 'Chordata'), item.className, item.name, simpleContent.language,
         item.description, item.simpleName, simpleContent.sourceCode,
       );
     }
@@ -457,7 +575,9 @@ function main(): void {
     const meta = db.prepare('INSERT INTO meta (key, value) VALUES (?, ?)');
     meta.run('schema_version', String(SCHEMA_VERSION));
     meta.run('data_version', String(DATA_VERSION));
-    meta.run('built_at', new Date().toISOString());
+    // The offline build must be reproducible. The source refresh timestamp is
+    // fixed for a snapshot and changes only when data:catalog-refresh runs.
+    meta.run('built_at', deterministicBuildTimestamp());
     meta.run('source', 'data/catalog/*.json');
     meta.run('catalog_record_count', String(input.length));
     meta.run('species_count', String(grouped.size));
@@ -493,7 +613,7 @@ function main(): void {
 
   console.log(`07-build-app-db: ${input.length} catalog records merged into ${count} species`);
   console.log(`  ${withPhoto} with image; ${existingCodes} existing app codes preserved`);
-  console.log(`  validated and written to assets/db/natura.db`);
+  console.log(`  validated and written to ${DB_PATH}`);
 }
 
 main();

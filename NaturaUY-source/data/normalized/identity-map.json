@@ -1,0 +1,4206 @@
+{
+  "Akodon azarae": {
+    "id": "akodon-azarae",
+    "catalogCode": "A_azarae"
+  },
+  "Akodon reigi": {
+    "id": "akodon-reigi",
+    "catalogCode": "A_reigi"
+  },
+  "Arctocephalus australis": {
+    "id": "arctocephalus-australis",
+    "catalogCode": "A_australi"
+  },
+  "Axis axis": {
+    "id": "axis-axis",
+    "catalogCode": "axi_axis"
+  },
+  "Balaenoptera acutorostrata": {
+    "id": "balaenoptera-acutorostrata",
+    "catalogCode": "B_acut_ssp"
+  },
+  "Balaenoptera bonaerensis": {
+    "id": "balaenoptera-bonaerensis",
+    "catalogCode": "B_bonaeren"
+  },
+  "Balaenoptera borealis": {
+    "id": "balaenoptera-borealis",
+    "catalogCode": "B_borealis"
+  },
+  "Balaenoptera musculus": {
+    "id": "balaenoptera-musculus",
+    "catalogCode": "B_musculus"
+  },
+  "Balaenoptera physalus": {
+    "id": "balaenoptera-physalus",
+    "catalogCode": "B_physalus"
+  },
+  "Blastocerus dichotomus": {
+    "id": "blastocerus-dichotomus",
+    "catalogCode": "B_dichotom"
+  },
+  "Cabassous tatouay": {
+    "id": "cabassous-tatouay",
+    "catalogCode": "C_tatouay"
+  },
+  "Calomys laucha": {
+    "id": "calomys-laucha",
+    "catalogCode": "C_laucha"
+  },
+  "Cavia aperea": {
+    "id": "cavia-aperea",
+    "catalogCode": "C_aperea"
+  },
+  "Cavia magna": {
+    "id": "cavia-magna",
+    "catalogCode": "C_magna"
+  },
+  "Cerdocyon thous": {
+    "id": "cerdocyon-thous",
+    "catalogCode": "C_thous"
+  },
+  "Chironectes minimus": {
+    "id": "chironectes-minimus",
+    "catalogCode": "Ch_minimus"
+  },
+  "Chrysocyon brachyurus": {
+    "id": "chrysocyon-brachyurus",
+    "catalogCode": "C_brachyur"
+  },
+  "Coendou spinosus": {
+    "id": "sphiggurus-spinosus",
+    "catalogCode": "sphiggurus-spinosus"
+  },
+  "Conepatus chinga": {
+    "id": "conepatus-chinga",
+    "catalogCode": "C_chinga"
+  },
+  "Cryptonanus chacoensis": {
+    "id": "cryptonanus-chacoensis",
+    "catalogCode": "C_cf_chaco"
+  },
+  "Ctenomys pearsoni": {
+    "id": "ctenomys-pearsoni",
+    "catalogCode": "C_pearsoni"
+  },
+  "Ctenomys rionegrensis": {
+    "id": "ctenomys-rionegrensis",
+    "catalogCode": "C_rionegre"
+  },
+  "Ctenomys torquatus": {
+    "id": "ctenomys-torquatus",
+    "catalogCode": "C_torquatu"
+  },
+  "Cuniculus paca": {
+    "id": "cuniculus-paca",
+    "catalogCode": "C_paca"
+  },
+  "Dasypus hybridus": {
+    "id": "dasypus-hybridus",
+    "catalogCode": "D_hybridus"
+  },
+  "Dasypus novemcinctus": {
+    "id": "dasypus-novemcinctus",
+    "catalogCode": "D_novemcin"
+  },
+  "Delphinus delphis": {
+    "id": "delphinus-delphis",
+    "catalogCode": "D_delphis"
+  },
+  "Deltamys kempi": {
+    "id": "deltamys-kempi",
+    "catalogCode": "D_kempi"
+  },
+  "Desmodus rotundus": {
+    "id": "desmodus-rotundus",
+    "catalogCode": "D_rotundus"
+  },
+  "Didelphis albiventris": {
+    "id": "didelphis-albiventris",
+    "catalogCode": "D_albivent"
+  },
+  "Eptesicus diminutus": {
+    "id": "eptesicus-diminutus",
+    "catalogCode": "E_diminutu"
+  },
+  "Eptesicus furinalis": {
+    "id": "eptesicus-furinalis",
+    "catalogCode": "E_furinali"
+  },
+  "Eubalaena australis": {
+    "id": "eubalaena-australis",
+    "catalogCode": "E_australi"
+  },
+  "Eumops bonariensis": {
+    "id": "eumops-bonariensis",
+    "catalogCode": "E_bonarien"
+  },
+  "Eumops patagonicus": {
+    "id": "eumops-patagonicus",
+    "catalogCode": "E_patagoni"
+  },
+  "Euphractus sexcinctus": {
+    "id": "euphractus-sexcinctus",
+    "catalogCode": "E_sexcinct"
+  },
+  "Galictis cuja": {
+    "id": "galictis-cuja",
+    "catalogCode": "G_cuja"
+  },
+  "Histiotus montanus": {
+    "id": "histiotus-montanus",
+    "catalogCode": "H_montanus"
+  },
+  "Histiotus velatus": {
+    "id": "histiotus-velatus",
+    "catalogCode": "H_cf_velat"
+  },
+  "Holochilus brasiliensis": {
+    "id": "holochilus-brasiliensis",
+    "catalogCode": "H_brasilie"
+  },
+  "Hydrochoerus hydrochaeris": {
+    "id": "hydrochoerus-hydrochaeris",
+    "catalogCode": "H_hydrocha"
+  },
+  "Lagenorhynchus obscurus": {
+    "id": "lagenorhynchus-obscurus",
+    "catalogCode": "L_obscurus"
+  },
+  "Lasiurus blossevillii": {
+    "id": "lasiurus-blossevillii",
+    "catalogCode": "L_blossevi"
+  },
+  "Lasiurus cinereus": {
+    "id": "aeorestes-cinereus",
+    "catalogCode": "aeorestes-cinereus"
+  },
+  "Lasiurus ega": {
+    "id": "dasypterus-ega",
+    "catalogCode": "dasypterus-ega"
+  },
+  "Leopardus braccatus": {
+    "id": "leopardus-braccatus",
+    "catalogCode": "L_braccatu"
+  },
+  "Leopardus geoffroyi": {
+    "id": "leopardus-geoffroyi",
+    "catalogCode": "L_geoffroy"
+  },
+  "Leopardus pardalis": {
+    "id": "leopardus-pardalis",
+    "catalogCode": "L_pardalis"
+  },
+  "Leopardus wiedii": {
+    "id": "leopardus-wiedii",
+    "catalogCode": "L_wieddi"
+  },
+  "Lepus europaeus": {
+    "id": "lepus-europaeus",
+    "catalogCode": "lep_europa"
+  },
+  "Lontra longicaudis": {
+    "id": "lontra-longicaudis",
+    "catalogCode": "L_longicau"
+  },
+  "Lundomys molitor": {
+    "id": "lundomys-molitor",
+    "catalogCode": "L_molitor"
+  },
+  "Lutreolina crassicaudata": {
+    "id": "lutreolina-crassicaudata",
+    "catalogCode": "L_crassica"
+  },
+  "Lycalopex gymnocercus": {
+    "id": "lycalopex-gymnocercus",
+    "catalogCode": "L_gymnocer"
+  },
+  "Mazama gouazoubira": {
+    "id": "mazama-gouazoubira",
+    "catalogCode": "M_gouazoub"
+  },
+  "Megaptera novaeangliae": {
+    "id": "megaptera-novaeangliae",
+    "catalogCode": "M_novaengl"
+  },
+  "Molossops temminckii": {
+    "id": "molossops-temminckii",
+    "catalogCode": "M_temminck"
+  },
+  "Molossus molossus": {
+    "id": "molossus-molossus",
+    "catalogCode": "M_molossus"
+  },
+  "Molossus rufus": {
+    "id": "molossus-rufus",
+    "catalogCode": "M_rufus"
+  },
+  "Monodelphis dimidiata": {
+    "id": "monodelphis-dimidiata",
+    "catalogCode": "M_dimidiat"
+  },
+  "Mus musculus": {
+    "id": "mus-musculus",
+    "catalogCode": "mus_muscul"
+  },
+  "Myocastor coypus": {
+    "id": "myocastor-coypus",
+    "catalogCode": "M_coypus"
+  },
+  "Myotis albescens": {
+    "id": "myotis-albescens",
+    "catalogCode": "M_albescen"
+  },
+  "Myotis levis": {
+    "id": "myotis-levis",
+    "catalogCode": "M_levis"
+  },
+  "Myotis nigricans": {
+    "id": "myotis-nigricans",
+    "catalogCode": "M_nigrican"
+  },
+  "Myotis riparius": {
+    "id": "myotis-riparius",
+    "catalogCode": "M_riparius"
+  },
+  "Myotis ruber": {
+    "id": "myotis-ruber",
+    "catalogCode": "M_ruber"
+  },
+  "Myrmecophaga tridactyla": {
+    "id": "myrmecophaga-tridactyla",
+    "catalogCode": "M_trydacty"
+  },
+  "Nasua nasua": {
+    "id": "nasua-nasua",
+    "catalogCode": "N_nasua"
+  },
+  "Necromys obscurus": {
+    "id": "necromys-obscurus",
+    "catalogCode": "N_obscurus"
+  },
+  "Nyctinomops laticaudatus": {
+    "id": "nyctinomops-laticaudatus",
+    "catalogCode": "N_laticaud"
+  },
+  "Oligoryzomys flavescens": {
+    "id": "oligoryzomys-flavescens",
+    "catalogCode": "O_flavesce"
+  },
+  "Oligoryzomys nigripes": {
+    "id": "oligoryzomys-nigripes",
+    "catalogCode": "O_nigripes"
+  },
+  "Orcinus orca": {
+    "id": "orcinus-orca",
+    "catalogCode": "O_orca"
+  },
+  "Otaria flavescens": {
+    "id": "otaria-byronia",
+    "catalogCode": "otaria-byronia"
+  },
+  "Oxymycterus josei": {
+    "id": "oxymycterus-josei",
+    "catalogCode": "O_josei"
+  },
+  "Oxymycterus nasutus": {
+    "id": "oxymycterus-nasutus",
+    "catalogCode": "O_nasutus"
+  },
+  "Ozotoceros bezoarticus": {
+    "id": "ozotoceros-bezoarticus",
+    "catalogCode": "O_bezoarti"
+  },
+  "Panthera onca": {
+    "id": "panthera-onca",
+    "catalogCode": "P_onca"
+  },
+  "Pecari tajacu": {
+    "id": "pecari-tajacu",
+    "catalogCode": "P_tajacu"
+  },
+  "Phocoena spinipinnis": {
+    "id": "phocoena-spinipinnis",
+    "catalogCode": "P_spinipin"
+  },
+  "Physeter macrocephalus": {
+    "id": "physeter-macrocephalus",
+    "catalogCode": "P_macrocep"
+  },
+  "Platyrrhinus lineatus": {
+    "id": "platyrrhinus-lineatus",
+    "catalogCode": "Pl_lineatu"
+  },
+  "Pontoporia blainvillei": {
+    "id": "pontoporia-blainvillei",
+    "catalogCode": "P_blainvil"
+  },
+  "Procyon cancrivorus": {
+    "id": "procyon-cancrivorus",
+    "catalogCode": "P_cancrivo"
+  },
+  "Promops centralis": {
+    "id": "promops-centralis",
+    "catalogCode": "P_centrali"
+  },
+  "Pseudorca crassidens": {
+    "id": "pseudorca-crassidens",
+    "catalogCode": "P_crasside"
+  },
+  "Pteronura brasiliensis": {
+    "id": "pteronura-brasiliensis",
+    "catalogCode": "P_brasilie"
+  },
+  "Puma concolor": {
+    "id": "puma-concolor",
+    "catalogCode": "P_concolor"
+  },
+  "Rattus norvegicus": {
+    "id": "rattus-norvegicus",
+    "catalogCode": "rat_norver"
+  },
+  "Rattus rattus": {
+    "id": "rattus-rattus",
+    "catalogCode": "rat_rattus"
+  },
+  "Reithrodon typicus": {
+    "id": "reithrodon-typicus",
+    "catalogCode": "R_typicus"
+  },
+  "Scapteromys tumidus": {
+    "id": "scapteromys-tumidus",
+    "catalogCode": "S_tumidus"
+  },
+  "Sturnira lilium": {
+    "id": "sturnira-lilium",
+    "catalogCode": "S_lilium"
+  },
+  "Sus scrofa": {
+    "id": "sus-scrofa",
+    "catalogCode": "sus_scrofa"
+  },
+  "Tadarida brasiliensis": {
+    "id": "tadarida-brasiliensis",
+    "catalogCode": "T_brasilie"
+  },
+  "Tamandua tetradactyla": {
+    "id": "tamandua-tetradactyla",
+    "catalogCode": "T_tetradac"
+  },
+  "Tursiops truncatus": {
+    "id": "tursiops-truncatus",
+    "catalogCode": "T_truncatu"
+  },
+  "Wilfredomys oenax": {
+    "id": "wilfredomys-oenax",
+    "catalogCode": "W_oenax"
+  },
+  "Accipiter bicolor": {
+    "id": "accipiter-bicolor",
+    "catalogCode": "A_bicolor"
+  },
+  "Accipiter striatus": {
+    "id": "accipiter-striatus",
+    "catalogCode": "A_striatus"
+  },
+  "Actitis macularius": {
+    "id": "actitis-macularius",
+    "catalogCode": "A_maculari"
+  },
+  "Aegolius harrisii": {
+    "id": "aegolius-harrisii",
+    "catalogCode": "A_harrisii"
+  },
+  "Agelaioides badius": {
+    "id": "agelaioides-badius",
+    "catalogCode": "M_badius"
+  },
+  "Agelaius ruficapillus": {
+    "id": "agelaius-ruficapillus",
+    "catalogCode": "agelaius-ruficapillus"
+  },
+  "Agelaius thilius": {
+    "id": "agelaius-thilius",
+    "catalogCode": "agelaius-thilius"
+  },
+  "Agelasticus thilius": {
+    "id": "agelasticus-thilius",
+    "catalogCode": "A_thilius"
+  },
+  "Agriornis micropterus": {
+    "id": "agriornis-micropterus",
+    "catalogCode": "agriornis-micropterus"
+  },
+  "Agriornis murinus": {
+    "id": "agriornis-murinus",
+    "catalogCode": "A_murina"
+  },
+  "Ajaia ajaja": {
+    "id": "ajaia-ajaja",
+    "catalogCode": "ajaia-ajaja"
+  },
+  "Alectrurus risora": {
+    "id": "alectrurus-risora",
+    "catalogCode": "A_risorus"
+  },
+  "Alopochelidon fucata": {
+    "id": "alopochelidon-fucata",
+    "catalogCode": "A_fucata"
+  },
+  "Amazonetta brasiliensis": {
+    "id": "amazonetta-brasiliensis",
+    "catalogCode": "A_brasilie"
+  },
+  "Amblyramphus holosericeus": {
+    "id": "amblyramphus-holosericeus",
+    "catalogCode": "A_holoseri"
+  },
+  "Ammodramus humeralis": {
+    "id": "ammodramus-humeralis",
+    "catalogCode": "A_humerali"
+  },
+  "Anas bahamensis": {
+    "id": "anas-bahamensis",
+    "catalogCode": "A_bahamens"
+  },
+  "Anas cyanoptera": {
+    "id": "anas-cyanoptera",
+    "catalogCode": "anas-cyanoptera"
+  },
+  "Anas discors": {
+    "id": "anas-discors",
+    "catalogCode": "anas-discors"
+  },
+  "Anas flavirostris": {
+    "id": "anas-flavirostris",
+    "catalogCode": "A_flaviros"
+  },
+  "Anas georgica": {
+    "id": "anas-georgica",
+    "catalogCode": "A_georgica"
+  },
+  "Anas platalea": {
+    "id": "anas-platalea",
+    "catalogCode": "anas-platalea"
+  },
+  "Anas sibilatrix": {
+    "id": "anas-sibilatrix",
+    "catalogCode": "anas-sibilatrix"
+  },
+  "Anas versicolor": {
+    "id": "anas-versicolor",
+    "catalogCode": "anas-versicolor"
+  },
+  "Anhinga anhinga": {
+    "id": "anhinga-anhinga",
+    "catalogCode": "A_anhinga"
+  },
+  "Anodorhynchus glaucus": {
+    "id": "anodorhynchus-glaucus",
+    "catalogCode": "A_glaucus"
+  },
+  "Anous stolidus": {
+    "id": "anous-stolidus",
+    "catalogCode": "anous-stolidus"
+  },
+  "Anthracothorax nigricollis": {
+    "id": "anthracothorax-nigricollis",
+    "catalogCode": "A_nigricol"
+  },
+  "Anthus correndera": {
+    "id": "anthus-correndera",
+    "catalogCode": "A_corrende"
+  },
+  "Anthus furcatus": {
+    "id": "anthus-furcatus",
+    "catalogCode": "A_furcatus"
+  },
+  "Anthus hellmayri": {
+    "id": "anthus-hellmayri",
+    "catalogCode": "A_hellmayr"
+  },
+  "Anthus lutescens": {
+    "id": "anthus-lutescens",
+    "catalogCode": "A_lutescen"
+  },
+  "Anthus nattereri": {
+    "id": "anthus-nattereri",
+    "catalogCode": "A_natterer"
+  },
+  "Anumbius annumbi": {
+    "id": "anumbius-annumbi",
+    "catalogCode": "A_annumbi"
+  },
+  "Aphrodroma brevirostris": {
+    "id": "aphrodroma-brevirostris",
+    "catalogCode": "P_breviros"
+  },
+  "Aptenodytes patagonicus": {
+    "id": "aptenodytes-patagonicus",
+    "catalogCode": "A_patagoni"
+  },
+  "Aramides cajanea": {
+    "id": "aramides-cajanea",
+    "catalogCode": "A_cajanea"
+  },
+  "Aramides ypecaha": {
+    "id": "aramides-ypecaha",
+    "catalogCode": "A_ypecaha"
+  },
+  "Aramus guarauna": {
+    "id": "aramus-guarauna",
+    "catalogCode": "A_guarauna"
+  },
+  "Aratinga acuticaudata": {
+    "id": "aratinga-acuticaudata",
+    "catalogCode": "A_acuticau"
+  },
+  "Aratinga leucophthalma": {
+    "id": "aratinga-leucophthalma",
+    "catalogCode": "A_leucopht"
+  },
+  "Aratinga mitrata": {
+    "id": "aratinga-mitrata",
+    "catalogCode": "aratinga-mitrata"
+  },
+  "Ardea alba": {
+    "id": "ardea-alba",
+    "catalogCode": "C_albus"
+  },
+  "Ardea cocoi": {
+    "id": "ardea-cocoi",
+    "catalogCode": "A_cocoi"
+  },
+  "Ardenna grisea": {
+    "id": "ardenna-grisea",
+    "catalogCode": "ardenna-grisea"
+  },
+  "Ardeola ibis": {
+    "id": "ardeola-ibis",
+    "catalogCode": "ardeola-ibis"
+  },
+  "Arenaria interpres": {
+    "id": "arenaria-interpres",
+    "catalogCode": "A_intepres"
+  },
+  "Asio flammeus": {
+    "id": "asio-flammeus",
+    "catalogCode": "A_flammeus"
+  },
+  "Asthenes baeri": {
+    "id": "asthenes-baeri",
+    "catalogCode": "A_baeri"
+  },
+  "Asthenes hudsoni": {
+    "id": "asthenes-hudsoni",
+    "catalogCode": "A_hudsoni"
+  },
+  "Asthenes pyrrholeuca": {
+    "id": "asthenes-pyrrholeuca",
+    "catalogCode": "A_pyrrhole"
+  },
+  "Athene cunicularia": {
+    "id": "athene-cunicularia",
+    "catalogCode": "S_cunicula"
+  },
+  "Bartramia longicauda": {
+    "id": "bartramia-longicauda",
+    "catalogCode": "B_longicau"
+  },
+  "Basileuterus culicivorus": {
+    "id": "basileuterus-culicivorus",
+    "catalogCode": "B_culicivo"
+  },
+  "Basileuterus leucoblepharus": {
+    "id": "basileuterus-leucoblepharus",
+    "catalogCode": "basileuterus-leucoblepharus"
+  },
+  "Botaurus pinnatus": {
+    "id": "botaurus-pinnatus",
+    "catalogCode": "B_pinnatus"
+  },
+  "Bubo virginianus": {
+    "id": "bubo-virginianus",
+    "catalogCode": "B_virginia"
+  },
+  "Bubulcus ibis": {
+    "id": "bubulcus-ibis",
+    "catalogCode": "A_ibis"
+  },
+  "Busarellus nigricollis": {
+    "id": "busarellus-nigricollis",
+    "catalogCode": "B_nigricol"
+  },
+  "Buteo albicaudatus": {
+    "id": "buteo-albicaudatus",
+    "catalogCode": "B_albicaud"
+  },
+  "Buteo magnirostris": {
+    "id": "buteo-magnirostris",
+    "catalogCode": "buteo-magnirostris"
+  },
+  "Buteo polyosoma": {
+    "id": "buteo-polyosoma",
+    "catalogCode": "B_polyosom"
+  },
+  "Buteo swainsoni": {
+    "id": "buteo-swainsoni",
+    "catalogCode": "B_swainson"
+  },
+  "Buteogallus meridionalis": {
+    "id": "buteogallus-meridionalis",
+    "catalogCode": "He_meridio"
+  },
+  "Buteogallus urubitinga": {
+    "id": "buteogallus-urubitinga",
+    "catalogCode": "B_urubitin"
+  },
+  "Butorides striata": {
+    "id": "butorides-striata",
+    "catalogCode": "B_striatus"
+  },
+  "Cacicus chrysopterus": {
+    "id": "cacicus-chrysopterus",
+    "catalogCode": "C_chrysopt"
+  },
+  "Cacicus solitarius": {
+    "id": "cacicus-solitarius",
+    "catalogCode": "C_solitari"
+  },
+  "Cairina moschata": {
+    "id": "cairina-moschata",
+    "catalogCode": "C_moschata"
+  },
+  "Calidris alba": {
+    "id": "calidris-alba",
+    "catalogCode": "C_alba"
+  },
+  "Calidris bairdii": {
+    "id": "calidris-bairdii",
+    "catalogCode": "C_bairdii"
+  },
+  "Calidris canutus": {
+    "id": "calidris-canutus",
+    "catalogCode": "C_canutus"
+  },
+  "Calidris fuscicollis": {
+    "id": "calidris-fuscicollis",
+    "catalogCode": "C_fuscicol"
+  },
+  "Calidris himantopus": {
+    "id": "calidris-himantopus",
+    "catalogCode": "Ca_himanto"
+  },
+  "Calidris melanotos": {
+    "id": "calidris-melanotos",
+    "catalogCode": "C_melanoto"
+  },
+  "Calidris minutilla": {
+    "id": "calidris-minutilla",
+    "catalogCode": "C_minutill"
+  },
+  "Calidris pusilla": {
+    "id": "calidris-pusilla",
+    "catalogCode": "C_pusilla"
+  },
+  "Callonetta leucophrys": {
+    "id": "callonetta-leucophrys",
+    "catalogCode": "C_leucophr"
+  },
+  "Calonectris diomedea": {
+    "id": "calonectris-diomedea",
+    "catalogCode": "C_diomedea"
+  },
+  "Calonectris edwardsii": {
+    "id": "calonectris-edwardsii",
+    "catalogCode": "calonectris-edwardsii"
+  },
+  "Campephilus leucopogon": {
+    "id": "campephilus-leucopogon",
+    "catalogCode": "C_leucopog"
+  },
+  "Camptostoma obsoletum": {
+    "id": "camptostoma-obsoletum",
+    "catalogCode": "Ca_obsolet"
+  },
+  "Caprimulgus longirostris": {
+    "id": "caprimulgus-longirostris",
+    "catalogCode": "caprimulgus-longirostris"
+  },
+  "Caprimulgus parvulus": {
+    "id": "caprimulgus-parvulus",
+    "catalogCode": "caprimulgus-parvulus"
+  },
+  "Caracara plancus": {
+    "id": "caracara-plancus",
+    "catalogCode": "P_plancus"
+  },
+  "Carduelis carduelis": {
+    "id": "carduelis-carduelis",
+    "catalogCode": "C_cardueli"
+  },
+  "Carduelis chloris": {
+    "id": "carduelis-chloris",
+    "catalogCode": "carduelis-chloris"
+  },
+  "Carduelis magellanica": {
+    "id": "carduelis-magellanica",
+    "catalogCode": "carduelis-magellanica"
+  },
+  "Cariama cristata": {
+    "id": "cariama-cristata",
+    "catalogCode": "C_cristata"
+  },
+  "Casiornis rufus": {
+    "id": "casiornis-rufus",
+    "catalogCode": "C_rufa"
+  },
+  "Casmerodius albus": {
+    "id": "casmerodius-albus",
+    "catalogCode": "casmerodius-albus"
+  },
+  "Cathartes aura": {
+    "id": "cathartes-aura",
+    "catalogCode": "C_aura"
+  },
+  "Cathartes burrovianus": {
+    "id": "cathartes-burrovianus",
+    "catalogCode": "C_burrovia"
+  },
+  "Catoptrophorus semipalmatus": {
+    "id": "catoptrophorus-semipalmatus",
+    "catalogCode": "catoptrophorus-semipalmatus"
+  },
+  "Certhiaxis cinnamomeus": {
+    "id": "certhiaxis-cinnamomeus",
+    "catalogCode": "C_cinnamom"
+  },
+  "Ceryle torquata": {
+    "id": "ceryle-torquata",
+    "catalogCode": "ceryle-torquata"
+  },
+  "Charadrius collaris": {
+    "id": "charadrius-collaris",
+    "catalogCode": "Ch_collari"
+  },
+  "Charadrius falklandicus": {
+    "id": "charadrius-falklandicus",
+    "catalogCode": "Ch_falklan"
+  },
+  "Charadrius modestus": {
+    "id": "charadrius-modestus",
+    "catalogCode": "Ch_modestu"
+  },
+  "Charadrius semipalmatus": {
+    "id": "charadrius-semipalmatus",
+    "catalogCode": "Ch_semipal"
+  },
+  "Chauna torquata": {
+    "id": "chauna-torquata",
+    "catalogCode": "Ch_torquat"
+  },
+  "Chionis albus": {
+    "id": "chionis-albus",
+    "catalogCode": "Ch_alba"
+  },
+  "Chlidonias niger": {
+    "id": "chlidonias-niger",
+    "catalogCode": "C_niger"
+  },
+  "Chloephaga picta": {
+    "id": "chloephaga-picta",
+    "catalogCode": "C_picta"
+  },
+  "Chloroceryle amazona": {
+    "id": "chloroceryle-amazona",
+    "catalogCode": "Ch_amazona"
+  },
+  "Chloroceryle americana": {
+    "id": "chloroceryle-americana",
+    "catalogCode": "Ch_america"
+  },
+  "Chlorophonia cyanea": {
+    "id": "chlorophonia-cyanea",
+    "catalogCode": "C_cyanea"
+  },
+  "Chlorostilbon aureoventris": {
+    "id": "chlorostilbon-aureoventris",
+    "catalogCode": "chlorostilbon-aureoventris"
+  },
+  "Chlorostilbon lucidus": {
+    "id": "chlorostilbon-lucidus",
+    "catalogCode": "Ch_aureove"
+  },
+  "Chordeiles minor": {
+    "id": "chordeiles-minor",
+    "catalogCode": "Ch_minor"
+  },
+  "Chordeiles nacunda": {
+    "id": "chordeiles-nacunda",
+    "catalogCode": "P_nacunda"
+  },
+  "Chroicocephalus cirrocephalus": {
+    "id": "chroicocephalus-cirrocephalus",
+    "catalogCode": "L_cirrocep"
+  },
+  "Chroicocephalus maculipennis": {
+    "id": "chroicocephalus-maculipennis",
+    "catalogCode": "L_maculipe"
+  },
+  "Chrysomus ruficapillus": {
+    "id": "chrysomus-ruficapillus",
+    "catalogCode": "A_ruficapi"
+  },
+  "Ciconia maguari": {
+    "id": "ciconia-maguari",
+    "catalogCode": "C_maguari"
+  },
+  "Cinclodes fuscus": {
+    "id": "cinclodes-fuscus",
+    "catalogCode": "C_fuscus"
+  },
+  "Circus buffoni": {
+    "id": "circus-buffoni",
+    "catalogCode": "C_buffoni"
+  },
+  "Circus cinereus": {
+    "id": "circus-cinereus",
+    "catalogCode": "Ci_cinereu"
+  },
+  "Cistothorus platensis": {
+    "id": "cistothorus-platensis",
+    "catalogCode": "C_platensi"
+  },
+  "Coccycua cinerea": {
+    "id": "coccycua-cinerea",
+    "catalogCode": "coccycua-cinerea"
+  },
+  "Coccyzus americanus": {
+    "id": "coccyzus-americanus",
+    "catalogCode": "C_american"
+  },
+  "Coccyzus cinereus": {
+    "id": "coccyzus-cinereus",
+    "catalogCode": "Co_cinereu"
+  },
+  "Coccyzus melacoryphus": {
+    "id": "coccyzus-melacoryphus",
+    "catalogCode": "Co_melanco"
+  },
+  "Colaptes campestris": {
+    "id": "colaptes-campestris",
+    "catalogCode": "C_campestr"
+  },
+  "Colaptes melanochloros": {
+    "id": "colaptes-melanochloros",
+    "catalogCode": "C_melanoch"
+  },
+  "Colaptes melanolaimus": {
+    "id": "colaptes-melanolaimus",
+    "catalogCode": "colaptes-melanolaimus"
+  },
+  "Columba cayennensis": {
+    "id": "columba-cayennensis",
+    "catalogCode": "columba-cayennensis"
+  },
+  "Columba livia": {
+    "id": "columba-livia",
+    "catalogCode": "C_livia"
+  },
+  "Columba maculosa": {
+    "id": "columba-maculosa",
+    "catalogCode": "columba-maculosa"
+  },
+  "Columba picazuro": {
+    "id": "columba-picazuro",
+    "catalogCode": "columba-picazuro"
+  },
+  "Columbina picui": {
+    "id": "columbina-picui",
+    "catalogCode": "C_picui"
+  },
+  "Columbina talpacoti": {
+    "id": "columbina-talpacoti",
+    "catalogCode": "C_talpacot"
+  },
+  "Conopophaga lineata": {
+    "id": "conopophaga-lineata",
+    "catalogCode": "C_lineata"
+  },
+  "Coragyps atratus": {
+    "id": "coragyps-atratus",
+    "catalogCode": "C_atratus"
+  },
+  "Coryphistera alaudina": {
+    "id": "coryphistera-alaudina",
+    "catalogCode": "C_alaudina"
+  },
+  "Coryphospingus cucullatus": {
+    "id": "coryphospingus-cucullatus",
+    "catalogCode": "C_cucullat"
+  },
+  "Coscoroba coscoroba": {
+    "id": "coscoroba-coscoroba",
+    "catalogCode": "C_coscorob"
+  },
+  "Coturnicops notatus": {
+    "id": "coturnicops-notatus",
+    "catalogCode": "C_notata"
+  },
+  "Cranioleuca pyrrhophia": {
+    "id": "cranioleuca-pyrrhophia",
+    "catalogCode": "C_pyrrophi"
+  },
+  "Cranioleuca sulphurifera": {
+    "id": "cranioleuca-sulphurifera",
+    "catalogCode": "C_sulphuri"
+  },
+  "Crotophaga ani": {
+    "id": "crotophaga-ani",
+    "catalogCode": "C_ani"
+  },
+  "Crotophaga major": {
+    "id": "crotophaga-major",
+    "catalogCode": "C_major"
+  },
+  "Crypturellus obsoletus": {
+    "id": "crypturellus-obsoletus",
+    "catalogCode": "Cr_obsolet"
+  },
+  "Culicivora caudacuta": {
+    "id": "culicivora-caudacuta",
+    "catalogCode": "C_caudacut"
+  },
+  "Cyanocompsa brissonii": {
+    "id": "cyanocompsa-brissonii",
+    "catalogCode": "C_brissoni"
+  },
+  "Cyanocorax caeruleus": {
+    "id": "cyanocorax-caeruleus",
+    "catalogCode": "C_caeruleu"
+  },
+  "Cyanocorax chrysops": {
+    "id": "cyanocorax-chrysops",
+    "catalogCode": "C_chrysops"
+  },
+  "Cyanocorax cyanomelas": {
+    "id": "cyanocorax-cyanomelas",
+    "catalogCode": "C_cyanomel"
+  },
+  "Cyanoliseus patagonus": {
+    "id": "cyanoliseus-patagonus",
+    "catalogCode": "C_patagonu"
+  },
+  "Cyanoloxia glaucocaerulea": {
+    "id": "cyanoloxia-glaucocaerulea",
+    "catalogCode": "C_glaucoca"
+  },
+  "Cyclarhis gujanensis": {
+    "id": "cyclarhis-gujanensis",
+    "catalogCode": "C_gujanens"
+  },
+  "Cygnus melancoryphus": {
+    "id": "cygnus-melancoryphus",
+    "catalogCode": "Cy_melanco"
+  },
+  "Daption capense": {
+    "id": "daption-capense",
+    "catalogCode": "D_capense"
+  },
+  "Dendrocolaptes platyrostris": {
+    "id": "dendrocolaptes-platyrostris",
+    "catalogCode": "dendrocolaptes-platyrostris"
+  },
+  "Dendrocygna bicolor": {
+    "id": "dendrocygna-bicolor",
+    "catalogCode": "D_bicolor"
+  },
+  "Dendrocygna viduata": {
+    "id": "dendrocygna-viduata",
+    "catalogCode": "D_viduata"
+  },
+  "Dendroica striata": {
+    "id": "dendroica-striata",
+    "catalogCode": "dendroica-striata"
+  },
+  "Diomedea epomophora": {
+    "id": "diomedea-epomophora",
+    "catalogCode": "D_epomopho"
+  },
+  "Diomedea exulans": {
+    "id": "diomedea-exulans",
+    "catalogCode": "D_exulans"
+  },
+  "Diomedea sanfordi": {
+    "id": "diomedea-sanfordi",
+    "catalogCode": "diomedea-sanfordi"
+  },
+  "Diuca diuca": {
+    "id": "diuca-diuca",
+    "catalogCode": "D_diuca"
+  },
+  "Donacospiza albifrons": {
+    "id": "donacospiza-albifrons",
+    "catalogCode": "D_albifron"
+  },
+  "Drymornis bridgesii": {
+    "id": "drymornis-bridgesii",
+    "catalogCode": "D_bridgesi"
+  },
+  "Egretta caerulea": {
+    "id": "egretta-caerulea",
+    "catalogCode": "Hy_caerule"
+  },
+  "Egretta thula": {
+    "id": "egretta-thula",
+    "catalogCode": "E_thula"
+  },
+  "Elaenia albiceps": {
+    "id": "elaenia-albiceps",
+    "catalogCode": "E_albiceps"
+  },
+  "Elaenia flavogaster": {
+    "id": "elaenia-flavogaster",
+    "catalogCode": "elaenia-flavogaster"
+  },
+  "Elaenia mesoleuca": {
+    "id": "elaenia-mesoleuca",
+    "catalogCode": "E_mesoleuc"
+  },
+  "Elaenia obscura": {
+    "id": "elaenia-obscura",
+    "catalogCode": "E_obscura"
+  },
+  "Elaenia parvirostris": {
+    "id": "elaenia-parvirostris",
+    "catalogCode": "E_parviros"
+  },
+  "Elaenia spectabilis": {
+    "id": "elaenia-spectabilis",
+    "catalogCode": "E_spectabi"
+  },
+  "Elanoides forficatus": {
+    "id": "elanoides-forficatus",
+    "catalogCode": "E_forficat"
+  },
+  "Elanus leucurus": {
+    "id": "elanus-leucurus",
+    "catalogCode": "E_leucurus"
+  },
+  "Emberizoides herbicola": {
+    "id": "emberizoides-herbicola",
+    "catalogCode": "E_herbicol"
+  },
+  "Emberizoides ypiranganus": {
+    "id": "emberizoides-ypiranganus",
+    "catalogCode": "E_ypiranga"
+  },
+  "Embernagra platensis": {
+    "id": "embernagra-platensis",
+    "catalogCode": "E_platensi"
+  },
+  "Empidonax euleri": {
+    "id": "empidonax-euleri",
+    "catalogCode": "empidonax-euleri"
+  },
+  "Empidonomus aurantioatrocristatus": {
+    "id": "empidonomus-aurantioatrocristatus",
+    "catalogCode": "E_aurantio"
+  },
+  "Empidonomus varius": {
+    "id": "empidonomus-varius",
+    "catalogCode": "E_varius"
+  },
+  "Estrilda astrild": {
+    "id": "estrilda-astrild",
+    "catalogCode": "E_astrild"
+  },
+  "Eudyptes chrysocome": {
+    "id": "eudyptes-chrysocome",
+    "catalogCode": "E_chrysoco"
+  },
+  "Eudyptes chrysolophus": {
+    "id": "eudyptes-chrysolophus",
+    "catalogCode": "E_chrysolo"
+  },
+  "Euphonia chlorotica": {
+    "id": "euphonia-chlorotica",
+    "catalogCode": "E_chloroti"
+  },
+  "Euphonia cyanocephala": {
+    "id": "euphonia-cyanocephala",
+    "catalogCode": "Eu_cyanoce"
+  },
+  "Euscarthmus meloryphus": {
+    "id": "euscarthmus-meloryphus",
+    "catalogCode": "E_meloryph"
+  },
+  "Falco femoralis": {
+    "id": "falco-femoralis",
+    "catalogCode": "F_femorali"
+  },
+  "Falco peregrinus": {
+    "id": "falco-peregrinus",
+    "catalogCode": "F_peregrin"
+  },
+  "Falco sparverius": {
+    "id": "falco-sparverius",
+    "catalogCode": "F_sparveri"
+  },
+  "Florisuga fusca": {
+    "id": "florisuga-fusca",
+    "catalogCode": "M_fuscus"
+  },
+  "Fluvicola albiventer": {
+    "id": "fluvicola-albiventer",
+    "catalogCode": "fluvicola-albiventer"
+  },
+  "Fluvicola pica": {
+    "id": "fluvicola-pica",
+    "catalogCode": "F_pica"
+  },
+  "Fregata magnificens": {
+    "id": "fregata-magnificens",
+    "catalogCode": "F_magnific"
+  },
+  "Fregetta tropica": {
+    "id": "fregetta-tropica",
+    "catalogCode": "F_tropica"
+  },
+  "Fulica armillata": {
+    "id": "fulica-armillata",
+    "catalogCode": "F_armillat"
+  },
+  "Fulica leucoptera": {
+    "id": "fulica-leucoptera",
+    "catalogCode": "F_leucopte"
+  },
+  "Fulica rufifrons": {
+    "id": "fulica-rufifrons",
+    "catalogCode": "F_rufifron"
+  },
+  "Fulmarus glacialoides": {
+    "id": "fulmarus-glacialoides",
+    "catalogCode": "F_glacialo"
+  },
+  "Furnarius rufus": {
+    "id": "furnarius-rufus",
+    "catalogCode": "F_rufus"
+  },
+  "Gallinago paraguaiae": {
+    "id": "gallinago-paraguaiae",
+    "catalogCode": "G_paraguai"
+  },
+  "Gallinago undulata": {
+    "id": "gallinago-undulata",
+    "catalogCode": "G_undulata"
+  },
+  "Gallinula chloropus": {
+    "id": "gallinula-chloropus",
+    "catalogCode": "G_chloropu"
+  },
+  "Gallinula galeata": {
+    "id": "gallinula-galeata",
+    "catalogCode": "gallinula-galeata"
+  },
+  "Gallinula melanops": {
+    "id": "gallinula-melanops",
+    "catalogCode": "Po_melanop"
+  },
+  "Gelochelidon nilotica": {
+    "id": "gelochelidon-nilotica",
+    "catalogCode": "G_nilotica"
+  },
+  "Geositta cunicularia": {
+    "id": "geositta-cunicularia",
+    "catalogCode": "G_cunicula"
+  },
+  "Geothlypis aequinoctialis": {
+    "id": "geothlypis-aequinoctialis",
+    "catalogCode": "G_aequinoc"
+  },
+  "Geranoaetus albicaudatus": {
+    "id": "geranoaetus-albicaudatus",
+    "catalogCode": "geranoaetus-albicaudatus"
+  },
+  "Geranoaetus melanoleucus": {
+    "id": "geranoaetus-melanoleucus",
+    "catalogCode": "geranoaetus-melanoleucus"
+  },
+  "Geranoaetus polyosoma": {
+    "id": "geranoaetus-polyosoma",
+    "catalogCode": "geranoaetus-polyosoma"
+  },
+  "Geranospiza caerulescens": {
+    "id": "geranospiza-caerulescens",
+    "catalogCode": "G_caerules"
+  },
+  "Glaucidium brasilianum": {
+    "id": "glaucidium-brasilianum",
+    "catalogCode": "G_brasilia"
+  },
+  "Gnorimopsar chopi": {
+    "id": "gnorimopsar-chopi",
+    "catalogCode": "G_chopi"
+  },
+  "Gubernatrix cristata": {
+    "id": "gubernatrix-cristata",
+    "catalogCode": "G_cristata"
+  },
+  "Gubernetes yetapa": {
+    "id": "gubernetes-yetapa",
+    "catalogCode": "G_yetapa"
+  },
+  "Guira guira": {
+    "id": "guira-guira",
+    "catalogCode": "G_guira"
+  },
+  "Haematopus ater": {
+    "id": "haematopus-ater",
+    "catalogCode": "H_ater"
+  },
+  "Haematopus palliatus": {
+    "id": "haematopus-palliatus",
+    "catalogCode": "H_palliatu"
+  },
+  "Halobaena caerulea": {
+    "id": "halobaena-caerulea",
+    "catalogCode": "Ha_caerule"
+  },
+  "Haplospiza unicolor": {
+    "id": "haplospiza-unicolor",
+    "catalogCode": "H_unicolor"
+  },
+  "Harpiprion caerulescens": {
+    "id": "harpiprion-caerulescens",
+    "catalogCode": "harpiprion-caerulescens"
+  },
+  "Harpyhaliaetus coronatus": {
+    "id": "harpyhaliaetus-coronatus",
+    "catalogCode": "H_coronatu"
+  },
+  "Heliobletus contaminatus": {
+    "id": "heliobletus-contaminatus",
+    "catalogCode": "heliobletus-contaminatus"
+  },
+  "Heliomaster furcifer": {
+    "id": "heliomaster-furcifer",
+    "catalogCode": "H_furcifer"
+  },
+  "Hemitriccus margaritaceiventer": {
+    "id": "hemitriccus-margaritaceiventer",
+    "catalogCode": "H_margarit"
+  },
+  "Heteronetta atricapilla": {
+    "id": "heteronetta-atricapilla",
+    "catalogCode": "H_atricapi"
+  },
+  "Heterospizias meridionalis": {
+    "id": "heterospizias-meridionalis",
+    "catalogCode": "heterospizias-meridionalis"
+  },
+  "Heteroxolmis dominicana": {
+    "id": "heteroxolmis-dominicana",
+    "catalogCode": "X_dominica"
+  },
+  "Himantopus mexicanus": {
+    "id": "himantopus-mexicanus",
+    "catalogCode": "H_mexicanu"
+  },
+  "Hirundinea ferruginea": {
+    "id": "hirundinea-ferruginea",
+    "catalogCode": "H_ferrugin"
+  },
+  "Hirundo rustica": {
+    "id": "hirundo-rustica",
+    "catalogCode": "H_rustica"
+  },
+  "Hydranassa caerulea": {
+    "id": "hydranassa-caerulea",
+    "catalogCode": "hydranassa-caerulea"
+  },
+  "Hydropsalis brasiliana": {
+    "id": "hydropsalis-brasiliana",
+    "catalogCode": "hydropsalis-brasiliana"
+  },
+  "Hydropsalis torquata": {
+    "id": "hydropsalis-torquata",
+    "catalogCode": "H_brasilia"
+  },
+  "Hylocharis chrysura": {
+    "id": "hylocharis-chrysura",
+    "catalogCode": "H_chrysura"
+  },
+  "Hymenops perspicillatus": {
+    "id": "hymenops-perspicillatus",
+    "catalogCode": "H_perspici"
+  },
+  "Icterus cayanensis": {
+    "id": "icterus-cayanensis",
+    "catalogCode": "I_cayanens"
+  },
+  "Icterus pyrrhopterus": {
+    "id": "icterus-pyrrhopterus",
+    "catalogCode": "icterus-pyrrhopterus"
+  },
+  "Ixobrychus involucris": {
+    "id": "ixobrychus-involucris",
+    "catalogCode": "I_involucr"
+  },
+  "Jabiru mycteria": {
+    "id": "jabiru-mycteria",
+    "catalogCode": "J_mycteria"
+  },
+  "Jacana jacana": {
+    "id": "jacana-jacana",
+    "catalogCode": "J_jacana"
+  },
+  "Knipolegus aterrimus": {
+    "id": "knipolegus-aterrimus",
+    "catalogCode": "K_aterrimu"
+  },
+  "Knipolegus cyanirostris": {
+    "id": "knipolegus-cyanirostris",
+    "catalogCode": "K_cyaniros"
+  },
+  "Knipolegus lophotes": {
+    "id": "knipolegus-lophotes",
+    "catalogCode": "K_lophotes"
+  },
+  "Larus atlanticus": {
+    "id": "larus-atlanticus",
+    "catalogCode": "L_atlantic"
+  },
+  "Larus cirrocephalus": {
+    "id": "larus-cirrocephalus",
+    "catalogCode": "larus-cirrocephalus"
+  },
+  "Larus dominicanus": {
+    "id": "larus-dominicanus",
+    "catalogCode": "L_dominica"
+  },
+  "Larus maculipennis": {
+    "id": "larus-maculipennis",
+    "catalogCode": "larus-maculipennis"
+  },
+  "Laterallus leucopyrrhus": {
+    "id": "laterallus-leucopyrrhus",
+    "catalogCode": "L_leucopyr"
+  },
+  "Laterallus melanophaius": {
+    "id": "laterallus-melanophaius",
+    "catalogCode": "L_melanoph"
+  },
+  "Lathrotriccus euleri": {
+    "id": "lathrotriccus-euleri",
+    "catalogCode": "E_euleri"
+  },
+  "Lepidocolaptes angustirostris": {
+    "id": "lepidocolaptes-angustirostris",
+    "catalogCode": "L_angustir"
+  },
+  "Lepidocolaptes falcinellus": {
+    "id": "lepidocolaptes-falcinellus",
+    "catalogCode": "Le_falcine"
+  },
+  "Leptasthenura platensis": {
+    "id": "leptasthenura-platensis",
+    "catalogCode": "L_platensi"
+  },
+  "Leptotila rufaxilla": {
+    "id": "leptotila-rufaxilla",
+    "catalogCode": "L_rufaxill"
+  },
+  "Leptotila verreauxi": {
+    "id": "leptotila-verreauxi",
+    "catalogCode": "L_verreaux"
+  },
+  "Lessonia rufa": {
+    "id": "lessonia-rufa",
+    "catalogCode": "L_rufa"
+  },
+  "Leucochloris albicollis": {
+    "id": "leucochloris-albicollis",
+    "catalogCode": "L_albicoll"
+  },
+  "Limnoctites rectirostris": {
+    "id": "limnoctites-rectirostris",
+    "catalogCode": "limnoctites-rectirostris"
+  },
+  "Limnornis curvirostris": {
+    "id": "limnornis-curvirostris",
+    "catalogCode": "L_curviros"
+  },
+  "Limosa haemastica": {
+    "id": "limosa-haemastica",
+    "catalogCode": "L_haemasti"
+  },
+  "Lochmias nematura": {
+    "id": "lochmias-nematura",
+    "catalogCode": "L_nematura"
+  },
+  "Lophornis chalybeus": {
+    "id": "lophornis-chalybeus",
+    "catalogCode": "L_chalybeu"
+  },
+  "Lophospingus pusillus": {
+    "id": "lophospingus-pusillus",
+    "catalogCode": "L_pusillus"
+  },
+  "Machetornis rixosa": {
+    "id": "machetornis-rixosa",
+    "catalogCode": "M_rixosus"
+  },
+  "Mackenziaena leachii": {
+    "id": "mackenziaena-leachii",
+    "catalogCode": "mackenziaena-leachii"
+  },
+  "Macronectes giganteus": {
+    "id": "macronectes-giganteus",
+    "catalogCode": "M_giganteu"
+  },
+  "Macronectes halli": {
+    "id": "macronectes-halli",
+    "catalogCode": "M_halli"
+  },
+  "Mareca sibilatrix": {
+    "id": "mareca-sibilatrix",
+    "catalogCode": "A_sibilatr"
+  },
+  "Megaceryle torquata": {
+    "id": "megaceryle-torquata",
+    "catalogCode": "Ce_torquat"
+  },
+  "Megarynchus pitangua": {
+    "id": "megarynchus-pitangua",
+    "catalogCode": "M_pitangua"
+  },
+  "Megascops choliba": {
+    "id": "megascops-choliba",
+    "catalogCode": "O_choliba"
+  },
+  "Megascops sanctaecatarinae": {
+    "id": "megascops-sanctaecatarinae",
+    "catalogCode": "O_sanctaec"
+  },
+  "Melanerpes cactorum": {
+    "id": "melanerpes-cactorum",
+    "catalogCode": "M_cactorum"
+  },
+  "Melanerpes candidus": {
+    "id": "melanerpes-candidus",
+    "catalogCode": "M_candidus"
+  },
+  "Melanotrochilus fuscus": {
+    "id": "melanotrochilus-fuscus",
+    "catalogCode": "melanotrochilus-fuscus"
+  },
+  "Microspingus lateralis": {
+    "id": "microspingus-lateralis",
+    "catalogCode": "P_laterali"
+  },
+  "Milvago chimachima": {
+    "id": "milvago-chimachima",
+    "catalogCode": "M_chimachi"
+  },
+  "Milvago chimango": {
+    "id": "milvago-chimango",
+    "catalogCode": "M_chimango"
+  },
+  "Mimus saturninus": {
+    "id": "mimus-saturninus",
+    "catalogCode": "M_saturnin"
+  },
+  "Mimus triurus": {
+    "id": "mimus-triurus",
+    "catalogCode": "M_triurus"
+  },
+  "Molothrus badius": {
+    "id": "molothrus-badius",
+    "catalogCode": "molothrus-badius"
+  },
+  "Molothrus bonariensis": {
+    "id": "molothrus-bonariensis",
+    "catalogCode": "M_bonarien"
+  },
+  "Molothrus rufoaxillaris": {
+    "id": "molothrus-rufoaxillaris",
+    "catalogCode": "M_rufoaxil"
+  },
+  "Morus capensis": {
+    "id": "morus-capensis",
+    "catalogCode": "morus-capensis"
+  },
+  "Muscisaxicola maclovianus": {
+    "id": "muscisaxicola-maclovianus",
+    "catalogCode": "M_maclovia"
+  },
+  "Mycteria americana": {
+    "id": "mycteria-americana",
+    "catalogCode": "M_american"
+  },
+  "Myiarchus swainsoni": {
+    "id": "myiarchus-swainsoni",
+    "catalogCode": "M_swainson"
+  },
+  "Myiarchus tyrannulus": {
+    "id": "myiarchus-tyrannulus",
+    "catalogCode": "myiarchus-tyrannulus"
+  },
+  "Myiodynastes maculatus": {
+    "id": "myiodynastes-maculatus",
+    "catalogCode": "M_maculatu"
+  },
+  "Myiopagis viridicata": {
+    "id": "myiopagis-viridicata",
+    "catalogCode": "myiopagis-viridicata"
+  },
+  "Myiophobus fasciatus": {
+    "id": "myiophobus-fasciatus",
+    "catalogCode": "M_fasciatu"
+  },
+  "Myiopsitta monachus": {
+    "id": "myiopsitta-monachus",
+    "catalogCode": "M_monachus"
+  },
+  "Myiothlypis leucoblephara": {
+    "id": "myiothlypis-leucoblephara",
+    "catalogCode": "B_leucoble"
+  },
+  "Myopsitta monachus": {
+    "id": "myopsitta-monachus",
+    "catalogCode": "myopsitta-monachus"
+  },
+  "Nandayus nenday": {
+    "id": "nandayus-nenday",
+    "catalogCode": "N_nenday"
+  },
+  "Neoxolmis rufiventris": {
+    "id": "neoxolmis-rufiventris",
+    "catalogCode": "N_rufivent"
+  },
+  "Netta peposaca": {
+    "id": "netta-peposaca",
+    "catalogCode": "N_peposaca"
+  },
+  "Nomonyx dominicus": {
+    "id": "nomonyx-dominicus",
+    "catalogCode": "O_dominica"
+  },
+  "Nothura maculosa": {
+    "id": "nothura-maculosa",
+    "catalogCode": "N_maculosa"
+  },
+  "Notiochelidon cyanoleuca": {
+    "id": "notiochelidon-cyanoleuca",
+    "catalogCode": "N_cyanoleu"
+  },
+  "Numenius borealis": {
+    "id": "numenius-borealis",
+    "catalogCode": "N_borealis"
+  },
+  "Numenius phaeopus": {
+    "id": "numenius-phaeopus",
+    "catalogCode": "N_phaeopus"
+  },
+  "Nyctibius griseus": {
+    "id": "nyctibius-griseus",
+    "catalogCode": "N_griseus"
+  },
+  "Nycticorax nycticorax": {
+    "id": "nycticorax-nycticorax",
+    "catalogCode": "N_nycticor"
+  },
+  "Nycticryphes semicollaris": {
+    "id": "nycticryphes-semicollaris",
+    "catalogCode": "N_semicoll"
+  },
+  "Nyctidromus albicollis": {
+    "id": "nyctidromus-albicollis",
+    "catalogCode": "N_albicoll"
+  },
+  "Oceanites oceanicus": {
+    "id": "oceanites-oceanicus",
+    "catalogCode": "O_oceanicu"
+  },
+  "Oceanodroma leucorhoa": {
+    "id": "oceanodroma-leucorhoa",
+    "catalogCode": "O_leucorho"
+  },
+  "Odontophorus capueira": {
+    "id": "odontophorus-capueira",
+    "catalogCode": "O_capueira"
+  },
+  "Oreopholus ruficollis": {
+    "id": "oreopholus-ruficollis",
+    "catalogCode": "Or_ruficol"
+  },
+  "Ortalis canicollis": {
+    "id": "ortalis-canicollis",
+    "catalogCode": "O_canicoll"
+  },
+  "Otus choliba": {
+    "id": "otus-choliba",
+    "catalogCode": "otus-choliba"
+  },
+  "Otus sanctaecatarinae": {
+    "id": "otus-sanctaecatarinae",
+    "catalogCode": "otus-sanctaecatarinae"
+  },
+  "Oxyura dominica": {
+    "id": "oxyura-dominica",
+    "catalogCode": "oxyura-dominica"
+  },
+  "Oxyura vittata": {
+    "id": "oxyura-vittata",
+    "catalogCode": "O_vittata"
+  },
+  "Pachyptila belcheri": {
+    "id": "pachyptila-belcheri",
+    "catalogCode": "P_belcheri"
+  },
+  "Pachyptila desolata": {
+    "id": "pachyptila-desolata",
+    "catalogCode": "P_desolata"
+  },
+  "Pachyramphus polychopterus": {
+    "id": "pachyramphus-polychopterus",
+    "catalogCode": "P_polychop"
+  },
+  "Pachyramphus validus": {
+    "id": "pachyramphus-validus",
+    "catalogCode": "P_validus"
+  },
+  "Pachyramphus viridis": {
+    "id": "pachyramphus-viridis",
+    "catalogCode": "P_viridis"
+  },
+  "Pandion haliaetus": {
+    "id": "pandion-haliaetus",
+    "catalogCode": "P_haliaetu"
+  },
+  "Parabuteo unicinctus": {
+    "id": "parabuteo-unicinctus",
+    "catalogCode": "P_unicinct"
+  },
+  "Pardirallus maculatus": {
+    "id": "pardirallus-maculatus",
+    "catalogCode": "Pa_maculat"
+  },
+  "Pardirallus sanguinolentus": {
+    "id": "pardirallus-sanguinolentus",
+    "catalogCode": "pardirallus-sanguinolentus"
+  },
+  "Paroaria capitata": {
+    "id": "paroaria-capitata",
+    "catalogCode": "P_capitata"
+  },
+  "Paroaria coronata": {
+    "id": "paroaria-coronata",
+    "catalogCode": "P_coronata"
+  },
+  "Parula pitiayumi": {
+    "id": "parula-pitiayumi",
+    "catalogCode": "parula-pitiayumi"
+  },
+  "Passer domesticus": {
+    "id": "passer-domesticus",
+    "catalogCode": "P_domestic"
+  },
+  "Patagioenas cayennensis": {
+    "id": "patagioenas-cayennensis",
+    "catalogCode": "C_cayennen"
+  },
+  "Patagioenas maculosa": {
+    "id": "patagioenas-maculosa",
+    "catalogCode": "C_maculosa"
+  },
+  "Patagioenas picazuro": {
+    "id": "patagioenas-picazuro",
+    "catalogCode": "C_picazuro"
+  },
+  "Pelagodroma marina": {
+    "id": "pelagodroma-marina",
+    "catalogCode": "P_marina"
+  },
+  "Pelecanoides urinatrix": {
+    "id": "pelecanoides-urinatrix",
+    "catalogCode": "P_urinatri"
+  },
+  "Penelope obscura": {
+    "id": "penelope-obscura",
+    "catalogCode": "P_obscura"
+  },
+  "Petrochelidon pyrrhonota": {
+    "id": "petrochelidon-pyrrhonota",
+    "catalogCode": "P_pyrrhono"
+  },
+  "Phacellodomus ferrugineigula": {
+    "id": "phacellodomus-ferrugineigula",
+    "catalogCode": "phacellodomus-ferrugineigula"
+  },
+  "Phacellodomus ruber": {
+    "id": "phacellodomus-ruber",
+    "catalogCode": "Ph_ruber"
+  },
+  "Phacellodomus sibilatrix": {
+    "id": "phacellodomus-sibilatrix",
+    "catalogCode": "P_sibilatr"
+  },
+  "Phacellodomus striaticollis": {
+    "id": "phacellodomus-striaticollis",
+    "catalogCode": "P_striatic"
+  },
+  "Phaetusa simplex": {
+    "id": "phaetusa-simplex",
+    "catalogCode": "P_simplex"
+  },
+  "Phalacrocorax albiventer": {
+    "id": "phalacrocorax-albiventer",
+    "catalogCode": "phalacrocorax-albiventer"
+  },
+  "Phalacrocorax atriceps": {
+    "id": "phalacrocorax-atriceps",
+    "catalogCode": "phalacrocorax-atriceps"
+  },
+  "Phalacrocorax brasilianus": {
+    "id": "phalacrocorax-brasilianus",
+    "catalogCode": "P_brasilia"
+  },
+  "Phalaropus tricolor": {
+    "id": "phalaropus-tricolor",
+    "catalogCode": "P_tricolor"
+  },
+  "Phimosus infuscatus": {
+    "id": "phimosus-infuscatus",
+    "catalogCode": "P_infuscat"
+  },
+  "Phleocryptes melanops": {
+    "id": "phleocryptes-melanops",
+    "catalogCode": "Ph_melanop"
+  },
+  "Phoebetria fusca": {
+    "id": "phoebetria-fusca",
+    "catalogCode": "Ph_fusca"
+  },
+  "Phoenicopterus chilensis": {
+    "id": "phoenicopterus-chilensis",
+    "catalogCode": "P_chilensi"
+  },
+  "Phrygilus fruticeti": {
+    "id": "phrygilus-fruticeti",
+    "catalogCode": "phrygilus-fruticeti"
+  },
+  "Phylloscartes ventralis": {
+    "id": "phylloscartes-ventralis",
+    "catalogCode": "P_ventrali"
+  },
+  "Phytotoma rutila": {
+    "id": "phytotoma-rutila",
+    "catalogCode": "P_rutila"
+  },
+  "Piaya cayana": {
+    "id": "piaya-cayana",
+    "catalogCode": "P_cayana"
+  },
+  "Picoides mixtus": {
+    "id": "picoides-mixtus",
+    "catalogCode": "picoides-mixtus"
+  },
+  "Piculus aurulentus": {
+    "id": "piculus-aurulentus",
+    "catalogCode": "P_aurulent"
+  },
+  "Picumnus cirratus": {
+    "id": "picumnus-cirratus",
+    "catalogCode": "P_cirratus"
+  },
+  "Picumnus nebulosus": {
+    "id": "picumnus-nebulosus",
+    "catalogCode": "P_nebulosu"
+  },
+  "Pipraeidea melanonota": {
+    "id": "pipraeidea-melanonota",
+    "catalogCode": "P_melanono"
+  },
+  "Piranga flava": {
+    "id": "piranga-flava",
+    "catalogCode": "P_flava"
+  },
+  "Pitangus sulphuratus": {
+    "id": "pitangus-sulphuratus",
+    "catalogCode": "P_sulphura"
+  },
+  "Platalea ajaja": {
+    "id": "platalea-ajaja",
+    "catalogCode": "A_ajaja"
+  },
+  "Platycichla flavipes": {
+    "id": "platycichla-flavipes",
+    "catalogCode": "platycichla-flavipes"
+  },
+  "Plegadis chihi": {
+    "id": "plegadis-chihi",
+    "catalogCode": "P_chihi"
+  },
+  "Pluvialis dominica": {
+    "id": "pluvialis-dominica",
+    "catalogCode": "P_dominica"
+  },
+  "Pluvialis squatarola": {
+    "id": "pluvialis-squatarola",
+    "catalogCode": "P_squataro"
+  },
+  "Podager nacunda": {
+    "id": "podager-nacunda",
+    "catalogCode": "podager-nacunda"
+  },
+  "Podiceps major": {
+    "id": "podiceps-major",
+    "catalogCode": "P_major"
+  },
+  "Podilymbus podiceps": {
+    "id": "podilymbus-podiceps",
+    "catalogCode": "podilymbus-podiceps"
+  },
+  "Poecilotriccus plumbeiceps": {
+    "id": "poecilotriccus-plumbeiceps",
+    "catalogCode": "Po_plumbei"
+  },
+  "Polioptila dumicola": {
+    "id": "polioptila-dumicola",
+    "catalogCode": "P_dumicola"
+  },
+  "Polyborus plancus": {
+    "id": "polyborus-plancus",
+    "catalogCode": "polyborus-plancus"
+  },
+  "Polystictus pectoralis": {
+    "id": "polystictus-pectoralis",
+    "catalogCode": "P_pectoral"
+  },
+  "Poospiza cabanisi": {
+    "id": "poospiza-cabanisi",
+    "catalogCode": "poospiza-cabanisi"
+  },
+  "Poospiza lateralis": {
+    "id": "poospiza-lateralis",
+    "catalogCode": "poospiza-lateralis"
+  },
+  "Poospiza melanoleuca": {
+    "id": "poospiza-melanoleuca",
+    "catalogCode": "poospiza-melanoleuca"
+  },
+  "Poospiza nigrorufa": {
+    "id": "poospiza-nigrorufa",
+    "catalogCode": "P_nigroruf"
+  },
+  "Poospiza ornata": {
+    "id": "poospiza-ornata",
+    "catalogCode": "P_ornata"
+  },
+  "Porphyriops melanops": {
+    "id": "porphyriops-melanops",
+    "catalogCode": "porphyriops-melanops"
+  },
+  "Porphyrula martinica": {
+    "id": "porphyrula-martinica",
+    "catalogCode": "porphyrula-martinica"
+  },
+  "Porzana flaviventer": {
+    "id": "porzana-flaviventer",
+    "catalogCode": "Po_flavive"
+  },
+  "Porzana spiloptera": {
+    "id": "porzana-spiloptera",
+    "catalogCode": "P_spilopte"
+  },
+  "Procellaria aequinoctialis": {
+    "id": "procellaria-aequinoctialis",
+    "catalogCode": "P_aequinoc"
+  },
+  "Procellaria cinerea": {
+    "id": "procellaria-cinerea",
+    "catalogCode": "P_cinerea"
+  },
+  "Procellaria conspicillata": {
+    "id": "procellaria-conspicillata",
+    "catalogCode": "P_conspici"
+  },
+  "Progne chalybea": {
+    "id": "progne-chalybea",
+    "catalogCode": "P_chalybea"
+  },
+  "Progne elegans": {
+    "id": "progne-elegans",
+    "catalogCode": "progne-elegans"
+  },
+  "Progne modesta": {
+    "id": "progne-modesta",
+    "catalogCode": "P_modesta"
+  },
+  "Progne tapera": {
+    "id": "progne-tapera",
+    "catalogCode": "P_tapera"
+  },
+  "Pseudocolopteryx flaviventris": {
+    "id": "pseudocolopteryx-flaviventris",
+    "catalogCode": "Ps_flavive"
+  },
+  "Pseudocolopteryx sclateri": {
+    "id": "pseudocolopteryx-sclateri",
+    "catalogCode": "P_sclateri"
+  },
+  "Pseudoleistes guirahuro": {
+    "id": "pseudoleistes-guirahuro",
+    "catalogCode": "pseudoleistes-guirahuro"
+  },
+  "Pseudoleistes virescens": {
+    "id": "pseudoleistes-virescens",
+    "catalogCode": "P_virescen"
+  },
+  "Pseudoscops clamator": {
+    "id": "pseudoscops-clamator",
+    "catalogCode": "P_clamator"
+  },
+  "Pseudoseisura lophotes": {
+    "id": "pseudoseisura-lophotes",
+    "catalogCode": "P_lophotes"
+  },
+  "Psittacara leucophthalmus": {
+    "id": "psittacara-leucophthalmus",
+    "catalogCode": "psittacara-leucophthalmus"
+  },
+  "Pterodroma arminjoniana": {
+    "id": "pterodroma-arminjoniana",
+    "catalogCode": "pterodroma-arminjoniana"
+  },
+  "Pterodroma brevirostris": {
+    "id": "pterodroma-brevirostris",
+    "catalogCode": "pterodroma-brevirostris"
+  },
+  "Pterodroma incerta": {
+    "id": "pterodroma-incerta",
+    "catalogCode": "P_incerta"
+  },
+  "Pterodroma macroptera": {
+    "id": "pterodroma-macroptera",
+    "catalogCode": "pterodroma-macroptera"
+  },
+  "Pterodroma mollis": {
+    "id": "pterodroma-mollis",
+    "catalogCode": "P_mollis"
+  },
+  "Puffinus gravis": {
+    "id": "puffinus-gravis",
+    "catalogCode": "P_gravis"
+  },
+  "Puffinus griseus": {
+    "id": "puffinus-griseus",
+    "catalogCode": "P_griseus"
+  },
+  "Puffinus puffinus": {
+    "id": "puffinus-puffinus",
+    "catalogCode": "P_puffinus"
+  },
+  "Pygochelidon cyanoleuca": {
+    "id": "pygochelidon-cyanoleuca",
+    "catalogCode": "pygochelidon-cyanoleuca"
+  },
+  "Pyrocephalus rubinus": {
+    "id": "pyrocephalus-rubinus",
+    "catalogCode": "P_rubinus"
+  },
+  "Pyrrhura frontalis": {
+    "id": "pyrrhura-frontalis",
+    "catalogCode": "P_frontali"
+  },
+  "Ramphastos toco": {
+    "id": "ramphastos-toco",
+    "catalogCode": "Ram_toco"
+  },
+  "Rhea americana": {
+    "id": "rhea-americana",
+    "catalogCode": "R_american"
+  },
+  "Rhynchotus rufescens": {
+    "id": "rhynchotus-rufescens",
+    "catalogCode": "R_rufescen"
+  },
+  "Riparia riparia": {
+    "id": "riparia-riparia",
+    "catalogCode": "R_riparia"
+  },
+  "Rollandia rolland": {
+    "id": "rollandia-rolland",
+    "catalogCode": "R_rolland"
+  },
+  "Rostrhamus sociabilis": {
+    "id": "rostrhamus-sociabilis",
+    "catalogCode": "R_sociabil"
+  },
+  "Rupornis magnirostris": {
+    "id": "rupornis-magnirostris",
+    "catalogCode": "B_magniros"
+  },
+  "Rynchops niger": {
+    "id": "rynchops-niger",
+    "catalogCode": "rynchops-niger"
+  },
+  "Saltator aurantiirostris": {
+    "id": "saltator-aurantiirostris",
+    "catalogCode": "S_aurantir"
+  },
+  "Saltator coerulescens": {
+    "id": "saltator-coerulescens",
+    "catalogCode": "S_coerules"
+  },
+  "Saltator similis": {
+    "id": "saltator-similis",
+    "catalogCode": "S_similis"
+  },
+  "Saltatricula multicolor": {
+    "id": "saltatricula-multicolor",
+    "catalogCode": "S_multicol"
+  },
+  "Sarkidiornis melanotos": {
+    "id": "sarkidiornis-melanotos",
+    "catalogCode": "S_melanoto"
+  },
+  "Sarkidiornis sylvicola": {
+    "id": "sarkidiornis-sylvicola",
+    "catalogCode": "sarkidiornis-sylvicola"
+  },
+  "Satrapa icterophrys": {
+    "id": "satrapa-icterophrys",
+    "catalogCode": "S_icteroph"
+  },
+  "Schoeniophylax phryganophilus": {
+    "id": "schoeniophylax-phryganophilus",
+    "catalogCode": "S_phrygano"
+  },
+  "Serpophaga munda": {
+    "id": "serpophaga-munda",
+    "catalogCode": "S_munda"
+  },
+  "Serpophaga nigricans": {
+    "id": "serpophaga-nigricans",
+    "catalogCode": "S_nigrican"
+  },
+  "Serpophaga subcristata": {
+    "id": "serpophaga-subcristata",
+    "catalogCode": "S_subcrist"
+  },
+  "Setopagis parvula": {
+    "id": "setopagis-parvula",
+    "catalogCode": "C_parvulus"
+  },
+  "Setophaga pitiayumi": {
+    "id": "setophaga-pitiayumi",
+    "catalogCode": "P_pitiayum"
+  },
+  "Sicalis flaveola": {
+    "id": "sicalis-flaveola",
+    "catalogCode": "S_flaveola"
+  },
+  "Sicalis luteola": {
+    "id": "sicalis-luteola",
+    "catalogCode": "S_luteola"
+  },
+  "Sittasomus griseicapillus": {
+    "id": "sittasomus-griseicapillus",
+    "catalogCode": "S_griseica"
+  },
+  "Spartonoica maluroides": {
+    "id": "spartonoica-maluroides",
+    "catalogCode": "S_maluroid"
+  },
+  "Spatula versicolor": {
+    "id": "spatula-versicolor",
+    "catalogCode": "A_versicol"
+  },
+  "Speotyto cunicularia": {
+    "id": "speotyto-cunicularia",
+    "catalogCode": "speotyto-cunicularia"
+  },
+  "Spheniscus magellanicus": {
+    "id": "spheniscus-magellanicus",
+    "catalogCode": "S_magellan"
+  },
+  "Spinus magellanicus": {
+    "id": "spinus-magellanicus",
+    "catalogCode": "C_magellan"
+  },
+  "Spiziapteryx circumcincta": {
+    "id": "spiziapteryx-circumcincta",
+    "catalogCode": "S_circumci"
+  },
+  "Sporophila bouvreuil": {
+    "id": "sporophila-bouvreuil",
+    "catalogCode": "S_bouvreui"
+  },
+  "Sporophila caerulescens": {
+    "id": "sporophila-caerulescens",
+    "catalogCode": "S_caerules"
+  },
+  "Sporophila cinnamomea": {
+    "id": "sporophila-cinnamomea",
+    "catalogCode": "S_cinnamom"
+  },
+  "Sporophila collaris": {
+    "id": "sporophila-collaris",
+    "catalogCode": "S_collaris"
+  },
+  "Sporophila hypochroma": {
+    "id": "sporophila-hypochroma",
+    "catalogCode": "S_hypochro"
+  },
+  "Sporophila hypoxantha": {
+    "id": "sporophila-hypoxantha",
+    "catalogCode": "S_hypoxant"
+  },
+  "Sporophila palustris": {
+    "id": "sporophila-palustris",
+    "catalogCode": "S_palustri"
+  },
+  "Sporophila ruficollis": {
+    "id": "sporophila-ruficollis",
+    "catalogCode": "Sp_ruficol"
+  },
+  "Sporophila zelichi": {
+    "id": "sporophila-zelichi",
+    "catalogCode": "sporophila-zelichi"
+  },
+  "Stelgidopteryx ruficollis": {
+    "id": "stelgidopteryx-ruficollis",
+    "catalogCode": "St_ruficol"
+  },
+  "Stephanophorus diadematus": {
+    "id": "stephanophorus-diadematus",
+    "catalogCode": "S_diademat"
+  },
+  "Stercorarius antarcticus": {
+    "id": "stercorarius-antarcticus",
+    "catalogCode": "Ste_antart"
+  },
+  "Stercorarius chilensis": {
+    "id": "stercorarius-chilensis",
+    "catalogCode": "C_chilensi"
+  },
+  "Stercorarius longicaudus": {
+    "id": "stercorarius-longicaudus",
+    "catalogCode": "S_longicau"
+  },
+  "Stercorarius parasiticus": {
+    "id": "stercorarius-parasiticus",
+    "catalogCode": "S_parasiti"
+  },
+  "Stercorarius pomarinus": {
+    "id": "stercorarius-pomarinus",
+    "catalogCode": "S_pomarinu"
+  },
+  "Sterna hirundinacea": {
+    "id": "sterna-hirundinacea",
+    "catalogCode": "S_hirundin"
+  },
+  "Sterna hirundo": {
+    "id": "sterna-hirundo",
+    "catalogCode": "S_hirundo"
+  },
+  "Sterna paradisaea": {
+    "id": "sterna-paradisaea",
+    "catalogCode": "S_paradisa"
+  },
+  "Sterna superciliaris": {
+    "id": "sterna-superciliaris",
+    "catalogCode": "sterna-superciliaris"
+  },
+  "Sterna trudeaui": {
+    "id": "sterna-trudeaui",
+    "catalogCode": "S_trudeaui"
+  },
+  "Sterna vittata": {
+    "id": "sterna-vittata",
+    "catalogCode": "S_vittata"
+  },
+  "Sternula antillarum": {
+    "id": "sternula-antillarum",
+    "catalogCode": "sternula-antillarum"
+  },
+  "Sternula superciliaris": {
+    "id": "sternula-superciliaris",
+    "catalogCode": "Ste_superc"
+  },
+  "Streptoprocne zonaris": {
+    "id": "streptoprocne-zonaris",
+    "catalogCode": "S_zonaris"
+  },
+  "Sturnella defilippii": {
+    "id": "sturnella-defilippii",
+    "catalogCode": "S_defilipp"
+  },
+  "Sturnella superciliaris": {
+    "id": "sturnella-superciliaris",
+    "catalogCode": "S_supercil"
+  },
+  "Sturnus vulgaris": {
+    "id": "sturnus-vulgaris",
+    "catalogCode": "stu_vulgar"
+  },
+  "Sublegatus modestus": {
+    "id": "sublegatus-modestus",
+    "catalogCode": "S_modestus"
+  },
+  "Suiriri suiriri": {
+    "id": "suiriri-suiriri",
+    "catalogCode": "S_suiriri"
+  },
+  "Sula dactylatra": {
+    "id": "sula-dactylatra",
+    "catalogCode": "sula-dactylatra"
+  },
+  "Sula leucogaster": {
+    "id": "sula-leucogaster",
+    "catalogCode": "S_leucogas"
+  },
+  "Synallaxis albescens": {
+    "id": "synallaxis-albescens",
+    "catalogCode": "S_albescen"
+  },
+  "Synallaxis cinerascens": {
+    "id": "synallaxis-cinerascens",
+    "catalogCode": "S_cinerasc"
+  },
+  "Synallaxis frontalis": {
+    "id": "synallaxis-frontalis",
+    "catalogCode": "S_frontali"
+  },
+  "Synallaxis spixi": {
+    "id": "synallaxis-spixi",
+    "catalogCode": "S_spixi"
+  },
+  "Syndactyla rufosuperciliata": {
+    "id": "syndactyla-rufosuperciliata",
+    "catalogCode": "S_rufosupe"
+  },
+  "Syrigma sibilatrix": {
+    "id": "syrigma-sibilatrix",
+    "catalogCode": "S_sibilatr"
+  },
+  "Tachuris rubrigastra": {
+    "id": "tachuris-rubrigastra",
+    "catalogCode": "T_rubigast"
+  },
+  "Tachybaptus dominicus": {
+    "id": "tachybaptus-dominicus",
+    "catalogCode": "T_dominicu"
+  },
+  "Tachycineta leucorrhoa": {
+    "id": "tachycineta-leucorrhoa",
+    "catalogCode": "T_leucorrh"
+  },
+  "Tachycineta meyeni": {
+    "id": "tachycineta-meyeni",
+    "catalogCode": "tachycineta-meyeni"
+  },
+  "Tangara preciosa": {
+    "id": "tangara-preciosa",
+    "catalogCode": "tangara-preciosa"
+  },
+  "Tapera naevia": {
+    "id": "tapera-naevia",
+    "catalogCode": "T_naevia"
+  },
+  "Thalassarche chlororhynchos": {
+    "id": "thalassarche-chlororhynchos",
+    "catalogCode": "T_chlororh"
+  },
+  "Thalassarche chlororhynchus": {
+    "id": "thalassarche-chlororhynchus",
+    "catalogCode": "thalassarche-chlororhynchus"
+  },
+  "Thalassarche chrysostoma": {
+    "id": "thalassarche-chrysostoma",
+    "catalogCode": "T_chrysost"
+  },
+  "Thalassarche melanophris": {
+    "id": "thalassarche-melanophris",
+    "catalogCode": "T_melanoph"
+  },
+  "Thalassarche steadi": {
+    "id": "thalassarche-steadi",
+    "catalogCode": "thalassarche-steadi"
+  },
+  "Thalasseus acuflavidus": {
+    "id": "thalasseus-acuflavidus",
+    "catalogCode": "T_eurygnat"
+  },
+  "Thalasseus eurygnathus": {
+    "id": "thalasseus-eurygnathus",
+    "catalogCode": "thalasseus-eurygnathus"
+  },
+  "Thalasseus maximus": {
+    "id": "thalasseus-maximus",
+    "catalogCode": "T_maximus"
+  },
+  "Thalasseus sandvicensis": {
+    "id": "thalasseus-sandvicensis",
+    "catalogCode": "thalasseus-sandvicensis"
+  },
+  "Thalurania glaucopis": {
+    "id": "thalurania-glaucopis",
+    "catalogCode": "T_glaucopi"
+  },
+  "Thamnophilus caerulescens": {
+    "id": "thamnophilus-caerulescens",
+    "catalogCode": "T_caerules"
+  },
+  "Thamnophilus ruficapillus": {
+    "id": "thamnophilus-ruficapillus",
+    "catalogCode": "T_ruficapi"
+  },
+  "Theristicus caerulescens": {
+    "id": "theristicus-caerulescens",
+    "catalogCode": "H_caerules"
+  },
+  "Theristicus caudatus": {
+    "id": "theristicus-caudatus",
+    "catalogCode": "T_caudatus"
+  },
+  "Thinocorus rumicivorus": {
+    "id": "thinocorus-rumicivorus",
+    "catalogCode": "T_rumicivo"
+  },
+  "Thraupis bonariensis": {
+    "id": "thraupis-bonariensis",
+    "catalogCode": "thraupis-bonariensis"
+  },
+  "Thraupis sayaca": {
+    "id": "thraupis-sayaca",
+    "catalogCode": "T_sayaca"
+  },
+  "Tigrisoma lineatum": {
+    "id": "tigrisoma-lineatum",
+    "catalogCode": "T_lineatum"
+  },
+  "Tolmomyias sulphurescens": {
+    "id": "tolmomyias-sulphurescens",
+    "catalogCode": "tolmomyias-sulphurescens"
+  },
+  "Trichothraupis melanops": {
+    "id": "trichothraupis-melanops",
+    "catalogCode": "T_melanops"
+  },
+  "Tringa flavipes": {
+    "id": "tringa-flavipes",
+    "catalogCode": "T_flavipes"
+  },
+  "Tringa melanoleuca": {
+    "id": "tringa-melanoleuca",
+    "catalogCode": "T_melanole"
+  },
+  "Tringa semipalmata": {
+    "id": "tringa-semipalmata",
+    "catalogCode": "C_semipalm"
+  },
+  "Tringa solitaria": {
+    "id": "tringa-solitaria",
+    "catalogCode": "T_solitari"
+  },
+  "Troglodytes aedon": {
+    "id": "troglodytes-aedon",
+    "catalogCode": "T_aedon"
+  },
+  "Trogon surrucura": {
+    "id": "trogon-surrucura",
+    "catalogCode": "T_surrucur"
+  },
+  "Tryngites subruficollis": {
+    "id": "tryngites-subruficollis",
+    "catalogCode": "tryngites-subruficollis"
+  },
+  "Turdus albicollis": {
+    "id": "turdus-albicollis",
+    "catalogCode": "T_albicoll"
+  },
+  "Turdus amaurochalinus": {
+    "id": "turdus-amaurochalinus",
+    "catalogCode": "T_amauroch"
+  },
+  "Turdus flavipes": {
+    "id": "turdus-flavipes",
+    "catalogCode": "P_flavipes"
+  },
+  "Turdus leucomelas": {
+    "id": "turdus-leucomelas",
+    "catalogCode": "T_leucomel"
+  },
+  "Turdus nigriceps": {
+    "id": "turdus-nigriceps",
+    "catalogCode": "turdus-nigriceps"
+  },
+  "Turdus rufiventris": {
+    "id": "turdus-rufiventris",
+    "catalogCode": "T_rufivent"
+  },
+  "Turdus subalaris": {
+    "id": "turdus-subalaris",
+    "catalogCode": "T_subalari"
+  },
+  "Tyrannus melancholicus": {
+    "id": "tyrannus-melancholicus",
+    "catalogCode": "T_melancho"
+  },
+  "Tyrannus savana": {
+    "id": "tyrannus-savana",
+    "catalogCode": "T_savana"
+  },
+  "Tyto alba": {
+    "id": "tyto-alba",
+    "catalogCode": "T_alba"
+  },
+  "Upucerthia dumetaria": {
+    "id": "upucerthia-dumetaria",
+    "catalogCode": "U_dumetari"
+  },
+  "Vanellus chilensis": {
+    "id": "vanellus-chilensis",
+    "catalogCode": "V_chilensi"
+  },
+  "Veniliornis mixtus": {
+    "id": "veniliornis-mixtus",
+    "catalogCode": "P_mixtus"
+  },
+  "Veniliornis spilogaster": {
+    "id": "veniliornis-spilogaster",
+    "catalogCode": "V_spilogas"
+  },
+  "Vireo olivaceus": {
+    "id": "vireo-olivaceus",
+    "catalogCode": "V_olivaceu"
+  },
+  "Volatinia jacarina": {
+    "id": "volatinia-jacarina",
+    "catalogCode": "V_jacarina"
+  },
+  "Xanthopsar flavus": {
+    "id": "xanthopsar-flavus",
+    "catalogCode": "X_flavus"
+  },
+  "Xolmis cinereus": {
+    "id": "xolmis-cinereus",
+    "catalogCode": "X_cinerea"
+  },
+  "Xolmis coronatus": {
+    "id": "xolmis-coronatus",
+    "catalogCode": "X_coronatu"
+  },
+  "Xolmis dominicanus": {
+    "id": "xolmis-dominicanus",
+    "catalogCode": "xolmis-dominicanus"
+  },
+  "Xolmis irupero": {
+    "id": "xolmis-irupero",
+    "catalogCode": "X_irupero"
+  },
+  "Zenaida auriculata": {
+    "id": "zenaida-auriculata",
+    "catalogCode": "Z_auricula"
+  },
+  "Zonotrichia capensis": {
+    "id": "zonotrichia-capensis",
+    "catalogCode": "Z_capensis"
+  },
+  "Acanthochelys spixii": {
+    "id": "acanthochelys-spixii",
+    "catalogCode": "A_spixii"
+  },
+  "Amphisbaena darwinii": {
+    "id": "amphisbaena-darwinii",
+    "catalogCode": "A_darwinii"
+  },
+  "Amphisbaena kingii": {
+    "id": "amphisbaena-kingii",
+    "catalogCode": "A_kingii"
+  },
+  "Amphisbaena microcephalum": {
+    "id": "leposternon-microcephalum",
+    "catalogCode": "leposternon-microcephalum"
+  },
+  "Amphisbaena munoai": {
+    "id": "amphisbaena-munoai",
+    "catalogCode": "A_munoai"
+  },
+  "Anisolepis undulatus": {
+    "id": "anisolepis-undulatus",
+    "catalogCode": "A_undulatu"
+  },
+  "Atractus reticulatus": {
+    "id": "atractus-reticulatus",
+    "catalogCode": "A_reticula"
+  },
+  "Boiruna maculata": {
+    "id": "boiruna-maculata",
+    "catalogCode": "B_maculata"
+  },
+  "Bothropoides pubescens": {
+    "id": "bothrops-pubescens",
+    "catalogCode": "bothrops-pubescens"
+  },
+  "Bothrops pubescens": {
+    "id": "bothrops-pubescens",
+    "catalogCode": "B_pubescen"
+  },
+  "Caiman latirostris": {
+    "id": "caiman-latirostris",
+    "catalogCode": "C_latirost"
+  },
+  "Calamodontophis paucidens": {
+    "id": "calamodontophis-paucidens",
+    "catalogCode": "C_pauciden"
+  },
+  "Caretta caretta": {
+    "id": "caretta-caretta",
+    "catalogCode": "C_caretta"
+  },
+  "Cercosaura schreibersii": {
+    "id": "cercosaura-schreibersii",
+    "catalogCode": "C_schreibe"
+  },
+  "Chelonia mydas": {
+    "id": "chelonia-mydas",
+    "catalogCode": "C_mydas"
+  },
+  "Chironius bicarinatus": {
+    "id": "chironius-bicarinatus",
+    "catalogCode": "C_bicarina"
+  },
+  "Clelia rustica": {
+    "id": "paraphimophis-rusticus",
+    "catalogCode": "paraphimophis-rusticus"
+  },
+  "Cnemidophorus charrua": {
+    "id": "contomastix-lacertoides",
+    "catalogCode": "contomastix-lacertoides"
+  },
+  "Cnemidophorus lacertoides": {
+    "id": "contomastix-lacertoides",
+    "catalogCode": "contomastix-lacertoides"
+  },
+  "Contomastix lacertoides": {
+    "id": "contomastix-lacertoides",
+    "catalogCode": "C_charrua"
+  },
+  "Crotalus durissus": {
+    "id": "crotalus-durissus",
+    "catalogCode": "C_duris_te"
+  },
+  "Dermochelys coriacea": {
+    "id": "dermochelys-coriacea",
+    "catalogCode": "D_coriacea"
+  },
+  "Epictia munoai": {
+    "id": "epictia-munoai",
+    "catalogCode": "E_munoai"
+  },
+  "Eretmochelys imbricata": {
+    "id": "eretmochelys-imbricata",
+    "catalogCode": "E_imbricat"
+  },
+  "Erythrolamprus almadensis": {
+    "id": "erythrolamprus-almadensis",
+    "catalogCode": "L_almadens"
+  },
+  "Erythrolamprus poecilogyrus": {
+    "id": "erythrolamprus-poecilogyrus",
+    "catalogCode": "L_poeci_su"
+  },
+  "Erythrolamprus semiaureus": {
+    "id": "erythrolamprus-semiaureus",
+    "catalogCode": "L_semiaure"
+  },
+  "Eunectes notaeus": {
+    "id": "eunectes-notaeus",
+    "catalogCode": "E_notaeus"
+  },
+  "Helicops infrataeniatus": {
+    "id": "helicops-infrataeniatus",
+    "catalogCode": "H_infratae"
+  },
+  "Hemidactylus mabouia": {
+    "id": "hemidactylus-mabouia",
+    "catalogCode": "H_mabouia"
+  },
+  "Homonota uruguayensis": {
+    "id": "homonota-uruguayensis",
+    "catalogCode": "Ho_uruguay"
+  },
+  "Hydromedusa tectifera": {
+    "id": "hydromedusa-tectifera",
+    "catalogCode": "H_tectifer"
+  },
+  "Lepidochelys olivacea": {
+    "id": "lepidochelys-olivacea",
+    "catalogCode": "L_olivacea"
+  },
+  "Liolaemus gardeli": {
+    "id": "liolaemus-gardeli",
+    "catalogCode": "L_garde"
+  },
+  "Liolaemus occipitalis": {
+    "id": "liolaemus-occipitalis",
+    "catalogCode": "L_occipita"
+  },
+  "Liolaemus wiegmannii": {
+    "id": "liolaemus-wiegmannii",
+    "catalogCode": "L_wiegmann"
+  },
+  "Liophis almadensis": {
+    "id": "erythrolamprus-almadensis",
+    "catalogCode": "erythrolamprus-almadensis"
+  },
+  "Liophis jaegeri": {
+    "id": "erythrolamprus-jaegeri",
+    "catalogCode": "erythrolamprus-jaegeri"
+  },
+  "Liophis poecilogyrus": {
+    "id": "erythrolamprus-poecilogyrus",
+    "catalogCode": "erythrolamprus-poecilogyrus"
+  },
+  "Liophis semiaureus": {
+    "id": "erythrolamprus-semiaureus",
+    "catalogCode": "erythrolamprus-semiaureus"
+  },
+  "Liotyphlops ternetzii": {
+    "id": "liotyphlops-ternetzii",
+    "catalogCode": "L_ternetzi"
+  },
+  "Lygophis anomalus": {
+    "id": "lygophis-anomalus",
+    "catalogCode": "L_anomalus"
+  },
+  "Lygophis flavifrenatus": {
+    "id": "lygophis-flavifrenatus",
+    "catalogCode": "L_flavifre"
+  },
+  "Mabuya dorsivittata": {
+    "id": "aspronema-dorsivittatum",
+    "catalogCode": "aspronema-dorsivittatum"
+  },
+  "Micrurus altirostris": {
+    "id": "micrurus-altirostris",
+    "catalogCode": "M_altirost"
+  },
+  "Ophiodes intermedius": {
+    "id": "ophiodes-intermedius",
+    "catalogCode": "O_intermed"
+  },
+  "Ophiodes striatus": {
+    "id": "ophiodes-striatus",
+    "catalogCode": "O_aff_stri"
+  },
+  "Ophiodes vertebralis": {
+    "id": "ophiodes-vertebralis",
+    "catalogCode": "O_vertebra"
+  },
+  "Oxyrhopus rhombifer": {
+    "id": "oxyrhopus-rhombifer",
+    "catalogCode": "O_rhomb_rh"
+  },
+  "Phalotris lemniscatus": {
+    "id": "phalotris-lemniscatus",
+    "catalogCode": "P_lemnisca"
+  },
+  "Philodryas aestiva": {
+    "id": "philodryas-aestiva",
+    "catalogCode": "P_aestiva"
+  },
+  "Philodryas agassizii": {
+    "id": "philodryas-agassizii",
+    "catalogCode": "P_agassizi"
+  },
+  "Philodryas olfersii": {
+    "id": "philodryas-olfersii",
+    "catalogCode": "P_olfer_of"
+  },
+  "Philodryas patagoniensis": {
+    "id": "philodryas-patagoniensis",
+    "catalogCode": "P_patagoni"
+  },
+  "Phrynops hilarii": {
+    "id": "phrynops-hilarii",
+    "catalogCode": "P_hilarii"
+  },
+  "Phrynops williamsi": {
+    "id": "phrynops-williamsi",
+    "catalogCode": "P_williams"
+  },
+  "Psomophis obtusus": {
+    "id": "psomophis-obtusus",
+    "catalogCode": "P_obtusus"
+  },
+  "Rhinocerophis alternatus": {
+    "id": "bothrops-alternatus",
+    "catalogCode": "bothrops-alternatus"
+  },
+  "Salvator merianae": {
+    "id": "salvator-merianae",
+    "catalogCode": "T_merianae"
+  },
+  "Sibynomorphus turgidus": {
+    "id": "dipsas-turgida",
+    "catalogCode": "dipsas-turgida"
+  },
+  "Stenocercus azureus": {
+    "id": "stenocercus-azureus",
+    "catalogCode": "S_azureus"
+  },
+  "Taeniophallus occipitalis": {
+    "id": "taeniophallus-occipitalis",
+    "catalogCode": "T_occipita"
+  },
+  "Taeniophallus poecilopogon": {
+    "id": "taeniophallus-poecilopogon",
+    "catalogCode": "T_poecilop"
+  },
+  "Tantilla melanocephala": {
+    "id": "tantilla-melanocephala",
+    "catalogCode": "T_melanoce"
+  },
+  "Tarentola mauritanica": {
+    "id": "tarentola-mauritanica",
+    "catalogCode": "T_mauritan"
+  },
+  "Teius oculatus": {
+    "id": "teius-oculatus",
+    "catalogCode": "T_oculatus"
+  },
+  "Thamnodynastes hypoconia": {
+    "id": "thamnodynastes-hypoconia",
+    "catalogCode": "T_hypoconi"
+  },
+  "Thamnodynastes strigatus": {
+    "id": "thamnodynastes-strigatus",
+    "catalogCode": "T_strigatu"
+  },
+  "Tomodon dorsatus": {
+    "id": "tomodon-dorsatus",
+    "catalogCode": "T_dorsatus"
+  },
+  "Tomodon ocellatus": {
+    "id": "tomodon-ocellatus",
+    "catalogCode": "T_ocellatu"
+  },
+  "Trachemys dorbigni": {
+    "id": "trachemys-dorbigni",
+    "catalogCode": "T_dorbigny"
+  },
+  "Trachemys scripta": {
+    "id": "trachemys-scripta",
+    "catalogCode": "tra_script"
+  },
+  "Tropidurus torquatus": {
+    "id": "tropidurus-torquatus",
+    "catalogCode": "T_torquatu"
+  },
+  "Tupinambis merianae": {
+    "id": "salvator-merianae",
+    "catalogCode": "salvator-merianae"
+  },
+  "Xenodon dorbignyi": {
+    "id": "xenodon-dorbignyi",
+    "catalogCode": "X_dorbigny"
+  },
+  "Xenodon histricus": {
+    "id": "xenodon-histricus",
+    "catalogCode": "X_histricu"
+  },
+  "Xenodon merremii": {
+    "id": "xenodon-merremii",
+    "catalogCode": "X_merremi"
+  },
+  "Argenteohyla siemersi": {
+    "id": "argenteohyla-siemersi",
+    "catalogCode": "Arg_siemer"
+  },
+  "Boana pulchella": {
+    "id": "boana-pulchella",
+    "catalogCode": "Hyp_pulche"
+  },
+  "Ceratophrys ornata": {
+    "id": "ceratophrys-ornata",
+    "catalogCode": "Cer_ornata"
+  },
+  "Chthonerpeton indistinctum": {
+    "id": "chthonerpeton-indistinctum",
+    "catalogCode": "Cht_indist"
+  },
+  "Dendropsophus minutus": {
+    "id": "dendropsophus-minutus",
+    "catalogCode": "Den_minutu"
+  },
+  "Dendropsophus nanus": {
+    "id": "dendropsophus-nanus",
+    "catalogCode": "Den_nanus"
+  },
+  "Dendropsophus sanborni": {
+    "id": "dendropsophus-sanborni",
+    "catalogCode": "Den_sanbor"
+  },
+  "Elachistocleis bicolor": {
+    "id": "elachistocleis-bicolor",
+    "catalogCode": "Ela_bicolo"
+  },
+  "Hypsiboas albopunctatus": {
+    "id": "boana-albopunctata",
+    "catalogCode": "boana-albopunctata"
+  },
+  "Hypsiboas pulchellus": {
+    "id": "boana-pulchella",
+    "catalogCode": "boana-pulchella"
+  },
+  "Julianus uruguayus": {
+    "id": "julianus-uruguayus",
+    "catalogCode": "Sci_urugua"
+  },
+  "Leptodactylus chaquensis": {
+    "id": "leptodactylus-chaquensis",
+    "catalogCode": "Lep_chaque"
+  },
+  "Leptodactylus furnarius": {
+    "id": "leptodactylus-furnarius",
+    "catalogCode": "Lep_furnar"
+  },
+  "Leptodactylus gracilis": {
+    "id": "leptodactylus-gracilis",
+    "catalogCode": "Lep_gracil"
+  },
+  "Leptodactylus latinasus": {
+    "id": "leptodactylus-latinasus",
+    "catalogCode": "Lep_latina"
+  },
+  "Leptodactylus latrans": {
+    "id": "leptodactylus-latrans",
+    "catalogCode": "Lep_latran"
+  },
+  "Leptodactylus mystacinus": {
+    "id": "leptodactylus-mystacinus",
+    "catalogCode": "Lep_mystac"
+  },
+  "Leptodactylus podicipinus": {
+    "id": "leptodactylus-podicipinus",
+    "catalogCode": "Lep_podici"
+  },
+  "Limnomedusa macroglossa": {
+    "id": "limnomedusa-macroglossa",
+    "catalogCode": "Lim_macrog"
+  },
+  "Lithobates catesbeianus": {
+    "id": "lithobates-catesbeianus",
+    "catalogCode": "lit_catesb"
+  },
+  "Lysapsus limellum": {
+    "id": "lysapsus-limellum",
+    "catalogCode": "Pse_limell"
+  },
+  "Melanophryniscus atroluteus": {
+    "id": "melanophryniscus-atroluteus",
+    "catalogCode": "Mel_atrolu"
+  },
+  "Melanophryniscus devincenzii": {
+    "id": "melanophryniscus-devincenzii",
+    "catalogCode": "Mel_devinc"
+  },
+  "Melanophryniscus langonei": {
+    "id": "melanophryniscus-langonei",
+    "catalogCode": "Mel_langon"
+  },
+  "Melanophryniscus montevidensis": {
+    "id": "melanophryniscus-montevidensis",
+    "catalogCode": "Mel_montev"
+  },
+  "Melanophryniscus orejasmirandai": {
+    "id": "melanophryniscus-pachyrhynus",
+    "catalogCode": "melanophryniscus-pachyrhynus"
+  },
+  "Melanophryniscus pachyrhynus": {
+    "id": "melanophryniscus-pachyrhynus",
+    "catalogCode": "Mel_orejas"
+  },
+  "Melanophryniscus sanmartini": {
+    "id": "melanophryniscus-sanmartini",
+    "catalogCode": "Mel_sanmar"
+  },
+  "Odontophrynus americanus": {
+    "id": "odontophrynus-americanus",
+    "catalogCode": "Odo_americ"
+  },
+  "Odontophrynus maisuma": {
+    "id": "odontophrynus-maisuma",
+    "catalogCode": "Odo_maisum"
+  },
+  "Ololygon aromothyella": {
+    "id": "ololygon-aromothyella",
+    "catalogCode": "Sci_aromot"
+  },
+  "Ololygon berthae": {
+    "id": "ololygon-berthae",
+    "catalogCode": "Sci_bertha"
+  },
+  "Phyllomedusa iheringii": {
+    "id": "phyllomedusa-iheringii",
+    "catalogCode": "Phy_iherin"
+  },
+  "Physalaemus albonotatus": {
+    "id": "physalaemus-albonotatus",
+    "catalogCode": "physalaemus-albonotatus"
+  },
+  "Physalaemus biligonigerus": {
+    "id": "physalaemus-biligonigerus",
+    "catalogCode": "Phy_biligo"
+  },
+  "Physalaemus cuvieri": {
+    "id": "physalaemus-cuvieri",
+    "catalogCode": "Phy_cuvier"
+  },
+  "Physalaemus fernandezae": {
+    "id": "physalaemus-fernandezae",
+    "catalogCode": "Phy_fernan"
+  },
+  "Physalaemus gracilis": {
+    "id": "physalaemus-gracilis",
+    "catalogCode": "Phy_gracil"
+  },
+  "Physalaemus henselii": {
+    "id": "physalaemus-henselii",
+    "catalogCode": "Phy_hensel"
+  },
+  "Physalaemus riograndensis": {
+    "id": "physalaemus-riograndensis",
+    "catalogCode": "Phy_riogra"
+  },
+  "Pleurodema bibroni": {
+    "id": "pleurodema-bibroni",
+    "catalogCode": "Ple_bibron"
+  },
+  "Pseudis minuta": {
+    "id": "pseudis-minuta",
+    "catalogCode": "Pse_minuta"
+  },
+  "Pseudopaludicola falcipes": {
+    "id": "pseudopaludicola-falcipes",
+    "catalogCode": "Pse_falcip"
+  },
+  "Rhinella achavali": {
+    "id": "rhinella-achavali",
+    "catalogCode": "Rhi_achava"
+  },
+  "Rhinella arenarum": {
+    "id": "rhinella-arenarum",
+    "catalogCode": "Rhi_arenar"
+  },
+  "Rhinella diptycha": {
+    "id": "rhinella-diptycha",
+    "catalogCode": "Rhi_schnei"
+  },
+  "Rhinella dorbignyi": {
+    "id": "rhinella-dorbignyi",
+    "catalogCode": "rhinella-dorbignyi"
+  },
+  "Rhinella fernandezae": {
+    "id": "rhinella-fernandezae",
+    "catalogCode": "rhinella-fernandezae"
+  },
+  "Rhinella granulosa": {
+    "id": "rhinella-granulosa",
+    "catalogCode": "Rhi_granul"
+  },
+  "Rhinella schneideri": {
+    "id": "rhinella-diptycha",
+    "catalogCode": "rhinella-diptycha"
+  },
+  "Scinax aromothyella": {
+    "id": "ololygon-aromothyella",
+    "catalogCode": "ololygon-aromothyella"
+  },
+  "Scinax berthae": {
+    "id": "ololygon-berthae",
+    "catalogCode": "ololygon-berthae"
+  },
+  "Scinax fuscovarius": {
+    "id": "scinax-fuscovarius",
+    "catalogCode": "Sci_fuscov"
+  },
+  "Scinax granulatus": {
+    "id": "scinax-granulatus",
+    "catalogCode": "Sci_granul"
+  },
+  "Scinax nasicus": {
+    "id": "scinax-nasicus",
+    "catalogCode": "Sci_nasicu"
+  },
+  "Scinax squalirostris": {
+    "id": "scinax-squalirostris",
+    "catalogCode": "Sci_squali"
+  },
+  "Scinax uruguayus": {
+    "id": "julianus-uruguayus",
+    "catalogCode": "julianus-uruguayus"
+  },
+  "Acestrorhynchus pantaneiro": {
+    "id": "acestrorhynchus-pantaneiro",
+    "catalogCode": "A_pantanei"
+  },
+  "Ageneiosus inermis": {
+    "id": "ageneiosus-inermis",
+    "catalogCode": "A_inermis"
+  },
+  "Ageneiosus militaris": {
+    "id": "ageneiosus-militaris",
+    "catalogCode": "A_militari"
+  },
+  "Apareiodon affinis": {
+    "id": "apareiodon-affinis",
+    "catalogCode": "Ap_affinis"
+  },
+  "Aphyocharax anisitsi": {
+    "id": "aphyocharax-anisitsi",
+    "catalogCode": "A_anisitsi"
+  },
+  "Apistogramma borellii": {
+    "id": "apistogramma-borellii",
+    "catalogCode": "A_borelli"
+  },
+  "Apistogramma commbrae": {
+    "id": "apistogramma-commbrae",
+    "catalogCode": "A_commbrae"
+  },
+  "Apteronotus ellisi": {
+    "id": "apteronotus-ellisi",
+    "catalogCode": "A_ellisi"
+  },
+  "Astyanax abramis": {
+    "id": "astyanax-abramis",
+    "catalogCode": "A_abramis"
+  },
+  "Astyanax eigenmanniorum": {
+    "id": "astyanax-eigenmanniorum",
+    "catalogCode": "A_eigenman"
+  },
+  "Astyanax jacuhiensis": {
+    "id": "astyanax-jacuhiensis",
+    "catalogCode": "A_jacuiens"
+  },
+  "Astyanax laticeps": {
+    "id": "astyanax-laticeps",
+    "catalogCode": "A_laticeps"
+  },
+  "Astyanax rutilus": {
+    "id": "astyanax-fasciatus",
+    "catalogCode": "astyanax-fasciatus"
+  },
+  "Astyanax saguazu": {
+    "id": "astyanax-saguazu",
+    "catalogCode": "A_aff_sagu"
+  },
+  "Astyanax stenohalinus": {
+    "id": "astyanax-stenohalinus",
+    "catalogCode": "A_stenohal"
+  },
+  "Auchenipterus nigripinnis": {
+    "id": "auchenipterus-nigripinnis",
+    "catalogCode": "Auc_nigrip"
+  },
+  "Australoheros facetus": {
+    "id": "australoheros-facetus",
+    "catalogCode": "A_facetus"
+  },
+  "Australoheros minuano": {
+    "id": "australoheros-minuano",
+    "catalogCode": "A_minuano"
+  },
+  "Australoheros scitulus": {
+    "id": "australoheros-scitulus",
+    "catalogCode": "A_scitulus"
+  },
+  "Austrolebias affinis": {
+    "id": "austrolebias-affinis",
+    "catalogCode": "Au_affinis"
+  },
+  "Austrolebias alexandri": {
+    "id": "austrolebias-alexandri",
+    "catalogCode": "A_alexandr"
+  },
+  "Austrolebias arachan": {
+    "id": "austrolebias-arachan",
+    "catalogCode": "A_arachan"
+  },
+  "Austrolebias bellottii": {
+    "id": "austrolebias-bellottii",
+    "catalogCode": "A_bellotti"
+  },
+  "Austrolebias charrua": {
+    "id": "austrolebias-charrua",
+    "catalogCode": "A_charrua"
+  },
+  "Austrolebias cheradophilus": {
+    "id": "austrolebias-cheradophilus",
+    "catalogCode": "A_cheradop"
+  },
+  "Austrolebias cinereus": {
+    "id": "austrolebias-cinereus",
+    "catalogCode": "A_cinereus"
+  },
+  "Austrolebias elongatus": {
+    "id": "austrolebias-elongatus",
+    "catalogCode": "A_elongatu"
+  },
+  "Austrolebias gymnoventris": {
+    "id": "austrolebias-gymnoventris",
+    "catalogCode": "A_gymnoven"
+  },
+  "Austrolebias luteoflammulatus": {
+    "id": "austrolebias-luteoflammulatus",
+    "catalogCode": "A_luteofla"
+  },
+  "Austrolebias melanoorus": {
+    "id": "austrolebias-melanoorus",
+    "catalogCode": "A_melanoor"
+  },
+  "Austrolebias nigripinnis": {
+    "id": "austrolebias-nigripinnis",
+    "catalogCode": "Aus_nigrip"
+  },
+  "Austrolebias periodicus": {
+    "id": "austrolebias-periodicus",
+    "catalogCode": "A_periodic"
+  },
+  "Austrolebias prognathus": {
+    "id": "austrolebias-prognathus",
+    "catalogCode": "A_prognath"
+  },
+  "Austrolebias quirogai": {
+    "id": "austrolebias-quirogai",
+    "catalogCode": "A_quirogai"
+  },
+  "Austrolebias reicherti": {
+    "id": "austrolebias-reicherti",
+    "catalogCode": "A_reichert"
+  },
+  "Austrolebias vazferreirai": {
+    "id": "austrolebias-vazferreirai",
+    "catalogCode": "A_vazferre"
+  },
+  "Austrolebias viarius": {
+    "id": "austrolebias-viarius",
+    "catalogCode": "A_viarius"
+  },
+  "Austrolebias wolterstorffi": {
+    "id": "austrolebias-wolterstorffi",
+    "catalogCode": "A_wolterst"
+  },
+  "Brachyhypopomus bombilla": {
+    "id": "brachyhypopomus-bombilla",
+    "catalogCode": "B_bombilla"
+  },
+  "Brachyhypopomus draco": {
+    "id": "brachyhypopomus-draco",
+    "catalogCode": "B_draco"
+  },
+  "Brachyhypopomus gauderio": {
+    "id": "brachyhypopomus-gauderio",
+    "catalogCode": "B_gauderio"
+  },
+  "Brycon orbignyanus": {
+    "id": "brycon-orbignyanus",
+    "catalogCode": "B_orbygnia"
+  },
+  "Bryconamericus exodon": {
+    "id": "bryconamericus-exodon",
+    "catalogCode": "B_exodon"
+  },
+  "Bryconamericus iheringii": {
+    "id": "bryconamericus-iheringii",
+    "catalogCode": "B_iheringi"
+  },
+  "Bryconamericus lambari": {
+    "id": "bryconamericus-lambari",
+    "catalogCode": "B_aff_lamb"
+  },
+  "Bryconamericus ytu": {
+    "id": "bryconamericus-ytu",
+    "catalogCode": "B_ytu"
+  },
+  "Bunocephalus doriae": {
+    "id": "bunocephalus-doriae",
+    "catalogCode": "B_doriae"
+  },
+  "Callichthys callichthys": {
+    "id": "callichthys-callichthys",
+    "catalogCode": "C_callicht"
+  },
+  "Catathyridium jenynsii": {
+    "id": "catathyridium-jenynsii",
+    "catalogCode": "C_jenynsii"
+  },
+  "Characidium orientale": {
+    "id": "characidium-orientale",
+    "catalogCode": "C_oriental"
+  },
+  "Characidium pterostictum": {
+    "id": "characidium-pterostictum",
+    "catalogCode": "C_pterosti"
+  },
+  "Characidium rachovii": {
+    "id": "characidium-rachovii",
+    "catalogCode": "C_rachovii"
+  },
+  "Characidium tenue": {
+    "id": "characidium-tenue",
+    "catalogCode": "C_tenue"
+  },
+  "Characidium zebra": {
+    "id": "characidium-zebra",
+    "catalogCode": "C_zebra"
+  },
+  "Charax stenopterus": {
+    "id": "charax-stenopterus",
+    "catalogCode": "C_stenopte"
+  },
+  "Cheirodon ibicuhiensis": {
+    "id": "cheirodon-ibicuhiensis",
+    "catalogCode": "C_ibicuhie"
+  },
+  "Cheirodon interruptus": {
+    "id": "cheirodon-interruptus",
+    "catalogCode": "C_interrup"
+  },
+  "Cichlasoma dimerus": {
+    "id": "cichlasoma-dimerus",
+    "catalogCode": "C_dimerus"
+  },
+  "Cichlasoma portalegrensis": {
+    "id": "cichlasoma-portalegrense",
+    "catalogCode": "cichlasoma-portalegrense"
+  },
+  "Cnesterodon decemmaculatus": {
+    "id": "cnesterodon-decemmaculatus",
+    "catalogCode": "C_decemmac"
+  },
+  "Corydoras aeneus": {
+    "id": "corydoras-aeneus",
+    "catalogCode": "C_aeneus"
+  },
+  "Corydoras hastatus": {
+    "id": "corydoras-hastatus",
+    "catalogCode": "C_hastatus"
+  },
+  "Corydoras paleatus": {
+    "id": "corydoras-paleatus",
+    "catalogCode": "C_paleatus"
+  },
+  "Corydoras undulatus": {
+    "id": "corydoras-undulatus",
+    "catalogCode": "C_undulatu"
+  },
+  "Crenicichla celidochilus": {
+    "id": "crenicichla-celidochilus",
+    "catalogCode": "C_celidoch"
+  },
+  "Crenicichla lepidota": {
+    "id": "crenicichla-lepidota",
+    "catalogCode": "C_lepidota"
+  },
+  "Crenicichla minuano": {
+    "id": "crenicichla-minuano",
+    "catalogCode": "C_minuano"
+  },
+  "Crenicichla missioneira": {
+    "id": "crenicichla-missioneira",
+    "catalogCode": "C_missione"
+  },
+  "Crenicichla punctata": {
+    "id": "crenicichla-punctata",
+    "catalogCode": "C_punctata"
+  },
+  "Crenicichla scottii": {
+    "id": "crenicichla-scottii",
+    "catalogCode": "C_scotti"
+  },
+  "Crenicichla tendybaguassu": {
+    "id": "crenicichla-tendybaguassu",
+    "catalogCode": "C_tendybag"
+  },
+  "Crenicichla vittata": {
+    "id": "crenicichla-vittata",
+    "catalogCode": "C_vittata"
+  },
+  "Cyanocharax alburnus": {
+    "id": "cyanocharax-alburnus",
+    "catalogCode": "C_alburnus"
+  },
+  "Cyanocharax alegretensis": {
+    "id": "cyanocharax-alegretensis",
+    "catalogCode": "C_alegrete"
+  },
+  "Cyanocharax uruguayensis": {
+    "id": "cyanocharax-uruguayensis",
+    "catalogCode": "C_uruguaye"
+  },
+  "Cynopoecilus melanotaenia": {
+    "id": "cynopoecilus-melanotaenia",
+    "catalogCode": "C_melanota"
+  },
+  "Cynopotamus argenteus": {
+    "id": "cynopotamus-argenteus",
+    "catalogCode": "C_argenteu"
+  },
+  "Cyphocharax platanus": {
+    "id": "cyphocharax-platanus",
+    "catalogCode": "C_platanus"
+  },
+  "Cyphocharax saladensis": {
+    "id": "cyphocharax-saladensis",
+    "catalogCode": "C_saladens"
+  },
+  "Cyphocharax spilotus": {
+    "id": "cyphocharax-spilotus",
+    "catalogCode": "C_spilotus"
+  },
+  "Cyphocharax voga": {
+    "id": "cyphocharax-voga",
+    "catalogCode": "C_voga"
+  },
+  "Cyprinus carpio": {
+    "id": "cyprinus-carpio",
+    "catalogCode": "Cyp_carpio"
+  },
+  "Diapoma speculiferum": {
+    "id": "diapoma-speculiferum",
+    "catalogCode": "D_speculif"
+  },
+  "Diapoma terofali": {
+    "id": "diapoma-terofali",
+    "catalogCode": "D_terofali"
+  },
+  "Ectrepopterus uruguayensis": {
+    "id": "ectrepopterus-uruguayensis",
+    "catalogCode": "E_uruguaye"
+  },
+  "Eigenmannia virescens": {
+    "id": "eigenmannia-virescens",
+    "catalogCode": "E_virescen"
+  },
+  "Galeocharax humeralis": {
+    "id": "galeocharax-humeralis",
+    "catalogCode": "G_humerali"
+  },
+  "Genidens barbus": {
+    "id": "genidens-barbus",
+    "catalogCode": "G_barbus"
+  },
+  "Geophagus brasiliensis": {
+    "id": "geophagus-brasiliensis",
+    "catalogCode": "G_brasilie"
+  },
+  "Gymnogeophagus australis": {
+    "id": "gymnogeophagus-australis",
+    "catalogCode": "G_australi"
+  },
+  "Gymnogeophagus balzanii": {
+    "id": "gymnogeophagus-balzanii",
+    "catalogCode": "G_balzani"
+  },
+  "Gymnogeophagus gymnogenys": {
+    "id": "gymnogeophagus-gymnogenys",
+    "catalogCode": "G_gymnogen"
+  },
+  "Gymnogeophagus labiatus": {
+    "id": "gymnogeophagus-labiatus",
+    "catalogCode": "G_labiatus"
+  },
+  "Gymnogeophagus meridionalis": {
+    "id": "gymnogeophagus-meridionalis",
+    "catalogCode": "G_meridion"
+  },
+  "Gymnogeophagus rhabdotus": {
+    "id": "gymnogeophagus-rhabdotus",
+    "catalogCode": "G_rhabdotu"
+  },
+  "Gymnogeophagus tiraparae": {
+    "id": "gymnogeophagus-tiraparae",
+    "catalogCode": "G_tirapara"
+  },
+  "Gymnotus omarorum": {
+    "id": "gymnotus-omarorum",
+    "catalogCode": "G_omarorum"
+  },
+  "Heptapterus mustelinus": {
+    "id": "heptapterus-mustelinus",
+    "catalogCode": "H_mustelin"
+  },
+  "Heptapterus sympterygium": {
+    "id": "heptapterus-sympterygium",
+    "catalogCode": "H_sympteri"
+  },
+  "Hisonotus armatus": {
+    "id": "hisonotus-armatus",
+    "catalogCode": "H_armatus"
+  },
+  "Hisonotus charrua": {
+    "id": "hisonotus-charrua",
+    "catalogCode": "H_charrua"
+  },
+  "Hisonotus nigricauda": {
+    "id": "hisonotus-nigricauda",
+    "catalogCode": "H_nigricau"
+  },
+  "Hisonotus ringueleti": {
+    "id": "hisonotus-ringueleti",
+    "catalogCode": "H_ringuele"
+  },
+  "Homodiaetus anisitsi": {
+    "id": "homodiaetus-anisitsi",
+    "catalogCode": "Ho_anisits"
+  },
+  "Hoplias australis": {
+    "id": "hoplias-australis",
+    "catalogCode": "H_australi"
+  },
+  "Hoplias lacerdae": {
+    "id": "hoplias-lacerdae",
+    "catalogCode": "H_lacerdae"
+  },
+  "Hoplias malabaricus": {
+    "id": "hoplias-malabaricus",
+    "catalogCode": "H_malabari"
+  },
+  "Hoplosternum littorale": {
+    "id": "hoplosternum-littorale",
+    "catalogCode": "H_littoral"
+  },
+  "Hyphessobrycon anisitsi": {
+    "id": "hyphessobrycon-anisitsi",
+    "catalogCode": "Hy_anisits"
+  },
+  "Hyphessobrycon boulengeri": {
+    "id": "hyphessobrycon-boulengeri",
+    "catalogCode": "H_boulenge"
+  },
+  "Hyphessobrycon eques": {
+    "id": "hyphessobrycon-eques",
+    "catalogCode": "H_eques"
+  },
+  "Hyphessobrycon luetkenii": {
+    "id": "hyphessobrycon-luetkenii",
+    "catalogCode": "H_luetkeni"
+  },
+  "Hyphessobrycon meridionalis": {
+    "id": "hyphessobrycon-meridionalis",
+    "catalogCode": "Hy_meridio"
+  },
+  "Hypobrycon maromba": {
+    "id": "hypobrycon-maromba",
+    "catalogCode": "H_maromba"
+  },
+  "Hypostomus alatus": {
+    "id": "hypostomus-alatus",
+    "catalogCode": "H_alatus"
+  },
+  "Hypostomus auroguttatus": {
+    "id": "hypostomus-auroguttatus",
+    "catalogCode": "H_aurogutt"
+  },
+  "Hypostomus borellii": {
+    "id": "hypostomus-borellii",
+    "catalogCode": "H_aff_bore"
+  },
+  "Hypostomus commersoni": {
+    "id": "hypostomus-commersoni",
+    "catalogCode": "H_commerso"
+  },
+  "Hypostomus laplatae": {
+    "id": "hypostomus-laplatae",
+    "catalogCode": "H_laplatae"
+  },
+  "Hypostomus luteomaculatus": {
+    "id": "hypostomus-luteomaculatus",
+    "catalogCode": "H_luteomac"
+  },
+  "Iheringichthys labrosus": {
+    "id": "iheringichthys-labrosus",
+    "catalogCode": "I_labrosus"
+  },
+  "Jenynsia lineata": {
+    "id": "jenynsia-lineata",
+    "catalogCode": "J_lineata"
+  },
+  "Jenynsia multidentata": {
+    "id": "jenynsia-multidentata",
+    "catalogCode": "J_multiden"
+  },
+  "Jenynsia onca": {
+    "id": "jenynsia-onca",
+    "catalogCode": "J_onca"
+  },
+  "Leporinus amae": {
+    "id": "leporinus-amae",
+    "catalogCode": "L_amae"
+  },
+  "Leporinus lacustris": {
+    "id": "leporinus-lacustris",
+    "catalogCode": "L_lacustri"
+  },
+  "Leporinus obtusidens": {
+    "id": "leporinus-obtusidens",
+    "catalogCode": "L_obtuside"
+  },
+  "Leporinus striatus": {
+    "id": "leporinus-striatus",
+    "catalogCode": "L_striatus"
+  },
+  "Loricariichthys anus": {
+    "id": "loricariichthys-anus",
+    "catalogCode": "L_anus"
+  },
+  "Loricariichthys edentatus": {
+    "id": "loricariichthys-edentatus",
+    "catalogCode": "L_edentatu"
+  },
+  "Loricariichthys melanocheilus": {
+    "id": "loricariichthys-melanocheilus",
+    "catalogCode": "L_melanoch"
+  },
+  "Loricariichthys platymetopon": {
+    "id": "loricariichthys-platymetopon",
+    "catalogCode": "L_platymet"
+  },
+  "Luciopimelodus pati": {
+    "id": "luciopimelodus-pati",
+    "catalogCode": "L_pati"
+  },
+  "Lycengraulis grossidens": {
+    "id": "lycengraulis-grossidens",
+    "catalogCode": "L_grosside"
+  },
+  "Macropsobrycon uruguayanae": {
+    "id": "macropsobrycon-uruguayanae",
+    "catalogCode": "M_uruguaya"
+  },
+  "Microglanis cibelae": {
+    "id": "microglanis-cibelae",
+    "catalogCode": "M_aff_cibe"
+  },
+  "Microglanis eurystoma": {
+    "id": "microglanis-eurystoma",
+    "catalogCode": "M_eurystom"
+  },
+  "Mimagoniates inequalis": {
+    "id": "mimagoniates-inequalis",
+    "catalogCode": "M_inequali"
+  },
+  "Moenkhausia dichroura": {
+    "id": "moenkhausia-dichroura",
+    "catalogCode": "M_dichrour"
+  },
+  "Mugil platanus": {
+    "id": "mugil-liza",
+    "catalogCode": "mugil-liza"
+  },
+  "Mylossoma duriventre": {
+    "id": "mylossoma-duriventre",
+    "catalogCode": "M_durivent"
+  },
+  "Odontesthes argentinensis": {
+    "id": "odontesthes-argentinensis",
+    "catalogCode": "O_argentin"
+  },
+  "Odontesthes bonariensis": {
+    "id": "odontesthes-bonariensis",
+    "catalogCode": "O_bonarien"
+  },
+  "Odontesthes humensis": {
+    "id": "odontesthes-humensis",
+    "catalogCode": "O_humensis"
+  },
+  "Odontesthes incisa": {
+    "id": "odontesthes-incisa",
+    "catalogCode": "O_incisa"
+  },
+  "Odontesthes perugiae": {
+    "id": "odontesthes-perugiae",
+    "catalogCode": "O_perugiae"
+  },
+  "Odontesthes retropinnis": {
+    "id": "odontesthes-retropinnis",
+    "catalogCode": "O_retropin"
+  },
+  "Odontostilbe pequira": {
+    "id": "odontostilbe-pequira",
+    "catalogCode": "O_pequira"
+  },
+  "Oligosarcus hepsetus": {
+    "id": "oligosarcus-hepsetus",
+    "catalogCode": "O_hepsetus"
+  },
+  "Oligosarcus jenynsii": {
+    "id": "oligosarcus-jenynsii",
+    "catalogCode": "O_jenynsii"
+  },
+  "Oligosarcus oligolepis": {
+    "id": "oligosarcus-oligolepis",
+    "catalogCode": "O_oligolep"
+  },
+  "Oligosarcus robustus": {
+    "id": "oligosarcus-robustus",
+    "catalogCode": "O_robustus"
+  },
+  "Otocinclus affinis": {
+    "id": "macrotocinclus-affinis",
+    "catalogCode": "macrotocinclus-affinis"
+  },
+  "Otocinclus arnoldi": {
+    "id": "otocinclus-arnoldi",
+    "catalogCode": "O_arnoldi"
+  },
+  "Otocinclus flexilis": {
+    "id": "otocinclus-flexilis",
+    "catalogCode": "O_flexilis"
+  },
+  "Otocinclus vestitus": {
+    "id": "otocinclus-vestitus",
+    "catalogCode": "O_vestitus"
+  },
+  "Oxydoras kneri": {
+    "id": "oxydoras-kneri",
+    "catalogCode": "O_kneri"
+  },
+  "Pachyurus bonariensis": {
+    "id": "pachyurus-bonariensis",
+    "catalogCode": "P_bonarien"
+  },
+  "Paraloricaria vetula": {
+    "id": "paraloricaria-vetula",
+    "catalogCode": "P_vetula"
+  },
+  "Parapimelodus nigribarbis": {
+    "id": "parapimelodus-nigribarbis",
+    "catalogCode": "P_nigribar"
+  },
+  "Parapimelodus valenciennis": {
+    "id": "parapimelodus-valenciennis",
+    "catalogCode": "P_valencie"
+  },
+  "Pellona flavipinnis": {
+    "id": "pellona-flavipinnis",
+    "catalogCode": "P_flavipin"
+  },
+  "Phalloceros caudimaculatus": {
+    "id": "phalloceros-caudimaculatus",
+    "catalogCode": "P_caudimac"
+  },
+  "Piaractus mesopotamicus": {
+    "id": "piaractus-mesopotamicus",
+    "catalogCode": "P_mesopota"
+  },
+  "Pimelodella australis": {
+    "id": "pimelodella-australis",
+    "catalogCode": "Pim_austra"
+  },
+  "Pimelodella gracilis": {
+    "id": "pimelodella-gracilis",
+    "catalogCode": "P_gracilis"
+  },
+  "Pimelodus albicans": {
+    "id": "pimelodus-albicans",
+    "catalogCode": "P_albicans"
+  },
+  "Pimelodus maculatus": {
+    "id": "pimelodus-maculatus",
+    "catalogCode": "Pi_maculat"
+  },
+  "Pimelodus pintado": {
+    "id": "pimelodus-pintado",
+    "catalogCode": "P_pintado"
+  },
+  "Platanichthys platana": {
+    "id": "platanichthys-platana",
+    "catalogCode": "P_platana"
+  },
+  "Prochilodus lineatus": {
+    "id": "prochilodus-lineatus",
+    "catalogCode": "Pr_lineatu"
+  },
+  "Pseudobunocephalus iheringii": {
+    "id": "pseudobunocephalus-iheringii",
+    "catalogCode": "P_iheringi"
+  },
+  "Pseudocorynopoma doriae": {
+    "id": "pseudocorynopoma-doriae",
+    "catalogCode": "P_doriae"
+  },
+  "Pseudopimelodus mangurus": {
+    "id": "pseudopimelodus-mangurus",
+    "catalogCode": "P_mangurus"
+  },
+  "Pseudoplatystoma corruscans": {
+    "id": "pseudoplatystoma-corruscans",
+    "catalogCode": "P_corrusca"
+  },
+  "Pterodoras granulosus": {
+    "id": "pterodoras-granulosus",
+    "catalogCode": "P_granulos"
+  },
+  "Pygocentrus nattereri": {
+    "id": "pygocentrus-nattereri",
+    "catalogCode": "P_natterer"
+  },
+  "Pyrrhulina australis": {
+    "id": "pyrrhulina-australis",
+    "catalogCode": "Pyr_austra"
+  },
+  "Ramnogaster melanostoma": {
+    "id": "ramnogaster-melanostoma",
+    "catalogCode": "R_melanost"
+  },
+  "Rhamdia quelen": {
+    "id": "rhamdia-quelen",
+    "catalogCode": "R_quelen"
+  },
+  "Rhaphiodon vulpinus": {
+    "id": "rhaphiodon-vulpinus",
+    "catalogCode": "R_vulpinus"
+  },
+  "Rhinelepis strigosa": {
+    "id": "rhinelepis-strigosa",
+    "catalogCode": "R_strigosa"
+  },
+  "Ricola macrops": {
+    "id": "ricola-macrops",
+    "catalogCode": "R_macrops"
+  },
+  "Rineloricaria baliola": {
+    "id": "rineloricaria-baliola",
+    "catalogCode": "R_baliola"
+  },
+  "Rineloricaria lanceolata": {
+    "id": "rineloricaria-lanceolata",
+    "catalogCode": "R_lanceola"
+  },
+  "Rineloricaria longicauda": {
+    "id": "rineloricaria-longicauda",
+    "catalogCode": "R_longicau"
+  },
+  "Rineloricaria microlepidogaster": {
+    "id": "rineloricaria-microlepidogaster",
+    "catalogCode": "Ri_microle"
+  },
+  "Rineloricaria parva": {
+    "id": "rineloricaria-parva",
+    "catalogCode": "R_parva"
+  },
+  "Rineloricaria strigilata": {
+    "id": "rineloricaria-strigilata",
+    "catalogCode": "R_strigatt"
+  },
+  "Roeboides microlepis": {
+    "id": "roeboides-microlepis",
+    "catalogCode": "Ro_microle"
+  },
+  "Salminus brasiliensis": {
+    "id": "salminus-brasiliensis",
+    "catalogCode": "S_brasilie"
+  },
+  "Schizodon borellii": {
+    "id": "schizodon-borellii",
+    "catalogCode": "S_borelli"
+  },
+  "Schizodon nasutus": {
+    "id": "schizodon-nasutus",
+    "catalogCode": "S_nasutus"
+  },
+  "Sorubim lima": {
+    "id": "sorubim-lima",
+    "catalogCode": "S_lima"
+  },
+  "Steindachneridion scriptum": {
+    "id": "steindachneridion-scriptum",
+    "catalogCode": "S_scriptum"
+  },
+  "Steindachnerina biornata": {
+    "id": "steindachnerina-biornata",
+    "catalogCode": "S_biornata"
+  },
+  "Steindachnerina brevipinna": {
+    "id": "steindachnerina-brevipinna",
+    "catalogCode": "S_brevipin"
+  },
+  "Synbranchus marmoratus": {
+    "id": "synbranchus-marmoratus",
+    "catalogCode": "S_marmorat"
+  },
+  "Tatia boemia": {
+    "id": "tatia-boemia",
+    "catalogCode": "T_boemia"
+  },
+  "Thoracocharax stellatus": {
+    "id": "thoracocharax-stellatus",
+    "catalogCode": "T_stellatu"
+  },
+  "Trachelyopterus galeatus": {
+    "id": "trachelyopterus-galeatus",
+    "catalogCode": "T_galeatus"
+  },
+  "Trachelyopterus lucenai": {
+    "id": "trachelyopterus-lucenai",
+    "catalogCode": "T_lucenai"
+  },
+  "Trachelyopterus teaguei": {
+    "id": "trachelyopterus-teaguei",
+    "catalogCode": "T_teaguei"
+  },
+  "Triportheus paranensis": {
+    "id": "triportheus-paranensis",
+    "catalogCode": "T_paranens"
+  },
+  "Xyliphius barbatus": {
+    "id": "xyliphius-barbatus",
+    "catalogCode": "X_barbatus"
+  },
+  "Potamotrygon brachyura": {
+    "id": "potamotrygon-brachyura",
+    "catalogCode": "P_brachyur"
+  },
+  "Potamotrygon motoro": {
+    "id": "potamotrygon-motoro",
+    "catalogCode": "P_motoro"
+  },
+  "Acanthogonatus tacuariensis": {
+    "id": "acanthogonatus-tacuariensis",
+    "catalogCode": "acanthogonatus-tacuariensis"
+  },
+  "Actinopus longipalpis": {
+    "id": "actinopus-longipalpis",
+    "catalogCode": "actinopus-longipalpis"
+  },
+  "Aglaoctenus lagotis": {
+    "id": "aglaoctenus-lagotis",
+    "catalogCode": "aglaoctenus-lagotis"
+  },
+  "Aglaoctenus oblongus": {
+    "id": "aglaoctenus-oblongus",
+    "catalogCode": "aglaoctenus-oblongus"
+  },
+  "Allocosa marindia": {
+    "id": "allocosa-marindia",
+    "catalogCode": "allocosa-marindia"
+  },
+  "Allocosa senex": {
+    "id": "allocosa-senex",
+    "catalogCode": "allocosa-senex"
+  },
+  "Anelosimus lorenzo": {
+    "id": "anelosimus-lorenzo",
+    "catalogCode": "anelosimus-lorenzo"
+  },
+  "Anelosimus vierae": {
+    "id": "anelosimus-vierae",
+    "catalogCode": "anelosimus-vierae"
+  },
+  "Bothriurus rochensis": {
+    "id": "bothriurus-rochensis",
+    "catalogCode": "bothriurus-rochensis"
+  },
+  "Chaco castanea": {
+    "id": "chaco-castanea",
+    "catalogCode": "chaco-castanea"
+  },
+  "Chaco costai": {
+    "id": "chaco-costai",
+    "catalogCode": "chaco-costai"
+  },
+  "Ctenus longipes": {
+    "id": "ctenus-longipes",
+    "catalogCode": "ctenus-longipes"
+  },
+  "Cybaeodamus taim": {
+    "id": "cybaeodamus-taim",
+    "catalogCode": "cybaeodamus-taim"
+  },
+  "Deinopis amica": {
+    "id": "deinopis-amica",
+    "catalogCode": "deinopis-amica"
+  },
+  "Gaucha fasciata": {
+    "id": "gaucha-fasciata",
+    "catalogCode": "gaucha-fasciata"
+  },
+  "Gelanor zonatus": {
+    "id": "gelanor-zonatus",
+    "catalogCode": "gelanor-zonatus"
+  },
+  "Grammostola andreleetzi": {
+    "id": "grammostola-andreleetzi",
+    "catalogCode": "grammostola-andreleetzi"
+  },
+  "Grammostola anthracina": {
+    "id": "grammostola-anthracina",
+    "catalogCode": "grammostola-anthracina"
+  },
+  "Grammostola burzaquensis": {
+    "id": "grammostola-burzaquensis",
+    "catalogCode": "grammostola-burzaquensis"
+  },
+  "Grammostola iheringi": {
+    "id": "grammostola-iheringi",
+    "catalogCode": "grammostola-iheringi"
+  },
+  "Grammostola quirogai": {
+    "id": "grammostola-quirogai",
+    "catalogCode": "grammostola-quirogai"
+  },
+  "Homoeomma uruguayense": {
+    "id": "homoeomma-uruguayense",
+    "catalogCode": "homoeomma-uruguayense"
+  },
+  "Idiops clarus": {
+    "id": "idiops-clarus",
+    "catalogCode": "idiops-clarus"
+  },
+  "Lycosa carbonelli": {
+    "id": "lycosa-carbonelli",
+    "catalogCode": "lycosa-carbonelli"
+  },
+  "Mastophora extraordinaria": {
+    "id": "mastophora-extraordinaria",
+    "catalogCode": "mastophora-extraordinaria"
+  },
+  "Mastophora gasteracanthoides": {
+    "id": "mastophora-gasteracanthoides",
+    "catalogCode": "mastophora-gasteracanthoides"
+  },
+  "Mastophora satan": {
+    "id": "mastophora-satan",
+    "catalogCode": "mastophora-satan"
+  },
+  "Mastophora yacare": {
+    "id": "mastophora-yacare",
+    "catalogCode": "mastophora-yacare"
+  },
+  "Mecicobothrium thorelli": {
+    "id": "mecicobothrium-thorelli",
+    "catalogCode": "mecicobothrium-thorelli"
+  },
+  "Mesabolivar charrua": {
+    "id": "mesabolivar-charrua",
+    "catalogCode": "mesabolivar-charrua"
+  },
+  "Mesabolivar tandilicus": {
+    "id": "mesabolivar-tandilicus",
+    "catalogCode": "mesabolivar-tandilicus"
+  },
+  "Mesabolivar uruguayensis": {
+    "id": "mesabolivar-uruguayensis",
+    "catalogCode": "mesabolivar-uruguayensis"
+  },
+  "Otiothops birabeni": {
+    "id": "otiothops-birabeni",
+    "catalogCode": "otiothops-birabeni"
+  },
+  "Parampheres bimaculatus": {
+    "id": "parampheres-bimaculatus",
+    "catalogCode": "parampheres-bimaculatus"
+  },
+  "Parampheres pectinatus": {
+    "id": "parampheres-pectinatus",
+    "catalogCode": "parampheres-pectinatus"
+  },
+  "Paratrechalea ornata": {
+    "id": "paratrechalea-ornata",
+    "catalogCode": "paratrechalea-ornata"
+  },
+  "Tityus uruguayensis": {
+    "id": "tityus-uruguayensis",
+    "catalogCode": "tityus-uruguayensis"
+  },
+  "Trechalea bucculenta": {
+    "id": "trechalea-bucculenta",
+    "catalogCode": "trechalea-bucculenta"
+  },
+  "Trechaleoides biocellata": {
+    "id": "trechaleoides-biocellata",
+    "catalogCode": "trechaleoides-biocellata"
+  },
+  "Trechaleoides keyserlingi": {
+    "id": "trechaleoides-keyserlingi",
+    "catalogCode": "trechaleoides-keyserlingi"
+  },
+  "Aedes aegypti": {
+    "id": "aedes-aegypti",
+    "catalogCode": "aedes-aegypti"
+  },
+  "Haematobia irritans": {
+    "id": "haematobia-irritans",
+    "catalogCode": "haematobia-irritans"
+  },
+  "Lutzomyia longipalpis": {
+    "id": "lutzomyia-longipalpis",
+    "catalogCode": "lutzomyia-longipalpis"
+  },
+  "Reticulitermes flavipes": {
+    "id": "reticulitermes-flavipes",
+    "catalogCode": "reticulitermes-flavipes"
+  },
+  "Triatoma infestans": {
+    "id": "triatoma-infestans",
+    "catalogCode": "triatoma-infestans"
+  },
+  "Ligia exotica": {
+    "id": "ligia-exotica",
+    "catalogCode": "ligia-exotica"
+  },
+  "Neomysis americana": {
+    "id": "neomysis-americana",
+    "catalogCode": "neomysis-americana"
+  },
+  "Sphiggurus spinosus": {
+    "id": "sphiggurus-spinosus",
+    "catalogCode": "S_spinosus"
+  },
+  "Aeorestes cinereus": {
+    "id": "aeorestes-cinereus",
+    "catalogCode": "L_cinereus"
+  },
+  "Dasypterus ega": {
+    "id": "dasypterus-ega",
+    "catalogCode": "L_ega"
+  },
+  "Otaria byronia": {
+    "id": "otaria-byronia",
+    "catalogCode": "o_flavesce"
+  },
+  "Spatula discors": {
+    "id": "spatula-discors",
+    "catalogCode": "A_discors"
+  },
+  "Spatula platalea": {
+    "id": "spatula-platalea",
+    "catalogCode": "A_platalea"
+  },
+  "Systellura longirostris": {
+    "id": "systellura-longirostris",
+    "catalogCode": "C_longiros"
+  },
+  "Chloris chloris": {
+    "id": "chloris-chloris",
+    "catalogCode": "C_chloris"
+  },
+  "Setophaga striata": {
+    "id": "setophaga-striata",
+    "catalogCode": "D_striata"
+  },
+  "Limnornis rectirostris": {
+    "id": "limnornis-rectirostris",
+    "catalogCode": "L_rectiros"
+  },
+  "Leucocarbo albiventer": {
+    "id": "leucocarbo-albiventer",
+    "catalogCode": "P_albivent"
+  },
+  "Leucocarbo atriceps": {
+    "id": "leucocarbo-atriceps",
+    "catalogCode": "leucocarbo-atriceps"
+  },
+  "Rhopospina fruticeti": {
+    "id": "rhopospina-fruticeti",
+    "catalogCode": "P_fruticet"
+  },
+  "Microspingus cabanisi": {
+    "id": "microspingus-cabanisi",
+    "catalogCode": "microspingus-cabanisi"
+  },
+  "Microspingus melanoleucus": {
+    "id": "microspingus-melanoleucus",
+    "catalogCode": "P_melanole"
+  },
+  "Porphyrio martinica": {
+    "id": "porphyrio-martinica",
+    "catalogCode": "P_martinic"
+  },
+  "Tachycineta leucopyga": {
+    "id": "tachycineta-leucopyga",
+    "catalogCode": "T_meyeni"
+  },
+  "Stilpnia preciosa": {
+    "id": "stilpnia-preciosa",
+    "catalogCode": "T_preciosa"
+  },
+  "Rauenia bonariensis": {
+    "id": "rauenia-bonariensis",
+    "catalogCode": "T_bonarien"
+  },
+  "Calidris subruficollis": {
+    "id": "calidris-subruficollis",
+    "catalogCode": "T_subrufic"
+  },
+  "Leposternon microcephalum": {
+    "id": "leposternon-microcephalum",
+    "catalogCode": "A_microcep"
+  },
+  "Paraphimophis rusticus": {
+    "id": "paraphimophis-rusticus",
+    "catalogCode": "C_rustica"
+  },
+  "Erythrolamprus jaegeri": {
+    "id": "erythrolamprus-jaegeri",
+    "catalogCode": "L_jaegeri"
+  },
+  "Aspronema dorsivittatum": {
+    "id": "aspronema-dorsivittatum",
+    "catalogCode": "M_dorsivit"
+  },
+  "Bothrops alternatus": {
+    "id": "bothrops-alternatus",
+    "catalogCode": "R_alternat"
+  },
+  "Dipsas turgida": {
+    "id": "dipsas-turgida",
+    "catalogCode": "S_turgidus"
+  },
+  "Boana albopunctata": {
+    "id": "boana-albopunctata",
+    "catalogCode": "Hyp_albopu"
+  },
+  "Astyanax fasciatus": {
+    "id": "astyanax-fasciatus",
+    "catalogCode": "A_aff_ruti"
+  },
+  "Cichlasoma portalegrense": {
+    "id": "cichlasoma-portalegrense",
+    "catalogCode": "C_portaleg"
+  },
+  "Mugil liza": {
+    "id": "mugil-liza",
+    "catalogCode": "M_platanus"
+  },
+  "Macrotocinclus affinis": {
+    "id": "macrotocinclus-affinis",
+    "catalogCode": "O_affinis"
+  },
+  "Guasuctenus longipes": {
+    "id": "ctenus-longipes",
+    "catalogCode": "ctenus-longipes"
+  },
+  "Spatula cyanoptera": {
+    "id": "spatula-cyanoptera",
+    "catalogCode": "A_cyanopte"
+  },
+  "Phacellodomus erythrophthalmus": {
+    "id": "phacellodomus-erythrophthalmus",
+    "catalogCode": "Ph_ferrugi"
+  },
+  "Odo bruchi": {
+    "id": "odo-bruchi",
+    "catalogCode": "odo-bruchi"
+  }
+}

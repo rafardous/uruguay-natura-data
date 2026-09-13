@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Linking, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter, type Href } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
+import { Image as ExpoImage } from 'expo-image';
 import { MotiView } from 'moti';
 import Animated, {
   FadeInDown,
@@ -90,6 +91,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [species, setSpecies] = useState<Species | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxUri, setLightboxUri] = useState<string | undefined>();
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
   const [traitsOpen, setTraitsOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
@@ -220,6 +222,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const classification: { label: string; rank: TaxonRank; value: string }[] = species
     ? [
         { label: 'Filo', rank: 'phylum', value: species.taxonomy.phylum },
+        ...(species.taxonomy.subfilo ? [{ label: 'Subfilo', rank: 'subfilo' as const, value: species.taxonomy.subfilo }] : []),
         { label: 'Clase', rank: 'clase', value: species.taxonomy.clase },
         { label: 'Orden', rank: 'orden', value: species.taxonomy.orden || 'Sin determinar' },
         { label: 'Familia', rank: 'familia', value: species.taxonomy.familia },
@@ -230,6 +233,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const traitSources = species ? species.traits.sources.map(sourceLabel) : [];
   const hasTraits = Boolean(species && (species.traits.measurements.length || species.traits.lifeModes.length || species.traits.activity.length || species.traits.aquaticEnvironments.length || species.traits.waterZones.length || species.traits.depthMinM !== null || species.traits.depthMaxM !== null));
   const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
+  const galleryItems = species ? [
+    ...(species.photo ? [{ id: 'primary', url: species.photo.fullUrl, thumbnailUrl: species.photo.url, attribution: species.photo.attribution }] : []),
+    ...species.media.filter((media) => media.type === 'image').map((media) => ({ id: media.id, url: media.url, thumbnailUrl: media.thumbnailUrl ?? media.url, attribution: media.attribution })),
+  ].filter((item, index, all) => item.url && all.findIndex((candidate) => candidate.url === item.url) === index) : [];
+  const arthropodHistory = species?.naturalHistory?.arthropod;
   const observabilityBand = species?.observability?.band === 'high' ? 'Alta'
     : species?.observability?.band === 'medium' ? 'Media'
       : species?.observability?.band === 'low' ? 'Baja' : 'Datos insuficientes';
@@ -239,6 +247,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
     haptics.tap();
     const values: Record<TaxonRank, string> = {
       phylum: species.taxonomy.phylum,
+      subfilo: species.taxonomy.subfilo ?? '',
       clase: species.taxonomy.clase,
       orden: species.taxonomy.orden || UNASSIGNED_TAXON,
       familia: species.taxonomy.familia,
@@ -369,10 +378,15 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           >
           <View style={{ paddingHorizontal: spacing.lg }}>
             <View style={{ height: 230 }}>
-              <TransientZoomView onPress={species.photo ? () => setLightboxOpen(true) : undefined} accessibilityLabel={species.photo ? `Ver ${species.displayName} en tamaño completo` : `Ilustración de ${species.displayName}`} borderRadius={radius.lg}>
+              <TransientZoomView onPress={species.photo ? () => { setLightboxUri(species.photo?.fullUrl); setLightboxOpen(true); } : undefined} accessibilityLabel={species.photo ? `Ver ${species.displayName} en tamaño completo` : `Ilustración de ${species.displayName}`} borderRadius={radius.lg}>
               <SpeciesImage species={species} height={230} full borderRadius={radius.lg} glyphSize={78} />
               </TransientZoomView>
             </View>
+            {galleryItems.length > 1 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.gallery}>
+              {galleryItems.map((item, index) => <Pressable key={item.id} onPress={() => { setLightboxUri(item.url); setLightboxOpen(true); }} accessibilityRole="button" accessibilityLabel={`Ver imagen ${index + 1} de ${species.displayName}`} style={[styles.galleryItem, { borderColor: index === 0 ? palette.accent : colors.border, borderRadius: radius.sm }]}>
+                <ExpoImage source={{ uri: item.thumbnailUrl }} contentFit="cover" style={StyleSheet.absoluteFill} />
+              </Pressable>)}
+            </ScrollView>}
             {species.photo && species.photo.attribution.length > 0 && (
               <Pressable
                 onPress={() => species.photo?.page && void Linking.openURL(species.photo.page)}
@@ -506,6 +520,43 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
+            {arthropodHistory && (
+              <Staggered index={7}>
+                <View style={[styles.naturalHistory, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}>
+                  <Text style={[typography.label, { color: palette.accent }]}>Historia natural</Text>
+                  {arthropodHistory.morphology && <>
+                    {arthropodHistory.morphology.bodyRegions?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Regiones corporales: {arthropodHistory.morphology.bodyRegions.join(' · ')}</Text> : null}
+                    {arthropodHistory.morphology.legs ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Patas: {arthropodHistory.morphology.legs}</Text> : null}
+                    {arthropodHistory.morphology.exoskeleton ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Exoesqueleto: {arthropodHistory.morphology.exoskeleton}</Text> : null}
+                    {arthropodHistory.morphology.antennae ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Antenas: {arthropodHistory.morphology.antennae}</Text> : null}
+                    {arthropodHistory.morphology.wings ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Alas: {arthropodHistory.morphology.wings}</Text> : null}
+                    {arthropodHistory.morphology.cheliceraePedipalps ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Quelíceros y pedipalpos: {arthropodHistory.morphology.cheliceraePedipalps}</Text> : null}
+                  </>}
+                  {arthropodHistory.identification?.diagnosticCharacters?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Para reconocerlo: {arthropodHistory.identification.diagnosticCharacters.join(' · ')}</Text> : null}
+                  {arthropodHistory.identification?.similarSpecies?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Especies similares: {arthropodHistory.identification.similarSpecies.join(' · ')}</Text> : null}
+                  {arthropodHistory.lifeCycle?.stages?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Ciclo de vida: {arthropodHistory.lifeCycle.stages.join(' · ')}</Text> : null}
+                  {arthropodHistory.lifeCycle?.metamorphosis ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Metamorfosis: {arthropodHistory.lifeCycle.metamorphosis === 'complete' ? 'completa' : arthropodHistory.lifeCycle.metamorphosis === 'incomplete' ? 'incompleta' : arthropodHistory.lifeCycle.metamorphosis === 'none' ? 'sin metamorfosis' : 'variable'}</Text> : null}
+                  {arthropodHistory.ecology?.microhabitat?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Microhábitat: {arthropodHistory.ecology.microhabitat.join(' · ')}</Text> : null}
+                  {arthropodHistory.ecology?.activity?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Actividad: {arthropodHistory.ecology.activity.join(' · ')}</Text> : null}
+                  {arthropodHistory.ecology?.trophicRole?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Rol ecológico: {arthropodHistory.ecology.trophicRole.join(' · ')}</Text> : null}
+                  {arthropodHistory.ecology?.hosts?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Hospedadores: {arthropodHistory.ecology.hosts.join(' · ')}</Text> : null}
+                  {arthropodHistory.ecology?.plantAssociations?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Asociaciones con plantas: {arthropodHistory.ecology.plantAssociations.join(' · ')}</Text> : null}
+                  {arthropodHistory.humanRelevance && (arthropodHistory.humanRelevance.vector || arthropodHistory.humanRelevance.pest || arthropodHistory.humanRelevance.venomous || arthropodHistory.humanRelevance.veterinaryImportance) ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Indicadores documentados: {[arthropodHistory.humanRelevance.vector && 'vector', arthropodHistory.humanRelevance.pest && 'plaga', arthropodHistory.humanRelevance.venomous && 'veneno', arthropodHistory.humanRelevance.veterinaryImportance && 'importancia veterinaria'].filter(Boolean).join(' · ')}</Text> : null}
+                  {arthropodHistory.humanRelevance?.note ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Relevancia humana: {arthropodHistory.humanRelevance.note}</Text> : null}
+                </View>
+              </Staggered>
+            )}
+
+            {species.distributionSummary && (
+              <Staggered index={8}>
+                <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                  <Text style={[typography.label, { color: colors.text }]}>Distribución registrada</Text>
+                  {species.distributionSummary.departments?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Departamentos: {species.distributionSummary.departments.join(' · ')}</Text> : null}
+                  {species.distributionSummary.occurrenceCount !== undefined ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>{species.distributionSummary.occurrenceCount} registros · Confianza: {species.distributionSummary.confidence ?? 'sin determinar'}</Text> : null}
+                </View>
+              </Staggered>
+            )}
+
             {species.descripcion.length > 0 && (
               <Staggered index={5}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Descripción</Text>
@@ -586,7 +637,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
       <PhotoLightbox
         visible={lightboxOpen}
-        uri={species?.photo?.fullUrl}
+        uri={lightboxUri ?? species?.photo?.fullUrl}
         label={species?.displayName ?? ''}
         onClose={() => setLightboxOpen(false)}
       />
@@ -621,6 +672,9 @@ const styles = StyleSheet.create({
   traitsHeader: { minHeight: 32, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   photoCredit: { alignSelf: 'flex-start', paddingTop: 7, paddingHorizontal: 3 },
+  gallery: { gap: 8, paddingTop: 9, paddingBottom: 2 },
+  galleryItem: { width: 64, height: 64, overflow: 'hidden', borderWidth: 2 },
+  naturalHistory: { padding: 14 },
   tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   dataTag: { paddingHorizontal: 11, paddingVertical: 7 },
   note: { padding: 14 },

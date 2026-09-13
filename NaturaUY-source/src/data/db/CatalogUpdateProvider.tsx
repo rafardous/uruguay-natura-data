@@ -19,8 +19,11 @@ export function CatalogUpdateProvider({ children }: { children: ReactNode }): Re
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8_000);
-    void database.getFirstAsync<{ value: string }>("SELECT value FROM meta WHERE key = 'data_version'")
-      .then((row) => stageLatestCatalog(Number(row?.value ?? 0), controller.signal))
+    void database.getAllAsync<{ key: string; value: string }>("SELECT key, value FROM meta WHERE key IN ('data_version', 'schema_version')")
+      .then((rows) => {
+        const meta = Object.fromEntries(rows.map((row) => [row.key, row.value]));
+        return stageLatestCatalog(Number(meta.data_version ?? 0), Number(meta.schema_version ?? 0), controller.signal);
+      })
       .then(setState)
       .catch(() => setState('offline'))
       .finally(() => clearTimeout(timeout));

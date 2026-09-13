@@ -2,7 +2,7 @@
   "expo": {
     "name": "Natura UY",
     "slug": "natura-uy",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "scheme": "naturauy",
     "userInterfaceStyle": "automatic",
@@ -19,7 +19,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#CBD8C4"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
     },
     "plugins": [
       "expo-router",
@@ -52,9 +58,9 @@
       "router": {},
       "catalogManifestUrl": "https://uruguay-natura-data.pages.dev/catalog/manifest.json",
       "eas": {
-        "projectId": "6f80d125-ac33-4b1a-8756-0d60df3c1c06"
+        "projectId": "19da2ae0-b85c-4ed8-9dbc-f26fe80c6a8e"
       }
     },
-    "owner": "rafardous"
+    "owner": "rafardousdocente"
   }
 }

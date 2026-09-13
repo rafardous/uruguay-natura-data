@@ -37,9 +37,9 @@ export default function ExploreScreen(): React.JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false); const [sheetOpen, setSheetOpen] = useState(false); const [query, setQuery] = useState(params.q ?? '');
   const [discoverSpecies, setDiscoverSpecies] = useState<Species | null>(null);
   const [applied, setApplied] = useState<SpeciesSelection>(seeded); const [draft, setDraft] = useState<SpeciesSelection>(seeded);
-  const [options, setOptions] = useState({ habitats: [] as string[], diets: [] as string[], seasonalities: [] as string[] });
+  const [options, setOptions] = useState({ habitats: [] as string[], diets: [] as string[], seasonalities: [] as string[], metamorphoses: [] as string[], trophicRoles: [] as string[], microhabitats: [] as string[] });
   const { items: classes } = useTaxonomyChildren('clase', {});
-  useEffect(() => { void Promise.all([speciesRepository.listFilterValues(db, 'habitat'), speciesRepository.listFilterValues(db, 'diet'), speciesRepository.listFilterValues(db, 'seasonality')]).then(([habitats, diets, seasonalities]) => setOptions({ habitats, diets, seasonalities })); }, [db]);
+  useEffect(() => { void Promise.all([speciesRepository.listFilterValues(db, 'habitat'), speciesRepository.listFilterValues(db, 'diet'), speciesRepository.listFilterValues(db, 'seasonality'), speciesRepository.listFilterValues(db, 'metamorphosis'), speciesRepository.listFilterValues(db, 'trophicRole'), speciesRepository.listFilterValues(db, 'microhabitat')]).then(([habitats, diets, seasonalities, metamorphoses, trophicRoles, microhabitats]) => setOptions({ habitats, diets, seasonalities, metamorphoses, trophicRoles, microhabitats })).catch(() => undefined); }, [db]);
   useEffect(() => {
     let active = true;
     void speciesRepository.count(db, { onlyWithPhoto: true }).then((count) => {
@@ -50,7 +50,7 @@ export default function ExploreScreen(): React.JSX.Element {
     return () => { active = false; };
   }, [db]);
   const search = useDebouncedValue(query, 220);
-  const filters = useMemo<SpeciesFilters>(() => ({ search: search.trim() || undefined, onlyNative: applied.onlyNative || undefined, onlyPriority: applied.onlyPriority || undefined, classes: applied.classes.length ? applied.classes : undefined, habitats: applied.habitats.length ? applied.habitats : undefined, diets: applied.diets.length ? applied.diets : undefined, seasonalities: applied.seasonalities.length ? applied.seasonalities : undefined }), [applied, search]);
+  const filters = useMemo<SpeciesFilters>(() => ({ search: search.trim() || undefined, onlyNative: applied.onlyNative || undefined, onlyPriority: applied.onlyPriority || undefined, classes: applied.classes.length ? applied.classes : undefined, habitats: applied.habitats.length ? applied.habitats : undefined, diets: applied.diets.length ? applied.diets : undefined, seasonalities: applied.seasonalities.length ? applied.seasonalities : undefined, metamorphoses: applied.metamorphoses.length ? applied.metamorphoses : undefined, trophicRoles: applied.trophicRoles.length ? applied.trophicRoles : undefined, microhabitats: applied.microhabitats.length ? applied.microhabitats : undefined }), [applied, search]);
   const canShowResults = search.trim().length >= 2 || speciesSelectionCount(applied) > 0 || params.all === '1';
   const scrollY = useSharedValue(0);
   const list = useSpeciesList(filters, canShowResults); const bottom = navigationBottomInset(insets.bottom);
@@ -68,7 +68,7 @@ export default function ExploreScreen(): React.JSX.Element {
   const resultsHeader = <>
     <View style={{ paddingHorizontal: spacing.lg }}>{taxonomyCard}</View>
     <View style={[styles.filterRow, { paddingHorizontal: spacing.lg, marginTop: spacing.xl }]}><View><Text style={[typography.label, { color: colors.text }]}>Resultados</Text><Text style={[typography.caption, { color: colors.textMuted }]}>{list.total} especies</Text></View><Pressable onPress={() => { setDraft(applied); setSheetOpen(true); }} style={[styles.filterButton, { backgroundColor: colors.surfaceVariant }]}><SlidersIcon color={colors.textSecondary} /><Text style={[typography.label, { color: colors.textSecondary }]}>Filtros{speciesSelectionCount(applied) ? ` (${speciesSelectionCount(applied)})` : ''}</Text></Pressable></View>
-    {speciesSelectionCount(applied) > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.active, { paddingHorizontal: spacing.lg }]}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities'] as const).flatMap((key) => applied[key].map((v) => <Chip key={`${key}-${v}`} label={`${friendlyFilterValue(v)} ×`} selected onPress={() => remove(key, v)} />))}</ScrollView>}
+    {speciesSelectionCount(applied) > 0 && <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.active, { paddingHorizontal: spacing.lg }]}>{applied.onlyNative && <Chip label="Nativas ×" selected onPress={() => remove('onlyNative')} />}{applied.onlyPriority && <Chip label="Prioritarias ×" selected onPress={() => remove('onlyPriority')} />}{(['classes', 'habitats', 'diets', 'seasonalities', 'metamorphoses', 'trophicRoles', 'microhabitats'] as const).flatMap((key) => applied[key].map((v) => <Chip key={`${key}-${v}`} label={`${friendlyFilterValue(v)} ×`} selected onPress={() => remove(key, v)} />))}</ScrollView>}
     <View style={{ height: spacing.xxl }} />
   </>;
 

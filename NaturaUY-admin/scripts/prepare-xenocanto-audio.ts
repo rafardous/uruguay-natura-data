@@ -44,7 +44,7 @@ async function main(): Promise<void> {
       if (!response.ok) throw new Error(`XC${clip.id} download HTTP ${response.status}`);
       writeFileSync(input, Buffer.from(await response.arrayBuffer()));
       const output = join(outputDir, `xc-${clip.id}.mp3`);
-      execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(start), '-i', input, '-t', String(duration), '-ac', '1', '-ar', '48000', '-b:a', '96k', output], { stdio: 'inherit' });
+      execFileSync(process.env.FFMPEG_BIN ?? 'ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(start), '-i', input, '-t', String(duration), '-ac', '1', '-ar', '48000', '-b:a', '96k', output], { stdio: 'inherit' });
       console.log(`Generated ${output} for ${clip.scientificName}`);
     }
   } finally {

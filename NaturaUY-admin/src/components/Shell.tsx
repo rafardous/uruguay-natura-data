@@ -1,4 +1,4 @@
-import { BookOpenText, FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Newspaper, Settings, Users } from 'lucide-react';
+import { BookOpenText, FileCheck2, FileClock, Image, LayoutDashboard, Leaf, LogOut, MessageSquareWarning, Newspaper, Users } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 
 import { useAuth } from '../auth/AuthProvider';
@@ -34,7 +34,6 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
           })}
         </nav>
         <div className="sidebar-foot">
-          <button className="nav-item"><Settings size={19} /><span>Configuración</span></button>
           <div className="profile"><span className="avatar">{profile?.displayName.split(' ').map((word) => word[0]).slice(0, 2).join('')}</span><span>{profile?.displayName}<small>{profile?.role === 'admin' ? 'Administrador' : 'Colaborador'}</small></span><button className="icon-button inverse" aria-label="Cerrar sesión" onClick={() => void signOut()}><LogOut size={17} /></button></div>
         </div>
       </aside>

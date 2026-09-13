@@ -1,0 +1,747 @@
+{
+  "generatedAt": "2026-09-12T21:22:00.744Z",
+  "source": "SNAP historical export",
+  "total": 49,
+  "byClass": {
+    "Arachnida": 42,
+    "Insecta": 5,
+    "Malacostraca": 2
+  },
+  "records": [
+    {
+      "sourceRecord": "A_lagotis",
+      "inputName": "Aglaoctenus lagotis",
+      "state": "published_species",
+      "acceptedName": "Aglaoctenus lagotis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Lycosidae",
+        "genus": "Aglaoctenus"
+      }
+    },
+    {
+      "sourceRecord": "A_longipal",
+      "inputName": "Actinopus longipalpis",
+      "state": "published_species",
+      "acceptedName": "Actinopus longipalpis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Actinopodidae",
+        "genus": "Actinopus"
+      }
+    },
+    {
+      "sourceRecord": "A_lorenzo",
+      "inputName": "Anelosimus lorenzo",
+      "state": "published_species",
+      "acceptedName": "Anelosimus lorenzo",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theridiidae",
+        "genus": "Anelosimus"
+      }
+    },
+    {
+      "sourceRecord": "A_marindia",
+      "inputName": "Allocosa marindia",
+      "state": "published_species",
+      "acceptedName": "Allocosa marindia",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Lycosidae",
+        "genus": "Allocosa"
+      }
+    },
+    {
+      "sourceRecord": "A_oblongus",
+      "inputName": "Aglaoctenus oblongus",
+      "state": "published_species",
+      "acceptedName": "Aglaoctenus oblongus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Lycosidae",
+        "genus": "Aglaoctenus"
+      }
+    },
+    {
+      "sourceRecord": "A_senex",
+      "inputName": "Allocosa senex",
+      "state": "published_species",
+      "acceptedName": "Allocosa senex",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Lycosidae",
+        "genus": "Allocosa"
+      }
+    },
+    {
+      "sourceRecord": "A_tacuaren",
+      "inputName": "Acanthogonatus tacuarensis",
+      "state": "published_species",
+      "acceptedName": "Acanthogonatus tacuariensis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pycnothelidae",
+        "genus": "Acanthogonatus"
+      }
+    },
+    {
+      "sourceRecord": "A_vierae",
+      "inputName": "Anelosimus vierae",
+      "state": "published_species",
+      "acceptedName": "Anelosimus vierae",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theridiidae",
+        "genus": "Anelosimus"
+      }
+    },
+    {
+      "sourceRecord": "Aed_aegyp",
+      "inputName": "Aedes aegypti",
+      "state": "published_species",
+      "acceptedName": "Aedes aegypti",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Diptera",
+        "family": "Culicidae",
+        "genus": "Aedes"
+      }
+    },
+    {
+      "sourceRecord": "B_bucherli",
+      "inputName": "Bothriurus bucherli",
+      "state": "candidate_review",
+      "acceptedName": null,
+      "reason": "Resolución needs_review; requiere decisión editorial antes de publicar.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Scorpiones",
+        "family": "Bothriuridae",
+        "genus": "Bothriurus"
+      }
+    },
+    {
+      "sourceRecord": "B_rochensi",
+      "inputName": "Bothriurus rochensis",
+      "state": "published_species",
+      "acceptedName": "Bothriurus rochensis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Scorpiones",
+        "family": "Bothriuridae",
+        "genus": "Bothriurus"
+      }
+    },
+    {
+      "sourceRecord": "B_sp",
+      "inputName": "Bothriurus",
+      "state": "incomplete_name",
+      "acceptedName": null,
+      "reason": "Entrada sin epíteto específico; se conserva en revisión y no se publica como especie.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Scorpiones",
+        "family": "Bothriuridae",
+        "genus": "Bothriurus"
+      }
+    },
+    {
+      "sourceRecord": "C_castanea",
+      "inputName": "Chaco castanea",
+      "state": "published_species",
+      "acceptedName": "Chaco castanea",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pycnothelidae",
+        "genus": "Chaco"
+      }
+    },
+    {
+      "sourceRecord": "C_costai",
+      "inputName": "Chaco costai",
+      "state": "published_species",
+      "acceptedName": "Chaco costai",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pycnothelidae",
+        "genus": "Chaco"
+      }
+    },
+    {
+      "sourceRecord": "C_longipes",
+      "inputName": "Ctenus longipes",
+      "state": "published_species",
+      "acceptedName": "Guasuctenus longipes",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Ctenidae",
+        "genus": "Guasuctenus"
+      }
+    },
+    {
+      "sourceRecord": "C_taim",
+      "inputName": "Cybaeodamus taim",
+      "state": "published_species",
+      "acceptedName": "Cybaeodamus taim",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Zodariidae",
+        "genus": "Cybaeodamus"
+      }
+    },
+    {
+      "sourceRecord": "D_amica",
+      "inputName": "Deinopis amica",
+      "state": "published_species",
+      "acceptedName": "Deinopis amica",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Deinopidae",
+        "genus": "Deinopis"
+      }
+    },
+    {
+      "sourceRecord": "G_andreele",
+      "inputName": "Grammostola andreleetzi",
+      "state": "published_species",
+      "acceptedName": "Grammostola andreleetzi",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Grammostola"
+      }
+    },
+    {
+      "sourceRecord": "G_anthraci",
+      "inputName": "Grammostola anthracina",
+      "state": "published_species",
+      "acceptedName": "Grammostola anthracina",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Grammostola"
+      }
+    },
+    {
+      "sourceRecord": "G_burzaque",
+      "inputName": "Grammostola burzaquensis",
+      "state": "published_species",
+      "acceptedName": "Grammostola burzaquensis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Grammostola"
+      }
+    },
+    {
+      "sourceRecord": "G_fasciata",
+      "inputName": "Gaucha fasciata",
+      "state": "candidate_conflict",
+      "acceptedName": "Gaucha fasciata",
+      "reason": "Resolución conflict; requiere decisión editorial antes de publicar.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Solifugae",
+        "family": "Mummuciidae",
+        "genus": "Gaucha"
+      }
+    },
+    {
+      "sourceRecord": "G_iheringi",
+      "inputName": "Grammostola iheringhi",
+      "state": "published_species",
+      "acceptedName": "Grammostola iheringi",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Grammostola"
+      }
+    },
+    {
+      "sourceRecord": "G_quirogai",
+      "inputName": "Grammostola quirogai",
+      "state": "published_species",
+      "acceptedName": "Grammostola quirogai",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Grammostola"
+      }
+    },
+    {
+      "sourceRecord": "G_zonatus",
+      "inputName": "Gelanor zonatus",
+      "state": "published_species",
+      "acceptedName": "Gelanor zonatus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Mimetidae",
+        "genus": "Gelanor"
+      }
+    },
+    {
+      "sourceRecord": "H_uruguaye",
+      "inputName": "Homoeomma uruguayense",
+      "state": "published_species",
+      "acceptedName": "Homoeomma uruguayense",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Theraphosidae",
+        "genus": "Homoeomma"
+      }
+    },
+    {
+      "sourceRecord": "Hae_irrita",
+      "inputName": "Haematobia irritans",
+      "state": "published_species",
+      "acceptedName": "Haematobia irritans",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Diptera",
+        "family": "Muscidae",
+        "genus": "Haematobia"
+      }
+    },
+    {
+      "sourceRecord": "I_clarus",
+      "inputName": "Idiops clarus",
+      "state": "published_species",
+      "acceptedName": "Idiops clarus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Idiopidae",
+        "genus": "Idiops"
+      }
+    },
+    {
+      "sourceRecord": "L_carbonel",
+      "inputName": "Lycosa carbonelli",
+      "state": "published_species",
+      "acceptedName": "Lycosa carbonelli",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Lycosidae",
+        "genus": "Lycosa"
+      }
+    },
+    {
+      "sourceRecord": "Lig_exotic",
+      "inputName": "Ligia exotica",
+      "state": "published_species",
+      "acceptedName": "Ligia exotica",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Malacostraca",
+        "order": "Isopoda",
+        "family": "Ligiidae",
+        "genus": "Ligia"
+      }
+    },
+    {
+      "sourceRecord": "Lut_longi",
+      "inputName": "Lutzomyia longipalpis",
+      "state": "published_species",
+      "acceptedName": "Lutzomyia longipalpis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Diptera",
+        "family": "Psychodidae",
+        "genus": "Lutzomyia"
+      }
+    },
+    {
+      "sourceRecord": "M_charrua",
+      "inputName": "Mesabolivar charrua",
+      "state": "published_species",
+      "acceptedName": "Mesabolivar charrua",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pholcidae",
+        "genus": "Mesabolivar"
+      }
+    },
+    {
+      "sourceRecord": "M_extraord",
+      "inputName": "Mastophora extraordinaria",
+      "state": "published_species",
+      "acceptedName": "Mastophora extraordinaria",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Araneidae",
+        "genus": "Mastophora"
+      }
+    },
+    {
+      "sourceRecord": "M_gasterac",
+      "inputName": "Mastophora gasteracanthoides",
+      "state": "published_species",
+      "acceptedName": "Mastophora gasteracanthoides",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Araneidae",
+        "genus": "Mastophora"
+      }
+    },
+    {
+      "sourceRecord": "M_satan",
+      "inputName": "Mastophora satan",
+      "state": "published_species",
+      "acceptedName": "Mastophora satan",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Araneidae",
+        "genus": "Mastophora"
+      }
+    },
+    {
+      "sourceRecord": "M_tandilic",
+      "inputName": "Mesabolivar tandilicus",
+      "state": "published_species",
+      "acceptedName": "Mesabolivar tandilicus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pholcidae",
+        "genus": "Mesabolivar"
+      }
+    },
+    {
+      "sourceRecord": "M_thorelli",
+      "inputName": "Mecicobothrium thorelli",
+      "state": "published_species",
+      "acceptedName": "Mecicobothrium thorelli",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Mecicobothriidae",
+        "genus": "Mecicobothrium"
+      }
+    },
+    {
+      "sourceRecord": "M_uruguaye",
+      "inputName": "Mesabolivar uruguayensis",
+      "state": "published_species",
+      "acceptedName": "Mesabolivar uruguayensis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Pholcidae",
+        "genus": "Mesabolivar"
+      }
+    },
+    {
+      "sourceRecord": "M_yacare",
+      "inputName": "Mastophora yacare",
+      "state": "published_species",
+      "acceptedName": "Mastophora yacare",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Araneidae",
+        "genus": "Mastophora"
+      }
+    },
+    {
+      "sourceRecord": "Neo_americ",
+      "inputName": "Neomysis americana",
+      "state": "candidate_conflict",
+      "acceptedName": "Neomysis americana",
+      "reason": "Resolución conflict; requiere decisión editorial antes de publicar.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Malacostraca",
+        "order": "Mysida",
+        "family": "Mysidae",
+        "genus": "Neomysis"
+      }
+    },
+    {
+      "sourceRecord": "O_birabeni",
+      "inputName": "Otiothops birabeni",
+      "state": "published_species",
+      "acceptedName": "Otiothops birabeni",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Palpimanidae",
+        "genus": "Otiothops"
+      }
+    },
+    {
+      "sourceRecord": "P_bimacula",
+      "inputName": "Parampheres bimaculatus",
+      "state": "published_species",
+      "acceptedName": "Parampheres bimaculatus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Opiliones",
+        "family": "Gonyleptidae",
+        "genus": "Parampheres"
+      }
+    },
+    {
+      "sourceRecord": "P_pectinat",
+      "inputName": "Parampheres pectinatus",
+      "state": "published_species",
+      "acceptedName": "Parampheres pectinatus",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Opiliones",
+        "family": "Gonyleptidae",
+        "genus": "Parampheres"
+      }
+    },
+    {
+      "sourceRecord": "Pa_ornata",
+      "inputName": "Paratrechalea ornata",
+      "state": "published_species",
+      "acceptedName": "Paratrechalea ornata",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Trechaleidae",
+        "genus": "Paratrechalea"
+      }
+    },
+    {
+      "sourceRecord": "Ret_flavi",
+      "inputName": "Reticulitermes flavipes",
+      "state": "published_species",
+      "acceptedName": "Reticulitermes flavipes",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Blattodea",
+        "family": "Rhinotermitidae",
+        "genus": "Reticulitermes"
+      }
+    },
+    {
+      "sourceRecord": "T_biocella",
+      "inputName": "Trechaleoides biocellata",
+      "state": "published_species",
+      "acceptedName": "Trechaleoides biocellata",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Trechaleidae",
+        "genus": "Trechaleoides"
+      }
+    },
+    {
+      "sourceRecord": "T_bucculen",
+      "inputName": "Trechalea bucculenta",
+      "state": "published_species",
+      "acceptedName": "Trechalea bucculenta",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Trechaleidae",
+        "genus": "Trechalea"
+      }
+    },
+    {
+      "sourceRecord": "T_keyserli",
+      "inputName": "Trechaleoides keyserlingi",
+      "state": "published_species",
+      "acceptedName": "Trechaleoides keyserlingi",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Araneae",
+        "family": "Trechaleidae",
+        "genus": "Trechaleoides"
+      }
+    },
+    {
+      "sourceRecord": "T_uruguaye",
+      "inputName": "Tityus uruguayensis",
+      "state": "published_species",
+      "acceptedName": "Tityus uruguayensis",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Scorpiones",
+        "family": "Buthidae",
+        "genus": "Tityus"
+      }
+    },
+    {
+      "sourceRecord": "Tri_inf",
+      "inputName": "Triatoma infestans",
+      "state": "published_species",
+      "acceptedName": "Triatoma infestans",
+      "reason": "Resolución taxonómica con evidencia de presencia y fuente de origen.",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Hemiptera",
+        "family": "Reduviidae",
+        "genus": "Triatoma"
+      }
+    }
+  ]
+}

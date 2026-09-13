@@ -62,6 +62,7 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
       depthMaxM: typeof traits.depthMaxM === 'number' ? traits.depthMaxM : null,
       sources: Array.isArray(traits.sources) ? traits.sources : [],
     },
+    naturalHistory: row.natural_history && typeof row.natural_history === 'object' ? row.natural_history : null,
     relevantNote: row.relevant_note ?? '',
     sourceReferences: row.field_sources?.general ?? [],
   };
@@ -80,7 +81,7 @@ function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
     presence_certainty: payload.presenceCertainty, abundance_status: payload.abundanceStatus,
     conservation_system: payload.conservation.system, conservation_category: payload.conservation.category,
     conservation_source: payload.conservation.source, conservation_assessed_at: payload.conservation.assessedAt || null,
-    description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size, traits: payload.traits,
+    description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size, traits: payload.traits, natural_history: payload.naturalHistory ?? {},
     relevant_note: payload.relevantNote, field_sources: { general: payload.sourceReferences.filter(Boolean) },
   };
 }
@@ -110,7 +111,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
   return {
     activeSpecies: data.active_species, retiredSpecies: data.archived_species,
     unreviewedSpecies: data.pending_changes, withImage: data.with_image, withAudio: data.with_audio,
-    pendingMedia: data.pending_media, dirtyChanges: data.dirty_changes,
+    pendingMedia: data.pending_media, dirtyChanges: Boolean(data.dirty_changes),
     lastRelease: data.last_release_version ? String(data.last_release_version) : null, lastPublishedAt: data.last_published_at,
   };
 }

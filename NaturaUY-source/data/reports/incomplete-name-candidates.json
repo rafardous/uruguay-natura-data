@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-12T21:21:59.559Z",
+  "count": 25,
+  "records": [
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Bothriurus",
+      "sourceRecord": "B_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Arachnida",
+        "order": "Scorpiones",
+        "family": "Bothriuridae",
+        "genus": "Bothriurus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Cryptonanus",
+      "sourceRecord": "Cryptonanu",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Didelphimorphia",
+        "family": "Didelphidae",
+        "genus": "Cryptonanus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Gracilinanus",
+      "sourceRecord": "Gracilinan",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Didelphimorphia",
+        "family": "Didelphidae",
+        "genus": "Gracilinanus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Thylamys",
+      "sourceRecord": "Thylamys_s",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Didelphimorphia",
+        "family": "Didelphidae",
+        "genus": "Thylamys"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Heterocheirodon",
+      "sourceRecord": "Heteroc_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Characiformes",
+        "family": "Characidae",
+        "genus": "Heterocheirodon"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Serrapinus",
+      "sourceRecord": "Serrapi_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Characiformes",
+        "family": "Characidae",
+        "genus": "Serrapinus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Serrasalmus",
+      "sourceRecord": "Serrasa_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Characiformes",
+        "family": "Characidae",
+        "genus": "Serrasalmus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Rhamphichthys",
+      "sourceRecord": "Rhamphi_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Gymnotiformes",
+        "family": "Rhamphichthydae",
+        "genus": "Rhamphichthys"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Gymnogeophagus",
+      "sourceRecord": "G_sp1_af_g",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Cichlidae",
+        "genus": "Gymnogeophagus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Gymnogeophagus",
+      "sourceRecord": "G_sp2_arti",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Cichlidae",
+        "genus": "Gymnogeophagus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Gymnogeophagus",
+      "sourceRecord": "G_sp3_arco",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Perciformes",
+        "family": "Cichlidae",
+        "genus": "Gymnogeophagus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Imparfinnis",
+      "sourceRecord": "Imparfi_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Heptapteridae",
+        "genus": "Imparfinnis"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Rhamdella",
+      "sourceRecord": "Rhamdel_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Heptapteridae",
+        "genus": "Rhamdella"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Ancistrus",
+      "sourceRecord": "Ancistr_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Loricariidae",
+        "genus": "Ancistrus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Brochiloricaria",
+      "sourceRecord": "Brochilori",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Loricariidae",
+        "genus": "Brochiloricaria"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Hemiancistrus",
+      "sourceRecord": "Hemianc_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Loricariidae",
+        "genus": "Hemiancistrus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Branchiochia",
+      "sourceRecord": "Branchi_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Branchiochia"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Paravandellia",
+      "sourceRecord": "Paravan_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Paravandellia"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_sp1",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_sp2",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_sp3",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_sp4",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_sp5",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Scleronema",
+      "sourceRecord": "Sclero_spp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Scleronema"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    },
+    {
+      "source": "snap",
+      "sourceName": "SNAP historical export",
+      "inputName": "Stegophilus",
+      "sourceRecord": "Stegoph_sp",
+      "taxonomy": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Siluriformes",
+        "family": "Trichomicteridae",
+        "genus": "Stegophilus"
+      },
+      "reason": "El registro no tiene epíteto específico; requiere resolución editorial."
+    }
+  ]
+}

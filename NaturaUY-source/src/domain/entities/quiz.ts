@@ -1,4 +1,5 @@
 import type { KnowledgeLevel, Species } from './species';
+import { GAME_SCOPES, GAME_SCOPE_ORDER, type GameScope } from './gameScopes';
 export type { KnowledgeLevel } from './species';
 
 export const KNOWLEDGE_LEVELS: { id: KnowledgeLevel; label: string; description: string }[] = [
@@ -8,24 +9,18 @@ export const KNOWLEDGE_LEVELS: { id: KnowledgeLevel; label: string; description:
 ];
 
 export type QuizMode = 'classic' | 'timed' | 'survival' | 'naming';
-export type QuizScope = 'animals_all' | 'birds' | 'mammals' | 'reptiles' | 'amphibians' | 'fish';
+export type QuizScope = GameScope;
 
 export interface QuizScopeConfig {
-  id: QuizScope;
+  id: string;
   label: string;
   classes: string[];
+  taxa: string[];
 }
 
-export const QUIZ_SCOPES: Record<QuizScope, QuizScopeConfig> = {
-  animals_all: { id: 'animals_all', label: 'Todos', classes: [] },
-  birds: { id: 'birds', label: 'Aves', classes: ['Aves'] },
-  mammals: { id: 'mammals', label: 'Mamíferos', classes: ['Mammalia'] },
-  reptiles: { id: 'reptiles', label: 'Reptiles', classes: ['Reptilia'] },
-  amphibians: { id: 'amphibians', label: 'Anfibios', classes: ['Amphibia'] },
-  fish: { id: 'fish', label: 'Peces', classes: ['Actinopterygii', 'Chondrichthyes'] },
-};
+export const QUIZ_SCOPES: Record<QuizScope, QuizScopeConfig> = GAME_SCOPES;
 
-export const QUIZ_SCOPE_ORDER: QuizScope[] = ['animals_all', 'birds', 'mammals', 'reptiles', 'amphibians', 'fish'];
+export const QUIZ_SCOPE_ORDER: QuizScope[] = GAME_SCOPE_ORDER;
 
 export interface QuizModeConfig {
   id: QuizMode;

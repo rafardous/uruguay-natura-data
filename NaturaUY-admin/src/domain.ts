@@ -46,6 +46,18 @@ export interface SpeciesTraitsPayload {
   sources: string[];
 }
 
+export interface SpeciesNaturalHistoryPayload {
+  version: 1;
+  arthropod?: {
+    morphology?: { bodyRegions?: string[]; exoskeleton?: string; legs?: number | null; antennae?: string; wings?: string; cheliceraePedipalps?: string; sources?: string[] };
+    identification?: { diagnosticCharacters?: string[]; similarSpecies?: string[]; sources?: string[] };
+    lifeCycle?: { stages?: string[]; metamorphosis?: 'none' | 'incomplete' | 'complete' | 'variable' | null; sources?: string[] };
+    ecology?: { microhabitat?: string[]; activity?: string[]; trophicRole?: string[]; hosts?: string[]; plantAssociations?: string[]; sources?: string[] };
+    humanRelevance?: { vector?: boolean; pest?: boolean; venomous?: boolean; veterinaryImportance?: boolean; note?: string; sources?: string[] };
+    sources?: string[];
+  };
+}
+
 export interface SpeciesPayload {
   scientificName: string;
   acceptedName: string;
@@ -62,6 +74,7 @@ export interface SpeciesPayload {
   diet: string[];
   size: string;
   traits: SpeciesTraitsPayload;
+  naturalHistory: SpeciesNaturalHistoryPayload | null;
   relevantNote: string;
   sourceReferences: string[];
 }
@@ -102,7 +115,7 @@ export interface DashboardStats {
   withImage: number;
   withAudio: number;
   pendingMedia: number;
-  dirtyChanges: number;
+  dirtyChanges: boolean;
   lastRelease: string | null;
   lastPublishedAt: string | null;
 }
@@ -212,6 +225,6 @@ export const emptySpeciesPayload = (): SpeciesPayload => ({
   origin: 'unknown', establishment: 'uncertain', seasonality: 'unknown', presenceCertainty: 'uncertain',
   abundanceStatus: '', conservation: { system: 'UICN', category: 'NE', source: '', assessedAt: '' },
   description: '', habitat: [], diet: [], size: '',
-  traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+  traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }, naturalHistory: null,
   relevantNote: '', sourceReferences: [],
 });

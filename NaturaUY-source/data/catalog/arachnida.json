@@ -1,0 +1,3434 @@
+[
+  {
+    "id": "acanthogonatus-tacuariensis",
+    "catalogCode": "acanthogonatus-tacuariensis",
+    "scientificName": "Acanthogonatus tacuarensis",
+    "acceptedName": "Acanthogonatus tacuariensis",
+    "commonName": "Araña de tubo",
+    "commonNames": [
+      "Araña de tubo"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pycnothelidae",
+      "genus": "Acanthogonatus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2155159
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/358376189/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/358376189/large.jpg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/202884570",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:358376189",
+        "sourceTaxonId": "810284",
+        "sourceChecksum": null,
+        "width": 1536,
+        "height": 2048,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 1536,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-12T21:09:36.070Z"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_tacuaren",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "actinopus-longipalpis",
+    "catalogCode": "actinopus-longipalpis",
+    "scientificName": "Actinopus longipalpis",
+    "acceptedName": null,
+    "commonName": "Araña albañil negra",
+    "commonNames": [
+      "Araña albañil negra"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Actinopodidae",
+      "genus": "Actinopus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2179713
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_longipal",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "aglaoctenus-lagotis",
+    "catalogCode": "aglaoctenus-lagotis",
+    "scientificName": "Aglaoctenus lagotis",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Lycosidae",
+      "genus": "Aglaoctenus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2146896
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_lagotis",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "aglaoctenus-oblongus",
+    "catalogCode": "aglaoctenus-oblongus",
+    "scientificName": "Aglaoctenus oblongus",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Lycosidae",
+      "genus": "Aglaoctenus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2146894
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/433541386/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/433541386/large.jpeg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/243153552",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:433541386",
+        "sourceTaxonId": "810291",
+        "sourceChecksum": null,
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-12T21:09:44.307Z"
+      },
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_oblongus",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "allocosa-marindia",
+    "catalogCode": "allocosa-marindia",
+    "scientificName": "Allocosa marindia",
+    "acceptedName": null,
+    "commonName": "Araña blanca de la arena chica",
+    "commonNames": [
+      "Araña blanca de la arena chica"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Lycosidae",
+      "genus": "Allocosa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9097495
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_marindia",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "allocosa-senex",
+    "catalogCode": "allocosa-senex",
+    "scientificName": "Allocosa senex",
+    "acceptedName": null,
+    "commonName": "Araña blanca de la arena grande",
+    "commonNames": [
+      "Araña blanca de la arena grande"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Lycosidae",
+      "genus": "Allocosa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8140619
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_senex",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "anelosimus-lorenzo",
+    "catalogCode": "anelosimus-lorenzo",
+    "scientificName": "Anelosimus lorenzo",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theridiidae",
+      "genus": "Anelosimus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2157808
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_lorenzo",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "anelosimus-vierae",
+    "catalogCode": "anelosimus-vierae",
+    "scientificName": "Anelosimus vierae",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theridiidae",
+      "genus": "Anelosimus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7616940
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_vierae",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "bothriurus-rochensis",
+    "catalogCode": "bothriurus-rochensis",
+    "scientificName": "Bothriurus rochensis",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Scorpiones",
+      "family": "Bothriuridae",
+      "genus": "Bothriurus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6894535
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "B_rochensi",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chaco-castanea",
+    "catalogCode": "chaco-castanea",
+    "scientificName": "Chaco castanea",
+    "acceptedName": null,
+    "commonName": "Araña de cortina",
+    "commonNames": [
+      "Araña de cortina"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pycnothelidae",
+      "genus": "Chaco"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8424950
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_castanea",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "chaco-costai",
+    "catalogCode": "chaco-costai",
+    "scientificName": "Chaco costai",
+    "acceptedName": null,
+    "commonName": "Araña de Costa",
+    "commonNames": [
+      "Araña de Costa"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pycnothelidae",
+      "genus": "Chaco"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8023023
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_costai",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "ctenus-longipes",
+    "catalogCode": "ctenus-longipes",
+    "scientificName": "Ctenus longipes",
+    "acceptedName": "Guasuctenus longipes",
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Ctenidae",
+      "genus": "Guasuctenus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 10296585
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_longipes",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "cybaeodamus-taim",
+    "catalogCode": "cybaeodamus-taim",
+    "scientificName": "Cybaeodamus taim",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Zodariidae",
+      "genus": "Cybaeodamus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6719758
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_taim",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "deinopis-amica",
+    "catalogCode": "deinopis-amica",
+    "scientificName": "Deinopis amica",
+    "acceptedName": null,
+    "commonName": "Araña Ogro",
+    "commonNames": [
+      "Araña Ogro"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Deinopidae",
+      "genus": "Deinopis"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2141970
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "D_amica",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "gelanor-zonatus",
+    "catalogCode": "gelanor-zonatus",
+    "scientificName": "Gelanor zonatus",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Mimetidae",
+      "genus": "Gelanor"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2167387
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_zonatus",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "grammostola-andreleetzi",
+    "catalogCode": "grammostola-andreleetzi",
+    "scientificName": "Grammostola andreleetzi",
+    "acceptedName": null,
+    "commonName": "Araña de Leetz",
+    "commonNames": [
+      "Araña de Leetz"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Grammostola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6718384
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_andreele",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "grammostola-anthracina",
+    "catalogCode": "grammostola-anthracina",
+    "scientificName": "Grammostola anthracina",
+    "acceptedName": null,
+    "commonName": "Araña grande del sur",
+    "commonNames": [
+      "Araña grande del sur"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Grammostola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8128825
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_anthraci",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "grammostola-burzaquensis",
+    "catalogCode": "grammostola-burzaquensis",
+    "scientificName": "Grammostola burzaquensis",
+    "acceptedName": null,
+    "commonName": "Araña del Burzaco",
+    "commonNames": [
+      "Araña del Burzaco"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Grammostola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2153725
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_burzaque",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "grammostola-iheringi",
+    "catalogCode": "grammostola-iheringi",
+    "scientificName": "Grammostola iheringhi",
+    "acceptedName": "Grammostola iheringi",
+    "commonName": "Araña de de la Quebrada",
+    "commonNames": [
+      "Araña de de la Quebrada"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Grammostola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2153718
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_iheringi",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "grammostola-quirogai",
+    "catalogCode": "grammostola-quirogai",
+    "scientificName": "Grammostola quirogai",
+    "acceptedName": null,
+    "commonName": "Araña de Quiroga",
+    "commonNames": [
+      "Araña de Quiroga"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Grammostola"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9440926
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "G_quirogai",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "homoeomma-uruguayense",
+    "catalogCode": "homoeomma-uruguayense",
+    "scientificName": "Homoeomma uruguayense",
+    "acceptedName": null,
+    "commonName": "Tarantula enana",
+    "commonNames": [
+      "Tarantula enana"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Theraphosidae",
+      "genus": "Homoeomma"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2153743
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "H_uruguaye",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "idiops-clarus",
+    "catalogCode": "idiops-clarus",
+    "scientificName": "Idiops clarus",
+    "acceptedName": null,
+    "commonName": "Araña albañil marrón",
+    "commonNames": [
+      "Araña albañil marrón"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Idiopidae",
+      "genus": "Idiops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2164537
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "I_clarus",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "lycosa-carbonelli",
+    "catalogCode": "lycosa-carbonelli",
+    "scientificName": "Lycosa carbonelli",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Lycosidae",
+      "genus": "Lycosa"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5169222
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_carbonel",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mastophora-extraordinaria",
+    "catalogCode": "mastophora-extraordinaria",
+    "scientificName": "Mastophora extraordinaria",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Araneidae",
+      "genus": "Mastophora"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5171200
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_extraord",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mastophora-gasteracanthoides",
+    "catalogCode": "mastophora-gasteracanthoides",
+    "scientificName": "Mastophora gasteracanthoides",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Araneidae",
+      "genus": "Mastophora"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5171181
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_gasterac",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mastophora-satan",
+    "catalogCode": "mastophora-satan",
+    "scientificName": "Mastophora satan",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Araneidae",
+      "genus": "Mastophora"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5171187
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_satan",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mastophora-yacare",
+    "catalogCode": "mastophora-yacare",
+    "scientificName": "Mastophora yacare",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Araneidae",
+      "genus": "Mastophora"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5171221
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_yacare",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mecicobothrium-thorelli",
+    "catalogCode": "mecicobothrium-thorelli",
+    "scientificName": "Mecicobothrium thorelli",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Mecicobothriidae",
+      "genus": "Mecicobothrium"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2161139
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_thorelli",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mesabolivar-charrua",
+    "catalogCode": "mesabolivar-charrua",
+    "scientificName": "Mesabolivar charrua",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pholcidae",
+      "genus": "Mesabolivar"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7383916
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_charrua",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mesabolivar-tandilicus",
+    "catalogCode": "mesabolivar-tandilicus",
+    "scientificName": "Mesabolivar tandilicus",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pholcidae",
+      "genus": "Mesabolivar"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2149867
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_tandilic",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "mesabolivar-uruguayensis",
+    "catalogCode": "mesabolivar-uruguayensis",
+    "scientificName": "Mesabolivar uruguayensis",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Pholcidae",
+      "genus": "Mesabolivar"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8339322
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_uruguaye",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "odo-bruchi",
+    "catalogCode": "odo-bruchi",
+    "scientificName": "Odo bruchi",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Xenoctenidae",
+      "genus": "Odo"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2161211
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:0473",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-1",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4452-2",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:4475",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:6941",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14272",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14273",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:14274",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "udelar_spider_collection",
+        "record": "FCIEN-UDELAR:FCE:16929",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "otiothops-birabeni",
+    "catalogCode": "otiothops-birabeni",
+    "scientificName": "Otiothops birabeni",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Palpimanidae",
+      "genus": "Otiothops"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2163747
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "O_birabeni",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "parampheres-bimaculatus",
+    "catalogCode": "parampheres-bimaculatus",
+    "scientificName": "Parampheres bimaculatus",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Opiliones",
+      "family": "Gonyleptidae",
+      "genus": "Parampheres"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6903673
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_bimacula",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "parampheres-pectinatus",
+    "catalogCode": "parampheres-pectinatus",
+    "scientificName": "Parampheres pectinatus",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Opiliones",
+      "family": "Gonyleptidae",
+      "genus": "Parampheres"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6903672
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_pectinat",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "paratrechalea-ornata",
+    "catalogCode": "paratrechalea-ornata",
+    "scientificName": "Paratrechalea ornata",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Trechaleidae",
+      "genus": "Paratrechalea"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2179510
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Pa_ornata",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "tityus-uruguayensis",
+    "catalogCode": "tityus-uruguayensis",
+    "scientificName": "Tityus uruguayensis",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Scorpiones",
+      "family": "Buthidae",
+      "genus": "Tityus"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 6893766
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_uruguaye",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trechalea-bucculenta",
+    "catalogCode": "trechalea-bucculenta",
+    "scientificName": "Trechalea bucculenta",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Trechaleidae",
+      "genus": "Trechalea"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2179537
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_bucculen",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trechaleoides-biocellata",
+    "catalogCode": "trechaleoides-biocellata",
+    "scientificName": "Trechaleoides biocellata",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Trechaleidae",
+      "genus": "Trechaleoides"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2179588
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_biocella",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  },
+  {
+    "id": "trechaleoides-keyserlingi",
+    "catalogCode": "trechaleoides-keyserlingi",
+    "scientificName": "Trechaleoides keyserlingi",
+    "acceptedName": null,
+    "commonName": null,
+    "commonNames": [],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Arachnida",
+      "order": "Araneae",
+      "family": "Trechaleidae",
+      "genus": "Trechaleoides"
+    },
+    "origin": "native",
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2179589
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_keyserli",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

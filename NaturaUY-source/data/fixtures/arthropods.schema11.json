@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 11,
+  "scope": "Uruguay",
+  "records": [
+    { "scientificName": "Aedes aegypti", "class": "Insecta", "order": "Diptera", "family": "Culicidae", "source": "fixture" },
+    { "scientificName": "Grammostola anthracina", "class": "Arachnida", "order": "Araneae", "family": "Theraphosidae", "source": "fixture" },
+    { "scientificName": "Ligia exotica", "class": "Malacostraca", "order": "Isopoda", "family": "Ligiidae", "source": "fixture" },
+    { "scientificName": "Neomysis americana", "class": "Malacostraca", "order": "Mysida", "family": "Mysidae", "source": "fixture" },
+    { "scientificName": "Bothriurus", "class": "Arachnida", "order": "Scorpiones", "family": "Bothriuridae", "source": "fixture", "status": "needs_review", "reason": "Genus without specific epithet" }
+  ]
+}

@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select extensions.plan(7);
+select extensions.plan(8);
 
 insert into auth.users(instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values
  ('00000000-0000-0000-0000-000000000000','55555555-5555-4555-8555-555555555555','authenticated','authenticated','sync-one@example.test','',now(),'{}','{}',now(),now()),
@@ -30,6 +30,10 @@ select extensions.lives_ok(
   $$select public.sync_puzzle_records('[{"scope":"birds","gridSize":3,"bestTimeMs":9000,"fewestMoves":30,"playedAt":100,"updatedAt":100}]'::jsonb)$$,
   'puzzle record sync succeeds'
 );
+select extensions.lives_ok(
+  $$select public.sync_puzzle_records('[{"scope":"insects:easy","gridSize":4,"bestTimeMs":12000,"fewestMoves":60,"playedAt":101,"updatedAt":101}]'::jsonb)$$,
+  'arthropod level scope sync succeeds'
+);
 select extensions.is(
   jsonb_array_length(public.get_personal_mobile_progress()->'quizRecords'),
   1,
@@ -37,8 +41,8 @@ select extensions.is(
 );
 select extensions.is(
   jsonb_array_length(public.get_personal_mobile_progress()->'puzzleRecords'),
-  1,
-  'personal progress returns puzzle records'
+  2,
+  'personal progress returns old and arthropod puzzle records'
 );
 reset role;
 

@@ -12,7 +12,7 @@ import { assertCatalogManifest, type CatalogManifestContract } from './catalogMa
 const STAGED_DATABASE_NAME = 'natura.next.db';
 const PREVIOUS_DATABASE_NAME = 'natura.previous.db';
 const BUNDLED_DATABASE_NAME = 'natura.bundled.db';
-export const SUPPORTED_CATALOG_SCHEMA = 10;
+export const SUPPORTED_CATALOG_SCHEMA = 11;
 
 export type CatalogManifest = CatalogManifestContract;
 export { assertCatalogManifest } from './catalogManifestValidation';
@@ -101,7 +101,7 @@ async function sha256(file: File): Promise<string> {
   return [...new Uint8Array(result)].map((value) => value.toString(16).padStart(2, '0')).join('');
 }
 
-export async function stageLatestCatalog(currentDataVersion: number, signal?: AbortSignal): Promise<'current' | 'staged' | 'app_update_required'> {
+export async function stageLatestCatalog(currentDataVersion: number, currentSchemaVersion: number, signal?: AbortSignal): Promise<'current' | 'staged' | 'app_update_required'> {
   const configured = process.env.EXPO_PUBLIC_CATALOG_MANIFEST_URL
     ?? (Constants.expoConfig?.extra?.catalogManifestUrl as string | undefined);
   if (!configured) return 'current';
@@ -111,7 +111,7 @@ export async function stageLatestCatalog(currentDataVersion: number, signal?: Ab
   const manifestValue = await response.json() as unknown;
   assertCatalogManifest(manifestValue);
   const manifest = manifestValue;
-  const decision = decideCatalogUpdate({ dataVersion: manifest.data_version, schemaVersion: manifest.schema_version, minAppVersion: manifest.min_app_version }, currentDataVersion, SUPPORTED_CATALOG_SCHEMA, Constants.expoConfig?.version ?? '0.0.0');
+  const decision = decideCatalogUpdate({ dataVersion: manifest.data_version, schemaVersion: manifest.schema_version, minAppVersion: manifest.min_app_version }, currentDataVersion, currentSchemaVersion, SUPPORTED_CATALOG_SCHEMA, Constants.expoConfig?.version ?? '0.0.0');
   if (decision !== 'stage') return decision;
   const staged = databaseFile(STAGED_DATABASE_NAME);
   if (staged.exists) staged.delete();

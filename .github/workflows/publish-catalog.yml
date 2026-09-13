@@ -63,6 +63,9 @@ jobs:
           dist/catalog/amphibia.json
           dist/catalog/actinopterygii.json
           dist/catalog/chondrichthyes.json
+          dist/catalog/arachnida.json
+          dist/catalog/insecta.json
+          dist/catalog/malacostraca.json
           dist/catalog/manifest.json
           dist/catalog/quality-report.json
           --title "Catálogo Natura UY v${DATA_VERSION}"

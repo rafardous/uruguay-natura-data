@@ -1,6 +1,6 @@
 # Natura UY
 
-Guía de campo de la biodiversidad uruguaya. App React Native (Expo) para Android e iOS, con las 2021 especies del listado SNAP.
+Guía de campo de la biodiversidad uruguaya. App React Native (Expo) para Android e iOS, con un catálogo offline de 902 especies consolidadas desde 1006 registros de entrada. El pipeline también deja preparada la expansión de artrópodos de Uruguay.
 
 ## Requisitos
 
@@ -82,7 +82,7 @@ Las fichas distinguen abundancia experta de observabilidad pública. La segunda 
 
 ## Pipeline de datos
 
-Convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Se corre una sola vez; el resultado se versiona.
+El pipeline histórico (`data:all`) convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Para el catálogo editorial vigente se usa el pipeline por grupos de schema 11 descrito abajo; los endpoints sólo se consultan durante esas etapas y la app sigue funcionando con SQLite y medios publicados.
 
 ```bash
 npm run data:all
@@ -108,18 +108,54 @@ npx tsx scripts/03-fetch-media.ts --limit 20
 
 > Solo se descargan imágenes CC0 y CC BY. CC BY exige atribución: el fotógrafo aparece en cada ficha y en la pantalla de Créditos. No cambies el filtro de licencias sin revisar eso.
 
-### Catálogo por grupos (`data/catalog`)
+Antes de normalizar la expansión de artrópodos se puede actualizar el backlog
+de descubrimiento en GBIF. La faceta de ocurrencias devuelve hasta 1.000
+taxones ordenados por cantidad de registros; por defecto sólo prioriza 150
+para revisión editorial. Los detalles se cachean por lote y quedan como
+`candidate_only`, sin entrar automáticamente a `data/catalog/`:
 
-El catálogo nuevo combina las fuentes públicas, resuelve nombres con GBIF y
-busca una imagen redistribuible por nombre científico aceptado:
+```bash
+npm run data:arthropod-discovery -- --batch=50
+npm run data:arthropod-discovery -- --refresh --batch=50
+npm run data:arthropod-discovery -- --max-taxa=250 --batch=50
+```
+
+El resultado queda en `data/reports/arthropod-discovery-candidates.json` y la
+respuesta reproducible en `data/cache/gbif/arthropod-discovery.json` sólo
+después de una corrida exitosa. El inventario se pagina cuando la faceta
+alcanza 1.000 taxones; no se toma ese límite como total y los snapshots
+truncados anteriores fueron retirados. El backlog editorial se limita por
+lote para revisión, pero nunca se publica automáticamente. La promoción al
+catálogo exige resolver el nombre, comprobar presencia en Uruguay, conseguir
+medios con licencia válida y aprobar la ficha en el panel.
+
+### Catálogo editorial por grupos (`data/catalog`, schema 11)
+
+El catálogo nuevo combina fuentes locales, resuelve nombres con GBIF v2 y
+busca una imagen redistribuible por nombre científico aceptado. La jerarquía ya
+no está limitada a Chordata: incluye `Arthropoda`, `Arachnida`, `Insecta` y
+`Malacostraca`.
 
 ```bash
 npm run data:catalog-all
 ```
 
+El flujo se divide en dos comandos reproducibles: `data:catalog-refresh`
+descarga snapshots con checksum en `data/raw/<proveedor>/`, pagina GBIF y
+actualiza cachés de resolución/medios; `data:catalog-build` trabaja
+exclusivamente offline desde esos snapshots y cachés fijados. Los tres datasets abiertos de artrópodos quedan
+en `raw/udelar/`, `raw/gbif/` y `raw/biodiversidata/`; sus DOI y endpoints están
+registrados en `data/raw/sources.json`. La planilla de EcoRegistros se conserva
+únicamente en `raw/ecoregistros.org/insectos-uruguay/restricted/`, ignorada por
+Git y usada sólo para contraste editorial. El parser reconoce la planilla HTML
+Latin-1 (1.221 filas: 876 nombres binomiales y 344 entradas incompletas o
+inciertas) y nunca convierte sus filas en especies publicables.
+
 La etapa de imágenes consulta iNaturalist primero y Wikimedia como respaldo.
-Solo acepta licencias reutilizables, guarda URL mediana y grande, licencia,
-atribución, fuente y página original. El resultado reanudable queda en
+Sólo acepta CC0 o CC BY 4.0 verificable; conserva la licencia original exacta,
+rechaza CC BY-NC/SA/ND, licencias ausentes y dimensiones insuficientes, y guarda
+URL mediana y grande, atribución, fuente, página, checksum/ID cuando existe.
+El resultado reanudable queda en
 `data/cache/media/species-media.json` y se integra en `media.image` dentro de
 los JSON de `data/catalog/` sin reemplazar los campos enriquecidos existentes.
 Luego `data:catalog-db` consolida las apariciones repetidas por especie, conserva
@@ -134,14 +170,39 @@ crear su JSON y publicar el contenido equivalente mediante una migración de
 Supabase. La compatibilidad de GBIF para Reptilia normaliza únicamente
 `Crocodylia`, `Squamata` y `Testudines` cuando llegan en el campo de clase.
 
-El registro de fuentes y licencias vive en `data/catalog-source-registry.json`. Para los cuatro grupos prioritarios, el flujo genera diferencias por campo y una lista explícita de posibles exclusiones; no borra ni rectifica especies automáticamente:
+La corrida histórica contiene 49 registros de artrópodos (42 Arachnida, 5
+Insecta y 2 Malacostraca). Los nombres sin epíteto específico, incluido
+`Bothriurus`, se preservan en `data/reports/incomplete-name-candidates.json` para
+decisión editorial. `data/fixtures/arthropods.schema11.json` cubre los casos de
+prueba `Aedes aegypti`, `Grammostola anthracina`, `Ligia exotica`, `Neomysis
+americana` y el incompleto.
+
+La ilustración de la tarjeta `Arthropoda` se acompaña de una verificación GBIF
+separada en `data/reports/arthropoda-illustration-verification.json`: los cinco
+taxones representados tienen coincidencia taxonómica exacta y registros de
+ocurrencia en Uruguay. Esa evidencia sólo valida la selección de la lámina; no
+se usa como media de especie ni publica automáticamente candidatos.
+
+El registro de fuentes y licencias vive en `data/catalog-source-registry.json`. Para los grupos objetivo, el flujo genera diferencias por campo y una lista explícita de posibles exclusiones; no borra ni rectifica especies automáticamente:
 
 ```bash
 npm run data:enrichment-candidates
 npm run data:observability -- --batch=25
+npm run data:external-discovery -- --batch=25
 ```
 
-Los resultados quedan en `data/reports/target-group-enrichment-candidates.json` y `data/reports/observability-snapshots.json`. FishBase y cualquier fuente sin licencia redistribuible se usan sólo para revisión, nunca como contenido copiado al catálogo.
+Los resultados quedan en `data/reports/target-group-enrichment-candidates.json`,
+`data/reports/observability-snapshots.json` y
+`data/reports/external-enrichment-candidates.json`. Catalogue of Life y WoRMS
+pueden proponer identificadores; BOLD sólo informa cobertura de barcodes/BINs.
+FishBase, iNaturalist taxonómica y cualquier fuente sin licencia redistribuible
+se usan sólo para revisión, nunca como contenido copiado automáticamente al
+catálogo.
+
+El modelo schema 11 agrega `taxonIdentifiers`, `naturalHistory` específico de
+artrópodos y `distributionSummary`. La galería conserva hasta dos imágenes con
+rol editorial implícito (principal, diagnóstica, etapa o detalle) y los filtros
+offline incluyen metamorfosis, rol trófico y microhábitat cuando hay datos.
 
 Para validar una muestra pequeña antes de procesar todo el catálogo:
 
@@ -246,4 +307,4 @@ Dos capas:
 
 ## Créditos
 
-Datos: SNAP (Ministerio de Ambiente, Uruguay) · Taxonomía: GBIF · Fotos: iNaturalist y Wikimedia Commons (CC0 / CC BY).
+Datos: SNAP y fuentes locales uruguayas · Taxonomía inicial: GBIF, con revisión de Catalogue of Life/WoRMS · Fotos: iNaturalist y Wikimedia Commons sólo con licencia publicada y verificable.

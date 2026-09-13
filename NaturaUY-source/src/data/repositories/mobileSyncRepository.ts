@@ -1,7 +1,7 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 import { mobileSupabase } from '../../lib/supabase';
-import { favoriteChangesPayload, gameResultPayload } from '../../domain/services/syncContracts';
+import { chunkForSync, favoriteChangesPayload, gameResultPayload } from '../../domain/services/syncContracts';
 import { settingsRepository } from './settingsRepository';
 
 interface FavoriteSyncRow {
@@ -155,19 +155,21 @@ async function syncGames(db: SQLiteDatabase): Promise<void> {
 async function syncPuzzles(db: SQLiteDatabase): Promise<void> {
   if (!mobileSupabase) return;
   const puzzleRecords = await db.getAllAsync<PuzzleSyncRow>(
-    'SELECT scope, grid_size, best_time_ms, fewest_moves, played_at, updated_at FROM puzzle_records LIMIT 24',
+    'SELECT scope, grid_size, best_time_ms, fewest_moves, played_at, updated_at FROM puzzle_records ORDER BY scope, grid_size',
   );
-  const { error } = await mobileSupabase.rpc('sync_puzzle_records', {
-    p_records: puzzleRecords.map((row) => ({
-      scope: row.scope,
-      gridSize: row.grid_size,
-      bestTimeMs: row.best_time_ms,
-      fewestMoves: row.fewest_moves,
-      playedAt: row.played_at,
-      updatedAt: row.updated_at,
-    })),
-  });
-  if (error) throw error;
+  for (const batch of chunkForSync(puzzleRecords, 24)) {
+    const { error } = await mobileSupabase.rpc('sync_puzzle_records', {
+      p_records: batch.map((row) => ({
+        scope: row.scope,
+        gridSize: row.grid_size,
+        bestTimeMs: row.best_time_ms,
+        fewestMoves: row.fewest_moves,
+        playedAt: row.played_at,
+        updatedAt: row.updated_at,
+      })),
+    });
+    if (error) throw error;
+  }
 }
 
 async function pullProgress(db: SQLiteDatabase): Promise<void> {

@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { AppState } from 'react-native';
+import { Asset } from 'expo-asset';
 import { setAudioModeAsync, setIsAudioActiveAsync, useAudioPlayer, useAudioPlayerStatus, type AudioPlayer } from 'expo-audio';
 import { Directory, File, Paths } from 'expo-file-system';
 
@@ -9,6 +10,7 @@ const cacheDirectory = new Directory(Paths.cache, 'natura-audio');
 export interface PlayableSpeciesAudio {
   id: string;
   url: string;
+  assetModule?: number | null;
   durationSeconds?: number | null;
   attribution: string;
   source: string;
@@ -43,6 +45,12 @@ function getCacheFile(audio: PlayableSpeciesAudio): File {
 }
 
 async function cachedUri(audio: PlayableSpeciesAudio): Promise<string> {
+  if (audio.assetModule) {
+    const asset = Asset.fromModule(audio.assetModule);
+    await asset.downloadAsync();
+    if (!asset.localUri && !asset.uri) throw new Error('Bundled audio asset has no local URI');
+    return asset.localUri ?? asset.uri;
+  }
   cacheDirectory.create({ idempotent: true, intermediates: true });
   const file = getCacheFile(audio);
   if (!file.exists) await File.downloadFileAsync(audio.url, file, { idempotent: true });

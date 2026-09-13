@@ -17,6 +17,7 @@ NaturaUY-source/ios/
 NaturaUY-source/dist/
 NaturaUY-source/web-build/
 NaturaUY-source/.metro-cache/
+NaturaUY-source/.gradle-user-home/
 NaturaUY-source/expo-env.d.ts
 
 # Data-pipeline intermediates and local caches
@@ -24,6 +25,7 @@ NaturaUY-source/scripts/.cache/
 NaturaUY-source/scripts/out/
 NaturaUY-source/data/raw/traits/*
 !NaturaUY-source/data/raw/traits/README.md
+NaturaUY-source/assets/audio/
 
 # Local configuration and secrets
 .env
@@ -44,3 +46,5 @@ npm-debug.*
 .DS_Store
 Thumbs.db
 .idea/
+# Fuentes restringidas usadas sólo para contraste editorial; no redistribuir.
+NaturaUY-source/data/raw/ecoregistros.org/insectos-uruguay/restricted/

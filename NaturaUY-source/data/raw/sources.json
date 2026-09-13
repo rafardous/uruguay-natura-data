@@ -1,5 +1,6 @@
 {
-  "retrievedAt": "2026-08-22T22:49:15.724Z",
+  "schemaVersion": 2,
+  "retrievedAt": "2026-09-12T21:04:48.866Z",
   "sources": [
     {
       "id": "biodiversidata",
@@ -7,7 +8,13 @@
       "type": "occurrence",
       "license": "CC BY 4.0",
       "url": "https://cloud.gbif.org/uy/archive.do?r=tetrapodos_de_uruguay",
-      "rawFile": "C:\\Users\\rafar\\Documents\\2026 - proyects\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\biodiversidata\\tetrapodos-de-uruguay.zip"
+      "doi": null,
+      "retrievedAt": "2026-09-12T21:04:48.867Z",
+      "rawFile": "raw/biodiversidata/tetrapodos-de-uruguay.zip",
+      "format": "zip",
+      "sizeBytes": 91227,
+      "sha256": "3ef01128e4ab4f8485d8d1724d7c3413c1758534b9ae5f69d52d57a29320f38d",
+      "usePolicy": "redistributable_snapshot"
     },
     {
       "id": "ministerio",
@@ -15,7 +22,69 @@
       "type": "checklist",
       "license": null,
       "url": "https://cloud.gbif.org/uy/archive.do?r=listas_rojas_fauna_uy",
-      "rawFile": "C:\\Users\\rafar\\Documents\\2026 - proyects\\uruguay-natura-data\\NaturaUY-source\\data\\raw\\ministerio\\listas-rojas-fauna-uy.zip"
+      "doi": null,
+      "retrievedAt": "2026-09-12T21:04:48.868Z",
+      "rawFile": "raw/ministerio/listas-rojas-fauna-uy.zip",
+      "format": "zip",
+      "sizeBytes": 34772,
+      "sha256": "6b68097fba4612d985f1cc866c3773d64752006ed9034ba269183f351eb1d483",
+      "usePolicy": "redistributable_snapshot"
+    },
+    {
+      "id": "udelar_spider_collection",
+      "title": "Colección de arañas de Facultad de Ciencias, UdelaR",
+      "type": "occurrence",
+      "license": "CC BY 4.0",
+      "url": "https://cloud.gbif.org/uy/archive.do?r=coleccion_aranas_fcien_1",
+      "doi": "10.15468/u6fa5g",
+      "retrievedAt": "2026-09-12T21:04:48.868Z",
+      "rawFile": "raw/udelar/coleccion-aranas-u6fa5g.zip",
+      "format": "zip",
+      "sizeBytes": 4648,
+      "sha256": "9ce805a5c6d6c1b3117c1a46903171d3e693fec4712a339be78d47f72881085a",
+      "usePolicy": "redistributable_snapshot"
+    },
+    {
+      "id": "uruguay_hymenoptera_parasitoids",
+      "title": "Parasitoides de Uruguay",
+      "type": "occurrence",
+      "license": "CC BY 4.0",
+      "url": "https://cloud.gbif.org/uy/archive.do?r=parasitoides_uruguay_2025",
+      "doi": "10.15468/mu3rcs",
+      "retrievedAt": "2026-09-12T21:04:48.869Z",
+      "rawFile": "raw/gbif/parasitoides-hymenoptera-mu3rcs.zip",
+      "format": "zip",
+      "sizeBytes": 8714,
+      "sha256": "c3a690851000ebd63b58e4bfc7d8f1141ac8b7d0af8dff54de4b015835032d42",
+      "usePolicy": "redistributable_snapshot"
+    },
+    {
+      "id": "rocha_temporary_pools",
+      "title": "Metacomunidad de charcos temporales de Rocha",
+      "type": "occurrence",
+      "license": "CC BY 4.0",
+      "url": "https://cloud.gbif.org/uy/archive.do?r=uy_ponds_2008",
+      "doi": "10.15468/s7yrey",
+      "retrievedAt": "2026-09-12T21:04:48.869Z",
+      "rawFile": "raw/biodiversidata/charcos-temporales-rocha-s7yrey.zip",
+      "format": "zip",
+      "sizeBytes": 172237,
+      "sha256": "48c63a76818979ef5a6b31b16a51d4c9a353737f29f5a2d3ca0c42d518edaab5",
+      "usePolicy": "redistributable_snapshot"
+    },
+    {
+      "id": "ecoregistros_insectos_uruguay",
+      "title": "EcoRegistros: insectos de Uruguay",
+      "type": "discovery_reference",
+      "license": "restricted",
+      "url": "https://www.ecoregistros.org/site/pais.php?id=55&idgrupoclase=2&page=2",
+      "doi": null,
+      "retrievedAt": "2026-09-12T21:04:48.870Z",
+      "rawFile": "raw/ecoregistros.org/insectos-uruguay/restricted/insectos-Uruguay.xls",
+      "format": "html-table-latin1",
+      "sizeBytes": 774087,
+      "sha256": "bcef92dbba840c64833884de7c766a9f4aeb451173fbfc7d92e15d8e8562f804",
+      "usePolicy": "discovery_only_no_redistribution"
     }
   ]
 }

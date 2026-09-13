@@ -1,0 +1,25 @@
+.git/
+**/node_modules/
+**/.expo/
+**/android/
+**/ios/
+**/dist/
+**/web-build/
+**/.metro-cache/
+**/.gradle-user-home/
+**/.android-user-home/
+**/.android-emulator-home/
+**/scripts/.cache/
+**/scripts/out/
+**/*.orig.*
+**/*.log
+**/.env*
+!.env.example
+**/*.jks
+**/*.p8
+**/*.p12
+**/*.key
+**/*.mobileprovision
+.eas-inspect/
+
+# El catálogo, miniaturas y audio aprobado forman parte de la APK.

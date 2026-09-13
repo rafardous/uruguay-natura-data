@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ligia-exotica",
+    "catalogCode": "ligia-exotica",
+    "scientificName": "Ligia exotica",
+    "acceptedName": null,
+    "commonName": "Piojo de mar",
+    "commonNames": [
+      "Piojo de mar"
+    ],
+    "taxonomy": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Malacostraca",
+      "order": "Isopoda",
+      "family": "Ligiidae",
+      "genus": "Ligia"
+    },
+    "origin": null,
+    "seasonality": null,
+    "abundanceStatus": null,
+    "description": null,
+    "habitat": [],
+    "diet": null,
+    "size": null,
+    "relevantNote": null,
+    "traits": {
+      "measurements": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "sources": []
+    },
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5175654
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "sources": [
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.genus"
+      }
+    ],
+    "reviewStatus": "unreviewed"
+  }
+]

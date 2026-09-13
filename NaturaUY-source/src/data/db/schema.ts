@@ -8,11 +8,15 @@ export interface SpeciesRow {
   common_names: string;
   kingdom: string;
   phylum: string;
+  subfilo?: string;
   clase: string;
   orden: string;
   familia: string;
   genero: string;
   epiteto: string;
+  taxon_identifiers?: string;
+  natural_history?: string;
+  distribution_summary?: string;
   estado_conservacion: string;
   conservation_label: string;
   conservation_rank: number;

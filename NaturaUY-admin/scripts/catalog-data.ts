@@ -21,7 +21,7 @@ export interface CatalogRecord {
   catalogSources: DatabaseRow[];
 }
 
-const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes'] as const;
+const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes', 'arachnida', 'insecta', 'malacostraca'] as const;
 
 async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
   const client = adminClient();
@@ -144,10 +144,46 @@ export function serializeCatalogRecord(record: CatalogRecord) {
       fieldPath,
       sourceCode,
       name: source?.name ?? sourceCode,
+      version: source?.version_label ?? null,
       url: source?.url ?? null,
       citation: source?.citation ?? null,
       license: source?.license ?? null,
     };
+  };
+  const naturalHistoryReference = (fieldPath: string, value: unknown) => {
+    if (typeof value === 'string') return reference(fieldPath, value);
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const raw = value as Record<string, any>;
+    const code = typeof raw.sourceCode === 'string' ? raw.sourceCode : typeof raw.source === 'string' ? raw.source : null;
+    if (!code) return null;
+    const base = reference(fieldPath, raw.record ? `${code}: ${raw.record}` : code);
+    return { ...base, ...raw, source: raw.source ?? code, sourceCode: raw.sourceCode ?? code, fieldPath: raw.fieldPath ?? fieldPath, record: raw.record ?? null };
+  };
+  const normalizeNaturalHistory = (value: unknown): Record<string, any> | null => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const history = JSON.parse(JSON.stringify(value)) as Record<string, any>;
+    const arthropod = history.arthropod;
+    if (!arthropod || typeof arthropod !== 'object' || Array.isArray(arthropod)) return history;
+    const sections: Array<[string, string]> = [
+      ['morphology', 'naturalHistory.morphology'], ['identification', 'naturalHistory.identification'],
+      ['lifeCycle', 'naturalHistory.lifeCycle'], ['ecology', 'naturalHistory.ecology'],
+      ['humanRelevance', 'naturalHistory.humanRelevance'],
+    ];
+    for (const [section, fieldPath] of sections) {
+      const target = arthropod[section];
+      if (!target || typeof target !== 'object' || Array.isArray(target) || !Array.isArray(target.sources)) continue;
+      target.sources = target.sources.flatMap((item: unknown) => {
+        const normalized = naturalHistoryReference(fieldPath, item);
+        return normalized ? [normalized] : [];
+      });
+    }
+    if (Array.isArray(arthropod.sources)) {
+      arthropod.sources = arthropod.sources.flatMap((item: unknown) => {
+        const normalized = naturalHistoryReference('naturalHistory', item);
+        return normalized ? [normalized] : [];
+      });
+    }
+    return history;
   };
   const fieldReferences = Object.entries(species.field_sources ?? {}).flatMap(([field, references]) =>
     (references as string[]).map((value) => reference(field, value)));
@@ -172,6 +208,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
       family: species.family,
       genus: species.genus,
     },
+    taxonIdentifiers: species.taxon_identifiers ?? {},
     origin: species.origin,
     establishment: species.establishment,
     seasonality: species.seasonality,
@@ -213,6 +250,8 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     diet: species.diet ?? [],
     size: species.size,
     traits: species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+    naturalHistory: normalizeNaturalHistory(species.natural_history ?? null),
+    distributionSummary: species.distribution_summary ?? null,
     relevantNote: species.relevant_note,
     sources: [...fieldReferences, ...traitReferences, ...factReferences].filter((item, index, all) =>
       all.findIndex((candidate) => `${candidate.fieldPath}|${candidate.sourceCode}|${candidate.record}` === `${item.fieldPath}|${item.sourceCode}|${item.record}`) === index),
@@ -224,9 +263,11 @@ export function serializeCatalogRecord(record: CatalogRecord) {
         attribution: record.image.author,
         source: record.image.source,
         sourcePage: record.image.source_url,
+        originalLicense: record.image.original_license ?? null,
         licenseUrl: record.image.license_url,
         externalId: record.image.external_id,
         sourceTaxonId: record.image.source_taxon_id,
+        sourceChecksum: (record.image.selection_details as Record<string, unknown> | null | undefined)?.sourceChecksum as string | null | undefined,
         width: record.image.source_width,
         height: record.image.source_height,
         selectionScore: record.image.selection_score,
@@ -235,7 +276,8 @@ export function serializeCatalogRecord(record: CatalogRecord) {
       } : null,
       images: record.images.map((image) => ({
         url: publicMediaUrl(image.thumbnail_path ?? image.storage_path), fullUrl: publicMediaUrl(image.storage_path), license: image.license,
-        attribution: image.author, source: image.source, sourcePage: image.source_url,
+        originalLicense: image.original_license ?? null, attribution: image.author, source: image.source, sourcePage: image.source_url,
+        sourceChecksum: (image.selection_details as Record<string, unknown> | null | undefined)?.sourceChecksum as string | null | undefined,
       })),
       audio: record.audio ? {
         url: record.audioUrl,

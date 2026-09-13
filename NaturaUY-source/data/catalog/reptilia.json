@@ -54,11 +54,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2009"
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2009",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "A_spixii"
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_spixii",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -74,6 +126,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
+    },
+    "catalogCode": "A_spixii",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9752971
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": {
+      "periodStart": "2016-01-01",
+      "periodEnd": "2025-12-31",
+      "occurrenceCount": 20,
+      "confidence": "insufficient_data"
     }
   },
   {
@@ -123,7 +189,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "A_darwinii"
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_darwinii",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -139,6 +231,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
+    },
+    "catalogCode": "A_darwinii",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2472952
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": {
+      "periodStart": "2016-01-01",
+      "periodEnd": "2025-12-31",
+      "occurrenceCount": 61,
+      "confidence": "insufficient_data"
     }
   },
   {
@@ -188,11 +294,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2017"
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2017",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "A_kingii"
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_kingii",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -208,11 +366,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "A_kingii",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8181638
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "leposternon-microcephalum",
-    "scientificName": "Leposternon microcephalum",
+    "scientificName": "Amphisbaena microcephala",
     "commonName": "Víbora ciega de cabeza chica",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -257,7 +424,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "A_microcep"
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_microcep",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -273,7 +466,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "A_microcep",
+    "acceptedName": "Leposternon microcephalum",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2473032
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "amphisbaena-munoai",
@@ -302,11 +504,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2021"
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2021",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "A_munoai"
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_munoai",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -322,7 +576,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "A_munoai",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2473004
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "anisolepis-undulatus",
@@ -351,7 +614,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "A_undulatu"
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_undulatu",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -367,7 +656,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "A_undulatu",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5226372
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "atractus-reticulatus",
@@ -396,11 +694,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2008"
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2008",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "A_reticula"
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "A_reticula",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -416,7 +766,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "A_reticula",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5223931
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "boiruna-maculata",
@@ -465,15 +824,93 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:31"
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2037"
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:31",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2037",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "B_maculata"
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "B_maculata",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -489,11 +926,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "B_maculata",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2453899
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "bothrops-pubescens",
-    "scientificName": "Bothrops pubescens",
+    "scientificName": "Bothropoides pubescens",
     "commonName": "Yarará",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -538,7 +984,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "B_pubescen"
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "B_pubescen",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -554,12 +1026,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "B_pubescen",
+    "acceptedName": "Bothrops pubescens",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7855440
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "bothrops-pubescens",
     "scientificName": "Bothrops pubescens",
-    "commonName": "yarará",
+    "commonName": "Yarará",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -603,28 +1084,158 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:32"
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:33"
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:34"
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:35"
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.order"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:36"
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:32",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:33",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:34",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:35",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:36",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "yarará"
+      "Yarará"
     ],
     "traits": {
       "measurements": [],
@@ -635,7 +1246,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "B_pubescen",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7855440
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "caiman-latirostris",
@@ -684,7 +1304,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_latirost"
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_latirost",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -700,7 +1346,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_latirost",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5846511
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "calamodontophis-paucidens",
@@ -749,7 +1404,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_pauciden"
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_pauciden",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -765,7 +1446,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_pauciden",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2455126
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "caretta-caretta",
@@ -814,7 +1504,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_caretta"
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_caretta",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -830,7 +1546,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_caretta",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8894817
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "cercosaura-schreibersii",
@@ -879,19 +1604,123 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2016"
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2023"
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2025"
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2016",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2023",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2025",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "C_schreibe"
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_schreibe",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -907,7 +1736,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_schreibe",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2450435
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "chelonia-mydas",
@@ -956,7 +1794,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_mydas"
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_mydas",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -972,7 +1836,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_mydas",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442225
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "chironius-bicarinatus",
@@ -1021,7 +1894,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_bicarina"
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_bicarina",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1037,11 +1936,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_bicarina",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2457245
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "paraphimophis-rusticus",
-    "scientificName": "Paraphimophis rusticus",
+    "scientificName": "Clelia rustica",
     "commonName": "Culebra marrón",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -1086,7 +1994,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_rustica"
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_rustica",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1102,11 +2036,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_rustica",
+    "acceptedName": "Paraphimophis rusticus",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9590632
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "contomastix-lacertoides",
-    "scientificName": "Contomastix lacertoides",
+    "scientificName": "Cnemidophorus charrua",
     "commonName": "Lagartija de cabo polonio",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -1151,12 +2094,39 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_charrua"
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_charrua",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "Lagartija de cabo polonio"
+      "Lagartija de cabo polonio",
+      "lagartija verde de cinco dedos"
     ],
     "traits": {
       "measurements": [],
@@ -1167,12 +2137,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_charrua",
+    "acceptedName": "Contomastix lacertoides",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7797739
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "contomastix-lacertoides",
-    "scientificName": "Contomastix lacertoides",
-    "commonName": "Lagartija verde de cinco dedos",
+    "scientificName": "Cnemidophorus lacertoides",
+    "commonName": "Lagartija de cabo polonio",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1216,11 +2195,38 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_lacertoi"
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_lacertoi",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
+      "Lagartija de cabo polonio",
       "Lagartija verde de cinco dedos"
     ],
     "traits": {
@@ -1232,12 +2238,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_charrua",
+    "acceptedName": "Contomastix lacertoides",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7797739
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "contomastix-lacertoides",
     "scientificName": "Contomastix lacertoides",
-    "commonName": "lagartija verde de cinco dedos",
+    "commonName": "Lagartija verde de cinco dedos",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1281,12 +2296,38 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2027"
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2027",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "lagartija verde de cinco dedos"
+      "Lagartija verde de cinco dedos"
     ],
     "traits": {
       "measurements": [],
@@ -1297,7 +2338,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_charrua",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7797739
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "crotalus-durissus",
@@ -1346,7 +2396,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "C_duris_te"
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "C_duris_te",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1362,7 +2438,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "C_duris_te",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2444433
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "dermochelys-coriacea",
@@ -1411,7 +2496,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "D_coriacea"
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "D_coriacea",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1427,7 +2538,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "D_coriacea",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9789983
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "epictia-munoai",
@@ -1476,19 +2596,123 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2018"
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2032"
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2033"
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2018",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2032",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2033",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "E_munoai"
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "E_munoai",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1504,7 +2728,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "E_munoai",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8306698
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "eretmochelys-imbricata",
@@ -1553,7 +2786,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "E_imbricat"
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "E_imbricat",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1569,7 +2828,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "E_imbricat",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8841716
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-almadensis",
@@ -1618,7 +2886,33 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:47"
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:47",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1634,7 +2928,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_almadens",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9246453
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-poecilogyrus",
@@ -1683,23 +2986,153 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:37"
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:38"
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:49"
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2040"
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.order"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2041"
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:37",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:38",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:49",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2040",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2041",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1715,7 +3148,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_poeci_su",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7878891
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-semiaureus",
@@ -1764,11 +3206,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:48"
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2011"
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:48",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2011",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1784,7 +3278,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_semiaure",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9522552
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "eunectes-notaeus",
@@ -1833,7 +3336,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "E_notaeus"
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "E_notaeus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1849,7 +3378,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "E_notaeus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5225710
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "helicops-infrataeniatus",
@@ -1898,27 +3436,183 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:39"
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:40"
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:41"
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:42"
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.order"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2007"
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:39",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:40",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:41",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:42",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2007",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "H_infratae"
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "H_infratae",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1934,7 +3628,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "H_infratae",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2457678
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "hemidactylus-mabouia",
@@ -1983,7 +3686,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "H_mabouia"
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "H_mabouia",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -1999,7 +3728,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "H_mabouia",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5959942
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "homonota-uruguayensis",
@@ -2048,31 +3786,213 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2015"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2019"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2020"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2024"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.order"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2029"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.family"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2031"
+        "record": "Biodiversidata:UY:Reptilia:2015",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2019",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2020",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2024",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2029",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2031",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "Ho_uruguay"
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "Ho_uruguay",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2088,7 +4008,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "Ho_uruguay",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2446166
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "hydromedusa-tectifera",
@@ -2137,19 +4066,123 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:43"
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:44"
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:45"
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:43",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:44",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:45",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "H_tectifer"
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "H_tectifer",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2165,7 +4198,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "H_tectifer",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442139
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "lepidochelys-olivacea",
@@ -2214,7 +4256,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_olivacea"
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_olivacea",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2230,7 +4298,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_olivacea",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442153
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "liolaemus-gardeli",
@@ -2259,7 +4336,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_garde"
+        "record": "L_garde",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_garde",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_garde",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_garde",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_garde",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_garde",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2273,7 +4376,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_garde",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9417986
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "liolaemus-occipitalis",
@@ -2322,7 +4434,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_occipita"
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_occipita",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2336,7 +4474,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_occipita",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2460401
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "liolaemus-wiegmannii",
@@ -2385,43 +4532,303 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:46"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:111"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:112"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:113"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.order"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:114"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.family"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:115"
+        "record": "Biodiversidata:UY:Reptilia:46",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:116"
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:117"
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:118"
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:111",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:112",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:113",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:114",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:115",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:116",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:117",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:118",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "L_wiegmann"
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_wiegmann",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2437,12 +4844,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_wiegmann",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2460403
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-almadensis",
-    "scientificName": "Erythrolamprus almadensis",
-    "commonName": "Culebra de almada",
+    "scientificName": "Liophis almadensis",
+    "commonName": "culebra de almada",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -2486,12 +4902,38 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_almadens"
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_almadens",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "Culebra de almada"
+      "culebra de almada"
     ],
     "traits": {
       "measurements": [],
@@ -2502,11 +4944,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_almadens",
+    "acceptedName": "Erythrolamprus almadensis",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9246453
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-jaegeri",
-    "scientificName": "Erythrolamprus jaegeri",
+    "scientificName": "Liophis jaegeri",
     "commonName": "Culebra verde de vientre rojo",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -2551,7 +5002,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_jaegeri"
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_jaegeri",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2567,12 +5044,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_jaegeri",
+    "acceptedName": "Erythrolamprus jaegeri",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9328701
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-poecilogyrus",
-    "scientificName": "Erythrolamprus poecilogyrus",
-    "commonName": "Culebra de peñarol",
+    "scientificName": "Liophis poecilogyrus",
+    "commonName": "culebra de peñarol",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -2616,12 +5102,38 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_poeci_su"
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_poeci_su",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "Culebra de peñarol"
+      "culebra de peñarol"
     ],
     "traits": {
       "measurements": [],
@@ -2632,12 +5144,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_poeci_su",
+    "acceptedName": "Erythrolamprus poecilogyrus",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7878891
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "erythrolamprus-semiaureus",
-    "scientificName": "Erythrolamprus semiaureus",
-    "commonName": "Culebra parda de agua",
+    "scientificName": "Liophis semiaureus",
+    "commonName": "culebra parda de agua",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -2681,12 +5202,38 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_semiaure"
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_semiaure",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "Culebra parda de agua"
+      "culebra parda de agua"
     ],
     "traits": {
       "measurements": [],
@@ -2697,7 +5244,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_semiaure",
+    "acceptedName": "Erythrolamprus semiaureus",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9522552
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "liotyphlops-ternetzii",
@@ -2746,7 +5302,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "L_ternetzi"
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_ternetzi",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2762,7 +5344,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_ternetzi",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2460777
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "lygophis-anomalus",
@@ -2811,11 +5402,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2038"
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2038",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "L_anomalus"
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_anomalus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2831,7 +5474,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_anomalus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7719333
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "lygophis-flavifrenatus",
@@ -2880,11 +5532,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2035"
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2035",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "L_flavifre"
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "L_flavifre",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2900,11 +5604,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "L_flavifre",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2454220
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "aspronema-dorsivittatum",
-    "scientificName": "Aspronema dorsivittatum",
+    "scientificName": "Mabuya dorsivittata",
     "commonName": "Lagartija brillante",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -2949,7 +5662,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "M_dorsivit"
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_dorsivit",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -2965,7 +5704,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "M_dorsivit",
+    "acceptedName": "Aspronema dorsivittatum",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8057026
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "micrurus-altirostris",
@@ -3014,7 +5762,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "M_altirost"
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "M_altirost",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3030,7 +5804,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "M_altirost",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5227038
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "ophiodes-intermedius",
@@ -3079,7 +5862,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "O_intermed"
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "O_intermed",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3095,7 +5904,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "O_intermed",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5226621
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "ophiodes-striatus",
@@ -3144,15 +5962,93 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2014"
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2034"
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2014",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2034",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "O_aff_stri"
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "O_aff_stri",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3168,7 +6064,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "O_aff_stri",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5226622
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "ophiodes-vertebralis",
@@ -3217,7 +6122,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "O_vertebra"
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "O_vertebra",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3233,7 +6164,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "O_vertebra",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5226623
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "oxyrhopus-rhombifer",
@@ -3282,7 +6222,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "O_rhomb_rh"
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "O_rhomb_rh",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3298,7 +6264,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "O_rhomb_rh",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2455026
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "phalotris-lemniscatus",
@@ -3347,11 +6322,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2013"
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2013",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "P_lemnisca"
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_lemnisca",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3367,7 +6394,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_lemnisca",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2452902
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "philodryas-aestiva",
@@ -3416,11 +6452,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:50"
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:50",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "P_aestiva"
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_aestiva",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3436,7 +6524,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_aestiva",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9152293
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "philodryas-agassizii",
@@ -3485,7 +6582,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "P_agassizi"
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_agassizi",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3501,7 +6624,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_agassizi",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8275265
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "philodryas-olfersii",
@@ -3550,11 +6682,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2012"
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2012",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "P_olfer_of"
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_olfer_of",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3570,7 +6754,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_olfer_of",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 9084216
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "philodryas-patagoniensis",
@@ -3619,15 +6812,93 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:51"
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:52"
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:51",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:52",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "P_patagoni"
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_patagoni",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3643,7 +6914,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_patagoni",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2453506
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "phrynops-hilarii",
@@ -3692,7 +6972,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "P_hilarii"
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_hilarii",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3708,7 +7014,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_hilarii",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442089
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "phrynops-williamsi",
@@ -3757,7 +7072,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "P_williams"
+        "record": "P_williams",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_williams",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_williams",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_williams",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_williams",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_williams",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3773,7 +7114,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_williams",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442111
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "psomophis-obtusus",
@@ -3822,11 +7172,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2036"
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2036",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "P_obtusus"
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "P_obtusus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3842,11 +7244,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "P_obtusus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2452666
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "bothrops-alternatus",
-    "scientificName": "Bothrops alternatus",
+    "scientificName": "Rhinocerophis alternatus",
     "commonName": "Crucera",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -3891,7 +7302,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "R_alternat"
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "R_alternat",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3907,7 +7344,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "R_alternat",
+    "acceptedName": "Bothrops alternatus",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5220772
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "salvator-merianae",
@@ -3956,15 +7402,93 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:53"
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:54"
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:59"
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:53",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:54",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:59",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -3980,11 +7504,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_merianae",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5227370
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "dipsas-turgida",
-    "scientificName": "Dipsas turgida",
+    "scientificName": "Sibynomorphus turgidus",
     "commonName": "Culebra duerme duerme",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -4029,7 +7562,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "S_turgidus"
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "S_turgidus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4045,7 +7604,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "S_turgidus",
+    "acceptedName": "Dipsas turgida",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 10773297
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "stenocercus-azureus",
@@ -4074,7 +7642,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "S_azureus"
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "S_azureus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4090,7 +7684,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "S_azureus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2459802
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "taeniophallus-occipitalis",
@@ -4119,11 +7722,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2026"
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2026",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "T_occipita"
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_occipita",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4139,7 +7794,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_occipita",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2452034
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "taeniophallus-poecilopogon",
@@ -4168,7 +7832,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_poecilop"
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_poecilop",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4184,7 +7874,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_poecilop",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2452082
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "tantilla-melanocephala",
@@ -4233,7 +7932,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_melanoce"
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_melanoce",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4249,7 +7974,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_melanoce",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2456438
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "tarentola-mauritanica",
@@ -4298,7 +8032,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_mauritan"
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_mauritan",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4314,7 +8074,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_mauritan",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2445034
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "teius-oculatus",
@@ -4363,23 +8132,153 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2022"
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2028"
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2030"
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2039"
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2022",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2028",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2030",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2039",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "T_oculatus"
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_oculatus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4395,7 +8294,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_oculatus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5960799
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "thamnodynastes-hypoconia",
@@ -4424,15 +8332,93 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:55"
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2006"
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:55",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2006",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "T_hypoconi"
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_hypoconi",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4448,7 +8434,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_hypoconi",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2454791
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "thamnodynastes-strigatus",
@@ -4477,7 +8472,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_strigatu"
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_strigatu",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4493,7 +8514,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_strigatu",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2454768
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "tomodon-dorsatus",
@@ -4542,7 +8572,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_dorsatus"
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorsatus",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4556,7 +8612,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_dorsatus",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5223554
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "tomodon-ocellatus",
@@ -4585,7 +8650,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_ocellatu"
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_ocellatu",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4601,7 +8692,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_ocellatu",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5223552
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "trachemys-dorbigni",
@@ -4650,19 +8750,123 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:56"
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.kingdom"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:57"
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.phylum"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:58"
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.class"
       },
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:2010"
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:56",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:57",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:58",
+        "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:2010",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4678,11 +8882,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_dorbigny",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442977
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "trachemys-dorbigni",
-    "scientificName": "Trachemys dorbigni",
+    "scientificName": "Trachemys dorbignyi",
     "commonName": "Morrocoyo",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -4727,7 +8940,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_dorbigny"
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_dorbigny",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4743,7 +8982,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_dorbigny",
+    "acceptedName": "Trachemys dorbigni",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2442977
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "trachemys-scripta",
@@ -4792,7 +9040,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "tra_script"
+        "record": "tra_script",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "tra_script",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "tra_script",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "tra_script",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "tra_script",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "tra_script",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4808,7 +9082,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "tra_script",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 2443002
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "tropidurus-torquatus",
@@ -4857,7 +9140,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_torquatu"
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_torquatu",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -4873,12 +9182,21 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_torquatu",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5224858
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "salvator-merianae",
-    "scientificName": "Salvator merianae",
-    "commonName": "Lagarto",
+    "scientificName": "Tupinambis merianae",
+    "commonName": "lagarto overo",
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -4922,13 +9240,39 @@
     "sources": [
       {
         "source": "snap",
-        "record": "T_merianae"
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "T_merianae",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
-      "Lagarto",
-      "Lagarto overo"
+      "lagarto overo",
+      "Lagarto"
     ],
     "traits": {
       "measurements": [],
@@ -4939,7 +9283,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "T_merianae",
+    "acceptedName": "Salvator merianae",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5227370
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "xenodon-dorbignyi",
@@ -4988,11 +9341,63 @@
     "sources": [
       {
         "source": "biodiversidata",
-        "record": "Biodiversidata:UY:Reptilia:60"
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "biodiversidata",
+        "record": "Biodiversidata:UY:Reptilia:60",
+        "fieldPath": "taxonomy.genus"
       },
       {
         "source": "snap",
-        "record": "X_dorbigny"
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "X_dorbigny",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -5008,7 +9413,16 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "X_dorbigny",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 8219312
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "xenodon-histricus",
@@ -5037,7 +9451,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "X_histricu"
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "X_histricu",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -5053,11 +9493,20 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "X_histricu",
+    "acceptedName": null,
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 7839449
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   },
   {
     "id": "xenodon-merremii",
-    "scientificName": "Xenodon merremii",
+    "scientificName": "Xenodon merremi",
     "commonName": "Sapera",
     "taxonomy": {
       "kingdom": "Animalia",
@@ -5102,7 +9551,33 @@
     "sources": [
       {
         "source": "snap",
-        "record": "X_merremi"
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.kingdom"
+      },
+      {
+        "source": "snap",
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.phylum"
+      },
+      {
+        "source": "snap",
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.class"
+      },
+      {
+        "source": "snap",
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.order"
+      },
+      {
+        "source": "snap",
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.family"
+      },
+      {
+        "source": "snap",
+        "record": "X_merremi",
+        "fieldPath": "taxonomy.genus"
       }
     ],
     "reviewStatus": "unreviewed",
@@ -5118,6 +9593,15 @@
       "depthMinM": null,
       "depthMaxM": null,
       "sources": []
-    }
+    },
+    "catalogCode": "X_merremi",
+    "acceptedName": "Xenodon merremii",
+    "taxonIdentifiers": {
+      "gbif": {
+        "usageKey": 5224072
+      }
+    },
+    "naturalHistory": null,
+    "distributionSummary": null
   }
 ]

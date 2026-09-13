@@ -29,6 +29,7 @@ import {
   House,
   Images,
   Leaf,
+  Lightbulb,
   Layers3,
   MapPinned,
   Menu,
@@ -168,6 +169,10 @@ export const CreditsIcon = ({ color, size = 22 }: IconProps): React.JSX.Element 
 
 export const BookIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
   <BookOpen color={color} size={size} strokeWidth={1.75} />
+);
+
+export const LightbulbIcon = ({ color, size = 22 }: IconProps): React.JSX.Element => (
+  <Lightbulb color={color} size={size} strokeWidth={1.75} />
 );
 
 export const ExternalLinkIcon = ({ color, size = 18 }: IconProps): React.JSX.Element => (
