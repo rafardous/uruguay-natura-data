@@ -74,6 +74,8 @@ El catálogo remoto se descarga a `natura.next.db`, se valida (HTTPS, SHA-256, t
 
 Desde Juegos → Puzzle podés elegir una grilla 3×3 o 4×4, una categoría y el nivel de conocimiento de las especies. Es un puzzle deslizante: una casilla queda vacía y al tocar una ficha adyacente ésta ocupa el hueco. Las partidas se mezclan siempre con movimientos legales, funcionan con las miniaturas incluidas aun sin conexión y los mejores tiempos/movimientos se guardan offline por categoría, grilla y nivel. Al iniciar sesión se sincronizan de forma privada mediante `sync_puzzle_records` y se recuperan con `get_personal_mobile_progress`.
 
+Desde Explorar → Aprender hay cinco recorridos para público general 12+: taxonomía, redes ecológicas, historias de especies, caza y convivencia, y evaluación de amenaza. Los 21 módulos funcionan offline, enlazan sus fuentes y usan preguntas de selección simple/múltiple, orden y clasificación. El primer intento alimenta una cola de repaso a 1, 3, 14 o 45 días; el progreso vive en `user.db` y se sincroniza de forma privada al iniciar sesión.
+
 ### Dificultad, trivia y fichas enriquecidas
 
 Los juegos usan `easy`, `medium` y `hard` de manera acumulativa: medio incluye las especies fáciles y difícil puede incluirlas a todas. El nivel expresa familiaridad esperable, no dificultad taxonómica, rareza ni conservación. Identificación, Nombrar y Puzzle guardan récords separados por nivel. Trivia publica preguntas de cuatro opciones con una sola respuesta correcta; las preguntas vinculadas heredan el nivel de su especie y las generales aparecen siempre.

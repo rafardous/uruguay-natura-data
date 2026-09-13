@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "retrievedAt": "2026-09-12T18:16:20.789Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Acanthogonatus tacuariensis"
+    },
+    "remoteId": "8XPC",
+    "originalName": "Acanthogonatus tacuariensis",
+    "normalizedName": "Acanthogonatus tacuariensis",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "8XPC",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+    },
+    "referenceAcceptedName": "Acanthogonatus tacuariensis",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Acanthogonatus+tacuariensis",
+    "checksum": "00caa8df17074c865cf0c6c625a04ee5e7e0874496914b0b5d0be437d02d0374",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "8XPC",
+          "name": "Acanthogonatus tacuariensis",
+          "authorship": "(Pérez-Miles & Capocasale, 1982)",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 62806,
+          "namesIndexId": 62806,
+          "namesIndexMatchType": "none",
+          "sectorKey": 59356,
+          "classification": [
+            {
+              "id": "CTSBL",
+              "name": "Acanthogonatus",
+              "authorship": "Karsch, 1880",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 62734,
+              "namesIndexId": 62734,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Acanthogonatus Karsch, 1880",
+              "labelHtml": "<i>Acanthogonatus</i> Karsch, 1880",
+              "parentId": "CVHP3"
+            },
+            {
+              "id": "CVHP3",
+              "name": "Pycnothelidae",
+              "authorship": "Chamberlin, 1917",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 6451967,
+              "namesIndexId": 6451967,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Pycnothelidae Chamberlin, 1917",
+              "labelHtml": "Pycnothelidae Chamberlin, 1917",
+              "parentId": "RN"
+            },
+            {
+              "id": "RN",
+              "name": "Araneae",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 258723,
+              "namesIndexId": 258723,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Araneae",
+              "labelHtml": "Araneae",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Acanthogonatus tacuariensis (Pérez-Miles & Capocasale, 1982)",
+          "labelHtml": "<i>Acanthogonatus tacuariensis</i> (Pérez-Miles & Capocasale, 1982)",
+          "parentId": "CTSBL"
+        },
+        "sectorKey": 59356,
+        "type": "variant",
+        "original": {
+          "name": "Acanthogonatus tacuariensis",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Acanthogonatus tacuariensis",
+          "labelHtml": "Acanthogonatus tacuariensis"
+        },
+        "issues": {},
+        "id": "8XPC",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

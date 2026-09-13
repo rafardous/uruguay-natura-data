@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:02:50.918Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Cybaeodamus taim;geo:country/ocean:Uruguay",
+      "query": "tax:species:Cybaeodamus taim;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Cybaeodamus taim",
+    "normalizedName": "Cybaeodamus taim",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Cybaeodamus taim",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3ACybaeodamus+taim%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "78f25d3b2fbea5ea5fc2169a584a69bc9c00a8a53d71a8985c37b8d59599e6cb",
+    "status": "unresolved",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Cybaeodamus taim",
+              "matched": "tax:species:Cybaeodamus taim"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {}
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

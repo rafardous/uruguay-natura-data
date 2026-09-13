@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:16:25.593Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Aglaoctenus oblongus;geo:country/ocean:Uruguay",
+      "query": "tax:species:Aglaoctenus oblongus;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Aglaoctenus oblongus",
+    "normalizedName": "Aglaoctenus oblongus",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Aglaoctenus oblongus",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAglaoctenus+oblongus%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "782071c614689e31dc3cdc16a86fbafc3b4fc1e9d7ce0039bcd18741121daeb1",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Aglaoctenus oblongus",
+              "matched": "tax:species:Aglaoctenus oblongus"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {
+          "bin_uri": {},
+          "counts": {
+            "bin_uri": 0,
+            "species": 1,
+            "specimens": 1
+          },
+          "species": {
+            "Aglaoctenus oblongus": 1
+          }
+        }
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

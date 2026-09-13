@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "retrievedAt": "2026-09-12T18:16:23.399Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Aglaoctenus lagotis"
+    },
+    "remoteId": "5TRBV",
+    "originalName": "Aglaoctenus lagotis",
+    "normalizedName": "Aglaoctenus lagotis",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "5TRBV",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+    },
+    "referenceAcceptedName": "Aglaoctenus lagotis",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Aglaoctenus+lagotis",
+    "checksum": "e59458e70058c522e459b44ce141f16b0638826e08054980acce9d1302844990",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "5TRBV",
+          "name": "Aglaoctenus lagotis",
+          "authorship": "(Holmberg, 1876)",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 269490,
+          "namesIndexId": 269490,
+          "namesIndexMatchType": "none",
+          "sectorKey": 59356,
+          "classification": [
+            {
+              "id": "CTPKM",
+              "name": "Aglaoctenus",
+              "authorship": "Tullgren, 1905",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 269470,
+              "namesIndexId": 269470,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Aglaoctenus Tullgren, 1905",
+              "labelHtml": "<i>Aglaoctenus</i> Tullgren, 1905",
+              "parentId": "CV7YH"
+            },
+            {
+              "id": "CV7YH",
+              "name": "Lycosidae",
+              "authorship": "Sundevall, 1833",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 4709462,
+              "namesIndexId": 4709462,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Lycosidae Sundevall, 1833",
+              "labelHtml": "Lycosidae Sundevall, 1833",
+              "parentId": "RN"
+            },
+            {
+              "id": "RN",
+              "name": "Araneae",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 258723,
+              "namesIndexId": 258723,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Araneae",
+              "labelHtml": "Araneae",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Aglaoctenus lagotis (Holmberg, 1876)",
+          "labelHtml": "<i>Aglaoctenus lagotis</i> (Holmberg, 1876)",
+          "parentId": "CTPKM"
+        },
+        "sectorKey": 59356,
+        "type": "variant",
+        "original": {
+          "name": "Aglaoctenus lagotis",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Aglaoctenus lagotis",
+          "labelHtml": "Aglaoctenus lagotis"
+        },
+        "issues": {},
+        "id": "5TRBV",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

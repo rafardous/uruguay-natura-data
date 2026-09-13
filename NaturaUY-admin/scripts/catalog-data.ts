@@ -128,6 +128,16 @@ export async function loadApprovedTaxonContent():Promise<DatabaseRow[]> {
   return (await fetchAll('taxon_content')).filter((item)=>item.active);
 }
 
+export async function loadApprovedLearningPaths(): Promise<DatabaseRow[]> {
+  const approved = (await fetchAll('learning_paths')).filter((item) => item.status === 'approved');
+  const latest = new Map<string, DatabaseRow>();
+  for (const item of approved) {
+    const current = latest.get(String(item.id));
+    if (!current || Number(item.version) > Number(current.version)) latest.set(String(item.id), item);
+  }
+  return [...latest.values()];
+}
+
 export function serializeCatalogRecord(record: CatalogRecord) {
   const species = record.species;
   const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];

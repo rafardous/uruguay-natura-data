@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "retrievedAt": "2026-09-12T18:16:21.033Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Actinopus longipalpis"
+    },
+    "remoteId": "64PKW",
+    "originalName": "Actinopus longipalpis",
+    "normalizedName": "Actinopus longipalpis",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "64PKW",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+    },
+    "referenceAcceptedName": "Actinopus longipalpis",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Actinopus+longipalpis",
+    "checksum": "46ec5e23968f3b97bd37eb5c6279d0719354b1b83f0b00f97069a37b09750689",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "64PKW",
+          "name": "Actinopus longipalpis",
+          "authorship": "C. L. Koch, 1842",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 165561,
+          "namesIndexId": 165561,
+          "namesIndexMatchType": "none",
+          "sectorKey": 59356,
+          "classification": [
+            {
+              "id": "CTN6T",
+              "name": "Actinopus",
+              "authorship": "Perty, 1833",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 165418,
+              "namesIndexId": 165418,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Actinopus Perty, 1833",
+              "labelHtml": "<i>Actinopus</i> Perty, 1833",
+              "parentId": "CTN6P"
+            },
+            {
+              "id": "CTN6P",
+              "name": "Actinopodidae",
+              "authorship": "Simon, 1892",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 18744,
+              "namesIndexId": 18744,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Actinopodidae Simon, 1892",
+              "labelHtml": "Actinopodidae Simon, 1892",
+              "parentId": "RN"
+            },
+            {
+              "id": "RN",
+              "name": "Araneae",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 258723,
+              "namesIndexId": 258723,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Araneae",
+              "labelHtml": "Araneae",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Actinopus longipalpis C. L. Koch, 1842",
+          "labelHtml": "<i>Actinopus longipalpis</i> C. L. Koch, 1842",
+          "parentId": "CTN6T"
+        },
+        "sectorKey": 59356,
+        "type": "variant",
+        "original": {
+          "name": "Actinopus longipalpis",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Actinopus longipalpis",
+          "labelHtml": "Actinopus longipalpis"
+        },
+        "issues": {},
+        "id": "64PKW",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

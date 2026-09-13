@@ -211,7 +211,10 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
   const facts = species
     ? [
-        ...(species.traits.measurements.length === 0 ? [{ label: 'Tamaño', value: formatLegacyMeasurementText(species.tamano) }] : []),
+        // Legacy catalog records only have a free-text size. Keep the same
+        // fact position as the structured measurements, but make its lower
+        // precision explicit to the reader.
+        ...(species.traits.measurements.length === 0 ? [{ label: 'Tamaño aproximado', value: formatLegacyMeasurementText(species.tamano) }] : []),
         { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
       ].filter((fact) => fact.value.length > 0)
     : [];
@@ -233,7 +236,14 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const galleryItems = species ? [
     ...(species.photo ? [{ id: 'primary', url: species.photo.fullUrl, thumbnailUrl: species.photo.url, attribution: species.photo.attribution }] : []),
     ...species.media.filter((media) => media.type === 'image').map((media) => ({ id: media.id, url: media.url, thumbnailUrl: media.thumbnailUrl ?? media.url, attribution: media.attribution })),
-  ].filter((item, index, all) => item.url && all.findIndex((candidate) => candidate.url === item.url) === index) : [];
+  ].filter((item, index, all) => {
+    if (!item.url) return false;
+    // Some imported records point the primary photo and its media row at the
+    // same thumbnail while using different full-size URLs. De-duplicate by
+    // the rendered thumbnail first, then by the full URL as a fallback.
+    const visualKey = item.thumbnailUrl || item.url;
+    return all.findIndex((candidate) => (candidate.thumbnailUrl || candidate.url) === visualKey) === index;
+  }) : [];
   const arthropodHistory = species?.naturalHistory?.arthropod;
   const plantHistory = species?.naturalHistory?.plant;
   const observabilityBand = species?.observability?.band === 'high' ? 'Alta'

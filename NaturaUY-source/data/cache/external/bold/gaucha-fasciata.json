@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:02:52.909Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Gaucha fasciata;geo:country/ocean:Uruguay",
+      "query": "tax:species:Gaucha fasciata;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Gaucha fasciata",
+    "normalizedName": "Gaucha fasciata",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Gaucha fasciata",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGaucha+fasciata%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "cc0d7d56ba157f8b2de9039fa234a11891c4c3479e8e911e6da04cacd36d5920",
+    "status": "unresolved",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Gaucha fasciata",
+              "matched": "tax:species:Gaucha fasciata"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {}
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

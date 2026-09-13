@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { gzipSync } from 'node:zlib';
 
-import { loadApprovedCatalog, loadApprovedTaxonContent, loadApprovedTrivia, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
+import { loadApprovedCatalog, loadApprovedLearningPaths, loadApprovedTaxonContent, loadApprovedTrivia, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
 import { adminClient, required } from './shared';
 
 const client = adminClient();
@@ -24,7 +24,7 @@ const { data: release, error: releaseError } = await client
   .single();
 if (releaseError) throw releaseError;
 
-const [items, trivia, taxonContent] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent()]);
+const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), loadApprovedLearningPaths()]);
 const blockers: string[] = [];
 const warnings: Array<{ code: string; speciesId: string; detail: string }> = [];
 const scientificNames = new Set<string>();
@@ -115,6 +115,11 @@ create table trivia_options (
   is_correct integer not null, sort_order integer not null
 );
 create index idx_trivia_species on trivia_questions(stable_id);
+create table learning_paths (
+  id text primary key, version integer not null, language text not null, title text not null,
+  short_title text not null, description text not null, accent_color text not null,
+  content text not null check(json_valid(content)), source_codes text not null check(json_valid(source_codes))
+);
 create table meta (key text primary key, value text not null);
 `);
 
@@ -128,6 +133,7 @@ const insertTaxon = db.prepare('insert into taxon_content values (?,?,?,?,?,?,?,
 const insertCatalogSource = db.prepare('insert into catalog_sources values (?,?,?,?,?,?,?)');
 const insertTrivia = db.prepare('insert into trivia_questions values (?,?,?,?,?,?,?,?)');
 const insertTriviaOption = db.prepare('insert into trivia_options values (?,?,?,?,?)');
+const insertLearningPath = db.prepare('insert into learning_paths values (?,?,?,?,?,?,?,?,?)');
 db.exec('begin');
 try {
   const catalogSources = items[0]?.catalogSources ?? [];
@@ -182,6 +188,10 @@ try {
     item.id,item.taxon_rank,item.kingdom,item.phylum,item.class_name,item.taxon_name,item.language,
     item.description,item.simple_name ?? null,sourcesById.get(String(item.source_id))?.code ?? String(item.source_id),
   ));
+  learningPaths.forEach((item) => insertLearningPath.run(
+    item.id, item.version, item.language, item.title, item.short_title, item.description,
+    item.accent_color, JSON.stringify(item.content), JSON.stringify(item.source_codes ?? []),
+  ));
   db.exec(`insert into species_fts(rowid, common_names, scientific_name, familia, genero)
     select rowid, replace(replace(replace(common_names, '["', ''), '"]', ''), '","', ' '), scientific_name, familia, genero from species;`);
   const meta = db.prepare('insert into meta values (?,?)');
@@ -189,6 +199,7 @@ try {
   meta.run('data_version', String(release.version));
   meta.run('built_at', new Date().toISOString());
   meta.run('species_count', String(items.length));
+  meta.run('learning_path_count', String(learningPaths.length));
   db.exec('commit');
 } catch (error) {
   db.exec('rollback');

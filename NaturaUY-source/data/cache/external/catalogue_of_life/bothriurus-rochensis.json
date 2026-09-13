@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "retrievedAt": "2026-09-12T18:16:31.110Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Bothriurus rochensis"
+    },
+    "remoteId": "MNLZ",
+    "originalName": "Bothriurus rochensis",
+    "normalizedName": "Bothriurus rochensis",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "MNLZ",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+    },
+    "referenceAcceptedName": "Bothriurus rochensis",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Bothriurus+rochensis",
+    "checksum": "d17a2580c7d9539514c80fe4fdcd8bd233cd07d8f32898b18fddf58a58b157b5",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "MNLZ",
+          "name": "Bothriurus rochensis",
+          "authorship": "San Martin, 1965",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 1227417,
+          "namesIndexId": 1227417,
+          "namesIndexMatchType": "none",
+          "sectorKey": 868,
+          "classification": [
+            {
+              "id": "62GWZ",
+              "name": "Bothriurus",
+              "authorship": "Peters, 1861",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1227379,
+              "namesIndexId": 1227379,
+              "namesIndexMatchType": "none",
+              "sectorKey": 868,
+              "canonical": true,
+              "label": "Bothriurus Peters, 1861",
+              "labelHtml": "<i>Bothriurus</i> Peters, 1861",
+              "parentId": "7BQ"
+            },
+            {
+              "id": "7BQ",
+              "name": "Bothriuridae",
+              "authorship": "Simon, 1880",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1227366,
+              "namesIndexId": 1227366,
+              "namesIndexMatchType": "none",
+              "sectorKey": 868,
+              "canonical": true,
+              "label": "Bothriuridae Simon, 1880",
+              "labelHtml": "Bothriuridae Simon, 1880",
+              "parentId": "42N"
+            },
+            {
+              "id": "42N",
+              "name": "Scorpiones",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 8250516,
+              "namesIndexId": 8250516,
+              "namesIndexMatchType": "none",
+              "sectorKey": 868,
+              "canonical": true,
+              "label": "Scorpiones",
+              "labelHtml": "Scorpiones",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Bothriurus rochensis San Martin, 1965",
+          "labelHtml": "<i>Bothriurus rochensis</i> San Martin, 1965",
+          "parentId": "62GWZ"
+        },
+        "sectorKey": 868,
+        "type": "variant",
+        "original": {
+          "name": "Bothriurus rochensis",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Bothriurus rochensis",
+          "labelHtml": "Bothriurus rochensis"
+        },
+        "issues": {},
+        "id": "MNLZ",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

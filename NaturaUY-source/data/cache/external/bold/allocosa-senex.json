@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:16:27.923Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Allocosa senex;geo:country/ocean:Uruguay",
+      "query": "tax:species:Allocosa senex;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Allocosa senex",
+    "normalizedName": "Allocosa senex",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Allocosa senex",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAllocosa+senex%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "a9e8b4c3195cb713e6c607c62bbe8340fa94eb7ca8ab004314f012ceb66f88ad",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Allocosa senex",
+              "matched": "tax:species:Allocosa senex"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {
+          "bin_uri": {
+            "BOLD:ACO0451": 6,
+            "BOLD:AED9038": 1
+          },
+          "counts": {
+            "bin_uri": 2,
+            "species": 1,
+            "specimens": 47
+          },
+          "species": {
+            "Allocosa senex": 47
+          }
+        }
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:16:20.740Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Acanthogonatus tacuariensis;geo:country/ocean:Uruguay",
+      "query": "tax:species:Acanthogonatus tacuariensis;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Acanthogonatus tacuariensis",
+    "normalizedName": "Acanthogonatus tacuariensis",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Acanthogonatus tacuariensis",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAcanthogonatus+tacuariensis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "624b0c9d566d00f45367d96b86b71e6d65e44da3703b87b3b53f6f63819d45f4",
+    "status": "unresolved",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Acanthogonatus tacuariensis",
+              "matched": "ids:processid:Acanthogonatus tacuariensis;ids:sampleid:Acanthogonatus tacuariensis;ids:insdcacs:Acanthogonatus tacuariensis"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {}
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

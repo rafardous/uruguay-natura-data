@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:02:54.901Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Grammostola andreleetzi;geo:country/ocean:Uruguay",
+      "query": "tax:species:Grammostola andreleetzi;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Grammostola andreleetzi",
+    "normalizedName": "Grammostola andreleetzi",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Grammostola andreleetzi",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGrammostola+andreleetzi%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "bb138fb19bfcccdc09bab413c30c68ad6db33a5e26f5cbc07ae6aa609959402c",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Grammostola andreleetzi",
+              "matched": "tax:species:Grammostola andreleetzi"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {
+          "bin_uri": {
+            "BOLD:AFC0846": 1
+          },
+          "counts": {
+            "bin_uri": 1,
+            "species": 1,
+            "specimens": 1
+          },
+          "species": {
+            "Grammostola andreleetzi": 1
+          }
+        }
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

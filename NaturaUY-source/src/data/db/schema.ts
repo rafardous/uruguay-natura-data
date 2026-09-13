@@ -204,4 +204,42 @@ export const USER_MIGRATIONS: string[] = [
      updated_at INTEGER NOT NULL,
      PRIMARY KEY (owner_id, scope, grid_size)
    );`,
+  `CREATE TABLE IF NOT EXISTS learning_module_progress (
+     path_id TEXT NOT NULL,
+     module_id TEXT NOT NULL,
+     content_version INTEGER NOT NULL,
+     completed_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (path_id, module_id)
+   );`,
+  `CREATE TABLE IF NOT EXISTS learning_objective_progress (
+     objective_id TEXT PRIMARY KEY,
+     question_version INTEGER NOT NULL,
+     correct_streak INTEGER NOT NULL DEFAULT 0,
+     last_result INTEGER NOT NULL CHECK (last_result IN (0, 1)),
+     last_answered_at INTEGER NOT NULL,
+     due_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL
+   );`,
+  `CREATE INDEX IF NOT EXISTS idx_learning_objective_due ON learning_objective_progress(due_at);`,
+  `CREATE TABLE IF NOT EXISTS account_learning_module_progress (
+     owner_id TEXT NOT NULL,
+     path_id TEXT NOT NULL,
+     module_id TEXT NOT NULL,
+     content_version INTEGER NOT NULL,
+     completed_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, path_id, module_id)
+   );`,
+  `CREATE TABLE IF NOT EXISTS account_learning_objective_progress (
+     owner_id TEXT NOT NULL,
+     objective_id TEXT NOT NULL,
+     question_version INTEGER NOT NULL,
+     correct_streak INTEGER NOT NULL DEFAULT 0,
+     last_result INTEGER NOT NULL CHECK (last_result IN (0, 1)),
+     last_answered_at INTEGER NOT NULL,
+     due_at INTEGER NOT NULL,
+     updated_at INTEGER NOT NULL,
+     PRIMARY KEY (owner_id, objective_id)
+   );`,
 ];

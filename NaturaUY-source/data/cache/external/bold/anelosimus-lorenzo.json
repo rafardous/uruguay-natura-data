@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:16:28.953Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Anelosimus lorenzo;geo:country/ocean:Uruguay",
+      "query": "tax:species:Anelosimus lorenzo;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Anelosimus lorenzo",
+    "normalizedName": "Anelosimus lorenzo",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Anelosimus lorenzo",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AAnelosimus+lorenzo%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "5b43e606ca380ffa295498592acaddcab33df2c994eee76a5d538bce5f8a01e8",
+    "status": "unresolved",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Anelosimus lorenzo",
+              "matched": "ids:processid:Anelosimus lorenzo;ids:sampleid:Anelosimus lorenzo;ids:insdcacs:Anelosimus lorenzo"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {}
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

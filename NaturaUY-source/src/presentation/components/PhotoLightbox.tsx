@@ -27,7 +27,7 @@ export function PhotoLightbox({ visible, uri, label, onClose }: PhotoLightboxPro
       <GestureHandlerRootView style={styles.root}>
         <Pressable style={styles.backgroundTap} onPress={onClose} accessibilityLabel="Cerrar foto" />
         <View style={styles.imageWrap}>
-          <TransientZoomView accessibilityLabel={label}>
+          <TransientZoomView accessibilityLabel={label} showControls>
             <Image source={{ uri }} contentFit="contain" cachePolicy="memory-disk" style={styles.image} accessibilityLabel={label} />
           </TransientZoomView>
         </View>

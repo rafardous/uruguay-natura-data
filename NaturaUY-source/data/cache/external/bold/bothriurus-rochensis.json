@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:16:32.752Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Bothriurus rochensis;geo:country/ocean:Uruguay",
+      "query": "tax:species:Bothriurus rochensis;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Bothriurus rochensis",
+    "normalizedName": "Bothriurus rochensis",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Bothriurus rochensis",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3ABothriurus+rochensis%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "48bd530889c4d949497cf5976115425d773c6f1958717fd3f63cd5f779e014e1",
+    "status": "unresolved",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Bothriurus rochensis",
+              "matched": "ids:processid:Bothriurus rochensis;ids:sampleid:Bothriurus rochensis;ids:insdcacs:Bothriurus rochensis"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {}
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}

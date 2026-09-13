@@ -33,6 +33,8 @@ npx supabase config push
 
 Las migraciones schema 9–12 están aplicadas en el proyecto remoto. Schema 12 agrega perfiles vegetales, nombres y cierre taxonómico, raíces por reino, el scope de juegos `plants` y fuerza publicaciones nuevas a schema 12/min app 1.2.0. La importación inicial se completó el 2026-09-13 con 4105 especies, 3157 perfiles botánicos, 2113 nodos y 2132 nombres taxonómicos; futuras corridas del importador son idempotentes.
 
+Schema 13 está preparado localmente pero no desplegado. `20260913162759_learning_content_and_progress.sql` agrega `learning_paths`, progreso privado de módulos/objetivos, `sync_learning_progress` y amplía `get_personal_mobile_progress`; al aplicarse fuerza los releases nuevos a schema 13. Verificar las pruebas RLS/RPC antes de publicar.
+
 ## 2. Identidad editorial
 
 Google sigue disponible para cuentas mobile. El registro por correo editorial sólo se habilita si existe una fila activa en `editor_access`; entrar al panel requiere esa misma fila.
@@ -120,7 +122,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta schema de catálogo 11: conserva el contrato anterior y agrega nombres alternativos buscables, rasgos estructurados, IDs externos, historia natural de artrópodos y distribución agregada; conserva `user.db`. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta hasta schema de catálogo 13 y conserva `user.db`; schema 13 agrega documentos de Aprender al catálogo y mantiene el progreso exclusivamente en la base personal. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source

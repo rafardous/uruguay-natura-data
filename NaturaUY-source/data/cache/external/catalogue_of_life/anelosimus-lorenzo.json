@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2",
+    "retrievedAt": "2026-09-12T18:16:28.155Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Anelosimus lorenzo"
+    },
+    "remoteId": "DWMV",
+    "originalName": "Anelosimus lorenzo",
+    "normalizedName": "Anelosimus lorenzo",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "DWMV",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v2"
+    },
+    "referenceAcceptedName": "Anelosimus lorenzo",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Anelosimus+lorenzo",
+    "checksum": "cdff8f5bafa311a1fc9db8c8c222653b8618aebb3b20112a2335896f80046d5e",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "DWMV",
+          "name": "Anelosimus lorenzo",
+          "authorship": "Fowler & Levi, 1979",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 556856,
+          "namesIndexId": 556856,
+          "namesIndexMatchType": "none",
+          "sectorKey": 59356,
+          "classification": [
+            {
+              "id": "CTP32",
+              "name": "Anelosimus",
+              "authorship": "Simon, 1891",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 556599,
+              "namesIndexId": 556599,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Anelosimus Simon, 1891",
+              "labelHtml": "<i>Anelosimus</i> Simon, 1891",
+              "parentId": "CVQNX"
+            },
+            {
+              "id": "CVQNX",
+              "name": "Theridiidae",
+              "authorship": "Sundevall, 1833",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 18411,
+              "namesIndexId": 18411,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Theridiidae Sundevall, 1833",
+              "labelHtml": "Theridiidae Sundevall, 1833",
+              "parentId": "RN"
+            },
+            {
+              "id": "RN",
+              "name": "Araneae",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 258723,
+              "namesIndexId": 258723,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Araneae",
+              "labelHtml": "Araneae",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Anelosimus lorenzo Fowler & Levi, 1979",
+          "labelHtml": "<i>Anelosimus lorenzo</i> Fowler & Levi, 1979",
+          "parentId": "CTP32"
+        },
+        "sectorKey": 59356,
+        "type": "variant",
+        "original": {
+          "name": "Anelosimus lorenzo",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Anelosimus lorenzo",
+          "labelHtml": "Anelosimus lorenzo"
+        },
+        "issues": {},
+        "id": "DWMV",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

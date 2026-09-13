@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "catalogue_of_life",
+    "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v1",
+    "retrievedAt": "2026-09-12T18:02:53.156Z",
+    "parameters": {
+      "datasetId": "3LR",
+      "q": "Gelanor zonatus"
+    },
+    "remoteId": "3FH9N",
+    "originalName": "Gelanor zonatus",
+    "normalizedName": "Gelanor zonatus",
+    "fieldPath": "taxonIdentifiers.catalogueOfLife",
+    "proposedValue": {
+      "taxonId": "3FH9N",
+      "datasetId": "3LR",
+      "version": "ChecklistBank Catalogue of Life dataset 3LR match/nameusage v1"
+    },
+    "referenceAcceptedName": "Gelanor zonatus",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "url": "https://api.checklistbank.org/dataset/3LR/match/nameusage?q=Gelanor+zonatus",
+    "checksum": "de62fce36d953275a632ec9eb335cb7ef806534ba563365597548454687958d3",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "usage": {
+          "id": "3FH9N",
+          "name": "Gelanor zonatus",
+          "authorship": "(C. L. Koch, 1845)",
+          "rank": "species",
+          "code": "zoological",
+          "status": "accepted",
+          "canonicalId": 3751483,
+          "namesIndexId": 3751483,
+          "namesIndexMatchType": "none",
+          "sectorKey": 59356,
+          "classification": [
+            {
+              "id": "CV5C2",
+              "name": "Gelanor",
+              "authorship": "Thorell, 1869",
+              "rank": "genus",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 3751481,
+              "namesIndexId": 3751481,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Gelanor Thorell, 1869",
+              "labelHtml": "<i>Gelanor</i> Thorell, 1869",
+              "parentId": "CV9PM"
+            },
+            {
+              "id": "CV9PM",
+              "name": "Mimetidae",
+              "authorship": "Simon, 1881",
+              "rank": "family",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 5273182,
+              "namesIndexId": 5273182,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Mimetidae Simon, 1881",
+              "labelHtml": "Mimetidae Simon, 1881",
+              "parentId": "RN"
+            },
+            {
+              "id": "RN",
+              "name": "Araneae",
+              "rank": "order",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 258723,
+              "namesIndexId": 258723,
+              "namesIndexMatchType": "none",
+              "sectorKey": 59356,
+              "canonical": true,
+              "label": "Araneae",
+              "labelHtml": "Araneae",
+              "parentId": "CCQKT"
+            },
+            {
+              "id": "CCQKT",
+              "name": "Arachnida",
+              "rank": "class",
+              "status": "accepted",
+              "canonicalId": 680272,
+              "namesIndexId": 680272,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arachnida",
+              "labelHtml": "Arachnida",
+              "parentId": "KZWYC"
+            },
+            {
+              "id": "KZWYC",
+              "name": "Chelicerata",
+              "rank": "subphylum",
+              "code": "zoological",
+              "status": "accepted",
+              "canonicalId": 1947564,
+              "namesIndexId": 1947564,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Chelicerata",
+              "labelHtml": "Chelicerata",
+              "parentId": "RT"
+            },
+            {
+              "id": "RT",
+              "name": "Arthropoda",
+              "rank": "phylum",
+              "status": "accepted",
+              "canonicalId": 9289,
+              "namesIndexId": 9289,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Arthropoda",
+              "labelHtml": "Arthropoda",
+              "parentId": "N"
+            },
+            {
+              "id": "N",
+              "name": "Animalia",
+              "rank": "kingdom",
+              "status": "accepted",
+              "canonicalId": 9237,
+              "namesIndexId": 9237,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Animalia",
+              "labelHtml": "Animalia",
+              "parentId": "CS5HF"
+            },
+            {
+              "id": "CS5HF",
+              "name": "Eukaryota",
+              "authorship": "(Chatton, 1925) Whittaker & Margulis, 1978",
+              "rank": "domain",
+              "status": "accepted",
+              "canonicalId": 3444548,
+              "namesIndexId": 3444548,
+              "namesIndexMatchType": "none",
+              "canonical": true,
+              "label": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978",
+              "labelHtml": "Eukaryota (Chatton, 1925) Whittaker & Margulis, 1978"
+            }
+          ],
+          "canonical": true,
+          "label": "Gelanor zonatus (C. L. Koch, 1845)",
+          "labelHtml": "<i>Gelanor zonatus</i> (C. L. Koch, 1845)",
+          "parentId": "CV5C2"
+        },
+        "sectorKey": 59356,
+        "type": "variant",
+        "original": {
+          "name": "Gelanor zonatus",
+          "status": "accepted",
+          "canonical": true,
+          "label": "Gelanor zonatus",
+          "labelHtml": "Gelanor zonatus"
+        },
+        "issues": {},
+        "id": "3FH9N",
+        "match": true
+      },
+      "note": "Segunda opinión taxonómica; requiere cotejo con GBIF y fuentes locales."
+    }
+  }
+}

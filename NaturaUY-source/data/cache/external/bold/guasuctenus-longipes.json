@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "candidate": {
+    "source": "bold",
+    "version": "BOLD Portal API",
+    "retrievedAt": "2026-09-12T18:02:49.897Z",
+    "parameters": {
+      "preprocessorQuery": "tax:species:Guasuctenus longipes;geo:country/ocean:Uruguay",
+      "query": "tax:species:Guasuctenus longipes;geo:country/ocean:Uruguay",
+      "fields": "specimens,bin_uri,species"
+    },
+    "remoteId": null,
+    "originalName": "Guasuctenus longipes",
+    "normalizedName": "Guasuctenus longipes",
+    "fieldPath": "external.bold",
+    "proposedValue": null,
+    "referenceAcceptedName": "Guasuctenus longipes",
+    "license": null,
+    "licenseUrl": null,
+    "url": "https://portal.boldsystems.org/api/summary?query=tax%3Aspecies%3AGuasuctenus+longipes%3Bgeo%3Acountry%2Focean%3AUruguay&fields=specimens%2Cbin_uri%2Cspecies",
+    "checksum": "54f7d64f4b7132299a7263c75eb7bf25fa5f4c729c5d7684eabde8c91aa2e864",
+    "status": "needs_review",
+    "evidence": {
+      "response": {
+        "preprocessor": {
+          "successful_terms": [
+            {
+              "submitted": "tax:species:Guasuctenus longipes",
+              "matched": "tax:species:Guasuctenus longipes"
+            },
+            {
+              "submitted": "geo:country/ocean:Uruguay",
+              "matched": "geo:country/ocean:Uruguay"
+            }
+          ]
+        },
+        "summary": {
+          "bin_uri": {},
+          "counts": {
+            "bin_uri": 0,
+            "species": 1,
+            "specimens": 1
+          },
+          "species": {
+            "Guasuctenus longipes": 1
+          }
+        }
+      },
+      "note": "Sólo cobertura de barcodes/BINs; no se incorporan secuencias ni imágenes al catálogo."
+    }
+  }
+}
