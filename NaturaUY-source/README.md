@@ -1,4 +1,12 @@
-# Natura UY
+# Arapy
+
+El nombre público de la app es **Arapy**. La animación de apertura dibuja al sapito de Darwin y el nombre en `src/presentation/components/StartupExperience.tsx`. Los PNG del ícono y del splash se generan con `node scripts/gen-icons.mjs` desde `assets/images/arapy-icon-master.png` y `arapy-logo-master.png`; el dibujo de trazos vive en `assets/images/arapy-mark.json`. El `slug`, el esquema OAuth y los identificadores de paquete conservan sus valores anteriores para mantener compatibles los enlaces y las instalaciones.
+
+Para un APK remoto, ejecutar primero `npm run data:audio-assets`: copia los audios aprobados a `assets/audio/` (ignorado por Git). El `.easignore` de la raíz Git los incluye únicamente en el archivo que se envía a EAS; sin ese paso Metro no puede resolver `audioMap.ts`. Después, usar `npx eas-cli build --platform android --profile preview --non-interactive`. La sesión de Expo debe tener acceso al proyecto EAS `19da2ae0-b85c-4ed8-9dbc-f26fe80c6a8e` de `rafardousdocente`. El perfil `preview` produce APK; `production` produce AAB.
+
+`npm run data:catalog-all` genera la SQLite móvil schema 14/data 4. Verifica por SHA-256 las fotos familiares de `guia-aves`, las prioriza en 309 aves y conserva hasta dos por especie; si faltan objetos o correspondencia, usa la selección externa de iNaturalist/Wikimedia. Las plantas y los artrópodos aplican automáticamente las fotos externas con licencia y atribución válidas. El catálogo deja origen desconocido y fallback visual donde las fuentes no permiten resolverlos. `data:catalog-db-preview`/`data:catalog-verify-preview` quedan disponibles para ensayos aislados en versión 5.
+
+El 24/09/2026 se creó el proyecto separado [@rafardous/arapy-preview](https://expo.dev/accounts/rafardous/projects/arapy-preview), ID `de838898-c903-4937-ab09-a927de89c64b`, con paquete Android `uy.arapy.preview` para intentar un APK de prueba sin alterar la firma principal. Expo aceptó el archivo, pero rechazó el build porque la cuenta `rafardous` agotó su cupo Android gratuito hasta el 01/10/2026. No se contrató un plan pago ni se dejó `app.json` apuntando al proyecto de prueba.
 
 Guía de campo de la biodiversidad uruguaya. App React Native (Expo) para Android e iOS, con un catálogo offline de 902 especies consolidadas desde 1006 registros de entrada. El pipeline también deja preparada la expansión de artrópodos de Uruguay.
 
@@ -84,7 +92,7 @@ Las fichas distinguen abundancia experta de observabilidad pública. La segunda 
 
 ## Pipeline de datos
 
-El pipeline histórico (`data:all`) convierte `resources/outputSNAP.json` en `assets/db/natura.db` + `assets/thumbs/`. Para el catálogo editorial vigente se usa el pipeline schema 12 descrito abajo; los endpoints sólo se consultan durante refresh y la app sigue funcionando offline con SQLite.
+El pipeline histórico (`data:all`) convierte `resources/outputSNAP.json` en artefactos iniciales. Para el catálogo editorial vigente se usa el pipeline schema 14 descrito abajo; los endpoints sólo se consultan durante refresh y la app sigue funcionando offline con SQLite.
 
 ```bash
 npm run data:all
@@ -131,19 +139,20 @@ lote para revisión, pero nunca se publica automáticamente. La promoción al
 catálogo exige resolver el nombre, comprobar presencia en Uruguay, conseguir
 medios con licencia válida y aprobar la ficha en el panel.
 
-### Catálogo editorial por grupos (`data/catalog`, schema 12)
+### Catálogo editorial por grupos (`data/catalog`, schema 14)
 
 El catálogo nuevo combina fuentes locales, resuelve nombres con GBIF v2 y
 busca una imagen redistribuible por nombre científico aceptado. La jerarquía ya
-no está limitada a animales: parte de `Animalia` y `Plantae`, conserva Chordata/Arthropoda y agrega las 3157 plantas vasculares del snapshot v1.3 de Flora Uruguaya Online.
+no está limitada a animales: parte de `Animalia` y `Plantae`, conserva Chordata/Arthropoda y selecciona 100 plantas de interés de Uruguay.
 
 ```bash
 npm run data:catalog-all
 ```
 
 El flujo se divide en dos comandos reproducibles: `data:catalog-refresh`
-descarga snapshots con checksum en `data/raw/<proveedor>/`, pagina GBIF y
-actualiza cachés de resolución/medios; `data:catalog-build` trabaja
+descarga snapshots con checksum en `data/raw/<proveedor>/`, pagina GBIF,
+consulta fotos y datos candidatos de las 100 plantas y actualiza cachés de
+resolución/medios; `data:catalog-build` trabaja
 exclusivamente offline desde esos snapshots y cachés fijados. Los tres datasets abiertos de artrópodos quedan
 en `raw/udelar/`, `raw/gbif/` y `raw/biodiversidata/`; sus DOI y endpoints están
 registrados en `data/raw/sources.json`. La planilla de EcoRegistros se conserva
@@ -152,7 +161,7 @@ Git y usada sólo para contraste editorial. El parser reconoce la planilla HTML
 Latin-1 (1.221 filas: 876 nombres binomiales y 344 entradas incompletas o
 inciertas) y nunca convierte sus filas en especies publicables.
 
-Flora Uruguaya queda en `data/raw/florauruguaya.org/vascular-plants/v1.3/` con manifiesto, DOI, licencia y SHA-256. `data:plants` contabiliza sus 3157 filas y genera `data/catalog/plantae.json` de forma determinista. El CSV respalda presencia nacional, familia, hábito, forma de vida y formaciones vegetales; origen, conservación y fenología quedan desconocidos hasta incorporar una fuente específica. `data:plant-taxonomy` contrasta nombres en lotes con WFO Plant List 2026-06 mediante ChecklistBank y deja sinónimos, órdenes e identificadores en `plant-taxonomy-candidates.json`: nunca los aplica sin revisión editorial. La licencia de cada imagen se valida por separado.
+La selección vive en `data/raw/curated-plants/seed-100.json`; `baseline-evidence-100.json` conserva la evidencia taxonómica y ecológica. El snapshot completo de 3157 plantas fue retirado. `data:plants` genera 100 registros y toma las fotos válidas del caché externo. Asigna origen nativo sólo cuando Flora Uruguaya muestra explícitamente «Nativa» o «Endémica regional» en la ficha correspondiente; mantiene origen desconocido para las demás. Las alturas y fenologías sin evidencia precisa no se inventan. `data:plant-taxonomy` contrasta nombres con WFO y deja conflictos taxonómicos para revisión editorial.
 
 La etapa de imágenes consulta iNaturalist primero y Wikimedia como respaldo.
 En iNaturalist sólo acepta CC0, porque el código genérico `cc-by` de su API no
@@ -160,8 +169,9 @@ demuestra una versión concreta; en Wikimedia acepta CC0 o CC BY 4.0 verificable
 rechaza CC BY-NC/SA/ND, licencias ausentes y dimensiones insuficientes, y guarda
 URL mediana y grande, atribución, fuente, página, checksum/ID cuando existe.
 El resultado reanudable queda en
-`data/cache/media/species-media.json` y se integra en `media.image` dentro de
-los JSON de `data/catalog/` sin reemplazar los campos enriquecidos existentes.
+`data/cache/media/species-media.json`. `data:plants` utiliza automáticamente las
+imágenes con licencia, dimensión y atribución válidas; si faltan, la app usa su
+fallback visual.
 Luego `data:catalog-db` consolida las apariciones repetidas por especie, conserva
 los códigos históricos que reconoce y genera `assets/db/natura.db`. La última
 etapa (`data:catalog-verify`) prueba integridad, búsqueda FTS, filtros, paginado y
@@ -203,7 +213,7 @@ FishBase, iNaturalist taxonómica y cualquier fuente sin licencia redistribuible
 se usan sólo para revisión, nunca como contenido copiado automáticamente al
 catálogo.
 
-El modelo schema 12 agrega perfil botánico a `naturalHistory`, raíces por reino y navegación por nodos estables, además de conservar identificadores y distribución de schema 11. La galería conserva hasta dos imágenes con
+El modelo schema 14 separa `measurements` y `ecology`, normaliza conservación en `species_conservation` y retira los campos legados combinados. Conserva raíces por reino, navegación por nodos estables e identificadores. La galería conserva hasta dos imágenes con
 rol editorial implícito (principal, diagnóstica, etapa o detalle) y los filtros
 offline incluyen metamorfosis, rol trófico y microhábitat cuando hay datos.
 
@@ -216,15 +226,13 @@ npm run data:catalog-db
 npm run data:catalog-verify
 ```
 
-Las plantas se procesan por separado para que una actualización normal de
-animales no dispare miles de consultas. Este comando guarda candidatos
-reanudables; al ejecutar nuevamente `data:plants`, las imágenes que cumplen el
-contrato de licencia y resolución se incorporan al JSON botánico:
+Las plantas se procesan por separado dentro de `data:catalog-refresh`. Estos comandos permiten repetir sólo sus etapas y guardar el informe de faltantes. `data:plants` incorpora automáticamente las fotos válidas halladas:
 
 ```bash
-npm run data:plant-media -- --limit=20
-npm run data:plant-taxonomy -- --batch=20
 npm run data:plants
+npm run data:plant-enrichment
+npm run data:plant-taxonomy -- --batch=20
+npm run data:plant-media -- --limit=20
 ```
 
 Las especies ya consultadas no se vuelven a pedir. Para reintentar únicamente

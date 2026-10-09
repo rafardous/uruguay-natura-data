@@ -22,8 +22,11 @@ export interface PlayableSpeciesAudio {
 interface AudioContextValue {
   activeId: string | null;
   loading: boolean;
+  loadingId: string | null;
   playing: boolean;
   progress: number;
+  positionSeconds: number;
+  durationSeconds: number;
   error: string | null;
   toggle(audio: PlayableSpeciesAudio): Promise<void>;
   stop(): void;
@@ -87,12 +90,14 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
   const status = useAudioPlayerStatus(player);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loadingId, setLoadingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const stop = useCallback((): void => {
     player.pause();
     setActiveId(null);
     setLoading(false);
+    setLoadingId(null);
     void setIsAudioActiveAsync(false).catch(() => undefined);
   }, [player]);
 
@@ -111,8 +116,11 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
   const value = useMemo<AudioContextValue>(() => ({
     activeId,
     loading,
+    loadingId,
     playing: Boolean(activeId && status.playing),
     progress: status.duration > 0 ? Math.min(1, status.currentTime / status.duration) : 0,
+    positionSeconds: activeId ? Math.max(0, status.currentTime) : 0,
+    durationSeconds: activeId ? Math.max(0, status.duration) : 0,
     error,
     async toggle(audio) {
       setError(null);
@@ -121,6 +129,7 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
         return;
       }
       setLoading(true);
+      setLoadingId(audio.id);
       try {
         if (activeId !== audio.id) {
           player.pause();
@@ -137,10 +146,11 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
         setError('Este audio no está disponible sin conexión.');
       } finally {
         setLoading(false);
+        setLoadingId(null);
       }
     },
     stop,
-  }), [activeId, error, loading, player, status, stop]);
+  }), [activeId, error, loading, loadingId, player, status, stop]);
 
   return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>;
 }

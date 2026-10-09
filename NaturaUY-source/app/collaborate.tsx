@@ -67,7 +67,7 @@ export default function CollaborateScreen(): React.JSX.Element {
     try {
       await submitCollaboratorApplication({ ...draft, experience: draft.experience.trim(), motivation: draft.motivation.trim(), referenceUrl: draft.referenceUrl.trim() || null });
       setApplication(await getOwnCollaboratorApplication());
-      setMessage('Recibimos tu solicitud. Gracias por querer ser parte de Natura UY.');
+      setMessage('Recibimos tu solicitud. Gracias por querer ser parte de Arapy.');
       savedDraft = { ...initialDraft };
       setDraft({ ...initialDraft });
     } catch (reason) {
@@ -78,7 +78,7 @@ export default function CollaborateScreen(): React.JSX.Element {
   const intro = useMemo(() => googleSession ? 'Completá estos datos y el equipo editorial va a revisar tu propuesta.' : 'Nos gustaría conocer tus intereses para sumar colaboraciones cuidadas y con fuentes.', [googleSession]);
 
   return <View style={[styles.screen, { backgroundColor: colors.background }]}>
-    <AppHeader eyebrow="COLABORAR" title="Sumate a Natura UY"><Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver"><CloseIcon color={colors.text} /></Pressable></AppHeader>
+    <AppHeader eyebrow="COLABORAR" title="Sumate a Arapy"><Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver"><CloseIcon color={colors.text} /></Pressable></AppHeader>
     <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: spacing.lg, gap: spacing.md }}>
       <View style={[styles.intro, { backgroundColor: colors.primaryContainer, borderRadius: radius.lg, padding: spacing.lg }]}><View style={[styles.introIcon, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><CollaborateIcon color={colors.primary} size={25} /></View><Text style={[typography.body, { color: colors.onPrimaryContainer, flex: 1 }]}>{intro}</Text></View>
       {!googleSession ? <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.lg }]}>
@@ -96,7 +96,7 @@ export default function CollaborateScreen(): React.JSX.Element {
         <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.md }]}>DISPONIBILIDAD</Text>
         <View style={styles.availability}>{AVAILABILITY.map((item) => <Pressable key={item.value} onPress={() => update('availability', item.value)} style={[styles.availabilityItem, { backgroundColor: draft.availability === item.value ? colors.primaryContainer : colors.background, borderColor: draft.availability === item.value ? colors.primary : colors.border, borderRadius: radius.md }]}><Text style={[typography.caption, { color: draft.availability === item.value ? colors.onPrimaryContainer : colors.textSecondary }]}>{item.label}</Text></Pressable>)}</View>
         <Field label="Referencia o portafolio (opcional)" value={draft.referenceUrl} onChange={(value) => update('referenceUrl', value)} placeholder="https://…" colors={colors} radius={radius} typography={typography} autoCapitalize="none" keyboardType="url" />
-        <Pressable onPress={() => update('consent', !draft.consent)} accessibilityRole="checkbox" accessibilityState={{ checked: draft.consent }} style={styles.consent}><View style={[styles.checkbox, { borderColor: draft.consent ? colors.primary : colors.border, backgroundColor: draft.consent ? colors.primary : colors.surface, borderRadius: 5 }]}>{draft.consent && <Text style={{ color: colors.onPrimary, fontWeight: '800' }}>✓</Text>}</View><Text style={[typography.caption, { color: colors.textSecondary, flex: 1 }]}>Acepto que Natura UY me contacte sobre esta solicitud de colaboración.</Text></Pressable>
+        <Pressable onPress={() => update('consent', !draft.consent)} accessibilityRole="checkbox" accessibilityState={{ checked: draft.consent }} style={styles.consent}><View style={[styles.checkbox, { borderColor: draft.consent ? colors.primary : colors.border, backgroundColor: draft.consent ? colors.primary : colors.surface, borderRadius: 5 }]}>{draft.consent && <Text style={{ color: colors.onPrimary, fontWeight: '800' }}>✓</Text>}</View><Text style={[typography.caption, { color: colors.textSecondary, flex: 1 }]}>Acepto que Arapy me contacte sobre esta solicitud de colaboración.</Text></Pressable>
         {message ? <Text style={[typography.caption, { color: message.startsWith('Recibimos') ? colors.primary : colors.danger, marginTop: spacing.md }]}>{message}</Text> : null}
         <Pressable disabled={busy || !readyToSubmit} onPress={() => void submit()} style={({ pressed }) => [styles.primaryButton, { backgroundColor: colors.primary, borderRadius: radius.pill, marginTop: spacing.lg, opacity: busy || !readyToSubmit ? 0.45 : pressed ? 0.82 : 1 }]}>{busy ? <ActivityIndicator color={colors.onPrimary} /> : <Text style={[typography.label, { color: colors.onPrimary }]}>Enviar solicitud</Text>}</Pressable>
       </View>}

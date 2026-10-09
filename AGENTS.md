@@ -1,8 +1,8 @@
-# Natura UY — contexto para agentes
+# Arapy — contexto para agentes
 
 ## Propósito
 
-Natura UY es un catálogo de biodiversidad de Uruguay. El repositorio contiene:
+Arapy es un catálogo de biodiversidad de Uruguay. El repositorio conserva nombres técnicos anteriores (`NaturaUY-*`, `naturauy`, `natura_uy_editorial` y el dominio) para mantener compatibles instalaciones, enlaces y datos. Contiene:
 
 - Una aplicación móvil Expo/React Native que funciona offline con SQLite.
 - Un panel editorial privado React/Vite para que administradores y colaboradores mantengan el catálogo.
@@ -13,11 +13,14 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 ## Estado actual
 
 - El proyecto Supabase `xbnbfekcxrkgteuijbzh` está operativo con schema 12 y el catálogo inicial importado: 4105 especies, 3157 perfiles botánicos, 2113 nodos y 2132 nombres taxonómicos. El panel está publicado en `https://uruguay-natura-data.pages.dev`; todavía faltan los secretos de GitHub y el despliegue de Edge Functions. R2 no forma parte del primer despliegue.
-- La sección móvil Aprender v1 está implementada con cinco recorridos y 21 módulos versionados, fuentes visibles, cuatro tipos de pregunta y repetición espaciada offline. La migración schema 13 agrega documentos editoriales `learning_paths` y sincronización privada del dominio; permanece pendiente de aplicar y publicar en Supabase.
+- El recorte botánico local usa `data/raw/curated-plants/seed-100.json` (50 árboles y 50 otras plantas) y `data/catalog/plantae.json` contiene 100. El SQLite móvil local schema 14/data 4 usa selección automática de fotos externas de licencia verificable: 96 plantas con foto y 4 con fallback visual; 71 tienen origen nativo documentado y 29 conservan origen desconocido. El remoto sigue con 3157 plantas activas; el recorte remoto exige respaldo válido y su proceso editorial separado. El workflow de respaldo no es válido mientras falten `SUPABASE_DB_URL` y `BACKUP_ENCRYPTION_PASSWORD`.
+- La sección móvil Aprender v1 está implementada con cinco recorridos y 21 módulos versionados, fuentes visibles, cuatro tipos de pregunta y repetición espaciada offline. Las migraciones schema 13 y 14 permanecen pendientes de aplicar en Supabase; schema 14 separa mediciones, ecología y conservación y el SQLite local ya se genera con ese contrato.
+- La conversión local de fotos familiares seleccionó 630 fotos de 329 números, con una imagen ilegible omitida. `C:\Users\rafar\Pictures\NaturaUY\assigned` contiene 594 fotos de 309 aves y sus miniaturas; 20 números permanecen sin asignación por falta de coincidencia única y compatible. Los 1188 objetos se subieron y verificaron por SHA-256 en el bucket público `guia-aves`, bajo `NNN/`. `data:guide-media` los comprueba de nuevo al refrescar el catálogo móvil y prioriza las fotos familiares; las demás especies conservan el selector externo. La reconciliación editorial aún requiere migraciones schema 13/14 y la RPC, y registrará la autorización de Pedro Rinaldi en `media-evidence` antes de vincular medios remotos.
 - El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.
-- La línea base animal tiene 1052 registros/948 especies. El catálogo schema 12 agrega el snapshot v1.3 de Flora Uruguaya Online (3157 plantas vasculares) y queda en 4209 registros/4105 especies; el backlog candidate-only externo se mantiene separado.
+- La marca pública ahora es **Arapy** en la app y el panel; rutas de repositorio, dominio, esquema OAuth, package ID, UUID y códigos permanecen estables. La compilación Android local de JavaScript pasa tras preparar 202 audios con `data:audio-assets`. El APK EAS remoto sigue pendiente: la sesión `rafardous` no tiene acceso al proyecto principal `rafardousdocente`; se creó un proyecto separado de prueba `@rafardous/arapy-preview`, pero el build fue rechazado por cupo Android gratuito agotado hasta el 01/10/2026. No se contrató un plan ni se cambió el proyecto principal en `app.json`.
+- La línea base animal tiene 1052 registros/948 especies. El último catálogo móvil publicado agrega el snapshot v1.3 de Flora Uruguaya Online (3157 plantas vasculares); el nuevo pipeline local selecciona sólo 100, con candidatos externos separados.
 - La fuente editorial definitiva ya es PostgreSQL. Los JSON y `natura.db` son artefactos derivados y versionados.
-- La base histórica animal tuvo 1006 entradas/902 especies. El derivado schema 12 actual tiene 4209 registros/4105 especies y conserva los 948 códigos de la línea base animal. No asumir que “registro JSON” y “especie” son equivalentes.
+- La base histórica animal tuvo 1006 entradas/902 especies. El SQLite móvil todavía incluido tiene 4209 registros/4105 especies y conserva los 948 códigos de la línea base animal. No asumir que “registro JSON” y “especie” son equivalentes.
 
 ### Panel web disponible actualmente
 
@@ -71,8 +74,8 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 1. No editar `natura.db` a mano. Se genera y se valida desde datos editoriales.
 2. El ID UUID de Natura UY y `catalog_code` son estables; no romper favoritos, navegación ni enlaces al rectificar taxonomía.
 3. Una edición crea una revisión nueva. Nunca sobrescribir ni borrar revisiones ni especies físicamente.
-4. `abundanceStatus` no es conservación. Conservar separados abundancia, conservación, origen, establecimiento, estacionalidad y certeza. La abundancia experta y la observabilidad automática también permanecen separadas; observabilidad no es una estimación poblacional.
-5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie. Los candidatos automáticos de enriquecimiento nunca se publican sin aprobación humana. Fuentes `review_only` no pueden alimentar texto redistribuido.
+4. `abundanceStatus` no es conservación. Schema 14 conserva separados abundancia, conservación, origen y estacionalidad; retiró establecimiento y certeza de presencia. La abundancia experta y la observabilidad automática también permanecen separadas; observabilidad no es una estimación poblacional.
+5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie. El pipeline móvil selecciona automáticamente fotos familiares verificadas o imágenes externas CC0/CC BY 4.0 con autoría, fuente y licencia; también aplica el origen nativo cuando la ficha de Flora Uruguaya lo declara explícitamente. Los cambios hechos desde el frontend conservan propuesta, revisión e historial editorial. Las candidatas taxonómicas ambiguas y fuentes `review_only` no alimentan texto redistribuido.
 6. Favoritos, preferencias, juegos y progreso de Aprender tienen fuente offline en `user.db`; nunca se mezclan con `natura.db`. Si hay cuenta Google, se sincronizan con Supabase sin volver al backend un requisito de arranque.
    El Puzzle deslizante usa `puzzle_records` por categoría y dificultad (3/4), con mínimos independientes, sincronización privada mediante `sync_puzzle_records(jsonb)` y recuperación por cuenta mediante `get_personal_mobile_progress()`.
    El catálogo schema 12 conserva el contrato schema 11 y agrega Plantae/Tracheophyta, perfil botánico, nombres taxonómicos y cierre de ancestros. La navegación usa `taxon_id` y omite rangos vacíos. `knowledge_level` es acumulativo (`easy ⊂ medium ⊂ hard`); los récords incorporan el nivel además de categoría y, en Puzzle, grilla.
@@ -82,10 +85,11 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 8. Los medios procesados se verifican en Supabase Storage antes de eliminar el original temporal. Si en el futuro se configura R2, también se verifica allí. Las URLs públicas siguen `/m/{assetId}/{variant}`.
 9. Las imágenes definitivas usan lado mayor de 1600 px y miniatura de 480 px. Los audios definitivos duran como máximo 15 s, son mono, MP3 96 kbps y 48 kHz.
 10. No incluir secretos, archivos `.env`, medios, builds, `node_modules` ni backups en Git.
+11. La carga masiva de la guía de aves nunca deduce especies por número ni por OCR. Usa la tabla revisada y acepta coincidencias únicas de nombres de archivo con el catálogo; omite conflictos y fotos «Foto cedida». Conserva un máximo total de dos imágenes activas por especie y verifica los objetos familiares por SHA-256 antes de vincularlos.
 
 ## Pipeline de expansión
 
-`NaturaUY-source/scripts/catalog/` ejecuta fuentes locales y endpoints externos durante el pipeline, nunca desde la app offline. `data:catalog-all` fija e importa Flora Uruguaya v1.3, encadena el discovery candidate-only de artrópodos en GBIF, normalización, resolución, auditoría, medios y enriquecimientos antes de construir schema 12. Los medios botánicos se descubren aparte con `data:plant-media` por lotes; iNaturalist sólo es publicable con CC0 y Wikimedia con CC0 o CC BY 4.0 exacta. `data:plant-taxonomy` contrasta por lotes con WFO Plant List 2026-06/ChecklistBank y nunca aplica sinónimos, órdenes o IDs automáticamente. Los candidatos externos requieren revisión humana antes de entrar en Supabase o en un release.
+`NaturaUY-source/scripts/catalog/` ejecuta fuentes locales y endpoints externos durante el pipeline, nunca desde la app offline. `data:catalog-all` importa sólo las 100 plantas seleccionadas, consulta fotos externas de plantas y artrópodos, verifica el bucket `guia-aves` por SHA-256 y construye schema 14. Las fotos con licencia y atribución válidas entran automáticamente en el SQLite móvil; si no hay imagen válida se usa el fallback visual. El origen nativo se asigna sólo cuando hay etiqueta explícita en la fuente y se cita por campo; los demás quedan desconocidos. El recorte remoto y las migraciones editoriales siguen un flujo separado con respaldo previo. Schema 14 publica `measurements`, `ecology` y `species_conservation`; no publica `traits`, `size`, `habitat`, `diet`, `distribution_summary`, `establishment` ni `presence_certainty`.
 
 ## Reglas de seguridad
 

@@ -152,10 +152,10 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
                 source={require('../../../assets/images/logo.png')}
                 contentFit="cover"
                 style={[styles.logo, { borderRadius: radius.md, borderColor: DRAWER.border }]}
-                accessibilityLabel="Logo de Natura UY"
+                accessibilityLabel="Logo de Arapy"
               />
               <View>
-                <Text style={[typography.title, { color: DRAWER.text }]}>Natura UY</Text>
+                <Text style={[typography.title, { color: DRAWER.text }]}>Arapy</Text>
               </View>
             </View>
             <Pressable onPress={() => { haptics.tap(); onClose(); }} hitSlop={10} accessibilityLabel="Cerrar menú">

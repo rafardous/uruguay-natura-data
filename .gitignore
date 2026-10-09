@@ -46,5 +46,9 @@ npm-debug.*
 .DS_Store
 Thumbs.db
 .idea/
+.tmp/
+output/
+supabase/.temp/
+NaturaUY-source/data/cache/
 # Fuentes restringidas usadas sólo para contraste editorial; no redistribuir.
 NaturaUY-source/data/raw/ecoregistros.org/insectos-uruguay/restricted/

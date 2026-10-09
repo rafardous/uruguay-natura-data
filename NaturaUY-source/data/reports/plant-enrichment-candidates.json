@@ -1,0 +1,2028 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-24T03:54:24.423Z",
+  "targetClasses": [
+    "Plantae"
+  ],
+  "sourceVersions": {
+    "flora_uruguaya": "v1.3 / fichas consultadas 2026-09-23"
+  },
+  "candidateCount": 84,
+  "candidates": [
+    {
+      "speciesId": "plant-achyrocline-saturejoides",
+      "scientificName": "Achyrocline saturejoides",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/achyrocline-saturejoides",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-allophylus-edulis",
+      "scientificName": "Allophylus edulis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/allophylus-edulis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-allophylus-edulis",
+      "scientificName": "Allophylus edulis",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/allophylus-edulis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-aloysia-gratissima",
+      "scientificName": "Aloysia gratissima",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/aloysia-gratissima",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-aspidosperma-quebracho-blanco",
+      "scientificName": "Aspidosperma quebracho-blanco",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/aspidosperma-quebracho-blanco",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-baccharis-sagittalis",
+      "scientificName": "Baccharis sagittalis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/baccharis-sagittalis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-baccharis-salicifolia",
+      "scientificName": "Baccharis salicifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/baccharis-salicifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-baccharis-trimera",
+      "scientificName": "Baccharis trimera",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/baccharis-trimera",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-berberis-laurina",
+      "scientificName": "Berberis laurina",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/berberis-laurina",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-blepharocalyx-salicifolius",
+      "scientificName": "Blepharocalyx salicifolius",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/blepharocalyx-salicifolius",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-blepharocalyx-salicifolius",
+      "scientificName": "Blepharocalyx salicifolius",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/blepharocalyx-salicifolius",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-butia-odorata",
+      "scientificName": "Butia odorata",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/butia-odorata",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Endémica regional; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-butia-yatay",
+      "scientificName": "Butia yatay",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/butia-yatay",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-celtis-tala",
+      "scientificName": "Celtis tala",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/celtis-tala",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-cestrum-parqui",
+      "scientificName": "Cestrum parqui",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/cestrum-parqui",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-coleataenia-prionitis",
+      "scientificName": "Coleataenia prionitis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/coleataenia-prionitis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-cortaderia-selloana",
+      "scientificName": "Cortaderia selloana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/cortaderia-selloana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-croton-urucurana",
+      "scientificName": "Croton urucurana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/croton-urucurana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-cupania-vernalis",
+      "scientificName": "Cupania vernalis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/cupania-vernalis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-cupania-vernalis",
+      "scientificName": "Cupania vernalis",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/cupania-vernalis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-dicliptera-squarrosa",
+      "scientificName": "Dicliptera squarrosa",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/dicliptera-squarrosa",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-dodonaea-viscosa",
+      "scientificName": "Dodonaea viscosa",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/dodonaea-viscosa",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-dodonaea-viscosa",
+      "scientificName": "Dodonaea viscosa",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Arbusto",
+      "proposedValue": "Arbusto y árbol",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/dodonaea-viscosa",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-dolichandra-unguis-cati",
+      "scientificName": "Dolichandra unguis-cati",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/dolichandra-unguis-cati",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-enterolobium-contortisiliquum",
+      "scientificName": "Enterolobium contortisiliquum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/enterolobium-contortisiliquum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-erythrina-crista-galli",
+      "scientificName": "Erythrina crista-galli",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/erythrina-crista-galli",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-eugenia-involucrata",
+      "scientificName": "Eugenia involucrata",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/eugenia-involucrata",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-eugenia-involucrata",
+      "scientificName": "Eugenia involucrata",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Arbusto",
+      "proposedValue": "Arbusto y árbol",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/eugenia-involucrata",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-eugenia-uniflora",
+      "scientificName": "Eugenia uniflora",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/eugenia-uniflora",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-eugenia-uniflora",
+      "scientificName": "Eugenia uniflora",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Arbusto",
+      "proposedValue": "Arbusto y árbol",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/eugenia-uniflora",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-feijoa-sellowiana",
+      "scientificName": "Feijoa sellowiana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/feijoa-sellowiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-feijoa-sellowiana",
+      "scientificName": "Feijoa sellowiana",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/feijoa-sellowiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-ficus-luschnathiana",
+      "scientificName": "Ficus luschnathiana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/ficus-luschnathiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-glandularia-selloi",
+      "scientificName": "Glandularia selloi",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/glandularia-selloi",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Endémica regional; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-guettarda-uruguensis",
+      "scientificName": "Guettarda uruguensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/guettarda-uruguensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-ilex-paraguariensis",
+      "scientificName": "Ilex paraguariensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/ilex-paraguariensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-labatia-gardneriana",
+      "scientificName": "Labatia gardneriana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/labatia-gardneriana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-labatia-salicifolia",
+      "scientificName": "Labatia salicifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/labatia-salicifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-lithraea-brasiliensis",
+      "scientificName": "Lithraea brasiliensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/lithraea-brasiliensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-lithraea-molleoides",
+      "scientificName": "Lithraea molleoides",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/lithraea-molleoides",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-matayba-elaeagnoides",
+      "scientificName": "Matayba elaeagnoides",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/matayba-elaeagnoides",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-matayba-elaeagnoides",
+      "scientificName": "Matayba elaeagnoides",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/matayba-elaeagnoides",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-myrcianthes-cisplatensis",
+      "scientificName": "Myrcianthes cisplatensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrcianthes-cisplatensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-myrcianthes-cisplatensis",
+      "scientificName": "Myrcianthes cisplatensis",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrcianthes-cisplatensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-myrcianthes-pungens",
+      "scientificName": "Myrcianthes pungens",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrcianthes-pungens",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-myrrhinium-atropurpureum",
+      "scientificName": "Myrrhinium atropurpureum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrrhinium-atropurpureum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-myrrhinium-atropurpureum",
+      "scientificName": "Myrrhinium atropurpureum",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrrhinium-atropurpureum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-myrsine-laetevirens",
+      "scientificName": "Myrsine laetevirens",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/myrsine-laetevirens",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-nassella-neesiana",
+      "scientificName": "Nassella neesiana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/nassella-neesiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-neltuma-affinis",
+      "scientificName": "Neltuma affinis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/neltuma-affinis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-ocotea-acutifolia",
+      "scientificName": "Ocotea acutifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/ocotea-acutifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-ocotea-pulchella",
+      "scientificName": "Ocotea pulchella",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/ocotea-pulchella",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-parapiptadenia-rigida",
+      "scientificName": "Parapiptadenia rigida",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/parapiptadenia-rigida",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-paspalum-dilatatum",
+      "scientificName": "Paspalum dilatatum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/paspalum-dilatatum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-paspalum-notatum",
+      "scientificName": "Paspalum notatum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/paspalum-notatum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-paspalum-quadrifarium",
+      "scientificName": "Paspalum quadrifarium",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/paspalum-quadrifarium",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-passiflora-caerulea",
+      "scientificName": "Passiflora caerulea",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/passiflora-caerulea",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-passiflora-caerulea",
+      "scientificName": "Passiflora caerulea",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Trepadora o apoyante leñosa",
+      "proposedValue": "Trepadora o apoyante leñosa y trepadora o apoyante herbácea",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/passiflora-caerulea",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-peltophorum-dubium",
+      "scientificName": "Peltophorum dubium",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/peltophorum-dubium",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-petunia-integrifolia",
+      "scientificName": "Petunia integrifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/petunia-integrifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-phytolacca-dioica",
+      "scientificName": "Phytolacca dioica",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/phytolacca-dioica",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-psidium-cattleyanum",
+      "scientificName": "Psidium cattleyanum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/psidium-cattleyanum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-psidium-cattleyanum",
+      "scientificName": "Psidium cattleyanum",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Arbusto",
+      "proposedValue": "Arbusto y árbol",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/psidium-cattleyanum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-quillaja-lancifolia",
+      "scientificName": "Quillaja lancifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/quillaja-lancifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-richardia-brasiliensis",
+      "scientificName": "Richardia brasiliensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/richardia-brasiliensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-ruprechtia-laxiflora",
+      "scientificName": "Ruprechtia laxiflora",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/ruprechtia-laxiflora",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-sagittaria-montevidensis",
+      "scientificName": "Sagittaria montevidensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/sagittaria-montevidensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-salix-humboldtiana",
+      "scientificName": "Salix humboldtiana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/salix-humboldtiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-schinus-lentiscifolia",
+      "scientificName": "Schinus lentiscifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/schinus-lentiscifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-schinus-molle",
+      "scientificName": "Schinus molle",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/schinus-molle",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-schizachyrium-microstachyum",
+      "scientificName": "Schizachyrium microstachyum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/schizachyrium-microstachyum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-schoenoplectus-californicus",
+      "scientificName": "Schoenoplectus californicus",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/schoenoplectus-californicus",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-scutia-buxifolia",
+      "scientificName": "Scutia buxifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/scutia-buxifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-senecio-bonariensis",
+      "scientificName": "Senecio bonariensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/senecio-bonariensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-sisyrinchium-platense",
+      "scientificName": "Sisyrinchium platense",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/sisyrinchium-platense",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-syagrus-romanzoffiana",
+      "scientificName": "Syagrus romanzoffiana",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/syagrus-romanzoffiana",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-tillandsia-aeranthos",
+      "scientificName": "Tillandsia aëranthos",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/tillandsia-aeranthos",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-trifolium-polymorphum",
+      "scientificName": "Trifolium polymorphum",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/trifolium-polymorphum",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-typha-latifolia",
+      "scientificName": "Typha latifolia",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/typha-latifolia",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-vachellia-caven",
+      "scientificName": "Vachellia caven",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/vachellia-caven",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-vachellia-caven",
+      "scientificName": "Vachellia caven",
+      "fieldPath": "naturalHistory.plant.habit",
+      "currentValue": "Árbol",
+      "proposedValue": "Árbol y arbusto",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/vachellia-caven",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Hábito indicado en la ficha de Flora Uruguaya."
+    },
+    {
+      "speciesId": "plant-verbena-bonariensis",
+      "scientificName": "Verbena bonariensis",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/verbena-bonariensis",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-verbena-rigida",
+      "scientificName": "Verbena rigida",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/verbena-rigida",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    },
+    {
+      "speciesId": "plant-vitex-megapotamica",
+      "scientificName": "Vitex megapotamica",
+      "fieldPath": "origin",
+      "currentValue": null,
+      "proposedValue": "native",
+      "sourceCode": "flora_uruguaya",
+      "sourceRecordId": "https://florauruguaya.org/taxonomias/vitex-megapotamica",
+      "confidence": 0.9,
+      "decision": "review",
+      "rationale": "Flora Uruguaya indica Nativa; requiere aprobación editorial."
+    }
+  ],
+  "gaps": [
+    {
+      "scientificName": "Achyrocline saturejoides",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Allophylus edulis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Aloysia gratissima",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Aspidosperma quebracho-blanco",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Baccharis sagittalis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Baccharis salicifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Baccharis trimera",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Berberis laurina",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Blepharocalyx salicifolius",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Butia odorata",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Butia yatay",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Calliandra parvifolia",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Calliandra tweediei",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Canna indica",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Celtis tala",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Cereus hildmannianus",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Cestrum parqui",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Citharexylum montevidense",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Citronella gongonha",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Coleataenia prionitis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Colletia paradoxa",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Commelina erecta",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Cordia americana",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Cortaderia selloana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Croton urucurana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Cupania vernalis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Dicliptera squarrosa",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Dodonaea viscosa",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Dolichandra unguis-cati",
+      "fields": [
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Enterolobium contortisiliquum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Eryngium pandanifolium",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Erythrina crista-galli",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Eugenia involucrata",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Eugenia uniflora",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Feijoa sellowiana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Ficus luschnathiana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Glandularia selloi",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Gleditsia amorphoides",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Guettarda uruguensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Handroanthus heptaphyllus",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Ilex paraguariensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Jodina rhombifolia",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Labatia gardneriana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Labatia salicifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Lantana camara",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Lithraea brasiliensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Lithraea molleoides",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Luehea divaricata",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Matayba elaeagnoides",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Monteverdia ilicifolia",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Myrceugenia glaucescens",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Myrcianthes cisplatensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Myrcianthes pungens",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Myrrhinium atropurpureum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Myrsine laetevirens",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Nassella neesiana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Neltuma affinis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Ocotea acutifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Ocotea pulchella",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Opuntia elata",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Oxalis articulata",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Oxalis sellowiana",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Parapiptadenia rigida",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Paspalum dilatatum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Paspalum notatum",
+      "fields": [
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Paspalum quadrifarium",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Passiflora caerulea",
+      "fields": [
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Peltophorum dubium",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Petunia axillaris",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Petunia integrifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Phytolacca dioica",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Pontederia cordata",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Prunus subcoriacea",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Psidium cattleyanum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Quillaja lancifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Richardia brasiliensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Ruprechtia laxiflora",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Sagittaria montevidensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Salix humboldtiana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Sapium glandulosum",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Schinus lentiscifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Schinus molle",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Schizachyrium microstachyum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Schoenoplectus californicus",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Scutia buxifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Senecio bonariensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Senecio crassiflorus",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Senna corymbosa",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Sisyrinchium platense",
+      "fields": [
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Solanum mauritianum",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Sphaeralcea bonariensis",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Syagrus romanzoffiana",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Terminalia australis",
+      "fields": [
+        "origin",
+        "habit",
+        "lifeForm",
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Tillandsia aëranthos",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Trifolium polymorphum",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Typha latifolia",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Vachellia caven",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Verbena bonariensis",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Verbena rigida",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    },
+    {
+      "scientificName": "Vitex megapotamica",
+      "fields": [
+        "heightCm",
+        "floweringMonths",
+        "fruitingMonths",
+        "approvedPhoto"
+      ]
+    }
+  ],
+  "guidance": {
+    "heightCm": [
+      "Guía de identificación de especies arbóreas nativas de Uruguay (Ministerio de Ambiente)",
+      "Guía de jardinería ecológica para las zonas costeras de Uruguay"
+    ],
+    "phenology": [
+      "Flora Uruguaya Online: revisar el calendario visual de cada ficha; no inferir meses del texto extraído"
+    ],
+    "approvedPhoto": [
+      "Wikimedia Commons: CC0 o CC BY 4.0 por archivo",
+      "iNaturalist: verificar licencia de la foto, no de la observación",
+      "Permiso documentado del autor"
+    ]
+  }
+}

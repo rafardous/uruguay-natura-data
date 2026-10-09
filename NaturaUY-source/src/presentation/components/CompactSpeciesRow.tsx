@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { MotiView } from 'moti';
 import Svg, { Path } from 'react-native-svg';
 
-import type { Species } from '../../domain/entities/species';
+import { conservationLabel, conservationRank, type Species } from '../../domain/entities/species';
 import { haptics } from '../haptics';
 import { useTheme } from '../theme/ThemeProvider';
 import { SpeciesImage } from './SpeciesImage';
@@ -28,7 +28,7 @@ export const CompactSpeciesRow = memo(function CompactSpeciesRow({
 }): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
-  const threatened = species.conservation.rank >= 3;
+  const threatened = conservationRank(species.conservation) >= 3;
   const showScientific = species.scientificName !== species.displayName;
   return (
     <View>
@@ -46,7 +46,7 @@ export const CompactSpeciesRow = memo(function CompactSpeciesRow({
             <View style={styles.meta}>
               {showScientific && <Text style={[typography.caption, styles.scientific, { color: colors.textSecondary }]} numberOfLines={1}>{species.scientificName}</Text>}
               <View style={[styles.status, { backgroundColor: threatened ? colors.danger : colors.surfaceVariant, borderRadius: radius.sm }]}>
-                <Text style={[typography.caption, styles.statusText, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{species.conservation.label}</Text>
+                {conservationLabel(species.conservation) && <Text style={[typography.caption, styles.statusText, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{conservationLabel(species.conservation)}</Text>}
               </View>
             </View>
           </View>

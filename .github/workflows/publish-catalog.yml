@@ -27,7 +27,7 @@ jobs:
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       EDITORIAL_SYSTEM_USER_ID: ${{ secrets.EDITORIAL_SYSTEM_USER_ID }}
       GITHUB_REPOSITORY: ${{ github.repository }}
-      PUBLIC_MEDIA_ORIGIN: ${{ vars.PUBLIC_MEDIA_ORIGIN }}
+      PUBLIC_MEDIA_ORIGIN: ${{ vars.PUBLIC_MEDIA_ORIGIN || 'https://uruguay-natura-data.pages.dev/m' }}
       CATALOG_RELEASE_ID: ${{ github.event.client_payload.release_id || inputs.release_id || '' }}
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +44,9 @@ jobs:
         env:
           CATALOG_RELEASE_ID: ${{ steps.prepare.outputs.release_id }}
         run: npm run catalog:build
+      - name: Verificar fotos de aves aprobadas en el SQLite
+        if: steps.prepare.outputs.should_publish == 'true'
+        run: npm run catalog:verify-guide
       - id: metadata
         if: steps.prepare.outputs.should_publish == 'true'
         run: node -e 'const m=require("./dist/catalog/build-metadata.json");require("fs").appendFileSync(process.env.GITHUB_OUTPUT,"data_version="+m.version+"\n")'
@@ -66,9 +69,10 @@ jobs:
           dist/catalog/arachnida.json
           dist/catalog/insecta.json
           dist/catalog/malacostraca.json
+          dist/catalog/plantae.json
           dist/catalog/manifest.json
           dist/catalog/quality-report.json
-          --title "Catálogo Natura UY v${DATA_VERSION}"
+          --title "Catálogo Arapy v${DATA_VERSION}"
           --notes "Publicación manual del catálogo editorial aprobado."
       - name: Finalizar manifiesto estable
         if: steps.prepare.outputs.should_publish == 'true'

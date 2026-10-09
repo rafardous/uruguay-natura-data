@@ -1,0 +1,2383 @@
+{
+  "schemaVersion": 1,
+  "sourceCode": "legacy_catalog",
+  "note": "Largos corporales recuperados del catálogo anterior a AVONET. Fuente primaria pendiente de ratificación.",
+  "measurements": [
+    {
+      "catalogCode": "A_bicolor",
+      "scientificName": "Accipiter bicolor",
+      "valueMm": 395
+    },
+    {
+      "catalogCode": "A_striatus",
+      "scientificName": "Accipiter striatus",
+      "valueMm": 290
+    },
+    {
+      "catalogCode": "A_maculari",
+      "scientificName": "Actitis macularius",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "A_harrisii",
+      "scientificName": "Aegolius harrisii",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "M_badius",
+      "scientificName": "Agelaioides badius",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "A_thilius",
+      "scientificName": "Agelasticus thilius",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "agriornis-micropterus",
+      "scientificName": "Agriornis micropterus",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "A_murina",
+      "scientificName": "Agriornis murinus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "A_risorus",
+      "scientificName": "Alectrurus risora",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "A_fucata",
+      "scientificName": "Alopochelidon fucata",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "A_brasilie",
+      "scientificName": "Amazonetta brasiliensis",
+      "valueMm": 375
+    },
+    {
+      "catalogCode": "A_holoseri",
+      "scientificName": "Amblyramphus holosericeus",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "A_humerali",
+      "scientificName": "Ammodramus humeralis",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "A_bahamens",
+      "scientificName": "Anas bahamensis",
+      "valueMm": 445
+    },
+    {
+      "catalogCode": "A_flaviros",
+      "scientificName": "Anas flavirostris",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "A_georgica",
+      "scientificName": "Anas georgica",
+      "valueMm": 490
+    },
+    {
+      "catalogCode": "A_anhinga",
+      "scientificName": "Anhinga anhinga",
+      "valueMm": 850
+    },
+    {
+      "catalogCode": "A_glaucus",
+      "scientificName": "Anodorhynchus glaucus",
+      "valueMm": 700
+    },
+    {
+      "catalogCode": "anous-stolidus",
+      "scientificName": "Anous stolidus",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "A_nigricol",
+      "scientificName": "Anthracothorax nigricollis",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "A_corrende",
+      "scientificName": "Anthus correndera",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "A_furcatus",
+      "scientificName": "Anthus furcatus",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "A_hellmayr",
+      "scientificName": "Anthus hellmayri",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "A_lutescen",
+      "scientificName": "Anthus lutescens",
+      "valueMm": 125
+    },
+    {
+      "catalogCode": "A_natterer",
+      "scientificName": "Anthus nattereri",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "A_annumbi",
+      "scientificName": "Anumbius annumbi",
+      "valueMm": 195
+    },
+    {
+      "catalogCode": "P_breviros",
+      "scientificName": "Aphrodroma brevirostris",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "A_patagoni",
+      "scientificName": "Aptenodytes patagonicus",
+      "valueMm": 900
+    },
+    {
+      "catalogCode": "A_cajanea",
+      "scientificName": "Aramides cajanea",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "A_ypecaha",
+      "scientificName": "Aramides ypecaha",
+      "valueMm": 490
+    },
+    {
+      "catalogCode": "A_guarauna",
+      "scientificName": "Aramus guarauna",
+      "valueMm": 680
+    },
+    {
+      "catalogCode": "A_acuticau",
+      "scientificName": "Aratinga acuticaudata",
+      "valueMm": 370
+    },
+    {
+      "catalogCode": "A_leucopht",
+      "scientificName": "Aratinga leucophthalma",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "aratinga-mitrata",
+      "scientificName": "Aratinga mitrata",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "C_albus",
+      "scientificName": "Ardea alba",
+      "valueMm": 950
+    },
+    {
+      "catalogCode": "A_cocoi",
+      "scientificName": "Ardea cocoi",
+      "valueMm": 1100
+    },
+    {
+      "catalogCode": "A_intepres",
+      "scientificName": "Arenaria interpres",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "A_flammeus",
+      "scientificName": "Asio flammeus",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "A_baeri",
+      "scientificName": "Asthenes baeri",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "A_hudsoni",
+      "scientificName": "Asthenes hudsoni",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "A_pyrrhole",
+      "scientificName": "Asthenes pyrrholeuca",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "S_cunicula",
+      "scientificName": "Athene cunicularia",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "B_longicau",
+      "scientificName": "Bartramia longicauda",
+      "valueMm": 260
+    },
+    {
+      "catalogCode": "B_culicivo",
+      "scientificName": "Basileuterus culicivorus",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "B_pinnatus",
+      "scientificName": "Botaurus pinnatus",
+      "valueMm": 695
+    },
+    {
+      "catalogCode": "B_virginia",
+      "scientificName": "Bubo virginianus",
+      "valueMm": 600
+    },
+    {
+      "catalogCode": "A_ibis",
+      "scientificName": "Bubulcus ibis",
+      "valueMm": 475
+    },
+    {
+      "catalogCode": "B_nigricol",
+      "scientificName": "Busarellus nigricollis",
+      "valueMm": 525
+    },
+    {
+      "catalogCode": "B_albicaud",
+      "scientificName": "Buteo albicaudatus",
+      "valueMm": 520
+    },
+    {
+      "catalogCode": "B_polyosom",
+      "scientificName": "Buteo polyosoma",
+      "valueMm": 505
+    },
+    {
+      "catalogCode": "B_swainson",
+      "scientificName": "Buteo swainsoni",
+      "valueMm": 490
+    },
+    {
+      "catalogCode": "He_meridio",
+      "scientificName": "Buteogallus meridionalis",
+      "valueMm": 550
+    },
+    {
+      "catalogCode": "B_urubitin",
+      "scientificName": "Buteogallus urubitinga",
+      "valueMm": 610
+    },
+    {
+      "catalogCode": "B_striatus",
+      "scientificName": "Butorides striata",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "C_chrysopt",
+      "scientificName": "Cacicus chrysopterus",
+      "valueMm": 205
+    },
+    {
+      "catalogCode": "C_solitari",
+      "scientificName": "Cacicus solitarius",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "C_moschata",
+      "scientificName": "Cairina moschata",
+      "valueMm": 750
+    },
+    {
+      "catalogCode": "C_alba",
+      "scientificName": "Calidris alba",
+      "valueMm": 175
+    },
+    {
+      "catalogCode": "C_bairdii",
+      "scientificName": "Calidris bairdii",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "C_canutus",
+      "scientificName": "Calidris canutus",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "C_fuscicol",
+      "scientificName": "Calidris fuscicollis",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "Ca_himanto",
+      "scientificName": "Calidris himantopus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "C_melanoto",
+      "scientificName": "Calidris melanotos",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "C_minutill",
+      "scientificName": "Calidris minutilla",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "C_pusilla",
+      "scientificName": "Calidris pusilla",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "T_subrufic",
+      "scientificName": "Calidris subruficollis",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "C_leucophr",
+      "scientificName": "Callonetta leucophrys",
+      "valueMm": 365
+    },
+    {
+      "catalogCode": "C_diomedea",
+      "scientificName": "Calonectris diomedea",
+      "valueMm": 480
+    },
+    {
+      "catalogCode": "calonectris-edwardsii",
+      "scientificName": "Calonectris edwardsii",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "C_leucopog",
+      "scientificName": "Campephilus leucopogon",
+      "valueMm": 345
+    },
+    {
+      "catalogCode": "Ca_obsolet",
+      "scientificName": "Camptostoma obsoletum",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "P_plancus",
+      "scientificName": "Caracara plancus",
+      "valueMm": 590
+    },
+    {
+      "catalogCode": "C_cardueli",
+      "scientificName": "Carduelis carduelis",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "C_cristata",
+      "scientificName": "Cariama cristata",
+      "valueMm": 715
+    },
+    {
+      "catalogCode": "C_rufa",
+      "scientificName": "Casiornis rufus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "C_aura",
+      "scientificName": "Cathartes aura",
+      "valueMm": 810
+    },
+    {
+      "catalogCode": "C_burrovia",
+      "scientificName": "Cathartes burrovianus",
+      "valueMm": 660
+    },
+    {
+      "catalogCode": "C_cinnamom",
+      "scientificName": "Certhiaxis cinnamomeus",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "Ch_collari",
+      "scientificName": "Charadrius collaris",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "Ch_falklan",
+      "scientificName": "Charadrius falklandicus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "Ch_modestu",
+      "scientificName": "Charadrius modestus",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "Ch_semipal",
+      "scientificName": "Charadrius semipalmatus",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "Ch_torquat",
+      "scientificName": "Chauna torquata",
+      "valueMm": 890
+    },
+    {
+      "catalogCode": "Ch_alba",
+      "scientificName": "Chionis albus",
+      "valueMm": 410
+    },
+    {
+      "catalogCode": "C_niger",
+      "scientificName": "Chlidonias niger",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "C_picta",
+      "scientificName": "Chloephaga picta",
+      "valueMm": 660
+    },
+    {
+      "catalogCode": "C_chloris",
+      "scientificName": "Chloris chloris",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "Ch_amazona",
+      "scientificName": "Chloroceryle amazona",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "Ch_america",
+      "scientificName": "Chloroceryle americana",
+      "valueMm": 185
+    },
+    {
+      "catalogCode": "C_cyanea",
+      "scientificName": "Chlorophonia cyanea",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "Ch_aureove",
+      "scientificName": "Chlorostilbon lucidus",
+      "valueMm": 95
+    },
+    {
+      "catalogCode": "Ch_minor",
+      "scientificName": "Chordeiles minor",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "P_nacunda",
+      "scientificName": "Chordeiles nacunda",
+      "valueMm": 305
+    },
+    {
+      "catalogCode": "L_cirrocep",
+      "scientificName": "Chroicocephalus cirrocephalus",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "L_maculipe",
+      "scientificName": "Chroicocephalus maculipennis",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "A_ruficapi",
+      "scientificName": "Chrysomus ruficapillus",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "C_maguari",
+      "scientificName": "Ciconia maguari",
+      "valueMm": 995
+    },
+    {
+      "catalogCode": "C_fuscus",
+      "scientificName": "Cinclodes fuscus",
+      "valueMm": 175
+    },
+    {
+      "catalogCode": "C_buffoni",
+      "scientificName": "Circus buffoni",
+      "valueMm": 530
+    },
+    {
+      "catalogCode": "Ci_cinereu",
+      "scientificName": "Circus cinereus",
+      "valueMm": 435
+    },
+    {
+      "catalogCode": "C_platensi",
+      "scientificName": "Cistothorus platensis",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "C_american",
+      "scientificName": "Coccyzus americanus",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "Co_cinereu",
+      "scientificName": "Coccyzus cinereus",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "Co_melanco",
+      "scientificName": "Coccyzus melacoryphus",
+      "valueMm": 270
+    },
+    {
+      "catalogCode": "C_campestr",
+      "scientificName": "Colaptes campestris",
+      "valueMm": 295
+    },
+    {
+      "catalogCode": "C_melanoch",
+      "scientificName": "Colaptes melanochloros",
+      "valueMm": 285
+    },
+    {
+      "catalogCode": "C_livia",
+      "scientificName": "Columba livia",
+      "valueMm": 305
+    },
+    {
+      "catalogCode": "C_picui",
+      "scientificName": "Columbina picui",
+      "valueMm": 185
+    },
+    {
+      "catalogCode": "C_talpacot",
+      "scientificName": "Columbina talpacoti",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "C_lineata",
+      "scientificName": "Conopophaga lineata",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "C_atratus",
+      "scientificName": "Coragyps atratus",
+      "valueMm": 690
+    },
+    {
+      "catalogCode": "C_alaudina",
+      "scientificName": "Coryphistera alaudina",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "C_cucullat",
+      "scientificName": "Coryphospingus cucullatus",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "C_coscorob",
+      "scientificName": "Coscoroba coscoroba",
+      "valueMm": 1000
+    },
+    {
+      "catalogCode": "C_notata",
+      "scientificName": "Coturnicops notatus",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "C_pyrrophi",
+      "scientificName": "Cranioleuca pyrrhophia",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "C_sulphuri",
+      "scientificName": "Cranioleuca sulphurifera",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "C_ani",
+      "scientificName": "Crotophaga ani",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "C_major",
+      "scientificName": "Crotophaga major",
+      "valueMm": 460
+    },
+    {
+      "catalogCode": "Cr_obsolet",
+      "scientificName": "Crypturellus obsoletus",
+      "valueMm": 295
+    },
+    {
+      "catalogCode": "C_caudacut",
+      "scientificName": "Culicivora caudacuta",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "C_brissoni",
+      "scientificName": "Cyanocompsa brissonii",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "C_caeruleu",
+      "scientificName": "Cyanocorax caeruleus",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "C_chrysops",
+      "scientificName": "Cyanocorax chrysops",
+      "valueMm": 360
+    },
+    {
+      "catalogCode": "C_cyanomel",
+      "scientificName": "Cyanocorax cyanomelas",
+      "valueMm": 370
+    },
+    {
+      "catalogCode": "C_patagonu",
+      "scientificName": "Cyanoliseus patagonus",
+      "valueMm": 440
+    },
+    {
+      "catalogCode": "C_glaucoca",
+      "scientificName": "Cyanoloxia glaucocaerulea",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "C_gujanens",
+      "scientificName": "Cyclarhis gujanensis",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "Cy_melanco",
+      "scientificName": "Cygnus melancoryphus",
+      "valueMm": 1100
+    },
+    {
+      "catalogCode": "D_capense",
+      "scientificName": "Daption capense",
+      "valueMm": 365
+    },
+    {
+      "catalogCode": "dendrocolaptes-platyrostris",
+      "scientificName": "Dendrocolaptes platyrostris",
+      "valueMm": 265
+    },
+    {
+      "catalogCode": "D_bicolor",
+      "scientificName": "Dendrocygna bicolor",
+      "valueMm": 490
+    },
+    {
+      "catalogCode": "D_viduata",
+      "scientificName": "Dendrocygna viduata",
+      "valueMm": 480
+    },
+    {
+      "catalogCode": "D_epomopho",
+      "scientificName": "Diomedea epomophora",
+      "valueMm": 1200
+    },
+    {
+      "catalogCode": "D_exulans",
+      "scientificName": "Diomedea exulans",
+      "valueMm": 1200
+    },
+    {
+      "catalogCode": "diomedea-sanfordi",
+      "scientificName": "Diomedea sanfordi",
+      "valueMm": 1100
+    },
+    {
+      "catalogCode": "D_diuca",
+      "scientificName": "Diuca diuca",
+      "valueMm": 175
+    },
+    {
+      "catalogCode": "D_albifron",
+      "scientificName": "Donacospiza albifrons",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "D_bridgesi",
+      "scientificName": "Drymornis bridgesii",
+      "valueMm": 310
+    },
+    {
+      "catalogCode": "Hy_caerule",
+      "scientificName": "Egretta caerulea",
+      "valueMm": 690
+    },
+    {
+      "catalogCode": "E_thula",
+      "scientificName": "Egretta thula",
+      "valueMm": 610
+    },
+    {
+      "catalogCode": "E_albiceps",
+      "scientificName": "Elaenia albiceps",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "elaenia-flavogaster",
+      "scientificName": "Elaenia flavogaster",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "E_mesoleuc",
+      "scientificName": "Elaenia mesoleuca",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "E_obscura",
+      "scientificName": "Elaenia obscura",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "E_parviros",
+      "scientificName": "Elaenia parvirostris",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "E_spectabi",
+      "scientificName": "Elaenia spectabilis",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "E_forficat",
+      "scientificName": "Elanoides forficatus",
+      "valueMm": 570
+    },
+    {
+      "catalogCode": "E_leucurus",
+      "scientificName": "Elanus leucurus",
+      "valueMm": 390
+    },
+    {
+      "catalogCode": "E_herbicol",
+      "scientificName": "Emberizoides herbicola",
+      "valueMm": 178
+    },
+    {
+      "catalogCode": "E_ypiranga",
+      "scientificName": "Emberizoides ypiranganus",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "E_platensi",
+      "scientificName": "Embernagra platensis",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "E_aurantio",
+      "scientificName": "Empidonomus aurantioatrocristatus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "E_varius",
+      "scientificName": "Empidonomus varius",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "E_astrild",
+      "scientificName": "Estrilda astrild",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "E_chrysoco",
+      "scientificName": "Eudyptes chrysocome",
+      "valueMm": 515
+    },
+    {
+      "catalogCode": "E_chrysolo",
+      "scientificName": "Eudyptes chrysolophus",
+      "valueMm": 710
+    },
+    {
+      "catalogCode": "E_chloroti",
+      "scientificName": "Euphonia chlorotica",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "Eu_cyanoce",
+      "scientificName": "Euphonia cyanocephala",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "E_meloryph",
+      "scientificName": "Euscarthmus meloryphus",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "F_femorali",
+      "scientificName": "Falco femoralis",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "F_peregrin",
+      "scientificName": "Falco peregrinus",
+      "valueMm": 480
+    },
+    {
+      "catalogCode": "F_sparveri",
+      "scientificName": "Falco sparverius",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "M_fuscus",
+      "scientificName": "Florisuga fusca",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "F_pica",
+      "scientificName": "Fluvicola pica",
+      "valueMm": 132
+    },
+    {
+      "catalogCode": "F_magnific",
+      "scientificName": "Fregata magnificens",
+      "valueMm": 1100
+    },
+    {
+      "catalogCode": "F_tropica",
+      "scientificName": "Fregetta tropica",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "F_armillat",
+      "scientificName": "Fulica armillata",
+      "valueMm": 425
+    },
+    {
+      "catalogCode": "F_leucopte",
+      "scientificName": "Fulica leucoptera",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "F_rufifron",
+      "scientificName": "Fulica rufifrons",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "F_glacialo",
+      "scientificName": "Fulmarus glacialoides",
+      "valueMm": 455
+    },
+    {
+      "catalogCode": "F_rufus",
+      "scientificName": "Furnarius rufus",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "G_paraguai",
+      "scientificName": "Gallinago paraguaiae",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "G_undulata",
+      "scientificName": "Gallinago undulata",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "G_chloropu",
+      "scientificName": "Gallinula chloropus",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "Po_melanop",
+      "scientificName": "Gallinula melanops",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "G_nilotica",
+      "scientificName": "Gelochelidon nilotica",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "G_cunicula",
+      "scientificName": "Geositta cunicularia",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "G_aequinoc",
+      "scientificName": "Geothlypis aequinoctialis",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "geranoaetus-melanoleucus",
+      "scientificName": "Geranoaetus melanoleucus",
+      "valueMm": 680
+    },
+    {
+      "catalogCode": "G_caerules",
+      "scientificName": "Geranospiza caerulescens",
+      "valueMm": 460
+    },
+    {
+      "catalogCode": "G_brasilia",
+      "scientificName": "Glaucidium brasilianum",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "G_chopi",
+      "scientificName": "Gnorimopsar chopi",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "G_cristata",
+      "scientificName": "Gubernatrix cristata",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "G_yetapa",
+      "scientificName": "Gubernetes yetapa",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "G_guira",
+      "scientificName": "Guira guira",
+      "valueMm": 360
+    },
+    {
+      "catalogCode": "H_ater",
+      "scientificName": "Haematopus ater",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "H_palliatu",
+      "scientificName": "Haematopus palliatus",
+      "valueMm": 440
+    },
+    {
+      "catalogCode": "Ha_caerule",
+      "scientificName": "Halobaena caerulea",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "H_unicolor",
+      "scientificName": "Haplospiza unicolor",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "H_coronatu",
+      "scientificName": "Harpyhaliaetus coronatus",
+      "valueMm": 760
+    },
+    {
+      "catalogCode": "heliobletus-contaminatus",
+      "scientificName": "Heliobletus contaminatus",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "H_furcifer",
+      "scientificName": "Heliomaster furcifer",
+      "valueMm": 125
+    },
+    {
+      "catalogCode": "H_margarit",
+      "scientificName": "Hemitriccus margaritaceiventer",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "H_atricapi",
+      "scientificName": "Heteronetta atricapilla",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "X_dominica",
+      "scientificName": "Heteroxolmis dominicana",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "H_mexicanu",
+      "scientificName": "Himantopus mexicanus",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "H_ferrugin",
+      "scientificName": "Hirundinea ferruginea",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "H_rustica",
+      "scientificName": "Hirundo rustica",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "H_brasilia",
+      "scientificName": "Hydropsalis torquata",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "H_chrysura",
+      "scientificName": "Hylocharis chrysura",
+      "valueMm": 105
+    },
+    {
+      "catalogCode": "H_perspici",
+      "scientificName": "Hymenops perspicillatus",
+      "valueMm": 175
+    },
+    {
+      "catalogCode": "I_cayanens",
+      "scientificName": "Icterus cayanensis",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "I_involucr",
+      "scientificName": "Ixobrychus involucris",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "J_mycteria",
+      "scientificName": "Jabiru mycteria",
+      "valueMm": 1400
+    },
+    {
+      "catalogCode": "J_jacana",
+      "scientificName": "Jacana jacana",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "K_aterrimu",
+      "scientificName": "Knipolegus aterrimus",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "K_cyaniros",
+      "scientificName": "Knipolegus cyanirostris",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "K_lophotes",
+      "scientificName": "Knipolegus lophotes",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "L_atlantic",
+      "scientificName": "Larus atlanticus",
+      "valueMm": 515
+    },
+    {
+      "catalogCode": "L_dominica",
+      "scientificName": "Larus dominicanus",
+      "valueMm": 530
+    },
+    {
+      "catalogCode": "L_leucopyr",
+      "scientificName": "Laterallus leucopyrrhus",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "L_melanoph",
+      "scientificName": "Laterallus melanophaius",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "E_euleri",
+      "scientificName": "Lathrotriccus euleri",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "L_angustir",
+      "scientificName": "Lepidocolaptes angustirostris",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "Le_falcine",
+      "scientificName": "Lepidocolaptes falcinellus",
+      "valueMm": 205
+    },
+    {
+      "catalogCode": "L_platensi",
+      "scientificName": "Leptasthenura platensis",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "L_rufaxill",
+      "scientificName": "Leptotila rufaxilla",
+      "valueMm": 265
+    },
+    {
+      "catalogCode": "L_verreaux",
+      "scientificName": "Leptotila verreauxi",
+      "valueMm": 275
+    },
+    {
+      "catalogCode": "L_rufa",
+      "scientificName": "Lessonia rufa",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "P_albivent",
+      "scientificName": "Leucocarbo albiventer",
+      "valueMm": 750
+    },
+    {
+      "catalogCode": "leucocarbo-atriceps",
+      "scientificName": "Leucocarbo atriceps",
+      "valueMm": 750
+    },
+    {
+      "catalogCode": "L_albicoll",
+      "scientificName": "Leucochloris albicollis",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "L_curviros",
+      "scientificName": "Limnornis curvirostris",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "L_rectiros",
+      "scientificName": "Limnornis rectirostris",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "L_haemasti",
+      "scientificName": "Limosa haemastica",
+      "valueMm": 370
+    },
+    {
+      "catalogCode": "L_nematura",
+      "scientificName": "Lochmias nematura",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "L_chalybeu",
+      "scientificName": "Lophornis chalybeus",
+      "valueMm": 90
+    },
+    {
+      "catalogCode": "L_pusillus",
+      "scientificName": "Lophospingus pusillus",
+      "valueMm": 132
+    },
+    {
+      "catalogCode": "M_rixosus",
+      "scientificName": "Machetornis rixosa",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "mackenziaena-leachii",
+      "scientificName": "Mackenziaena leachii",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "M_giganteu",
+      "scientificName": "Macronectes giganteus",
+      "valueMm": 990
+    },
+    {
+      "catalogCode": "M_halli",
+      "scientificName": "Macronectes halli",
+      "valueMm": 920
+    },
+    {
+      "catalogCode": "A_sibilatr",
+      "scientificName": "Mareca sibilatrix",
+      "valueMm": 485
+    },
+    {
+      "catalogCode": "Ce_torquat",
+      "scientificName": "Megaceryle torquata",
+      "valueMm": 435
+    },
+    {
+      "catalogCode": "M_pitangua",
+      "scientificName": "Megarynchus pitangua",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "O_choliba",
+      "scientificName": "Megascops choliba",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "O_sanctaec",
+      "scientificName": "Megascops sanctaecatarinae",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "M_cactorum",
+      "scientificName": "Melanerpes cactorum",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "M_candidus",
+      "scientificName": "Melanerpes candidus",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "microspingus-cabanisi",
+      "scientificName": "Microspingus cabanisi",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "P_laterali",
+      "scientificName": "Microspingus lateralis",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "P_melanole",
+      "scientificName": "Microspingus melanoleucus",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "M_chimachi",
+      "scientificName": "Milvago chimachima",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "M_chimango",
+      "scientificName": "Milvago chimango",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "M_saturnin",
+      "scientificName": "Mimus saturninus",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "M_triurus",
+      "scientificName": "Mimus triurus",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "M_bonarien",
+      "scientificName": "Molothrus bonariensis",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "M_rufoaxil",
+      "scientificName": "Molothrus rufoaxillaris",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "morus-capensis",
+      "scientificName": "Morus capensis",
+      "valueMm": 900
+    },
+    {
+      "catalogCode": "M_maclovia",
+      "scientificName": "Muscisaxicola maclovianus",
+      "valueMm": 175
+    },
+    {
+      "catalogCode": "M_american",
+      "scientificName": "Mycteria americana",
+      "valueMm": 1000
+    },
+    {
+      "catalogCode": "M_swainson",
+      "scientificName": "Myiarchus swainsoni",
+      "valueMm": 195
+    },
+    {
+      "catalogCode": "myiarchus-tyrannulus",
+      "scientificName": "Myiarchus tyrannulus",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "M_maculatu",
+      "scientificName": "Myiodynastes maculatus",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "myiopagis-viridicata",
+      "scientificName": "Myiopagis viridicata",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "M_fasciatu",
+      "scientificName": "Myiophobus fasciatus",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "M_monachus",
+      "scientificName": "Myiopsitta monachus",
+      "valueMm": 290
+    },
+    {
+      "catalogCode": "B_leucoble",
+      "scientificName": "Myiothlypis leucoblephara",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "N_nenday",
+      "scientificName": "Nandayus nenday",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "N_rufivent",
+      "scientificName": "Neoxolmis rufiventris",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "N_peposaca",
+      "scientificName": "Netta peposaca",
+      "valueMm": 555
+    },
+    {
+      "catalogCode": "O_dominica",
+      "scientificName": "Nomonyx dominicus",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "N_maculosa",
+      "scientificName": "Nothura maculosa",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "N_cyanoleu",
+      "scientificName": "Notiochelidon cyanoleuca",
+      "valueMm": 114
+    },
+    {
+      "catalogCode": "N_borealis",
+      "scientificName": "Numenius borealis",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "N_phaeopus",
+      "scientificName": "Numenius phaeopus",
+      "valueMm": 355
+    },
+    {
+      "catalogCode": "N_griseus",
+      "scientificName": "Nyctibius griseus",
+      "valueMm": 410
+    },
+    {
+      "catalogCode": "N_nycticor",
+      "scientificName": "Nycticorax nycticorax",
+      "valueMm": 620
+    },
+    {
+      "catalogCode": "N_semicoll",
+      "scientificName": "Nycticryphes semicollaris",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "N_albicoll",
+      "scientificName": "Nyctidromus albicollis",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "O_oceanicu",
+      "scientificName": "Oceanites oceanicus",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "O_leucorho",
+      "scientificName": "Oceanodroma leucorhoa",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "O_capueira",
+      "scientificName": "Odontophorus capueira",
+      "valueMm": 278
+    },
+    {
+      "catalogCode": "Or_ruficol",
+      "scientificName": "Oreopholus ruficollis",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "O_canicoll",
+      "scientificName": "Ortalis canicollis",
+      "valueMm": 530
+    },
+    {
+      "catalogCode": "O_vittata",
+      "scientificName": "Oxyura vittata",
+      "valueMm": 410
+    },
+    {
+      "catalogCode": "P_belcheri",
+      "scientificName": "Pachyptila belcheri",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "P_desolata",
+      "scientificName": "Pachyptila desolata",
+      "valueMm": 270
+    },
+    {
+      "catalogCode": "P_polychop",
+      "scientificName": "Pachyramphus polychopterus",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "P_validus",
+      "scientificName": "Pachyramphus validus",
+      "valueMm": 195
+    },
+    {
+      "catalogCode": "P_viridis",
+      "scientificName": "Pachyramphus viridis",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "P_haliaetu",
+      "scientificName": "Pandion haliaetus",
+      "valueMm": 610
+    },
+    {
+      "catalogCode": "P_unicinct",
+      "scientificName": "Parabuteo unicinctus",
+      "valueMm": 560
+    },
+    {
+      "catalogCode": "Pa_maculat",
+      "scientificName": "Pardirallus maculatus",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "pardirallus-sanguinolentus",
+      "scientificName": "Pardirallus sanguinolentus",
+      "valueMm": 320
+    },
+    {
+      "catalogCode": "P_capitata",
+      "scientificName": "Paroaria capitata",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "P_coronata",
+      "scientificName": "Paroaria coronata",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "P_domestic",
+      "scientificName": "Passer domesticus",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "C_cayennen",
+      "scientificName": "Patagioenas cayennensis",
+      "valueMm": 310
+    },
+    {
+      "catalogCode": "C_maculosa",
+      "scientificName": "Patagioenas maculosa",
+      "valueMm": 360
+    },
+    {
+      "catalogCode": "C_picazuro",
+      "scientificName": "Patagioenas picazuro",
+      "valueMm": 355
+    },
+    {
+      "catalogCode": "P_marina",
+      "scientificName": "Pelagodroma marina",
+      "valueMm": 202
+    },
+    {
+      "catalogCode": "P_urinatri",
+      "scientificName": "Pelecanoides urinatrix",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "P_obscura",
+      "scientificName": "Penelope obscura",
+      "valueMm": 715
+    },
+    {
+      "catalogCode": "P_pyrrhono",
+      "scientificName": "Petrochelidon pyrrhonota",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "Ph_ferrugi",
+      "scientificName": "Phacellodomus erythrophthalmus",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "Ph_ruber",
+      "scientificName": "Phacellodomus ruber",
+      "valueMm": 205
+    },
+    {
+      "catalogCode": "P_sibilatr",
+      "scientificName": "Phacellodomus sibilatrix",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "P_striatic",
+      "scientificName": "Phacellodomus striaticollis",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "P_simplex",
+      "scientificName": "Phaetusa simplex",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "P_brasilia",
+      "scientificName": "Phalacrocorax brasilianus",
+      "valueMm": 715
+    },
+    {
+      "catalogCode": "P_tricolor",
+      "scientificName": "Phalaropus tricolor",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "P_infuscat",
+      "scientificName": "Phimosus infuscatus",
+      "valueMm": 510
+    },
+    {
+      "catalogCode": "Ph_melanop",
+      "scientificName": "Phleocryptes melanops",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "Ph_fusca",
+      "scientificName": "Phoebetria fusca",
+      "valueMm": 860
+    },
+    {
+      "catalogCode": "P_chilensi",
+      "scientificName": "Phoenicopterus chilensis",
+      "valueMm": 1100
+    },
+    {
+      "catalogCode": "P_ventrali",
+      "scientificName": "Phylloscartes ventralis",
+      "valueMm": 117
+    },
+    {
+      "catalogCode": "P_rutila",
+      "scientificName": "Phytotoma rutila",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "P_cayana",
+      "scientificName": "Piaya cayana",
+      "valueMm": 400
+    },
+    {
+      "catalogCode": "P_aurulent",
+      "scientificName": "Piculus aurulentus",
+      "valueMm": 225
+    },
+    {
+      "catalogCode": "P_cirratus",
+      "scientificName": "Picumnus cirratus",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "P_nebulosu",
+      "scientificName": "Picumnus nebulosus",
+      "valueMm": 107
+    },
+    {
+      "catalogCode": "P_melanono",
+      "scientificName": "Pipraeidea melanonota",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "P_flava",
+      "scientificName": "Piranga flava",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "P_sulphura",
+      "scientificName": "Pitangus sulphuratus",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "A_ajaja",
+      "scientificName": "Platalea ajaja",
+      "valueMm": 800
+    },
+    {
+      "catalogCode": "P_chihi",
+      "scientificName": "Plegadis chihi",
+      "valueMm": 650
+    },
+    {
+      "catalogCode": "P_dominica",
+      "scientificName": "Pluvialis dominica",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "P_squataro",
+      "scientificName": "Pluvialis squatarola",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "P_major",
+      "scientificName": "Podiceps major",
+      "valueMm": 780
+    },
+    {
+      "catalogCode": "podilymbus-podiceps",
+      "scientificName": "Podilymbus podiceps",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "Po_plumbei",
+      "scientificName": "Poecilotriccus plumbeiceps",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "P_dumicola",
+      "scientificName": "Polioptila dumicola",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "P_pectoral",
+      "scientificName": "Polystictus pectoralis",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "P_nigroruf",
+      "scientificName": "Poospiza nigrorufa",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "P_ornata",
+      "scientificName": "Poospiza ornata",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "P_martinic",
+      "scientificName": "Porphyrio martinica",
+      "valueMm": 300
+    },
+    {
+      "catalogCode": "Po_flavive",
+      "scientificName": "Porzana flaviventer",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "P_spilopte",
+      "scientificName": "Porzana spiloptera",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "P_aequinoc",
+      "scientificName": "Procellaria aequinoctialis",
+      "valueMm": 580
+    },
+    {
+      "catalogCode": "P_cinerea",
+      "scientificName": "Procellaria cinerea",
+      "valueMm": 505
+    },
+    {
+      "catalogCode": "P_conspici",
+      "scientificName": "Procellaria conspicillata",
+      "valueMm": 560
+    },
+    {
+      "catalogCode": "P_chalybea",
+      "scientificName": "Progne chalybea",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "progne-elegans",
+      "scientificName": "Progne elegans",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "P_modesta",
+      "scientificName": "Progne modesta",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "P_tapera",
+      "scientificName": "Progne tapera",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "Ps_flavive",
+      "scientificName": "Pseudocolopteryx flaviventris",
+      "valueMm": 120
+    },
+    {
+      "catalogCode": "P_sclateri",
+      "scientificName": "Pseudocolopteryx sclateri",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "pseudoleistes-guirahuro",
+      "scientificName": "Pseudoleistes guirahuro",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "P_virescen",
+      "scientificName": "Pseudoleistes virescens",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "P_clamator",
+      "scientificName": "Pseudoscops clamator",
+      "valueMm": 343
+    },
+    {
+      "catalogCode": "P_lophotes",
+      "scientificName": "Pseudoseisura lophotes",
+      "valueMm": 255
+    },
+    {
+      "catalogCode": "pterodroma-arminjoniana",
+      "scientificName": "Pterodroma arminjoniana",
+      "valueMm": 381
+    },
+    {
+      "catalogCode": "P_incerta",
+      "scientificName": "Pterodroma incerta",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "pterodroma-macroptera",
+      "scientificName": "Pterodroma macroptera",
+      "valueMm": 430
+    },
+    {
+      "catalogCode": "P_mollis",
+      "scientificName": "Pterodroma mollis",
+      "valueMm": 350
+    },
+    {
+      "catalogCode": "P_gravis",
+      "scientificName": "Puffinus gravis",
+      "valueMm": 480
+    },
+    {
+      "catalogCode": "P_griseus",
+      "scientificName": "Puffinus griseus",
+      "valueMm": 450
+    },
+    {
+      "catalogCode": "P_puffinus",
+      "scientificName": "Puffinus puffinus",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "P_rubinus",
+      "scientificName": "Pyrocephalus rubinus",
+      "valueMm": 152
+    },
+    {
+      "catalogCode": "P_frontali",
+      "scientificName": "Pyrrhura frontalis",
+      "valueMm": 265
+    },
+    {
+      "catalogCode": "Ram_toco",
+      "scientificName": "Ramphastos toco",
+      "valueMm": 600
+    },
+    {
+      "catalogCode": "T_bonarien",
+      "scientificName": "Rauenia bonariensis",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "R_american",
+      "scientificName": "Rhea americana",
+      "valueMm": 1400
+    },
+    {
+      "catalogCode": "P_fruticet",
+      "scientificName": "Rhopospina fruticeti",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "R_rufescen",
+      "scientificName": "Rhynchotus rufescens",
+      "valueMm": 410
+    },
+    {
+      "catalogCode": "R_riparia",
+      "scientificName": "Riparia riparia",
+      "valueMm": 125
+    },
+    {
+      "catalogCode": "R_rolland",
+      "scientificName": "Rollandia rolland",
+      "valueMm": 350
+    },
+    {
+      "catalogCode": "R_sociabil",
+      "scientificName": "Rostrhamus sociabilis",
+      "valueMm": 435
+    },
+    {
+      "catalogCode": "B_magniros",
+      "scientificName": "Rupornis magnirostris",
+      "valueMm": 365
+    },
+    {
+      "catalogCode": "rynchops-niger",
+      "scientificName": "Rynchops niger",
+      "valueMm": 460
+    },
+    {
+      "catalogCode": "S_aurantir",
+      "scientificName": "Saltator aurantiirostris",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "S_coerules",
+      "scientificName": "Saltator coerulescens",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "S_similis",
+      "scientificName": "Saltator similis",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "S_multicol",
+      "scientificName": "Saltatricula multicolor",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "S_melanoto",
+      "scientificName": "Sarkidiornis melanotos",
+      "valueMm": 760
+    },
+    {
+      "catalogCode": "sarkidiornis-sylvicola",
+      "scientificName": "Sarkidiornis sylvicola",
+      "valueMm": 760
+    },
+    {
+      "catalogCode": "S_icteroph",
+      "scientificName": "Satrapa icterophrys",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "S_phrygano",
+      "scientificName": "Schoeniophylax phryganophilus",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "S_munda",
+      "scientificName": "Serpophaga munda",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "S_nigrican",
+      "scientificName": "Serpophaga nigricans",
+      "valueMm": 125
+    },
+    {
+      "catalogCode": "S_subcrist",
+      "scientificName": "Serpophaga subcristata",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "C_parvulus",
+      "scientificName": "Setopagis parvula",
+      "valueMm": 205
+    },
+    {
+      "catalogCode": "P_pitiayum",
+      "scientificName": "Setophaga pitiayumi",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "D_striata",
+      "scientificName": "Setophaga striata",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "S_flaveola",
+      "scientificName": "Sicalis flaveola",
+      "valueMm": 132
+    },
+    {
+      "catalogCode": "S_luteola",
+      "scientificName": "Sicalis luteola",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "S_griseica",
+      "scientificName": "Sittasomus griseicapillus",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "S_maluroid",
+      "scientificName": "Spartonoica maluroides",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "A_cyanopte",
+      "scientificName": "Spatula cyanoptera",
+      "valueMm": 415
+    },
+    {
+      "catalogCode": "A_discors",
+      "scientificName": "Spatula discors",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "A_platalea",
+      "scientificName": "Spatula platalea",
+      "valueMm": 505
+    },
+    {
+      "catalogCode": "A_versicol",
+      "scientificName": "Spatula versicolor",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "S_magellan",
+      "scientificName": "Spheniscus magellanicus",
+      "valueMm": 710
+    },
+    {
+      "catalogCode": "C_magellan",
+      "scientificName": "Spinus magellanicus",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "S_circumci",
+      "scientificName": "Spiziapteryx circumcincta",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "S_bouvreui",
+      "scientificName": "Sporophila bouvreuil",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "S_caerules",
+      "scientificName": "Sporophila caerulescens",
+      "valueMm": 115
+    },
+    {
+      "catalogCode": "S_cinnamom",
+      "scientificName": "Sporophila cinnamomea",
+      "valueMm": 100
+    },
+    {
+      "catalogCode": "S_collaris",
+      "scientificName": "Sporophila collaris",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "S_hypochro",
+      "scientificName": "Sporophila hypochroma",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "S_hypoxant",
+      "scientificName": "Sporophila hypoxantha",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "S_palustri",
+      "scientificName": "Sporophila palustris",
+      "valueMm": 105
+    },
+    {
+      "catalogCode": "Sp_ruficol",
+      "scientificName": "Sporophila ruficollis",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "St_ruficol",
+      "scientificName": "Stelgidopteryx ruficollis",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "S_diademat",
+      "scientificName": "Stephanophorus diadematus",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "Ste_antart",
+      "scientificName": "Stercorarius antarcticus",
+      "valueMm": 600
+    },
+    {
+      "catalogCode": "C_chilensi",
+      "scientificName": "Stercorarius chilensis",
+      "valueMm": 590
+    },
+    {
+      "catalogCode": "S_longicau",
+      "scientificName": "Stercorarius longicaudus",
+      "valueMm": 450
+    },
+    {
+      "catalogCode": "S_parasiti",
+      "scientificName": "Stercorarius parasiticus",
+      "valueMm": 460
+    },
+    {
+      "catalogCode": "S_pomarinu",
+      "scientificName": "Stercorarius pomarinus",
+      "valueMm": 470
+    },
+    {
+      "catalogCode": "S_hirundin",
+      "scientificName": "Sterna hirundinacea",
+      "valueMm": 420
+    },
+    {
+      "catalogCode": "S_hirundo",
+      "scientificName": "Sterna hirundo",
+      "valueMm": 355
+    },
+    {
+      "catalogCode": "S_paradisa",
+      "scientificName": "Sterna paradisaea",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "S_trudeaui",
+      "scientificName": "Sterna trudeaui",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "S_vittata",
+      "scientificName": "Sterna vittata",
+      "valueMm": 355
+    },
+    {
+      "catalogCode": "sternula-antillarum",
+      "scientificName": "Sternula antillarum",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "Ste_superc",
+      "scientificName": "Sternula superciliaris",
+      "valueMm": 205
+    },
+    {
+      "catalogCode": "T_preciosa",
+      "scientificName": "Stilpnia preciosa",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "S_zonaris",
+      "scientificName": "Streptoprocne zonaris",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "S_defilipp",
+      "scientificName": "Sturnella defilippii",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "S_supercil",
+      "scientificName": "Sturnella superciliaris",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "stu_vulgar",
+      "scientificName": "Sturnus vulgaris",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "S_modestus",
+      "scientificName": "Sublegatus modestus",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "S_suiriri",
+      "scientificName": "Suiriri suiriri",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "sula-dactylatra",
+      "scientificName": "Sula dactylatra",
+      "valueMm": 920
+    },
+    {
+      "catalogCode": "S_leucogas",
+      "scientificName": "Sula leucogaster",
+      "valueMm": 475
+    },
+    {
+      "catalogCode": "S_albescen",
+      "scientificName": "Synallaxis albescens",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "S_cinerasc",
+      "scientificName": "Synallaxis cinerascens",
+      "valueMm": 145
+    },
+    {
+      "catalogCode": "S_frontali",
+      "scientificName": "Synallaxis frontalis",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "S_spixi",
+      "scientificName": "Synallaxis spixi",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "S_rufosupe",
+      "scientificName": "Syndactyla rufosuperciliata",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "S_sibilatr",
+      "scientificName": "Syrigma sibilatrix",
+      "valueMm": 570
+    },
+    {
+      "catalogCode": "C_longiros",
+      "scientificName": "Systellura longirostris",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "T_rubigast",
+      "scientificName": "Tachuris rubrigastra",
+      "valueMm": 110
+    },
+    {
+      "catalogCode": "T_dominicu",
+      "scientificName": "Tachybaptus dominicus",
+      "valueMm": 270
+    },
+    {
+      "catalogCode": "T_meyeni",
+      "scientificName": "Tachycineta leucopyga",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "T_leucorrh",
+      "scientificName": "Tachycineta leucorrhoa",
+      "valueMm": 127
+    },
+    {
+      "catalogCode": "T_naevia",
+      "scientificName": "Tapera naevia",
+      "valueMm": 290
+    },
+    {
+      "catalogCode": "T_chlororh",
+      "scientificName": "Thalassarche chlororhynchos",
+      "valueMm": 875
+    },
+    {
+      "catalogCode": "T_chrysost",
+      "scientificName": "Thalassarche chrysostoma",
+      "valueMm": 1000
+    },
+    {
+      "catalogCode": "T_melanoph",
+      "scientificName": "Thalassarche melanophris",
+      "valueMm": 900
+    },
+    {
+      "catalogCode": "thalassarche-steadi",
+      "scientificName": "Thalassarche steadi",
+      "valueMm": 1000
+    },
+    {
+      "catalogCode": "T_eurygnat",
+      "scientificName": "Thalasseus acuflavidus",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "T_maximus",
+      "scientificName": "Thalasseus maximus",
+      "valueMm": 490
+    },
+    {
+      "catalogCode": "thalasseus-sandvicensis",
+      "scientificName": "Thalasseus sandvicensis",
+      "valueMm": 405
+    },
+    {
+      "catalogCode": "T_glaucopi",
+      "scientificName": "Thalurania glaucopis",
+      "valueMm": 108
+    },
+    {
+      "catalogCode": "T_caerules",
+      "scientificName": "Thamnophilus caerulescens",
+      "valueMm": 155
+    },
+    {
+      "catalogCode": "T_ruficapi",
+      "scientificName": "Thamnophilus ruficapillus",
+      "valueMm": 160
+    },
+    {
+      "catalogCode": "H_caerules",
+      "scientificName": "Theristicus caerulescens",
+      "valueMm": 740
+    },
+    {
+      "catalogCode": "T_caudatus",
+      "scientificName": "Theristicus caudatus",
+      "valueMm": 760
+    },
+    {
+      "catalogCode": "T_rumicivo",
+      "scientificName": "Thinocorus rumicivorus",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "T_sayaca",
+      "scientificName": "Thraupis sayaca",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "T_lineatum",
+      "scientificName": "Tigrisoma lineatum",
+      "valueMm": 665
+    },
+    {
+      "catalogCode": "tolmomyias-sulphurescens",
+      "scientificName": "Tolmomyias sulphurescens",
+      "valueMm": 130
+    },
+    {
+      "catalogCode": "T_melanops",
+      "scientificName": "Trichothraupis melanops",
+      "valueMm": 170
+    },
+    {
+      "catalogCode": "T_flavipes",
+      "scientificName": "Tringa flavipes",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "T_melanole",
+      "scientificName": "Tringa melanoleuca",
+      "valueMm": 330
+    },
+    {
+      "catalogCode": "C_semipalm",
+      "scientificName": "Tringa semipalmata",
+      "valueMm": 365
+    },
+    {
+      "catalogCode": "T_solitari",
+      "scientificName": "Tringa solitaria",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "T_aedon",
+      "scientificName": "Troglodytes aedon",
+      "valueMm": 125
+    },
+    {
+      "catalogCode": "T_surrucur",
+      "scientificName": "Trogon surrucura",
+      "valueMm": 280
+    },
+    {
+      "catalogCode": "T_albicoll",
+      "scientificName": "Turdus albicollis",
+      "valueMm": 222
+    },
+    {
+      "catalogCode": "T_amauroch",
+      "scientificName": "Turdus amaurochalinus",
+      "valueMm": 235
+    },
+    {
+      "catalogCode": "P_flavipes",
+      "scientificName": "Turdus flavipes",
+      "valueMm": 220
+    },
+    {
+      "catalogCode": "T_leucomel",
+      "scientificName": "Turdus leucomelas",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "turdus-nigriceps",
+      "scientificName": "Turdus nigriceps",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "T_rufivent",
+      "scientificName": "Turdus rufiventris",
+      "valueMm": 242
+    },
+    {
+      "catalogCode": "T_subalari",
+      "scientificName": "Turdus subalaris",
+      "valueMm": 210
+    },
+    {
+      "catalogCode": "T_melancho",
+      "scientificName": "Tyrannus melancholicus",
+      "valueMm": 225
+    },
+    {
+      "catalogCode": "T_savana",
+      "scientificName": "Tyrannus savana",
+      "valueMm": 180
+    },
+    {
+      "catalogCode": "T_alba",
+      "scientificName": "Tyto alba",
+      "valueMm": 355
+    },
+    {
+      "catalogCode": "U_dumetari",
+      "scientificName": "Upucerthia dumetaria",
+      "valueMm": 215
+    },
+    {
+      "catalogCode": "V_chilensi",
+      "scientificName": "Vanellus chilensis",
+      "valueMm": 380
+    },
+    {
+      "catalogCode": "P_mixtus",
+      "scientificName": "Veniliornis mixtus",
+      "valueMm": 140
+    },
+    {
+      "catalogCode": "V_spilogas",
+      "scientificName": "Veniliornis spilogaster",
+      "valueMm": 165
+    },
+    {
+      "catalogCode": "V_olivaceu",
+      "scientificName": "Vireo olivaceus",
+      "valueMm": 150
+    },
+    {
+      "catalogCode": "V_jacarina",
+      "scientificName": "Volatinia jacarina",
+      "valueMm": 109
+    },
+    {
+      "catalogCode": "X_flavus",
+      "scientificName": "Xanthopsar flavus",
+      "valueMm": 200
+    },
+    {
+      "catalogCode": "X_cinerea",
+      "scientificName": "Xolmis cinereus",
+      "valueMm": 240
+    },
+    {
+      "catalogCode": "X_coronatu",
+      "scientificName": "Xolmis coronatus",
+      "valueMm": 230
+    },
+    {
+      "catalogCode": "X_irupero",
+      "scientificName": "Xolmis irupero",
+      "valueMm": 190
+    },
+    {
+      "catalogCode": "Z_auricula",
+      "scientificName": "Zenaida auriculata",
+      "valueMm": 250
+    },
+    {
+      "catalogCode": "Z_capensis",
+      "scientificName": "Zonotrichia capensis",
+      "valueMm": 155
+    }
+  ]
+}
+

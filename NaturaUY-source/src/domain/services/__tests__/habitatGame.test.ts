@@ -5,10 +5,9 @@ function species(codigo: string, clase: string, habitat: string[]): Species {
   return {
     codigo, displayName: codigo, scientificName: codigo, acceptedName: null, commonNames: [codigo],
     taxonomy: { kingdom: 'Animalia', phylum: 'Chordata', clase, orden: '', familia: '', genero: '', epiteto: '' },
-    conservation: { raw: '', label: '', rank: 0 }, nativa: true, origin: 'native', seasonality: null,
+    conservation: { nationalRedList: null, iucnGlobal: null, nationalDesignations: [] }, nativa: true, origin: 'native', seasonality: null,
     abundanceStatus: null, abundance: { category: null, label: null }, observability: null, knowledgeLevel: 'easy',
-    gameRules: [], facts: [], habitat, diet: [], relevantNote: null, sources: [], descripcion: '', alimentacion: '', tamano: '',
-    traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+    gameRules: [], facts: [], measurements: [], ecology: { habitats: habitat, diet: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, microhabitats: [], trophicRoles: [], hosts: [], plantAssociations: [], vegetationFormations: [] }, relevantNote: null, sources: [], descripcion: '',
     photo: { url: 'https://example.com/photo.jpg', fullUrl: 'https://example.com/photo.jpg', thumbAsset: null, license: '', attribution: '', source: '', page: null },
     audioUrl: null, media: [], palette: { accentLight: '', accentDark: '', containerLight: '', onContainerLight: '', containerDark: '', onContainerDark: '' },
   };

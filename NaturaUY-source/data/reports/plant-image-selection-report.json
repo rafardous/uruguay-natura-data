@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-24T20:40:08.524Z",
+  "scope": "Plantae",
+  "speciesCount": 100,
+  "selectedCount": 96,
+  "missingCount": 4,
+  "coverage": 0.96,
+  "bySource": {
+    "inaturalist": 96
+  },
+  "byLicense": {
+    "CC0": 96
+  },
+  "missing": [
+    "Baccharis sagittalis",
+    "Monteverdia ilicifolia",
+    "Ocotea pulchella",
+    "Tillandsia aëranthos"
+  ]
+}

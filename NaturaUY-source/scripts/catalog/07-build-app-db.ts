@@ -10,12 +10,13 @@ import { resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 
 import { GROUP_METADATA, PATHS, readJson, slug, type Group } from './lib';
+import type { SpeciesEcology, SpeciesMeasurement } from './schema14';
 
 const DB_PATH = process.env.NATURA_CATALOG_DB_PATH ?? resolve(PATHS.catalog, '../../assets/db/natura.db');
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
-const SCHEMA_VERSION = 12;
-const DATA_VERSION = 2;
+const SCHEMA_VERSION = 14;
+const DATA_VERSION = 4;
 
 type Origin = 'native' | 'introduced' | null;
 
@@ -48,32 +49,30 @@ interface CatalogItem {
   };
   origin: Origin;
   seasonality: string | null;
-  abundanceStatus: string | null;
+  abundanceStatus: 'abundant' | 'common' | 'uncommon' | 'scarce' | 'occasional' | null;
   description: string | null;
-  habitat: string[];
-  diet: string[] | null;
-  size: string | null;
+  measurements: SpeciesMeasurement[];
+  ecology: SpeciesEcology;
   relevantNote: string | null;
-  traits?: unknown;
   taxonIdentifiers?: unknown;
   naturalHistory?: unknown;
-  distributionSummary?: unknown;
   media: {
     image: {
       url: string;
       fullUrl: string;
       license: string;
+      approvalStatus?: 'approved';
       originalLicense?: string | null;
       attribution: string;
       source: string;
       sourcePage: string | null;
       externalId?: string | null;
     } | null;
+    images?: Array<NonNullable<CatalogItem['media']['image']>>;
     audio: string | AudioCandidate | null;
   };
   sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
   reviewStatus: string;
-  presenceCertainty?: 'confirmed' | 'probable' | 'uncertain' | null;
 }
 
 interface CatalogSource {
@@ -139,19 +138,6 @@ const DEFAULT_PALETTE = {
   on_container_dark: '#CFE9D6',
 };
 
-const DIET_LABELS: Record<string, string> = {
-  algae: 'algas',
-  amphibians_reptiles: 'anfibios y reptiles',
-  birds_mammals: 'aves y mamíferos',
-  carrion: 'carroña',
-  fish: 'peces',
-  fruit: 'frutos',
-  invertebrates: 'invertebrados',
-  nectar: 'néctar',
-  other_plant_material: 'otras materias vegetales',
-  seeds: 'semillas',
-};
-
 const SCHEMA = `
 CREATE TABLE species (
   stable_id TEXT NOT NULL UNIQUE, codigo TEXT PRIMARY KEY, scientific_name TEXT NOT NULL, accepted_name TEXT,
@@ -159,18 +145,17 @@ CREATE TABLE species (
   kingdom TEXT NOT NULL, phylum TEXT NOT NULL, subfilo TEXT NOT NULL,
   clase TEXT NOT NULL, orden TEXT NOT NULL, familia TEXT NOT NULL,
   genero TEXT NOT NULL, epiteto TEXT NOT NULL,
-  estado_conservacion TEXT NOT NULL, conservation_label TEXT NOT NULL,
-  conservation_rank INTEGER NOT NULL, conservation_system TEXT, conservation_source TEXT, conservation_assessed_at TEXT,
+  conservation TEXT NOT NULL DEFAULT '{"nationalRedList":null,"iucnGlobal":null,"nationalDesignations":[]}',
   nativa INTEGER NOT NULL,
-  descripcion TEXT NOT NULL, alimentacion TEXT NOT NULL, tamano TEXT NOT NULL, traits TEXT NOT NULL,
-  taxon_identifiers TEXT NOT NULL, natural_history TEXT NOT NULL, distribution_summary TEXT NOT NULL,
+  descripcion TEXT NOT NULL, measurements TEXT NOT NULL, ecology TEXT NOT NULL,
+  taxon_identifiers TEXT NOT NULL, natural_history TEXT NOT NULL,
   image_url TEXT, full_url TEXT, thumb_asset TEXT, audio_url TEXT,
   image_license TEXT, image_attribution TEXT, image_source TEXT, image_page TEXT,
   accent_light TEXT NOT NULL, accent_dark TEXT NOT NULL,
   container_light TEXT NOT NULL, on_container_light TEXT NOT NULL,
   container_dark TEXT NOT NULL, on_container_dark TEXT NOT NULL,
-  origin TEXT, establishment TEXT, seasonality TEXT, presence_certainty TEXT, abundance_status TEXT,
-  habitat TEXT NOT NULL, diet TEXT NOT NULL, relevant_note TEXT,
+  origin TEXT, seasonality TEXT, abundance_status TEXT CHECK(abundance_status IS NULL OR abundance_status IN ('abundant','common','uncommon','scarce','occasional')),
+  relevant_note TEXT,
   sources TEXT NOT NULL,
   knowledge_level TEXT NOT NULL DEFAULT 'hard' CHECK(knowledge_level IN ('easy','medium','hard')),
   abundance_category TEXT, abundance_label TEXT
@@ -182,7 +167,7 @@ CREATE INDEX idx_species_orden ON species(orden);
 CREATE INDEX idx_species_familia ON species(familia);
 CREATE INDEX idx_species_genero ON species(genero);
 CREATE INDEX idx_species_taxonomy_path ON species(phylum, clase, orden, familia, genero, common_name COLLATE NOCASE);
-CREATE INDEX idx_species_rank ON species(conservation_rank);
+CREATE INDEX idx_species_priority ON species(json_extract(conservation,'$.nationalDesignations'));
 CREATE INDEX idx_species_has_photo ON species(image_url);
 CREATE INDEX idx_species_sort ON species(common_name);
 CREATE TABLE taxa (
@@ -227,6 +212,14 @@ CREATE TABLE species_observability (
   occupied_cells INTEGER NOT NULL, years_observed INTEGER NOT NULL, score REAL NOT NULL,
   band TEXT NOT NULL, comparison_class TEXT NOT NULL
 );
+CREATE TABLE species_conservation (
+  stable_id TEXT NOT NULL REFERENCES species(stable_id),
+  system TEXT NOT NULL CHECK(system IN ('uy_red_list','iucn_global','uy_designations')),
+  category TEXT, designations TEXT NOT NULL DEFAULT '[]', source_code TEXT NOT NULL,
+  source_record_id TEXT, version TEXT, assessed_at TEXT,
+  PRIMARY KEY(stable_id, system)
+);
+CREATE INDEX idx_species_conservation_species ON species_conservation(stable_id, system);
 CREATE TABLE species_facts (
   id TEXT PRIMARY KEY, stable_id TEXT NOT NULL REFERENCES species(stable_id), body TEXT NOT NULL, sort_order INTEGER NOT NULL,
   source_code TEXT, source_record_id TEXT
@@ -389,6 +382,21 @@ function loadHistorical(): { byCode: Map<string, OldRow>; byName: Map<string, Ol
     }
   }
   db.close();
+  // Once schema 14 has been generated, the current SQLite intentionally no
+  // longer carries the six legacy conservation columns. Rehydrate only the
+  // historical designation string from the committed SNAP export so repeated
+  // builds remain deterministic and preserve the audited 398/264/170 counts.
+  const snapPath = resolve(PATHS.raw, 'otras_fuentes/outputSNAP.json');
+  if (existsSync(snapPath)) {
+    const snapRows = readJson<Array<{ codigo: string; estado_conservacion?: string }>>(snapPath);
+    for (const snap of snapRows) {
+      const row = byCode.get(snap.codigo);
+      if (!row || !snap.estado_conservacion) continue;
+      row.estado_conservacion = snap.estado_conservacion;
+      row.conservation_label = snap.estado_conservacion;
+      row.conservation_rank = /AMENAZADA/i.test(snap.estado_conservacion) ? 3 : /PRIORITARIA/i.test(snap.estado_conservacion) && !/NO PRIORITARIA/i.test(snap.estado_conservacion) ? 2 : 0;
+    }
+  }
   return { byCode, byName };
 }
 
@@ -424,8 +432,24 @@ function deterministicBuildTimestamp(): string {
 }
 
 function main(): void {
+  const previewUnreviewed = process.argv.includes('--preview-unreviewed');
+  const previewVersionArgument = process.argv.find((argument) => argument.startsWith('--preview-data-version='));
+  const previewDataVersion = previewVersionArgument ? Number(previewVersionArgument.split('=')[1]) : null;
+  if (previewUnreviewed && (!Number.isSafeInteger(previewDataVersion) || (previewDataVersion ?? -1) < DATA_VERSION)) {
+    throw new Error('La vista previa exige --preview-data-version=N con la última versión remota publicada para no regresar al catálogo anterior');
+  }
   const input = loadCatalog();
   if (input.length === 0) throw new Error('data/catalog has no records');
+  const seed = readJson<{ arboles: Array<{ nombre_cientifico: string }>; otras_plantas_nativas: Array<{ nombre_cientifico: string }> }>(PATHS.curatedPlants);
+  const selected = new Set([...seed.arboles, ...seed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
+  const plants = input.filter((item) => item.taxonomy.kingdom === 'Plantae');
+  if (selected.size !== 100 || plants.length !== 100 || plants.some((item) => !selected.has(item.scientificName))) {
+    throw new Error('Catálogo móvil bloqueado: la flora debe coincidir con las 100 especies seleccionadas');
+  }
+  const invalidPlantImages = plants.filter((item) => item.media.image && (
+    !['CC0', 'CC-BY-4.0', 'permission'].includes(item.media.image.license)
+    || !item.media.image.attribution || !item.media.image.sourcePage || !item.media.image.fullUrl));
+  if (invalidPlantImages.length) throw new Error(`Fotos botánicas sin derechos o fuente: ${invalidPlantImages.length}`);
   const sourceRegistry = readJson<{ sources: CatalogSource[] }>(resolve(PATHS.catalog, '../catalog-source-registry.json')).sources;
   const sourcesByCode = new Map(sourceRegistry.map((source) => [source.code, source]));
   const featuredFacts = readJson<{ facts: FeaturedFact[] }>(resolve(PATHS.catalog, '../facts/featured.json')).facts;
@@ -441,6 +465,7 @@ function main(): void {
   db.exec(SCHEMA);
   const insertCatalogSource = db.prepare('INSERT INTO catalog_sources VALUES (?,?,?,?,?,?,?)');
   const mediaInsert = db.prepare('INSERT INTO species_media VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+  const conservationInsert = db.prepare('INSERT INTO species_conservation VALUES (?,?,?,?,?,?,?,?)');
   for (const source of sourceRegistry) insertCatalogSource.run(
     source.code, source.name ?? source.code, source.url ?? null, source.publisher ?? null,
     source.license ?? null, source.citation ?? null, source.usePolicy,
@@ -448,14 +473,14 @@ function main(): void {
     const insert = db.prepare(`INSERT INTO species (
     stable_id, codigo, scientific_name, accepted_name, common_name, common_names, kingdom, phylum, subfilo,
     clase, orden, familia, genero, epiteto,
-    estado_conservacion, conservation_label, conservation_rank, conservation_system, conservation_source, conservation_assessed_at, nativa,
-    descripcion, alimentacion, tamano, traits, taxon_identifiers, natural_history, distribution_summary,
+    conservation, nativa,
+    descripcion, measurements, ecology, taxon_identifiers, natural_history,
     image_url, full_url, thumb_asset, audio_url,
     image_license, image_attribution, image_source, image_page,
     accent_light, accent_dark, container_light, on_container_light, container_dark, on_container_dark,
-    origin, establishment, seasonality, presence_certainty, abundance_status, habitat, diet, relevant_note, sources,
+    origin, seasonality, abundance_status, relevant_note, sources,
     knowledge_level, abundance_category, abundance_label
-    ) VALUES (${Array.from({ length: 54 }, () => '?').join(', ')})`);
+    ) VALUES (${Array.from({ length: 43 }, () => '?').join(', ')})`);
   const insertTaxonNode = db.prepare(`INSERT INTO taxa(taxon_id,parent_id,rank,canonical_name,simple_name,description,identifiers,sources,sort_order)
     VALUES (?,?,?,?,?,?,?,?,?) ON CONFLICT(taxon_id) DO UPDATE SET parent_id=excluded.parent_id,rank=excluded.rank,canonical_name=excluded.canonical_name`);
   const insertSpeciesTaxon = db.prepare('INSERT OR IGNORE INTO species_taxa(stable_id,taxon_id,is_primary) VALUES (?,?,1)');
@@ -490,8 +515,8 @@ function main(): void {
       const subphylum = subphylumFor(rows[0]!);
       const epithet = scientificName.split(' ')[1] ?? '';
       const image = first(rows, (row) => row.media?.image);
-      const diet = unique(rows.flatMap((row) => row.diet ?? []));
-      const habitat = unique(rows.flatMap((row) => row.habitat ?? []));
+      const images = first(rows, (row) => row.media?.images)?.filter(Boolean) ?? (image ? [image] : []);
+      if (images.length > 2) throw new Error(`Más de dos fotos para ${scientificName}`);
       const fact = featuredByScientificName.get(scientificName);
       const sourceRows = fact
         ? [...rows.flatMap((row) => row.sources), { source: fact.sourceCode, record: fact.sourceRecordId, fieldPath: 'relevant_note' }]
@@ -499,18 +524,23 @@ function main(): void {
       const sources = unique(sourceRows.map((source) => JSON.stringify(sourceReference(source, sourcesByCode))))
         .map((source) => JSON.parse(source));
       const abundance = first(rows, (row) => row.abundanceStatus);
+      if (abundance && !sources.some((source) => ['abundanceStatus', 'abundance_status'].includes(source.fieldPath))) {
+        throw new Error(`Abundance source missing for ${codigo}`);
+      }
       // Abundance and conservation are different biological concepts. Until
       // the catalogue has an explicit conservation object, preserve a prior
       // evaluated status or mark the species as unassessed.
-      const conservationRaw = old?.estado_conservacion ?? 'No evaluada';
-      const conservationLabel = old?.conservation_label ?? 'No evaluada';
-      const conservationRank = old?.conservation_rank ?? 0;
+      const legacyConservation = `${old?.estado_conservacion ?? ''} ${old?.conservation_label ?? ''}`.toLocaleUpperCase('es');
+      const designations = [
+        legacyConservation.includes('PRIORITARIA') && !legacyConservation.includes('NO PRIORITARIA') ? 'priority' : null,
+        legacyConservation.includes('AMENAZADA') ? 'threatened' : null,
+        legacyConservation.includes('SNAP') ? 'snap' : null,
+      ].filter((value): value is string => value !== null);
+      const conservation = { nationalRedList: null, iucnGlobal: null, nationalDesignations: designations };
       const palette = old ?? DEFAULT_PALETTE;
       const description = first(rows, (row) => row.description) ?? old?.descripcion ?? '';
-      const size = first(rows, (row) => row.size) ?? old?.tamano ?? '';
-      const dietText = diet.length > 0
-        ? diet.map((value) => DIET_LABELS[value] ?? value.replaceAll('_', ' ')).join(', ')
-        : old?.alimentacion ?? '';
+      const measurements = first(rows, (row) => row.measurements) ?? [];
+      const ecology = first(rows, (row) => row.ecology) ?? { habitats: [], diet: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, microhabitats: [], trophicRoles: [], hosts: [], plantAssociations: [], vegetationFormations: [] };
       const audioCandidate = approvedAudioByScientificName.get(normalizeScientificName(scientificName))
         ?? first(rows, (row) => row.media?.audio);
       const audioUrl = typeof audioCandidate === 'string' ? audioCandidate : audioCandidate?.url ?? old?.audio_url ?? null;
@@ -520,26 +550,25 @@ function main(): void {
         first(rows, (row) => row.taxonomy.phylum) ?? '', subphylum,
         first(rows, (row) => row.taxonomy.class) ?? '', first(rows, (row) => row.taxonomy.order) ?? '',
         first(rows, (row) => row.taxonomy.family) ?? '', genus, epithet,
-        conservationRaw, conservationLabel, conservationRank, 'Prioridad nacional/SNAP (legado)', null, null, origin === 'native' ? 1 : 0,
-        description, dietText, size, JSON.stringify(first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }),
+        JSON.stringify(conservation), origin === 'native' ? 1 : 0,
+        description, JSON.stringify(measurements), JSON.stringify(ecology),
         JSON.stringify(first(rows, (row) => row.taxonIdentifiers) ?? {}),
         JSON.stringify(first(rows, (row) => row.naturalHistory) ?? {}),
-        JSON.stringify(first(rows, (row) => row.distributionSummary) ?? {}),
         image?.url ?? null, image?.fullUrl ?? null, old?.thumb_asset ?? null,
         audioUrl,
         image?.license ?? null, image?.attribution ?? null, image?.source ?? null, image?.sourcePage ?? null,
         palette.accent_light, palette.accent_dark, palette.container_light, palette.on_container_light,
         palette.container_dark, palette.on_container_dark,
-        origin, 'uncertain', first(rows, (row) => row.seasonality), first(rows, (row) => row.presenceCertainty) ?? 'uncertain', abundance,
-        JSON.stringify(habitat), JSON.stringify(diet), first(rows, (row) => row.relevantNote),
+        origin, first(rows, (row) => row.seasonality), abundance,
+        first(rows, (row) => row.relevantNote),
         JSON.stringify(sources), 'hard', null, abundance,
       );
-      const imageMedia = image ? {
-        id: `${id}-image`, stableId: id, type: 'image' as const, ordinal: 1, isPrimary: 1,
-        url: image.url, thumbnailUrl: image.url, author: image.attribution, license: image.license,
-        source: image.source, sourceUrl: image.sourcePage, duration: null, externalId: image.externalId ?? null, originalLicense: image.originalLicense ?? null,
-      } : null;
-      if (imageMedia) mediaInsert.run(imageMedia.id, imageMedia.stableId, imageMedia.type, imageMedia.ordinal, imageMedia.isPrimary, imageMedia.url, imageMedia.thumbnailUrl, imageMedia.author, imageMedia.license, imageMedia.source, imageMedia.sourceUrl, imageMedia.duration, imageMedia.externalId, imageMedia.originalLicense);
+      if (designations.length) conservationInsert.run(id, 'uy_designations', null, JSON.stringify(designations), 'legacy_catalog', codigo, 'pre-schema-14', null);
+      for (const [index, photo] of images.entries()) {
+        mediaInsert.run(`${id}-image-${index + 1}`, id, 'image', index + 1, index === 0 ? 1 : 0,
+          photo.fullUrl, photo.url, photo.attribution, photo.license, photo.source, photo.sourcePage,
+          null, photo.externalId ?? null, photo.originalLicense ?? null);
+      }
       if (audioCandidate) {
         const audioData = typeof audioCandidate === 'string' ? { url: audioCandidate } : audioCandidate;
         mediaInsert.run(`${id}-audio`, id, 'audio', 1, 0, audioData.url, null, audioData.attribution ?? 'Pedro Rinaldi', audioData.license ?? 'permission', audioData.source ?? 'Xeno-canto', audioData.sourcePage ?? null, audioData.durationSeconds ?? 15, audioData.externalId ?? null, audioData.originalLicense ?? null);
@@ -607,7 +636,8 @@ function main(): void {
     `);
     const meta = db.prepare('INSERT INTO meta (key, value) VALUES (?, ?)');
     meta.run('schema_version', String(SCHEMA_VERSION));
-    meta.run('data_version', String(DATA_VERSION));
+    meta.run('data_version', String(previewUnreviewed ? previewDataVersion : DATA_VERSION));
+    meta.run('editorial_status', previewUnreviewed ? 'preview_unreviewed' : 'automatic');
     // The offline build must be reproducible. The source refresh timestamp is
     // fixed for a snapshot and changes only when data:catalog-refresh runs.
     meta.run('built_at', deterministicBuildTimestamp());
@@ -626,10 +656,12 @@ function main(): void {
   const count = (db.prepare('SELECT COUNT(*) AS n FROM species').get() as { n: number }).n;
   const withPhoto = (db.prepare('SELECT COUNT(*) AS n FROM species WHERE image_url IS NOT NULL').get() as { n: number }).n;
   const ftsCount = (db.prepare('SELECT COUNT(*) AS n FROM species_fts').get() as { n: number }).n;
-  if (integrity.integrity_check !== 'ok' || count !== grouped.size || ftsCount !== count) {
+  const birdLengths = (db.prepare("SELECT COUNT(*) AS n FROM species WHERE clase='Aves' AND EXISTS (SELECT 1 FROM json_each(measurements) WHERE json_extract(value,'$.kind')='body_length')").get() as { n: number }).n;
+  const invalidMeasurements = (db.prepare("SELECT COUNT(*) AS n FROM species, json_each(species.measurements) WHERE json_extract(value,'$.sourceCode') IS NULL OR json_extract(value,'$.unit') IS NULL OR json_extract(value,'$.provenance') IS NULL").get() as { n: number }).n;
+  if (integrity.integrity_check !== 'ok' || count !== grouped.size || ftsCount !== count || birdLengths !== 475 || invalidMeasurements !== 0) {
     db.close();
     rmSync(NEXT_PATH, { force: true });
-    throw new Error(`candidate validation failed: integrity=${integrity.integrity_check}, species=${count}, fts=${ftsCount}`);
+    throw new Error(`candidate validation failed: integrity=${integrity.integrity_check}, species=${count}, fts=${ftsCount}, bird_lengths=${birdLengths}, invalid_measurements=${invalidMeasurements}`);
   }
   db.exec('VACUUM');
   db.close();

@@ -1,0 +1,33 @@
+begin;
+select plan(27);
+
+select has_column('public','species','measurements','measurements JSONB exists');
+select has_column('public','species','ecology','ecology JSONB exists');
+select has_table('public','species_conservation_assessments','normalized conservation table exists');
+select hasnt_table('public','species_abundance_assessments','duplicate abundance table was retired');
+select hasnt_column('public','species','traits','legacy traits column was retired');
+select hasnt_column('public','species','size','free-form size column was retired');
+select hasnt_column('public','species','habitat','legacy habitat column was retired');
+select hasnt_column('public','species','diet','legacy diet column was retired');
+select hasnt_column('public','species','distribution_summary','distribution summary was retired');
+select hasnt_column('public','species','establishment','establishment was retired');
+select hasnt_column('public','species','presence_certainty','presence certainty was retired');
+select hasnt_column('public','species','conservation_system','legacy conservation system was retired');
+select hasnt_column('public','species','conservation_category','legacy conservation category was retired');
+select hasnt_column('public','species','conservation_label','legacy conservation label was retired');
+select hasnt_column('public','species','conservation_source','legacy conservation source was retired');
+select hasnt_column('public','species','conservation_rank','legacy conservation rank was retired');
+select hasnt_column('public','species','conservation_assessed_at','legacy conservation date was retired');
+select hasnt_column('public','plant_profiles','vegetation_formations','plant formations live only in ecology');
+select is((select count(*)::integer from public.species where jsonb_typeof(measurements)<>'array'),0,'all measurements are arrays');
+select is((select count(*)::integer from public.species where jsonb_typeof(ecology)<>'object'),0,'all ecology values are objects');
+select is((select count(*)::integer from public.species where kingdom='Plantae' and abundance_status is not null),0,'plants have no abundance');
+select is((select count(*)::integer from public.species where abundance_status is not null and not (field_sources?'abundance_status')),0,'every abundance value has a source');
+select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['priority']),398,'priority count preserved');
+select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['threatened']),264,'threatened count preserved');
+select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['snap']),170,'SNAP count preserved');
+select like(pg_get_functiondef('public.request_catalog_publish()'::regprocedure),'%public.species_media%','approved media can mark the catalog dirty');
+select unlike(pg_get_functiondef('public.request_catalog_publish()'::regprocedure),'%values(v_version,8,%','media-only releases do not regress to schema 8');
+
+select * from finish();
+rollback;

@@ -37,7 +37,7 @@ export const LEARNING_PATHS: LearningPath[] = [
       ], [q('tax-purpose', 'multi', '¿Qué puede aportar una clasificación científica?', ['Un lenguaje compartido', 'Una hipótesis de parentesco', 'Un ranking de importancia', 'Conectar evidencia'], ['Un lenguaje compartido', 'Una hipótesis de parentesco', 'Conectar evidencia'], 'Clasificar ayuda a comunicar y relacionar evidencia; no decide qué especie vale más.')], ['GBIF-TAX']),
       m('rangos', 'De reino a especie', '¿Qué comparten un carpincho y un cardenal antes de que sus caminos se separen?', [
         { title: 'Una dirección jerárquica', body: 'Una ruta frecuente es reino, filo, clase, orden, familia, género y especie. Cada nivel reúne organismos y el siguiente afina el grupo.' },
-        { title: 'No todos los caminos son idénticos', body: 'Puede haber rangos intermedios, y algunas ramas se revisan. Natura UY conserva nodos taxonómicos aunque un rango no esté completo.' },
+        { title: 'No todos los caminos son idénticos', body: 'Puede haber rangos intermedios, y algunas ramas se revisan. Arapy conserva nodos taxonómicos aunque un rango no esté completo.' },
         { title: 'Leer de amplio a preciso', body: 'Animalia incluye animales; Chordata reúne cordados; Aves es una clase; Passeriformes, un orden. Género y epíteto forman el nombre de especie.' },
       ], [q('tax-order', 'order', 'Ordená de más amplio a más específico.', ['Especie', 'Familia', 'Reino', 'Clase'], ['Reino', 'Clase', 'Familia', 'Especie'], 'Los rangos se anidan: reino es más amplio y especie, más específico.')], ['GBIF-TAX']),
       m('nombres', 'Cómo se escribe un nombre científico', '¿Por qué “Paroaria coronata” tiene dos palabras?', [
@@ -116,7 +116,7 @@ export const LEARNING_PATHS: LearningPath[] = [
       m('regla-general', 'La regla general', '¿En Uruguay se puede cazar cualquier especie que no figure como amenazada?', [
         { title: 'Prohibición como punto de partida', body: 'La Ley 9.481 establece un régimen de protección de fauna. Las excepciones, temporadas y permisos surgen de normas y resoluciones específicas.' },
         { title: 'Amenaza y permiso no son lo mismo', body: 'Una especie no amenazada puede estar protegida; una especie habilitada puede tener cupos, fechas o zonas. Son decisiones jurídicas y de gestión.' },
-        { title: 'La fuente debe estar vigente', body: 'Las reglas pueden cambiar. Natura UY muestra fecha de consulta y enlaza al organismo competente; nunca funciona como permiso.' },
+        { title: 'La fuente debe estar vigente', body: 'Las reglas pueden cambiar. Arapy muestra fecha de consulta y enlaza al organismo competente; nunca funciona como permiso.' },
       ], [q('hunt-default', 'single', 'Si una especie no está amenazada, ¿queda automáticamente habilitada para caza?', ['Sí', 'No'], ['No'], 'Estado de conservación y habilitación legal son sistemas distintos.')], ['LEY-9481', 'UY-CAZA']),
       m('categorias-permisos', 'Libre, deportiva y control', '¿“Caza libre” significa sin ninguna regla?', [
         { title: 'Categorías administrativas', body: 'La información oficial distingue especies de libre caza y especies de caza deportiva con permiso, temporada y condiciones. “Libre” no habilita crueldad, riesgos ni ingreso a propiedad ajena.' },
@@ -157,7 +157,7 @@ export const LEARNING_PATHS: LearningPath[] = [
       m('amenaza-prioridad-ley', 'Tres etiquetas, tres preguntas', '¿Amenazada, prioritaria y protegida quieren decir lo mismo?', [
         { title: 'Amenaza', body: 'Pregunta por riesgo de extinción bajo un sistema y una escala definidos.' },
         { title: 'Prioridad', body: 'Ayuda a decidir dónde enfocar conservación y puede sumar singularidad, función ecológica, valor cultural, viabilidad o presión humana.' },
-        { title: 'Protección legal', body: 'Establece obligaciones y prohibiciones. Puede alcanzar especies que no están amenazadas y variar con la jurisdicción.', callout: 'Natura UY muestra estos campos separados para no fabricar equivalencias.' },
+        { title: 'Protección legal', body: 'Establece obligaciones y prohibiciones. Puede alcanzar especies que no están amenazadas y variar con la jurisdicción.', callout: 'Arapy muestra estos campos separados para no fabricar equivalencias.' },
       ], [q('cons-labels', 'classify', '¿Qué pregunta responde cada etiqueta?', ['Riesgo de extinción', 'Dónde enfocar acciones', 'Qué permite o prohíbe la norma'], [], 'Amenaza, prioridad y protección legal son capas relacionadas pero distintas.', { categories: ['Amenaza', 'Prioridad', 'Protección legal'], classification: { 'Riesgo de extinción': 'Amenaza', 'Dónde enfocar acciones': 'Prioridad', 'Qué permite o prohíbe la norma': 'Protección legal' } })], ['IUCN-CAT', 'UY-PRIOR', 'LEY-9481']),
     ],
   },

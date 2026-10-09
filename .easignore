@@ -1,3 +1,5 @@
+# EAS archiva desde la raíz Git aunque la app viva en NaturaUY-source.
+# Excluir otros proyectos, secretos y derivados innecesarios del archivo remoto.
 .git/
 **/node_modules/
 **/.expo/
@@ -13,6 +15,7 @@
 **/scripts/out/
 **/*.orig.*
 **/*.log
+**/*.apk
 **/.env*
 !.env.example
 **/*.jks
@@ -21,5 +24,17 @@
 **/*.key
 **/*.mobileprovision
 .eas-inspect/
+.tmp/
+.adb-home/
+.codex-remote-attachments/
+.github/
+output/
+extras/
+datos varios de prueba/
+NaturaUY-admin/
+NaturaUY-source/data/
 
-# El catálogo, miniaturas y audio aprobado forman parte de la APK.
+# El catálogo SQLite, las miniaturas y los 202 audios aprobados forman parte
+# de la APK, pero los audios derivados permanecen ignorados por Git.
+!NaturaUY-source/assets/audio/
+!NaturaUY-source/assets/audio/**

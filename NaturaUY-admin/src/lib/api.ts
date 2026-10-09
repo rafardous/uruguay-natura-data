@@ -37,33 +37,34 @@ function resolveSpeciesImage(media: Array<Record<string, any>>) {
 
 function rowToPayload(row: Record<string, any>): SpeciesPayload {
   const traits = row.traits && typeof row.traits === 'object' ? row.traits : {};
+  const ecology = row.ecology && typeof row.ecology === 'object' ? row.ecology : {};
+  const conservation = row.conservation && typeof row.conservation === 'object' ? row.conservation : {};
   return {
     scientificName: row.scientific_name,
     acceptedName: row.accepted_name ?? '',
     commonNames: [row.common_name, ...(row.alternate_common_names ?? [])],
     taxonomy: { kingdom: row.kingdom ?? '', phylum: row.phylum ?? '', class: row.class ?? '', order: row.order_name ?? '', family: row.family ?? '', genus: row.genus ?? '' },
     origin: row.origin ?? 'unknown',
-    establishment: row.establishment ?? 'uncertain',
     seasonality: row.seasonality ?? 'unknown',
-    presenceCertainty: row.presence_certainty ?? 'uncertain',
     abundanceStatus: row.abundance_status ?? '',
-    conservation: { system: row.conservation_system ?? '', category: row.conservation_category ?? 'NE', source: row.conservation_source ?? '', assessedAt: row.conservation_assessed_at ?? '' },
+    conservation: {
+      nationalRedList: conservation.nationalRedList ?? { category: '', sourceCode: '', version: '', assessedAt: '' },
+      iucnGlobal: conservation.iucnGlobal ?? { category: '', sourceCode: '', version: '', assessedAt: '' },
+      nationalDesignations: conservation.nationalDesignations ?? [],
+    },
     description: row.description ?? '',
-    habitat: row.habitat ?? [],
-    diet: row.diet ?? [],
-    size: row.size ?? '',
-    traits: {
-      measurements: Array.isArray(traits.measurements) ? traits.measurements : [],
-      lifeModes: Array.isArray(traits.lifeModes) ? traits.lifeModes : [],
-      activity: Array.isArray(traits.activity) ? traits.activity : [],
-      aquaticEnvironments: Array.isArray(traits.aquaticEnvironments) ? traits.aquaticEnvironments : [],
-      waterZones: Array.isArray(traits.waterZones) ? traits.waterZones : [],
-      depthMinM: typeof traits.depthMinM === 'number' ? traits.depthMinM : null,
-      depthMaxM: typeof traits.depthMaxM === 'number' ? traits.depthMaxM : null,
-      sources: Array.isArray(traits.sources) ? traits.sources : [],
+    measurements: Array.isArray(row.measurements) ? row.measurements : Array.isArray(traits.measurements) ? traits.measurements : [],
+    ecology: {
+      habitats: ecology.habitats ?? row.habitat ?? [], diet: ecology.diet ?? row.diet ?? [],
+      lifeModes: ecology.lifeModes ?? traits.lifeModes ?? [], activity: ecology.activity ?? traits.activity ?? [],
+      aquaticEnvironments: ecology.aquaticEnvironments ?? traits.aquaticEnvironments ?? [], waterZones: ecology.waterZones ?? traits.waterZones ?? [],
+      depthMinM: ecology.depthMinM ?? traits.depthMinM ?? null, depthMaxM: ecology.depthMaxM ?? traits.depthMaxM ?? null,
+      microhabitats: ecology.microhabitats ?? [], trophicRoles: ecology.trophicRoles ?? [], hosts: ecology.hosts ?? [],
+      plantAssociations: ecology.plantAssociations ?? [], vegetationFormations: ecology.vegetationFormations ?? [],
     },
     naturalHistory: row.natural_history && typeof row.natural_history === 'object' ? row.natural_history : null,
     relevantNote: row.relevant_note ?? '',
+    fieldSources: row.field_sources ?? {},
     sourceReferences: row.field_sources?.general ?? [],
   };
 }
@@ -77,12 +78,10 @@ function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
     common_name: names[0] || payload.scientificName.trim(), alternate_common_names: names.slice(1),
     kingdom: payload.taxonomy.kingdom, phylum: payload.taxonomy.phylum, class: payload.taxonomy.class,
     order_name: payload.taxonomy.order, family: payload.taxonomy.family, genus: payload.taxonomy.genus,
-    origin: payload.origin, establishment: payload.establishment, seasonality: payload.seasonality,
-    presence_certainty: payload.presenceCertainty, abundance_status: payload.abundanceStatus,
-    conservation_system: payload.conservation.system, conservation_category: payload.conservation.category,
-    conservation_source: payload.conservation.source, conservation_assessed_at: payload.conservation.assessedAt || null,
-    description: payload.description, habitat: payload.habitat, diet: payload.diet, size: payload.size, traits: payload.traits, natural_history: payload.naturalHistory ?? {},
-    relevant_note: payload.relevantNote, field_sources: { general: payload.sourceReferences.filter(Boolean) },
+    origin: payload.origin, seasonality: payload.seasonality, abundance_status: payload.abundanceStatus || null,
+    conservation: payload.conservation,
+    description: payload.description, measurements: payload.measurements, ecology: payload.ecology, natural_history: payload.naturalHistory ?? {},
+    relevant_note: payload.relevantNote, field_sources: { ...payload.fieldSources, general: payload.sourceReferences.filter(Boolean) },
   };
 }
 
@@ -162,6 +161,17 @@ function changedColumns(before: Record<string, unknown>, after: Record<string, u
 }
 
 export async function saveSpecies(input: { id?: string; catalogCode: string; payload: SpeciesPayload; baseUpdatedAt: string | null; reason: string }): Promise<string> {
+  if (input.payload.taxonomy.kingdom === 'Plantae') {
+    const plant = input.payload.naturalHistory?.plant;
+    const height = plant?.heightCm;
+    for (const value of [height?.min, height?.max]) if (value !== null && value !== undefined && (!Number.isFinite(value) || value <= 0)) throw new Error('La altura debe ser un número positivo en centímetros.');
+    if (height?.min != null && height?.max != null && height.min > height.max) throw new Error('La altura mínima no puede superar la máxima.');
+    if ((height?.min != null || height?.max != null) && !input.payload.fieldSources['naturalHistory.plant.heightCm']?.length) throw new Error('La altura necesita una fuente.');
+    for (const [field, months] of [['floweringMonths', plant?.phenology?.floweringMonths], ['fruitingMonths', plant?.phenology?.fruitingMonths]] as const) {
+      if (months?.some((month) => !Number.isInteger(month) || month < 1 || month > 12)) throw new Error('Los meses deben estar entre 1 y 12.');
+      if (months?.length && !input.payload.fieldSources[`naturalHistory.plant.phenology.${field}`]?.length) throw new Error('La floración y fructificación necesitan fuente por campo.');
+    }
+  }
   const columns = payloadToColumns(input.catalogCode, input.payload);
   let proposedChanges: Record<string, unknown> = columns;
   if (input.id) {
@@ -261,7 +271,7 @@ export async function listApprovedImages(speciesId?:string):Promise<ApprovedImag
   return (data??[]).map((row:any)=>({id:row.id,speciesId:row.species_id,label:`${row.species?.common_name??'Especie'} · ${row.author} · ${row.source}`}));
 }
 
-export async function submitContentChange(input: { contentType: 'abundance'|'game_profile'|'game_rule'|'fact'|'trivia'|'taxon_content'; entityId?: string|null; speciesId?: string|null; operation?: 'upsert'|'archive'; values: Record<string, unknown>; comment?: string }): Promise<string> {
+export async function submitContentChange(input: { contentType: 'game_profile'|'game_rule'|'fact'|'trivia'|'taxon_content'; entityId?: string|null; speciesId?: string|null; operation?: 'upsert'|'archive'; values: Record<string, unknown>; comment?: string }): Promise<string> {
   const { data, error } = await assertClient().rpc('submit_content_change', { p_content_type: input.contentType, p_entity_id: input.entityId ?? null, p_species_id: input.speciesId ?? null, p_operation: input.operation ?? 'upsert', p_proposed_values: input.values, p_comment: input.comment ?? null });
   if (error) throw error;
   return String(data);

@@ -20,29 +20,62 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 5175654
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/large.jpeg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/196787616",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:346424287",
+        "sourceTaxonId": "121743",
+        "sourceChecksum": null,
+        "width": 2048,
+        "height": 1536,
+        "selectionScore": 71,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": true,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1536
+        },
+        "retrievedAt": "2026-09-24T04:31:48.267Z"
+      },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/large.jpeg",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/196787616",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:346424287",
+          "sourceTaxonId": "121743",
+          "sourceChecksum": null,
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-24T04:31:48.267Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -77,6 +110,22 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   }
 ]

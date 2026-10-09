@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "seed": "raw/curated-plants/seed-100.json",
+  "evidence": "raw/curated-plants/baseline-evidence-100.json",
+  "source": "flora_uruguaya",
+  "sourceVersion": "1.3",
+  "species": 100,
+  "nativeOriginVerified": 71,
+  "automaticImages": 96
+}

@@ -14,9 +14,8 @@ interface SpeciesSourcesSheetProps {
 const GROUPS = [
   ['taxonomy', 'Nombres y taxonomía'],
   ['conservation', 'Conservación'],
-  ['traits', 'Tamaño y ecología'],
-  ['habitat', 'Hábitat'],
-  ['diet', 'Alimentación'],
+  ['measurements', 'Tamaño'],
+  ['ecology', 'Ecología'],
   ['description', 'Descripción'],
   ['relevant', 'Información relevante'],
   ['general', 'Fuentes generales'],
@@ -26,11 +25,10 @@ function groupFor(fieldPath: string): typeof GROUPS[number][0] {
   const field = fieldPath.toLocaleLowerCase('es');
   if (field.includes('taxonomy') || field.includes('name') || field.includes('common')) return 'taxonomy';
   if (field.includes('conservation')) return 'conservation';
-  if (field.includes('trait') || field.includes('size') || field.includes('measurement')) return 'traits';
-  if (field.includes('habitat')) return 'habitat';
-  if (field.includes('diet') || field.includes('aliment')) return 'diet';
+  if (field.includes('trait') || field.includes('size') || field.includes('measurement')) return 'measurements';
+  if (field.includes('ecology') || field.includes('habitat') || field.includes('diet') || field.includes('aliment')) return 'ecology';
   if (field.includes('description')) return 'description';
-  if (field.includes('naturalhistory')) return 'traits';
+  if (field.includes('naturalhistory')) return 'general';
   if (field.includes('relevant') || field.includes('fact')) return 'relevant';
   return 'general';
 }
@@ -53,13 +51,13 @@ function naturalHistoryReference(value: SpeciesSource | string, fieldPath: strin
 
 export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSourcesSheetProps): React.JSX.Element {
   const { colors, radius, spacing, typography } = useTheme();
+  const audio = species.media.find((item) => item.type === 'audio');
   const references = [
     ...species.sources.map(normalizedReference),
-    ...species.traits.sources.map((code) => normalizedReference({ source: code, record: null, fieldPath: 'traits', sourceCode: code })),
+    ...species.measurements.map((measurement) => normalizedReference({ source: measurement.sourceCode, record: measurement.sourceRecordId, fieldPath: `measurements.${measurement.kind}`, sourceCode: measurement.sourceCode })),
     ...(species.naturalHistory?.arthropod?.morphology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.morphology'))),
     ...(species.naturalHistory?.arthropod?.identification?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.identification'))),
     ...(species.naturalHistory?.arthropod?.lifeCycle?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.lifeCycle'))),
-    ...(species.naturalHistory?.arthropod?.ecology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.ecology'))),
     ...(species.naturalHistory?.arthropod?.humanRelevance?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'relevant_note'))),
     ...(species.naturalHistory?.arthropod?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory'))),
     ...(species.naturalHistory?.plant?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.plant'))),
@@ -85,7 +83,20 @@ export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSource
             <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel="Cerrar" style={[styles.close, { backgroundColor: colors.surfaceVariant, borderRadius: radius.pill }]}><CloseIcon color={colors.text} /></Pressable>
           </View>
           <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: spacing.xxl, gap: spacing.lg }}>
-            {references.length === 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Este registro todavía sólo conserva referencias generales del catálogo histórico.</Text>}
+            {references.length === 0 && !audio && <Text style={[typography.body, { color: colors.textSecondary }]}>Este registro todavía sólo conserva referencias generales del catálogo histórico.</Text>}
+            {audio && <View style={{ gap: spacing.sm }}>
+              <Text style={[typography.eyebrow, { color: colors.primary }]}>AUDIO</Text>
+              <Pressable disabled={!audio.page} onPress={() => audio.page && void Linking.openURL(audio.page)}
+                accessibilityRole={audio.page ? 'link' : undefined}
+                style={[styles.reference, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]}>
+                <View style={styles.flex}>
+                  <Text style={[typography.label, { color: colors.text }]}>{audio.attribution || audio.source}</Text>
+                  <Text style={[typography.caption, { color: colors.textSecondary, marginTop: 2 }]}>{audio.source}{audio.license ? ` · Arapy: ${audio.license}` : ''}</Text>
+                  {audio.originalLicense && <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Licencia original: {audio.originalLicense}</Text>}
+                </View>
+                {audio.page && <ExternalLinkIcon color={colors.primary} />}
+              </Pressable>
+            </View>}
             {identifiers.length > 0 && <View style={{ gap: spacing.sm }}><Text style={[typography.eyebrow, { color: colors.primary }]}>IDENTIFICADORES TÉCNICOS</Text>{identifiers.map((identifier) => <Pressable key={identifier.label} onPress={() => void Linking.openURL(identifier.url)} style={[styles.reference, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md }]} accessibilityRole="link"><View style={styles.flex}><Text style={[typography.label, { color: colors.text }]}>{identifier.label}</Text><Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>{identifier.value}</Text></View><ExternalLinkIcon color={colors.primary} /></Pressable>)}</View>}
             {GROUPS.map(([group, title]) => {
               const items = references.filter((reference) => reference.group === group);

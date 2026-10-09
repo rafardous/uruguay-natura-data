@@ -60,7 +60,7 @@ export function UserDatabaseProvider({ children }: { children: ReactNode }): Rea
   if (error) return (
     <View style={styles.failure}>
       <Text style={styles.title}>No pudimos abrir tus datos locales</Text>
-      <Text style={styles.body}>No borramos tus favoritos ni tus récords. Cerrá otras instancias de Natura UY y volvé a intentar.</Text>
+      <Text style={styles.body}>No borramos tus favoritos ni tus récords. Cerrá otras instancias de Arapy y volvé a intentar.</Text>
       <Pressable onPress={() => { setDb(null); setAttempt((value) => value + 1); }} accessibilityRole="button" style={styles.button}>
         <Text style={styles.buttonText}>Reintentar</Text>
       </Pressable>

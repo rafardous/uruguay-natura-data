@@ -78,14 +78,14 @@ const SITES: InterestSite[] = [
     local: true,
   },
   {
-    title: 'Natura UY en Instagram',
+    title: 'Arapy en Instagram',
     category: 'COMUNIDAD · PRÓXIMAMENTE',
     description: 'Fotos, especies destacadas y novedades del proyecto. Perfil reservado para su lanzamiento futuro.',
     url: 'https://www.instagram.com/naturauy/',
     kind: 'instagram', container: '#F2DDE8', foreground: '#873D66', local: true,
   },
   {
-    title: 'Natura UY en X',
+    title: 'Arapy en X',
     category: 'COMUNIDAD · PRÓXIMAMENTE',
     description: 'Actualizaciones breves sobre el catálogo y la biodiversidad uruguaya. Perfil ficticio por ahora.',
     url: 'https://x.com/naturauy',
@@ -128,7 +128,7 @@ export default function InterestSitesScreen(): React.JSX.Element {
         <View style={[styles.intro, { backgroundColor: colors.primaryContainer, borderRadius: radius.lg, padding: spacing.lg }]}>
           <InterestSitesIcon color={colors.onPrimaryContainer} size={28} />
           <Text style={[typography.body, styles.flex, { color: colors.onPrimaryContainer }]}>
-            Fuentes utilizadas por Natura UY y proyectos recomendados para profundizar.
+            Fuentes utilizadas por Arapy y proyectos recomendados para profundizar.
           </Text>
         </View>
 

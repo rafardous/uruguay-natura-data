@@ -10,6 +10,7 @@
     "typecheck": "tsc -b --pretty false",
     "typecheck:automation": "tsc -p tsconfig.scripts.json --pretty false",
     "catalog:import": "tsx scripts/import-catalog.ts",
+    "catalog:curate-plants": "tsx scripts/curate-plants.ts",
     "catalog:prepare-release": "tsx scripts/prepare-release.ts",
     "catalog:build": "tsx scripts/build-catalog.ts",
     "catalog:export-json": "tsx scripts/export-catalog-json.ts",
@@ -22,7 +23,14 @@
     "catalog:fail": "tsx scripts/fail-release.ts",
     "audio:xenocanto-inventory": "tsx scripts/xenocanto-inventory.ts",
     "audio:xenocanto-auto-approve": "tsx scripts/auto-approve-xenocanto-audio.ts",
-    "audio:xenocanto-prepare": "tsx scripts/prepare-xenocanto-audio.ts"
+    "audio:xenocanto-prepare": "tsx scripts/prepare-xenocanto-audio.ts",
+    "media:import-guide-photos": "node scripts/import-guide-photos.mjs",
+    "media:prepare-guide-assigned": "node scripts/prepare-assigned-guide-photos.mjs",
+    "media:reconcile-guide": "tsx scripts/reconcile-guide-photos.mjs",
+    "media:test-guide-selection": "node --test scripts/guide-photo-selection.test.mjs",
+    "catalog:test-media": "tsx --test scripts/catalog-data.test.ts",
+    "catalog:verify-guide": "node scripts/verify-guide-catalog.mjs",
+    "catalog:test-guide-verification": "node --test scripts/verify-guide-catalog.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

@@ -20,29 +20,62 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 1651891
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/large.jpg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/17789627",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:27141862",
+        "sourceTaxonId": "155453",
+        "sourceChecksum": null,
+        "width": 2048,
+        "height": 1928,
+        "selectionScore": 64,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2048,
+          "resolutionHeight": 1928
+        },
+        "retrievedAt": "2026-09-24T04:31:33.986Z"
+      },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/large.jpg",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/17789627",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:27141862",
+          "sourceTaxonId": "155453",
+          "sourceChecksum": null,
+          "width": 2048,
+          "height": 1928,
+          "selectionScore": 64,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1928
+          },
+          "retrievedAt": "2026-09-24T04:31:33.986Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -77,7 +110,23 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "haematobia-irritans",
@@ -100,29 +149,16 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 1531912
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -157,7 +193,23 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "lutzomyia-longipalpis",
@@ -180,29 +232,16 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 5089079
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -237,7 +276,23 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "reticulitermes-flavipes",
@@ -262,29 +317,62 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 2007366
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/medium.jpg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/large.jpg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/349778607",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:638112350",
+        "sourceTaxonId": "119931",
+        "sourceChecksum": null,
+        "width": 2009,
+        "height": 2009,
+        "selectionScore": 64,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 2009,
+          "resolutionHeight": 2009
+        },
+        "retrievedAt": "2026-09-24T04:31:43.594Z"
+      },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/large.jpg",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/349778607",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:638112350",
+          "sourceTaxonId": "119931",
+          "sourceChecksum": null,
+          "width": 2009,
+          "height": 2009,
+          "selectionScore": 64,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2009,
+            "resolutionHeight": 2009
+          },
+          "retrievedAt": "2026-09-24T04:31:43.594Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -319,7 +407,23 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "triatoma-infestans",
@@ -342,29 +446,62 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 7603975
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null,
     "media": {
-      "image": null,
+      "image": {
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/medium.jpeg",
+        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/large.jpeg",
+        "license": "CC0",
+        "originalLicense": "cc0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/129760271",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:220562094",
+        "sourceTaxonId": "560836",
+        "sourceChecksum": null,
+        "width": 1537,
+        "height": 2048,
+        "selectionScore": 61,
+        "selectionDetails": {
+          "curated": false,
+          "uruguay": false,
+          "resolutionWidth": 1537,
+          "resolutionHeight": 2048
+        },
+        "retrievedAt": "2026-09-24T04:31:46.040Z"
+      },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/large.jpeg",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/129760271",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:220562094",
+          "sourceTaxonId": "560836",
+          "sourceChecksum": null,
+          "width": 1537,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1537,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-24T04:31:46.040Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -399,6 +536,22 @@
         "fieldPath": "taxonomy.genus"
       }
     ],
-    "reviewStatus": "unreviewed"
+    "reviewStatus": "unreviewed",
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   }
 ]

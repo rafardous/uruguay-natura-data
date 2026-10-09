@@ -2,7 +2,7 @@ import type { SQLiteOpenOptions } from 'expo-sqlite';
 
 /**
  * Android 17's hardened allocator exposes a double-finalize in expo-sqlite's
- * automatic statement sweep while a database is closing. Natura UY uses the
+ * automatic statement sweep while a database is closing. Arapy uses the
  * async helpers, which finalize their own statements, so skipping that extra
  * native sweep is both safe and avoids the process-level SIGABRT.
  */

@@ -15,12 +15,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [
-      "rio_arroyo",
-      "laguna_estero"
-    ],
-    "diet": null,
-    "size": "75 cm",
     "relevantNote": null,
     "media": {
       "image": {
@@ -44,6 +38,29 @@
         },
         "retrievedAt": "2026-09-11T16:38:37.896Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/154412733",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:266807189",
+          "sourceTaxonId": "110329",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:38:37.896Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -76,22 +93,17 @@
         "source": "snap",
         "record": "P_brachyur",
         "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "legacy_catalog",
+        "record": "P_brachyur",
+        "fieldPath": "measurements.max_length"
       }
     ],
     "reviewStatus": "needs_review",
     "commonNames": [
       "Raya"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_brachyur",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -100,7 +112,36 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [
+      {
+        "kind": "max_length",
+        "value": 750,
+        "unit": "mm",
+        "basis": null,
+        "estimated": true,
+        "sourceCode": "legacy_catalog",
+        "sourceRecordId": "P_brachyur",
+        "provenance": "legacy_unverified"
+      }
+    ],
+    "ecology": {
+      "habitats": [
+        "rio_arroyo",
+        "laguna_estero"
+      ],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "potamotrygon-motoro",
@@ -118,9 +159,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -144,6 +182,29 @@
         },
         "retrievedAt": "2026-09-11T16:38:39.816Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/155541074",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:268877652",
+          "sourceTaxonId": "110338",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:38:39.816Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -182,16 +243,6 @@
     "commonNames": [
       "Raya"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_motoro",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -200,6 +251,21 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   }
 ]

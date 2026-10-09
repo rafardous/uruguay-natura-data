@@ -102,7 +102,7 @@ export default function SettingsScreen(): React.JSX.Element {
         </Pressable>
 
         <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.xl, textAlign: 'center' }]}>
-          Natura UY · versión 1.0.0
+          Arapy · versión 1.0.0
         </Text>
       </ScrollView>
     </View>

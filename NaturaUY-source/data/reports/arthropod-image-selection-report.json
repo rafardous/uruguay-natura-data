@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-24T20:52:50.591Z",
+  "scope": "Arthropoda",
+  "speciesCount": 46,
+  "candidateCount": 17,
+  "byClass": {
+    "Arachnida": {
+      "species": 40,
+      "candidates": 13
+    },
+    "Insecta": {
+      "species": 5,
+      "candidates": 3
+    },
+    "Malacostraca": {
+      "species": 1,
+      "candidates": 1
+    }
+  },
+  "missing": [
+    {
+      "scientificName": "Actinopus longipalpis",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Allocosa marindia",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Allocosa senex",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Anelosimus lorenzo",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Anelosimus vierae",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Bothriurus rochensis",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Chaco castanea",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Chaco costai",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Cybaeodamus taim",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Deinopis amica",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Gelanor zonatus",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Grammostola andreleetzi",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Grammostola burzaquensis",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Idiops clarus",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Lycosa carbonelli",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mastophora extraordinaria",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mastophora satan",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mastophora yacare",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mecicobothrium thorelli",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mesabolivar charrua",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mesabolivar tandilicus",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Mesabolivar uruguayensis",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Otiothops birabeni",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Paratrechalea ornata",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Trechalea bucculenta",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Trechaleoides biocellata",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Trechaleoides keyserlingi",
+      "className": "Arachnida"
+    },
+    {
+      "scientificName": "Haematobia irritans",
+      "className": "Insecta"
+    },
+    {
+      "scientificName": "Lutzomyia longipalpis",
+      "className": "Insecta"
+    }
+  ],
+  "approvalRequired": false
+}

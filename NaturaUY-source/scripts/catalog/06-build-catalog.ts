@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 
 import { GROUPS, GROUP_METADATA, PATHS, ROOT, readJson, slug, writeJson } from './lib';
 import type { CatalogImage } from './lib';
+import { schema14Fields } from './schema14';
 
 interface Item {
   scientificName: string;
@@ -30,6 +31,8 @@ interface ExistingCatalogItem {
   id: string;
   scientificName?: string;
   distributionSummary?: unknown;
+  establishment?: unknown;
+  presenceCertainty?: unknown;
   catalogCode?: string;
   commonName?: string | null;
   commonNames?: string[];
@@ -42,10 +45,43 @@ interface ExistingCatalogItem {
   size?: unknown;
   relevantNote?: unknown;
   traits?: unknown;
+  measurements?: unknown;
+  ecology?: unknown;
   taxonIdentifiers?: unknown;
   naturalHistory?: unknown;
-  media?: { image?: CatalogImage | null; audio?: unknown };
+  media?: { image?: CatalogImage | null; images?: CatalogImage[]; audio?: unknown };
   sources?: Array<{ source?: string; record?: string | null }>;
+}
+
+function withoutRetiredFields(item: ExistingCatalogItem | undefined): Record<string, unknown> {
+  if (!item) return {};
+  const {
+    size: _size, traits: _traits, habitat: _habitat, diet: _diet,
+    distributionSummary: _distributionSummary, establishment: _establishment,
+    presenceCertainty: _presenceCertainty, ...current
+  } = item;
+  return current;
+}
+
+function schema14Source(source: { source?: string; record?: string | null; fieldPath?: string }): { source?: string; record?: string | null; fieldPath?: string } {
+  const path = source.fieldPath;
+  const fieldPath = path === 'habitat' ? 'ecology.habitats'
+    : path === 'diet' ? 'ecology.diet'
+      : path === 'traits' ? 'measurements'
+        : path === 'naturalHistory.arthropod.ecology' ? 'ecology'
+          : path === 'naturalHistory.plant.vegetationFormations' ? 'ecology.vegetationFormations'
+            : path;
+  return { ...source, fieldPath };
+}
+
+function uniqueSources(sources: Array<{ source?: string; record?: string | null; fieldPath?: string }>) {
+  const seen = new Set<string>();
+  return sources.filter((source) => {
+    const key = `${source.source ?? ''}|${source.record ?? ''}|${source.fieldPath ?? ''}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 // GBIF's backbone historically exposes these reptile groups in `class`
@@ -96,7 +132,9 @@ function readLegacyCodes(): Map<string, string> {
   if (!existsSync(path)) return new Map();
   try {
     const db = new DatabaseSync(path, { readOnly: true });
-    const rows = db.prepare('SELECT codigo, scientific_name, accepted_name FROM species').all() as unknown as Array<{ codigo?: string; scientific_name?: string; accepted_name?: string | null }>;
+    // La base móvil publicada se conserva hasta el próximo release, pero sus
+    // 3157 plantas históricas no pueden aportar identidad al pipeline nuevo.
+    const rows = db.prepare("SELECT codigo, scientific_name, accepted_name FROM species WHERE kingdom <> 'Plantae'").all() as unknown as Array<{ codigo?: string; scientific_name?: string; accepted_name?: string | null }>;
     db.close();
     const result = new Map<string, string>();
     for (const row of rows) {
@@ -138,11 +176,10 @@ function main(): void {
   const media = existsSync(PATHS.media)
     ? readJson<Record<string, CatalogImage | null>>(PATHS.media)
     : {};
-  const observabilityFile = `${PATHS.reports}/observability-snapshots.json`;
-  const observability = existsSync(observabilityFile)
-    ? readJson<{ snapshots?: Array<{ scientificName: string; periodStart: string; periodEnd: string; occurrenceCount: number; occupiedCells: number; band: string }> }>(observabilityFile).snapshots ?? []
-    : [];
-  const observabilityByName = new Map(observability.map((snapshot) => [snapshot.scientificName, snapshot]));
+  const guideVerifiedPath = resolve(PATHS.cache, 'media/guide-bird-media.json');
+  if (!existsSync(guideVerifiedPath)) throw new Error('Falta verificar fotos de la guía: ejecutar data:guide-media');
+  const guideVerified = readJson<{ schemaVersion: number; bucket: string; species: Record<string, CatalogImage[]> }>(guideVerifiedPath);
+  if (guideVerified.schemaVersion !== 1 || guideVerified.bucket !== 'guia-aves') throw new Error('Verificación de aves incompatible');
   const reportItems: Array<{ id: string; scientificName: string; commonName: string | null; commonNames: string[] }> = [];
   const identityMapPath = `${PATHS.normalized}/identity-map.json`;
   const identityMap = existsSync(identityMapPath) ? readJson<Record<string, { id: string; catalogCode: string }>>(identityMapPath) : {};
@@ -236,12 +273,20 @@ function main(): void {
         const cachedImage = publishableImage(Object.prototype.hasOwnProperty.call(media, acceptedName)
           ? media[acceptedName]
           : previous?.media?.image);
+        const familyImages = group === 'Aves' ? guideVerified.species[identityMap[acceptedName]!.catalogCode] ?? [] : [];
+        const selectedImages = familyImages.length
+          ? [...familyImages, ...(familyImages.length === 1 && cachedImage ? [cachedImage] : [])].slice(0, 2)
+          : cachedImage ? [cachedImage] : [];
         const sourceNames = row.evidence.flatMap((evidence) => [
           'taxonomy.kingdom', 'taxonomy.phylum', 'taxonomy.class', 'taxonomy.order', 'taxonomy.family', 'taxonomy.genus',
         ].map((fieldPath) => ({ source: evidence.source, record: evidence.sourceRecord, fieldPath })),
         );
         const acceptedTaxon = row.resolution.taxonomy;
-        const observation = observabilityByName.get(acceptedName);
+        const schema14 = schema14Fields(previous as unknown as Record<string, unknown> ?? {}, acceptedName, identityMap[acceptedName]!.catalogCode, group);
+        const schema14Sources = [
+          ...schema14.measurements.map((measurement) => ({ source: measurement.sourceCode, record: measurement.sourceRecordId, fieldPath: `measurements.${measurement.kind}` })),
+          ...sourceNames.filter((source) => source.fieldPath.startsWith('ecology.')),
+        ];
         const generated = {
           id,
           catalogCode: identityMap[acceptedName]!.catalogCode,
@@ -261,26 +306,47 @@ function main(): void {
           seasonality: previous?.seasonality ?? null,
           abundanceStatus: previous?.abundanceStatus ?? null,
           description: previous?.description ?? null,
-          habitat: previous?.habitat ?? [],
-          diet: previous?.diet ?? null,
-          size: previous?.size ?? null,
+          measurements: schema14.measurements,
+          ecology: schema14.ecology,
           relevantNote: previous?.relevantNote ?? null,
-          traits: previous?.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
           taxonIdentifiers: { gbif: row.resolution.gbifUsageKey ? { usageKey: row.resolution.gbifUsageKey } : undefined },
-          naturalHistory: previous?.naturalHistory ?? null,
-          distributionSummary: previous?.distributionSummary ?? (observation ? { periodStart: observation.periodStart, periodEnd: observation.periodEnd, occurrenceCount: observation.occurrenceCount, confidence: observation.band } : null),
-          media: { image: cachedImage, audio: previous?.media?.audio ?? null },
-          sources: sourceNames,
+          naturalHistory: schema14.naturalHistory,
+          media: { image: selectedImages[0] ?? null, images: selectedImages, audio: previous?.media?.audio ?? null },
+          sources: uniqueSources([...(previous?.sources ?? []).map(schema14Source), ...sourceNames, ...schema14Sources]),
           reviewStatus: row.resolution.status === 'resolved' ? 'unreviewed' : 'needs_review',
         };
         // Keep editorial enrichment, but always refresh identity, taxonomy,
         // origin evidence and sources from the reproducible pipeline.
-        return previous ? { ...previous, ...generated } : generated;
+        return previous ? { ...withoutRetiredFields(previous), ...generated } : generated;
       }).filter((item): item is NonNullable<typeof item> => Boolean(item));
     if (JSON.stringify(existing) !== JSON.stringify(catalog)) writeJson(target, catalog);
     reportItems.push(...catalog.map((item) => ({ id: item.id, scientificName: item.scientificName, commonName: item.commonName, commonNames: item.commonNames })));
     const withImage = catalog.filter((item) => item.media.image !== null).length;
     console.log(`  ${group}: ${catalog.length} (${withImage} with image)`);
+  }
+  const plantTarget = `${PATHS.catalog}/plantae.json`;
+  if (!existsSync(plantTarget)) throw new Error('Falta Plantae: ejecutar data:plants antes de construir el catálogo');
+  {
+    const plants = readJson<Array<ExistingCatalogItem & { taxonomy?: { class?: string | null } }>>(plantTarget);
+    const seed = readJson<{ arboles: Array<{ nombre_cientifico: string }>; otras_plantas_nativas: Array<{ nombre_cientifico: string }> }>(PATHS.curatedPlants);
+    const selected = new Set([...seed.arboles, ...seed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
+    if (selected.size !== 100 || plants.length !== 100 || plants.some((plant) => !selected.has(plant.scientificName ?? ''))) {
+      throw new Error('Plantae no coincide con seed-100.json: el catálogo viejo no puede entrar al pipeline');
+    }
+    const migrated = plants.map((plant) => {
+      const scientificName = plant.scientificName ?? plant.acceptedName ?? plant.id;
+      const schema14 = schema14Fields(plant as unknown as Record<string, unknown>, scientificName, plant.catalogCode ?? plant.id, plant.taxonomy?.class ?? 'Plantae');
+      return {
+        ...withoutRetiredFields(plant), measurements: schema14.measurements, ecology: schema14.ecology,
+        naturalHistory: schema14.naturalHistory,
+        sources: uniqueSources([
+          ...(plant.sources ?? []).map(schema14Source),
+          ...schema14.measurements.map((measurement) => ({ source: measurement.sourceCode, record: measurement.sourceRecordId, fieldPath: `measurements.${measurement.kind}` })),
+        ]),
+      };
+    });
+    if (JSON.stringify(plants) !== JSON.stringify(migrated)) writeJson(plantTarget, migrated);
+    console.log(`  Plantae: ${migrated.length}`);
   }
   writeJson(identityMapPath, identityMap);
   const byId = new Map<string, typeof reportItems[number]>();

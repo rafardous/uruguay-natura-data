@@ -30,12 +30,17 @@ jobs:
       - run: npm ci
       - name: Respaldo lógico cifrado
         run: |
+          set -euo pipefail
+          : "${SUPABASE_DB_URL:?Falta SUPABASE_DB_URL}"
+          : "${BACKUP_ENCRYPTION_PASSWORD:?Falta BACKUP_ENCRYPTION_PASSWORD}"
           pg_dump "$SUPABASE_DB_URL" --schema=public --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
+          test "$(wc -c < "editorial-$(date -u +%Y%m%d).sql.gz.enc")" -gt 1024
       - name: Conservar respaldo cifrado durante siete días
         uses: actions/upload-artifact@v4
         with:
           name: editorial-${{ github.run_id }}
           path: NaturaUY-admin/editorial-*.sql.gz.enc
+          if-no-files-found: error
           retention-days: 7
           compression-level: 0
       - run: npm run media:cleanup

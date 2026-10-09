@@ -9,7 +9,7 @@ import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { cancelAnimation, runOnJS, useAnimatedScrollHandler, useSharedValue, withTiming } from 'react-native-reanimated';
 
-import type { Species } from '../../src/domain/entities/species';
+import { conservationLabel, type Species } from '../../src/domain/entities/species';
 import { rankNameMatches } from '../../src/domain/services/naming';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { AppDrawer } from '../../src/presentation/components/AppDrawer';
@@ -122,7 +122,7 @@ function LargeSpeciesCard({
       <View style={[styles.speciesCopy, { padding: spacing.lg }]}>
         {kicker && <View style={[styles.kickerPill, { backgroundColor: SLIDE_ACCENTS[variant], borderRadius: radius.pill }]}><Text style={[typography.eyebrow, { color: '#233129' }]}>{kicker}</Text></View>}
         <Text style={[typography.cardTitle, { color: ON_PHOTO, marginTop: 8 }]} numberOfLines={1}>{species.displayName}</Text>
-        <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>{species.taxonomy.clase} · {species.conservation.label}</Text>
+        <Text style={[typography.caption, { color: ON_PHOTO_MUTED, marginTop: 2 }]} numberOfLines={1}>{species.taxonomy.clase}{conservationLabel(species.conservation) ? ` · ${conservationLabel(species.conservation)}` : ''}</Text>
       </View>
     </Pressable>
   );
@@ -548,7 +548,7 @@ export default function HomeScreen(): React.JSX.Element {
         </MotiView>
 
         <View style={{ marginTop: spacing.xl }}>
-          <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ NATURA UY</Text>
+          <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ ARAPY</Text>
           <View style={{ paddingHorizontal: carouselPadding, marginTop: spacing.md }}>
             {carouselSlides.length > 1 && total !== null ? (
             <SpeciesCarousel slides={carouselSlides} width={cardWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />

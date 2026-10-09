@@ -55,7 +55,7 @@ const SOURCES: Source[] = [
     url: 'https://doi.org/10.1111/geb.12826',
   },
   {
-    title: 'Síntesis editorial Natura UY',
+    title: 'Síntesis editorial Arapy',
     body: 'Descripciones, explicaciones taxonómicas y datos relevantes redactados para público general a partir de fuentes verificables. Licencia CC BY 4.0.',
     url: 'https://uruguay-natura-data.pages.dev/',
   },
@@ -101,7 +101,7 @@ export default function CreditsScreen(): React.JSX.Element {
 
         <Text style={[typography.eyebrow, styles.sectionTitle, { color: colors.textMuted }]}>EQUIPO</Text>
         <View style={[styles.teamCard, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg }]}>
-          <View style={[styles.teamHeading, { borderBottomColor: colors.border }]}><View style={[styles.teamIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}><CreditsIcon color={colors.onPrimaryContainer} size={24} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>Desarrollo de Natura UY</Text><Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Aplicación, catálogo e infraestructura editorial</Text></View></View>
+          <View style={[styles.teamHeading, { borderBottomColor: colors.border }]}><View style={[styles.teamIcon, { backgroundColor: colors.primaryContainer, borderRadius: radius.md }]}><CreditsIcon color={colors.onPrimaryContainer} size={24} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>Desarrollo de Arapy</Text><Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>Aplicación, catálogo e infraestructura editorial</Text></View></View>
           <View style={styles.people}>
             <View style={styles.person}><View style={[styles.avatar, { backgroundColor: colors.primary, borderRadius: radius.pill }]}><Text style={[typography.label, { color: colors.onPrimary }]}>RR</Text></View><View><Text style={[typography.label, { color: colors.text }]}>Rafael Rinaldi</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Desarrollador</Text></View></View>
             <View style={styles.person}><View style={[styles.avatar, { backgroundColor: colors.accent, borderRadius: radius.pill }]}><Text style={[typography.label, { color: colors.onAccent }]}>AM</Text></View><View><Text style={[typography.label, { color: colors.text }]}>Agustín Morelle</Text><Text style={[typography.caption, { color: colors.textMuted }]}>Estragón</Text></View></View>

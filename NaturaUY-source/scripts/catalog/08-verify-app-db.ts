@@ -28,17 +28,23 @@ const invalidPhotoLicenses = scalar("SELECT COUNT(*) AS n FROM species WHERE ima
 const unknownOrigin = scalar('SELECT COUNT(*) AS n FROM species WHERE origin IS NULL');
 const schemaVersion = (db.prepare("SELECT value FROM meta WHERE key = 'schema_version'").get() as { value: string } | undefined)?.value;
 const dataVersion = (db.prepare("SELECT value FROM meta WHERE key = 'data_version'").get() as { value: string } | undefined)?.value;
+const editorialStatus = (db.prepare("SELECT value FROM meta WHERE key = 'editorial_status'").get() as { value: string } | undefined)?.value;
+const previewUnreviewed = process.argv.includes('--preview-unreviewed');
+const previewVersionArgument = process.argv.find((argument) => argument.startsWith('--preview-data-version='));
+const expectedDataVersion = previewUnreviewed ? previewVersionArgument?.split('=')[1] : '4';
 const hasMediaTable = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type = 'table' AND name = 'species_media'");
 const hasAudioExternalId = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species_media') WHERE name = 'external_id'");
 const hasAudioOriginalLicense = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species_media') WHERE name = 'original_license'");
 const invalidAudioDurations = scalar("SELECT COUNT(*) AS n FROM species_media WHERE media_type='audio' AND (duration_seconds IS NULL OR duration_seconds <= 0 OR duration_seconds > 15)");
 const duplicateAudioExternalIds = scalar("SELECT COUNT(*) AS n FROM (SELECT external_id FROM species_media WHERE media_type='audio' AND external_id IS NOT NULL GROUP BY external_id HAVING COUNT(*) > 1)");
-const hasTraitsColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'traits'");
+const retiredColumns = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name IN ('traits','tamano','size','habitat','diet','distribution_summary','establishment','presence_certainty')");
+const hasMeasurementsColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'measurements'");
+const hasEcologyColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'ecology'");
+const hasConservationTable = scalar("SELECT COUNT(*) AS n FROM sqlite_master WHERE type='table' AND name='species_conservation'");
 const hasTaxonIdentifiersColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'taxon_identifiers'");
 const hasNaturalHistoryColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'natural_history'");
-const hasDistributionSummaryColumn = scalar("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name = 'distribution_summary'");
-const invalidTraits = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(traits) = 0 OR json_type(traits) <> 'object'");
-const invalidSchema11Objects = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(taxon_identifiers) = 0 OR json_type(taxon_identifiers) <> 'object' OR json_valid(natural_history) = 0 OR json_type(natural_history) <> 'object' OR json_valid(distribution_summary) = 0 OR json_type(distribution_summary) <> 'object'");
+const invalidMeasurements = scalar("SELECT COUNT(*) AS n FROM species,json_each(measurements) WHERE json_extract(value,'$.sourceCode') IS NULL OR json_extract(value,'$.unit') IS NULL OR json_extract(value,'$.provenance') IS NULL");
+const invalidSchema14Objects = scalar("SELECT COUNT(*) AS n FROM species WHERE json_valid(measurements)=0 OR json_type(measurements)<>'array' OR json_valid(ecology)=0 OR json_type(ecology)<>'object' OR json_valid(taxon_identifiers)=0 OR json_type(taxon_identifiers)<>'object' OR json_valid(natural_history)=0 OR json_type(natural_history)<>'object'");
 const missingPrimarySearchNames = scalar(`SELECT COUNT(*) AS n FROM species
   WHERE NOT EXISTS (
     SELECT 1 FROM json_each(species.common_names)
@@ -51,7 +57,7 @@ const duplicateCommonNames = scalar(`SELECT COUNT(*) AS n FROM species
   )`);
 const redistributedFishBase = scalar(`SELECT COUNT(*) AS n FROM species
   WHERE EXISTS (SELECT 1 FROM json_each(species.sources) WHERE lower(json_extract(json_each.value,'$.source'))='fishbase')
-     OR EXISTS (SELECT 1 FROM json_each(json_extract(species.traits,'$.sources')) WHERE lower(json_each.value)='fishbase')`);
+     OR EXISTS (SELECT 1 FROM json_each(species.measurements) WHERE lower(json_extract(json_each.value,'$.sourceCode'))='fishbase')`);
 const birdOrders = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name='Aves' AND taxon_rank='order'");
 const linkedBirdOrderDescriptions = scalar(`SELECT COUNT(*) AS n FROM (
   SELECT DISTINCT species.orden
@@ -99,7 +105,14 @@ const incompleteArthropodCardContent = scalar(`SELECT COUNT(*) AS n FROM taxon_c
   ) AND (simple_name IS NULL OR TRIM(simple_name)='' OR LENGTH(TRIM(description)) < 100)`);
 const redundantBirdSimpleName = scalar("SELECT COUNT(*) AS n FROM taxon_content WHERE class_name IN ('Aves','Actinopterygii','Chondrichthyes') AND taxon_rank='class' AND simple_name IS NOT NULL");
 const plantSpecies = scalar("SELECT COUNT(*) AS n FROM species WHERE kingdom='Plantae'");
-const confirmedPlants = scalar("SELECT COUNT(*) AS n FROM species WHERE kingdom='Plantae' AND presence_certainty='confirmed'");
+const plantsWithAbundance = scalar("SELECT COUNT(*) AS n FROM species WHERE kingdom='Plantae' AND abundance_status IS NOT NULL");
+const abundanceWithoutSource = scalar("SELECT COUNT(*) AS n FROM species WHERE abundance_status IS NOT NULL AND NOT EXISTS (SELECT 1 FROM json_each(sources) WHERE json_extract(value,'$.fieldPath') IN ('abundanceStatus','abundance_status'))");
+const birdLengths = scalar("SELECT COUNT(*) AS n FROM species WHERE clase='Aves' AND EXISTS(SELECT 1 FROM json_each(measurements) WHERE json_extract(value,'$.kind')='body_length')");
+const birdsFourAvonet = scalar("SELECT COUNT(*) AS n FROM species WHERE clase='Aves' AND (SELECT COUNT(*) FROM json_each(measurements) WHERE json_extract(value,'$.sourceCode')='avonet')=4");
+const birdsOnlyLength = scalar("SELECT COUNT(*) AS n FROM species WHERE clase='Aves' AND json_array_length(measurements)=1");
+const prioritySpecies = scalar("SELECT COUNT(*) AS n FROM species_conservation WHERE designations LIKE '%priority%'");
+const threatenedSpecies = scalar("SELECT COUNT(*) AS n FROM species_conservation WHERE designations LIKE '%threatened%'");
+const snapSpecies = scalar("SELECT COUNT(*) AS n FROM species_conservation WHERE designations LIKE '%snap%'");
 const plantRoots = scalar("SELECT COUNT(*) AS n FROM taxa WHERE canonical_name IN ('Plantae','Tracheophyta','Angiospermae','Gymnospermae','Lycopodiopsida','Polypodiopsida') AND TRIM(description)<>'' AND simple_name IS NOT NULL");
 const kingdomRoots = scalar("SELECT COUNT(*) AS n FROM taxa WHERE parent_id IS NULL AND rank='kingdom' AND canonical_name IN ('Animalia','Plantae')");
 
@@ -120,11 +133,20 @@ const unassignedOrderBranch = db.prepare(`SELECT
 
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
-  schemaVersion !== '12' && `schema_version=${schemaVersion ?? 'missing'}, expected 12`,
-  dataVersion !== '2' && `data_version=${dataVersion ?? 'missing'}, expected 2`,
-  plantSpecies !== 3157 && `plant species=${plantSpecies}, expected 3157`,
-  confirmedPlants !== plantSpecies && `confirmed plants=${confirmedPlants}, expected ${plantSpecies}`,
-  plantRoots !== 6 && `described plant navigation nodes=${plantRoots}, expected 6`,
+  schemaVersion !== '14' && `schema_version=${schemaVersion ?? 'missing'}, expected 14`,
+  dataVersion !== expectedDataVersion && `data_version=${dataVersion ?? 'missing'}, expected ${expectedDataVersion ?? 'an explicit preview version'}`,
+  previewUnreviewed && editorialStatus !== 'preview_unreviewed' && `editorial_status=${editorialStatus ?? 'missing'}, expected preview_unreviewed`,
+  !previewUnreviewed && editorialStatus !== 'automatic' && `editorial_status=${editorialStatus ?? 'missing'}, expected automatic`,
+  plantSpecies !== 100 && `plant species=${plantSpecies}, expected 100`,
+  plantsWithAbundance !== 0 && `plants with abundance=${plantsWithAbundance}, expected 0`,
+  abundanceWithoutSource !== 0 && `abundance without source=${abundanceWithoutSource}, expected 0`,
+  birdLengths !== 475 && `bird body lengths=${birdLengths}, expected 475`,
+  birdsFourAvonet !== 361 && `birds with four AVONET measurements=${birdsFourAvonet}, expected 361`,
+  birdsOnlyLength !== 114 && `birds with only legacy body length=${birdsOnlyLength}, expected 114`,
+  prioritySpecies !== 398 && `priority species=${prioritySpecies}, expected 398`,
+  threatenedSpecies !== 264 && `threatened species=${threatenedSpecies}, expected 264`,
+  snapSpecies !== 170 && `SNAP species=${snapSpecies}, expected 170`,
+  plantRoots !== 3 && `described plant navigation nodes=${plantRoots}, expected 3 for the selected 100 plants`,
   kingdomRoots !== 2 && `kingdom roots=${kingdomRoots}, expected 2`,
   birdOrders !== 27 && `bird order descriptions=${birdOrders}, expected 27`,
   linkedBirdOrderDescriptions !== 27 && `bird order descriptions linked to catalogue=${linkedBirdOrderDescriptions}, expected 27`,
@@ -153,12 +175,14 @@ const failures = [
   hasAudioOriginalLicense !== 1 && 'species_media.original_license column missing',
   invalidAudioDurations > 0 && `audio clips outside the 15 second contract=${invalidAudioDurations}`,
   duplicateAudioExternalIds > 0 && `duplicate audio external IDs=${duplicateAudioExternalIds}`,
-  hasTraitsColumn !== 1 && 'species.traits column missing',
+  retiredColumns !== 0 && `retired species columns still published=${retiredColumns}`,
+  hasMeasurementsColumn !== 1 && 'species.measurements column missing',
+  hasEcologyColumn !== 1 && 'species.ecology column missing',
+  hasConservationTable !== 1 && 'species_conservation table missing',
   hasTaxonIdentifiersColumn !== 1 && 'species.taxon_identifiers column missing',
   hasNaturalHistoryColumn !== 1 && 'species.natural_history column missing',
-  hasDistributionSummaryColumn !== 1 && 'species.distribution_summary column missing',
-  invalidTraits > 0 && `invalid structured traits=${invalidTraits}`,
-  invalidSchema11Objects > 0 && `invalid schema 11 JSON objects=${invalidSchema11Objects}`,
+  invalidMeasurements > 0 && `measurements missing source/unit/provenance=${invalidMeasurements}`,
+  invalidSchema14Objects > 0 && `invalid schema 14 JSON objects=${invalidSchema14Objects}`,
   missingPrimarySearchNames > 0 && `species whose primary name is absent from common_names=${missingPrimarySearchNames}`,
   duplicateCommonNames > 0 && `species with duplicate common names=${duplicateCommonNames}`,
   redistributedFishBase > 0 && `FishBase data leaked into the offline catalog=${redistributedFishBase}`,
@@ -178,5 +202,5 @@ const failures = [
 db.close();
 if (failures.length > 0) throw new Error(`app database verification failed:\n- ${failures.join('\n- ')}`);
 
-console.log(`08-verify-app-db: OK — ${species} species, ${photos} photos, ${unknownOrigin} without established origin`);
-console.log(`  integrity, schema 12 animal/plant taxonomy, sources, traits, natural history, FTS, paging, filters and game queries passed`);
+console.log(`08-verify-app-db: OK — ${species} species, ${photos} photos, ${unknownOrigin} without explicit origin`);
+console.log(`  integrity, schema 14 measurements/ecology/conservation, taxonomy, sources, FTS, paging, filters and game queries passed`);

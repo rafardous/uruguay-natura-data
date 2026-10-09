@@ -10,7 +10,7 @@ export function AccountButton({ onPress, color, backgroundColor }: { onPress: ()
   const avatarUrl = profile?.avatarUrl ?? (typeof session?.user.user_metadata?.avatar_url === 'string' ? session.user.user_metadata.avatar_url : typeof session?.user.user_metadata?.picture === 'string' ? session.user.user_metadata.picture : null);
   const [avatarFailed, setAvatarFailed] = useState(false);
   useEffect(() => setAvatarFailed(false), [avatarUrl]);
-  return <Pressable onPress={onPress} hitSlop={8} accessibilityRole="button" accessibilityLabel={profile ? `Cuenta de ${profile.displayName}` : session ? 'Tu cuenta Natura UY' : 'Iniciar sesión'} style={[styles.button, { backgroundColor }]}>
+  return <Pressable onPress={onPress} hitSlop={8} accessibilityRole="button" accessibilityLabel={profile ? `Cuenta de ${profile.displayName}` : session ? 'Tu cuenta Arapy' : 'Iniciar sesión'} style={[styles.button, { backgroundColor }]}>
     {avatarUrl && !avatarFailed ? <Image source={{ uri: avatarUrl }} contentFit="cover" onError={() => setAvatarFailed(true)} style={styles.avatar} /> : <LoginIcon color={color} />}
   </Pressable>;
 }
