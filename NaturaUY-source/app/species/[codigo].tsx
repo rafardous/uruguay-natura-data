@@ -19,15 +19,15 @@ import Animated, {
 
 import type { Species } from '../../src/domain/entities/species';
 import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel, sourceLabel } from '../../src/domain/catalogLabels';
-import { formatLegacyMeasurementText, formatSpeciesMeasurement } from '../../src/domain/services/measurementFormatting';
+import { formatSpeciesMeasurement } from '../../src/domain/services/measurementFormatting';
 import {
   speciesRepository,
   type TaxonRank,
 } from '../../src/data/repositories/speciesRepository';
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
-import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
 import { BirdFieldGuide } from '../../src/presentation/components/BirdFieldGuide';
+import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
 import { TransientZoomView } from '../../src/presentation/components/TransientZoomView';
 import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
@@ -76,6 +76,19 @@ const TRAIT_LABELS: Record<string, string> = {
   benthic: 'Bentónico', demersal: 'Demersal', pelagic: 'Pelágico',
 };
 
+const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const plantMonths = (months: number[] | undefined): string => [...new Set(months ?? [])]
+  .filter((month) => Number.isInteger(month) && month >= 1 && month <= 12)
+  .sort((a, b) => a - b).map((month) => MONTHS[month - 1]).join(' · ');
+const plantHeight = (height: { min: number | null; max: number | null } | undefined): string | null => {
+  if (!height) return null;
+  const format = (cm: number) => cm >= 100 ? `${Number((cm / 100).toFixed(2))} m` : `${cm} cm`;
+  if (height.min && height.max) return `${format(height.min)}–${format(height.max)}`;
+  if (height.min) return `desde ${format(height.min)}`;
+  if (height.max) return `hasta ${format(height.max)}`;
+  return null;
+};
+
 /** A custom sheet keeps Android scrolling predictable and owns its dismiss gesture. */
 export default function SpeciesDetailScreen(): React.JSX.Element {
   const { codigo } = useLocalSearchParams<{ codigo: string }>();
@@ -91,10 +104,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxUri, setLightboxUri] = useState<string | undefined>();
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
-  const [traitsOpen, setTraitsOpen] = useState(false);
-  const [birdDetailsOpen, setBirdDetailsOpen] = useState(false);
+  const [sizeDetailsOpen, setSizeDetailsOpen] = useState(false);
+  const [ecologyDetailsOpen, setEcologyDetailsOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
+  const [birdDetailsOpen, setBirdDetailsOpen] = useState(false);
   const palette = useSpeciesPalette(species);
 
   const scrollY = useSharedValue(0);
@@ -211,15 +225,14 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const favorite = species ? isFavorite(species.codigo) : false;
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
 
-  const facts = species
-    ? [
-        // Legacy catalog records only have a free-text size. Keep the same
-        // fact position as the structured measurements, but make its lower
-        // precision explicit to the reader.
-        ...(species.traits.measurements.length === 0 ? [{ label: 'Tamaño aproximado', value: formatLegacyMeasurementText(species.tamano) }] : []),
-        { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
-      ].filter((fact) => fact.value.length > 0)
-    : [];
+  const bodyLength = species?.measurements.find((item) => item.kind === 'body_length');
+  const bodyMass = species?.measurements.find((item) => item.kind === 'body_mass');
+  const detailedMeasurements = species?.measurements.filter((item) => !['body_length', 'body_mass'].includes(item.kind)) ?? [];
+  const facts = species ? [
+    ...(bodyLength ? [{ label: bodyLength.provenance === 'legacy_unverified' ? 'Largo aproximado' : 'Largo corporal', value: formatSpeciesMeasurement(bodyLength) }] : []),
+    ...(bodyMass ? [{ label: 'Masa', value: formatSpeciesMeasurement(bodyMass) }] : []),
+    { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
+  ].filter((fact) => fact.value.length > 0) : [];
 
   const classification: { label: string; rank: TaxonRank; value: string }[] = species
     ? [
@@ -232,8 +245,13 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       ]
     : [];
   const alternateNames = species ? species.commonNames.filter((name) => name.toLocaleLowerCase('es') !== species.displayName.toLocaleLowerCase('es')) : [];
-  const traitSources = species ? species.traits.sources.map(sourceLabel) : [];
-  const hasTraits = Boolean(species && (species.traits.measurements.length || species.traits.lifeModes.length || species.traits.activity.length || species.traits.aquaticEnvironments.length || species.traits.waterZones.length || species.traits.depthMinM !== null || species.traits.depthMaxM !== null));
+  const measurementSources = species ? [...new Set(species.measurements.map((item) => sourceLabel(item.sourceCode)))] : [];
+  const ecologySources = species ? [...new Set(species.sources.filter((item) => item.fieldPath?.startsWith('ecology.') || item.fieldPath === 'habitat' || item.fieldPath === 'diet').map((item) => sourceLabel(item.sourceCode ?? item.source)))] : [];
+  const hasMeasurements = Boolean(species?.measurements.length);
+  const ecology = species?.ecology;
+  const hasEcology = Boolean(ecology && Object.entries(ecology).some(([key, value]) => key.startsWith('depth') ? value !== null : Array.isArray(value) && value.length));
+  const conservationHeadline = species?.conservation.nationalDesignations.includes('threatened') ? 'Amenazada en Uruguay'
+    : species?.conservation.nationalDesignations.includes('priority') ? 'Prioritaria para la conservación' : null;
   const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
   const galleryItems = species ? [
     ...(species.photo ? [{ id: 'primary', url: species.photo.fullUrl, thumbnailUrl: species.photo.url, attribution: species.photo.attribution }] : []),
@@ -416,13 +434,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             <Staggered index={1}>
               <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
-                <ConservationBadge
-                  label={species.conservation.label}
-                  rank={species.conservation.rank}
-                  accent={palette.accent}
-                  container={palette.container}
-                  onContainer={palette.onContainer}
-                />
+                {conservationHeadline && <ConservationBadge label={conservationHeadline} rank={species.conservation.nationalDesignations.includes('threatened') ? 3 : 2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
+                {species.conservation.nationalDesignations.includes('snap') && <ConservationBadge label="Vinculada al SNAP" rank={2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
                 <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}>
                   <Text style={[typography.caption, { color: palette.onContainer }]}>
                     {species.origin === 'native'
@@ -456,7 +469,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             )}
 
             {birdHistory && <BirdFieldGuide key={species.codigo} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} onSources={() => setSourcesOpen(true)} />}
-
             {!birdHistory && facts.length > 0 && (
               <Staggered index={2}>
                 <View style={[styles.facts, { marginTop: spacing.lg }]}>
@@ -475,45 +487,37 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {birdHistory && <Pressable onPress={() => setBirdDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityState={{ expanded: birdDetailsOpen }} style={[styles.traitsHeader, { minHeight: 52, marginTop: spacing.xl, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border }]}><Text style={[typography.label, { color: colors.text }]}>Más sobre esta ave</Text><Text style={[typography.label, { color: palette.accent }]}>{birdDetailsOpen ? '−' : '+'}</Text></Pressable>}
             {(!birdHistory || birdDetailsOpen) && <>
-            {hasTraits && (
+            {hasMeasurements && (
               <Staggered index={3}>
                 <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
-                  <Pressable onPress={() => setTraitsOpen((open) => !open)} accessibilityRole="button" accessibilityState={{ expanded: traitsOpen }} style={styles.traitsHeader}>
-                    <Text style={[typography.label, { color: colors.text }]}>{birdHistory ? 'Medidas técnicas y ecología' : 'Tamaño y ecología'}</Text>
-                    <Text style={[typography.label, { color: palette.accent }]}>{traitsOpen ? '−' : '+'}</Text>
-                  </Pressable>
-                  {traitsOpen && <View style={{ gap: 8 }}>
-                    {species.traits.measurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind] ?? measurement.kind}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}
-                    {species.traits.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Modo de vida: {species.traits.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
-                    {species.traits.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Actividad: {species.traits.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
-                    {species.traits.aquaticEnvironments.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Ambiente: {species.traits.aquaticEnvironments.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
-                    {species.traits.waterZones.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Zona de agua: {species.traits.waterZones.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
-                    {(species.traits.depthMinM !== null || species.traits.depthMaxM !== null) && <Text style={[typography.body, { color: colors.textSecondary }]}>Profundidad: {species.traits.depthMinM ?? 0}–{species.traits.depthMaxM ?? '?'} m</Text>}
-                    {traitSources.length > 0 && <Text style={[typography.caption, { color: colors.textMuted }]}>Fuente: {[...new Set(traitSources)].join(' · ')}</Text>}
-                  </View>}
+                  <Text style={[typography.label, { color: palette.accent }]}>Tamaño</Text>
+                  {[bodyLength, bodyMass].filter((item): item is NonNullable<typeof item> => Boolean(item)).map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}{measurement.provenance === 'legacy_unverified' ? ' · aproximado' : ''}</Text></View>)}
+                  {detailedMeasurements.length > 0 && <><Pressable onPress={() => setSizeDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Medidas detalladas" accessibilityState={{ expanded: sizeDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Medidas detalladas</Text><Text style={[typography.label, { color: palette.accent }]}>{sizeDetailsOpen ? '−' : '+'}</Text></Pressable>{sizeDetailsOpen && detailedMeasurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}</>}
+                  {measurementSources.length > 0 && <Text style={[typography.caption, { color: colors.textMuted }]}>Fuentes: {measurementSources.join(' · ')}</Text>}
                 </View>
               </Staggered>
             )}
 
-            {!birdHistory && species.habitat.length > 0 && (
+            {hasEcology && ecology && (
               <Staggered index={3}>
-                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Hábitat</Text>
-                <View style={[styles.tagRow, { marginTop: spacing.sm }]}>
-                  {species.habitat.map((habitat) => (
-                    <View key={habitat} style={[styles.dataTag, { backgroundColor: palette.container, borderRadius: radius.pill }]}>
-                      <Text style={[typography.caption, { color: palette.onContainer }]}>{habitatLabel(habitat)}</Text>
-                    </View>
-                  ))}
+                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                  <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
+                  {(ecology.habitats.length > 0 || ecology.vegetationFormations.length > 0) && <View style={[styles.tagRow, { marginTop: spacing.sm }]}>{[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations].map((value) => <View key={value} style={[styles.dataTag, { backgroundColor: palette.container, borderRadius: radius.pill }]}><Text style={[typography.caption, { color: palette.onContainer }]}>{value}</Text></View>)}</View>}
+                  {ecology.diet.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 8 }]}>Alimentación: {ecology.diet.map(dietLabel).join(' · ')}</Text>}
+                  {ecology.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Modo de vida: {ecology.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                  {ecology.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Actividad: {ecology.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                  <Pressable onPress={() => setEcologyDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Más sobre su ecología" accessibilityState={{ expanded: ecologyDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Más sobre su ecología</Text><Text style={[typography.label, { color: palette.accent }]}>{ecologyDetailsOpen ? '−' : '+'}</Text></Pressable>
+                  {ecologyDetailsOpen && <View style={{ gap: 6 }}>
+                    {ecology.aquaticEnvironments.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Ambiente acuático: {ecology.aquaticEnvironments.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {(ecology.depthMinM !== null || ecology.depthMaxM !== null) && <Text style={[typography.body, { color: colors.textSecondary }]}>Profundidad: {ecology.depthMinM ?? 0}–{ecology.depthMaxM ?? '?'} m</Text>}
+                    {ecology.waterZones.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Zona: {ecology.waterZones.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
+                    {ecology.microhabitats.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Microhábitat: {ecology.microhabitats.join(' · ')}</Text>}
+                    {ecology.trophicRoles.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Rol trófico: {ecology.trophicRoles.join(' · ')}</Text>}
+                    {ecology.hosts.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Hospedadores: {ecology.hosts.join(' · ')}</Text>}
+                    {ecology.plantAssociations.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Asociaciones: {ecology.plantAssociations.join(' · ')}</Text>}
+                  </View>}
+                  {ecologySources.length > 0 && <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Fuentes: {ecologySources.join(' · ')}</Text>}
                 </View>
-              </Staggered>
-            )}
-
-            {!birdHistory && species.diet.length > 0 && (
-              <Staggered index={4}>
-                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
-                <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
-                  {species.diet.map(dietLabel).join(' · ')}
-                </Text>
               </Staggered>
             )}
 
@@ -533,11 +537,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {arthropodHistory.identification?.similarSpecies?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Especies similares: {arthropodHistory.identification.similarSpecies.join(' · ')}</Text> : null}
                   {arthropodHistory.lifeCycle?.stages?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Ciclo de vida: {arthropodHistory.lifeCycle.stages.join(' · ')}</Text> : null}
                   {arthropodHistory.lifeCycle?.metamorphosis ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Metamorfosis: {arthropodHistory.lifeCycle.metamorphosis === 'complete' ? 'completa' : arthropodHistory.lifeCycle.metamorphosis === 'incomplete' ? 'incompleta' : arthropodHistory.lifeCycle.metamorphosis === 'none' ? 'sin metamorfosis' : 'variable'}</Text> : null}
-                  {arthropodHistory.ecology?.microhabitat?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Microhábitat: {arthropodHistory.ecology.microhabitat.join(' · ')}</Text> : null}
-                  {arthropodHistory.ecology?.activity?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Actividad: {arthropodHistory.ecology.activity.join(' · ')}</Text> : null}
-                  {arthropodHistory.ecology?.trophicRole?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Rol ecológico: {arthropodHistory.ecology.trophicRole.join(' · ')}</Text> : null}
-                  {arthropodHistory.ecology?.hosts?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Hospedadores: {arthropodHistory.ecology.hosts.join(' · ')}</Text> : null}
-                  {arthropodHistory.ecology?.plantAssociations?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Asociaciones con plantas: {arthropodHistory.ecology.plantAssociations.join(' · ')}</Text> : null}
                   {arthropodHistory.humanRelevance && (arthropodHistory.humanRelevance.vector || arthropodHistory.humanRelevance.pest || arthropodHistory.humanRelevance.venomous || arthropodHistory.humanRelevance.veterinaryImportance) ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Indicadores documentados: {[arthropodHistory.humanRelevance.vector && 'vector', arthropodHistory.humanRelevance.pest && 'plaga', arthropodHistory.humanRelevance.venomous && 'veneno', arthropodHistory.humanRelevance.veterinaryImportance && 'importancia veterinaria'].filter(Boolean).join(' · ')}</Text> : null}
                   {arthropodHistory.humanRelevance?.note ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Relevancia humana: {arthropodHistory.humanRelevance.note}</Text> : null}
                 </View>
@@ -548,9 +547,12 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               <Staggered index={7}>
                 <View style={[styles.naturalHistory, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Perfil botánico</Text>
-                  {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Hábito: {plantHistory.habit}</Text> : null}
+                  {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Tipo: {plantHistory.habit}</Text> : null}
                   {plantHistory.lifeForm ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Forma de vida: {plantHistory.lifeForm}</Text> : null}
-                  {plantHistory.vegetationFormations?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Formaciones vegetales: {plantHistory.vegetationFormations.join(' · ')}</Text> : null}
+                  {plantHeight(plantHistory.heightCm) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Altura: {plantHeight(plantHistory.heightCm)}</Text> : null}
+                  {(species.ecology.habitats.length || species.ecology.vegetationFormations.length) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Ambientes: {[...species.ecology.habitats.map(habitatLabel), ...species.ecology.vegetationFormations].join(' · ')}</Text> : null}
+                  {plantMonths(plantHistory.phenology?.floweringMonths) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Floración: {plantMonths(plantHistory.phenology?.floweringMonths)}</Text> : null}
+                  {plantMonths(plantHistory.phenology?.fruitingMonths) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Fructificación: {plantMonths(plantHistory.phenology?.fruitingMonths)}</Text> : null}
                   {plantHistory.nomenclature?.authorship ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Autoría del nombre: {plantHistory.nomenclature.authorship}</Text> : null}
                   {plantHistory.nomenclature?.publication ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Publicación original: {plantHistory.nomenclature.publication}</Text> : null}
                   {plantHistory.nomenclature?.familyAliases?.length ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Familia también conocida como: {plantHistory.nomenclature.familyAliases.join(' · ')}</Text> : null}
@@ -558,15 +560,16 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.distributionSummary && (
+            {(species.conservation.nationalRedList || species.conservation.iucnGlobal) && (
               <Staggered index={8}>
                 <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
-                  <Text style={[typography.label, { color: colors.text }]}>Distribución registrada</Text>
-                  {species.distributionSummary.departments?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Departamentos: {species.distributionSummary.departments.join(' · ')}</Text> : null}
-                  {species.distributionSummary.occurrenceCount !== undefined ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>{species.distributionSummary.occurrenceCount} registros · Confianza: {species.distributionSummary.confidence ?? 'sin determinar'}</Text> : null}
+                  <Text style={[typography.label, { color: colors.text }]}>Evaluaciones de conservación</Text>
+                  {species.conservation.nationalRedList && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Lista Roja Uruguay: {species.conservation.nationalRedList.category}</Text>}
+                  {species.conservation.iucnGlobal && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>UICN global: {species.conservation.iucnGlobal.category}</Text>}
                 </View>
               </Staggered>
             )}
+
 
             {species.descripcion.length > 0 && (
               <Staggered index={5}>
@@ -577,14 +580,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {!birdHistory && species.diet.length === 0 && species.alimentacion.length > 0 && (
-              <Staggered index={6}>
-                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
-                <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
-                  {species.alimentacion}
-                </Text>
-              </Staggered>
-            )}
 
             {species.observability && (
               <Staggered index={9}>
@@ -682,7 +677,7 @@ const styles = StyleSheet.create({
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   fact: { flexGrow: 1, flexBasis: '46%', padding: 12 },
   traits: { padding: 14 },
-  traitsHeader: { minHeight: 32, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  traitsHeader: { minHeight: 48, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   photoCredit: { alignSelf: 'flex-start', paddingTop: 7, paddingHorizontal: 3 },
   gallery: { gap: 8, paddingTop: 9, paddingBottom: 2 },

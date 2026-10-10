@@ -40,6 +40,7 @@ const ABUNDANCE_LABELS: Record<string, string> = {
   fairly_common: 'Bastante común',
   uncommon: 'Poco común',
   scarce: 'Escasa',
+  rare: 'Rara',
   occasional: 'Ocasional',
 };
 

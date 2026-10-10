@@ -55,11 +55,25 @@ describe('rowToSpecies', () => {
     };
     const species = rowToSpecies({ ...baseRow, tamano: '80 cm', abundance_status: 'fairly_common', natural_history: JSON.stringify({ version: 1, bird }) });
     expect(species.naturalHistory?.bird).toEqual(bird);
-    expect(species.traits.measurements[0]?.kind).toBe('body_mass');
-    expect(species.conservation.label).toBe('No prioritaria');
+    expect(species.measurements[0]?.kind).toBe('body_mass');
+    expect(species.conservation.nationalDesignations).toEqual([]);
     expect(species.abundanceStatus).toBe('fairly_common');
     expect(species.codigo).toBe(baseRow.codigo);
   });
+
+  it('reads schema 14 measurements, ecology and conservation', () => {
+    const species = rowToSpecies({
+      ...baseRow,
+      measurements: JSON.stringify([{ kind:'body_length',value:320,unit:'mm',basis:'body_length',estimated:true,sourceCode:'legacy_catalog',sourceRecordId:'V_chilensi',provenance:'legacy_unverified' }]),
+      ecology: JSON.stringify({ habitats:['pastizal_campo_natural'],diet:['invertebrates'],lifeModes:['terrestrial'],activity:['diurnal'],aquaticEnvironments:[],waterZones:[],depthMinM:null,depthMaxM:null,microhabitats:[],trophicRoles:[],hosts:[],plantAssociations:[],vegetationFormations:[] }),
+      conservation: JSON.stringify({ nationalRedList:null,iucnGlobal:{category:'LC',sourceCode:'iucn_red_list',version:'2026-1',assessedAt:null},nationalDesignations:['priority'] }),
+    });
+    expect(species.measurements[0]).toMatchObject({ value:320,sourceCode:'legacy_catalog',provenance:'legacy_unverified' });
+    expect(species.ecology.activity).toEqual(['diurnal']);
+    expect(species.conservation.nationalDesignations).toEqual(['priority']);
+    expect(species.conservation.iucnGlobal?.category).toBe('LC');
+  });
+
   it('maps a complete row into a domain entity', () => {
     const species = rowToSpecies(baseRow);
 
@@ -68,12 +82,18 @@ describe('rowToSpecies', () => {
     expect(species.nativa).toBe(true);
     expect(species.taxonomy.phylum).toBe('Chordata');
     expect(species.taxonomy.familia).toBe('Charadriidae');
-    expect(species.habitat).toEqual(['pastizal_campo_natural']);
-    expect(species.diet).toEqual(['invertebrates']);
+    expect(species.ecology.habitats).toEqual(['pastizal_campo_natural']);
+    expect(species.ecology.diet).toEqual(['invertebrates']);
     expect(species.seasonality).toBe('resident');
     expect(species.sources).toEqual([{ source: 'snap', record: 'V_chilensi' }]);
-    expect(species.traits.measurements[0]?.value).toBe(280);
+    expect(species.measurements[0]?.value).toBe(280);
+    expect(species.measurements[0]?.sourceCode).toBe('avonet');
     expect(species.photo?.fullUrl).toBe('https://example.test/tero-large.jpg');
+  });
+
+  it('temporarily maps a schema 12/13 free-text bird length', () => {
+    const species = rowToSpecies({ ...baseRow, traits: '{"measurements":[],"sources":[]}', tamano:'32.5 cm' });
+    expect(species.measurements).toEqual([expect.objectContaining({ kind:'body_length',value:325,unit:'mm',provenance:'legacy_unverified' })]);
   });
 
   it('reports no photo when the row has no image', () => {
@@ -89,18 +109,18 @@ describe('rowToSpecies', () => {
   it('survives malformed common_names instead of throwing', () => {
     const species = rowToSpecies({ ...baseRow, common_names: 'not json', habitat: 'bad', diet: 'bad', sources: 'bad' });
     expect(species.commonNames).toEqual([]);
-    expect(species.habitat).toEqual([]);
-    expect(species.diet).toEqual([]);
+    expect(species.ecology.habitats).toEqual([]);
+    expect(species.ecology.diet).toEqual([]);
     expect(species.sources).toEqual([]);
     expect(species.displayName).toBe('Tero');
   });
 
   it('drops malformed structured measurements instead of exposing them to the UI', () => {
-    const species = rowToSpecies({ ...baseRow, traits: '{"measurements":[{"kind":"body_mass","value":"mucho","unit":"g","basis":null,"estimated":false}],"lifeModes":[],"activity":[],"aquaticEnvironments":[],"waterZones":[],"depthMinM":null,"depthMaxM":null,"sources":[]}' });
-    expect(species.traits.measurements).toEqual([]);
+    const species = rowToSpecies({ ...baseRow, tamano: undefined, traits: '{"measurements":[{"kind":"body_mass","value":"mucho","unit":"g","basis":null,"estimated":false}],"lifeModes":[],"activity":[],"aquaticEnvironments":[],"waterZones":[],"depthMinM":null,"depthMaxM":null,"sources":[]}' });
+    expect(species.measurements).toEqual([]);
   });
 
-  it('maps schema 11 identifiers, natural history, distribution and exact media license', () => {
+  it('maps schema 11 identifiers, natural history and exact media license', () => {
     const species = rowToSpecies({
       ...baseRow,
       taxon_identifiers: JSON.stringify({ gbif: { usageKey: 12345 }, iNaturalist: { taxonId: 67890 } }),
@@ -115,7 +135,6 @@ describe('rowToSpecies', () => {
 
     expect(species.taxonIdentifiers?.gbif?.usageKey).toBe(12345);
     expect(species.naturalHistory?.arthropod?.lifeCycle?.metamorphosis).toBe('complete');
-    expect(species.distributionSummary?.departments).toEqual(['Rocha']);
     expect(species.photo?.originalLicense).toBe('cc-by');
     expect(species.media[0]?.originalLicense).toBe('cc-by');
   });

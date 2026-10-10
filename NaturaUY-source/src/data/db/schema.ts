@@ -20,7 +20,7 @@ export interface SpeciesRow {
   nativa: number;
   origin: 'native' | 'introduced' | null;
   seasonality: string | null;
-  abundance_status: 'abundant' | 'common' | 'uncommon' | 'scarce' | 'occasional' | null;
+  abundance_status: 'abundant' | 'common' | 'fairly_common' | 'uncommon' | 'rare' | 'scarce' | 'occasional' | null;
   knowledge_level?: 'easy' | 'medium' | 'hard';
   abundance_category?: string | null;
   abundance_label?: string | null;

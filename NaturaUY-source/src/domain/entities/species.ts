@@ -72,10 +72,11 @@ export interface SpeciesTaxonIdentifiers {
 }
 
 export interface ArthropodNaturalHistory {
+  /** Historical schema 11 sources remain readable after ecology is normalized. */
+  ecology?: { sources?: SpeciesSource[] };
   morphology?: { bodyRegions?: string[]; exoskeleton?: string | null; legs?: number | null; antennae?: string | null; wings?: string | null; cheliceraePedipalps?: string | null; sources?: SpeciesSource[] };
   identification?: { diagnosticCharacters?: string[]; similarSpecies?: string[]; sources?: SpeciesSource[] };
   lifeCycle?: { stages?: string[]; metamorphosis?: 'none' | 'incomplete' | 'complete' | 'variable' | null; sources?: SpeciesSource[] };
-  ecology?: { microhabitat?: string[]; activity?: string[]; trophicRole?: string[]; hosts?: string[]; plantAssociations?: string[]; sources?: SpeciesSource[] };
   humanRelevance?: { vector?: boolean; pest?: boolean; venomous?: boolean; veterinaryImportance?: boolean; note?: string | null; sources?: SpeciesSource[] };
   sources?: SpeciesSource[];
 }
@@ -83,7 +84,7 @@ export interface ArthropodNaturalHistory {
 export interface PlantNaturalHistory {
   habit?: string | null;
   lifeForm?: string | null;
-  vegetationFormations?: string[];
+  heightCm?: { min: number | null; max: number | null };
   phenology?: { floweringMonths?: number[]; fruitingMonths?: number[] };
   nomenclature?: { authorship?: string | null; publication?: string | null; familyAliases?: string[] };
   sources?: SpeciesSource[];
@@ -98,12 +99,6 @@ export interface BirdNaturalHistory {
   abundanceCode: string | null;
 }
 export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory; plant?: PlantNaturalHistory; bird?: BirdNaturalHistory }
-export interface SpeciesDistributionSummary {
-  country?: string;
-  departments?: string[]; cells?: string[]; periodStart?: string | null; periodEnd?: string | null;
-  occurrenceCount?: number; confidence?: 'high' | 'medium' | 'low' | 'insufficient_data';
-}
-
 export type MeasurementKind = 'body_length' | 'body_mass' | 'wing_length' | 'tail_length' | 'tarsus_length' | 'max_length';
 export type MeasurementBasis = 'TL' | 'SL' | 'FL' | 'SVL' | 'body_length' | null;
 export interface SpeciesMeasurement {
@@ -112,16 +107,46 @@ export interface SpeciesMeasurement {
   unit: 'mm' | 'g';
   basis: MeasurementBasis;
   estimated: boolean;
+  sourceCode: string;
+  sourceRecordId: string | null;
+  provenance: 'verified' | 'legacy_unverified';
 }
-export interface SpeciesTraits {
-  measurements: SpeciesMeasurement[];
-  lifeModes: ('terrestrial' | 'arboreal' | 'aquatic' | 'aerial' | 'fossorial' | 'perching' | 'generalist')[];
-  activity: ('diurnal' | 'nocturnal' | 'both')[];
-  aquaticEnvironments: ('freshwater' | 'brackish' | 'marine')[];
-  waterZones: ('benthic' | 'demersal' | 'pelagic')[];
+export interface SpeciesEcology {
+  habitats: string[];
+  diet: string[];
+  lifeModes: string[];
+  activity: string[];
+  aquaticEnvironments: string[];
+  waterZones: string[];
   depthMinM: number | null;
   depthMaxM: number | null;
-  sources: string[];
+  microhabitats: string[];
+  trophicRoles: string[];
+  hosts: string[];
+  plantAssociations: string[];
+  vegetationFormations: string[];
+}
+
+export type IucnCategory = 'DD' | 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'EW' | 'EX';
+export type NationalCategory = 'DD' | 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'RE';
+export interface ConservationAssessment<T extends string> { category: T; sourceCode: string; version: string | null; assessedAt: string | null }
+export interface SpeciesConservation {
+  nationalRedList: ConservationAssessment<NationalCategory> | null;
+  iucnGlobal: ConservationAssessment<IucnCategory> | null;
+  nationalDesignations: ('priority' | 'threatened' | 'snap')[];
+}
+export function conservationRank(conservation: SpeciesConservation): number {
+  if (conservation.nationalDesignations.includes('threatened') || ['VU','EN','CR','EW','EX','RE'].includes(conservation.nationalRedList?.category ?? '') || ['VU','EN','CR','EW','EX'].includes(conservation.iucnGlobal?.category ?? '')) return 3;
+  if (conservation.nationalDesignations.includes('priority') || conservation.nationalDesignations.includes('snap')) return 2;
+  return conservation.nationalRedList || conservation.iucnGlobal ? 1 : 0;
+}
+export function conservationLabel(conservation: SpeciesConservation): string {
+  if (conservation.nationalDesignations.includes('threatened')) return 'Amenazada en Uruguay';
+  if (conservation.nationalDesignations.includes('priority')) return 'Prioritaria';
+  if (conservation.nationalDesignations.includes('snap')) return 'Vinculada al SNAP';
+  if (conservation.nationalRedList) return `Lista Roja UY: ${conservation.nationalRedList.category}`;
+  if (conservation.iucnGlobal) return `UICN: ${conservation.iucnGlobal.category}`;
+  return '';
 }
 
 export type KnowledgeLevel = 'easy' | 'medium' | 'hard';
@@ -143,17 +168,12 @@ export interface Species {
   commonNames: string[];
   taxonomy: Taxonomy;
   taxonIdentifiers?: SpeciesTaxonIdentifiers;
-  conservation: {
-    raw: string;
-    label: string;
-    /** 0 unassessed · 1 not a priority · 2 priority · 3 threatened. */
-    rank: number;
-  };
+  conservation: SpeciesConservation;
   nativa: boolean;
   /** Explicit origin; null means the sources do not establish it. */
   origin: 'native' | 'introduced' | null;
   seasonality: string | null;
-  abundanceStatus: string | null;
+  abundanceStatus: 'abundant' | 'common' | 'fairly_common' | 'rare' | 'uncommon' | 'scarce' | 'occasional' | null;
   abundance: { category: string | null; label: string | null };
   observability: {
     methodVersion: string; periodStart: string; periodEnd: string; occurrenceCount: number;
@@ -163,17 +183,12 @@ export interface Species {
   knowledgeLevel: KnowledgeLevel;
   gameRules: SpeciesGameRule[];
   facts: SpeciesFact[];
-  habitat: string[];
-  diet: string[];
+  measurements: SpeciesMeasurement[];
+  ecology: SpeciesEcology;
   relevantNote: string | null;
   sources: SpeciesSource[];
   descripcion: string;
-  alimentacion: string;
-  tamano: string;
-  /** Structured schema-9 traits. Schema 10 adds source metadata around them. */
-  traits: SpeciesTraits;
   naturalHistory?: SpeciesNaturalHistory | null;
-  distributionSummary?: SpeciesDistributionSummary | null;
   photo: SpeciesPhoto | null;
   audioUrl: string | null;
   /** Full approved gallery from SQLite schema 8. Primary fields above remain for cards and games. */

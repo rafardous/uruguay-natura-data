@@ -116,7 +116,7 @@ function parseConservation(row: SpeciesRow): Species['conservation'] {
   const direct = parseObject<Species['conservation']>(row.conservation, { nationalRedList: null, iucnGlobal: null, nationalDesignations: [] });
   if (row.conservation) return direct;
   const raw = `${row.estado_conservacion ?? ''} ${row.conservation_label ?? ''}`.toLocaleUpperCase('es');
-  return { nationalRedList: null, iucnGlobal: null, nationalDesignations: [raw.includes('PRIORITARIA') ? 'priority' : null, raw.includes('AMENAZADA') ? 'threatened' : null, raw.includes('SNAP') ? 'snap' : null].filter((item): item is 'priority'|'threatened'|'snap' => item !== null) };
+  return { nationalRedList: null, iucnGlobal: null, nationalDesignations: [raw.includes('PRIORITARIA') && !/NO\s+PRIORITARIA/.test(raw) ? 'priority' : null, raw.includes('AMENAZADA') && !/NO\s+AMENAZADA/.test(raw) ? 'threatened' : null, raw.includes('SNAP') ? 'snap' : null].filter((item): item is 'priority'|'threatened'|'snap' => item !== null) };
 }
 
 /**

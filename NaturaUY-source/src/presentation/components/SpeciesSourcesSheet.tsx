@@ -57,7 +57,7 @@ export function SpeciesSourcesSheet({ visible, species, onClose }: SpeciesSource
   const { colors, radius, spacing, typography } = useTheme();
   const references = [
     ...species.sources.map(normalizedReference),
-    ...species.traits.sources.map((code) => normalizedReference({ source: code, record: null, fieldPath: 'traits', sourceCode: code })),
+    ...species.measurements.map((measurement) => normalizedReference({ source: measurement.sourceCode, record: measurement.sourceRecordId, fieldPath: 'measurements', sourceCode: measurement.sourceCode })),
     ...(species.naturalHistory?.arthropod?.morphology?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.morphology'))),
     ...(species.naturalHistory?.arthropod?.identification?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.identification'))),
     ...(species.naturalHistory?.arthropod?.lifeCycle?.sources ?? []).map((source) => normalizedReference(naturalHistoryReference(source, 'naturalHistory.lifeCycle'))),

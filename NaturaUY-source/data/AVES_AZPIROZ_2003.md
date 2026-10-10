@@ -26,6 +26,8 @@ Archivos de respaldo: `original.json` y `original.csv` conservan celdas; `correc
 
 ## Contrato y experiencia
 
+El 10 de octubre de 2026 se reparó la integración de Git con el modelo schema 14: la ficha usa `Species.measurements`, `Species.ecology` y conservación estructurada, manteniendo `naturalHistory.bird` y sus medidas históricas separadas. El mapper sigue leyendo la base schema 12 incluida. Se conservan `fairly_common` y `rare` para los registros históricos; «No prioritaria» no se convierte en una designación de prioridad al leer catálogos anteriores.
+
 `bird` contiene `guide` (fuente, año, número, página y nombres históricos), `measurements` (`kind: body_length | wingspan`, `valueCm`, `sex` opcional), `presence` (código, etiqueta, meses, nota, excepción), `habitat`, `diet` y `abundanceCode`. Los campos ausentes usan lista vacía o `null`; la fuente queda por campo en `sources` / `field_sources`.
 
 La ficha muestra foto e identidad actual, referencia y número, tamaño y abundancia, presencia mensual, hábitats y dieta. Las aclaraciones y listas largas se expanden al tocar. «Más sobre esta ave» reúne medidas técnicas, observabilidad, clasificación, nombres históricos y fuentes. La conservación actual mantiene su distintivo. Se reutilizan Manrope, colores de especie y temas claro/oscuro, con áreas táctiles de al menos 44 px y etiquetas accesibles.

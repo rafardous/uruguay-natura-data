@@ -3,7 +3,7 @@ import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-nati
 import type { BirdNaturalHistory, Species } from '../../domain/entities/species';
 import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel } from '../../domain/catalogLabels';
 import { BIRD_ABUNDANCE, BIRD_DIETS, BIRD_HABITATS, birdMeasureLabel, formatBirdMeasure } from '../../domain/services/birdGuide';
-import { formatLegacyMeasurementText } from '../../domain/services/measurementFormatting';
+import { formatSpeciesMeasurement } from '../../domain/services/measurementFormatting';
 import { CloseIcon, InfoIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
 
@@ -27,8 +27,8 @@ export function BirdFieldGuide({ bird, species, accent, container, foreground, o
   const [sizeInfo, setSizeInfo] = useState(false);
   const [presenceInfo, setPresenceInfo] = useState(false);
   const abundance = bird.abundanceCode ? BIRD_ABUNDANCE[bird.abundanceCode] : species.abundanceStatus ? abundanceLabel(species.abundanceStatus) : null;
-  const habitats = bird.habitat.length ? bird.habitat.map((code) => BIRD_HABITATS[code] ?? code) : species.habitat.map(habitatLabel);
-  const diets = bird.diet.length ? bird.diet.map((code) => BIRD_DIETS[code] ?? code) : species.diet.map(dietLabel);
+  const habitats = bird.habitat.length ? bird.habitat.map((code) => BIRD_HABITATS[code] ?? code) : species.ecology.habitats.map(habitatLabel);
+  const diets = bird.diet.length ? bird.diet.map((code) => BIRD_DIETS[code] ?? code) : species.ecology.diet.map(dietLabel);
   return <View style={{ marginTop: spacing.lg }}>
     <Pressable onPress={onSources} accessibilityRole="button" accessibilityLabel={`Ver fuente Azpiroz 2003, especie número ${bird.guide.number}`} style={styles.reference}>
       <Text style={[typography.caption, { color: accent }]}>GUÍA DE CAMPO · N.º {bird.guide.number}</Text>
@@ -38,7 +38,7 @@ export function BirdFieldGuide({ bird, species, accent, container, foreground, o
       <View style={styles.heading}><Text style={[typography.label, { color: foreground }]}>Tamaño</Text><Pressable onPress={() => setSizeInfo(true)} accessibilityRole="button" accessibilityLabel="Qué significan las medidas de tamaño" style={styles.info}><InfoIcon size={20} color={foreground} /></Pressable></View>
       <View style={styles.measurements}>
         {bird.measurements.map((measure) => <View key={`${measure.kind}-${measure.sex ?? ''}`} style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>{birdMeasureLabel(measure)}</Text><Text style={[typography.title, { color: foreground, marginTop: 4 }]}>{formatBirdMeasure(measure.valueCm)}</Text></View>)}
-        {!bird.measurements.length && <View style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>Tamaño · otras fuentes</Text><Text style={[typography.body, { color: foreground }]}>{formatLegacyMeasurementText(species.tamano) || 'Sin datos disponibles'}</Text></View>}
+        {!bird.measurements.length && <View style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>Tamaño · otras fuentes</Text><Text style={[typography.body, { color: foreground }]}>{species.measurements.map(formatSpeciesMeasurement).join(' · ') || 'Sin datos disponibles'}</Text></View>}
         {abundance && <View style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>Abundancia{!bird.abundanceCode ? ' · catálogo' : ''}</Text><Text style={[typography.label, { color: foreground, marginTop: 6 }]}>{abundance}</Text></View>}
       </View>
     </View>
