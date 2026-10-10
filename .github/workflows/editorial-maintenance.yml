@@ -34,6 +34,7 @@ jobs:
       - name: Respaldo lógico cifrado
         run: |
           set -euo pipefail
+          export PATH="/usr/lib/postgresql/17/bin:$PATH"
           : "${SUPABASE_DB_URL:?Falta SUPABASE_DB_URL}"
           : "${BACKUP_ENCRYPTION_PASSWORD:?Falta BACKUP_ENCRYPTION_PASSWORD}"
           export PGPASSWORD="$(node -e 'process.stdout.write(decodeURIComponent(new URL(process.env.SUPABASE_DB_URL).password))')"
