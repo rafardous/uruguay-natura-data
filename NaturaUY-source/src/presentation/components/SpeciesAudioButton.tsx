@@ -11,7 +11,7 @@ function audioForSpecies(species: Species): PlayableSpeciesAudio | null {
   if (media) return {
     id: media.id,
     url: media.url,
-    assetModule: bundledAudioAsset(media.url),
+    assetModule: bundledAudioAsset(media.url, media.externalId),
     durationSeconds: media.durationSeconds,
     attribution: media.attribution,
     source: media.source,

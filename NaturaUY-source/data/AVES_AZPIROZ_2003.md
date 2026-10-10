@@ -130,6 +130,8 @@ Catálogo público v8 verificado: workflow 38075399204, SQLite de 13.897.728 byt
 
 ### Corrección de distribución taxonómica: v9
 
+Los 177 audios aprobados conservan `external_id` en SQLite y `externalId` al mapear al dominio. La app resuelve ese ID Xeno-canto contra el mapa de clips incluidos, manteniendo las URLs públicas y la autoría editorial. Antes sólo reconocía `bundled://`, por lo que los clips incluidos no se encontraban después de publicar URLs remotas. El generador del mapa también preserva esta resolución; no se deducen IDs desde URLs arbitrarias.
+
 La prueba nativa detectó que v8 omitía las tablas de navegación taxonómica aunque declaraba schema 14. v9 lo reemplaza, con 998 nodos editoriales, 1013 nombres, 6234 vínculos y cierre de ancestros. No se reconstruyen IDs ni se incorporan plantas archivadas. `data/catalog/taxonomy.json` conserva este derivado; el publicador y la app bloquean contratos incompletos.
 
 Workflow [38078077829](https://github.com/rafardous/uruguay-natura-data/actions/runs/38078077829), SQLite público de 19.599.360 bytes, SHA-256 `25e396dbb8eabce6112168ddb5bb9e16475e71049cd98b2baf395e00f1f1918a`. Descargas normal/gzip, integridad, claves foráneas, 1048 especies, 100 plantas, 432 perfiles y las 1048 paletas JSON/SQLite verificadas. El binario publicado se copia sin modificaciones a la app.

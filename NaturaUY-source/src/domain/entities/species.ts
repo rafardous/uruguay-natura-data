@@ -27,6 +27,7 @@ export interface SpeciesPhoto {
 
 export interface SpeciesMedia {
   id: string;
+  externalId?: string | null;
   type: 'image' | 'audio';
   ordinal: number;
   isPrimary: boolean;

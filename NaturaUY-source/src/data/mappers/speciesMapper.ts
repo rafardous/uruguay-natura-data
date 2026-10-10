@@ -174,7 +174,7 @@ export function rowToSpecies(row: SpeciesRow, mediaRows: SpeciesMediaRow[] = [])
         }
       : null,
     audioUrl: row.audio_url,
-    media: mediaRows.map((media) => ({ id: media.id, type: media.media_type, ordinal: media.ordinal, isPrimary: media.is_primary === 1,
+    media: mediaRows.map((media) => ({ id: media.id, externalId: media.external_id ?? null, type: media.media_type, ordinal: media.ordinal, isPrimary: media.is_primary === 1,
       url: media.url, thumbnailUrl: media.thumbnail_url, attribution: media.author, license: media.license, originalLicense: media.original_license ?? null, source: media.source, page: media.source_url, durationSeconds: media.duration_seconds ?? null })),
     palette: {
       accentLight: row.accent_light,

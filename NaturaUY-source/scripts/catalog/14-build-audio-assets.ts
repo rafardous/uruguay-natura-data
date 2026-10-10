@@ -27,7 +27,7 @@ async function main(): Promise<void> {
     await copyFile(source, resolve(outputDirectory, fileName));
     entries.push(`  '${fileName}': require('../../../assets/audio/${fileName}'),`);
   }
-  const source = `/** Generated from data/cache/audio/xenocanto-approved.json. */\nconst AUDIO_ASSETS: Record<string, number> = {\n${entries.join('\n')}\n};\n\nexport function bundledAudioAsset(url: string): number | null {\n  if (!url.startsWith('bundled://')) return null;\n  return AUDIO_ASSETS[url.slice('bundled://'.length)] ?? null;\n}\n`;
+  const source = `/** Generated from data/cache/audio/xenocanto-approved.json. */\nimport { bundledAudioKey } from './bundledAudioKey';\nconst AUDIO_ASSETS: Record<string, number> = {\n${entries.join('\n')}\n};\n\nexport function bundledAudioAsset(url: string, externalId?: string | null): number | null {\n  const key = bundledAudioKey(url, externalId);\n  return key ? AUDIO_ASSETS[key] ?? null : null;\n}\n`;
   await writeFile(mapPath, source, 'utf8');
   console.log(`Bundled ${entries.length} audio assets`);
 }
@@ -36,3 +36,4 @@ void main().catch((error: unknown) => {
   console.error(error);
   process.exitCode = 1;
 });
+

@@ -1,4 +1,5 @@
 /** Generated from data/cache/audio/xenocanto-approved.json. */
+import { bundledAudioKey } from './bundledAudioKey';
 const AUDIO_ASSETS: Record<string, number> = {
   'xc-791005.mp3': require('../../../assets/audio/xc-791005.mp3'),
   'xc-284549.mp3': require('../../../assets/audio/xc-284549.mp3'),
@@ -204,7 +205,7 @@ const AUDIO_ASSETS: Record<string, number> = {
   'xc-462753.mp3': require('../../../assets/audio/xc-462753.mp3'),
 };
 
-export function bundledAudioAsset(url: string): number | null {
-  if (!url.startsWith('bundled://')) return null;
-  return AUDIO_ASSETS[url.slice('bundled://'.length)] ?? null;
+export function bundledAudioAsset(url: string, externalId?: string | null): number | null {
+  const key = bundledAudioKey(url, externalId);
+  return key ? AUDIO_ASSETS[key] ?? null : null;
 }

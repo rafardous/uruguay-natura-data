@@ -137,6 +137,7 @@ describe('rowToSpecies', () => {
     expect(species.naturalHistory?.arthropod?.lifeCycle?.metamorphosis).toBe('complete');
     expect(species.photo?.originalLicense).toBe('cc-by');
     expect(species.media[0]?.originalLicense).toBe('cc-by');
+    expect(species.media[0]?.externalId).toBe('inat-photo:1');
   });
 
   it('treats nativa as a boolean, not a truthy number', () => {
