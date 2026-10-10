@@ -12,6 +12,8 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 ## Estado actual
 
+- Arapy 1.3.1/build Android 7 está publicado como APK interno en el release `catalog-v9`, probado e instalado como actualización en el Pixel sin borrar favoritos/progreso. La app usa exclusivamente modo claro. El catálogo incluido coincide con el público v9; las comprobaciones de firma, descarga y audio offline están en los informes de `NaturaUY-source/data/reports/`.
+
 - Supabase `xbnbfekcxrkgteuijbzh` opera con schema 14. Hay exactamente 1048 especies activas: 948 animales y las 100 plantas de `data/raw/curated-plants/seed-100.json`. Las otras 3057 plantas están archivadas con sus revisiones; no restaurarlas ni volver a publicarlas al regenerar derivados. Los 4105 registros editoriales históricos se conservan por auditoría. El panel está en `https://uruguay-natura-data.pages.dev`; los cinco secretos de publicación/respaldo de GitHub ya están configurados. R2 sigue fuera del despliegue.
 - Aprender v1 tiene cinco recorridos y 21 módulos bootstrap, fuentes visibles y repetición espaciada offline. Schema 13/14 y las RPCs privadas están aplicados en Supabase desde el 10/10/2026; el catálogo admite `learning_paths` aprobados.
 - El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.

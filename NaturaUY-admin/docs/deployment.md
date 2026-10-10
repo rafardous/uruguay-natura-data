@@ -122,7 +122,7 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-El enriquecimiento Azpiroz usa `natural_history.bird` y conserva fuentes por campo. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md`. El publicador y `prepare-release` usan schema 14/min app 1.3.1; la versión debe superar tanto la remota como la incluida. Arapy 1.3.1 prepara data_version 7. Sólo cargar fichas y medios aprobados; validar 100 plantas, 432 perfiles, 309 vínculos familiares y 594 fotos antes de publicar.
+El enriquecimiento Azpiroz usa `natural_history.bird` y conserva fuentes por campo. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md`. El publicador y `prepare-release` usan schema 14/min app 1.3.1; la versión debe superar tanto la remota como la incluida. Arapy 1.3.1 incluye el catálogo público data_version 9. Sólo cargar fichas y medios aprobados; validar 100 plantas, 432 perfiles, 309 vínculos familiares y 594 fotos antes de publicar.
 
 La app utiliza claves públicas y continúa operativa sin login. Soporta hasta schema de catálogo 14 y conserva `user.db`; schema 13 agrega documentos de Aprender al catálogo y mantiene el progreso exclusivamente en la base personal. Antes de reabrir escrituras:
 
@@ -156,3 +156,5 @@ Para audio offline, comprobar además la resolución de `species_media.external_
 El publicador deriva las paletas desde la miniatura de cada foto principal aprobada, conserva su identidad/hash en JSON y usa los mismos colores en SQLite. Necesita lectura de Storage durante `catalog:build`; un error de descarga o extracción bloquea la publicación, sin sustituir silenciosamente el color por verde. El informe incluye cobertura y cantidad de acentos distintos. No ejecutar `npm run build` del panel mientras se genera el catálogo: Vite limpia `dist/`, que también contiene `dist/catalog/`.
 
 La exportación también incluye `taxa`, `species_taxa`, `taxon_names` y `taxon_closure`, con los IDs editoriales y todos los ancestros de las especies seleccionadas. Los nodos exclusivos de plantas archivadas quedan fuera. Se publica `taxonomy.json` y se bloquean árboles incompletos, ciclos, especies sin clasificación o errores de claves foráneas. La app valida estas tablas antes de activar un schema 14: un número de esquema y un checksum correctos no bastan para aceptar un contrato incompleto.
+
+Entrega verificada: catálogo público v9/schema 14 y [APK Arapy 1.3.1/build 7](https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/Arapy-1.3.1.apk). Se comprobó la descarga real, firma compatible, SQLite incluido idéntico al público, actualización del Pixel sin pérdida de datos y reproducción offline. Los informes públicos están en `NaturaUY-source/data/reports/arapy-*-verification.json` y `arapy-native-acceptance.json`. La publicación en tiendas queda fuera de esta entrega.

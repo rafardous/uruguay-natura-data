@@ -1,0 +1,14 @@
+{
+  "appVersion": "1.3.1",
+  "androidVersionCode": 7,
+  "buildId": "574f356c-8730-4539-8abb-5adae8ee1b41",
+  "sourceCommit": "9b327781639666d356328b6c49dcc070ea76b661",
+  "buildUrl": "https://expo.dev/accounts/rafardousdocente/projects/natura-uy/builds/574f356c-8730-4539-8abb-5adae8ee1b41",
+  "signingCertificateSha256": "4855cf25cbb78d7c1ab06e3c7ad79e9b5922f6646d684311ee0b1509403b2b53",
+  "apkSha256": "235fba8f44000326bb6529191d8eeee024da43910c9f7a886cc787d7cd3e8a82",
+  "apkSize": 166102432,
+  "bundledCatalogSha256": "25e396dbb8eabce6112168ddb5bb9e16475e71049cd98b2baf395e00f1f1918a",
+  "bundledCatalogVersion": 9,
+  "bundledMp3Count": 202,
+  "approvedAudioChecksumMatches": 177
+}

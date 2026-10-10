@@ -114,7 +114,7 @@ La publicación manual genera JSON/SQLite desde PostgreSQL, con schema 14/min ap
 
 ## Validación, versiones y reversión
 
-El 10/10/2026 pasaron 143 pruebas pgTAP en Docker sobre una copia del catálogo real, los 99 tests móviles, TypeScript/lint, seis pruebas del normalizador y el cotejo JSON/SQLite de los 432 perfiles. Las 435 entradas, excepciones y hashes originales permanecen versionados. Se preservó un respaldo PostgreSQL cifrado descargado y verificado antes de migrar.
+El 10/10/2026 pasaron 143 pruebas pgTAP en Docker sobre una copia del catálogo real, los 102 tests móviles en 24 suites, TypeScript/lint, ocho pruebas del normalizador y exportación taxonómica y el cotejo JSON/SQLite de los 432 perfiles. Las 435 entradas, excepciones y hashes originales permanecen versionados. Se preservó un respaldo PostgreSQL cifrado descargado y verificado antes de migrar.
 
 Arapy 1.3.1 se entrega como APK interno con la firma EAS existente y versión Android superior. Instalar mediante `adb install -r`, conservar favoritos/preferencias/progreso en `user.db` y comprobar primero por USB. El Pixel 9 Pro XL volvió a conectarse y es el dispositivo de verificación final. La publicación en tiendas queda fuera del cambio.
 
@@ -126,7 +126,7 @@ El publicador tenía una paleta verde fija. `NaturaUY-admin/scripts/photo-palett
 
 La isla de navegación conserva visibles Inicio, Descubrir y Juegos, con icono arriba y etiqueta debajo; la selección usa fondo oscuro y texto blanco. Su altura es 80 dp y el espacio inferior de las pantallas reserva esa altura y el área segura.
 
-Catálogo público v8 verificado: workflow 38075399204, SQLite de 13.897.728 bytes, SHA-256 `8b974b00ad4fd9cba32e9e574a0538077b6d0f13e43c8b2da1cd2ccc0170e907`; descarga gzip y sin comprimir idénticas. 432 perfiles históricos, 1048 especies, 100 plantas, 865 paletas desde fotos y 770 acentos distintos. El mismo SQLite se incluye en la app.
+Catálogo público v8 verificado: workflow 38075399204, SQLite de 13.897.728 bytes, SHA-256 `8b974b00ad4fd9cba32e9e574a0538077b6d0f13e43c8b2da1cd2ccc0170e907`; descarga gzip y sin comprimir idénticas. 432 perfiles históricos, 1048 especies, 100 plantas, 865 paletas desde fotos y 770 acentos distintos. Esta versión histórica fue reemplazada por v9 al recuperar la clasificación completa.
 
 ### Corrección de distribución taxonómica: v9
 
@@ -139,3 +139,9 @@ La prueba nativa detectó que v8 omitía las tablas de navegación taxonómica a
 Workflow [38078077829](https://github.com/rafardous/uruguay-natura-data/actions/runs/38078077829), SQLite público de 19.599.360 bytes, SHA-256 `25e396dbb8eabce6112168ddb5bb9e16475e71049cd98b2baf395e00f1f1918a`. Descargas normal/gzip, integridad, claves foráneas, 1048 especies, 100 plantas, 432 perfiles y las 1048 paletas JSON/SQLite verificadas. El binario publicado se copia sin modificaciones a la app.
 
 La actualización nativa 1.3.0 → 1.3.1 preservó cuatro favoritos y el progreso de Aprender (0/21 módulos completos y una idea pendiente de repaso). Se comprobaron las fichas de ñandú (150 cm), albatros (80/220 cm), gavilán alilargo (48/60 cm por sexo, BC), ayuda de tamaño, otros nombres, carrusel, doble toque y configuración exclusivamente clara. A 150 % de texto el calendario usa dos filas y las etiquetas de navegación siguen visibles; se restauró el tamaño original del teléfono.
+
+### Entrega Android final
+
+Se instaló Arapy 1.3.1/build 7 sobre la app existente del Pixel, con la misma firma, sin desinstalar ni borrar datos. El APK contiene exactamente el SQLite público v9 y los 177 audios aprobados comprobados por hash. La prueba después de un arranque sin Wi-Fi ni datos reprodujo el audio del gavilán alilargo. Se confirmaron nuevamente cuatro favoritos y el progreso conservado; Marcela muestra tres hábitats y permite ampliar los cuatro restantes sin duplicados.
+
+El [APK publicado](https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/Arapy-1.3.1.apk) se descargó realmente desde GitHub y coincide con SHA-256 `235fba8f44000326bb6529191d8eeee024da43910c9f7a886cc787d7cd3e8a82`. `data/reports/arapy-android-build-verification.json` registra firma, commit de compilación y contenido; `arapy-native-acceptance.json` registra aceptación sin datos personales. El teléfono recuperó su conectividad y preferencias originales. Los binarios, capturas y credenciales permanecen fuera de Git.
