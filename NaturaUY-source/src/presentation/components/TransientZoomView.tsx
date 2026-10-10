@@ -19,6 +19,7 @@ const MAX_SCALE = 3;
 /** Two-finger zoom that always returns to the original framing on release. */
 export function TransientZoomView({ children, onPress, accessibilityLabel, borderRadius = 0, showControls = false, onZoomActiveChange }: TransientZoomViewProps): React.JSX.Element {
   const scale = useSharedValue(1);
+  const pinching = useSharedValue(false);
   const reset = (): void => {
     'worklet';
     scale.value = withSpring(1, { damping: 18, stiffness: 220 });
@@ -26,10 +27,9 @@ export function TransientZoomView({ children, onPress, accessibilityLabel, borde
   };
 
   const pinch = Gesture.Pinch()
-    .onStart(() => { if (onZoomActiveChange) runOnJS(onZoomActiveChange)(true); })
+    .onStart(() => { pinching.value = true; if (onZoomActiveChange) runOnJS(onZoomActiveChange)(true); })
     .onUpdate((event) => { scale.value = Math.min(MAX_SCALE, Math.max(1, event.scale)); })
-    .onEnd(reset)
-    .onFinalize(reset);
+    .onFinalize(() => { if (pinching.value) { pinching.value = false; reset(); } });
   const tap = Gesture.Tap()
     .enabled(Boolean(onPress))
     .maxDuration(260)
@@ -49,7 +49,7 @@ export function TransientZoomView({ children, onPress, accessibilityLabel, borde
   return (
     <View style={[styles.container, { borderRadius }]}>
       <GestureDetector gesture={Gesture.Simultaneous(pinch, tap)}>
-        <View style={[styles.clip, { borderRadius }]} accessibilityRole={onPress ? 'imagebutton' : 'image'} accessibilityLabel={accessibilityLabel}>
+        <View style={[styles.clip, { borderRadius }]} accessible accessibilityRole={onPress ? 'imagebutton' : 'image'} accessibilityLabel={accessibilityLabel} onAccessibilityTap={onPress}>
           <Animated.View style={[styles.fill, animatedStyle]}>{children}</Animated.View>
         </View>
       </GestureDetector>
@@ -67,5 +67,5 @@ const styles = StyleSheet.create({
   clip: { overflow: 'hidden', width: '100%', height: '100%' },
   fill: { width: '100%', height: '100%' },
   controls: { position: 'absolute', right: 18, bottom: 28, flexDirection: 'row', gap: 8 },
-  control: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.56)' },
+  control: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.56)' },
 });

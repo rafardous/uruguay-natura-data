@@ -1,6 +1,6 @@
 # EAS archives the Git root. Upload only the mobile project and its runtime assets.
 *
-!NaturaUY-source/
+!NaturaUY-source
 !NaturaUY-source/**
 NaturaUY-source/node_modules/
 NaturaUY-source/.expo/

@@ -401,7 +401,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               {!isBird && alternateNames.length > 0 && (
                 <Text style={[typography.caption, { color: colors.textMuted, marginTop: 6 }]}>Otros nombres: {alternateNames.join(' · ')}</Text>
               )}
-              {isBird && <BirdIdentification key={species.codigo} species={species} classification={classification} onTaxonomy={(rank) => openTaxonomyAt(rank as TaxonRank)} />}
+              {isBird && <BirdIdentification key={`identification-${species.codigo}`} species={species} classification={classification} onTaxonomy={(rank) => openTaxonomyAt(rank as TaxonRank)} />}
             </Staggered>
 
             <Staggered index={1}>
@@ -419,7 +419,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 </View>
                 {!isBird && species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
               </View>
-              {isBird && <BirdConservation key={species.codigo} species={species} />}
+              {isBird && <BirdConservation key={`conservation-${species.codigo}`} species={species} />}
             </Staggered>
 
             {hasRelevantInfo && relevantInfoOpen && (
@@ -441,7 +441,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
-            {isBird && <BirdFieldGuide key={species.codigo} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />}
+            {isBird && <BirdFieldGuide key={`guide-${species.codigo}`} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />}
             {!isBird && facts.length > 0 && (
               <Staggered index={2}>
                 <View style={[styles.facts, { marginTop: spacing.lg }]}>
@@ -458,7 +458,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {isBird && <BirdSpeciesDescription key={species.codigo} species={species} />}
+            {isBird && <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />}
             {!isBird && <>
             {hasMeasurements && (
               <Staggered index={3}>
