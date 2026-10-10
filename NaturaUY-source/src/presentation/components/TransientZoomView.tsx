@@ -11,19 +11,22 @@ interface TransientZoomViewProps {
   borderRadius?: number;
   /** Adds explicit controls for users who cannot or prefer not to pinch. */
   showControls?: boolean;
+  onZoomActiveChange?: (active: boolean) => void;
 }
 
 const MAX_SCALE = 3;
 
 /** Two-finger zoom that always returns to the original framing on release. */
-export function TransientZoomView({ children, onPress, accessibilityLabel, borderRadius = 0, showControls = false }: TransientZoomViewProps): React.JSX.Element {
+export function TransientZoomView({ children, onPress, accessibilityLabel, borderRadius = 0, showControls = false, onZoomActiveChange }: TransientZoomViewProps): React.JSX.Element {
   const scale = useSharedValue(1);
   const reset = (): void => {
     'worklet';
     scale.value = withSpring(1, { damping: 18, stiffness: 220 });
+    if (onZoomActiveChange) runOnJS(onZoomActiveChange)(false);
   };
 
   const pinch = Gesture.Pinch()
+    .onStart(() => { if (onZoomActiveChange) runOnJS(onZoomActiveChange)(true); })
     .onUpdate((event) => { scale.value = Math.min(MAX_SCALE, Math.max(1, event.scale)); })
     .onEnd(reset)
     .onFinalize(reset);
@@ -34,10 +37,13 @@ export function TransientZoomView({ children, onPress, accessibilityLabel, borde
   const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
 
   const changeScale = (delta: number): void => {
-    scale.value = withSpring(Math.min(MAX_SCALE, Math.max(1, scale.value + delta)), { damping: 18, stiffness: 220 });
+    const next = Math.min(MAX_SCALE, Math.max(1, scale.value + delta));
+    scale.value = withSpring(next, { damping: 18, stiffness: 220 });
+    onZoomActiveChange?.(next > 1);
   };
   const resetFromControl = (): void => {
     scale.value = withSpring(1, { damping: 18, stiffness: 220 });
+    onZoomActiveChange?.(false);
   };
 
   return (

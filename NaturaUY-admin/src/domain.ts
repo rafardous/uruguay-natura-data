@@ -77,7 +77,7 @@ export interface SpeciesPayload {
   taxonomy: TaxonomyPayload;
   origin: 'native' | 'introduced' | 'unknown';
   seasonality: 'resident' | 'migratory' | 'occasional' | 'summer_visitor' | 'unknown';
-  abundanceStatus: 'abundant' | 'common' | 'uncommon' | 'scarce' | 'occasional' | '';
+  abundanceStatus: 'abundant' | 'common' | 'fairly_common' | 'uncommon' | 'rare' | 'scarce' | 'occasional' | '';
   conservation: ConservationPayload;
   description: string;
   measurements: TraitMeasurement[];

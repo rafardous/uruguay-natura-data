@@ -33,10 +33,10 @@ const { data: access, error: accessError } = await client.from('editor_access').
 if (accessError || access?.role !== 'admin' || access.active !== true) throw new Error('Se requiere una cuenta editorial administradora');
 if (apply && process.env.EDITORIAL_BACKUP_VERIFIED !== 'true') throw new Error('Verificar y descargar un respaldo PostgreSQL cifrado antes de --apply');
 
-type SpeciesRow = { id: string; catalog_code: string; scientific_name: string; common_name: string; kingdom: string; origin: string; status: string; primary_image_id: string | null; field_sources: Record<string, string[]> };
+type SpeciesRow = { id: string; catalog_code: string; scientific_name: string; common_name: string; kingdom: string; origin: string; status: string; field_sources: Record<string, string[]> };
 const rows: SpeciesRow[] = [];
 for (let from = 0; ; from += 1000) {
-  const { data, error } = await client.from('species').select('id,catalog_code,scientific_name,common_name,kingdom,origin,status,primary_image_id,field_sources').eq('kingdom', 'Plantae').range(from, from + 999);
+  const { data, error } = await client.from('species').select('id,catalog_code,scientific_name,common_name,kingdom,origin,status,field_sources').eq('kingdom', 'Plantae').range(from, from + 999);
   if (error) throw error;
   rows.push(...(data ?? []) as SpeciesRow[]);
   if (!data || data.length < 1000) break;
@@ -68,26 +68,27 @@ const { error: schemaError } = await client.from('plant_profiles').select('heigh
 if (schemaError) throw new Error(`Aplicar schema 13/14 y la migración del perfil botánico antes del recorte: ${schemaError.message}`);
 const notReady: string[] = [];
 const approvedImages = new Map<string, Array<{
-  id: string; ordinal: number;
+  id: string; ordinal: number; is_primary: boolean;
   storage_path: string | null; thumbnail_path: string | null; author: string | null;
   source: string | null; source_url: string | null; license: string | null;
   license_url: string | null; evidence_path: string | null;
 }>>();
 for (let offset = 0; offset < kept.length; offset += 100) {
   const { data, error } = await client.from('species_media')
-    .select('id,species_id,ordinal,storage_path,thumbnail_path,author,source,source_url,license,license_url,evidence_path')
+    .select('id,species_id,ordinal,is_primary,storage_path,thumbnail_path,author,source,source_url,license,license_url,evidence_path')
     .in('species_id', kept.slice(offset, offset + 100).map((row) => row.id))
     .eq('type', 'image').eq('status', 'approved');
   if (error) throw error;
   for (const image of data ?? []) approvedImages.set(image.species_id, [...(approvedImages.get(image.species_id) ?? []), image]);
 }
 for (const row of kept) {
-  if (row.status !== 'active' || row.origin !== 'native' || !Array.isArray(row.field_sources?.origin) || !row.field_sources.origin.length) {
+  if (row.status !== 'active' || (row.origin === 'native' && (!Array.isArray(row.field_sources?.origin) || !row.field_sources.origin.length))) {
     notReady.push(`${row.scientific_name}: origen nativo sin fuente aprobada`);
   }
   const photos = (approvedImages.get(row.id) ?? []).sort((a, b) => a.ordinal - b.ordinal);
-  const valid = photos.find((image) => image.id === row.primary_image_id) ?? photos[0];
-  if (!valid || !(
+  const valid = photos.find((image) => image.is_primary) ?? photos[0];
+  if (!valid) { console.warn(`${row.scientific_name}: conservar fallback; sin foto en el snapshot aprobado`); continue; }
+  if (!(
     ['CC0', 'CC-BY-4.0', 'permission'].includes(valid.license ?? '')
     && valid.author && valid.source && valid.source_url
     && valid.storage_path && valid.thumbnail_path
@@ -100,7 +101,7 @@ for (const row of kept) {
     }
   }
 }
-if (notReady.length) throw new Error(`Recorte bloqueado: las 100 plantas deben tener origen nativo documentado y foto aprobada en Storage (${notReady.length} faltantes). Primeros casos:\n${notReady.slice(0, 12).join('\n')}`);
+if (notReady.length) throw new Error(`Recorte bloqueado: identidad, procedencia o derechos inválidos (${notReady.length} errores). Primeros casos:\n${notReady.slice(0, 12).join('\n')}`);
 const { data: pending, error: pendingError } = await client.from('species_changes').select('id,species_id,change_type,comment').eq('status', 'pending').eq('change_type', 'archive');
 if (pendingError) throw pendingError;
 const pendingArchive = new Map((pending ?? []).filter((row) => row.comment === 'Recorte curado de flora a 100 especies').map((row) => [row.species_id, row.id]));

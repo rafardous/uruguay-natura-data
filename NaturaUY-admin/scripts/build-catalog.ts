@@ -53,9 +53,10 @@ for (const item of items) {
   catalogCodes.add(code);
   if (species.kingdom === 'Plantae') {
     const reasons: string[] = [];
-    if (species.origin !== 'native' || !Array.isArray(species.field_sources?.origin) || !species.field_sources.origin.length) reasons.push('native_origin_unverified');
+    if (species.origin === 'native' && (!Array.isArray(species.field_sources?.origin) || !species.field_sources.origin.length)) reasons.push('native_origin_unverified');
+    if (species.origin !== 'native') warnings.push({ code: 'plant_origin_unknown', speciesId: species.id, detail: scientificName });
     const image = item.image;
-    if (!image) reasons.push('approved_image_missing');
+    if (!image) warnings.push({ code: 'image_missing', speciesId: species.id, detail: scientificName });
     else {
       if (!['CC0','CC-BY-4.0','permission'].includes(String(image.license))) reasons.push('image_license_invalid');
       if (!image.author || !image.source || !image.source_url) reasons.push('image_attribution_incomplete');
@@ -81,7 +82,7 @@ for (let offset = 0; offset < objects.length; offset += 10) {
   }));
   for (const result of checked) if (result.error) blockers.push(`media_storage_object_missing:${result.path}`);
 }
-writeFileSync(resolve(output, 'plant-photo-gaps.json'), JSON.stringify({ selected: selectedPlants.size, active: plantItems.length, ready: 100 - photoGaps.length, gaps: photoGaps }, null, 2));
+writeFileSync(resolve(output, 'plant-photo-gaps.json'), JSON.stringify({ selected: selectedPlants.size, active: plantItems.length, photographed: plantItems.filter((item) => item.image).length, missingPhotos: plantItems.filter((item) => !item.image).map((item) => item.species.scientific_name), gaps: photoGaps }, null, 2));
 for (const gap of photoGaps) blockers.push(`plant_not_ready:${gap.scientificName}:${gap.reasons.join(',')}`);
 
 if (blockers.length) {
@@ -100,7 +101,7 @@ create table species (
   taxon_identifiers text not null, natural_history text not null,
   image_url text, full_url text, thumb_asset text, audio_url text, image_license text, image_attribution text, image_source text, image_page text,
   accent_light text not null, accent_dark text not null, container_light text not null, on_container_light text not null, container_dark text not null, on_container_dark text not null,
-  origin text, seasonality text, abundance_status text check(abundance_status is null or abundance_status in ('abundant','common','uncommon','scarce','occasional')), relevant_note text, sources text not null,
+  origin text, seasonality text, abundance_status text check(abundance_status is null or abundance_status in ('abundant','common','fairly_common','uncommon','rare','scarce','occasional')), relevant_note text, sources text not null,
   knowledge_level text not null check(knowledge_level in ('easy','medium','hard')), abundance_category text, abundance_label text
 );
 create index idx_species_clase on species(clase);

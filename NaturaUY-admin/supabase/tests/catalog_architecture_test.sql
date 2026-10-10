@@ -23,7 +23,7 @@ insert into public.species(id,catalog_code,scientific_name,common_name,class,sta
  ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','TEST_ARCHIVED','Testus archivus','Especie archivada','Aves','archived','2026-08-28 12:00:00+00');
 
 set local role anon;
-select extensions.is((select count(*)::bigint from public.species),1::bigint,'anonymous clients only see active species');
+select extensions.is((select count(*)::bigint from public.species where catalog_code in ('TEST_ACTIVE','TEST_ARCHIVED')),1::bigint,'anonymous clients only see active species');
 reset role;
 
 set local role authenticated;

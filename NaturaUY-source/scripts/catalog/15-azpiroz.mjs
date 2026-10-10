@@ -90,6 +90,22 @@ export function run(apply) {
   const corrections = read('corrections.json');
   const path = resolve(root, 'data/catalog/aves.json');
   const catalog = JSON.parse(readFileSync(path, 'utf8'));
+  if (catalog.every((row) => /^[a-f0-9-]{36}$/i.test(row.id))) {
+    const profiles = read('normalized.json').filter((row) => row.speciesId);
+    const correspondence = read('crosswalk-editorial.json');
+    const stable = (value) => JSON.stringify(value && typeof value === 'object' ? Array.isArray(value) ? value.map((item) => JSON.parse(stable(item))) : Object.fromEntries(Object.keys(value).sort().map((key) => [key, JSON.parse(stable(value[key]))])) : value);
+    let changedRecords = 0;
+    for (const row of profiles) {
+      const target = correspondence.find((item) => item.number === row.number);
+      const item = catalog.find((item) => item.catalogCode === target?.catalogCode && item.id === target?.editorialSpeciesId);
+      if (!item) throw new Error(`Falta identidad editorial estable: ${row.number}`);
+      if (stable(item.naturalHistory?.bird) !== stable(row.profile)) changedRecords++;
+    }
+    const report = { guideRows: original.length, matchedSpecies: profiles.length, changedRecords, mode: 'editorial-derived' };
+    if (apply && changedRecords) throw new Error('El derivado editorial no se edita directamente: usar catalog:import-azpiroz en NaturaUY-admin y publicar una nueva versión.');
+    console.log(JSON.stringify(report));
+    return report;
+  }
   const unique = [...new Map(catalog.map((row) => [row.id, row])).values()];
   const crosswalk = [], normalized = [], issues = [];
   for (const row of original) {

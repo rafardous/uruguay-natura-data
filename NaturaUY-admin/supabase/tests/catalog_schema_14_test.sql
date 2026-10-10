@@ -26,8 +26,8 @@ select is((select count(*)::integer from public.species where abundance_status i
 select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['priority']),398,'priority count preserved');
 select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['threatened']),264,'threatened count preserved');
 select is((select count(*)::integer from public.species_conservation_assessments where system='uy_designations' and is_current and designations@>array['snap']),170,'SNAP count preserved');
-select like(pg_get_functiondef('public.request_catalog_publish()'::regprocedure),'%public.species_media%','approved media can mark the catalog dirty');
-select unlike(pg_get_functiondef('public.request_catalog_publish()'::regprocedure),'%values(v_version,8,%','media-only releases do not regress to schema 8');
+select ok(pg_get_functiondef('public.request_catalog_publish()'::regprocedure) like '%public.species_media%','approved media can mark the catalog dirty');
+select ok(pg_get_functiondef('public.request_catalog_publish()'::regprocedure) not like '%values(v_version,8,%','media-only releases do not regress to schema 8');
 
 select * from finish();
 rollback;

@@ -1,9 +1,9 @@
 [
   {
-    "id": "ligia-exotica",
+    "id": "07bb4962-b087-5dab-9bf7-d8102c1476b7",
     "catalogCode": "ligia-exotica",
     "scientificName": "Ligia exotica",
-    "acceptedName": null,
+    "acceptedName": "Ligia exotica",
     "commonName": "Piojo de mar",
     "commonNames": [
       "Piojo de mar"
@@ -16,116 +16,160 @@
       "family": "Ligiidae",
       "genus": "Ligia"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 5175654
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/large.jpeg",
-        "license": "CC0",
-        "originalLicense": "cc0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/196787616",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "externalId": "inat-photo:346424287",
-        "sourceTaxonId": "121743",
-        "sourceChecksum": null,
-        "width": 2048,
-        "height": 1536,
-        "selectionScore": 71,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": true,
-          "resolutionWidth": 2048,
-          "resolutionHeight": 1536
-        },
-        "retrievedAt": "2026-09-24T04:31:48.267Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/medium.jpeg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/346424287/large.jpeg",
-          "license": "CC0",
-          "originalLicense": "cc0",
-          "attribution": "no rights reserved",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/196787616",
-          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "externalId": "inat-photo:346424287",
-          "sourceTaxonId": "121743",
-          "sourceChecksum": null,
-          "width": 2048,
-          "height": 1536,
-          "selectionScore": 71,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": true,
-            "resolutionWidth": 2048,
-            "resolutionHeight": 1536
-          },
-          "retrievedAt": "2026-09-24T04:31:48.267Z"
-        }
-      ],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lig_exotic",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Lig_exotic",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/07bb4962-b087-5dab-9bf7-d8102c1476b7/b9d1ce5a-80d6-40c4-822f-03e99d853963-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/07bb4962-b087-5dab-9bf7-d8102c1476b7/b9d1ce5a-80d6-40c4-822f-03e99d853963.webp",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/196787616",
+        "originalLicense": "cc0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:346424287",
+        "sourceTaxonId": null,
+        "width": 1024,
+        "height": 768,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "65acc58f9f6a5def0deaf67c109e616d21369faa0ee1c9a1ffc37dbd5bcd8160"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "b9d1ce5a-80d6-40c4-822f-03e99d853963",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/07bb4962-b087-5dab-9bf7-d8102c1476b7/b9d1ce5a-80d6-40c4-822f-03e99d853963-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/07bb4962-b087-5dab-9bf7-d8102c1476b7/b9d1ce5a-80d6-40c4-822f-03e99d853963.webp",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/196787616"
+        }
+      ],
+      "audio": null
     }
   }
 ]

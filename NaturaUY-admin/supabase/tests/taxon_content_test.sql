@@ -25,7 +25,7 @@ set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"88888888-8888-4888-8888-888888888888","role":"authenticated","aal":"aal1"}',true);
 select extensions.lives_ok(format('select public.review_content_change(%L,true,false)',(select id from taxon_change_test)),'another editor approves taxon content');
 select extensions.is((select count(*)::bigint from public.taxon_content where class_name='Mammalia' and taxon_name='Testidae'),1::bigint,'approved future family is stored');
-select extensions.is((select schema_version from public.catalog_releases limit 1),null::integer,'release schema remains lazy until requested');
+select extensions.is((select count(*)::bigint from public.catalog_releases where requested_by in ('77777777-7777-4777-8777-777777777777','88888888-8888-4888-8888-888888888888')),0::bigint,'editing content does not implicitly create a release');
 reset role;
 
 select * from extensions.finish();

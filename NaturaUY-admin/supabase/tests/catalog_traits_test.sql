@@ -15,14 +15,14 @@ select extensions.is((select alternate_common_names from public.species where id
 
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"77777777-7777-4777-8777-777777777777","role":"authenticated","aal":"aal1"}',true);
-create temporary table trait_change as select public.submit_species_change('dddddddd-dddd-4ddd-8ddd-dddddddddddd','update','{"traits":{"measurements":[{"kind":"body_mass","value":42,"unit":"g","basis":null,"estimated":false}],"lifeModes":[],"activity":[],"aquaticEnvironments":[],"waterZones":[],"depthMinM":null,"depthMaxM":null,"sources":["avonet"]}}','Rasgo observado') id;
+create temporary table trait_change as select public.submit_species_change('dddddddd-dddd-4ddd-8ddd-dddddddddddd','update','{"measurements":[{"kind":"body_mass","value":42,"unit":"g","basis":null,"estimated":false,"sourceCode":"avonet","sourceRecordId":null,"provenance":"verified"}]}','Rasgo observado') id;
 reset role;
 set local role authenticated;
 select set_config('request.jwt.claims','{"sub":"88888888-8888-4888-8888-888888888888","role":"authenticated","aal":"aal1"}',true);
 select extensions.lives_ok(format('select public.review_species_change(%L,true,false)',(select id from trait_change)),'another editor approves traits');
 reset role;
-select extensions.is((select traits#>>'{measurements,0,value}' from public.species where id='dddddddd-dddd-4ddd-8ddd-dddddddddddd'),'42','approved traits reach species');
-select extensions.is((select size from public.species where id='dddddddd-dddd-4ddd-8ddd-dddddddddddd'),'Masa: 42 g','legacy size is derived from structured traits');
+select extensions.is((select measurements#>>'{0,value}' from public.species where id='dddddddd-dddd-4ddd-8ddd-dddddddddddd'),'42','approved measurements reach species');
+select extensions.is((select measurements#>>'{0,sourceCode}' from public.species where id='dddddddd-dddd-4ddd-8ddd-dddddddddddd'),'avonet','approved measurements preserve their source');
 select extensions.is((select use_policy from public.catalog_sources where code='fishbase'),'review_only','FishBase remains review only');
 select * from extensions.finish();
 rollback;

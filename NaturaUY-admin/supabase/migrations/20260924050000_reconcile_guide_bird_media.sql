@@ -48,9 +48,9 @@ begin
       if v_photo->>'source' not in ('inaturalist', 'wikimedia')
         or coalesce((v_photo->>'storage_path') ~ '^guia-aves/[0-9]{3}/external/0[12]-[0-9a-f]{12}\.webp$', false) = false
         or coalesce((v_photo->>'source_url') ~ '^https://', false) = false
-        or v_photo->>'license_url' is distinct from case v_photo->>'license'
+        or v_photo->>'license_url' is distinct from (case v_photo->>'license'
           when 'CC0' then 'https://creativecommons.org/publicdomain/zero/1.0/'
-          else 'https://creativecommons.org/licenses/by/4.0/' end
+          else 'https://creativecommons.org/licenses/by/4.0/' end)
       then raise exception 'invalid_external_guide_photo'; end if;
     else raise exception 'invalid_guide_license'; end if;
     v_ids := array_append(v_ids, (v_photo->>'id')::uuid);

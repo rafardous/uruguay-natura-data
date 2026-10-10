@@ -1,65 +1,121 @@
-# Aves: referencia Azpiroz 2003 y ficha de campo
+# Aves: Azpiroz 2003, ficha de campo y recuperación
 
-Este documento conserva procedencia, decisiones y comandos. La fuente editorial actual es Supabase; JSON y SQLite son derivados. El perfil nuevo usa `natural_history.bird` en PostgreSQL y `naturalHistory.bird` en JSON/TypeScript, compatible con schema 12.
+La fuente editorial es Supabase. Los JSON y `assets/db/natura.db` son derivados versionados. El contrato actual es schema 14; Arapy 1.3.1 prepara el catálogo v7 con 1048 especies: 948 animales y exactamente las 100 plantas seleccionadas. Esta documentación conserva las decisiones, referencias y comandos necesarios para recuperar el trabajo.
 
-## Fuente y cobertura
+## Fuente, originales e identidades
 
-Azpiroz, A. B. (2003). *Aves del Uruguay. Lista e introducción a su biología y conservación*. Aves Uruguay — GUPECA, 104 pp. El año corresponde a la edición indicada por el usuario y coincide con la [bibliografía de Aves Uruguay](https://www.avesuruguay.org.uy/wp-content/uploads/2018/05/Achara-Revista-N-3-Agosto-2013.pdf). Es una referencia histórica, no una evaluación actual de taxonomía o conservación.
+Azpiroz, A. B. (2003). *Aves del Uruguay. Lista e introducción a su biología y conservación*. Aves Uruguay — GUPECA, 104 pp. Es una referencia histórica, no una evaluación actual de taxonomía ni conservación.
 
-El Excel `Indice_aves_Uruguay_1-435_BORRADOR.xlsx` aporta 435 entradas numeradas; la foto de páginas 50–51 aporta la leyenda. El usuario revisó el archivo y autorizó ignorar las marcas de la columna `revision`. Los datos originales y hashes de ambos archivos quedan en `reference/azpiroz-2003/`, sin depender de Downloads. No se incorpora el Excel binario ni la foto a Git ni se atribuye licencia abierta al libro: se utilizan datos factuales y referencia bibliográfica, sin reproducir sus textos descriptivos.
+El Excel `Indice_aves_Uruguay_1-435_BORRADOR.xlsx` contiene 435 entradas y la fotografía de las páginas 50–51 aporta la leyenda. El usuario revisó los datos y autorizó ignorar las marcas de `revision`. Se usan datos factuales y referencia bibliográfica; no se atribuye licencia abierta al libro ni se reproducen sus descripciones.
 
-Se enriquecen 432 de las 475 especies de aves. Las 564 filas JSON incluyen duplicados del mismo ID: se aplica un perfil consistente a todas y SQLite las consolida. Se conservan sin asignar las entradas 126 (duplicada de la 125 en el Excel), 160 (identidad ilegible) y 387 (Sporophila zelichi converge con la entrada 385 al mismo ID actual). No se crean especies ni se cambia identidad, código, taxonomía o conservación para forzar los cruces.
+Los archivos bajo `reference/azpiroz-2003/` conservan:
 
-Archivos de respaldo: `original.json` y `original.csv` conservan celdas; `corrections.json` explica correcciones y alias explícitos; `crosswalk.json` registra cada asociación; `normalized.json` contiene perfiles; `legend.json` los códigos; `manifest.json` los hashes y `report.json` los campos ilegibles. Una celda ilegible no bloquea los demás campos válidos ni se completa por intuición.
+- `original.json`, `original.csv` y `manifest.json`: celdas originales y hashes del Excel/fotografía.
+- `legend.json`, `corrections.json`, `normalized.json` y `report.json`: leyenda, correcciones explícitas, perfiles y celdas ilegibles.
+- `crosswalk.json`: correspondencia histórica original por identificador local.
+- `crosswalk-editorial.json`: las mismas 435 entradas, con código estable y UUID editorial para las 432 asociaciones inequívocas.
 
-## Interpretación
+Se conservan sin asignar 126 (duplicada de 125 en el Excel), 160 (identidad ilegible) y 387 (*Sporophila zelichi*, que converge con 385). No crear especies ni cambiar taxonomía para forzar esos cruces. La exportación actual consolida las antiguas 564 filas de aves en 475 especies únicas, con 432 perfiles enriquecidos.
 
-**Tamaño:** largo total aproximado en cm. El segundo valor entre paréntesis de las aves marinas es envergadura, no longitud de un ala. Otras dos medidas corresponden a macho (superior) y hembra (inferior); no son un rango. La ficha muestra magnitudes separadas y una ⓘ con explicación y fuente. AVONET conserva masa, ala, cola y tarso como datos técnicos secundarios. Valores OCR de largo corporal inferiores a 5 o superiores a 300 cm se informan sin publicarse ni estimarse.
+## Cobertura por campo
 
-**Presencia:** RN residente anual, estimado nidificante; RV residente de verano, nidifica, setiembre–marzo; VV visitante de verano, setiembre–marzo, incluye paso principalmente setiembre–noviembre y marzo–mayo; VI visitante de invierno, abril–setiembre; V visitante sin estacionalidad clara; DR registro reciente respecto de 2003; IN introducido o asilvestrado desde cautiverio; O ocasional; Ex extinto según la guía. Un asterisco en RV/VV/VI admite observaciones fuera del período habitual. El calendario no indica ausencia absoluta ni probabilidad de avistamiento. DR, IN y Ex no reemplazan evaluaciones actuales de origen o conservación.
+La auditoría compara cada perfil completo contra `normalized.json`, no sólo su cantidad. Un campo ilegible no impide recuperar los demás y nunca se completa por intuición.
 
-**Hábitat:** C costa; I islas y océano, especies pelágicas; P pastizales y praderas; M bosques autóctonos y palmares; PM pastizales con árboles; A ambientes acuáticos; H ambientes antrópicos. PM es indivisible, no P + M.
+| Campo recuperado | Perfiles con valor | Uso |
+| --- | ---: | --- |
+| Número/año de guía | 432 | Tres puntitos → Fuentes |
+| Nombre común histórico | 432 | Identificación y otros nombres |
+| Nombre inglés | 417 | Identificación |
+| Nombre científico histórico legible | 373 | Identificación, separado del actual |
+| Página registrada | 417 | Procedencia por campo |
+| Largo corporal válido | 422 | Tarjeta Tamaño |
+| Envergadura | 27 | Magnitud separada, en Tamaño |
+| Medidas por sexo | 4 | Macho/hembra; nunca un rango |
+| Presencia | 346 | Presencia y calendario |
+| Hábitat | 357 | Dónde vive |
+| Alimentación | 345 | Qué come |
+| Abundancia histórica | 325 | Fila propia, fuera de Tamaño |
 
-**Abundancia histórica:** C común; BC bastante común; PC poco común; R raro. BC se representa como `fairly_common`. Abundancia, conservación y observabilidad permanecen separadas.
+`data/reports/arapy-release-audit.json` conserva conteos, cobertura y faltantes. Las celdas `#NAME?`, fórmulas y OCR dañado permanecen en el informe original; `=BC` se recupera sólo mediante la corrección documentada. Los campos generales del catálogo siguen disponibles como alternativa identificada por sus propias fuentes.
 
-**Dieta:** Hb vegetales verdes; Se semillas y granos; Fr frutos; Ne néctar; In insectos; Ib invertebrados litorales y bentónicos; Ps peces, crustáceos y otras presas acuáticas; Tp pequeños vertebrados; Cñ carroña. Ps no se reduce a peces.
+## Leyenda e interpretación
 
-## Contrato y experiencia
+**Tamaño:** largo total aproximado en cm. El segundo valor entre paréntesis de las aves marinas es envergadura, no largo de un ala. Otras dos medidas corresponden a macho (superior) y hembra (inferior). Se mantienen separados los valores y sexos. La ⓘ explica esas distinciones. OCR inferior a 5 o superior a 300 cm se informa y no se publica. Masa, ala, cola y tarso son información técnica secundaria; no sustituyen el tamaño de Azpiroz.
 
-El 10 de octubre de 2026 se reparó la integración de Git con el modelo schema 14: la ficha usa `Species.measurements`, `Species.ecology` y conservación estructurada, manteniendo `naturalHistory.bird` y sus medidas históricas separadas. El mapper sigue leyendo la base schema 12 incluida. Se conservan `fairly_common` y `rare` para los registros históricos; «No prioritaria» no se convierte en una designación de prioridad al leer catálogos anteriores.
+**Presencia:** RN residente anual y estimado nidificante; RV residente de verano y nidificante, setiembre–marzo; VV visitante de verano, incluye paso principalmente setiembre–noviembre y marzo–mayo; VI visitante de invierno, abril–setiembre; V visitante sin estacionalidad clara; DR registro reciente respecto de 2003; IN introducido o asilvestrado desde cautiverio; O ocasional; Ex extinto según esa edición. El asterisco en RV/VV/VI admite observaciones fuera del período habitual. DR/IN/Ex no reemplazan origen o conservación actuales. Los meses no indican ausencia absoluta ni probabilidad de avistamiento.
 
-`bird` contiene `guide` (fuente, año, número, página y nombres históricos), `measurements` (`kind: body_length | wingspan`, `valueCm`, `sex` opcional), `presence` (código, etiqueta, meses, nota, excepción), `habitat`, `diet` y `abundanceCode`. Los campos ausentes usan lista vacía o `null`; la fuente queda por campo en `sources` / `field_sources`.
+**Hábitat:** C costa; I islas y océano; P pastizales/praderas; M bosques autóctonos/palmares; PM pastizales con árboles; A ambientes acuáticos; H ambientes antrópicos. PM es indivisible.
 
-La ficha muestra foto e identidad actual, referencia y número, tamaño y abundancia, presencia mensual, hábitats y dieta. Las aclaraciones y listas largas se expanden al tocar. «Más sobre esta ave» reúne medidas técnicas, observabilidad, clasificación, nombres históricos y fuentes. La conservación actual mantiene su distintivo. Se reutilizan Manrope, colores de especie y temas claro/oscuro, con áreas táctiles de al menos 44 px y etiquetas accesibles.
+**Abundancia:** C común; BC bastante común (`fairly_common`); PC poco común; R raro (`rare`). Abundancia, conservación y observabilidad permanecen separadas.
 
-El largo válido reemplaza `size` y la abundancia válida reemplaza `abundance_status`. Hábitat, dieta y presencia precisos viven en `bird`, preservando los códigos generales que usan filtros y juegos. Si falta un campo válido se muestra el dato del catálogo indicando «otras fuentes».
+**Alimentación:** Hb vegetales verdes; Se semillas/granos; Fr frutos; Ne néctar; In insectos; Ib invertebrados litorales/bentónicos; Ps peces, crustáceos y otras presas acuáticas; Tp pequeños vertebrados; Cñ carroña. Ps no se reduce a peces.
 
-## Reproducir
+## Ficha y galería
+
+Se reutilizan Manrope, colores de especie y temas claro/oscuro. La información secundaria se agrupa donde corresponde, en lugar de una lista de desplegables al final:
+
+- Identificación y clasificación debajo de los nombres, con navegación taxonómica.
+- Origen y conservación actual diferenciados; evaluaciones expandibles junto a ese bloque.
+- Tamaño con ⓘ y **Medidas técnicas** dentro de la misma tarjeta.
+- Abundancia en una fila independiente.
+- Presencia/calendario y observabilidad dentro de ese contexto. Meses de tres letras; dos filas con texto grande.
+- Hábitat y dieta muestran hasta tres elementos; “Ver más” amplía cada conjunto. Ecología adicional se despliega junto a ellos.
+- Descripción breve, hasta tres líneas, con “Leer más”. Sin descripciones generadas ni probabilidades inventadas.
+
+Todas las fuentes científicas, incluyendo AVONET, Azpiroz y su número de guía, están en **tres puntitos → Fuentes**. No mostrar una etiqueta de fuente debajo de cada medida. La autoría/licencia de medios acompaña a la fotografía seleccionada y es tocable.
+
+La galería compartida se aplica a todas las especies: marco 4:3, imagen completa, swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. Imagen principal primero, deduplicación por identidad/URL. Puntos y contador sólo con varias fotos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, pinch y controles accesibles; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
+
+## Contrato de datos y medios
+
+`natural_history.bird` / `naturalHistory.bird` conserva `guide`, `measurements`, `presence`, `habitat`, `diet` y `abundanceCode`; los faltantes son `null` o listas vacías. Las fuentes siguen siendo por campo. Schema 14 conserva además `measurements`, `ecology`, conservación estructurada, taxonomía, trivia y Aprender. `species_media.is_primary` es la autoridad de foto principal; `species.primary_image_id` no existe.
+
+Pedro Rinaldi autorizó sus medios según la confirmación explícita del titular del proyecto. Se recuperaron 594 fotos para 309 aves: 285 tienen dos imágenes y 24 una. Los hashes de objetos/miniaturas y la declaración se verifican antes de aprobar; la evidencia privada queda en `media-evidence`, nunca en Git. `media:recover-guide-manifest` reconstruye el manifiesto desde las asignaciones revisadas y no inventa nombres de archivos originales de cámara.
+
+`reference/media/approved-audio-baseline.json` documenta los 177 clips previamente incluidos en la app, autoría, ID XC y licencia original. Se recuperan como autorización verificable, con MP3 offline y copia pública comprobada por SHA-256. `approved-image-baseline.json` conserva sólo fotos CC0/CC BY 4.0 del catálogo aprobado anterior; la recuperación no busca ni aprueba candidatos nuevos. Medios de derechos ambiguos siguen archivados.
+
+Las plantas son exactamente las 100 de `raw/curated-plants/seed-100.json`. Las otras 3057 se archivaron mediante revisiones, sin borrado físico. El JSON seleccionado tenía 96 fotos CC0 y cuatro faltantes; 71 plantas tienen origen nativo documentado y 29 conservan origen sin determinar. No inventar fotos/origen para cumplir una validación. El selector y builder protegen la selección aunque se vuelva a consultar el remoto.
+
+## Comandos de comprobación y recuperación
 
 Desde `NaturaUY-source`:
 
 ```powershell
-# Sólo al reemplazar la fuente original; requiere Python/openpyxl.
-python scripts/catalog/extract-azpiroz.py RUTA_EXCEL --legend-photo RUTA_FOTO
-npm run data:azpiroz
-npm run data:azpiroz -- --apply
 npm run test:azpiroz
-npm run data:catalog-db
-npm run data:catalog-verify
+npm run data:azpiroz-verify
+npx tsc --noEmit
+npm run lint
+npm test -- --runInBand
 ```
 
-El primer comando npm es dry-run. La etapa 06 conserva referencias de Azpiroz y la etapa de traits no sobrescribe su tamaño. Después de reconstruir JSON desde otras fuentes, reaplicar el overlay antes de generar SQLite. Esta base usa schema 12 y data_version 4; en futuras publicaciones usar `NATURA_CATALOG_DATA_VERSION` consistente con el release editorial.
+`data:azpiroz` reconoce los UUID editoriales, verifica las 432 correspondencias y da cero cambios al repetir. No modifica directamente un derivado editorial distinto: exige aplicar la diferencia mediante RPCs y publicar. No regenerar el catálogo vigente con el pipeline histórico de Flora masiva.
 
-Desde `NaturaUY-admin`, `npm run catalog:import-azpiroz` informa códigos y lotes sin escribir. `--sql --batch=0` hasta el último lote genera transacciones para la conexión administrativa autorizada; requiere `EDITORIAL_SYSTEM_USER_ID` del editor activo autorizado. Las RPCs `submit_species_change` y `review_species_change(..., true, true)` registran antes/después y autovalidación aprobada por el usuario. No se cambian permisos ni se fabrica un nivel MFA. Se preservan otros perfiles y referencias, se omiten cambios idénticos, se bloquean códigos ausentes o clases distintas y se verifica el perfil guardado. Una falla revierte el lote entero.
+Desde `NaturaUY-admin`, con credenciales administrativas cargadas exclusivamente en la sesión:
 
-La publicación schema 12 no consulta Aprender de schema 13, todavía sin desplegar; no aplicar esa migración para publicar aves. En Expo por USB, regenerar la base y recargar completamente: desarrollo importa `natura.db` y conserva `user.db`. La publicación productiva sigue el workflow manual existente y la activación atómica habitual con versión superior a la publicada.
+```powershell
+npm run catalog:audit-arapy -- --write
+npm run catalog:import-azpiroz                      # dry-run
+npm run catalog:import-azpiroz -- --sql --batch=0  # lotes 0–14
+npm run catalog:archive-unselected-plants -- --sql
+npm run catalog:restore-selected-plants -- --sql
+npm run media:restore-approved-audio -- --sql
+npm run media:restore-approved-images -- --sql
+npm run media:process-selected-photos
+npm run catalog:prepare-release
+npm run catalog:build
+npm run catalog:verify-guide
+npm run build
+npm run typecheck:automation
+```
 
-## Validación y recuperación
+El SQL generado exige un editor administrador identificado; `submit_species_change` y `review_species_change(..., true, true)` preservan revisiones y la autovalidación autorizada. Los workers sólo marcan `ready` después de verificar los objetos; aprobar por RPC antes de publicar. Ante conflicto de una propuesta exclusivamente de medios, conservar el rechazo anterior y crear otra propuesta sobre la versión actual, manteniendo la referencia de revisión previa. No sobrescribir revisiones ni falsificar MFA/grants.
 
-Implementación comprobada el 9 de octubre de 2026: 432 perfiles en SQLite y en Supabase, con 432 revisiones aprobadas. La auditoría de antes/después confirmó cero cambios fuera de tamaño, abundancia, historia natural, fuentes y fecha de actualización. Repetir los lotes de prueba no agregó revisiones. Pasaron TypeScript, lint y las pruebas de la app, las seis pruebas del normalizador, la verificación del catálogo y el build y chequeo de scripts del panel.
+La publicación manual genera JSON/SQLite desde PostgreSQL, con schema 14/min app 1.3.1. `CATALOG_DATA_VERSION_FLOOR=7` supera los derivados de prueba anteriores. Verificar manifiesto público, descarga real, SHA-256 y activación al reiniciar; copiar ese mismo DB publicado a la app. La preparación local por sí sola no prueba una publicación.
 
-En el Pixel conectado por USB se comprobaron el ñandú (150 cm, calendario, abundancia y dieta expandible), la explicación de la ⓘ y el albatros cabeza gris (80 cm de largo y 220 cm de envergadura). La comprobación se realizó con Expo Go contra el proyecto local: la aplicación instalada mantiene su bundle anterior. El catálogo editorial está enriquecido; la distribución productiva mediante el workflow de publicación queda pendiente de completar la infraestructura y secretos documentados en el panel.
+## Validación, versiones y reversión
 
-Casos: ñandú 150 cm/BC; albatros 80 cm/220 cm de envergadura; medidas por sexo; PM indivisible; Ps completo; meses y asteriscos; `#NAME?` sin inventar; fórmula `=BC` recuperada. Verificar números originales, unicidad, filas duplicadas coherentes, identidad/taxonomía/conservación intactas y recorrido JSON → SQLite → mapper. Reaplicar debe dar cero cambios y no crear revisiones.
+El 10/10/2026 pasaron 143 pruebas pgTAP en Docker sobre una copia del catálogo real, los 99 tests móviles, TypeScript/lint, seis pruebas del normalizador y el cotejo JSON/SQLite de los 432 perfiles. Las 435 entradas, excepciones y hashes originales permanecen versionados. Se preservó un respaldo PostgreSQL cifrado descargado y verificado antes de migrar.
 
-Para revertir Supabase, crear y aprobar otra revisión con los campos anteriores de `species_changes.before_values`; nunca borrar especies o revisiones. Regenerar y publicar con versión mayor. Favoritos y progreso permanecen en `user.db`.
+Arapy 1.3.1 se entrega como APK interno con la firma EAS existente y versión Android superior. Instalar mediante `adb install -r`, conservar favoritos/preferencias/progreso en `user.db` y comprobar primero por USB. El Pixel fue retirado por el usuario; las pruebas nuevas se hacen en la OnePlus Pad conectada. La publicación en tiendas queda fuera del cambio.
+
+Para revertir una ficha, crear y aprobar otra revisión a partir de `species_changes.before_values`. Regenerar y publicar con versión mayor; no borrar especies, revisiones o datos personales. Conservar versiones públicas anteriores y preferir roll-forward después de nuevas ediciones.

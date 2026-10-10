@@ -272,36 +272,27 @@ async function uploadVerified(client, path, body, expectedHash) {
 }
 
 export function ownerAttestationPath(author, uploadedBy) {
-  return `declaraciones/guia-aves-${sha256(`${author.trim()}:${uploadedBy.trim()}`).slice(0, 32)}.json`;
+  return `declaraciones/guia-aves-${sha256(`${author.trim()}:${uploadedBy.trim()}`).slice(0, 32)}.txt`;
 }
 
 export async function ensureOwnerAttestation(client, path, author, uploadedBy) {
   const bucket = client.storage.from('media-evidence');
+  const statement = `El titular de Arapy declara que ${author} autorizó la publicación de sus fotos de aves en la aplicación.`;
+  const matches = (text) => text.includes(`Autor: ${author}\n`) && text.includes(`Registrada por: ${uploadedBy}\n`) && text.includes(`Declaración: ${statement}\n`);
   const prior = await bucket.download(path);
   if (prior.data) {
-    const record = JSON.parse(await prior.data.text());
-    if (record.kind !== 'owner-attestation' || record.author !== author || record.recordedBy !== uploadedBy
-      || record.statement !== `El titular de Arapy declara que ${author} autorizó la publicación de sus fotos de aves en la aplicación.`) {
+    if (!matches(await prior.data.text())) {
       throw new Error(`La declaración existente en ${path} no coincide con esta carga`);
     }
     return;
   }
   if (!isMissingObject(prior.error)) throw new Error(`No se pudo comprobar la declaración privada: ${prior.error?.message ?? 'sin respuesta'}`);
-  const record = {
-    kind: 'owner-attestation',
-    author,
-    recordedBy: uploadedBy,
-    recordedAt: new Date().toISOString(),
-    statement: `El titular de Arapy declara que ${author} autorizó la publicación de sus fotos de aves en la aplicación.`,
-  };
-  const body = Buffer.from(`${JSON.stringify(record, null, 2)}\n`);
-  const { error } = await bucket.upload(path, body, { contentType: 'application/json', upsert: false });
+  const body = Buffer.from(`Arapy — declaración de autorización\nAutor: ${author}\nRegistrada por: ${uploadedBy}\nFecha: ${new Date().toISOString()}\nDeclaración: ${statement}\n`);
+  const { error } = await bucket.upload(path, body, { contentType: 'text/plain', upsert: false });
   if (error && !/already exists|duplicate/i.test(error.message)) throw error;
   const saved = await bucket.download(path);
   if (saved.error || !saved.data) throw new Error(`No se pudo verificar la declaración privada ${path}`);
-  const persisted = JSON.parse(await saved.data.text());
-  if (persisted.kind !== record.kind || persisted.author !== author || persisted.recordedBy !== uploadedBy
-    || persisted.statement !== record.statement) throw new Error(`La declaración guardada en ${path} no coincide`);
+  if (!matches(await saved.data.text())) throw new Error(`La declaración guardada en ${path} no coincide`);
 }
 
 async function uploadPhotos(report, output) {

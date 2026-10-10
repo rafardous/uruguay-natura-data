@@ -19,6 +19,10 @@
         "simulator": true
       }
     },
+    "field-guide": {
+      "extends": "preview",
+      "autoIncrement": true
+    },
     "production": {
       "autoIncrement": true,
       "environment": "production",

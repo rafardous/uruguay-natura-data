@@ -201,7 +201,7 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
   } : null);
 
   return {
-    id: stableUuid(`species:${slug}`),
+    id: /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(slug) ? slug : stableUuid(`species:${slug}`),
     catalog_code: old?.codigo ?? first(rows, (row) => row.catalogCode) ?? slug,
     scientific_name: scientificName,
     accepted_name: first(rows, (row) => row.acceptedName ?? null) ?? old?.accepted_name ?? scientificName,

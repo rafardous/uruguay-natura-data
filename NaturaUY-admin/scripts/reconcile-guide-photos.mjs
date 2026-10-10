@@ -139,7 +139,7 @@ async function main() {
   if (!rpcProbe?.message?.includes('guide_media_requires_one_or_two_photos'))
     throw new Error(`Falta la migración reconcile_guide_bird_media: ${rpcProbe?.message ?? 'respuesta inesperada'}`);
   const [speciesRows, mediaRows] = await Promise.all([
-    fetchRows(client, 'species', speciesIds, 'id,class,status,scientific_name,accepted_name,primary_image_id'),
+    fetchRows(client, 'species', speciesIds, 'id,class,status,scientific_name,accepted_name'),
     fetchRows(client, 'species_media', speciesIds, '*'),
   ]);
   const speciesById = new Map(speciesRows.map((row) => [row.id, row]));
@@ -147,7 +147,12 @@ async function main() {
   const limit = Number(option('--limit', groups.size));
   if (!Number.isInteger(limit) || limit < 1) throw new Error('--limit inválido');
   const summary = { species: 0, family: 0, external: 0, unchanged: 0, incomplete: [], failures: [] };
-  for (const [number, items] of [...groups].slice(0, limit)) {
+  const work = [...groups].slice(0, limit);
+  let next = 0;
+  const workers = Number(option('--workers', 4));
+  if (!Number.isInteger(workers) || workers < 1 || workers > 8) throw new Error('--workers debe ser 1–8');
+  await Promise.all(Array.from({ length: workers }, async () => { while (next < work.length) {
+    const [number, items] = work[next++];
     const speciesId = items[0].speciesId;
     const species = speciesById.get(speciesId);
     if (!species || species.class !== 'Aves' || species.status !== 'active' || items.length > 2) throw new Error(`Correspondencia remota inválida: ${number}`);
@@ -170,7 +175,7 @@ async function main() {
           if (verified) external.push(verified);
         }
       }
-      if (family.length + external.length < 2) {
+      if (family.length + external.length < 2 && !process.argv.includes('--family-only')) {
         let candidates = [];
         try { candidates = await externalCandidates(species, existing, 2 - family.length - external.length); }
         catch (error) { summary.failures.push({ number, reason: `búsqueda externa: ${error.message}` }); }
@@ -184,7 +189,7 @@ async function main() {
       const photos = chooseGuidePhotos(family, external);
       if (!photos.length) { summary.incomplete.push(number); continue; }
       const active = existing.filter((row) => row.status === 'approved').sort((a, b) => a.ordinal - b.ordinal);
-      if (species.primary_image_id === photos[0].id && active.length === photos.length
+      if (active.length === photos.length
         && active.every((row, index) => row.id === photos[index].id && row.ordinal === photos[index].ordinal && row.is_primary === photos[index].is_primary)) {
         summary.unchanged += 1; continue;
       }
@@ -195,7 +200,7 @@ async function main() {
       summary.species += 1; summary.family += family.length; summary.external += external.length;
       if (photos.length < 2) summary.incomplete.push(number);
     } catch (error) { summary.failures.push({ number, reason: error.message }); }
-  }
+  } }));
   console.log(JSON.stringify({ apply, ...summary }, null, 2));
   if (summary.failures.length) process.exitCode = 1;
 }

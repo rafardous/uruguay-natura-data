@@ -312,7 +312,7 @@ export default function HomeScreen(): React.JSX.Element {
     const timer = setTimeout(() => {
       void speciesRepository.findPaged(db, { search: term }, 24, 0).then((page) => {
         if (!active) return;
-        setSearchMatches(rankNameMatches(page.items, term, 5));
+        setSearchMatches(rankNameMatches([...new Map(page.items.map((item) => [item.codigo, item])).values()], term, 5));
         setSearchLoading(false);
       }).catch(() => {
         if (!active) return;

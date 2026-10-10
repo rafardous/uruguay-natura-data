@@ -2,9 +2,7 @@
 
 Panel privado para mantener el catálogo aprobado de Arapy. Supabase conserva identidades, permisos, fichas actuales, solicitudes y auditoría. GitHub Actions procesa medios y genera los artefactos públicos; Supabase Storage sirve derivados y el manifiesto estable. El repositorio, dominio e identificadores internos conservan nombres anteriores por compatibilidad.
 
-Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo e historial editorial. `npm run catalog:import-azpiroz` permite verificar los lotes y generar SQL para las RPCs existentes; el procedimiento y las excepciones están en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). No requiere desplegar schema 13.
-
-Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo e historial editorial. `npm run catalog:import-azpiroz` permite verificar los lotes y generar SQL para las RPCs existentes; el procedimiento y las excepciones están en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). No requiere desplegar schema 13.
+Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/códigos estables e historial editorial. El procedimiento está en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). Schema 13/14 ya están aplicados; Arapy 1.3.1 prepara el catálogo v7.
 
 ## Arquitectura
 
@@ -16,16 +14,16 @@ Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo e histori
 - Bugs, sugerencias y solicitudes de revisión entran en la bandeja única `feedback`.
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
 - La publicación genera SQLite/JSON/manifest con schema 14. Separa `measurements` y `ecology`, normaliza conservación y conserva el árbol taxonómico, fuentes por campo, galería, trivia y Aprender.
-- Las migraciones de Aprender (schema 13) y del modelo biológico (schema 14) están preparadas localmente. No cambian el estado remoto hasta aplicar las migraciones y publicar un nuevo catálogo.
+- Las migraciones de Aprender (schema 13), modelo biológico (schema 14) y compatibilidad de medios están aplicadas en Supabase. La galería toma su imagen principal de `species_media.is_primary`; no existe `species.primary_image_id`.
 - La taxonomía publicada contempla `Arthropoda`, `Arachnida`, `Insecta` y `Malacostraca`. Catalogue of Life y WoRMS llegan como candidatos revisables; BOLD queda limitado a cobertura molecular y no alimenta texto ni medios.
 - `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
-- Abundancia experta (`species.abundance_status`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. La abundancia usa cinco valores fijos, exige fuente editorial y nunca se deriva de observaciones automáticas. Dificultad, reglas por juego, curiosidades y trivia pasan por `content_changes`.
+- Abundancia experta (`species.abundance_status`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. La abundancia admite también `fairly_common` (BC) y `rare` (R) de Azpiroz, exige fuente editorial y nunca se deriva de observaciones automáticas. Dificultad, reglas por juego, curiosidades y trivia pasan por `content_changes`.
 - `/content` permite proponer y aprobar abundancia, nivel de conocimiento, datos curiosos y preguntas de cuatro opciones. La publicación sólo consume contenido aprobado.
 - El actualizador mobile valida versión, compatibilidad, tamaño, SHA-256 e integridad SQLite antes de activar la DB al siguiente inicio.
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. R2 sigue fuera del primer despliegue; `/m/*` aporta una URL pública estable y redirige al proveedor configurado.
 - La importación familiar de aves convierte todos los originales compatibles sin modificarlos, exige correspondencias UUID y autorización revisadas, limita el total a dos imágenes activas por especie y verifica cada carga por SHA-256.
 
-La línea base animal queda en 1052 registros/948 especies. La nueva selección local conserva 100 plantas; el remoto todavía tiene 3157 plantas activas en schema 12 y el SQLite móvil anterior permanece hasta completar el recorte editorial y verificar 100 fotos aprobadas. Los medios con licencia ambigua quedan archivados para revisión.
+El catálogo activo tiene 1048 especies: 948 animales y exactamente las 100 plantas del JSON seleccionado. Las otras 3057 plantas quedaron archivadas mediante RPCs, con revisiones intactas. De las 100 plantas originales, 96 tenían foto CC0 y cuatro usan el fallback; 71 tienen origen nativo documentado y 29 conservan origen sin determinar. No inventar procedencia ni fotos para superar la validación. Las 594 fotos familiares de 309 aves y los 177 clips ya aprobados de Pedro Rinaldi están en Storage con autorización privada y hashes verificados.
 
 ## Desarrollo y verificación
 
@@ -70,3 +68,9 @@ Los tests SQL viven en `supabase/tests/` y se ejecutan con `npx supabase test db
 
 La operación de cutover está documentada en [docs/deployment.md](docs/deployment.md).
 La preparación, carga manual y reconciliación de fotos familiares están documentadas en [docs/importacion-fotos-guia-aves.md](docs/importacion-fotos-guia-aves.md). La reconciliación verifica los objetos en Storage, da prioridad a las fotos familiares y completa automáticamente los lugares libres con imágenes externas de licencia admitida. Conserva el historial y deja como máximo dos imágenes activas por especie.
+
+## Recuperación del catálogo aprobado
+
+`catalog:audit-arapy -- --write` coteja todos los perfiles contra el Excel normalizado y actualiza la correspondencia editorial. Los comandos `catalog:archive-unselected-plants`, `catalog:restore-selected-plants`, `media:restore-approved-images` y `media:restore-approved-audio` son dry-run por defecto; `--sql` genera transacciones para una conexión administrativa autorizada. Los workers sólo marcan derivados verificados como `ready`; aprobar por `review_species_change` antes de publicar. El importador inicial no es una herramienta de actualización de una base en uso.
+
+`catalog:prepare-release` usa schema 14/min app 1.3.1 y elige una versión mayor que el catálogo remoto y el incluido en la app. `CATALOG_DATA_VERSION_FLOOR` permite superar versiones de prueba anteriores. La selección de 100 plantas se valida tanto al cargar como al construir. No ejecutar el pipeline histórico de Flora masiva para preparar una publicación.

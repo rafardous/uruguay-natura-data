@@ -8,7 +8,7 @@ const files = (names) => names.map((relativePath) => ({ path: relativePath, rela
 test('registra la declaración del titular en bucket privado y la reutiliza sin duplicarla', async () => {
   const uploadedBy = '123e4567-e89b-42d3-a456-426614174000';
   const path = ownerAttestationPath('Pedro Rinaldi', uploadedBy);
-  assert.match(path, /^declaraciones\/guia-aves-[0-9a-f]{32}\.json$/);
+  assert.match(path, /^declaraciones\/guia-aves-[0-9a-f]{32}\.txt$/);
   let saved = null;
   let uploads = 0;
   const client = { storage: { from(bucket) {
@@ -22,7 +22,7 @@ test('registra la declaración del titular en bucket privado y la reutiliza sin 
       },
       async upload(requestedPath, body, options) {
         assert.equal(requestedPath, path);
-        assert.equal(options.contentType, 'application/json');
+        assert.equal(options.contentType, 'text/plain');
         assert.equal(options.upsert, false);
         saved = body;
         uploads += 1;
@@ -33,7 +33,7 @@ test('registra la declaración del titular en bucket privado y la reutiliza sin 
   await ensureOwnerAttestation(client, path, 'Pedro Rinaldi', uploadedBy);
   await ensureOwnerAttestation(client, path, 'Pedro Rinaldi', uploadedBy);
   assert.equal(uploads, 1);
-  assert.match(JSON.parse(saved.toString()).statement, /Arapy.*Pedro Rinaldi/);
+  assert.match(saved.toString(), /Declaración:.*Pedro Rinaldi/);
   await assert.rejects(() => ensureOwnerAttestation(client, path, 'Otro autor', uploadedBy), /no coincide/);
 });
 

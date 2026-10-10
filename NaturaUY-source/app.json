@@ -2,7 +2,7 @@
   "expo": {
     "name": "Arapy",
     "slug": "natura-uy",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "orientation": "portrait",
     "scheme": "naturauy",
     "userInterfaceStyle": "automatic",
@@ -16,6 +16,7 @@
     },
     "android": {
       "package": "uy.naturauy.app",
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#CBD8C4"

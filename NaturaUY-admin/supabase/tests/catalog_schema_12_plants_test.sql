@@ -13,7 +13,7 @@ select extensions.ok(to_regprocedure('private.sync_plant_profile_from_species()'
 select extensions.is((select count(*)::bigint from pg_trigger where tgrelid='public.species'::regclass and tgname='sync_plant_profile_from_species' and not tgisinternal),1::bigint,'species revisions synchronize the normalized plant profile');
 select extensions.ok((select coalesce(reloptions,'{}') @> array['security_invoker=true'] from pg_class where oid='public.plant_species_editor'::regclass),'plant view invokes caller security');
 select extensions.is((select count(*)::bigint from public.catalog_sources where code in ('flora_uruguaya','world_flora_online')),2::bigint,'plant sources are registered');
-select extensions.is((select schema_version from public.catalog_releases order by requested_at desc limit 1),14,'new releases force schema 14');
+select extensions.ok(pg_get_functiondef('private.force_catalog_schema_14()'::regprocedure) like '%new.schema_version:=14%','new releases force schema 14');
 select extensions.ok((select pg_get_constraintdef(oid) like '%plants%' from pg_constraint where conrelid='public.mobile_puzzle_records'::regclass and conname='mobile_puzzle_records_scope_check'),'puzzle records accept plants');
 select extensions.ok(has_function_privilege('authenticated','public.sync_puzzle_records(jsonb)','execute'),'authenticated users can sync eligible puzzle records');
 

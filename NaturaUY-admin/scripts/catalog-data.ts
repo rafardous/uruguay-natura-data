@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { adminClient } from './shared';
@@ -22,6 +22,18 @@ export interface CatalogRecord {
 }
 
 const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes', 'arachnida', 'insecta', 'malacostraca', 'plantae'] as const;
+
+/** La selección publicada no archiva ni modifica el catálogo editorial. */
+export function selectPublishedSpecies(rows: DatabaseRow[], plantNames: Set<string>): DatabaseRow[] {
+  if (plantNames.size !== 100) throw new Error('La selección versionada debe contener 100 plantas');
+  const active = rows.filter((row) => row.status === 'active');
+  const selected = active.filter((row) => row.kingdom !== 'Plantae' || plantNames.has(String(row.scientific_name)));
+  const plants = selected.filter((row) => row.kingdom === 'Plantae');
+  if (plants.length !== 100 || new Set(plants.map((row) => row.scientific_name)).size !== 100) {
+    throw new Error(`Selección vegetal incompleta o duplicada: ${plants.length}/100`);
+  }
+  return selected;
+}
 
 async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
   const client = adminClient();
@@ -52,7 +64,7 @@ export function approvedImagesForSpecies(species: DatabaseRow, mediaRows: Databa
     .filter((row) => row.species_id === species.id && row.type === 'image' && row.status === 'approved' && row.storage_path)
     .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
   if (images.length > 2) throw new Error(`Más de dos fotos aprobadas para ${species.catalog_code ?? species.id}`);
-  const primary = images.find((row) => row.id === species.primary_image_id) ?? images[0] ?? null;
+  const primary = images.find((row) => row.is_primary) ?? images.find((row) => row.id === species.primary_image_id) ?? images[0] ?? null;
   return { images, primary };
 }
 
@@ -82,8 +94,9 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
   ]);
   const approved = mediaRows.filter((row) => row.status === 'approved' && row.storage_path);
 
-  return speciesRows
-    .filter((row) => row.status === 'active')
+  const seed = JSON.parse(readFileSync(resolve(import.meta.dirname, '../../NaturaUY-source/data/raw/curated-plants/seed-100.json'), 'utf8'));
+  const plantNames = new Set<string>([...seed.arboles, ...seed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
+  return selectPublishedSpecies(speciesRows, plantNames)
     .map((species) => {
 
       const assets = approved
@@ -277,7 +290,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
         sourcePage: record.image.source_url,
         originalLicense: record.image.original_license ?? null,
         licenseUrl: record.image.license_url,
-        externalId: record.image.external_id,
+        externalId: record.image.external_id ?? record.image.selection_details?.sourceExternalId ?? null,
         sourceTaxonId: record.image.source_taxon_id,
         sourceChecksum: (record.image.selection_details as Record<string, unknown> | null | undefined)?.sourceChecksum as string | null | undefined,
         width: record.image.source_width,
@@ -287,6 +300,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
         retrievedAt: record.image.retrieved_at,
       } : null,
       images: record.images.map((image) => ({
+        id: image.id, ordinal: image.ordinal, isPrimary: Boolean(image.is_primary), licenseUrl: image.license_url,
         url: publicMediaUrl(image.thumbnail_path ?? image.storage_path), fullUrl: publicMediaUrl(image.storage_path), license: image.license,
         originalLicense: image.original_license ?? null, attribution: image.author, source: image.source, sourcePage: image.source_url,
         sourceChecksum: (image.selection_details as Record<string, unknown> | null | undefined)?.sourceChecksum as string | null | undefined,

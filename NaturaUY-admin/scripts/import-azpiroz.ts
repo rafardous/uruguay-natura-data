@@ -4,24 +4,22 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { DatabaseSync } from 'node:sqlite';
 
 type Profile = { guide: { number: number }; measurements: { kind: string; valueCm: number; sex?: string }[]; abundanceCode: string | null };
 const source = resolve(import.meta.dirname, '../../NaturaUY-source');
 const rows = JSON.parse(readFileSync(resolve(source, 'data/reference/azpiroz-2003/normalized.json'), 'utf8')) as { speciesId: string | null; profile: Profile }[];
-const catalog = JSON.parse(readFileSync(resolve(source, 'data/catalog/aves.json'), 'utf8')) as { id: string; size: string; sources: { source: string; fieldPath: string; record: string }[] }[];
-const byId = new Map(catalog.map((row) => [row.id, row]));
-const db = new DatabaseSync(resolve(source, 'assets/db/natura.db'), { readOnly: true });
-const lookup = db.prepare('select codigo from species where stable_id=?');
+const correspondence = JSON.parse(readFileSync(resolve(source, 'data/reference/azpiroz-2003/crosswalk-editorial.json'), 'utf8')) as { number: number; catalogCode: string | null; editorialSpeciesId: string | null }[];
+const catalog = JSON.parse(readFileSync(resolve(source, 'data/catalog/aves.json'), 'utf8')) as { id: string; catalogCode: string; sources: { source: string; sourceCode?: string; fieldPath: string; record: string }[] }[];
+const byCode = new Map(catalog.map((row) => [row.catalogCode, row]));
 const planned = rows.filter((row) => row.speciesId).map((row) => {
-  const item = byId.get(row.speciesId!)!;
-  const target = lookup.get(row.speciesId!) as { codigo: string } | undefined;
-  if (!target) throw new Error(`No stable catalog code for ${row.speciesId}`);
-  const references = Object.fromEntries(item.sources.filter((ref) => ref.source === 'azpiroz_2003').map((ref) => [ref.fieldPath, [`${ref.source}: ${ref.record}`]]));
+  const target = correspondence.find((entry) => entry.number === row.profile.guide.number);
+  if (!target?.catalogCode || !target.editorialSpeciesId) throw new Error(`No editorial correspondence for ${row.speciesId}`);
+  const item = byCode.get(target.catalogCode);
+  if (!item) throw new Error(`No catalog record for ${target.catalogCode}`);
+  const references = Object.fromEntries(item.sources.filter((ref) => (ref.sourceCode ?? ref.source) === 'azpiroz_2003').map((ref) => [ref.fieldPath, [`azpiroz_2003: ${ref.record}`]]));
   const abundance = ({ C: 'common', BC: 'fairly_common', PC: 'uncommon', R: 'rare' } as Record<string,string>)[row.profile.abundanceCode ?? ''];
-  return { catalogCode: target.codigo, profile: row.profile, ...(row.profile.measurements.length ? { size: item.size } : {}), ...(abundance ? { abundance_status: abundance } : {}), field_sources: references };
+  return { catalogCode: target.catalogCode, editorialSpeciesId: target.editorialSpeciesId, profile: row.profile, ...(abundance ? { abundance_status: abundance } : {}), field_sources: references };
 });
-db.close();
 const batchArg = process.argv.find((arg) => arg.startsWith('--batch='));
 const batch = Number(batchArg?.split('=')[1] ?? 0);
 const batchSize = 30;
@@ -43,13 +41,11 @@ begin
   values('azpiroz_2003','Azpiroz — Aves del Uruguay','Aves Uruguay — GUPECA','Referencia bibliográfica; sin licencia abierta atribuida','identifier_only','Azpiroz, A. B. (2003). Aves del Uruguay. Lista e introducción a su biología y conservación. 104 pp.','2003', '{"userReviewed":true,"factualDataOnly":true}')
   on conflict(code) do nothing;
   for entry in select value from jsonb_array_elements('${payload}'::jsonb) loop
-    select * into strict current_row from public.species where catalog_code=entry->>'catalogCode' and class='Aves' and status='active' for update;
+    select * into strict current_row from public.species where id=(entry->>'editorialSpeciesId')::uuid and catalog_code=entry->>'catalogCode' and class='Aves' and status='active' for update;
     patch := jsonb_build_object('natural_history', coalesce(current_row.natural_history,'{}'::jsonb) || jsonb_build_object('version',1,'bird',entry->'profile'), 'field_sources',coalesce(current_row.field_sources,'{}'::jsonb) || (entry->'field_sources'));
-    if entry ? 'size' then patch := patch || jsonb_build_object('size',entry->'size'); end if;
     if entry ? 'abundance_status' then patch := patch || jsonb_build_object('abundance_status',entry->'abundance_status'); end if;
     if current_row.natural_history is not distinct from patch->'natural_history'
       and current_row.field_sources is not distinct from patch->'field_sources'
-      and (not (entry ? 'size') or current_row.size is not distinct from entry->>'size')
       and (not (entry ? 'abundance_status') or current_row.abundance_status is not distinct from entry->>'abundance_status') then continue; end if;
     change_id := public.submit_species_change(current_row.id,'update',patch,'Azpiroz 2003: Excel revisado y aprobado por el editor; importación reproducible, sin cambios taxonómicos ni de conservación.');
     perform public.review_species_change(change_id,true,true);

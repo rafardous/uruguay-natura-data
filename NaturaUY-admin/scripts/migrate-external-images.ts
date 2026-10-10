@@ -64,7 +64,6 @@ for (const asset of assets ?? []) {
     }
     const { error: updateError } = await client.from('species_media').update({ storage_path: mainPath, thumbnail_path: thumbnailPath, checksum_sha256: mainChecksum, source_width: metadata.width, source_height: metadata.height, selection_details: { ...(asset.selection_details && typeof asset.selection_details === 'object' ? asset.selection_details : {}), pixelEntropy: stats.entropy, pixelSharpness: stats.sharpness, meanExposure }, processed_at: new Date().toISOString(), status: 'approved' }).eq('id', asset.id);
     if (updateError) throw updateError;
-    const {error:primaryError}=await client.from('species').update({primary_image_id:asset.id}).eq('id',asset.species_id);if(primaryError)throw primaryError;
     const {error:archiveError}=await client.from('species_media').update({status:'archived',is_primary:false}).eq('species_id',asset.species_id).eq('type','image').neq('id',asset.id).eq('status','approved');if(archiveError)throw archiveError;
     const {error:markPrimaryError}=await client.from('species_media').update({is_primary:true}).eq('id',asset.id);if(markPrimaryError)throw markPrimaryError;
     migrated += 1; console.log(`MIGRATED ${asset.id}`);

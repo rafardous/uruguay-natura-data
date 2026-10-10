@@ -1,9 +1,9 @@
 [
   {
-    "id": "aedes-aegypti",
+    "id": "859ba3a7-1ad2-535c-8ab8-207e0bdb1716",
     "catalogCode": "aedes-aegypti",
     "scientificName": "Aedes aegypti",
-    "acceptedName": null,
+    "acceptedName": "Aedes aegypti",
     "commonName": "Mosquito del dengue",
     "commonNames": [
       "Mosquito del dengue"
@@ -16,123 +16,167 @@
       "family": "Culicidae",
       "genus": "Aedes"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 1651891
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/large.jpg",
-        "license": "CC0",
-        "originalLicense": "cc0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/17789627",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "externalId": "inat-photo:27141862",
-        "sourceTaxonId": "155453",
-        "sourceChecksum": null,
-        "width": 2048,
-        "height": 1928,
-        "selectionScore": 64,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": false,
-          "resolutionWidth": 2048,
-          "resolutionHeight": 1928
-        },
-        "retrievedAt": "2026-09-24T04:31:33.986Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/medium.jpg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/27141862/large.jpg",
-          "license": "CC0",
-          "originalLicense": "cc0",
-          "attribution": "no rights reserved",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/17789627",
-          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "externalId": "inat-photo:27141862",
-          "sourceTaxonId": "155453",
-          "sourceChecksum": null,
-          "width": 2048,
-          "height": 1928,
-          "selectionScore": 64,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": false,
-            "resolutionWidth": 2048,
-            "resolutionHeight": 1928
-          },
-          "retrievedAt": "2026-09-24T04:31:33.986Z"
-        }
-      ],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Aed_aegyp",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Aed_aegyp",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/859ba3a7-1ad2-535c-8ab8-207e0bdb1716/ff02c2c6-81c0-4394-9ccb-909b23f8dd97-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/859ba3a7-1ad2-535c-8ab8-207e0bdb1716/ff02c2c6-81c0-4394-9ccb-909b23f8dd97.webp",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/17789627",
+        "originalLicense": "cc0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:27141862",
+        "sourceTaxonId": null,
+        "width": 1024,
+        "height": 964,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "78c270b203542852e1ab1f236362a355020b521588d5f827656dbcc0e4b0dc48"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "ff02c2c6-81c0-4394-9ccb-909b23f8dd97",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/859ba3a7-1ad2-535c-8ab8-207e0bdb1716/ff02c2c6-81c0-4394-9ccb-909b23f8dd97-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/859ba3a7-1ad2-535c-8ab8-207e0bdb1716/ff02c2c6-81c0-4394-9ccb-909b23f8dd97.webp",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/17789627"
+        }
+      ],
+      "audio": null
     }
   },
   {
-    "id": "haematobia-irritans",
+    "id": "2b0b8051-acde-5aa4-8bb2-3e2126ee1871",
     "catalogCode": "haematobia-irritans",
     "scientificName": "Haematobia irritans",
-    "acceptedName": null,
+    "acceptedName": "Haematobia irritans",
     "commonName": "Mosca de los cuernos",
     "commonNames": [
       "Mosca de los cuernos"
@@ -145,77 +189,134 @@
       "family": "Muscidae",
       "genus": "Haematobia"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 1531912
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": null,
-      "images": [],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Hae_irrita",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Hae_irrita",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": null,
+      "images": [],
+      "audio": null
     }
   },
   {
-    "id": "lutzomyia-longipalpis",
+    "id": "43dde36d-5822-53ff-8ea7-e92e485d8eb8",
     "catalogCode": "lutzomyia-longipalpis",
     "scientificName": "Lutzomyia longipalpis",
-    "acceptedName": null,
+    "acceptedName": "Lutzomyia longipalpis",
     "commonName": "Flebótomo",
     "commonNames": [
       "Flebótomo"
@@ -228,77 +329,134 @@
       "family": "Psychodidae",
       "genus": "Lutzomyia"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 5089079
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": null,
-      "images": [],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Lut_longi",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Lut_longi",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": null,
+      "images": [],
+      "audio": null
     }
   },
   {
-    "id": "reticulitermes-flavipes",
+    "id": "41c9e064-56d2-51d1-9ea6-3b49f936dc0e",
     "catalogCode": "reticulitermes-flavipes",
     "scientificName": "Reticulitermes flavipes",
-    "acceptedName": null,
+    "acceptedName": "Reticulitermes flavipes",
     "commonName": "Termite",
     "commonNames": [
       "Termite",
@@ -313,123 +471,167 @@
       "family": "Rhinotermitidae",
       "genus": "Reticulitermes"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 2007366
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/medium.jpg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/large.jpg",
-        "license": "CC0",
-        "originalLicense": "cc0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/349778607",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "externalId": "inat-photo:638112350",
-        "sourceTaxonId": "119931",
-        "sourceChecksum": null,
-        "width": 2009,
-        "height": 2009,
-        "selectionScore": 64,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": false,
-          "resolutionWidth": 2009,
-          "resolutionHeight": 2009
-        },
-        "retrievedAt": "2026-09-24T04:31:43.594Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/medium.jpg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/638112350/large.jpg",
-          "license": "CC0",
-          "originalLicense": "cc0",
-          "attribution": "no rights reserved",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/349778607",
-          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "externalId": "inat-photo:638112350",
-          "sourceTaxonId": "119931",
-          "sourceChecksum": null,
-          "width": 2009,
-          "height": 2009,
-          "selectionScore": 64,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": false,
-            "resolutionWidth": 2009,
-            "resolutionHeight": 2009
-          },
-          "retrievedAt": "2026-09-24T04:31:43.594Z"
-        }
-      ],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Ret_flavi",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Ret_flavi",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/41c9e064-56d2-51d1-9ea6-3b49f936dc0e/039fffe7-4415-4ac7-b8fb-98e545936323-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/41c9e064-56d2-51d1-9ea6-3b49f936dc0e/039fffe7-4415-4ac7-b8fb-98e545936323.webp",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/349778607",
+        "originalLicense": "cc0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:638112350",
+        "sourceTaxonId": null,
+        "width": 1024,
+        "height": 1024,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "91b04f4f0e55c7c3a75b25cdc592be62e96092583eb4b8ee3ab475a6df7dde81"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "039fffe7-4415-4ac7-b8fb-98e545936323",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/41c9e064-56d2-51d1-9ea6-3b49f936dc0e/039fffe7-4415-4ac7-b8fb-98e545936323-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/41c9e064-56d2-51d1-9ea6-3b49f936dc0e/039fffe7-4415-4ac7-b8fb-98e545936323.webp",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/349778607"
+        }
+      ],
+      "audio": null
     }
   },
   {
-    "id": "triatoma-infestans",
+    "id": "4db319c2-d449-504f-9895-5d99fe2191b1",
     "catalogCode": "triatoma-infestans",
     "scientificName": "Triatoma infestans",
-    "acceptedName": null,
+    "acceptedName": "Triatoma infestans",
     "commonName": "Vinchuca",
     "commonNames": [
       "Vinchuca"
@@ -442,116 +644,160 @@
       "family": "Reduviidae",
       "genus": "Triatoma"
     },
-    "origin": null,
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 7603975
       }
     },
-    "naturalHistory": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/large.jpeg",
-        "license": "CC0",
-        "originalLicense": "cc0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/129760271",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "externalId": "inat-photo:220562094",
-        "sourceTaxonId": "560836",
-        "sourceChecksum": null,
-        "width": 1537,
-        "height": 2048,
-        "selectionScore": 61,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": false,
-          "resolutionWidth": 1537,
-          "resolutionHeight": 2048
-        },
-        "retrievedAt": "2026-09-24T04:31:46.040Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/medium.jpeg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/220562094/large.jpeg",
-          "license": "CC0",
-          "originalLicense": "cc0",
-          "attribution": "no rights reserved",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/129760271",
-          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "externalId": "inat-photo:220562094",
-          "sourceTaxonId": "560836",
-          "sourceChecksum": null,
-          "width": 1537,
-          "height": 2048,
-          "selectionScore": 61,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": false,
-            "resolutionWidth": 1537,
-            "resolutionHeight": 2048
-          },
-          "retrievedAt": "2026-09-24T04:31:46.040Z"
-        }
-      ],
-      "audio": null
+    "origin": "unknown",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
     },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": []
+    },
+    "description": "",
+    "measurements": [],
+    "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
+      "plantAssociations": [],
+      "aquaticEnvironments": [],
+      "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
     "sources": [
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.kingdom"
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.phylum"
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.class"
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.order"
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.family"
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       },
       {
         "source": "snap",
         "record": "Tri_inf",
-        "fieldPath": "taxonomy.genus"
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "Tri_inf",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
       }
     ],
-    "reviewStatus": "unreviewed",
-    "measurements": [],
-    "ecology": {
-      "habitats": [],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
-      "hosts": [],
-      "plantAssociations": [],
-      "vegetationFormations": []
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/4db319c2-d449-504f-9895-5d99fe2191b1/92d05543-1c6c-4f76-9e8b-244de97b0ebe-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/4db319c2-d449-504f-9895-5d99fe2191b1/92d05543-1c6c-4f76-9e8b-244de97b0ebe.webp",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/129760271",
+        "originalLicense": "cc0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:220562094",
+        "sourceTaxonId": null,
+        "width": 769,
+        "height": 1024,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "70cb0b6310fbb97137e90788b440852ff1b5b0576f4a7035b4a52596e456222d"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "92d05543-1c6c-4f76-9e8b-244de97b0ebe",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/4db319c2-d449-504f-9895-5d99fe2191b1/92d05543-1c6c-4f76-9e8b-244de97b0ebe-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/4db319c2-d449-504f-9895-5d99fe2191b1/92d05543-1c6c-4f76-9e8b-244de97b0ebe.webp",
+          "license": "CC0",
+          "originalLicense": "cc0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/129760271"
+        }
+      ],
+      "audio": null
     }
   }
 ]

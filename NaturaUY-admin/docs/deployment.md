@@ -31,9 +31,9 @@ npx supabase db push --linked
 npx supabase config push
 ```
 
-Las migraciones schema 9–12 están aplicadas en el proyecto remoto. Schema 12 agrega perfiles vegetales, nombres y cierre taxonómico, raíces por reino, el scope de juegos `plants` y fuerza publicaciones nuevas a schema 12/min app 1.2.0. La importación inicial se completó el 2026-09-13 con 4105 especies, 3157 perfiles botánicos, 2113 nodos y 2132 nombres taxonómicos; futuras corridas del importador son idempotentes.
+Las migraciones hasta `202610100001_guide_primary_media_compatibility.sql` están aplicadas. Schema 14/min app 1.3.1 es el contrato actual. La importación histórica tuvo 4105 especies; el 10/10/2026 se archivaron por RPC las 3057 plantas no seleccionadas. El catálogo activo tiene 1048 especies: 948 animales y 100 plantas. No repetir el importador inicial sobre la base en uso.
 
-Schema 13 está preparado localmente pero no desplegado. `20260913162759_learning_content_and_progress.sql` agrega `learning_paths`, progreso privado de módulos/objetivos, `sync_learning_progress` y amplía `get_personal_mobile_progress`; al aplicarse fuerza los releases nuevos a schema 13. Verificar las pruebas RLS/RPC antes de publicar.
+Schema 13 está desplegado desde el 10/10/2026. `20260913162759_learning_content_and_progress.sql` agrega `learning_paths`, progreso privado de módulos/objetivos, `sync_learning_progress` y amplía `get_personal_mobile_progress`; al aplicarse fuerza los releases nuevos a schema 13. Verificar las pruebas RLS/RPC antes de publicar.
 
 ## 2. Identidad editorial
 
@@ -122,9 +122,9 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
-El enriquecimiento de aves Azpiroz 2003 usa `natural_history.bird`, sin migración nueva. Su importación aprobada pasa por las RPCs editoriales y conserva las revisiones. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md` para fuente, cruces, excepciones y comandos `catalog:import-azpiroz`. El builder sólo carga Aprender para releases schema 13 o superior; `prepare-release` usa schema 12 por defecto y permite `CATALOG_SCHEMA_VERSION` al desplegar versiones posteriores. El derivado local de aves usa data_version 4; no confundirlo con una publicación productiva hasta completar el workflow manual.
+El enriquecimiento Azpiroz usa `natural_history.bird` y conserva fuentes por campo. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md`. El publicador y `prepare-release` usan schema 14/min app 1.3.1; la versión debe superar tanto la remota como la incluida. Arapy 1.3.1 prepara data_version 7. Sólo cargar fichas y medios aprobados; validar 100 plantas, 432 perfiles, 309 vínculos familiares y 594 fotos antes de publicar.
 
-La app utiliza claves públicas y continúa operativa sin login. Soporta hasta schema de catálogo 13 y conserva `user.db`; schema 13 agrega documentos de Aprender al catálogo y mantiene el progreso exclusivamente en la base personal. Antes de reabrir escrituras:
+La app utiliza claves públicas y continúa operativa sin login. Soporta hasta schema de catálogo 14 y conserva `user.db`; schema 13 agrega documentos de Aprender al catálogo y mantiene el progreso exclusivamente en la base personal. Antes de reabrir escrituras:
 
 ```powershell
 cd ../NaturaUY-source
@@ -138,3 +138,15 @@ npm run data:catalog-verify
 Verificar en dos cuentas editoriales: aprobación normal, autovalidación confirmada, rechazo, conflicto; dos imágenes y un audio por especie; favorito y partida offline; checksum inválido, DB inválida, esquema incompatible y restauración de la copia anterior. Publicar primero un piloto y comparar conteos/SHA antes de descongelar el panel.
 
 Si algo falla antes de reabrir escrituras, restaurar frontend, grants/RPCs anteriores y el backup. Después de aceptar solicitudes nuevas, preferir roll-forward para no perder cambios posteriores al corte.
+
+## 7. Operación verificada del 10/10/2026
+
+Se descargó y comprobó el SHA-256 del respaldo PostgreSQL cifrado del workflow de mantenimiento antes de migrar. Además se conservó una copia local completa protegida con Windows DPAPI. El workflow usa PostgreSQL 17 y el pooler IPv4 para compatibilidad con el servidor; no guardar volcados ni contraseñas en Git.
+
+Se validó una copia real del esquema y catálogo en Docker: 143 pruebas pgTAP, 12 archivos, aprobadas. Las migraciones históricas de datos no se pueden probar simplemente contra una base vacía sin sus fixtures de taxonomía; `db reset` solo no reproduce el estado productivo. Se aplicaron schema 13/14 y las migraciones de medios después de ese respaldo y prueba. No se ampliaron grants ni se fingió MFA.
+
+La fuente versionada de selección es `seed-100.json`; los otros 3057 registros se preservan archivados. Se recuperaron 96 fotos CC0 y los nombres/origen documentado de las 100 plantas. Cuatro plantas sin foto y 29 sin origen documentado generan advertencias; derechos inválidos, autoría incompleta u objetos de una foto aprobada ausentes siguen bloqueando.
+
+Para retomar una publicación construida localmente, volver el release todavía no publicado a `pending` antes de ejecutar el workflow con su UUID. Conservar las versiones y tags anteriores. Después verificar la URL pública `/catalog/manifest.json`, descargar el SQLite real y cotejar SHA-256/esquema/conteos; copiar ese mismo binario publicado a `assets/db/natura.db`.
+
+Android: `eas build -p android --profile field-guide` genera un APK interno con versión de build incrementada y la firma EAS existente. `.easignore` en la raíz excluye credenciales, volcados, caches y nativos locales, e incluye los clips aprobados para uso offline, conforme a la [documentación de Expo](https://docs.expo.dev/build-reference/easignore/). Verificar firma y usar `adb install -r`; nunca desinstalar ni borrar `user.db` para probar una actualización.

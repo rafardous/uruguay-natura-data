@@ -94,14 +94,16 @@ update public.species s set
 from public.species_abundance_assessments a join public.catalog_sources src on src.id=a.source_id
 where a.species_id=s.id and a.is_current;
 update public.species set abundance_status=null where kingdom='Plantae';
-update public.species set abundance_status=case lower(coalesce(abundance_status,''))
+update public.species set abundance_status=case coalesce(natural_history #>> '{bird,abundanceCode}','')
+  when 'C' then 'common' when 'BC' then 'fairly_common' when 'PC' then 'uncommon' when 'R' then 'rare'
+  else case lower(coalesce(abundance_status,''))
   when 'abundant' then 'abundant' when 'common' then 'common' when 'uncommon' then 'uncommon'
   when 'rare' then 'scarce' when 'very_rare' then 'scarce' when 'scarce' then 'scarce'
-  when 'occasional' then 'occasional' else null end;
+  when 'fairly_common' then 'fairly_common' when 'occasional' then 'occasional' else null end end;
 update public.species set abundance_status=null where abundance_status is not null and not (field_sources?'abundance_status');
 alter table public.species drop constraint if exists species_abundance_status_check;
 alter table public.species add constraint species_abundance_status_check
-  check(abundance_status is null or abundance_status in ('abundant','common','uncommon','scarce','occasional'));
+  check(abundance_status is null or abundance_status in ('abundant','common','fairly_common','uncommon','rare','scarce','occasional'));
 alter table public.species add constraint species_abundance_source_required
   check(abundance_status is null or field_sources?'abundance_status');
 
@@ -338,7 +340,7 @@ alter table public.catalog_releases alter column schema_version set default 14;
 update public.catalog_releases set schema_version=14 where status in ('pending','building');
 create function private.force_catalog_schema_14()
 returns trigger language plpgsql set search_path='' as $$
-begin new.schema_version:=14; return new; end $$;
+begin new.schema_version:=14; new.min_app_version:='1.3.1'; return new; end $$;
 create trigger force_catalog_schema_14 before insert or update on public.catalog_releases
 for each row execute function private.force_catalog_schema_14();
 

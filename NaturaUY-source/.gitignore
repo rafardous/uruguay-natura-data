@@ -18,6 +18,8 @@ scripts/out/
 .DS_Store
 npm-debug.*
 *.jks
+/credentials.json
+/credentials/
 *.p8
 *.p12
 *.key

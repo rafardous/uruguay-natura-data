@@ -1,8 +1,13 @@
 [
   {
-    "id": "potamotrygon-brachyura",
+    "id": "81454d7a-e693-5ff5-bdbb-7f8becdd3230",
+    "catalogCode": "P_brachyur",
     "scientificName": "Potamotrygon brachyura",
+    "acceptedName": "Potamotrygon brachyura",
     "commonName": "Raya",
+    "commonNames": [
+      "Raya"
+    ],
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -11,142 +16,178 @@
       "family": "Potamotrygonidae",
       "genus": "Potamotrygon"
     },
-    "origin": "native",
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/large.jpeg",
-        "license": "CC0",
-        "attribution": "no rights reserved",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/154412733",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "externalId": "inat-photo:266807189",
-        "sourceTaxonId": "110329",
-        "width": 1536,
-        "height": 2048,
-        "selectionScore": 61,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": false,
-          "resolutionWidth": 1536,
-          "resolutionHeight": 2048
-        },
-        "retrievedAt": "2026-09-11T16:38:37.896Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/medium.jpeg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/266807189/large.jpeg",
-          "license": "CC0",
-          "attribution": "no rights reserved",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/154412733",
-          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "externalId": "inat-photo:266807189",
-          "sourceTaxonId": "110329",
-          "width": 1536,
-          "height": 2048,
-          "selectionScore": 61,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": false,
-            "resolutionWidth": 1536,
-            "resolutionHeight": 2048
-          },
-          "retrievedAt": "2026-09-11T16:38:37.896Z"
-        }
-      ],
-      "audio": null
-    },
-    "sources": [
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.kingdom"
-      },
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.phylum"
-      },
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.class"
-      },
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.order"
-      },
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.family"
-      },
-      {
-        "source": "snap",
-        "record": "P_brachyur",
-        "fieldPath": "taxonomy.genus"
-      },
-      {
-        "source": "legacy_catalog",
-        "record": "P_brachyur",
-        "fieldPath": "measurements.max_length"
-      }
-    ],
-    "reviewStatus": "needs_review",
-    "commonNames": [
-      "Raya"
-    ],
-    "catalogCode": "P_brachyur",
-    "acceptedName": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 2419347
       }
     },
-    "naturalHistory": null,
-    "measurements": [
-      {
-        "kind": "max_length",
-        "value": 750,
-        "unit": "mm",
-        "basis": null,
-        "estimated": true,
-        "sourceCode": "legacy_catalog",
-        "sourceRecordId": "P_brachyur",
-        "provenance": "legacy_unverified"
-      }
-    ],
+    "origin": "native",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
+    },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": [
+        "priority",
+        "snap"
+      ]
+    },
+    "description": "",
+    "measurements": [],
     "ecology": {
+      "diet": [],
+      "hosts": [],
+      "activity": [],
       "habitats": [
         "rio_arroyo",
         "laguna_estero"
       ],
-      "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
       "depthMaxM": null,
-      "microhabitats": [],
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
       "trophicRoles": [],
-      "hosts": [],
+      "microhabitats": [],
       "plantAssociations": [],
+      "aquaticEnvironments": [],
       "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_brachyur",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      }
+    ],
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/81454d7a-e693-5ff5-bdbb-7f8becdd3230/f64317aa-a3a7-4645-8024-a080a9f7dfbf-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/81454d7a-e693-5ff5-bdbb-7f8becdd3230/f64317aa-a3a7-4645-8024-a080a9f7dfbf.webp",
+        "license": "CC0",
+        "attribution": "no rights reserved",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/154412733",
+        "originalLicense": null,
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "externalId": "inat-photo:266807189",
+        "sourceTaxonId": null,
+        "width": 768,
+        "height": 1024,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "8e3dbb08e6eba2f778b54562aa4e29a7bac52fb01c818203e14202f77864805b",
+          "sourceExternalId": "inat-photo:266807189"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "f64317aa-a3a7-4645-8024-a080a9f7dfbf",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/81454d7a-e693-5ff5-bdbb-7f8becdd3230/f64317aa-a3a7-4645-8024-a080a9f7dfbf-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/81454d7a-e693-5ff5-bdbb-7f8becdd3230/f64317aa-a3a7-4645-8024-a080a9f7dfbf.webp",
+          "license": "CC0",
+          "originalLicense": null,
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/154412733"
+        }
+      ],
+      "audio": null
     }
   },
   {
-    "id": "potamotrygon-motoro",
+    "id": "0c625769-b21a-54b7-921a-d38be588e942",
+    "catalogCode": "P_motoro",
     "scientificName": "Potamotrygon motoro",
+    "acceptedName": "Potamotrygon motoro",
     "commonName": "Raya",
+    "commonNames": [
+      "Raya"
+    ],
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -155,117 +196,165 @@
       "family": "Potamotrygonidae",
       "genus": "Potamotrygon"
     },
-    "origin": "native",
-    "seasonality": null,
-    "abundanceStatus": null,
-    "description": null,
-    "relevantNote": null,
-    "media": {
-      "image": {
-        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/medium.jpeg",
-        "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/large.jpeg",
-        "license": "CC-BY-4.0",
-        "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
-        "source": "inaturalist",
-        "sourcePage": "https://www.inaturalist.org/observations/155541074",
-        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-        "externalId": "inat-photo:268877652",
-        "sourceTaxonId": "110338",
-        "width": 1536,
-        "height": 2048,
-        "selectionScore": 68,
-        "selectionDetails": {
-          "curated": false,
-          "uruguay": true,
-          "resolutionWidth": 1536,
-          "resolutionHeight": 2048
-        },
-        "retrievedAt": "2026-09-11T16:38:39.816Z"
-      },
-      "images": [
-        {
-          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/medium.jpeg",
-          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/268877652/large.jpeg",
-          "license": "CC-BY-4.0",
-          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
-          "source": "inaturalist",
-          "sourcePage": "https://www.inaturalist.org/observations/155541074",
-          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "externalId": "inat-photo:268877652",
-          "sourceTaxonId": "110338",
-          "width": 1536,
-          "height": 2048,
-          "selectionScore": 68,
-          "selectionDetails": {
-            "curated": false,
-            "uruguay": true,
-            "resolutionWidth": 1536,
-            "resolutionHeight": 2048
-          },
-          "retrievedAt": "2026-09-11T16:38:39.816Z"
-        }
-      ],
-      "audio": null
-    },
-    "sources": [
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.kingdom"
-      },
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.phylum"
-      },
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.class"
-      },
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.order"
-      },
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.family"
-      },
-      {
-        "source": "snap",
-        "record": "P_motoro",
-        "fieldPath": "taxonomy.genus"
-      }
-    ],
-    "reviewStatus": "needs_review",
-    "commonNames": [
-      "Raya"
-    ],
-    "catalogCode": "P_motoro",
-    "acceptedName": null,
     "taxonIdentifiers": {
       "gbif": {
         "usageKey": 2419333
       }
     },
-    "naturalHistory": null,
+    "origin": "native",
+    "seasonality": "unknown",
+    "abundanceStatus": null,
+    "observability": null,
+    "game": {
+      "knowledgeLevel": "hard",
+      "rules": []
+    },
+    "facts": [],
+    "conservation": {
+      "nationalRedList": null,
+      "iucnGlobal": null,
+      "nationalDesignations": [
+        "priority",
+        "threatened",
+        "snap"
+      ]
+    },
+    "description": "",
     "measurements": [],
     "ecology": {
-      "habitats": [],
       "diet": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "microhabitats": [],
-      "trophicRoles": [],
       "hosts": [],
+      "activity": [],
+      "habitats": [],
+      "depthMaxM": null,
+      "depthMinM": null,
+      "lifeModes": [],
+      "waterZones": [],
+      "trophicRoles": [],
+      "microhabitats": [],
       "plantAssociations": [],
+      "aquaticEnvironments": [],
       "vegetationFormations": []
+    },
+    "naturalHistory": {},
+    "relevantNote": "",
+    "sources": [
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "general",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.class",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.genus",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.order",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.family",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.phylum",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      },
+      {
+        "source": "snap",
+        "record": "P_motoro",
+        "fieldPath": "taxonomy.kingdom",
+        "sourceCode": "snap",
+        "name": "snap",
+        "version": null,
+        "url": null,
+        "citation": null,
+        "license": null
+      }
+    ],
+    "media": {
+      "image": {
+        "url": "https://uruguay-natura-data.pages.dev/m/0c625769-b21a-54b7-921a-d38be588e942/b6e04337-4c2a-484d-a67a-9a72c4f4494c-480.webp",
+        "fullUrl": "https://uruguay-natura-data.pages.dev/m/0c625769-b21a-54b7-921a-d38be588e942/b6e04337-4c2a-484d-a67a-9a72c4f4494c.webp",
+        "license": "CC-BY-4.0",
+        "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+        "source": "inaturalist",
+        "sourcePage": "https://www.inaturalist.org/observations/155541074",
+        "originalLicense": null,
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "externalId": "inat-photo:268877652",
+        "sourceTaxonId": null,
+        "width": 768,
+        "height": 1024,
+        "selectionScore": null,
+        "selectionDetails": {
+          "restoredFrom": "approved animal catalog",
+          "thumbnailSha256": "bfb800cd83fa844e51ce995d95ae1028ae3d6cd7f5594f4088f841b1309d3bbb",
+          "sourceExternalId": "inat-photo:268877652"
+        },
+        "retrievedAt": null
+      },
+      "images": [
+        {
+          "id": "b6e04337-4c2a-484d-a67a-9a72c4f4494c",
+          "ordinal": 1,
+          "isPrimary": true,
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "url": "https://uruguay-natura-data.pages.dev/m/0c625769-b21a-54b7-921a-d38be588e942/b6e04337-4c2a-484d-a67a-9a72c4f4494c-480.webp",
+          "fullUrl": "https://uruguay-natura-data.pages.dev/m/0c625769-b21a-54b7-921a-d38be588e942/b6e04337-4c2a-484d-a67a-9a72c4f4494c.webp",
+          "license": "CC-BY-4.0",
+          "originalLicense": null,
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/155541074"
+        }
+      ],
+      "audio": null
     }
   }
 ]

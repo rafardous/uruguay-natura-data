@@ -34,7 +34,7 @@ select extensions.lives_ok(
 );
 select extensions.throws_ok(
   $$insert into public.taxon_content(taxon_rank,class_name,taxon_name,description,source_id)
-    values('genus','TestClass','Testus','Descripción de prueba suficientemente extensa para validar un rango rechazado.',(select id from public.catalog_sources where code='natura_uy_editorial'))$$,
+    values('unsupported_rank','TestClass','Testus','Descripción de prueba suficientemente extensa para validar un rango rechazado.',(select id from public.catalog_sources where code='natura_uy_editorial'))$$,
   '23514',null,'schema 10 rejects unsupported taxon ranks'
 );
 
