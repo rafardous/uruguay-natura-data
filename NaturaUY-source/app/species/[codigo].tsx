@@ -469,7 +469,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {hasEcology && ecology && (
               <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.lg, marginTop: spacing.lg }]}>
+                <View style={[styles.traits, { backgroundColor: '#F7F3E8', borderWidth: 1, borderColor: '#E8E0CE', borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
                   <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
                   <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />

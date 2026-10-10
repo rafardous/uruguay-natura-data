@@ -68,7 +68,7 @@ La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto
 
 Las tarjetas de las demás clases reutilizan el fondo `palette.container`, las esquinas `radius.lg` y la presentación compacta de las medidas del tamaño enriquecido de aves. Perfiles botánicos, historia natural y evaluaciones conservan sus contenidos con esa misma superficie de acento. Ecología usa fondo neutro; sus etiquetas, bordes y controles llevan el acento de la especie.
 
-El recorrido taxonómico empieza plegado en el rango superior. Tocar una fila revela el rango siguiente; volver a tocarla pliega sus descendientes. Las filas tienen igual ancho y altura, con rango y nombre en una línea (`Filo: Chordata`), conexiones curvas y desplazamiento gradual. El botón lateral conserva el acceso a explorar cada grupo sin cambiar el despliegue; cambiar de especie reinicia el recorrido plegado.
+El recorrido taxonómico muestra todos los rangos desde el inicio. Las filas tienen igual ancho y altura, con rango y nombre en una línea (`Filo: Chordata`), conexiones curvas y desplazamiento gradual. Tocar cualquier fila abre ese grupo. Ecología usa marfil suave (`#F7F3E8`) con borde arena (`#E8E0CE`); las etiquetas y controles conservan el acento de la especie.
 
 ## Contrato de datos y medios
 
