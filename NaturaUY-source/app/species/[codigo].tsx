@@ -388,7 +388,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           <View style={{ paddingHorizontal: spacing.lg, paddingBottom: spacing.lg, paddingTop: spacing.sm }}>
             <Staggered index={0}>
               <View style={styles.nameRow}>
-                <SpeciesNames species={species} accent={palette.accent} />
+                <SpeciesNames species={species} />
                 {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: palette.accent, borderRadius: radius.pill }]}><InfoIcon color="#FFFFFF" size={23} /></Pressable>}
               </View>
               {/* Only when it adds something: `displayName` is the binomial itself
@@ -469,7 +469,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {hasEcology && ecology && (
               <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: '#F7F3E8', borderWidth: 1, borderColor: '#E8E0CE', borderRadius: radius.lg, marginTop: spacing.lg }]}>
+                <View style={[styles.traits, { backgroundColor: '#F3F5F4', borderWidth: 1, borderColor: '#E1E7E3', borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
                   <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
                   <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />

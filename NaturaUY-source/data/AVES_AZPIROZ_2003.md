@@ -54,7 +54,7 @@ La auditoría compara cada perfil completo contra `normalized.json`, no sólo su
 
 Se reutilizan Manrope y colores propios de cada especie. La app usa exclusivamente modo claro, aunque el sistema tenga modo oscuro; Configuración no ofrece selección de apariencia. La información secundaria se agrupa donde corresponde, en lugar de una lista de desplegables al final:
 
-- Tocar el nombre abre los otros nombres comunes, inglés, nombre aceptado e histórico disponibles. La taxonomía aparece al final, inmediatamente antes del reporte de errores, como un recorrido vertical con conexiones curvas y desplazamiento gradual hacia la derecha. Cada rango conserva su atajo y el color de acento. La ⓘ destacada abre la información relevante inmediatamente debajo de los nombres, antes del resto de los datos.
+- Los nombres alternativos aparecen al costado del nombre principal, en texto más tenue de una línea con puntos suspensivos cuando falta espacio; el texto accesible conserva los nombres completos. La taxonomía aparece al final, inmediatamente antes del reporte de errores, como un recorrido vertical con conexiones curvas y desplazamiento gradual hacia la derecha. Cada rango conserva su atajo y el color de acento. La ⓘ destacada abre la información relevante inmediatamente debajo de los nombres, antes del resto de los datos.
 - Origen y conservación actual diferenciados; evaluaciones expandibles junto a ese bloque.
 - Tamaño con ⓘ y **Medidas técnicas** dentro de la misma tarjeta.
 - Abundancia en una fila independiente.
@@ -68,7 +68,7 @@ La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto
 
 Las tarjetas de las demás clases reutilizan el fondo `palette.container`, las esquinas `radius.lg` y la presentación compacta de las medidas del tamaño enriquecido de aves. Perfiles botánicos, historia natural y evaluaciones conservan sus contenidos con esa misma superficie de acento. Ecología usa fondo neutro; sus etiquetas, bordes y controles llevan el acento de la especie.
 
-El recorrido taxonómico muestra todos los rangos desde el inicio. Las filas tienen igual ancho y altura, con rango y nombre en una línea (`Filo: Chordata`), conexiones curvas y desplazamiento gradual. Tocar cualquier fila abre ese grupo. Ecología usa marfil suave (`#F7F3E8`) con borde arena (`#E8E0CE`); las etiquetas y controles conservan el acento de la especie.
+La sección se titula sólo «Taxonomía», sin subtexto. Muestra todos los rangos desde el inicio. Las filas tienen igual ancho (78 % del bloque) y altura compacta (mínimo 44 dp, ajustada al tamaño de texto), con rango y nombre en una línea (`Filo: Chordata`), conexiones de 14 dp y desplazamiento gradual de 8 dp por nivel. Tocar cualquier fila abre ese grupo. Ecología usa gris niebla (`#F3F5F4`) con borde suave (`#E1E7E3`); las etiquetas y controles conservan el acento de la especie.
 
 ## Contrato de datos y medios
 
