@@ -7,7 +7,7 @@ export default function AboutScreen(): React.JSX.Element {
   return (
     <ProvisionalScreen
       icon={<InfoIcon color={colors.onPrimaryContainer} size={30} />}
-      title="Acerca de Natura UY"
+      title="Acerca de Arapy"
       body="Una guía para explorar la biodiversidad del Uruguay a partir de datos abiertos, fotografías con licencia libre y una experiencia pensada para aprender."
     />
   );

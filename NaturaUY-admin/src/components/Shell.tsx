@@ -25,7 +25,7 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <button className="brand brand-button" onClick={() => navigate('/')}><span className="brand-mark"><img src="/natura-uy-icon.png" alt="" /></span><span>Natura UY<small>Panel editorial</small></span></button>
+        <button className="brand brand-button" onClick={() => navigate('/')}><span className="brand-mark"><img src="/arapy-icon.png" alt="" /></span><span>Arapy<small>Panel editorial</small></span></button>
         <nav aria-label="Navegación principal">
           {items.filter((item) => !item.admin || profile?.role === 'admin').map(({ path: itemPath, label, icon: Icon, badge }) => {
             const active = itemPath === '/' ? path === '/' : path.startsWith(itemPath);

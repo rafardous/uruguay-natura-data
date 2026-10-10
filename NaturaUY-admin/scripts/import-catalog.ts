@@ -23,14 +23,11 @@ interface CatalogItem {
   seasonality: string | null;
   abundanceStatus: string | null;
   description: string | null;
-  habitat: string[];
-  diet: string[] | null;
-  size: string | null;
+  measurements: unknown[];
+  ecology: Record<string, unknown>;
   relevantNote: string | null;
-  traits?: Record<string, unknown>;
   taxonIdentifiers?: Record<string, unknown>;
   naturalHistory?: Record<string, unknown>;
-  distributionSummary?: Record<string, unknown>;
   media: {
     image: {
       url: string;
@@ -46,16 +43,13 @@ interface CatalogItem {
     audio: string | null;
   };
   sources: Array<{ source: string; record: string | null; fieldPath?: string }>;
-  presenceCertainty?: 'confirmed' | 'probable' | 'uncertain' | null;
 }
 
 interface LegacyRow {
   codigo: string;
   scientific_name: string;
   accepted_name: string | null;
-  estado_conservacion: string;
-  conservation_label: string;
-  conservation_rank: number;
+  conservation: string;
   image_url: string | null;
   full_url: string | null;
   image_license: string | null;
@@ -79,24 +73,14 @@ interface ImportedSpecies {
   family: string;
   genus: string;
   origin: string;
-  establishment: string;
   seasonality: string;
-  presence_certainty: string;
-  abundance_status: string;
-  conservation_system: string;
-  conservation_category: string;
-  conservation_label: string;
-  conservation_source: string;
-  conservation_rank: number;
-  conservation_assessed_at: null;
+  abundance_status: string | null;
   description: string;
-  habitat: string[];
-  diet: string[];
-  size: string;
-  traits: Record<string, unknown>;
+  measurements: unknown[];
+  ecology: Record<string, unknown>;
+  conservation: { nationalRedList: Record<string,unknown>|null; iucnGlobal: Record<string,unknown>|null; nationalDesignations: string[] };
   taxon_identifiers: Record<string, unknown>;
   natural_history: Record<string, unknown>;
-  distribution_summary: Record<string, unknown>;
   relevant_note: string;
   field_sources: Record<string, string[]>;
   status: 'active';
@@ -143,6 +127,16 @@ const items = readdirSync(catalogDir)
   .sort()
   .flatMap((file) => JSON.parse(readFileSync(resolve(catalogDir, file), 'utf8')) as CatalogItem[]);
 
+const curatedSeed = JSON.parse(readFileSync(resolve(sourceRoot, 'data/raw/curated-plants/seed-100.json'), 'utf8')) as {
+  arboles: Array<{ nombre_cientifico: string }>;
+  otras_plantas_nativas: Array<{ nombre_cientifico: string }>;
+};
+const selectedPlants = new Set([...curatedSeed.arboles, ...curatedSeed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
+const importedPlants = items.filter((item) => item.taxonomy.kingdom === 'Plantae');
+if (selectedPlants.size !== 100 || importedPlants.length !== 100 || importedPlants.some((item) => !selectedPlants.has(item.scientificName))) {
+  throw new Error('La importación requiere exactamente las 100 plantas de raw/curated-plants/seed-100.json');
+}
+
 const grouped = new Map<string, CatalogItem[]>();
 for (const item of items) grouped.set(item.id, [...(grouped.get(item.id) ?? []), item]);
 
@@ -150,8 +144,7 @@ const legacy = new Map<string, LegacyRow>();
 if (existsSync(dbPath)) {
   const db = new DatabaseSync(dbPath, { readOnly: true });
   const rows = db.prepare(`
-    select codigo, scientific_name, accepted_name, estado_conservacion,
-      conservation_label, conservation_rank, image_url, full_url,
+    select codigo, scientific_name, accepted_name, conservation, image_url, full_url,
       image_license, image_attribution, image_source, image_page
     from species
   `).all() as unknown as LegacyRow[];
@@ -222,24 +215,14 @@ const speciesRows: ImportedSpecies[] = [...grouped].map(([slug, rows]) => {
     family: first(rows, (row) => row.taxonomy.family) ?? '',
     genus: first(rows, (row) => row.taxonomy.genus) ?? scientificName.split(' ')[0] ?? '',
     origin: first(rows, (row) => row.origin) ?? 'unknown',
-    establishment: 'uncertain',
     seasonality: first(rows, (row) => row.seasonality) ?? 'unknown',
-    presence_certainty: first(rows, (row) => row.presenceCertainty) ?? 'uncertain',
-    abundance_status: first(rows, (row) => row.abundanceStatus) ?? '',
-    conservation_system: old?.estado_conservacion ? 'Prioridad nacional/SNAP (legado)' : 'UICN',
-    conservation_category: 'NE',
-    conservation_label: old?.conservation_label ?? '',
-    conservation_source: old?.estado_conservacion ?? '',
-    conservation_rank: old?.conservation_rank ?? 0,
-    conservation_assessed_at: null,
+    abundance_status: first(rows, (row) => row.abundanceStatus),
     description: first(rows, (row) => row.description) ?? '',
-    habitat: uniqueStrings(rows.flatMap((row) => row.habitat ?? [])),
-    diet: uniqueStrings(rows.flatMap((row) => row.diet ?? [])),
-    size: first(rows, (row) => row.size) ?? '',
-    traits: first(rows, (row) => row.traits) ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+    measurements: first(rows, (row) => row.measurements) ?? [],
+    ecology: first(rows, (row) => row.ecology) ?? {},
+    conservation: old?.conservation ? JSON.parse(old.conservation) : { nationalRedList:null,iucnGlobal:null,nationalDesignations:[] },
     taxon_identifiers: first(rows, (row) => row.taxonIdentifiers) ?? {},
     natural_history: first(rows, (row) => row.naturalHistory) ?? {},
-    distribution_summary: first(rows, (row) => row.distributionSummary) ?? {},
     relevant_note: first(rows, (row) => row.relevantNote) ?? '',
     field_sources: { general: sourceReferences, ...fieldSources },
     status: 'active' as const,
@@ -267,9 +250,16 @@ const { data: membership, error: membershipError } = await client
   .eq('user_id', actor)
   .single();
 if (membershipError || !membership?.active) throw new Error('EDITORIAL_BOOTSTRAP_USER_ID must reference an active editorial member');
+const { count: existingPlantCount, error: plantCountError } = await client.from('species')
+  .select('id', { count: 'exact', head: true }).eq('kingdom', 'Plantae');
+if (plantCountError) throw plantCountError;
+// El importador es bootstrap: una nueva corrida no puede pisar las revisiones
+// editoriales de las 100 plantas ni reactivar una archivada.
+const importRows = existingPlantCount ? speciesRows.filter((row) => row.kingdom !== 'Plantae') : speciesRows;
+if (existingPlantCount) console.log(`Plantas ya existentes (${existingPlantCount}): omitidas en la importación bootstrap; usar catalog:curate-plants`);
 
 const publicFields = (row: ImportedSpecies) => {
-  const { image: _image, ...fields } = row;
+  const { image: _image, conservation: _conservation, ...fields } = row;
   return fields;
 };
 const changeFields = (row: ImportedSpecies) => {
@@ -278,7 +268,7 @@ const changeFields = (row: ImportedSpecies) => {
 };
 
 let imported = 0;
-for (const batch of chunks(speciesRows, 100)) {
+for (const batch of chunks(importRows, 100)) {
   const species = batch.map(publicFields);
   const { error: speciesError } = await client.from('species').upsert(species, { onConflict: 'id' });
   if (speciesError) throw speciesError;
@@ -331,7 +321,32 @@ for (const batch of chunks(speciesRows, 100)) {
   }
 
   imported += batch.length;
-  console.log(`Imported ${imported}/${speciesRows.length}`);
+  console.log(`Imported ${imported}/${importRows.length}`);
+}
+
+const conservationSourceCodes = [...new Set(speciesRows.flatMap((row) => [
+  row.conservation.nationalDesignations.length ? 'legacy_catalog' : null,
+  typeof row.conservation.nationalRedList?.sourceCode === 'string' ? row.conservation.nationalRedList.sourceCode : null,
+  typeof row.conservation.iucnGlobal?.sourceCode === 'string' ? row.conservation.iucnGlobal.sourceCode : null,
+]).filter((code): code is string => Boolean(code)))];
+if (conservationSourceCodes.length) {
+  const { data: conservationSources, error: conservationSourceError } = await client.from('catalog_sources').select('id,code').in('code', conservationSourceCodes);
+  if (conservationSourceError) throw conservationSourceError;
+  const ids = new Map((conservationSources ?? []).map((source) => [source.code, source.id]));
+  const assessments = speciesRows.flatMap((row) => {
+    const result: Array<Record<string, unknown>> = [];
+    if (row.conservation.nationalDesignations.length) result.push({ id:stableUuid(`conservation:${row.id}:uy_designations`),species_id:row.id,system:'uy_designations',category:null,designations:row.conservation.nationalDesignations,source_id:ids.get('legacy_catalog'),source_record_id:row.catalog_code,version_label:'pre-schema-14',is_current:true,created_by:actor,reviewed_by:actor });
+    for (const [system, assessment] of [['uy_red_list',row.conservation.nationalRedList],['iucn_global',row.conservation.iucnGlobal]] as const) {
+      if (!assessment || typeof assessment.category !== 'string' || typeof assessment.sourceCode !== 'string') continue;
+      result.push({ id:stableUuid(`conservation:${row.id}:${system}`),species_id:row.id,system,category:assessment.category,designations:[],source_id:ids.get(assessment.sourceCode),source_record_id:assessment.sourceRecordId ?? null,version_label:assessment.version ?? null,assessed_at:assessment.assessedAt ?? null,is_current:true,created_by:actor,reviewed_by:actor });
+    }
+    return result;
+  });
+  if (assessments.some((row) => !row.source_id)) throw new Error('Conservation source not registered');
+  for (const batch of chunks(assessments,200)) {
+    const { error } = await client.from('species_conservation_assessments').upsert(batch,{onConflict:'id'});
+    if (error) throw error;
+  }
 }
 
 const taxonRows: Array<Record<string, unknown>> = [];
@@ -387,15 +402,7 @@ if (!dryRun) {
     const { error } = await client.from('taxon_closure').upsert(batch,{onConflict:'ancestor_id,descendant_id'});
     if (error) throw error;
   }
-  const plantProfiles = speciesRows.filter((row)=>row.kingdom==='Plantae').map((row)=>{
-    const plant = (row.natural_history.plant ?? {}) as Record<string,unknown>;
-    const nomenclature = (plant.nomenclature ?? {}) as Record<string,unknown>;
-    return { species_id:row.id,habit:typeof plant.habit==='string'?plant.habit:null,life_form:typeof plant.lifeForm==='string'?plant.lifeForm:null,vegetation_formations:Array.isArray(plant.vegetationFormations)?plant.vegetationFormations:[],flowering_months:[],fruiting_months:[],nomenclatural_authorship:typeof nomenclature.authorship==='string'?nomenclature.authorship:null,original_publication:typeof nomenclature.publication==='string'?nomenclature.publication:null,source_ids:[] };
-  });
-  for (const batch of chunks(plantProfiles,200)) {
-    const { error } = await client.from('plant_profiles').upsert(batch,{onConflict:'species_id'});
-    if (error) throw error;
-  }
+  // El trigger de species mantiene plant_profiles sin sobrescribir fenología aprobada.
 }
 
 const { data: factSources, error: factSourcesError } = await client

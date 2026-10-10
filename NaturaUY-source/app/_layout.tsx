@@ -111,7 +111,7 @@ function LocalDataFailure({ onRetry }: { onRetry: () => void }): React.JSX.Eleme
   return (
     <View style={styles.failure}>
       <Text style={styles.failureTitle}>No pudimos abrir el catálogo</Text>
-      <Text style={styles.failureBody}>Tus datos personales siguen guardados. Probá nuevamente para restaurar la copia incluida con Natura UY.</Text>
+      <Text style={styles.failureBody}>Tus datos personales siguen guardados. Probá nuevamente para restaurar la copia incluida con Arapy.</Text>
       <Pressable onPress={onRetry} accessibilityRole="button" style={styles.failureButton}>
         <Text style={styles.failureButtonText}>Reintentar</Text>
       </Pressable>
@@ -122,7 +122,7 @@ function LocalDataFailure({ onRetry }: { onRetry: () => void }): React.JSX.Eleme
 function CatalogUpdateNotice(): null {
   const updateState = useCatalogUpdateState();
   useEffect(() => {
-    if (updateState === 'app_update_required') Alert.alert('Actualización necesaria', 'Hay un catálogo nuevo que requiere una versión más reciente de Natura UY. Mientras tanto podés seguir usando tus datos actuales.');
+    if (updateState === 'app_update_required') Alert.alert('Actualización necesaria', 'Hay un catálogo nuevo que requiere una versión más reciente de Arapy. Mientras tanto podés seguir usando tus datos actuales.');
   }, [updateState]);
   return null;
 }

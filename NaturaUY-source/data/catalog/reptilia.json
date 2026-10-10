@@ -15,17 +15,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [
-      "humedal",
-      "laguna_estero"
-    ],
-    "diet": [
-      "invertebrates",
-      "amphibians_reptiles",
-      "fish",
-      "other_plant_material"
-    ],
-    "size": "17 cm",
     "relevantNote": null,
     "media": {
       "image": {
@@ -49,6 +38,29 @@
         },
         "retrievedAt": "2026-09-11T16:10:41.927Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/288757624/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/288757624/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/166731619",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:288757624",
+          "sourceTaxonId": "39611",
+          "width": 1647,
+          "height": 1684,
+          "selectionScore": 70,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1647,
+            "resolutionHeight": 1684
+          },
+          "retrievedAt": "2026-09-11T16:10:41.927Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -111,22 +123,17 @@
         "source": "snap",
         "record": "A_spixii",
         "fieldPath": "taxonomy.genus"
+      },
+      {
+        "source": "legacy_catalog",
+        "record": "A_spixii",
+        "fieldPath": "measurements.max_length"
       }
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [
       "tortuga de canaleta"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_spixii",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -135,11 +142,40 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": {
-      "periodStart": "2016-01-01",
-      "periodEnd": "2025-12-31",
-      "occurrenceCount": 20,
-      "confidence": "insufficient_data"
+    "measurements": [
+      {
+        "kind": "max_length",
+        "value": 170,
+        "unit": "mm",
+        "basis": null,
+        "estimated": true,
+        "sourceCode": "legacy_catalog",
+        "sourceRecordId": "A_spixii",
+        "provenance": "legacy_unverified"
+      }
+    ],
+    "ecology": {
+      "habitats": [
+        "humedal",
+        "laguna_estero"
+      ],
+      "diet": [
+        "invertebrates",
+        "amphibians_reptiles",
+        "fish",
+        "other_plant_material"
+      ],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
     }
   },
   {
@@ -158,9 +194,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -184,6 +217,29 @@
         },
         "retrievedAt": "2026-09-11T16:11:30.104Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/452285895/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/452285895/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/252638044",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:452285895",
+          "sourceTaxonId": "539252",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:11:30.104Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -222,16 +278,6 @@
     "commonNames": [
       "Víbora ciega de darwin"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_darwinii",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -240,11 +286,21 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": {
-      "periodStart": "2016-01-01",
-      "periodEnd": "2025-12-31",
-      "occurrenceCount": 61,
-      "confidence": "insufficient_data"
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
     }
   },
   {
@@ -263,9 +319,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -289,6 +342,29 @@
         },
         "retrievedAt": "2026-09-11T16:11:31.577Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/698335460/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/698335460/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/381639884",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:698335460",
+          "sourceTaxonId": "31747",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:11:31.577Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -357,16 +433,6 @@
     "commonNames": [
       "víbora ciega de cabeza en cuña"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_kingii",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -375,7 +441,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "leposternon-microcephalum",
@@ -393,9 +474,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -419,6 +497,29 @@
         },
         "retrievedAt": "2026-09-11T16:11:35.259Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107834284/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/107834284/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/66834988",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:107834284",
+          "sourceTaxonId": "717897",
+          "width": 1634,
+          "height": 1405,
+          "selectionScore": 62,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1634,
+            "resolutionHeight": 1405
+          },
+          "retrievedAt": "2026-09-11T16:11:35.259Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -457,16 +558,6 @@
     "commonNames": [
       "Víbora ciega de cabeza chica"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_microcep",
     "acceptedName": "Leposternon microcephalum",
     "taxonIdentifiers": {
@@ -475,7 +566,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "amphisbaena-munoai",
@@ -493,12 +599,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -567,16 +671,6 @@
     "commonNames": [
       "víbora ciega chica"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_munoai",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -585,7 +679,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "anisolepis-undulatus",
@@ -603,12 +712,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -647,16 +754,6 @@
     "commonNames": [
       "Lagartija arborícola"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_undulatu",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -665,7 +762,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "atractus-reticulatus",
@@ -683,12 +795,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -757,16 +867,6 @@
     "commonNames": [
       "culebra reticulada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "A_reticula",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -775,7 +875,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "boiruna-maculata",
@@ -793,9 +908,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -819,6 +931,29 @@
         },
         "retrievedAt": "2026-09-11T16:14:42.801Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/207762296/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/207762296/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/122694494",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:207762296",
+          "sourceTaxonId": "95866",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:14:42.801Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -917,16 +1052,6 @@
     "commonNames": [
       "musurana"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "B_maculata",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -935,7 +1060,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "bothrops-pubescens",
@@ -953,9 +1093,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -979,6 +1116,29 @@
         },
         "retrievedAt": "2026-09-11T16:14:47.943Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447291907/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447291907/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/250138014",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:447291907",
+          "sourceTaxonId": "539421",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:14:47.943Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1017,16 +1177,6 @@
     "commonNames": [
       "Yarará"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "B_pubescen",
     "acceptedName": "Bothrops pubescens",
     "taxonIdentifiers": {
@@ -1035,7 +1185,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "bothrops-pubescens",
@@ -1053,9 +1218,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1079,6 +1241,29 @@
         },
         "retrievedAt": "2026-09-11T16:14:47.943Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447291907/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/447291907/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/250138014",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:447291907",
+          "sourceTaxonId": "539421",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:14:47.943Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1237,16 +1422,6 @@
     "commonNames": [
       "Yarará"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "B_pubescen",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1255,7 +1430,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "caiman-latirostris",
@@ -1273,9 +1463,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1299,6 +1486,29 @@
         },
         "retrievedAt": "2026-09-11T16:15:44.754Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258055887/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/258055887/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/149731836",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:258055887",
+          "sourceTaxonId": "116518",
+          "width": 2048,
+          "height": 1819,
+          "selectionScore": 73,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1819
+          },
+          "retrievedAt": "2026-09-11T16:15:44.754Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1337,16 +1547,6 @@
     "commonNames": [
       "Yacaré"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_latirost",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1355,7 +1555,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "calamodontophis-paucidens",
@@ -1373,9 +1588,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1399,6 +1611,29 @@
         },
         "retrievedAt": "2026-09-11T16:15:48.381Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172469445/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/172469445/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Pablo G. Fernández, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/30683744",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:172469445",
+          "sourceTaxonId": "27425",
+          "width": 2048,
+          "height": 1151,
+          "selectionScore": 66,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1151
+          },
+          "retrievedAt": "2026-09-11T16:15:48.381Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1437,16 +1672,6 @@
     "commonNames": [
       "Culebra jaspeada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_pauciden",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1455,7 +1680,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "caretta-caretta",
@@ -1473,9 +1713,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1499,6 +1736,29 @@
         },
         "retrievedAt": "2026-09-11T16:16:41.713Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/355064189/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/355064189/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/201169194",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:355064189",
+          "sourceTaxonId": "39665",
+          "width": 2048,
+          "height": 1152,
+          "selectionScore": 69,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1152
+          },
+          "retrievedAt": "2026-09-11T16:16:41.713Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1537,16 +1797,6 @@
     "commonNames": [
       "Tortuga falsa carey"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_caretta",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1555,7 +1805,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "cercosaura-schreibersii",
@@ -1573,9 +1838,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1599,6 +1861,29 @@
         },
         "retrievedAt": "2026-09-11T16:17:06.103Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/384939946/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/384939946/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/217586239",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:384939946",
+          "sourceTaxonId": "34763",
+          "width": 1200,
+          "height": 1600,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1200,
+            "resolutionHeight": 1600
+          },
+          "retrievedAt": "2026-09-11T16:17:06.103Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1727,16 +2012,6 @@
     "commonNames": [
       "camaleón marrón"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_schreibe",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1745,7 +2020,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "chelonia-mydas",
@@ -1763,9 +2053,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1789,6 +2076,29 @@
         },
         "retrievedAt": "2026-09-11T16:17:43.252Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175153791/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/175153791/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) alfo, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/104521630",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:175153791",
+          "sourceTaxonId": "39659",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:17:43.252Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1827,16 +2137,6 @@
     "commonNames": [
       "Tortuga verde"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_mydas",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1845,7 +2145,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "chironius-bicarinatus",
@@ -1863,9 +2178,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1889,6 +2201,29 @@
         },
         "retrievedAt": "2026-09-11T16:17:52.552Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/613504273/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613504273/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/337478058",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:613504273",
+          "sourceTaxonId": "97534",
+          "width": 1080,
+          "height": 1350,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1080,
+            "resolutionHeight": 1350
+          },
+          "retrievedAt": "2026-09-11T16:17:52.552Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -1927,16 +2262,6 @@
     "commonNames": [
       "Culebra papapintos"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_bicarina",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -1945,7 +2270,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "paraphimophis-rusticus",
@@ -1963,9 +2303,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -1989,6 +2326,29 @@
         },
         "retrievedAt": "2026-09-11T16:18:45.146Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/207762641/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/207762641/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/122694906",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:207762641",
+          "sourceTaxonId": "539045",
+          "width": 1728,
+          "height": 1296,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1728,
+            "resolutionHeight": 1296
+          },
+          "retrievedAt": "2026-09-11T16:18:45.146Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2027,16 +2387,6 @@
     "commonNames": [
       "Culebra marrón"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_rustica",
     "acceptedName": "Paraphimophis rusticus",
     "taxonIdentifiers": {
@@ -2045,7 +2395,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "contomastix-lacertoides",
@@ -2063,9 +2428,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2089,6 +2451,29 @@
         },
         "retrievedAt": "2026-09-11T16:18:46.841Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/315144504",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:569280110",
+          "sourceTaxonId": "964780",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:18:46.841Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2128,16 +2513,6 @@
       "Lagartija de cabo polonio",
       "lagartija verde de cinco dedos"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_charrua",
     "acceptedName": "Contomastix lacertoides",
     "taxonIdentifiers": {
@@ -2146,7 +2521,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "contomastix-lacertoides",
@@ -2164,9 +2554,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2190,6 +2577,29 @@
         },
         "retrievedAt": "2026-09-11T16:18:46.841Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/315144504",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:569280110",
+          "sourceTaxonId": "964780",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:18:46.841Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2229,16 +2639,6 @@
       "Lagartija de cabo polonio",
       "Lagartija verde de cinco dedos"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_charrua",
     "acceptedName": "Contomastix lacertoides",
     "taxonIdentifiers": {
@@ -2247,7 +2647,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "contomastix-lacertoides",
@@ -2265,9 +2680,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2291,6 +2703,29 @@
         },
         "retrievedAt": "2026-09-11T16:18:46.841Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/569280110/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/315144504",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:569280110",
+          "sourceTaxonId": "964780",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:18:46.841Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2329,16 +2764,6 @@
     "commonNames": [
       "Lagartija verde de cinco dedos"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_charrua",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2347,7 +2772,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "crotalus-durissus",
@@ -2365,9 +2805,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2391,6 +2828,29 @@
         },
         "retrievedAt": "2026-09-11T16:20:05.795Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/615247158/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/615247158/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Jean Martins, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/338329643",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:615247158",
+          "sourceTaxonId": "30693",
+          "width": 2048,
+          "height": 1736,
+          "selectionScore": 60,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1736
+          },
+          "retrievedAt": "2026-09-11T16:20:05.795Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2429,16 +2889,6 @@
     "commonNames": [
       "Cascabel"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "C_duris_te",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2447,7 +2897,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "dermochelys-coriacea",
@@ -2465,9 +2930,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2491,6 +2953,29 @@
         },
         "retrievedAt": "2026-09-11T16:21:49.133Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463659438/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/463659438/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Gabriel Martínez, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/258426934",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:463659438",
+          "sourceTaxonId": "39677",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:21:49.133Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2529,16 +3014,6 @@
     "commonNames": [
       "Tortuga laúd"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "D_coriacea",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2547,7 +3022,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "epictia-munoai",
@@ -2565,9 +3055,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2591,6 +3078,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:03.749Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/637689950/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/637689950/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/349562367",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:637689950",
+          "sourceTaxonId": "32480",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:23:03.749Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2719,16 +3229,6 @@
     "commonNames": [
       "viborita de dos cabezas"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "E_munoai",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2737,7 +3237,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "eretmochelys-imbricata",
@@ -2755,9 +3270,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2781,6 +3293,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:10.065Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12834553/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/12834553/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/9439926",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:12834553",
+          "sourceTaxonId": "39672",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:23:10.065Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2819,16 +3354,6 @@
     "commonNames": [
       "Tortuga carey"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "E_imbricat",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2837,7 +3362,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-almadensis",
@@ -2855,9 +3395,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2881,6 +3418,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:12.871Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/705937608/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/705937608/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Antônio Neto, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/385597683",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:705937608",
+          "sourceTaxonId": "539035",
+          "width": 2048,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:23:12.871Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -2919,16 +3479,6 @@
     "commonNames": [
       "culebra de almada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_almadens",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -2937,7 +3487,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-poecilogyrus",
@@ -2955,9 +3520,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -2981,6 +3543,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:15.440Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170937993/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/170937993/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/102280002",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:170937993",
+          "sourceTaxonId": "539693",
+          "width": 1763,
+          "height": 2048,
+          "selectionScore": 73,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1763,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:23:15.440Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3139,16 +3724,6 @@
     "commonNames": [
       "culebra de peñarol"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_poeci_su",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -3157,7 +3732,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-semiaureus",
@@ -3175,9 +3765,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -3201,6 +3788,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:17.304Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345832389/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/345832389/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/196430731",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:345832389",
+          "sourceTaxonId": "539697",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:23:17.304Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3269,16 +3879,6 @@
     "commonNames": [
       "culebra parda de agua"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_semiaure",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -3287,7 +3887,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "eunectes-notaeus",
@@ -3305,9 +3920,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -3331,6 +3943,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:36.280Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242208428/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/242208428/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/141388007",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:242208428",
+          "sourceTaxonId": "100714",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:23:36.280Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3369,16 +4004,6 @@
     "commonNames": [
       "Anaconda amarilla"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "E_notaeus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -3387,7 +4012,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "helicops-infrataeniatus",
@@ -3405,9 +4045,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -3431,6 +4068,29 @@
         },
         "retrievedAt": "2026-09-11T16:25:37.497Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453732955/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/453732955/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/253409179",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:453732955",
+          "sourceTaxonId": "102402",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:25:37.497Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3619,16 +4279,6 @@
     "commonNames": [
       "culebra de agua"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "H_infratae",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -3637,7 +4287,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "hemidactylus-mabouia",
@@ -3655,9 +4320,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -3681,6 +4343,29 @@
         },
         "retrievedAt": "2026-09-11T16:25:45.068Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/404147231/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/404147231/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/227793327",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:404147231",
+          "sourceTaxonId": "68492",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:25:45.068Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3719,16 +4404,6 @@
     "commonNames": [
       "Geko centroafricano"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "H_mabouia",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -3737,7 +4412,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "homonota-uruguayensis",
@@ -3755,9 +4445,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -3781,6 +4468,29 @@
         },
         "retrievedAt": "2026-09-11T16:26:28.016Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/485692306/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/485692306/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Martin Coronel Varela, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/270090628",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:485692306",
+          "sourceTaxonId": "34406",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:26:28.016Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -3999,16 +4709,6 @@
     "commonNames": [
       "geko de las piedras"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "Ho_uruguay",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4017,7 +4717,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "hydromedusa-tectifera",
@@ -4035,9 +4750,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4061,6 +4773,29 @@
         },
         "retrievedAt": "2026-09-11T16:26:44.360Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/99518537/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/99518537/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/62134019",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:99518537",
+          "sourceTaxonId": "39633",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:26:44.360Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -4189,16 +4924,6 @@
     "commonNames": [
       "tortuga cabeza de víbora"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "H_tectifer",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4207,7 +4932,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "lepidochelys-olivacea",
@@ -4225,9 +4965,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4251,6 +4988,29 @@
         },
         "retrievedAt": "2026-09-11T16:28:24.997Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55054178/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/55054178/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/34940013",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:55054178",
+          "sourceTaxonId": "39670",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:28:24.997Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -4289,16 +5049,6 @@
     "commonNames": [
       "Tortuga olivacea"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_olivacea",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4307,7 +5057,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "liolaemus-gardeli",
@@ -4325,12 +5090,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -4367,16 +5130,6 @@
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_garde",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4385,7 +5138,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "liolaemus-occipitalis",
@@ -4403,9 +5171,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4429,6 +5194,29 @@
         },
         "retrievedAt": "2026-09-11T16:29:22.375Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/610535751/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/610535751/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/336020312",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:610535751",
+          "sourceTaxonId": "39160",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:29:22.375Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -4465,16 +5253,6 @@
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_occipita",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4483,7 +5261,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "liolaemus-wiegmannii",
@@ -4501,9 +5294,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4527,6 +5317,29 @@
         },
         "retrievedAt": "2026-09-11T16:29:24.679Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181423633/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/181423633/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/107823621",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:181423633",
+          "sourceTaxonId": "39101",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:29:24.679Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -4835,16 +5648,6 @@
     "commonNames": [
       "lagartija de la arena"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_wiegmann",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -4853,7 +5656,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-almadensis",
@@ -4871,9 +5689,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4897,6 +5712,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:12.871Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/705937608/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/705937608/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Antônio Neto, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/385597683",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:705937608",
+          "sourceTaxonId": "539035",
+          "width": 2048,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:23:12.871Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -4935,16 +5773,6 @@
     "commonNames": [
       "culebra de almada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_almadens",
     "acceptedName": "Erythrolamprus almadensis",
     "taxonIdentifiers": {
@@ -4953,7 +5781,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-jaegeri",
@@ -4971,9 +5814,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -4997,6 +5837,29 @@
         },
         "retrievedAt": "2026-09-11T16:29:26.441Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/397760714/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/397760714/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/224431184",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:397760714",
+          "sourceTaxonId": "539033",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:29:26.441Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5035,16 +5898,6 @@
     "commonNames": [
       "Culebra verde de vientre rojo"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_jaegeri",
     "acceptedName": "Erythrolamprus jaegeri",
     "taxonIdentifiers": {
@@ -5053,7 +5906,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-poecilogyrus",
@@ -5071,9 +5939,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5097,6 +5962,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:15.440Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170937993/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/170937993/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/102280002",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:170937993",
+          "sourceTaxonId": "539693",
+          "width": 1763,
+          "height": 2048,
+          "selectionScore": 73,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1763,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:23:15.440Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5135,16 +6023,6 @@
     "commonNames": [
       "culebra de peñarol"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_poeci_su",
     "acceptedName": "Erythrolamprus poecilogyrus",
     "taxonIdentifiers": {
@@ -5153,7 +6031,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "erythrolamprus-semiaureus",
@@ -5171,9 +6064,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5197,6 +6087,29 @@
         },
         "retrievedAt": "2026-09-11T16:23:17.304Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345832389/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/345832389/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/196430731",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:345832389",
+          "sourceTaxonId": "539697",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:23:17.304Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5235,16 +6148,6 @@
     "commonNames": [
       "culebra parda de agua"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_semiaure",
     "acceptedName": "Erythrolamprus semiaureus",
     "taxonIdentifiers": {
@@ -5253,7 +6156,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "liotyphlops-ternetzii",
@@ -5271,9 +6189,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5297,6 +6212,29 @@
         },
         "retrievedAt": "2026-09-11T16:29:29.686Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/449187961/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/449187961/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Jefferson Ferreira, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/251083255",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:449187961",
+          "sourceTaxonId": "32424",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 58,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:29:29.686Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5335,16 +6273,6 @@
     "commonNames": [
       "Víbora ciega de ternetz"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_ternetzi",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -5353,7 +6281,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "lygophis-anomalus",
@@ -5371,9 +6314,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5397,6 +6337,29 @@
         },
         "retrievedAt": "2026-09-11T16:30:10.023Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337718980/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/337718980/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Gonzalo Romero, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/192388150",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:337718980",
+          "sourceTaxonId": "104905",
+          "width": 1747,
+          "height": 2048,
+          "selectionScore": 70,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1747,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:30:10.023Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5465,16 +6428,6 @@
     "commonNames": [
       "culebra de líneas amarillas"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_anomalus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -5483,7 +6436,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "lygophis-flavifrenatus",
@@ -5501,9 +6469,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5527,6 +6492,29 @@
         },
         "retrievedAt": "2026-09-11T16:30:11.425Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/618544707/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/618544707/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/339958976",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:618544707",
+          "sourceTaxonId": "29606",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:30:11.425Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5595,16 +6583,6 @@
     "commonNames": [
       "culebra listada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "L_flavifre",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -5613,7 +6591,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "aspronema-dorsivittatum",
@@ -5631,9 +6624,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5657,6 +6647,29 @@
         },
         "retrievedAt": "2026-09-11T16:30:14.960Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175878720/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/175878720/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Claudia Gil, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/104900468",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:175878720",
+          "sourceTaxonId": "539378",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:30:14.960Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5695,16 +6708,6 @@
     "commonNames": [
       "Lagartija brillante"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "M_dorsivit",
     "acceptedName": "Aspronema dorsivittatum",
     "taxonIdentifiers": {
@@ -5713,7 +6716,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "micrurus-altirostris",
@@ -5731,9 +6749,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5757,6 +6772,29 @@
         },
         "retrievedAt": "2026-09-11T16:31:16.979Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625058823/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/625058823/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/343171296",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:625058823",
+          "sourceTaxonId": "105866",
+          "width": 2000,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2000,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:31:16.979Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5795,16 +6833,6 @@
     "commonNames": [
       "Coral"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "M_altirost",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -5813,7 +6841,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "ophiodes-intermedius",
@@ -5831,9 +6874,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5857,6 +6897,29 @@
         },
         "retrievedAt": "2026-09-11T16:34:12.872Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/188107019/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/188107019/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) facundo cortondo, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/111430362",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:188107019",
+          "sourceTaxonId": "107646",
+          "width": 2048,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:34:12.872Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -5895,16 +6958,6 @@
     "commonNames": [
       "Víbora de cristal castaña"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "O_intermed",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -5913,7 +6966,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "ophiodes-striatus",
@@ -5931,9 +6999,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -5957,6 +7022,29 @@
         },
         "retrievedAt": "2026-09-11T16:34:15.240Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/171892049/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/171892049/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Adriana Machado, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/102784078",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:171892049",
+          "sourceTaxonId": "107647",
+          "width": 2048,
+          "height": 1760,
+          "selectionScore": 70,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1760
+          },
+          "retrievedAt": "2026-09-11T16:34:15.240Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6055,16 +7143,6 @@
     "commonNames": [
       "víbora de cristal verde"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "O_aff_stri",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6073,7 +7151,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "ophiodes-vertebralis",
@@ -6091,9 +7184,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6117,6 +7207,29 @@
         },
         "retrievedAt": "2026-09-11T16:34:17.132Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/534409365/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/534409365/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/296772451",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:534409365",
+          "sourceTaxonId": "31996",
+          "width": 1530,
+          "height": 2040,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1530,
+            "resolutionHeight": 2040
+          },
+          "retrievedAt": "2026-09-11T16:34:17.132Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6155,16 +7268,6 @@
     "commonNames": [
       "Víbora de cristal común"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "O_vertebra",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6173,7 +7276,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "oxyrhopus-rhombifer",
@@ -6191,9 +7309,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6217,6 +7332,29 @@
         },
         "retrievedAt": "2026-09-11T16:34:52.643Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362072370/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/362072370/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/204821159",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:362072370",
+          "sourceTaxonId": "29153",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:34:52.643Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6255,16 +7393,6 @@
     "commonNames": [
       "Falsa coral"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "O_rhomb_rh",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6273,7 +7401,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "phalotris-lemniscatus",
@@ -6291,9 +7434,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6317,6 +7457,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:20.625Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/594549388/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/594549388/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/328137493",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:594549388",
+          "sourceTaxonId": "109233",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:36:20.625Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6385,16 +7548,6 @@
     "commonNames": [
       "culebra de collar"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_lemnisca",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6403,7 +7556,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "philodryas-aestiva",
@@ -6421,9 +7589,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6447,6 +7612,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:22.799Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/713933353/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/713933353/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/389742241",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:713933353",
+          "sourceTaxonId": "146349",
+          "width": 1907,
+          "height": 1907,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1907,
+            "resolutionHeight": 1907
+          },
+          "retrievedAt": "2026-09-11T16:36:22.799Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6515,16 +7703,6 @@
     "commonNames": [
       "culebra verde esmeralda"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_aestiva",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6533,7 +7711,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "philodryas-agassizii",
@@ -6551,9 +7744,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6577,6 +7767,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:24.678Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/504550952/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/504550952/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Gabriel Martínez, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/280899057",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:504550952",
+          "sourceTaxonId": "1250059",
+          "width": 1200,
+          "height": 1600,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1200,
+            "resolutionHeight": 1600
+          },
+          "retrievedAt": "2026-09-11T16:36:24.678Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6615,16 +7828,6 @@
     "commonNames": [
       "Culebra verde listada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_agassizi",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6633,7 +7836,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "philodryas-olfersii",
@@ -6651,9 +7869,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6677,6 +7892,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:26.605Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/362382703/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/362382703/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/204983880",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:362382703",
+          "sourceTaxonId": "29105",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:36:26.605Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6745,16 +7983,6 @@
     "commonNames": [
       "culebra de olfers"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_olfer_of",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6763,7 +7991,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "philodryas-patagoniensis",
@@ -6781,9 +8024,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6807,6 +8047,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:29.143Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616426285/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/616426285/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/338916685",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:616426285",
+          "sourceTaxonId": "1250061",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:36:29.143Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -6905,16 +8168,6 @@
     "commonNames": [
       "parejera"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_patagoni",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -6923,7 +8176,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "phrynops-hilarii",
@@ -6941,9 +8209,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -6967,6 +8232,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:44.871Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/288960495/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/288960495/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/166842053",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:288960495",
+          "sourceTaxonId": "39626",
+          "width": 2048,
+          "height": 2039,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 2039
+          },
+          "retrievedAt": "2026-09-11T16:36:44.871Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7005,16 +8293,6 @@
     "commonNames": [
       "Campanita"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_hilarii",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7023,7 +8301,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "phrynops-williamsi",
@@ -7041,9 +8334,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7067,6 +8357,29 @@
         },
         "retrievedAt": "2026-09-11T16:36:46.439Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183098548/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/183098548/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/108716451",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:183098548",
+          "sourceTaxonId": "39619",
+          "width": 2000,
+          "height": 1496,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2000,
+            "resolutionHeight": 1496
+          },
+          "retrievedAt": "2026-09-11T16:36:46.439Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7105,16 +8418,6 @@
     "commonNames": [
       "Tortuga de herradura"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_williams",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7123,7 +8426,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "psomophis-obtusus",
@@ -7141,9 +8459,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7167,6 +8482,29 @@
         },
         "retrievedAt": "2026-09-11T16:39:40.688Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183040643/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/183040643/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Gonzalo Rodriguez, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/108686615",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:183040643",
+          "sourceTaxonId": "28875",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:39:40.688Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7235,16 +8573,6 @@
     "commonNames": [
       "culebra castaña de vientre rojo"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "P_obtusus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7253,7 +8581,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "bothrops-alternatus",
@@ -7271,9 +8614,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7297,6 +8637,29 @@
         },
         "retrievedAt": "2026-09-11T16:40:53.475Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/282923744/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/282923744/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/163566192",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:282923744",
+          "sourceTaxonId": "539037",
+          "width": 1200,
+          "height": 1600,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1200,
+            "resolutionHeight": 1600
+          },
+          "retrievedAt": "2026-09-11T16:40:53.475Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7335,16 +8698,6 @@
     "commonNames": [
       "Crucera"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "R_alternat",
     "acceptedName": "Bothrops alternatus",
     "taxonIdentifiers": {
@@ -7353,7 +8706,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "salvator-merianae",
@@ -7371,9 +8739,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7397,6 +8762,29 @@
         },
         "retrievedAt": "2026-09-11T16:41:44.811Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177047538/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/177047538/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/105510333",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:177047538",
+          "sourceTaxonId": "318758",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:41:44.811Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7495,16 +8883,6 @@
     "commonNames": [
       "lagarto overo"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_merianae",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7513,7 +8891,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "dipsas-turgida",
@@ -7531,9 +8924,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7557,6 +8947,29 @@
         },
         "retrievedAt": "2026-09-11T16:42:18.904Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/279871391/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/279871391/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/161893895",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:279871391",
+          "sourceTaxonId": "797653",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:42:18.904Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7595,16 +9008,6 @@
     "commonNames": [
       "Culebra duerme duerme"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "S_turgidus",
     "acceptedName": "Dipsas turgida",
     "taxonIdentifiers": {
@@ -7613,7 +9016,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "stenocercus-azureus",
@@ -7631,12 +9049,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -7675,16 +9091,6 @@
     "commonNames": [
       "Lagartija manchada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "S_azureus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7693,7 +9099,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "taeniophallus-occipitalis",
@@ -7711,12 +9132,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -7785,16 +9204,6 @@
     "commonNames": [
       "culebra de pintas"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_occipita",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7803,7 +9212,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "taeniophallus-poecilopogon",
@@ -7821,12 +9245,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -7865,16 +9287,6 @@
     "commonNames": [
       "Culebra acintada"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_poecilop",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7883,7 +9295,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "tantilla-melanocephala",
@@ -7901,9 +9328,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -7927,6 +9351,29 @@
         },
         "retrievedAt": "2026-09-11T16:44:41.140Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/475772440/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/475772440/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/264923889",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:475772440",
+          "sourceTaxonId": "28498",
+          "width": 1536,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1536,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:44:41.140Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -7965,16 +9412,6 @@
     "commonNames": [
       "Culebra roja de cabeza negra"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_melanoce",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -7983,7 +9420,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "tarentola-mauritanica",
@@ -8001,9 +9453,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -8027,6 +9476,29 @@
         },
         "retrievedAt": "2026-09-11T16:44:44.559Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467479262/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/467479262/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/260322740",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:467479262",
+          "sourceTaxonId": "33602",
+          "width": 1200,
+          "height": 1600,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 1200,
+            "resolutionHeight": 1600
+          },
+          "retrievedAt": "2026-09-11T16:44:44.559Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -8065,16 +9537,6 @@
     "commonNames": [
       "Geko de mauritania"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_mauritan",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8083,7 +9545,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "teius-oculatus",
@@ -8101,9 +9578,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -8127,6 +9601,29 @@
         },
         "retrievedAt": "2026-09-11T16:44:50.813Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/598264707/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/598264707/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Agustina Medina, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/329982515",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:598264707",
+          "sourceTaxonId": "113828",
+          "width": 2048,
+          "height": 2048,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:44:50.813Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -8285,16 +9782,6 @@
     "commonNames": [
       "lagartija verde de cuatro dedos"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_oculatus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8303,7 +9790,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "thamnodynastes-hypoconia",
@@ -8321,12 +9823,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -8425,16 +9925,6 @@
     "commonNames": [
       "culebra de la arena"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_hypoconi",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8443,7 +9933,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "thamnodynastes-strigatus",
@@ -8461,12 +9966,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -8505,16 +10008,6 @@
     "commonNames": [
       "Culebra sepia"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_strigatu",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8523,7 +10016,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "tomodon-dorsatus",
@@ -8541,9 +10049,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -8567,6 +10072,29 @@
         },
         "retrievedAt": "2026-09-11T16:45:37.907Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/338695162/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/338695162/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Ryan Wanfredo Almeida, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/192876575",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:338695162",
+          "sourceTaxonId": "28304",
+          "width": 1600,
+          "height": 1200,
+          "selectionScore": 58,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1600,
+            "resolutionHeight": 1200
+          },
+          "retrievedAt": "2026-09-11T16:45:37.907Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -8603,16 +10131,6 @@
     ],
     "reviewStatus": "unreviewed",
     "commonNames": [],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_dorsatus",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8621,7 +10139,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "tomodon-ocellatus",
@@ -8639,12 +10172,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -8683,16 +10214,6 @@
     "commonNames": [
       "Falsa crucera"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_ocellatu",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8701,7 +10222,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "trachemys-dorbigni",
@@ -8719,9 +10255,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -8745,6 +10278,29 @@
         },
         "retrievedAt": "2026-09-11T16:45:50.406Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/246629733/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/246629733/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/143771979",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:246629733",
+          "sourceTaxonId": "39797",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:45:50.406Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -8873,16 +10429,6 @@
     "commonNames": [
       "morrocoyo"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_dorbigny",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -8891,7 +10437,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "trachemys-dorbigni",
@@ -8909,9 +10470,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -8935,6 +10493,29 @@
         },
         "retrievedAt": "2026-09-11T16:45:50.406Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/246629733/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/246629733/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/143771979",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:246629733",
+          "sourceTaxonId": "39797",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:45:50.406Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -8973,16 +10554,6 @@
     "commonNames": [
       "Morrocoyo"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_dorbigny",
     "acceptedName": "Trachemys dorbigni",
     "taxonIdentifiers": {
@@ -8991,7 +10562,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "trachemys-scripta",
@@ -9009,9 +10595,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -9035,6 +10618,29 @@
         },
         "retrievedAt": "2026-09-11T16:45:53.723Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/120834277/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/120834277/large.jpg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/73968070",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:120834277",
+          "sourceTaxonId": "39782",
+          "width": 1328,
+          "height": 1148,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1328,
+            "resolutionHeight": 1148
+          },
+          "retrievedAt": "2026-09-11T16:45:53.723Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -9073,16 +10679,6 @@
     "commonNames": [
       "Tortuga de orejas rojas"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "tra_script",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -9091,7 +10687,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "tropidurus-torquatus",
@@ -9109,9 +10720,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -9135,6 +10743,29 @@
         },
         "retrievedAt": "2026-09-11T16:46:14.623Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/665199587/medium.jpg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/665199587/large.jpg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Andrii Khokhlov, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/364385616",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:665199587",
+          "sourceTaxonId": "38961",
+          "width": 1978,
+          "height": 2048,
+          "selectionScore": 61,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": false,
+            "resolutionWidth": 1978,
+            "resolutionHeight": 2048
+          },
+          "retrievedAt": "2026-09-11T16:46:14.623Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -9173,16 +10804,6 @@
     "commonNames": [
       "Camaleón de cola espinosa"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_torquatu",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -9191,7 +10812,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "salvator-merianae",
@@ -9209,9 +10845,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -9235,6 +10868,29 @@
         },
         "retrievedAt": "2026-09-11T16:41:44.811Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177047538/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/177047538/large.jpeg",
+          "license": "CC-BY-4.0",
+          "attribution": "(c) Rafael Tosi, some rights reserved (CC BY)",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/105510333",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "externalId": "inat-photo:177047538",
+          "sourceTaxonId": "318758",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 68,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:41:44.811Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -9274,16 +10930,6 @@
       "lagarto overo",
       "Lagarto"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "T_merianae",
     "acceptedName": "Salvator merianae",
     "taxonIdentifiers": {
@@ -9292,7 +10938,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "xenodon-dorbignyi",
@@ -9310,9 +10971,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -9336,6 +10994,29 @@
         },
         "retrievedAt": "2026-09-11T16:47:00.300Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/207761813/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/207761813/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/122694075",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:207761813",
+          "sourceTaxonId": "146537",
+          "width": 2048,
+          "height": 1536,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1536
+          },
+          "retrievedAt": "2026-09-11T16:47:00.300Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -9404,16 +11085,6 @@
     "commonNames": [
       "falsa crucera de hocico respingado"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "X_dorbigny",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -9422,7 +11093,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "xenodon-histricus",
@@ -9440,12 +11126,10 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": null,
+      "images": [],
       "audio": null
     },
     "sources": [
@@ -9484,16 +11168,6 @@
     "commonNames": [
       "Falsa coral de hocico respingado"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "X_histricu",
     "acceptedName": null,
     "taxonIdentifiers": {
@@ -9502,7 +11176,22 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   },
   {
     "id": "xenodon-merremii",
@@ -9520,9 +11209,6 @@
     "seasonality": null,
     "abundanceStatus": null,
     "description": null,
-    "habitat": [],
-    "diet": null,
-    "size": null,
     "relevantNote": null,
     "media": {
       "image": {
@@ -9546,6 +11232,29 @@
         },
         "retrievedAt": "2026-09-11T16:47:05.011Z"
       },
+      "images": [
+        {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376711168/medium.jpeg",
+          "fullUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/376711168/large.jpeg",
+          "license": "CC0",
+          "attribution": "no rights reserved",
+          "source": "inaturalist",
+          "sourcePage": "https://www.inaturalist.org/observations/213165116",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "externalId": "inat-photo:376711168",
+          "sourceTaxonId": "539051",
+          "width": 2048,
+          "height": 1528,
+          "selectionScore": 71,
+          "selectionDetails": {
+            "curated": false,
+            "uruguay": true,
+            "resolutionWidth": 2048,
+            "resolutionHeight": 1528
+          },
+          "retrievedAt": "2026-09-11T16:47:05.011Z"
+        }
+      ],
       "audio": null
     },
     "sources": [
@@ -9584,16 +11293,6 @@
     "commonNames": [
       "Sapera"
     ],
-    "traits": {
-      "measurements": [],
-      "lifeModes": [],
-      "activity": [],
-      "aquaticEnvironments": [],
-      "waterZones": [],
-      "depthMinM": null,
-      "depthMaxM": null,
-      "sources": []
-    },
     "catalogCode": "X_merremi",
     "acceptedName": "Xenodon merremii",
     "taxonIdentifiers": {
@@ -9602,6 +11301,21 @@
       }
     },
     "naturalHistory": null,
-    "distributionSummary": null
+    "measurements": [],
+    "ecology": {
+      "habitats": [],
+      "diet": [],
+      "lifeModes": [],
+      "activity": [],
+      "aquaticEnvironments": [],
+      "waterZones": [],
+      "depthMinM": null,
+      "depthMaxM": null,
+      "microhabitats": [],
+      "trophicRoles": [],
+      "hosts": [],
+      "plantAssociations": [],
+      "vegetationFormations": []
+    }
   }
 ]

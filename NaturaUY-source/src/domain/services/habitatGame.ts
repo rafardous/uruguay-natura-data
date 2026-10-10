@@ -37,8 +37,8 @@ export interface HabitatQuestion {
   isRetry?: boolean;
 }
 
-export function macroHabitatsFor(species: Pick<Species, 'habitat'>): MacroHabitat[] {
-  return MACRO_HABITATS.filter((group) => species.habitat.some((raw) => HABITAT_GROUPS[group].includes(raw)));
+export function macroHabitatsFor(species: Pick<Species, 'ecology'>): MacroHabitat[] {
+  return MACRO_HABITATS.filter((group) => species.ecology.habitats.some((raw) => HABITAT_GROUPS[group].includes(raw)));
 }
 
 export function habitatExplanation(groups: MacroHabitat[]): string {

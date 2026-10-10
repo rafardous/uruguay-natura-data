@@ -7,7 +7,9 @@ let failures = 0;
 for (const item of media ?? []) {
   const paths = [item.storage_path, item.type === 'image' ? item.thumbnail_path : null].filter(Boolean) as string[];
   for (const path of paths) {
-    const { error: downloadError } = await client.storage.from('media-public').download(path);
+    const guide = path.startsWith('guia-aves/');
+    const { error: downloadError } = await client.storage.from(guide ? 'guia-aves' : 'media-public')
+      .download(guide ? path.slice('guia-aves/'.length) : path);
     if (downloadError) { failures += 1; console.error(`${item.id}: ${path}: ${downloadError.message}`); }
   }
 }

@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { MotiView } from 'moti';
 import Svg, { Path } from 'react-native-svg';
 
-import type { Species } from '../../domain/entities/species';
+import { conservationLabel, conservationRank, type Species } from '../../domain/entities/species';
 import { haptics } from '../haptics';
 import { useTheme } from '../theme/ThemeProvider';
 import { Skeleton } from './Skeleton';
@@ -79,7 +79,7 @@ export const SpeciesCard = memo(function SpeciesCard({
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const threatened = species.conservation.rank >= 3;
+  const threatened = conservationRank(species.conservation) >= 3;
   // `displayName` falls back to the binomial when a species has no vernacular
   // name, and most plants don't — printing both then repeats the same words.
   const showScientific = species.scientificName !== species.displayName;
@@ -124,10 +124,10 @@ export const SpeciesCard = memo(function SpeciesCard({
               <View style={[styles.meta, { marginTop: spacing.sm }]}>
                 {threatened ? (
                   <View style={[styles.status, { borderRadius: radius.sm, backgroundColor: colors.danger }]}>
-                    <Text style={[typography.caption, styles.statusText, { color: colors.onDanger }]} numberOfLines={1}>{species.conservation.label}</Text>
+                    <Text style={[typography.caption, styles.statusText, { color: colors.onDanger }]} numberOfLines={1}>{conservationLabel(species.conservation)}</Text>
                   </View>
                 ) : (
-                  <Text style={[typography.caption, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.conservation.label}</Text>
+                  conservationLabel(species.conservation) ? <Text style={[typography.caption, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{conservationLabel(species.conservation)}</Text> : null
                 )}
                 <Text style={[typography.caption, styles.family, { color: ON_PHOTO_MUTED }]} numberOfLines={1}>{species.taxonomy.familia}</Text>
               </View>

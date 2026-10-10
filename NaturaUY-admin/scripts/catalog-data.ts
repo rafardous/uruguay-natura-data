@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { adminClient, required } from './shared';
+import { adminClient } from './shared';
 
 export type DatabaseRow = Record<string, any>;
 
@@ -13,7 +13,7 @@ export interface CatalogRecord {
   imageUrl: string | null;
   thumbnailUrl: string | null;
   audioUrl: string | null;
-  abundance: DatabaseRow | null;
+  conservationAssessments: DatabaseRow[];
   observability: DatabaseRow | null;
   gameProfile: DatabaseRow | null;
   gameRules: DatabaseRow[];
@@ -21,7 +21,7 @@ export interface CatalogRecord {
   catalogSources: DatabaseRow[];
 }
 
-const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes', 'arachnida', 'insecta', 'malacostraca'] as const;
+const CLASS_FILES = ['aves', 'mammalia', 'reptilia', 'amphibia', 'actinopterygii', 'chondrichthyes', 'arachnida', 'insecta', 'malacostraca', 'plantae'] as const;
 
 async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
   const client = adminClient();
@@ -34,8 +34,26 @@ async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
   }
 }
 
-function publicMediaUrl(path: string | null | undefined) {
-  return path ? `${required('SUPABASE_URL').replace(/\/$/, '')}/storage/v1/object/public/media-public/${path}` : null;
+export function publicMediaUrl(path: string | null | undefined) {
+  if (path?.startsWith('guia-aves/')) {
+    const projectUrl = process.env.SUPABASE_URL?.trim() || process.env.VITE_SUPABASE_URL?.trim()
+      || 'https://xbnbfekcxrkgteuijbzh.supabase.co';
+    return `${projectUrl.replace(/\/$/, '')}/storage/v1/object/public/guia-aves/${path.slice('guia-aves/'.length).split('/').map(encodeURIComponent).join('/')}`;
+  }
+  const configuredOrigin = process.env.PUBLIC_MEDIA_ORIGIN?.trim();
+  const origin = configuredOrigin
+    ? configuredOrigin.replace(/\/$/, '')
+    : 'https://uruguay-natura-data.pages.dev/m';
+  return path ? `${origin}/${path.split('/').map(encodeURIComponent).join('/')}` : null;
+}
+
+export function approvedImagesForSpecies(species: DatabaseRow, mediaRows: DatabaseRow[]) {
+  const images = mediaRows
+    .filter((row) => row.species_id === species.id && row.type === 'image' && row.status === 'approved' && row.storage_path)
+    .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
+  if (images.length > 2) throw new Error(`Más de dos fotos aprobadas para ${species.catalog_code ?? species.id}`);
+  const primary = images.find((row) => row.id === species.primary_image_id) ?? images[0] ?? null;
+  return { images, primary };
 }
 
 function resolveImageUrl(
@@ -57,8 +75,8 @@ function resolveImageUrl(
 }
 
 export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
-  const [speciesRows, mediaRows, abundanceRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources] = await Promise.all([
-    fetchAll('species'), fetchAll('species_media'), fetchAll('species_abundance_assessments'),
+  const [speciesRows, mediaRows, conservationRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources] = await Promise.all([
+    fetchAll('species'), fetchAll('species_media'), fetchAll('species_conservation_assessments'),
     fetchAll('species_observability_snapshots'), fetchAll('species_game_profiles'),
     fetchAll('species_game_rules'), fetchAll('species_facts'), fetchAll('catalog_sources'),
   ]);
@@ -69,30 +87,16 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
     .map((species) => {
 
       const assets = approved
-  .filter((asset) => asset.species_id === species.id)
-  .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
-
-const approvedImage =
-  assets.find(
-    (asset) =>
-      asset.id === species.primary_image_id
-      && asset.type === 'image',
-  )
-  ?? assets.find((asset) => asset.type === 'image')
-  ?? null;
-
-const image = approvedImage;
+        .filter((asset) => asset.species_id === species.id)
+        .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
+      const { images, primary: image } = approvedImagesForSpecies(species, assets);
 
 const audio =
   assets.find((asset) => asset.type === 'audio')
   ?? null;
 
 // Las imágenes procesadas siguen entrando en species_media.
-const images = assets
-  .filter((asset) => asset.type === 'image')
-  .slice(0, 2);
       
-      const abundance = abundanceRows.find((row) => row.species_id === species.id && row.is_current) ?? null;
       const observability = observabilityRows.filter((row) => row.species_id === species.id)
         .sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)))[0] ?? null;
       return {
@@ -102,7 +106,7 @@ const images = assets
         imageUrl: resolveImageUrl(image),
         thumbnailUrl: resolveImageUrl(image),
         audioUrl: publicMediaUrl(audio?.storage_path),
-        abundance,
+        conservationAssessments: conservationRows.filter((row) => row.species_id === species.id && row.is_current),
         observability,
         gameProfile: gameProfiles.find((row) => row.species_id === species.id) ?? null,
         gameRules: gameRules.filter((row) => row.species_id === species.id),
@@ -143,6 +147,17 @@ export function serializeCatalogRecord(record: CatalogRecord) {
   const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];
   const sourcesByCode = new Map(record.catalogSources.map((source) => [String(source.code), source]));
   const sourcesById = new Map(record.catalogSources.map((source) => [String(source.id), source]));
+  const assessmentFor = (system: 'uy_red_list' | 'iucn_global') => {
+    const assessment = record.conservationAssessments.find((item) => item.system === system);
+    if (!assessment) return null;
+    return {
+      category: assessment.category,
+      sourceCode: sourcesById.get(String(assessment.source_id))?.code ?? null,
+      sourceRecordId: assessment.source_record_id ?? null,
+      version: assessment.version_label ?? null,
+      assessedAt: assessment.assessed_at ?? null,
+    };
+  };
   const reference = (fieldPath: string, value: string) => {
     const separator = value.indexOf(': ');
     const sourceCode = separator > 0 ? value.slice(0, separator) : value;
@@ -176,7 +191,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     if (!arthropod || typeof arthropod !== 'object' || Array.isArray(arthropod)) return history;
     const sections: Array<[string, string]> = [
       ['morphology', 'naturalHistory.morphology'], ['identification', 'naturalHistory.identification'],
-      ['lifeCycle', 'naturalHistory.lifeCycle'], ['ecology', 'naturalHistory.ecology'],
+      ['lifeCycle', 'naturalHistory.lifeCycle'],
       ['humanRelevance', 'naturalHistory.humanRelevance'],
     ];
     for (const [section, fieldPath] of sections) {
@@ -197,7 +212,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
   };
   const fieldReferences = Object.entries(species.field_sources ?? {}).flatMap(([field, references]) =>
     (references as string[]).map((value) => reference(field, value)));
-  const traitReferences = ((species.traits?.sources ?? []) as string[]).map((value) => reference('traits', value));
+  const measurementReferences = ((species.measurements ?? []) as Array<Record<string, any>>).flatMap((measurement) => measurement.sourceCode ? [reference(`measurements.${measurement.kind}`, measurement.sourceRecordId ? `${measurement.sourceCode}: ${measurement.sourceRecordId}` : measurement.sourceCode)] : []);
   const factReferences = record.facts.flatMap((fact) => {
     const source = sourcesById.get(String(fact.source_id));
     const code = source?.code;
@@ -220,15 +235,8 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     },
     taxonIdentifiers: species.taxon_identifiers ?? {},
     origin: species.origin,
-    establishment: species.establishment,
     seasonality: species.seasonality,
-    presenceCertainty: species.presence_certainty,
     abundanceStatus: species.abundance_status,
-    abundance: record.abundance ? {
-      category: record.abundance.category, label: record.abundance.label,
-      geographicScope: record.abundance.geographic_scope, seasonScope: record.abundance.season_scope,
-      methodology: record.abundance.methodology, assessedAt: record.abundance.assessed_at,
-    } : null,
     observability: record.observability ? {
       methodVersion: record.observability.method_version,
       periodStart: record.observability.period_start, periodEnd: record.observability.period_end,
@@ -248,22 +256,16 @@ export function serializeCatalogRecord(record: CatalogRecord) {
       sourceRecordId: fact.source_record_id ?? null,
     })),
     conservation: {
-      system: species.conservation_system,
-      category: species.conservation_category,
-      label: species.conservation_label,
-      source: species.conservation_source,
-      rank: species.conservation_rank,
-      assessedAt: species.conservation_assessed_at,
+      nationalRedList: assessmentFor('uy_red_list'),
+      iucnGlobal: assessmentFor('iucn_global'),
+      nationalDesignations: record.conservationAssessments.find((item) => item.system === 'uy_designations')?.designations ?? [],
     },
     description: species.description,
-    habitat: species.habitat ?? [],
-    diet: species.diet ?? [],
-    size: species.size,
-    traits: species.traits ?? { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] },
+    measurements: species.measurements ?? [],
+    ecology: species.ecology ?? {},
     naturalHistory: normalizeNaturalHistory(species.natural_history ?? null),
-    distributionSummary: species.distribution_summary ?? null,
     relevantNote: species.relevant_note,
-    sources: [...fieldReferences, ...traitReferences, ...factReferences].filter((item, index, all) =>
+    sources: [...fieldReferences, ...measurementReferences, ...factReferences].filter((item, index, all) =>
       all.findIndex((candidate) => `${candidate.fieldPath}|${candidate.sourceCode}|${candidate.record}` === `${item.fieldPath}|${item.sourceCode}|${item.record}`) === index),
     media: {
       image: record.image ? {
@@ -308,7 +310,9 @@ export function writeCatalogJson(output: string, records: CatalogRecord[]) {
   const serialized = records.map(serializeCatalogRecord);
   writeFileSync(resolve(output, 'catalog-full.json'), `${JSON.stringify(serialized, null, 2)}\n`);
   for (const className of CLASS_FILES) {
-    const subset = serialized.filter((item) => item.taxonomy.class?.toLocaleLowerCase() === className);
+    const subset = serialized.filter((item) => className === 'plantae'
+      ? item.taxonomy.kingdom === 'Plantae'
+      : item.taxonomy.class?.toLocaleLowerCase() === className);
     writeFileSync(resolve(output, `${className}.json`), `${JSON.stringify(subset, null, 2)}\n`);
   }
   return serialized;

@@ -49,7 +49,7 @@ export default function ReportScreen(): React.JSX.Element {
     setBusy(true); setMessage('');
     try {
       await submitUserReport({ kind: area === 'species' ? 'review' : params.kind === 'suggestion' ? 'suggestion' : 'bug', area, catalogCode: selectedCodigo ?? undefined, description, appVersion: Constants.expoConfig?.version ?? '1.0.0' });
-      setMessage('Reporte enviado. Gracias por ayudarnos a mejorar Natura UY.');
+      setMessage('Reporte enviado. Gracias por ayudarnos a mejorar Arapy.');
       setDescription('');
       pendingDraft = null;
     } catch (reason) {

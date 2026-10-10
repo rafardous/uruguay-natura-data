@@ -78,7 +78,12 @@ interface BuiltQuery {
   params: (string | number)[];
 }
 
-function buildQuery(filters: SpeciesFilters): BuiltQuery {
+async function supportsSchema14(db: SQLiteDatabase): Promise<boolean> {
+  const row = await db.getFirstAsync<{ n:number }>("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name='ecology'");
+  return (row?.n ?? 0) === 1;
+}
+
+function buildQuery(filters: SpeciesFilters, schema14: boolean): BuiltQuery {
   const clauses: string[] = [];
   const params: (string | number)[] = [];
   let joins = '';
@@ -116,9 +121,9 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
     }
   }
   if (filters.onlyNative) clauses.push('species.nativa = 1');
-  if (filters.onlyPriority) clauses.push('species.conservation_rank >= 2');
+  if (filters.onlyPriority) clauses.push(schema14 ? "EXISTS (SELECT 1 FROM json_each(json_extract(species.conservation,'$.nationalDesignations')) WHERE value='priority')" : 'species.conservation_rank >= 2');
   if (filters.conservationRank !== undefined) {
-    clauses.push('species.conservation_rank = ?');
+    clauses.push(schema14 ? "CASE WHEN EXISTS (SELECT 1 FROM json_each(json_extract(species.conservation,'$.nationalDesignations')) WHERE value='threatened') THEN 3 WHEN EXISTS (SELECT 1 FROM json_each(json_extract(species.conservation,'$.nationalDesignations')) WHERE value='priority') THEN 2 ELSE 0 END = ?" : 'species.conservation_rank = ?');
     params.push(filters.conservationRank);
   }
   if (filters.taxonId) {
@@ -139,23 +144,17 @@ function buildQuery(filters: SpeciesFilters): BuiltQuery {
     clauses.push(`json_extract(species.natural_history, '$.arthropod.lifeCycle.metamorphosis') IN (${filters.metamorphoses.map(() => '?').join(',')})`);
     params.push(...filters.metamorphoses);
   }
-  const addNaturalHistoryArray = (path: string, values?: string[]): void => {
+  const addEcologyArray = (path: string, legacyColumn: string, values?: string[]): void => {
     if (!values?.length) return;
-    clauses.push(`json_valid(species.natural_history) AND EXISTS (SELECT 1 FROM json_each(json_extract(species.natural_history, '${path}')) WHERE json_each.value IN (${values.map(() => '?').join(',')}))`);
+    clauses.push(schema14
+      ? `json_valid(species.ecology) AND EXISTS (SELECT 1 FROM json_each(json_extract(species.ecology, '${path}')) WHERE json_each.value IN (${values.map(() => '?').join(',')}))`
+      : `json_valid(${legacyColumn}) AND EXISTS (SELECT 1 FROM json_each(${legacyColumn}) WHERE json_each.value IN (${values.map(() => '?').join(',')}))`);
     params.push(...values);
   };
-  addNaturalHistoryArray('$.arthropod.ecology.trophicRole', filters.trophicRoles);
-  addNaturalHistoryArray('$.arthropod.ecology.microhabitat', filters.microhabitats);
-
-  const addJsonAny = (column: 'habitat' | 'diet', values?: string[]): void => {
-    if (!values?.length) return;
-    clauses.push(`json_valid(species.${column}) AND EXISTS (
-      SELECT 1 FROM json_each(species.${column}) WHERE json_each.value IN (${values.map(() => '?').join(',')})
-    )`);
-    params.push(...values);
-  };
-  addJsonAny('habitat', filters.habitats);
-  addJsonAny('diet', filters.diets);
+  addEcologyArray('$.trophicRoles', "json_extract(species.natural_history,'$.arthropod.ecology.trophicRole')", filters.trophicRoles);
+  addEcologyArray('$.microhabitats', "json_extract(species.natural_history,'$.arthropod.ecology.microhabitat')", filters.microhabitats);
+  addEcologyArray('$.habitats', 'species.habitat', filters.habitats);
+  addEcologyArray('$.diet', 'species.diet', filters.diets);
 
   return {
     joins,
@@ -208,7 +207,7 @@ export const speciesRepository = {
     limit: number,
     offset: number,
   ): Promise<Page<Species>> {
-    const { where, joins, params } = buildQuery(filters);
+    const { where, joins, params } = buildQuery(filters, await supportsSchema14(db));
 
     // Fetch one extra row to learn whether another page exists, which avoids a
     // second COUNT query on every scroll.
@@ -224,7 +223,7 @@ export const speciesRepository = {
   },
 
   async count(db: SQLiteDatabase, filters: SpeciesFilters): Promise<number> {
-    const { where, joins, params } = buildQuery(filters);
+    const { where, joins, params } = buildQuery(filters, await supportsSchema14(db));
     const row = await db.getFirstAsync<{ n: number }>(
       `SELECT COUNT(*) AS n FROM species ${joins} ${where}`,
       params,
@@ -384,10 +383,11 @@ export const speciesRepository = {
 
   /** Offline pool for ¿Dónde vive?, restricted to species with a photo and habitat data. */
   async findHabitatPool(db: SQLiteDatabase, limit = 300): Promise<Species[]> {
+    const schema14 = await supportsSchema14(db);
     const rows = await db.getAllAsync<SpeciesRow>(
       `SELECT species.* FROM species
        LEFT JOIN species_game_rules rule ON rule.stable_id=species.stable_id AND rule.game_key='habitat'
-       WHERE image_url IS NOT NULL AND json_valid(habitat) AND json_array_length(habitat) > 0
+       WHERE image_url IS NOT NULL AND ${schema14 ? "json_valid(ecology) AND json_array_length(json_extract(ecology,'$.habitats')) > 0" : 'json_valid(habitat) AND json_array_length(habitat) > 0'}
          AND COALESCE(rule.enabled, 1)=1
        ORDER BY RANDOM() LIMIT ?`,
       [limit],
@@ -409,8 +409,10 @@ export const speciesRepository = {
         const rows = await db.getAllAsync<{ value: string }>(`SELECT DISTINCT ${expression} AS value FROM species WHERE ${expression} IS NOT NULL AND ${expression} <> '' ORDER BY value COLLATE NOCASE`);
         return rows.map((row) => row.value);
       }
-      const column = field === 'habitat' || field === 'diet' ? field : field === 'trophicRole' ? "json_extract(species.natural_history,'$.arthropod.ecology.trophicRole')" : "json_extract(species.natural_history,'$.arthropod.ecology.microhabitat')";
-      const rows = await db.getAllAsync<{ value: string }>(`SELECT DISTINCT json_each.value AS value FROM species, json_each(${column}) WHERE json_valid(${field === 'habitat' || field === 'diet' ? `species.${field}` : column}) AND json_each.value <> '' ORDER BY value COLLATE NOCASE`);
+      const schema14 = await supportsSchema14(db);
+      const path = field === 'habitat' ? '$.habitats' : field === 'diet' ? '$.diet' : field === 'trophicRole' ? '$.trophicRoles' : '$.microhabitats';
+      const column = schema14 ? `json_extract(species.ecology,'${path}')` : field === 'habitat' || field === 'diet' ? `species.${field}` : field === 'trophicRole' ? "json_extract(species.natural_history,'$.arthropod.ecology.trophicRole')" : "json_extract(species.natural_history,'$.arthropod.ecology.microhabitat')";
+      const rows = await db.getAllAsync<{ value: string }>(`SELECT DISTINCT json_each.value AS value FROM species, json_each(${column}) WHERE json_valid(${schema14 ? 'species.ecology' : column}) AND json_each.value <> '' ORDER BY value COLLATE NOCASE`);
       return rows.map((row) => row.value);
     } catch { return []; }
   },

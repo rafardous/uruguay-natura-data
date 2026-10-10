@@ -39,7 +39,7 @@ const ABUNDANCE_LABELS: Record<string, string> = {
   common: 'Común',
   fairly_common: 'Bastante común',
   uncommon: 'Poco común',
-  rare: 'Rara',
+  scarce: 'Escasa',
   occasional: 'Ocasional',
 };
 
@@ -67,7 +67,7 @@ const SOURCE_LABELS: Record<string, string> = {
   global_ecology_conservation: 'Global Ecology and Conservation',
   udelar_colibri: 'Colibrí — Universidad de la República',
   animal_diversity_web: 'Animal Diversity Web',
-  natura_uy_editorial: 'Síntesis editorial Natura UY',
+  natura_uy_editorial: 'Síntesis editorial Arapy',
   uruguay_species_database: 'Base de especies de Uruguay',
   wikimedia: 'Wikimedia Commons',
   world_flora_online: 'World Flora Online',

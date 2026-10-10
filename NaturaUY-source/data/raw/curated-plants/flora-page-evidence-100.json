@@ -1,0 +1,907 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-23",
+  "source": "flora_uruguaya",
+  "records": [
+    {
+      "scientificName": "Erythrina crista-galli",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/erythrina-crista-galli",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Phytolacca dioica",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/phytolacca-dioica",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Butia odorata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/butia-odorata",
+      "originLabel": "Endémica regional",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Butia yatay",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/butia-yatay",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Syagrus romanzoffiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/syagrus-romanzoffiana",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Scutia buxifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/scutia-buxifolia",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Celtis tala",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/celtis-tala",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Vachellia caven",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/vachellia-caven",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Neltuma affinis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/neltuma-affinis",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Blepharocalyx salicifolius",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/blepharocalyx-salicifolius",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Feijoa sellowiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/feijoa-sellowiana",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Ocotea pulchella",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/ocotea-pulchella",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Myrcianthes pungens",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/myrcianthes-pungens",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Myrcianthes cisplatensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/myrcianthes-cisplatensis",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Schinus molle",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/schinus-molle",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Schinus lentiscifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/schinus-lentiscifolia",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Lithraea brasiliensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/lithraea-brasiliensis",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Lithraea molleoides",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/lithraea-molleoides",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Allophylus edulis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/allophylus-edulis",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Cupania vernalis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/cupania-vernalis",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Luehea divaricata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/luehea-divaricata",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Enterolobium contortisiliquum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/enterolobium-contortisiliquum",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Peltophorum dubium",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/peltophorum-dubium",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Parapiptadenia rigida",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/parapiptadenia-rigida",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Cordia americana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/cordia-americana",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Jodina rhombifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/jodina-rhombifolia",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Salix humboldtiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/salix-humboldtiana",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Terminalia australis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/terminalia-australis",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Myrrhinium atropurpureum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/myrrhinium-atropurpureum",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Myrceugenia glaucescens",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/myrceugenia-glaucescens",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Myrsine laetevirens",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/myrsine-laetevirens",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Ruprechtia laxiflora",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/ruprechtia-laxiflora",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Labatia salicifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/labatia-salicifolia",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Sapium glandulosum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/sapium-glandulosum",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Quillaja lancifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/quillaja-lancifolia",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Citharexylum montevidense",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/citharexylum-montevidense",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Vitex megapotamica",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/vitex-megapotamica",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Gleditsia amorphoides",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/gleditsia-amorphoides",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Ilex paraguariensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/ilex-paraguariensis",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Ficus luschnathiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/ficus-luschnathiana",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre y epífita, hemiepífita",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Ocotea acutifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/ocotea-acutifolia",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Solanum mauritianum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/solanum-mauritianum",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Labatia gardneriana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/labatia-gardneriana",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Prunus subcoriacea",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/prunus-subcoriacea",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Handroanthus heptaphyllus",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/handroanthus-heptaphyllus",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Croton urucurana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/croton-urucurana",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Citronella gongonha",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/citronella-gongonha",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Matayba elaeagnoides",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/matayba-elaeagnoides",
+      "originLabel": "Nativa",
+      "habit": "Árbol y arbusto",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Aspidosperma quebracho-blanco",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/aspidosperma-quebracho-blanco",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Guettarda uruguensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/guettarda-uruguensis",
+      "originLabel": "Nativa",
+      "habit": "Árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Passiflora caerulea",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/passiflora-caerulea",
+      "originLabel": "Nativa",
+      "habit": "Trepadora o apoyante leñosa y trepadora o apoyante herbácea",
+      "lifeForm": null,
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Achyrocline saturejoides",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/achyrocline-saturejoides",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Caméfita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Eugenia uniflora",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/eugenia-uniflora",
+      "originLabel": "Nativa",
+      "habit": "Arbusto y árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Baccharis trimera",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/baccharis-trimera",
+      "originLabel": "Nativa",
+      "habit": "Sufrútice",
+      "lifeForm": "Caméfita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Baccharis sagittalis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/baccharis-sagittalis",
+      "originLabel": "Nativa",
+      "habit": "Arbusto",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Baccharis salicifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/baccharis-salicifolia",
+      "originLabel": "Nativa",
+      "habit": "Arbusto",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Senecio bonariensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/senecio-bonariensis",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Senecio crassiflorus",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/senecio-crassiflorus",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Commelina erecta",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/commelina-erecta",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Petunia integrifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/petunia-integrifolia",
+      "originLabel": "Nativa",
+      "habit": "Hierba anual o bienal",
+      "lifeForm": "Terófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Petunia axillaris",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/petunia-axillaris",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Oxalis articulata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/oxalis-articulata",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Oxalis sellowiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/oxalis-sellowiana",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Verbena rigida",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/verbena-rigida",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Verbena bonariensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/verbena-bonariensis",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Glandularia selloi",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/glandularia-selloi",
+      "originLabel": "Endémica regional",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Dicliptera squarrosa",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/dicliptera-squarrosa",
+      "originLabel": "Nativa",
+      "habit": "Sufrútice",
+      "lifeForm": "Caméfita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Sphaeralcea bonariensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/sphaeralcea-bonariensis",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Richardia brasiliensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/richardia-brasiliensis",
+      "originLabel": "Nativa",
+      "habit": "Hierba anual o bienal",
+      "lifeForm": "Terófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Sisyrinchium platense",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/sisyrinchium-platense",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": null,
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Sagittaria montevidensis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/sagittaria-montevidensis",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hidrófita",
+      "habitat": "Acuática arraigada",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Pontederia cordata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/pontederia-cordata",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Canna indica",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/canna-indica",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Schizachyrium microstachyum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/schizachyrium-microstachyum",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Cortaderia selloana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/cortaderia-selloana",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Paspalum dilatatum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/paspalum-dilatatum",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Paspalum notatum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/paspalum-notatum",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": null,
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Coleataenia prionitis",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/coleataenia-prionitis",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Paspalum quadrifarium",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/paspalum-quadrifarium",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Nassella neesiana",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/nassella-neesiana",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Trifolium polymorphum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/trifolium-polymorphum",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Tillandsia aëranthos",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/tillandsia-aeranthos",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Epífita",
+      "habitat": "Epífita, hemiepífita y epilítica",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Eryngium pandanifolium",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/eryngium-pandanifolium",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Lantana camara",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/lantana-camara",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Aloysia gratissima",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/aloysia-gratissima",
+      "originLabel": "Nativa",
+      "habit": "Arbusto",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Calliandra tweediei",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/calliandra-tweediei",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Colletia paradoxa",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/colletia-paradoxa",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Senna corymbosa",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/senna-corymbosa",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Opuntia elata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/opuntia-elata",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Cereus hildmannianus",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/cereus-hildmannianus",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Typha latifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/typha-latifolia",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Acuática arraigada",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Schoenoplectus californicus",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/schoenoplectus-californicus",
+      "originLabel": "Nativa",
+      "habit": "Hierba perenne",
+      "lifeForm": "Hemicriptófita",
+      "habitat": "Acuática arraigada y terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Berberis laurina",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/berberis-laurina",
+      "originLabel": "Nativa",
+      "habit": "Arbusto",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Monteverdia ilicifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/monteverdia-ilicifolia",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Psidium cattleyanum",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/psidium-cattleyanum",
+      "originLabel": "Nativa",
+      "habit": "Arbusto y árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Calliandra parvifolia",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/calliandra-parvifolia",
+      "originLabel": null,
+      "habit": null,
+      "lifeForm": null,
+      "habitat": null,
+      "status": "needs_manual_review"
+    },
+    {
+      "scientificName": "Dodonaea viscosa",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/dodonaea-viscosa",
+      "originLabel": "Nativa",
+      "habit": "Arbusto y árbol",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Cestrum parqui",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/cestrum-parqui",
+      "originLabel": "Nativa",
+      "habit": "Sufrútice",
+      "lifeForm": "Nanofanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Dolichandra unguis-cati",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/dolichandra-unguis-cati",
+      "originLabel": "Nativa",
+      "habit": "Trepadora o apoyante leñosa",
+      "lifeForm": null,
+      "habitat": "Terrestre",
+      "status": "candidate"
+    },
+    {
+      "scientificName": "Eugenia involucrata",
+      "sourceUrl": "https://florauruguaya.org/taxonomias/eugenia-involucrata",
+      "originLabel": "Nativa",
+      "habit": "Arbusto y árbol",
+      "lifeForm": "Fanerófita",
+      "habitat": "Terrestre",
+      "status": "candidate"
+    }
+  ]
+}

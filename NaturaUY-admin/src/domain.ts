@@ -1,7 +1,8 @@
 export type Role = 'admin' | 'collaborator';
 export type Lifecycle = 'active' | 'retired';
 export type ValidationState = 'unreviewed' | 'validated' | 'needs_review';
-export type ConservationCategory = 'NE' | 'DD' | 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'EW' | 'EX';
+export type IucnCategory = 'DD' | 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'EW' | 'EX';
+export type NationalCategory = 'DD' | 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'RE';
 
 export interface Profile {
   id: string;
@@ -20,12 +21,8 @@ export interface TaxonomyPayload {
   genus: string;
 }
 
-export interface ConservationPayload {
-  system: string;
-  category: ConservationCategory;
-  source: string;
-  assessedAt: string;
-}
+export interface AssessmentPayload<T extends string> { category: T | ''; sourceCode: string; version: string; assessedAt: string }
+export interface ConservationPayload { nationalRedList: AssessmentPayload<NationalCategory>; iucnGlobal: AssessmentPayload<IucnCategory>; nationalDesignations: Array<'priority'|'threatened'|'snap'> }
 
 export interface TraitMeasurement {
   kind: 'body_length' | 'body_mass' | 'wing_length' | 'tail_length' | 'tarsus_length' | 'max_length';
@@ -33,17 +30,25 @@ export interface TraitMeasurement {
   unit: 'mm' | 'g';
   basis: 'TL' | 'SL' | 'FL' | 'SVL' | 'body_length' | null;
   estimated: boolean;
+  sourceCode: string;
+  sourceRecordId: string | null;
+  provenance: 'verified' | 'legacy_unverified';
 }
 
-export interface SpeciesTraitsPayload {
-  measurements: TraitMeasurement[];
+export interface SpeciesEcologyPayload {
+  habitats: string[];
+  diet: string[];
   lifeModes: string[];
   activity: string[];
   aquaticEnvironments: string[];
   waterZones: string[];
   depthMinM: number | null;
   depthMaxM: number | null;
-  sources: string[];
+  microhabitats: string[];
+  trophicRoles: string[];
+  hosts: string[];
+  plantAssociations: string[];
+  vegetationFormations: string[];
 }
 
 export interface SpeciesNaturalHistoryPayload {
@@ -52,14 +57,13 @@ export interface SpeciesNaturalHistoryPayload {
     morphology?: { bodyRegions?: string[]; exoskeleton?: string; legs?: number | null; antennae?: string; wings?: string; cheliceraePedipalps?: string; sources?: string[] };
     identification?: { diagnosticCharacters?: string[]; similarSpecies?: string[]; sources?: string[] };
     lifeCycle?: { stages?: string[]; metamorphosis?: 'none' | 'incomplete' | 'complete' | 'variable' | null; sources?: string[] };
-    ecology?: { microhabitat?: string[]; activity?: string[]; trophicRole?: string[]; hosts?: string[]; plantAssociations?: string[]; sources?: string[] };
     humanRelevance?: { vector?: boolean; pest?: boolean; venomous?: boolean; veterinaryImportance?: boolean; note?: string; sources?: string[] };
     sources?: string[];
   };
   plant?: {
     habit?: string | null;
     lifeForm?: string | null;
-    vegetationFormations?: string[];
+    heightCm?: { min: number | null; max: number | null };
     phenology?: { floweringMonths?: number[]; fruitingMonths?: number[] };
     nomenclature?: { authorship?: string | null; publication?: string | null; familyAliases?: string[] };
     sources?: string[];
@@ -72,18 +76,15 @@ export interface SpeciesPayload {
   commonNames: string[];
   taxonomy: TaxonomyPayload;
   origin: 'native' | 'introduced' | 'unknown';
-  establishment: 'established' | 'casual' | 'uncertain';
   seasonality: 'resident' | 'migratory' | 'occasional' | 'summer_visitor' | 'unknown';
-  presenceCertainty: 'confirmed' | 'probable' | 'uncertain';
-  abundanceStatus: string;
+  abundanceStatus: 'abundant' | 'common' | 'uncommon' | 'scarce' | 'occasional' | '';
   conservation: ConservationPayload;
   description: string;
-  habitat: string[];
-  diet: string[];
-  size: string;
-  traits: SpeciesTraitsPayload;
+  measurements: TraitMeasurement[];
+  ecology: SpeciesEcologyPayload;
   naturalHistory: SpeciesNaturalHistoryPayload | null;
   relevantNote: string;
+  fieldSources: Record<string, string[]>;
   sourceReferences: string[];
 }
 
@@ -230,9 +231,9 @@ export interface CollaboratorApplication {
 export const emptySpeciesPayload = (): SpeciesPayload => ({
   scientificName: '', acceptedName: '', commonNames: [],
   taxonomy: { kingdom: 'Animalia', phylum: 'Chordata', class: '', order: '', family: '', genus: '' },
-  origin: 'unknown', establishment: 'uncertain', seasonality: 'unknown', presenceCertainty: 'uncertain',
-  abundanceStatus: '', conservation: { system: 'UICN', category: 'NE', source: '', assessedAt: '' },
-  description: '', habitat: [], diet: [], size: '',
-  traits: { measurements: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, sources: [] }, naturalHistory: null,
-  relevantNote: '', sourceReferences: [],
+  origin: 'unknown', seasonality: 'unknown',
+  abundanceStatus: '', conservation: { nationalRedList: { category: '', sourceCode: '', version: '', assessedAt: '' }, iucnGlobal: { category: '', sourceCode: '', version: '', assessedAt: '' }, nationalDesignations: [] },
+  description: '', measurements: [],
+  ecology: { habitats: [], diet: [], lifeModes: [], activity: [], aquaticEnvironments: [], waterZones: [], depthMinM: null, depthMaxM: null, microhabitats: [], trophicRoles: [], hosts: [], plantAssociations: [], vegetationFormations: [] }, naturalHistory: null,
+  relevantNote: '', fieldSources: {}, sourceReferences: [],
 });

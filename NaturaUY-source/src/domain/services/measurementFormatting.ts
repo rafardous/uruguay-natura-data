@@ -1,11 +1,12 @@
 import type { SpeciesMeasurement } from '../entities/species';
+type MeasurementDisplay = Pick<SpeciesMeasurement, 'kind'|'value'|'unit'|'basis'|'estimated'>;
 
 const NUMBER = new Intl.NumberFormat('es-UY', {
   maximumFractionDigits: 2,
   minimumFractionDigits: 0,
 });
 
-export function formatMeasurement(measurement: SpeciesMeasurement): string {
+export function formatMeasurement(measurement: MeasurementDisplay): string {
   let value = measurement.value;
   let unit: 'mm' | 'cm' | 'm' | 'g' | 'kg' = measurement.unit;
 
@@ -25,7 +26,7 @@ export function formatMeasurement(measurement: SpeciesMeasurement): string {
   return `${NUMBER.format(value)} ${unit}`;
 }
 
-export function formatSpeciesMeasurement(measurement: SpeciesMeasurement): string {
+export function formatSpeciesMeasurement(measurement: MeasurementDisplay): string {
   const basis = measurement.basis && measurement.basis !== 'body_length'
     ? ` · ${measurement.basis}`
     : measurement.kind === 'max_length' && measurement.basis === null

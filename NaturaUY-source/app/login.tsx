@@ -91,13 +91,13 @@ export default function LoginScreen(): React.JSX.Element {
           </View>
 
           {session ? <>
-            <Text style={[typography.title, styles.center, { color: colors.text, marginTop: spacing.lg }]}>Tu cuenta Natura UY</Text>
+            <Text style={[typography.title, styles.center, { color: colors.text, marginTop: spacing.lg }]}>Tu cuenta Arapy</Text>
             <Text style={[typography.body, styles.center, { color: colors.textMuted, marginTop: spacing.sm }]}>Conectado como {profile?.displayName ?? session.user.email ?? 'usuario'}.</Text>
             {message ? <Text style={[typography.caption, styles.center, { color: message.startsWith('Alias guardado') ? colors.primary : colors.favorite, marginTop: spacing.md }]}>{message}</Text> : null}
 
             <View style={{ width: '100%', marginTop: spacing.xl, gap: spacing.md }}>
               <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ALIAS PÚBLICO</Text>
-              <TextInput value={alias} onChangeText={setAlias} autoCapitalize="none" autoCorrect={false} maxLength={24} placeholder="ejemplo: natura_uy" placeholderTextColor={colors.textMuted} style={[styles.input, typography.body, { color: colors.text, borderColor: colors.border, borderRadius: radius.md, backgroundColor: colors.background }]} />
+              <TextInput value={alias} onChangeText={setAlias} autoCapitalize="none" autoCorrect={false} maxLength={24} placeholder="ejemplo: arapy_uy" placeholderTextColor={colors.textMuted} style={[styles.input, typography.body, { color: colors.text, borderColor: colors.border, borderRadius: radius.md, backgroundColor: colors.background }]} />
               <Text style={[typography.caption, { color: colors.textMuted }]}>Entre 3 y 24 letras, números o guion bajo. Es lo único que verá el ranking.</Text>
               <Pressable disabled={busy || alias.length < 3} onPress={() => void saveAlias()} style={({ pressed }) => [styles.primaryButton, { backgroundColor: colors.primary, borderRadius: radius.pill, opacity: busy || alias.length < 3 ? 0.45 : pressed ? 0.85 : 1 }]}>
                 <Text style={[typography.label, { color: colors.onPrimary }]}>Guardar alias</Text>
