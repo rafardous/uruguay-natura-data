@@ -469,10 +469,10 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {hasEcology && ecology && (
               <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
+                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
-                  <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} />
-                  <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} />
+                  <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
+                  <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
                   {ecology.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Modo de vida: {ecology.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   {ecology.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Actividad: {ecology.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   <View style={{ gap: 6, marginTop: 6 }}>
@@ -547,7 +547,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             </>}
             <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />
-            <SpeciesTaxonomy items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
+            <SpeciesTaxonomy key={`taxonomy-${species.codigo}`} items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}

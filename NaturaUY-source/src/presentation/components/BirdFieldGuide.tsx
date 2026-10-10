@@ -13,7 +13,7 @@ const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SET','OCT','NOV
 const MONTH_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
 
 function GuideTags({ title, values, historical, accent, container, foreground }: { title: string; values: string[]; historical: boolean; accent: string; container: string; foreground: string }): React.JSX.Element | null {
-  return <SpeciesEcologyTags title={title} values={values} accent={accent} />;
+  return <SpeciesEcologyTags title={title} values={values} accent={accent} container={container} foreground={foreground} />;
 }
 
 export function BirdFieldGuide({ bird: suppliedBird, species, accent, container, foreground }: { bird?: BirdNaturalHistory; species: Species; accent: string; container: string; foreground: string }): React.JSX.Element {

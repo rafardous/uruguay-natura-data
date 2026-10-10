@@ -66,7 +66,9 @@ Todas las fuentes científicas, incluyendo AVONET, Azpiroz y su número de guía
 
 La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto que 4:3), foto que llena el marco sin márgenes (`cover`), swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. El visor ampliado conserva la imagen completa (`contain`). Imagen principal primero, deduplicación por identidad/URL. Puntos pequeños y flechas discretas sólo con varias fotos; sin contador numérico. Créditos más pequeños y pegados a la imagen, con acceso a derechos completos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, doble toque para alternar zoom 1×/2×, pinch y controles accesibles; transiciones suaves sin rebote; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
 
-Las tarjetas de las demás clases reutilizan el fondo `palette.container`, las esquinas `radius.lg` y la presentación compacta de las medidas del tamaño enriquecido de aves. Ecología, perfiles botánicos, historia natural y evaluaciones conservan sus contenidos con esa misma superficie de acento.
+Las tarjetas de las demás clases reutilizan el fondo `palette.container`, las esquinas `radius.lg` y la presentación compacta de las medidas del tamaño enriquecido de aves. Perfiles botánicos, historia natural y evaluaciones conservan sus contenidos con esa misma superficie de acento. Ecología usa fondo neutro; sus etiquetas, bordes y controles llevan el acento de la especie.
+
+El recorrido taxonómico empieza plegado en el rango superior. Tocar una fila revela el rango siguiente; volver a tocarla pliega sus descendientes. Las filas tienen igual ancho y altura, con rango y nombre en una línea (`Filo: Chordata`), conexiones curvas y desplazamiento gradual. El botón lateral conserva el acceso a explorar cada grupo sin cambiar el despliegue; cambiar de especie reinicia el recorrido plegado.
 
 ## Contrato de datos y medios
 

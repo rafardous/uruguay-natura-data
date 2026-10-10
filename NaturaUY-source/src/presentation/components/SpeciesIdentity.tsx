@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import type { Species } from '../../domain/entities/species';
@@ -44,23 +44,32 @@ export function SpeciesNames({ species, accent }: { species: Species; accent: st
 
 export function SpeciesTaxonomy<Rank extends string>({ items, onNavigate, accent, container, foreground }: { items: { label: string; rank: Rank; value: string }[]; onNavigate: (rank: Rank) => void; accent: string; container: string; foreground: string }): React.JSX.Element | null {
   const { typography, colors, radius } = useTheme();
+  const [visibleCount, setVisibleCount] = useState(1);
+  const { fontScale } = useWindowDimensions();
+  const nodeHeight = Math.max(48, Math.ceil(48 * fontScale));
+  const maximumIndent = Math.max(0, items.length - 1) * 12;
   if (!items.length) return null;
   return <View style={{ marginTop: 28 }}>
     <Text accessibilityRole="header" style={[typography.label, { color: colors.text, marginBottom: 4 }]}>Su lugar en la naturaleza</Text>
-    <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 16 }]}>De lo general a lo particular · tocá un grupo para explorarlo</Text>
-    {items.map((item, index) => {
+    <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 16 }]}>Tocá cada nodo para descubrir el siguiente nivel</Text>
+    {items.slice(0, visibleCount).map((item, index) => {
       const indent = index * 12;
       const previous = (index - 1) * 12;
+      const hasChildren = index < items.length - 1;
+      const expanded = visibleCount > index + 1;
       return <View key={item.rank}>
         {index > 0 && <Svg width={indent + 32} height={26} accessible={false} style={{ pointerEvents: 'none' }}>
           <Path d={`M ${previous + 20} 0 C ${previous + 20} 14, ${indent + 20} 10, ${indent + 20} 24`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" />
           <Path d={`M ${indent + 17} 20 L ${indent + 20} 24 L ${indent + 23} 20`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" />
         </Svg>}
-        <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Ver ${item.label}: ${item.value}`} style={({ pressed }) => ({ marginLeft: indent, minHeight: 60, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: container, borderRadius: radius.lg, opacity: pressed ? 0.75 : 1 })}>
-          <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: accent }} />
-          <View style={{ flex: 1 }}><Text style={[typography.caption, { color: foreground, opacity: 0.75 }]}>{item.label}</Text><Text style={[typography.label, { color: foreground, marginTop: 2 }]}>{item.value}</Text></View>
-          <ChevronRightIcon color={accent} size={16} />
-        </Pressable>
+        <View style={{ marginLeft: indent, marginRight: maximumIndent - indent, height: nodeHeight, flexDirection: 'row', alignItems: 'center', backgroundColor: container, borderRadius: radius.lg }}>
+          <Pressable onPress={() => hasChildren ? setVisibleCount(expanded ? index + 1 : index + 2) : onNavigate(item.rank)} accessibilityRole="button" accessibilityLabel={`${item.label}: ${item.value}`} accessibilityHint={hasChildren ? `Tocá para ${expanded ? 'plegar los niveles siguientes' : `mostrar ${items[index + 1].label}`}` : 'Explorar este grupo'} accessibilityState={hasChildren ? { expanded } : undefined} style={({ pressed }) => ({ flex: 1, height: '100%', flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: 12, opacity: pressed ? 0.75 : 1 })}>
+            <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: accent }} />
+            <Text numberOfLines={1} style={[typography.label, { color: foreground, flex: 1 }]}><Text style={{ fontWeight: '400' }}>{item.label}: </Text>{item.value}</Text>
+            {hasChildren && <Text style={[typography.label, { color: accent, paddingHorizontal: 4 }]}>{expanded ? '−' : '+'}</Text>}
+          </Pressable>
+          <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Explorar ${item.label}: ${item.value}`} style={{ width: 44, height: '100%', alignItems: 'center', justifyContent: 'center' }}><ChevronRightIcon color={accent} size={16} /></Pressable>
+        </View>
       </View>;
     })}
   </View>;
