@@ -34,6 +34,8 @@ jobs:
       - name: Respaldo lógico cifrado
         run: |
           set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y postgresql-client-17
           export PATH="/usr/lib/postgresql/17/bin:$PATH"
           : "${SUPABASE_DB_URL:?Falta SUPABASE_DB_URL}"
           : "${BACKUP_ENCRYPTION_PASSWORD:?Falta BACKUP_ENCRYPTION_PASSWORD}"
