@@ -34,13 +34,10 @@ jobs:
       - name: Respaldo lógico cifrado
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
-          sudo apt-get install -y postgresql-client-17
-          export PATH="/usr/lib/postgresql/17/bin:$PATH"
           : "${SUPABASE_DB_URL:?Falta SUPABASE_DB_URL}"
           : "${BACKUP_ENCRYPTION_PASSWORD:?Falta BACKUP_ENCRYPTION_PASSWORD}"
           export PGPASSWORD="$(node -e 'process.stdout.write(decodeURIComponent(new URL(process.env.SUPABASE_DB_URL).password))')"
-          pg_dump --dbname=postgres --schema=public --schema=private --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
+          docker run --rm --network host -e PGHOST -e PGPORT -e PGUSER -e PGPASSWORD postgres:17 pg_dump --dbname=postgres --schema=public --schema=private --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
           test "$(wc -c < "editorial-$(date -u +%Y%m%d).sql.gz.enc")" -gt 1024
       - name: Conservar respaldo cifrado durante siete días
         uses: actions/upload-artifact@v4
