@@ -1,6 +1,21 @@
 [
   {
     "id": "ab843765-2e0f-52a9-ad15-62923409915d",
+    "palette": {
+      "seed": "#a78757",
+      "accentLight": "#8c6d3c",
+      "accentDark": "#b99661",
+      "containerLight": "#fcdeb6",
+      "onContainerLight": "#77592a",
+      "containerDark": "#523f22",
+      "onContainerDark": "#e7c088"
+    },
+    "photoPalette": {
+      "mediaId": "a6a72d31-0ddb-431f-8c22-ebe77d4340eb",
+      "thumbnailPath": "ab843765-2e0f-52a9-ad15-62923409915d/a6a72d31-0ddb-431f-8c22-ebe77d4340eb-480.webp",
+      "sha256": "044729cbf6a0121b88267ef8c6433556a6d05ed71e1b47c0beaf102257e83089",
+      "basis": "photo"
+    },
     "catalogCode": "A_darwinii",
     "scientificName": "Amphisbaena darwinii",
     "acceptedName": "Amphisbaena darwinii",
@@ -175,6 +190,21 @@
   },
   {
     "id": "b475310b-53b9-5d5e-a5d8-ee8a997aace1",
+    "palette": {
+      "seed": "#c05c6c",
+      "accentLight": "#b45363",
+      "accentDark": "#e67b8b",
+      "containerLight": "#ffd9dc",
+      "onContainerLight": "#9c4050",
+      "containerDark": "#59393d",
+      "onContainerDark": "#ffb2bb"
+    },
+    "photoPalette": {
+      "mediaId": "07915dc7-3fd8-43ab-8cd4-7a3c482348d7",
+      "thumbnailPath": "b475310b-53b9-5d5e-a5d8-ee8a997aace1/07915dc7-3fd8-43ab-8cd4-7a3c482348d7-480.webp",
+      "sha256": "977f46aa9fb47172b57144abba7f97c9dee53bc11650806944c3bf4bf8d98ad6",
+      "basis": "photo"
+    },
     "catalogCode": "A_kingii",
     "scientificName": "Amphisbaena kingii",
     "acceptedName": "Amphisbaena kingii",
@@ -426,6 +456,21 @@
   },
   {
     "id": "b2203ac0-7ab3-5e11-ab46-5c4dd979423a",
+    "palette": {
+      "seed": "#ad7952",
+      "accentLight": "#986742",
+      "accentDark": "#c78f67",
+      "containerLight": "#ffdcc5",
+      "onContainerLight": "#825430",
+      "containerDark": "#583c27",
+      "onContainerDark": "#f7ba8e"
+    },
+    "photoPalette": {
+      "mediaId": "457f4b32-8ecd-457d-9694-4a25a8803582",
+      "thumbnailPath": "b2203ac0-7ab3-5e11-ab46-5c4dd979423a/457f4b32-8ecd-457d-9694-4a25a8803582-480.webp",
+      "sha256": "f105a419b6f5456147697f68c3303b609d2f069a760e6e31b9d11ad87dd45d24",
+      "basis": "photo"
+    },
     "catalogCode": "A_microcep",
     "scientificName": "Amphisbaena microcephala",
     "acceptedName": "Leposternon microcephalum",
@@ -604,6 +649,21 @@
   },
   {
     "id": "280ea825-5b0d-5b28-9311-cac233bfc92a",
+    "palette": {
+      "seed": "#5d813a",
+      "accentLight": "#587c36",
+      "accentDark": "#80a65b",
+      "containerLight": "#d9e8c5",
+      "onContainerLight": "#456824",
+      "containerDark": "#3a462d",
+      "onContainerDark": "#aad382"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "A_munoai",
     "scientificName": "Amphisbaena munoai",
     "acceptedName": "Amphisbaena munoai",
@@ -821,6 +881,21 @@
   },
   {
     "id": "f6b2c3de-c324-5fc0-b36c-933a1a30393d",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "A_reticula",
     "scientificName": "Atractus reticulatus",
     "acceptedName": "Atractus reticulatus",
@@ -1041,6 +1116,21 @@
   },
   {
     "id": "e8968bd8-fd2d-5b81-8fd5-a80c3659f4be",
+    "palette": {
+      "seed": "#948141",
+      "accentLight": "#837133",
+      "accentDark": "#ae9a57",
+      "containerLight": "#f1e2b6",
+      "onContainerLight": "#6e5d21",
+      "containerDark": "#4b4222",
+      "onContainerDark": "#dcc57e"
+    },
+    "photoPalette": {
+      "mediaId": "9693d15c-02ae-47ef-b25f-e048a4fa8564",
+      "thumbnailPath": "e8968bd8-fd2d-5b81-8fd5-a80c3659f4be/9693d15c-02ae-47ef-b25f-e048a4fa8564-480.webp",
+      "sha256": "098a8953420e7bcf57aa4d072bbad4ec52db2a469f2612b7c13e97734478ae7d",
+      "basis": "photo"
+    },
     "catalogCode": "A_spixii",
     "scientificName": "Acanthochelys spixii",
     "acceptedName": "Acanthochelys spixii",
@@ -1304,6 +1394,21 @@
   },
   {
     "id": "e724affb-8b27-504b-851e-f8e25dfcc8fe",
+    "palette": {
+      "seed": "#5d813a",
+      "accentLight": "#587c36",
+      "accentDark": "#80a65b",
+      "containerLight": "#d9e8c5",
+      "onContainerLight": "#456824",
+      "containerDark": "#3a462d",
+      "onContainerDark": "#aad382"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "A_undulatu",
     "scientificName": "Anisolepis undulatus",
     "acceptedName": "Anisolepis undulatus",
@@ -1448,6 +1553,21 @@
   },
   {
     "id": "d1eafb27-e769-574e-a957-1c05068f8d74",
+    "palette": {
+      "seed": "#acbc64",
+      "accentLight": "#6a7929",
+      "accentDark": "#93a34e",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#576416",
+      "containerDark": "#404528",
+      "onContainerDark": "#becf74"
+    },
+    "photoPalette": {
+      "mediaId": "ea2d045e-8d51-4f1f-8ae0-435318379d1b",
+      "thumbnailPath": "d1eafb27-e769-574e-a957-1c05068f8d74/ea2d045e-8d51-4f1f-8ae0-435318379d1b-480.webp",
+      "sha256": "fa002a8e101cb070bfff676cc311284f089f43d6aa3e667acf75b541bfd5a567",
+      "basis": "photo"
+    },
     "catalogCode": "B_maculata",
     "scientificName": "Boiruna maculata",
     "acceptedName": "Boiruna maculata",
@@ -1780,6 +1900,21 @@
   },
   {
     "id": "ce2b8d40-6d3e-5b5a-bf52-b40120fa4547",
+    "palette": {
+      "seed": "#6d9965",
+      "accentLight": "#527c4b",
+      "accentDark": "#7aa771",
+      "containerLight": "#d4e9cb",
+      "onContainerLight": "#3f6839",
+      "containerDark": "#354731",
+      "onContainerDark": "#a4d39a"
+    },
+    "photoPalette": {
+      "mediaId": "c598ba13-560d-446a-a224-afa173ca611a",
+      "thumbnailPath": "ce2b8d40-6d3e-5b5a-bf52-b40120fa4547/c598ba13-560d-446a-a224-afa173ca611a-480.webp",
+      "sha256": "6a6688fcdd715dd0818b4b66f63c25c915160b2e0ce524eec564506df1ab8191",
+      "basis": "photo"
+    },
     "catalogCode": "B_pubescen",
     "scientificName": "Bothropoides pubescens",
     "acceptedName": "Bothrops pubescens",
@@ -2341,6 +2476,21 @@
   },
   {
     "id": "1681434f-cb94-55e8-8dc1-c66837a6faa2",
+    "palette": {
+      "seed": "#c79a0c",
+      "accentLight": "#8f6d00",
+      "accentDark": "#c19501",
+      "containerLight": "#f5e0b6",
+      "onContainerLight": "#775a00",
+      "containerDark": "#4e4122",
+      "onContainerDark": "#f1c03a"
+    },
+    "photoPalette": {
+      "mediaId": "49f4d0ad-14a4-487a-8aa6-9ec768e6bedb",
+      "thumbnailPath": "1681434f-cb94-55e8-8dc1-c66837a6faa2/49f4d0ad-14a4-487a-8aa6-9ec768e6bedb-480.webp",
+      "sha256": "44200b4c032daa0bfc4e561539e4f215476b691b8812e4206eb474bf7dc3565b",
+      "basis": "photo"
+    },
     "catalogCode": "C_bicarina",
     "scientificName": "Chironius bicarinatus",
     "acceptedName": "Chironius bicarinatus",
@@ -2519,6 +2669,21 @@
   },
   {
     "id": "7ecb50ad-4e85-5090-8d04-0b85bd91aa5d",
+    "palette": {
+      "seed": "#719cc3",
+      "accentLight": "#4b769b",
+      "accentDark": "#749fc7",
+      "containerLight": "#d2e5f9",
+      "onContainerLight": "#366286",
+      "containerDark": "#324454",
+      "onContainerDark": "#a0cbf4"
+    },
+    "photoPalette": {
+      "mediaId": "68edba01-7b6e-4f04-872f-95ff31acd35e",
+      "thumbnailPath": "7ecb50ad-4e85-5090-8d04-0b85bd91aa5d/68edba01-7b6e-4f04-872f-95ff31acd35e-480.webp",
+      "sha256": "60ee70e2d5e6bc3550a19aa859be143b1d7abe16b480ed0643cb9f8a06bcb787",
+      "basis": "photo"
+    },
     "catalogCode": "C_caretta",
     "scientificName": "Caretta caretta",
     "acceptedName": "Caretta caretta",
@@ -2696,6 +2861,21 @@
   },
   {
     "id": "4343acfd-ee07-560b-ab1e-e1d52d7d7fcf",
+    "palette": {
+      "seed": "#bc8c64",
+      "accentLight": "#956943",
+      "accentDark": "#c29168",
+      "containerLight": "#ffdcc2",
+      "onContainerLight": "#7e5531",
+      "containerDark": "#573d26",
+      "onContainerDark": "#f2bc90"
+    },
+    "photoPalette": {
+      "mediaId": "096a5933-263d-4bf7-ad62-2fc662f0389f",
+      "thumbnailPath": "4343acfd-ee07-560b-ab1e-e1d52d7d7fcf/096a5933-263d-4bf7-ad62-2fc662f0389f-480.webp",
+      "sha256": "a054da25220eeab836f8c6509bab591af88b0719977f3aad9e6038d021031b8f",
+      "basis": "photo"
+    },
     "catalogCode": "C_charrua",
     "scientificName": "Cnemidophorus charrua",
     "acceptedName": "Contomastix lacertoides",
@@ -3029,6 +3209,21 @@
   },
   {
     "id": "cd665178-a15b-5782-b739-d26b9db47690",
+    "palette": {
+      "seed": "#8c642c",
+      "accentLight": "#936a32",
+      "accentDark": "#c19356",
+      "containerLight": "#feddb7",
+      "onContainerLight": "#7d5720",
+      "containerDark": "#533e23",
+      "onContainerDark": "#f0be7d"
+    },
+    "photoPalette": {
+      "mediaId": "c6f6ac86-3f0e-45d1-beee-ded299debcb5",
+      "thumbnailPath": "cd665178-a15b-5782-b739-d26b9db47690/c6f6ac86-3f0e-45d1-beee-ded299debcb5-480.webp",
+      "sha256": "022e3b01af358d4b00896479afc886b7576809086b42af1133d2ed11a663fe2e",
+      "basis": "photo"
+    },
     "catalogCode": "C_duris_te",
     "scientificName": "Crotalus durissus",
     "acceptedName": "Crotalus durissus",
@@ -3207,6 +3402,21 @@
   },
   {
     "id": "c83c6750-46b5-549e-845b-d4718dbb4bb3",
+    "palette": {
+      "seed": "#7a847b",
+      "accentLight": "#537b60",
+      "accentDark": "#7ca588",
+      "containerLight": "#cee9d3",
+      "onContainerLight": "#40674d",
+      "containerDark": "#304737",
+      "onContainerDark": "#a6d1b1"
+    },
+    "photoPalette": {
+      "mediaId": "1f379f8b-087d-496c-a5ab-164868e8361e",
+      "thumbnailPath": "c83c6750-46b5-549e-845b-d4718dbb4bb3/1f379f8b-087d-496c-a5ab-164868e8361e-480.webp",
+      "sha256": "2a5054cecaadf7f9eedd28ff331ee16686ac5f28f19a59ed77d3ed411c7ad597",
+      "basis": "photo"
+    },
     "catalogCode": "C_latirost",
     "scientificName": "Caiman latirostris",
     "acceptedName": "Caiman latirostris",
@@ -3402,6 +3612,21 @@
   },
   {
     "id": "91549a4c-7e42-5322-8036-2fa98ad437c6",
+    "palette": {
+      "seed": "#344c84",
+      "accentLight": "#5971ab",
+      "accentDark": "#839ad7",
+      "containerLight": "#dbe2fd",
+      "onContainerLight": "#455d96",
+      "containerDark": "#3a4257",
+      "onContainerDark": "#b1c5ff"
+    },
+    "photoPalette": {
+      "mediaId": "414bb0fe-f4f9-497c-a757-05251ca89bdb",
+      "thumbnailPath": "91549a4c-7e42-5322-8036-2fa98ad437c6/414bb0fe-f4f9-497c-a757-05251ca89bdb-480.webp",
+      "sha256": "c93205b87a8becac1dc21964fa5de0693af7fce8ebf750bd52b915931900c9f4",
+      "basis": "photo"
+    },
     "catalogCode": "C_mydas",
     "scientificName": "Chelonia mydas",
     "acceptedName": "Chelonia mydas",
@@ -3580,6 +3805,21 @@
   },
   {
     "id": "8782a13f-5926-554b-bbef-d548735aefd9",
+    "palette": {
+      "seed": "#8c6c3c",
+      "accentLight": "#8d6c3c",
+      "accentDark": "#b99561",
+      "containerLight": "#fcdeb6",
+      "onContainerLight": "#77592b",
+      "containerDark": "#523f22",
+      "onContainerDark": "#e8c088"
+    },
+    "photoPalette": {
+      "mediaId": "49ffae46-bfcd-4c07-85c5-b73fdd09ea1d",
+      "thumbnailPath": "8782a13f-5926-554b-bbef-d548735aefd9/49ffae46-bfcd-4c07-85c5-b73fdd09ea1d-480.webp",
+      "sha256": "7a23def5705cb6632576b0e0d8ff866dbaf756279e6776d8d840642af8134cbe",
+      "basis": "photo"
+    },
     "catalogCode": "C_pauciden",
     "scientificName": "Calamodontophis paucidens",
     "acceptedName": "Calamodontophis paucidens",
@@ -3758,6 +3998,21 @@
   },
   {
     "id": "0ea79f26-918a-554a-902a-608483c120f2",
+    "palette": {
+      "seed": "#876b38",
+      "accentLight": "#8a6e3a",
+      "accentDark": "#b6975f",
+      "containerLight": "#f9dfb6",
+      "onContainerLight": "#755a29",
+      "containerDark": "#504022",
+      "onContainerDark": "#e5c286"
+    },
+    "photoPalette": {
+      "mediaId": "0ef9e447-9054-4311-8476-97c5a58c7a42",
+      "thumbnailPath": "0ea79f26-918a-554a-902a-608483c120f2/0ef9e447-9054-4311-8476-97c5a58c7a42-480.webp",
+      "sha256": "31bf1b9aa2c598e6c45f3f1f607da2e51de2f79583620d9c42b3fe80a4dff8b9",
+      "basis": "photo"
+    },
     "catalogCode": "C_rustica",
     "scientificName": "Clelia rustica",
     "acceptedName": "Paraphimophis rusticus",
@@ -3932,6 +4187,21 @@
   },
   {
     "id": "5f7f1d3e-53c6-50e5-887c-d47f662336f8",
+    "palette": {
+      "seed": "#94b54a",
+      "accentLight": "#5e7c14",
+      "accentDark": "#86a63d",
+      "containerLight": "#dde7c1",
+      "onContainerLight": "#4c6700",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#b0d364"
+    },
+    "photoPalette": {
+      "mediaId": "84a7ad95-3f33-4bd3-a890-8b1eaa08d188",
+      "thumbnailPath": "5f7f1d3e-53c6-50e5-887c-d47f662336f8/84a7ad95-3f33-4bd3-a890-8b1eaa08d188-480.webp",
+      "sha256": "3dcf9151276d13473762dcf2514e3125cdaaab0e76ad4e599d7adb5855f1c096",
+      "basis": "photo"
+    },
     "catalogCode": "C_schreibe",
     "scientificName": "Cercosaura schreibersii",
     "acceptedName": "Cercosaura schreibersii",
@@ -4337,6 +4607,21 @@
   },
   {
     "id": "1e50eadd-f8fe-5453-a2fb-a541f943e627",
+    "palette": {
+      "seed": "#c4a683",
+      "accentLight": "#8f6b3d",
+      "accentDark": "#bc9462",
+      "containerLight": "#feddb7",
+      "onContainerLight": "#79582c",
+      "containerDark": "#543e23",
+      "onContainerDark": "#ebbf89"
+    },
+    "photoPalette": {
+      "mediaId": "92866a61-cb84-4971-9009-d26375126046",
+      "thumbnailPath": "1e50eadd-f8fe-5453-a2fb-a541f943e627/92866a61-cb84-4971-9009-d26375126046-480.webp",
+      "sha256": "84c344c1b40136459b25377e28899616fb228db802754b01dbfc79bc03aa79ee",
+      "basis": "photo"
+    },
     "catalogCode": "D_coriacea",
     "scientificName": "Dermochelys coriacea",
     "acceptedName": "Dermochelys coriacea",
@@ -4514,6 +4799,21 @@
   },
   {
     "id": "7fb66188-1aeb-5c58-8a4c-6a33aa497b2d",
+    "palette": {
+      "seed": "#04a3d4",
+      "accentLight": "#007ba1",
+      "accentDark": "#15a7d8",
+      "containerLight": "#cde6f5",
+      "onContainerLight": "#006686",
+      "containerDark": "#2e4551",
+      "onContainerDark": "#70d2ff"
+    },
+    "photoPalette": {
+      "mediaId": "02e410fb-26ac-42de-99d6-840d7b673d47",
+      "thumbnailPath": "7fb66188-1aeb-5c58-8a4c-6a33aa497b2d/02e410fb-26ac-42de-99d6-840d7b673d47-480.webp",
+      "sha256": "dfd37a1e040d2a17479d5e14226a3fb03a1c7a2da7365852ed08fb957f963f19",
+      "basis": "photo"
+    },
     "catalogCode": "E_imbricat",
     "scientificName": "Eretmochelys imbricata",
     "acceptedName": "Eretmochelys imbricata",
@@ -4690,6 +4990,21 @@
   },
   {
     "id": "2b43f861-cc5a-59a9-9305-9321ed14b92b",
+    "palette": {
+      "seed": "#adaa48",
+      "accentLight": "#787516",
+      "accentDark": "#a29f3e",
+      "containerLight": "#e8e4ba",
+      "onContainerLight": "#636100",
+      "containerDark": "#454325",
+      "onContainerDark": "#cecb65"
+    },
+    "photoPalette": {
+      "mediaId": "adf5ff26-04ac-4d37-bdc3-2842ee1a508e",
+      "thumbnailPath": "2b43f861-cc5a-59a9-9305-9321ed14b92b/adf5ff26-04ac-4d37-bdc3-2842ee1a508e-480.webp",
+      "sha256": "92c54c1613158a025fbdec434f363e5881c7cd97523e1300feff93fa5838fc25",
+      "basis": "photo"
+    },
     "catalogCode": "E_munoai",
     "scientificName": "Epictia munoai",
     "acceptedName": "Epictia munoai",
@@ -5095,6 +5410,21 @@
   },
   {
     "id": "143142fa-4242-5cb1-8f41-3526ef9ec888",
+    "palette": {
+      "seed": "#749c38",
+      "accentLight": "#577d1b",
+      "accentDark": "#7fa842",
+      "containerLight": "#dbe7c3",
+      "onContainerLight": "#446902",
+      "containerDark": "#3b462c",
+      "onContainerDark": "#a9d469"
+    },
+    "photoPalette": {
+      "mediaId": "56bce92c-9043-49e1-9cdf-89df94fa591a",
+      "thumbnailPath": "143142fa-4242-5cb1-8f41-3526ef9ec888/56bce92c-9043-49e1-9cdf-89df94fa591a-480.webp",
+      "sha256": "2a187cc2bb93c396f8b5f547dfdd88b16f05bb9a88a24d981d871842c4b55ace",
+      "basis": "photo"
+    },
     "catalogCode": "E_notaeus",
     "scientificName": "Eunectes notaeus",
     "acceptedName": "Eunectes notaeus",
@@ -5273,6 +5603,21 @@
   },
   {
     "id": "03242434-46c1-5fb4-9e66-d074b5635477",
+    "palette": {
+      "seed": "#b47454",
+      "accentLight": "#a06344",
+      "accentDark": "#cf8b69",
+      "containerLight": "#ffdbcb",
+      "onContainerLight": "#895033",
+      "containerDark": "#5a3b2c",
+      "onContainerDark": "#ffb692"
+    },
+    "photoPalette": {
+      "mediaId": "ca67fed2-069b-443f-b2aa-34f44f8b224e",
+      "thumbnailPath": "03242434-46c1-5fb4-9e66-d074b5635477/ca67fed2-069b-443f-b2aa-34f44f8b224e-480.webp",
+      "sha256": "cacb4a794fbd0c955a7e8d7c466703179893925b26ecc84f43b94c6c4cb0fdbe",
+      "basis": "photo"
+    },
     "catalogCode": "H_infratae",
     "scientificName": "Helicops infrataeniatus",
     "acceptedName": "Helicops infrataeniatus",
@@ -5832,6 +6177,21 @@
   },
   {
     "id": "db00b6e8-bffd-5f7b-a2ba-a10aeaec4062",
+    "palette": {
+      "seed": "#858579",
+      "accentLight": "#6f7645",
+      "accentDark": "#98a06b",
+      "containerLight": "#e2e6be",
+      "onContainerLight": "#5b6233",
+      "containerDark": "#404527",
+      "onContainerDark": "#c4cb92"
+    },
+    "photoPalette": {
+      "mediaId": "4a42571c-2f15-4b11-b235-1badfd99ced4",
+      "thumbnailPath": "db00b6e8-bffd-5f7b-a2ba-a10aeaec4062/4a42571c-2f15-4b11-b235-1badfd99ced4-480.webp",
+      "sha256": "65f9e8bbaa75e5a2477ef87a9c87f903156bb2caa5431c09b578760da89a952b",
+      "basis": "photo"
+    },
     "catalogCode": "H_mabouia",
     "scientificName": "Hemidactylus mabouia",
     "acceptedName": "Hemidactylus mabouia",
@@ -6006,6 +6366,21 @@
   },
   {
     "id": "356d3669-69ab-58b2-ac73-f4ff6276eb92",
+    "palette": {
+      "seed": "#d8bc8d",
+      "accentLight": "#896e3b",
+      "accentDark": "#b69760",
+      "containerLight": "#f9dfb6",
+      "onContainerLight": "#745a2a",
+      "containerDark": "#504022",
+      "onContainerDark": "#e4c287"
+    },
+    "photoPalette": {
+      "mediaId": "f317fece-2bf2-476c-aff2-36fe19172d03",
+      "thumbnailPath": "356d3669-69ab-58b2-ac73-f4ff6276eb92/f317fece-2bf2-476c-aff2-36fe19172d03-480.webp",
+      "sha256": "0255b599f3ccccc708a26d05447a2d66f0a6ced2e73f1b3234bd00ada22bc302",
+      "basis": "photo"
+    },
     "catalogCode": "H_tectifer",
     "scientificName": "Hydromedusa tectifera",
     "acceptedName": "Hydromedusa tectifera",
@@ -6411,6 +6786,21 @@
   },
   {
     "id": "09edfa2a-cabe-5167-ac91-adde1188bd05",
+    "palette": {
+      "seed": "#ee8f40",
+      "accentLight": "#ae5d0c",
+      "accentDark": "#e18436",
+      "containerLight": "#ffdcc5",
+      "onContainerLight": "#934b00",
+      "containerDark": "#583c28",
+      "onContainerDark": "#ffb782"
+    },
+    "photoPalette": {
+      "mediaId": "92b985f5-61ef-47ba-9327-193e76ccb499",
+      "thumbnailPath": "09edfa2a-cabe-5167-ac91-adde1188bd05/92b985f5-61ef-47ba-9327-193e76ccb499-480.webp",
+      "sha256": "843fcd7653e869d748d99c8e736b5f59aae8ae70329307c24a16e9380b008c76",
+      "basis": "photo"
+    },
     "catalogCode": "Ho_uruguay",
     "scientificName": "Homonota uruguayensis",
     "acceptedName": "Homonota uruguayensis",
@@ -7050,6 +7440,21 @@
   },
   {
     "id": "2ec49be2-2e90-56cf-aa15-3e9ed2d8c6b5",
+    "palette": {
+      "seed": "#968b68",
+      "accentLight": "#80713c",
+      "accentDark": "#ab9a61",
+      "containerLight": "#f0e2b6",
+      "onContainerLight": "#6b5e2a",
+      "containerDark": "#4b4222",
+      "onContainerDark": "#d8c688"
+    },
+    "photoPalette": {
+      "mediaId": "580a2a13-dbc5-4363-9a77-4bfb299da281",
+      "thumbnailPath": "2ec49be2-2e90-56cf-aa15-3e9ed2d8c6b5/580a2a13-dbc5-4363-9a77-4bfb299da281-480.webp",
+      "sha256": "881d0c1871e4c6337233450871ac684534f6568b2e765318d55c2959d75be0f1",
+      "basis": "photo"
+    },
     "catalogCode": "L_almadens",
     "scientificName": "Erythrolamprus almadensis",
     "acceptedName": "Erythrolamprus almadensis",
@@ -7305,6 +7710,21 @@
   },
   {
     "id": "c24310bd-d4ce-5798-94d2-4a28860dea5d",
+    "palette": {
+      "seed": "#ccb494",
+      "accentLight": "#8c6d3c",
+      "accentDark": "#b99561",
+      "containerLight": "#fcdeb6",
+      "onContainerLight": "#77592a",
+      "containerDark": "#523f22",
+      "onContainerDark": "#e7c088"
+    },
+    "photoPalette": {
+      "mediaId": "7560507f-c52f-4c0e-8553-03023e376848",
+      "thumbnailPath": "c24310bd-d4ce-5798-94d2-4a28860dea5d/7560507f-c52f-4c0e-8553-03023e376848-480.webp",
+      "sha256": "b76aa4c7edb7a5767d272667e21d2f7e92d8c9bd1c80a731d1eb7d9830ce7e78",
+      "basis": "photo"
+    },
     "catalogCode": "L_anomalus",
     "scientificName": "Lygophis anomalus",
     "acceptedName": "Lygophis anomalus",
@@ -7556,6 +7976,21 @@
   },
   {
     "id": "76540a53-ffda-5979-b2f3-2ba37977da05",
+    "palette": {
+      "seed": "#b2965a",
+      "accentLight": "#886f37",
+      "accentDark": "#b4985c",
+      "containerLight": "#f6e0b6",
+      "onContainerLight": "#725b25",
+      "containerDark": "#4e4022",
+      "onContainerDark": "#e2c382"
+    },
+    "photoPalette": {
+      "mediaId": "1ef05799-2485-4060-a7de-a2fabfd8d90c",
+      "thumbnailPath": "76540a53-ffda-5979-b2f3-2ba37977da05/1ef05799-2485-4060-a7de-a2fabfd8d90c-480.webp",
+      "sha256": "3fc4cdb97d6af7a4495683180fe3b92515f3e3e4b3df6cd817bd04d6c56d5494",
+      "basis": "photo"
+    },
     "catalogCode": "L_flavifre",
     "scientificName": "Lygophis flavifrenatus",
     "acceptedName": "Lygophis flavifrenatus",
@@ -7811,6 +8246,21 @@
   },
   {
     "id": "bde092ef-4a7b-5989-84ac-b7331c406504",
+    "palette": {
+      "seed": "#a46a1a",
+      "accentLight": "#9f6615",
+      "accentDark": "#ce8e3c",
+      "containerLight": "#ffddba",
+      "onContainerLight": "#875300",
+      "containerDark": "#553e24",
+      "onContainerDark": "#ffb964"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "L_garde",
     "scientificName": "Liolaemus gardeli",
     "acceptedName": "Liolaemus gardeli",
@@ -7951,6 +8401,21 @@
   },
   {
     "id": "5ab90405-aaad-50ca-a86f-50e210d1d763",
+    "palette": {
+      "seed": "#83827b",
+      "accentLight": "#6f7645",
+      "accentDark": "#98a06a",
+      "containerLight": "#e2e6be",
+      "onContainerLight": "#5b6233",
+      "containerDark": "#404527",
+      "onContainerDark": "#c4cb92"
+    },
+    "photoPalette": {
+      "mediaId": "6ffff706-472b-4b67-94c0-d9f923c547d0",
+      "thumbnailPath": "5ab90405-aaad-50ca-a86f-50e210d1d763/6ffff706-472b-4b67-94c0-d9f923c547d0-480.webp",
+      "sha256": "6ae89fcaaa7b3b5c3ad1880b9ec4ffabbfe066bdd4734146c452839216745d01",
+      "basis": "photo"
+    },
     "catalogCode": "L_jaegeri",
     "scientificName": "Liophis jaegeri",
     "acceptedName": "Erythrolamprus jaegeri",
@@ -8125,6 +8590,21 @@
   },
   {
     "id": "fa5e4e67-d935-558b-89f0-a9649dd6f7a0",
+    "palette": {
+      "seed": "#968368",
+      "accentLight": "#8c6d3c",
+      "accentDark": "#b89661",
+      "containerLight": "#fbdeb6",
+      "onContainerLight": "#765a2a",
+      "containerDark": "#513f22",
+      "onContainerDark": "#e7c188"
+    },
+    "photoPalette": {
+      "mediaId": "31cb9230-9675-49dc-8e42-171b6c1b5dc9",
+      "thumbnailPath": "fa5e4e67-d935-558b-89f0-a9649dd6f7a0/31cb9230-9675-49dc-8e42-171b6c1b5dc9-480.webp",
+      "sha256": "00715f760c584e46c7180699325d7f85a686c3ecbcb2efaf70e1d5f0d3688a4f",
+      "basis": "photo"
+    },
     "catalogCode": "L_occipita",
     "scientificName": "Liolaemus occipitalis",
     "acceptedName": "Liolaemus occipitalis",
@@ -8303,6 +8783,21 @@
   },
   {
     "id": "2edf84a3-b44c-5658-a69a-468323bcf5a4",
+    "palette": {
+      "seed": "#b06f4e",
+      "accentLight": "#a16242",
+      "accentDark": "#d18a67",
+      "containerLight": "#ffdbcb",
+      "onContainerLight": "#8a4f31",
+      "containerDark": "#593b2c",
+      "onContainerDark": "#ffb692"
+    },
+    "photoPalette": {
+      "mediaId": "0a825d81-c71a-4008-bd11-e2397a8b2e20",
+      "thumbnailPath": "2edf84a3-b44c-5658-a69a-468323bcf5a4/0a825d81-c71a-4008-bd11-e2397a8b2e20-480.webp",
+      "sha256": "4f37b09a61ab4de54e3a599d5e61ff1773b768c0d34af346e602294d04aad65d",
+      "basis": "photo"
+    },
     "catalogCode": "L_olivacea",
     "scientificName": "Lepidochelys olivacea",
     "acceptedName": "Lepidochelys olivacea",
@@ -8480,6 +8975,21 @@
   },
   {
     "id": "c86075a5-c158-5178-9cf9-db3d4209c3bc",
+    "palette": {
+      "seed": "#777a87",
+      "accentLight": "#657195",
+      "accentDark": "#8e9ac1",
+      "containerLight": "#dbe2fd",
+      "onContainerLight": "#515e81",
+      "containerDark": "#3a4257",
+      "onContainerDark": "#b9c6ee"
+    },
+    "photoPalette": {
+      "mediaId": "35b46182-1d2e-47c4-9510-68bebff70ead",
+      "thumbnailPath": "c86075a5-c158-5178-9cf9-db3d4209c3bc/35b46182-1d2e-47c4-9510-68bebff70ead-480.webp",
+      "sha256": "3a2e8ee4dfab5d02449653c48d4f58dbeafaac6925a0f9c4d99272001592f585",
+      "basis": "photo"
+    },
     "catalogCode": "L_poeci_su",
     "scientificName": "Erythrolamprus poecilogyrus",
     "acceptedName": "Erythrolamprus poecilogyrus",
@@ -9039,6 +9549,21 @@
   },
   {
     "id": "b20cd995-fa9c-5a1e-88be-2e0ca2627523",
+    "palette": {
+      "seed": "#a0915e",
+      "accentLight": "#80713c",
+      "accentDark": "#ab9a61",
+      "containerLight": "#f0e2b6",
+      "onContainerLight": "#6b5e2a",
+      "containerDark": "#4b4222",
+      "onContainerDark": "#d8c688"
+    },
+    "photoPalette": {
+      "mediaId": "af1f9739-5607-4fd1-a939-8e06d3e87372",
+      "thumbnailPath": "b20cd995-fa9c-5a1e-88be-2e0ca2627523/af1f9739-5607-4fd1-a939-8e06d3e87372-480.webp",
+      "sha256": "00d5277f4e149ef775c4a157e6b105d29942ee34dee3e2d88cb4635c73773cae",
+      "basis": "photo"
+    },
     "catalogCode": "L_semiaure",
     "scientificName": "Erythrolamprus semiaureus",
     "acceptedName": "Erythrolamprus semiaureus",
@@ -9367,6 +9892,21 @@
   },
   {
     "id": "60eeb15b-650e-5a90-b5e0-10e0b9db397a",
+    "palette": {
+      "seed": "#cc5c44",
+      "accentLight": "#bc5039",
+      "accentDark": "#f1785e",
+      "containerLight": "#ffdad3",
+      "onContainerLight": "#a23d28",
+      "containerDark": "#5a3a33",
+      "onContainerDark": "#ffb4a4"
+    },
+    "photoPalette": {
+      "mediaId": "c655e178-dc83-466d-bc08-026bbd6c3687",
+      "thumbnailPath": "60eeb15b-650e-5a90-b5e0-10e0b9db397a/c655e178-dc83-466d-bc08-026bbd6c3687-480.webp",
+      "sha256": "9fa942e2fe7bb2905504e8801f07ac26e471608dc963be7be8ba556a4cf81d34",
+      "basis": "photo"
+    },
     "catalogCode": "L_ternetzi",
     "scientificName": "Liotyphlops ternetzii",
     "acceptedName": "Liotyphlops ternetzii",
@@ -9545,6 +10085,21 @@
   },
   {
     "id": "0c9e77e0-1c51-5c30-adf9-b29ea7647781",
+    "palette": {
+      "seed": "#aa8154",
+      "accentLight": "#916a3f",
+      "accentDark": "#bf9364",
+      "containerLight": "#ffddbb",
+      "onContainerLight": "#7b572d",
+      "containerDark": "#553e24",
+      "onContainerDark": "#eebe8b"
+    },
+    "photoPalette": {
+      "mediaId": "aad191a1-c872-4538-8325-c61ea18a37b4",
+      "thumbnailPath": "0c9e77e0-1c51-5c30-adf9-b29ea7647781/aad191a1-c872-4538-8325-c61ea18a37b4-480.webp",
+      "sha256": "b12c40f1ab6415768ee7b02cebc90d53f014c5deded4791af4a5c9d9f51d227d",
+      "basis": "photo"
+    },
     "catalogCode": "L_wiegmann",
     "scientificName": "Liolaemus wiegmannii",
     "acceptedName": "Liolaemus wiegmannii",
@@ -10416,6 +10971,21 @@
   },
   {
     "id": "c57f5472-78dc-5134-8bc6-1fe107d37a01",
+    "palette": {
+      "seed": "#7fbd4c",
+      "accentLight": "#478013",
+      "accentDark": "#6eab3c",
+      "containerLight": "#d8e8c6",
+      "onContainerLight": "#366b00",
+      "containerDark": "#39462d",
+      "onContainerDark": "#98d863"
+    },
+    "photoPalette": {
+      "mediaId": "837f4a68-75e8-421e-91b0-d08304767af2",
+      "thumbnailPath": "c57f5472-78dc-5134-8bc6-1fe107d37a01/837f4a68-75e8-421e-91b0-d08304767af2-480.webp",
+      "sha256": "4060cc3b63fc70985a611acfd17f9f83aa81597ca4417ff3447e959fe8267c34",
+      "basis": "photo"
+    },
     "catalogCode": "M_altirost",
     "scientificName": "Micrurus altirostris",
     "acceptedName": "Micrurus altirostris",
@@ -10593,6 +11163,21 @@
   },
   {
     "id": "2a6a881a-8d13-528d-a289-f7b2a44edcda",
+    "palette": {
+      "seed": "#d4b478",
+      "accentLight": "#896e39",
+      "accentDark": "#b5975e",
+      "containerLight": "#f8dfb6",
+      "onContainerLight": "#735b28",
+      "containerDark": "#4f4022",
+      "onContainerDark": "#e3c285"
+    },
+    "photoPalette": {
+      "mediaId": "beedffd0-31a7-4d72-8248-2bedb052c326",
+      "thumbnailPath": "2a6a881a-8d13-528d-a289-f7b2a44edcda/beedffd0-31a7-4d72-8248-2bedb052c326-480.webp",
+      "sha256": "d4af1987ce7bb9ef75e315cbcce47c55d0e1816e8448353ee2fd3419f1308e05",
+      "basis": "photo"
+    },
     "catalogCode": "M_dorsivit",
     "scientificName": "Mabuya dorsivittata",
     "acceptedName": "Aspronema dorsivittatum",
@@ -10767,6 +11352,21 @@
   },
   {
     "id": "b7b01fe3-b5eb-5411-a69e-132cee04728a",
+    "palette": {
+      "seed": "#d4cc80",
+      "accentLight": "#7a7432",
+      "accentDark": "#a49d56",
+      "containerLight": "#eae4b9",
+      "onContainerLight": "#666020",
+      "containerDark": "#464324",
+      "onContainerDark": "#d1c97d"
+    },
+    "photoPalette": {
+      "mediaId": "b029c7e0-cd1a-4d0d-bcce-aae79829b7db",
+      "thumbnailPath": "b7b01fe3-b5eb-5411-a69e-132cee04728a/b029c7e0-cd1a-4d0d-bcce-aae79829b7db-480.webp",
+      "sha256": "3dcc985e8a5c7916756694bcded4a32b9b5d4219ec69703a0a6cf41e71052b94",
+      "basis": "photo"
+    },
     "catalogCode": "O_aff_stri",
     "scientificName": "Ophiodes striatus",
     "acceptedName": "Ophiodes striatus",
@@ -11095,6 +11695,21 @@
   },
   {
     "id": "00ec8a97-aca7-5469-8118-505b7ac7b42a",
+    "palette": {
+      "seed": "#b95145",
+      "accentLight": "#ba5245",
+      "accentDark": "#ed796b",
+      "containerLight": "#ffdad5",
+      "onContainerLight": "#a03f34",
+      "containerDark": "#5a3a35",
+      "onContainerDark": "#ffb4a9"
+    },
+    "photoPalette": {
+      "mediaId": "c4fd5609-99a7-432c-8ef5-3c0e927e7890",
+      "thumbnailPath": "00ec8a97-aca7-5469-8118-505b7ac7b42a/c4fd5609-99a7-432c-8ef5-3c0e927e7890-480.webp",
+      "sha256": "a9f899921739c82a2447b86d2c8416f745b384d69e23a140200d1aaa0715c759",
+      "basis": "photo"
+    },
     "catalogCode": "O_intermed",
     "scientificName": "Ophiodes intermedius",
     "acceptedName": "Ophiodes intermedius",
@@ -11272,6 +11887,21 @@
   },
   {
     "id": "0c58f863-4638-5c36-b010-8097683fd333",
+    "palette": {
+      "seed": "#b4542c",
+      "accentLight": "#b6562e",
+      "accentDark": "#ea7d52",
+      "containerLight": "#ffdbce",
+      "onContainerLight": "#9d431c",
+      "containerDark": "#5a3b2f",
+      "onContainerDark": "#ffb59a"
+    },
+    "photoPalette": {
+      "mediaId": "4dec4e95-6614-403a-88be-4f105b105e70",
+      "thumbnailPath": "0c58f863-4638-5c36-b010-8097683fd333/4dec4e95-6614-403a-88be-4f105b105e70-480.webp",
+      "sha256": "a4a97c5abeeef12d12c912ff1b5574e0db2166becd4f2377fd05d062d3e29823",
+      "basis": "photo"
+    },
     "catalogCode": "O_rhomb_rh",
     "scientificName": "Oxyrhopus rhombifer",
     "acceptedName": "Oxyrhopus rhombifer",
@@ -11446,6 +12076,21 @@
   },
   {
     "id": "68ba89a0-249b-5721-9ff8-03938e6e3091",
+    "palette": {
+      "seed": "#8f806f",
+      "accentLight": "#8e6c3d",
+      "accentDark": "#bb9462",
+      "containerLight": "#feddb7",
+      "onContainerLight": "#79582b",
+      "containerDark": "#533e23",
+      "onContainerDark": "#eabf89"
+    },
+    "photoPalette": {
+      "mediaId": "46c1d5a4-843a-4032-ab81-a1a2aa2c5327",
+      "thumbnailPath": "68ba89a0-249b-5721-9ff8-03938e6e3091/46c1d5a4-843a-4032-ab81-a1a2aa2c5327-480.webp",
+      "sha256": "8e88d3d9d06259bdd49c4342f1e5092d3c88dfb5592581737f502ff03e8826f6",
+      "basis": "photo"
+    },
     "catalogCode": "O_vertebra",
     "scientificName": "Ophiodes vertebralis",
     "acceptedName": "Ophiodes vertebralis",
@@ -11620,6 +12265,21 @@
   },
   {
     "id": "eaf09cea-54ba-5624-bb52-4bc9743ecaa9",
+    "palette": {
+      "seed": "#9c8562",
+      "accentLight": "#8b6d3c",
+      "accentDark": "#b89660",
+      "containerLight": "#fbdeb6",
+      "onContainerLight": "#765a2a",
+      "containerDark": "#513f22",
+      "onContainerDark": "#e6c187"
+    },
+    "photoPalette": {
+      "mediaId": "c6c188f4-3f3a-4ffd-a902-20c7cdeea1c2",
+      "thumbnailPath": "eaf09cea-54ba-5624-bb52-4bc9743ecaa9/c6c188f4-3f3a-4ffd-a902-20c7cdeea1c2-480.webp",
+      "sha256": "852bcc05838e8686e18d68396af7536bfa21b45717670c4657c02e37be6c9882",
+      "basis": "photo"
+    },
     "catalogCode": "P_aestiva",
     "scientificName": "Philodryas aestiva",
     "acceptedName": "Philodryas aestiva",
@@ -11871,6 +12531,21 @@
   },
   {
     "id": "bf19261b-40b5-5862-826f-9b4775053e50",
+    "palette": {
+      "seed": "#a0a25c",
+      "accentLight": "#747635",
+      "accentDark": "#9d9f5a",
+      "containerLight": "#e6e5bb",
+      "onContainerLight": "#606223",
+      "containerDark": "#434426",
+      "onContainerDark": "#c9cb80"
+    },
+    "photoPalette": {
+      "mediaId": "1dc13720-5f6e-4a21-9bc8-86802eadd6b7",
+      "thumbnailPath": "bf19261b-40b5-5862-826f-9b4775053e50/1dc13720-5f6e-4a21-9bc8-86802eadd6b7-480.webp",
+      "sha256": "9cf619451a0b20003bca730896867f6a31535767ec11ee97e9e810139310645a",
+      "basis": "photo"
+    },
     "catalogCode": "P_agassizi",
     "scientificName": "Philodryas agassizii",
     "acceptedName": "Philodryas agassizii",
@@ -12045,6 +12720,21 @@
   },
   {
     "id": "51a332d0-0fb2-5e4e-9a2e-41b0a9912448",
+    "palette": {
+      "seed": "#9ea640",
+      "accentLight": "#707713",
+      "accentDark": "#9aa13c",
+      "containerLight": "#e4e5bc",
+      "onContainerLight": "#5d6300",
+      "containerDark": "#424426",
+      "onContainerDark": "#c5ce63"
+    },
+    "photoPalette": {
+      "mediaId": "c113a5b4-ad6e-4b14-a2d8-1486bd83471a",
+      "thumbnailPath": "51a332d0-0fb2-5e4e-9a2e-41b0a9912448/c113a5b4-ad6e-4b14-a2d8-1486bd83471a-480.webp",
+      "sha256": "6263c1c1da06d35926deff94d9eaede0d6887e7b192fc471d2791658f1ada8be",
+      "basis": "photo"
+    },
     "catalogCode": "P_hilarii",
     "scientificName": "Phrynops hilarii",
     "acceptedName": "Phrynops hilarii",
@@ -12219,6 +12909,21 @@
   },
   {
     "id": "34a5b414-b022-57b4-8842-013fe8fec9b4",
+    "palette": {
+      "seed": "#7ca434",
+      "accentLight": "#587d0a",
+      "accentDark": "#80a838",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#476800",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#aad55f"
+    },
+    "photoPalette": {
+      "mediaId": "75e74680-9ee2-42a8-96ba-f7fa978ee813",
+      "thumbnailPath": "34a5b414-b022-57b4-8842-013fe8fec9b4/75e74680-9ee2-42a8-96ba-f7fa978ee813-480.webp",
+      "sha256": "e1e07b2a88806e49c1d3a9be3036185fb998a96fd02bf0a26ec7b71281983206",
+      "basis": "photo"
+    },
     "catalogCode": "P_lemnisca",
     "scientificName": "Phalotris lemniscatus",
     "acceptedName": "Phalotris lemniscatus",
@@ -12470,6 +13175,21 @@
   },
   {
     "id": "9d2f26af-340d-5591-81ac-9ed039aed334",
+    "palette": {
+      "seed": "#627f9c",
+      "accentLight": "#587592",
+      "accentDark": "#819ebd",
+      "containerLight": "#d2e4fa",
+      "onContainerLight": "#44617d",
+      "containerDark": "#334455",
+      "onContainerDark": "#abcaea"
+    },
+    "photoPalette": {
+      "mediaId": "c23bcc3d-fb0e-40b0-bfa9-0ba339d5be8c",
+      "thumbnailPath": "9d2f26af-340d-5591-81ac-9ed039aed334/c23bcc3d-fb0e-40b0-bfa9-0ba339d5be8c-480.webp",
+      "sha256": "feba902e27264e7e3c31e22a95c379489fb12ea775176940b5e181b93f0f71a9",
+      "basis": "photo"
+    },
     "catalogCode": "P_obtusus",
     "scientificName": "Psomophis obtusus",
     "acceptedName": "Psomophis obtusus",
@@ -12721,6 +13441,21 @@
   },
   {
     "id": "85d502ae-ef0f-5182-b2db-525c2f90d9e0",
+    "palette": {
+      "seed": "#8ca63a",
+      "accentLight": "#637b0e",
+      "accentDark": "#8ba539",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#516600",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#b6d260"
+    },
+    "photoPalette": {
+      "mediaId": "bde27656-0732-41cb-88b9-29a9183785a4",
+      "thumbnailPath": "85d502ae-ef0f-5182-b2db-525c2f90d9e0/bde27656-0732-41cb-88b9-29a9183785a4-480.webp",
+      "sha256": "0fa196547b08a1109c81bcfc0bffe13821b4d7f4c89e4274993997b70162ee15",
+      "basis": "photo"
+    },
     "catalogCode": "P_olfer_of",
     "scientificName": "Philodryas olfersii",
     "acceptedName": "Philodryas olfersii",
@@ -12976,6 +13711,21 @@
   },
   {
     "id": "2d9ef168-7770-5c7a-b402-a0e0b305a214",
+    "palette": {
+      "seed": "#96ac46",
+      "accentLight": "#667a17",
+      "accentDark": "#8fa43f",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#536600",
+      "containerDark": "#3f4529",
+      "onContainerDark": "#b9d166"
+    },
+    "photoPalette": {
+      "mediaId": "0bf25187-420a-41bf-84c6-2ccf14ae1a08",
+      "thumbnailPath": "2d9ef168-7770-5c7a-b402-a0e0b305a214/0bf25187-420a-41bf-84c6-2ccf14ae1a08-480.webp",
+      "sha256": "dce96a6dbcc7d1801fef30b97cc66639a2bdeb0e13a4ee7acb780af55399ae6f",
+      "basis": "photo"
+    },
     "catalogCode": "P_patagoni",
     "scientificName": "Philodryas patagoniensis",
     "acceptedName": "Philodryas patagoniensis",
@@ -13304,6 +14054,21 @@
   },
   {
     "id": "a3a6a651-14f7-5cc1-92c9-e237e3b0762e",
+    "palette": {
+      "seed": "#394b82",
+      "accentLight": "#5e70a9",
+      "accentDark": "#8799d5",
+      "containerLight": "#dce1fd",
+      "onContainerLight": "#4a5c94",
+      "containerDark": "#3b4157",
+      "onContainerDark": "#b4c5ff"
+    },
+    "photoPalette": {
+      "mediaId": "c5af2590-f86d-429b-91c9-792419f25dfb",
+      "thumbnailPath": "a3a6a651-14f7-5cc1-92c9-e237e3b0762e/c5af2590-f86d-429b-91c9-792419f25dfb-480.webp",
+      "sha256": "345f99cf4a2bf634724de489af4621f007cb2abeba4c1ce084f889cd94dec871",
+      "basis": "photo"
+    },
     "catalogCode": "P_williams",
     "scientificName": "Phrynops williamsi",
     "acceptedName": "Phrynops williamsi",
@@ -13482,6 +14247,21 @@
   },
   {
     "id": "33e636d4-bf3b-537c-be0a-203664359644",
+    "palette": {
+      "seed": "#7e8975",
+      "accentLight": "#607952",
+      "accentDark": "#88a378",
+      "containerLight": "#d6e8c8",
+      "onContainerLight": "#4d6540",
+      "containerDark": "#38462f",
+      "onContainerDark": "#b3cfa1"
+    },
+    "photoPalette": {
+      "mediaId": "37074671-2d23-4bf4-aa68-e4bc70155805",
+      "thumbnailPath": "33e636d4-bf3b-537c-be0a-203664359644/37074671-2d23-4bf4-aa68-e4bc70155805-480.webp",
+      "sha256": "cf8fbd33f93a5a58b565e8b778e92842b3ae935d7893207373f00a9084cd9251",
+      "basis": "photo"
+    },
     "catalogCode": "R_alternat",
     "scientificName": "Rhinocerophis alternatus",
     "acceptedName": "Bothrops alternatus",
@@ -13658,6 +14438,21 @@
   },
   {
     "id": "e7782209-6598-53fd-8be2-9705678801ab",
+    "palette": {
+      "seed": "#697f2f",
+      "accentLight": "#647a2a",
+      "accentDark": "#8da450",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#516618",
+      "containerDark": "#3e452a",
+      "onContainerDark": "#b7d076"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "S_azureus",
     "scientificName": "Stenocercus azureus",
     "acceptedName": "Stenocercus azureus",
@@ -13802,6 +14597,21 @@
   },
   {
     "id": "39d6d455-ad9a-5954-b1e6-97aec704eb43",
+    "palette": {
+      "seed": "#d48c7c",
+      "accentLight": "#a16153",
+      "accentDark": "#d18979",
+      "containerLight": "#ffdad3",
+      "onContainerLight": "#8a4e41",
+      "containerDark": "#5a3a33",
+      "onContainerDark": "#ffb4a4"
+    },
+    "photoPalette": {
+      "mediaId": "9e6c98d2-eff5-4f0e-a0a1-f9746a549353",
+      "thumbnailPath": "39d6d455-ad9a-5954-b1e6-97aec704eb43/9e6c98d2-eff5-4f0e-a0a1-f9746a549353-480.webp",
+      "sha256": "3c0df52931092698904c7a71d3f9cfb97d6b5b552e9b421f9e0e2f6b17822789",
+      "basis": "photo"
+    },
     "catalogCode": "S_turgidus",
     "scientificName": "Sibynomorphus turgidus",
     "acceptedName": "Dipsas turgida",
@@ -13980,6 +14790,21 @@
   },
   {
     "id": "8433721b-e91c-5b41-b4d6-0831069a0e98",
+    "palette": {
+      "seed": "#c4943c",
+      "accentLight": "#956a13",
+      "accentDark": "#c3933b",
+      "containerLight": "#fadfb6",
+      "onContainerLight": "#7e5700",
+      "containerDark": "#513f22",
+      "onContainerDark": "#f3be61"
+    },
+    "photoPalette": {
+      "mediaId": "d9bc166f-fe18-48bc-b315-28aeaa585ca5",
+      "thumbnailPath": "8433721b-e91c-5b41-b4d6-0831069a0e98/d9bc166f-fe18-48bc-b315-28aeaa585ca5-480.webp",
+      "sha256": "7822ccf0d9e6246827b370158ce8aa7348674579083cbdf4fae4a70a077af294",
+      "basis": "photo"
+    },
     "catalogCode": "T_dorbigny",
     "scientificName": "Trachemys dorbigni",
     "acceptedName": "Trachemys dorbigni",
@@ -14462,6 +15287,21 @@
   },
   {
     "id": "55f5a6e7-d773-550c-b37b-5328455d70e4",
+    "palette": {
+      "seed": "#8d7e71",
+      "accentLight": "#926a40",
+      "accentDark": "#c09265",
+      "containerLight": "#ffdcbd",
+      "onContainerLight": "#7c572e",
+      "containerDark": "#553d24",
+      "onContainerDark": "#efbd8c"
+    },
+    "photoPalette": {
+      "mediaId": "817176f4-6476-4073-ae41-df3b05320d7a",
+      "thumbnailPath": "55f5a6e7-d773-550c-b37b-5328455d70e4/817176f4-6476-4073-ae41-df3b05320d7a-480.webp",
+      "sha256": "862b439e66cb518ff9f629892619c85b614bd7a44312a39855b31fb26ae8f486",
+      "basis": "photo"
+    },
     "catalogCode": "T_dorsatus",
     "scientificName": "Tomodon dorsatus",
     "acceptedName": "Tomodon dorsatus",
@@ -14639,6 +15479,21 @@
   },
   {
     "id": "f5b05892-37d6-57fb-8c09-0fc3f32a7569",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "T_hypoconi",
     "scientificName": "Thamnodynastes hypoconia",
     "acceptedName": "Thamnodynastes hypoconia",
@@ -14933,6 +15788,21 @@
   },
   {
     "id": "a484f11b-ae97-5b4b-9b61-58e425723604",
+    "palette": {
+      "seed": "#a4905a",
+      "accentLight": "#83703b",
+      "accentDark": "#af9960",
+      "containerLight": "#f3e1b6",
+      "onContainerLight": "#6e5d2a",
+      "containerDark": "#4c4122",
+      "onContainerDark": "#dcc587"
+    },
+    "photoPalette": {
+      "mediaId": "a5874f35-f276-4a67-aaec-db6a8533344f",
+      "thumbnailPath": "a484f11b-ae97-5b4b-9b61-58e425723604/a5874f35-f276-4a67-aaec-db6a8533344f-480.webp",
+      "sha256": "e3dcb9cf5003b39519896488f43bcaa6497daea191fd2532745a31ac14ca4673",
+      "basis": "photo"
+    },
     "catalogCode": "T_mauritan",
     "scientificName": "Tarentola mauritanica",
     "acceptedName": "Tarentola mauritanica",
@@ -15107,6 +15977,21 @@
   },
   {
     "id": "8bb2c96e-092f-5174-8226-548d71bf8255",
+    "palette": {
+      "seed": "#7c8082",
+      "accentLight": "#4b7888",
+      "accentDark": "#75a2b2",
+      "containerLight": "#cbe7f2",
+      "onContainerLight": "#376473",
+      "containerDark": "#2c464f",
+      "onContainerDark": "#9fcedf"
+    },
+    "photoPalette": {
+      "mediaId": "a8260a57-e2d2-414c-bc69-feb35df13574",
+      "thumbnailPath": "8bb2c96e-092f-5174-8226-548d71bf8255/a8260a57-e2d2-414c-bc69-feb35df13574-480.webp",
+      "sha256": "0f9ce20eb0e34cd08509c8e153c3f65765c8a52d48ea9113bef37bd98148ae2d",
+      "basis": "photo"
+    },
     "catalogCode": "T_melanoce",
     "scientificName": "Tantilla melanocephala",
     "acceptedName": "Tantilla melanocephala",
@@ -15281,6 +16166,21 @@
   },
   {
     "id": "c44a669d-3fd0-52d1-85e5-b05c72e42d0d",
+    "palette": {
+      "seed": "#c59c39",
+      "accentLight": "#906d04",
+      "accentDark": "#be9533",
+      "containerLight": "#f6e0b6",
+      "onContainerLight": "#785a00",
+      "containerDark": "#4e4022",
+      "onContainerDark": "#edc15a"
+    },
+    "photoPalette": {
+      "mediaId": "0d7e29fd-7a60-46c7-ae3c-fd4d01b80e2e",
+      "thumbnailPath": "c44a669d-3fd0-52d1-85e5-b05c72e42d0d/0d7e29fd-7a60-46c7-ae3c-fd4d01b80e2e-480.webp",
+      "sha256": "435dbf5e5d8a79116a929ad2253a8b8d60a50e53daf0ab5ca37eb603a0a80e11",
+      "basis": "photo"
+    },
     "catalogCode": "T_merianae",
     "scientificName": "Salvator merianae",
     "acceptedName": "Salvator merianae",
@@ -15689,6 +16589,21 @@
   },
   {
     "id": "e8ba8187-cb07-5f7f-ab08-2244545a0c0a",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "T_occipita",
     "scientificName": "Taeniophallus occipitalis",
     "acceptedName": "Taeniophallus occipitalis",
@@ -15906,6 +16821,21 @@
   },
   {
     "id": "21ae728d-fa14-5ffa-b46e-dd0a00d7a39e",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "T_ocellatu",
     "scientificName": "Tomodon ocellatus",
     "acceptedName": "Tomodon ocellatus",
@@ -16046,6 +16976,21 @@
   },
   {
     "id": "26564863-97a6-55f5-85c8-b1854cc5db6e",
+    "palette": {
+      "seed": "#9cb44c",
+      "accentLight": "#657a16",
+      "accentDark": "#8da53e",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#526600",
+      "containerDark": "#3f4529",
+      "onContainerDark": "#b8d165"
+    },
+    "photoPalette": {
+      "mediaId": "0b70766e-cbe9-4bf0-bf1b-da96cf3bd1c3",
+      "thumbnailPath": "26564863-97a6-55f5-85c8-b1854cc5db6e/0b70766e-cbe9-4bf0-bf1b-da96cf3bd1c3-480.webp",
+      "sha256": "8975c46e845be16d8ac415492dca669a533daf7d6006fdb9fad74c3dd01008c2",
+      "basis": "photo"
+    },
     "catalogCode": "T_oculatus",
     "scientificName": "Teius oculatus",
     "acceptedName": "Teius oculatus",
@@ -16528,6 +17473,21 @@
   },
   {
     "id": "19b5ed8e-192b-5b5d-be76-9bb7442d7aca",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "T_poecilop",
     "scientificName": "Taeniophallus poecilopogon",
     "acceptedName": "Taeniophallus poecilopogon",
@@ -16672,6 +17632,21 @@
   },
   {
     "id": "eb37b576-d2c6-5215-bede-065fe4df923c",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "T_strigatu",
     "scientificName": "Thamnodynastes strigatus",
     "acceptedName": "Thamnodynastes strigatus",
@@ -16812,6 +17787,21 @@
   },
   {
     "id": "617639b5-62c5-5da8-a0b2-d0c6e6b66262",
+    "palette": {
+      "seed": "#96c31f",
+      "accentLight": "#5d7c00",
+      "accentDark": "#7fa900",
+      "containerLight": "#dde7c1",
+      "onContainerLight": "#4c6700",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#a8d634"
+    },
+    "photoPalette": {
+      "mediaId": "c0e89a32-e723-4088-876a-cf933ae43482",
+      "thumbnailPath": "617639b5-62c5-5da8-a0b2-d0c6e6b66262/c0e89a32-e723-4088-876a-cf933ae43482-480.webp",
+      "sha256": "e5d02e98040690dfd06386d89fc3ec7ed2dfd7065f761382c117c31a5e368dc5",
+      "basis": "photo"
+    },
     "catalogCode": "T_torquatu",
     "scientificName": "Tropidurus torquatus",
     "acceptedName": "Tropidurus torquatus",
@@ -16990,6 +17980,21 @@
   },
   {
     "id": "cceb262f-2a48-5213-9dc2-46b66e6fd61b",
+    "palette": {
+      "seed": "#ac7444",
+      "accentLight": "#9c6637",
+      "accentDark": "#ca8e5c",
+      "containerLight": "#ffdcc2",
+      "onContainerLight": "#855326",
+      "containerDark": "#573c26",
+      "onContainerDark": "#fbb983"
+    },
+    "photoPalette": {
+      "mediaId": "deb278f7-552e-413c-ba01-c85648222265",
+      "thumbnailPath": "cceb262f-2a48-5213-9dc2-46b66e6fd61b/deb278f7-552e-413c-ba01-c85648222265-480.webp",
+      "sha256": "67685dde073dcd32fedee6b8bb8c8a40309ae11612b2ab3331ae9c7dfce25aec",
+      "basis": "photo"
+    },
     "catalogCode": "tra_script",
     "scientificName": "Trachemys scripta",
     "acceptedName": "Trachemys scripta",
@@ -17164,6 +18169,21 @@
   },
   {
     "id": "5cf79a16-8486-5b7e-a32f-f72266767687",
+    "palette": {
+      "seed": "#743c2c",
+      "accentLight": "#a2614f",
+      "accentDark": "#d18975",
+      "containerLight": "#ffdbd1",
+      "onContainerLight": "#8b4e3d",
+      "containerDark": "#5a3a31",
+      "onContainerDark": "#ffb5a0"
+    },
+    "photoPalette": {
+      "mediaId": "ba7fabc2-bdbb-4fb9-8a8c-093da340dcb8",
+      "thumbnailPath": "5cf79a16-8486-5b7e-a32f-f72266767687/ba7fabc2-bdbb-4fb9-8a8c-093da340dcb8-480.webp",
+      "sha256": "937d0b357d2fad6fc1ff31111a9556b4ec4872456ad81ed216e411c76a2e889a",
+      "basis": "photo"
+    },
     "catalogCode": "X_dorbigny",
     "scientificName": "Xenodon dorbignyi",
     "acceptedName": "Xenodon dorbignyi",
@@ -17415,6 +18435,21 @@
   },
   {
     "id": "93493053-7ab4-5a7a-b27d-febca564ddcd",
+    "palette": {
+      "seed": "#00848b",
+      "accentLight": "#007f85",
+      "accentDark": "#43a9b0",
+      "containerLight": "#c8e8eb",
+      "onContainerLight": "#00696f",
+      "containerDark": "#294749",
+      "onContainerDark": "#74d5dd"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "X_histricu",
     "scientificName": "Xenodon histricus",
     "acceptedName": "Xenodon histricus",
@@ -17559,6 +18594,21 @@
   },
   {
     "id": "11539683-71dc-5cfb-b30b-814e8fdd547c",
+    "palette": {
+      "seed": "#22dcc5",
+      "accentLight": "#008172",
+      "accentDark": "#00ae9b",
+      "containerLight": "#c9e9e1",
+      "onContainerLight": "#006b5e",
+      "containerDark": "#2a4742",
+      "onContainerDark": "#26dec7"
+    },
+    "photoPalette": {
+      "mediaId": "97205acb-d299-4014-9d44-f407f4fb7cca",
+      "thumbnailPath": "11539683-71dc-5cfb-b30b-814e8fdd547c/97205acb-d299-4014-9d44-f407f4fb7cca-480.webp",
+      "sha256": "41a815b516ee97e8ce855967d0c0cce698032c2ea45a6b3d5d242eec1c0ec755",
+      "basis": "photo"
+    },
     "catalogCode": "X_merremi",
     "scientificName": "Xenodon merremi",
     "acceptedName": "Xenodon merremii",

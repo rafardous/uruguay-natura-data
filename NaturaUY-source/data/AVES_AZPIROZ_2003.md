@@ -1,6 +1,6 @@
 # Aves: Azpiroz 2003, ficha de campo y recuperación
 
-La fuente editorial es Supabase. Los JSON y `assets/db/natura.db` son derivados versionados. El contrato actual es schema 14; Arapy 1.3.1 usa el catálogo v8 (en preparación; v7 ya publicado) con 1048 especies: 948 animales y exactamente las 100 plantas seleccionadas. Esta documentación conserva las decisiones, referencias y comandos necesarios para recuperar el trabajo.
+La fuente editorial es Supabase. Los JSON y `assets/db/natura.db` son derivados versionados. El contrato actual es schema 14; Arapy 1.3.1 usa el catálogo v8 publicado con 1048 especies: 948 animales y exactamente las 100 plantas seleccionadas. Esta documentación conserva las decisiones, referencias y comandos necesarios para recuperar el trabajo.
 
 ## Fuente, originales e identidades
 
@@ -125,3 +125,5 @@ Para revertir una ficha, crear y aprobar otra revisión a partir de `species_cha
 El publicador tenía una paleta verde fija. `NaturaUY-admin/scripts/photo-palettes.ts` deriva ahora el acento de la miniatura de la foto principal aprobada y registra ID, ruta y SHA-256 en el JSON. Comparte con el pipeline histórico el cálculo de tonos con contraste mínimo 4,5:1; sin foto usa una semilla estable por familia. SQLite recibe exactamente esos seis colores del JSON. Una nueva publicación vuelve a calcularlos: no depende de un cache local ni modifica registros editoriales.
 
 La isla de navegación conserva visibles Inicio, Descubrir y Juegos, con icono arriba y etiqueta debajo; la selección usa fondo oscuro y texto blanco. Su altura es 80 dp y el espacio inferior de las pantallas reserva esa altura y el área segura.
+
+Catálogo público v8 verificado: workflow 38075399204, SQLite de 13.897.728 bytes, SHA-256 `8b974b00ad4fd9cba32e9e574a0538077b6d0f13e43c8b2da1cd2ccc0170e907`; descarga gzip y sin comprimir idénticas. 432 perfiles históricos, 1048 especies, 100 plantas, 865 paletas desde fotos y 770 acentos distintos. El mismo SQLite se incluye en la app.

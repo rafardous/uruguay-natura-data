@@ -6,7 +6,7 @@ import { useLocalSearchParams, useRouter, type Href } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import Animated, {
-  FadeInDown,
+  FadeIn,
   interpolate,
   runOnJS,
   useAnimatedScrollHandler,
@@ -227,14 +227,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const favorite = species ? isFavorite(species.codigo) : false;
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
 
-  const bodyLength = species?.measurements.find((item) => item.kind === 'body_length');
+  const bodyLength = species?.measurements.find((item) => item.kind === 'body_length') ?? species?.measurements.find((item) => item.kind === 'max_length');
   const bodyMass = species?.measurements.find((item) => item.kind === 'body_mass');
-  const detailedMeasurements = species?.measurements.filter((item) => !['body_length', 'body_mass'].includes(item.kind)) ?? [];
-  const facts = species ? [
-    ...(bodyLength ? [{ label: bodyLength.provenance === 'legacy_unverified' ? 'Largo aproximado' : 'Largo corporal', value: formatSpeciesMeasurement(bodyLength) }] : []),
-    ...(bodyMass ? [{ label: 'Masa', value: formatSpeciesMeasurement(bodyMass) }] : []),
-    { label: 'Estacionalidad', value: species.seasonality ? seasonalityLabel(species.seasonality) : '' },
-  ].filter((fact) => fact.value.length > 0) : [];
+  const detailedMeasurements = species?.measurements.filter((item) => !['body_length', 'max_length', 'body_mass'].includes(item.kind)) ?? [];
+  const facts = species?.seasonality && !['unknown', 'uncertain'].includes(species.seasonality)
+    ? [{ label: 'Estacionalidad', value: seasonalityLabel(species.seasonality) }] : [];
 
   const classification: { label: string; rank: TaxonRank; value: string }[] = species
     ? [
@@ -281,7 +278,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       </Animated.View>
       <GestureDetector gesture={dismissGesture}>
         <Animated.View
-          entering={FadeInDown.duration(220)}
+          entering={FadeIn.duration(180)}
           style={[
             styles.sheet,
             {
@@ -421,7 +418,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
-            <SpeciesTaxonomy items={classification} onNavigate={openTaxonomyAt} accent={palette.accent} />
+            <SpeciesTaxonomy items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} />
 
             <Staggered index={1}>
               <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
@@ -521,11 +518,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Tipo: {plantHistory.habit}</Text> : null}
                   {plantHistory.lifeForm ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Forma de vida: {plantHistory.lifeForm}</Text> : null}
                   {plantHeight(plantHistory.heightCm) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Altura: {plantHeight(plantHistory.heightCm)}</Text> : null}
-                  {(species.ecology.habitats.length || species.ecology.vegetationFormations.length) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Ambientes: {[...species.ecology.habitats.map(habitatLabel), ...species.ecology.vegetationFormations].join(' · ')}</Text> : null}
                   {plantMonths(plantHistory.phenology?.floweringMonths) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Floración: {plantMonths(plantHistory.phenology?.floweringMonths)}</Text> : null}
                   {plantMonths(plantHistory.phenology?.fruitingMonths) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Fructificación: {plantMonths(plantHistory.phenology?.fruitingMonths)}</Text> : null}
-                  {plantHistory.nomenclature?.authorship ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Autoría del nombre: {plantHistory.nomenclature.authorship}</Text> : null}
-                  {plantHistory.nomenclature?.publication ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Publicación original: {plantHistory.nomenclature.publication}</Text> : null}
                   {plantHistory.nomenclature?.familyAliases?.length ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Familia también conocida como: {plantHistory.nomenclature.familyAliases.join(' · ')}</Text> : null}
                 </View>
               </Staggered>

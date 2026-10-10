@@ -1,6 +1,21 @@
 [
   {
     "id": "d0bfc8a0-fa18-579e-9963-33a6886d862d",
+    "palette": {
+      "seed": "#7f8777",
+      "accentLight": "#607951",
+      "accentDark": "#89a378",
+      "containerLight": "#d7e8c8",
+      "onContainerLight": "#4d653f",
+      "containerDark": "#38462f",
+      "onContainerDark": "#b3cfa1"
+    },
+    "photoPalette": {
+      "mediaId": "450f8f54-994c-43a6-8d9d-7ebd6abd1850",
+      "thumbnailPath": "d0bfc8a0-fa18-579e-9963-33a6886d862d/450f8f54-994c-43a6-8d9d-7ebd6abd1850-480.webp",
+      "sha256": "631914313edc3753c0a07e8cdd2810e0911694e91bee152dfc157f3a28690ca0",
+      "basis": "photo"
+    },
     "catalogCode": "plant-achyrocline-saturejoides",
     "scientificName": "Achyrocline saturejoides",
     "acceptedName": "Achyrocline saturejoides",
@@ -283,6 +298,21 @@
   },
   {
     "id": "7d48ad0f-b2f8-5a7c-b569-fc2dd3a37075",
+    "palette": {
+      "seed": "#7c8280",
+      "accentLight": "#487b73",
+      "accentDark": "#72a59c",
+      "containerLight": "#c9e9e2",
+      "onContainerLight": "#34675f",
+      "containerDark": "#2a4742",
+      "onContainerDark": "#9cd1c7"
+    },
+    "photoPalette": {
+      "mediaId": "a940264d-8d01-4fa3-ad70-fb9c9a953d8c",
+      "thumbnailPath": "7d48ad0f-b2f8-5a7c-b569-fc2dd3a37075/a940264d-8d01-4fa3-ad70-fb9c9a953d8c-480.webp",
+      "sha256": "f9fd51424af73dfc5c7636389ef8535c104280491ed6e38c5cce2b496c5b7423",
+      "basis": "photo"
+    },
     "catalogCode": "plant-allophylus-edulis",
     "scientificName": "Allophylus edulis",
     "acceptedName": "Allophylus edulis",
@@ -563,6 +593,21 @@
   },
   {
     "id": "3cf8155a-6844-5b49-8094-57f843ab8ed3",
+    "palette": {
+      "seed": "#5e6c34",
+      "accentLight": "#6a783e",
+      "accentDark": "#92a264",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#56642d",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#bdce8b"
+    },
+    "photoPalette": {
+      "mediaId": "0974eb87-2f06-4423-861d-4e71c754f646",
+      "thumbnailPath": "3cf8155a-6844-5b49-8094-57f843ab8ed3/0974eb87-2f06-4423-861d-4e71c754f646-480.webp",
+      "sha256": "1ff21e6cead06a8223cc3189c865ab558cddd08b72cecd4eb67a8680cd2f2196",
+      "basis": "photo"
+    },
     "catalogCode": "plant-aloysia-gratissima",
     "scientificName": "Aloysia gratissima",
     "acceptedName": "Aloysia gratissima",
@@ -837,6 +882,21 @@
   },
   {
     "id": "3d0388dd-6414-5ca1-99e6-2140b1ffadce",
+    "palette": {
+      "seed": "#746c34",
+      "accentLight": "#7b733a",
+      "accentDark": "#a69c5f",
+      "containerLight": "#ece3b8",
+      "onContainerLight": "#675f29",
+      "containerDark": "#474323",
+      "onContainerDark": "#d2c886"
+    },
+    "photoPalette": {
+      "mediaId": "619111a6-cb4f-4be0-8743-7a290ebfab16",
+      "thumbnailPath": "3d0388dd-6414-5ca1-99e6-2140b1ffadce/619111a6-cb4f-4be0-8743-7a290ebfab16-480.webp",
+      "sha256": "6ea254dfec2e8748414de9278b2ac94f7caad2d075036ef7abc87cebb174e1e7",
+      "basis": "photo"
+    },
     "catalogCode": "plant-aspidosperma-quebracho-blanco",
     "scientificName": "Aspidosperma quebracho-blanco",
     "acceptedName": "Aspidosperma quebracho-blanco",
@@ -1105,6 +1165,21 @@
   },
   {
     "id": "c08d9b69-6af2-5b0d-8d1d-24027c1ab172",
+    "palette": {
+      "seed": "#b55e58",
+      "accentLight": "#ae5953",
+      "accentDark": "#e08079",
+      "containerLight": "#ffdad6",
+      "onContainerLight": "#964641",
+      "containerDark": "#5a3a37",
+      "onContainerDark": "#ffb3ad"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "plant-baccharis-sagittalis",
     "scientificName": "Baccharis sagittalis",
     "acceptedName": "Baccharis sagittalis",
@@ -1344,6 +1419,21 @@
   },
   {
     "id": "7b3c21d7-0014-539a-9890-8dd830f36b49",
+    "palette": {
+      "seed": "#607734",
+      "accentLight": "#637a37",
+      "accentDark": "#8ba45b",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#506625",
+      "containerDark": "#3c452b",
+      "onContainerDark": "#b6d083"
+    },
+    "photoPalette": {
+      "mediaId": "27bbcb67-ffb5-4ca4-8b9e-d6124167b349",
+      "thumbnailPath": "7b3c21d7-0014-539a-9890-8dd830f36b49/27bbcb67-ffb5-4ca4-8b9e-d6124167b349-480.webp",
+      "sha256": "b2d6c50cd399e9f004b7929a4126cf003e8449cf4905061f78550134b7935e86",
+      "basis": "photo"
+    },
     "catalogCode": "plant-baccharis-salicifolia",
     "scientificName": "Baccharis salicifolia",
     "acceptedName": "Baccharis salicifolia",
@@ -1616,6 +1706,21 @@
   },
   {
     "id": "08aa78a9-a9d5-5a87-82f3-75921ad54325",
+    "palette": {
+      "seed": "#c4d43c",
+      "accentLight": "#6d7800",
+      "accentDark": "#95a400",
+      "containerLight": "#e3e5bd",
+      "onContainerLight": "#5a6400",
+      "containerDark": "#414427",
+      "onContainerDark": "#c0d038"
+    },
+    "photoPalette": {
+      "mediaId": "eb91131e-a2d8-4358-84b7-ae7cbe8291aa",
+      "thumbnailPath": "08aa78a9-a9d5-5a87-82f3-75921ad54325/eb91131e-a2d8-4358-84b7-ae7cbe8291aa-480.webp",
+      "sha256": "d8342ea72873aa9bfd1849b724b8b010fe8542c0733507baa4cf45b25349b798",
+      "basis": "photo"
+    },
     "catalogCode": "plant-baccharis-trimera",
     "scientificName": "Baccharis trimera",
     "acceptedName": "Baccharis trimera",
@@ -1896,6 +2001,21 @@
   },
   {
     "id": "cb2c0e0a-a3f5-596e-8ef3-48473c64f7c1",
+    "palette": {
+      "seed": "#84a434",
+      "accentLight": "#5e7c08",
+      "accentDark": "#86a636",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#4d6700",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#b1d35d"
+    },
+    "photoPalette": {
+      "mediaId": "bce3bc5a-8839-4b04-a884-61dad346a96d",
+      "thumbnailPath": "cb2c0e0a-a3f5-596e-8ef3-48473c64f7c1/bce3bc5a-8839-4b04-a884-61dad346a96d-480.webp",
+      "sha256": "9d245a79e75f5468e5f09d5b7e6f1ba4d6541a2b8139883b3b08577b3e3ed570",
+      "basis": "photo"
+    },
     "catalogCode": "plant-berberis-laurina",
     "scientificName": "Berberis laurina",
     "acceptedName": "Berberis laurina",
@@ -2180,6 +2300,21 @@
   },
   {
     "id": "b1ae0e69-d548-507f-94d8-e1faff33df09",
+    "palette": {
+      "seed": "#847e7a",
+      "accentLight": "#926a40",
+      "accentDark": "#c09265",
+      "containerLight": "#ffdcbd",
+      "onContainerLight": "#7c572e",
+      "containerDark": "#553d24",
+      "onContainerDark": "#efbd8c"
+    },
+    "photoPalette": {
+      "mediaId": "6e1b4bd7-f485-4ee6-a7e3-6d50d1891fbf",
+      "thumbnailPath": "b1ae0e69-d548-507f-94d8-e1faff33df09/6e1b4bd7-f485-4ee6-a7e3-6d50d1891fbf-480.webp",
+      "sha256": "01b8cdf6eb254e04cc375d6b18523826f7ae34f00e08af45664e130d89681fa4",
+      "basis": "photo"
+    },
     "catalogCode": "plant-blepharocalyx-salicifolius",
     "scientificName": "Blepharocalyx salicifolius",
     "acceptedName": "Blepharocalyx salicifolius",
@@ -2464,6 +2599,21 @@
   },
   {
     "id": "d83b6bb0-001c-5af9-9e7c-8f9bc8e996c7",
+    "palette": {
+      "seed": "#c28078",
+      "accentLight": "#9f625b",
+      "accentDark": "#ce8a82",
+      "containerLight": "#ffdad5",
+      "onContainerLight": "#884f48",
+      "containerDark": "#5a3a36",
+      "onContainerDark": "#feb4ab"
+    },
+    "photoPalette": {
+      "mediaId": "2ba397ab-3565-4767-bd64-d2a25858797c",
+      "thumbnailPath": "d83b6bb0-001c-5af9-9e7c-8f9bc8e996c7/2ba397ab-3565-4767-bd64-d2a25858797c-480.webp",
+      "sha256": "797a17db2e2dde1b7d3eb1b5caa8b7a844163609342d502689423c4f118506a2",
+      "basis": "photo"
+    },
     "catalogCode": "plant-butia-odorata",
     "scientificName": "Butia odorata",
     "acceptedName": "Butia odorata",
@@ -2738,6 +2888,21 @@
   },
   {
     "id": "c73f250d-2f04-5c96-b74f-73006c22df72",
+    "palette": {
+      "seed": "#74b4eb",
+      "accentLight": "#3177ab",
+      "accentDark": "#60a1d7",
+      "containerLight": "#d2e5f9",
+      "onContainerLight": "#126395",
+      "containerDark": "#324454",
+      "onContainerDark": "#94ccff"
+    },
+    "photoPalette": {
+      "mediaId": "ca148634-b5c3-4ae2-bb2c-db94e68b3b97",
+      "thumbnailPath": "c73f250d-2f04-5c96-b74f-73006c22df72/ca148634-b5c3-4ae2-bb2c-db94e68b3b97-480.webp",
+      "sha256": "c7d09567d2d11217d8c2938fbf89ed85520a17d617a8a90e9a88b0fd8b0aabee",
+      "basis": "photo"
+    },
     "catalogCode": "plant-butia-yatay",
     "scientificName": "Butia yatay",
     "acceptedName": "Butia yatay",
@@ -3010,6 +3175,21 @@
   },
   {
     "id": "28f2b813-1cc7-53c6-b3a7-4d205bb89eb8",
+    "palette": {
+      "seed": "#a2b34b",
+      "accentLight": "#6a7915",
+      "accentDark": "#93a33d",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#576500",
+      "containerDark": "#404528",
+      "onContainerDark": "#becf64"
+    },
+    "photoPalette": {
+      "mediaId": "2499b776-ac87-4f0f-8fb6-0fa96ce322d6",
+      "thumbnailPath": "28f2b813-1cc7-53c6-b3a7-4d205bb89eb8/2499b776-ac87-4f0f-8fb6-0fa96ce322d6-480.webp",
+      "sha256": "15800a1e699178dc8e62e1549859d440ea40ce866f3f0ff2077611f5f321687a",
+      "basis": "photo"
+    },
     "catalogCode": "plant-calliandra-parvifolia",
     "scientificName": "Calliandra parvifolia",
     "acceptedName": "Calliandra parvifolia",
@@ -3269,6 +3449,21 @@
   },
   {
     "id": "fd6b05f8-8741-5af3-ad93-a216e12c6fc4",
+    "palette": {
+      "seed": "#d05164",
+      "accentLight": "#c3475a",
+      "accentDark": "#f76f81",
+      "containerLight": "#ffdadb",
+      "onContainerLight": "#a93348",
+      "containerDark": "#5a393c",
+      "onContainerDark": "#ffb2b9"
+    },
+    "photoPalette": {
+      "mediaId": "687f1a47-91ff-4821-9ea5-dd5289f0a812",
+      "thumbnailPath": "fd6b05f8-8741-5af3-ad93-a216e12c6fc4/687f1a47-91ff-4821-9ea5-dd5289f0a812-480.webp",
+      "sha256": "4d010ec07956d9f9b2b8268d77830c35e1cd3bcde79ce6a84da83283c66f966c",
+      "basis": "photo"
+    },
     "catalogCode": "plant-calliandra-tweediei",
     "scientificName": "Calliandra tweediei",
     "acceptedName": "Calliandra tweediei",
@@ -3536,6 +3731,21 @@
   },
   {
     "id": "a12d40a7-5d32-5a35-b98d-0b7d2a446d87",
+    "palette": {
+      "seed": "#6c942c",
+      "accentLight": "#577d15",
+      "accentDark": "#7fa83e",
+      "containerLight": "#dbe7c3",
+      "onContainerLight": "#456800",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#a8d565"
+    },
+    "photoPalette": {
+      "mediaId": "e773498f-765c-478a-807c-b03274e80c1a",
+      "thumbnailPath": "a12d40a7-5d32-5a35-b98d-0b7d2a446d87/e773498f-765c-478a-807c-b03274e80c1a-480.webp",
+      "sha256": "2d1d12459cfc7e2f4b2eb1135fd4cb713457ab4ff4d0cbb731ac53bf2530a684",
+      "basis": "photo"
+    },
     "catalogCode": "plant-canna-indica",
     "scientificName": "Canna indica",
     "acceptedName": "Canna indica",
@@ -3786,6 +3996,21 @@
   },
   {
     "id": "0a94ef1f-a211-577f-88e7-9978549434a1",
+    "palette": {
+      "seed": "#7ca849",
+      "accentLight": "#547d23",
+      "accentDark": "#7ca849",
+      "containerLight": "#dae7c4",
+      "onContainerLight": "#42690e",
+      "containerDark": "#3a462c",
+      "onContainerDark": "#a6d570"
+    },
+    "photoPalette": {
+      "mediaId": "6ba4faee-afdd-4b80-b80b-5305245cd4c3",
+      "thumbnailPath": "0a94ef1f-a211-577f-88e7-9978549434a1/6ba4faee-afdd-4b80-b80b-5305245cd4c3-480.webp",
+      "sha256": "65ccb5065ac137ce4e4bd2d8e7807154c00cc79395fccead32f471cdbc58346e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-celtis-tala",
     "scientificName": "Celtis tala",
     "acceptedName": "Celtis tala",
@@ -4068,6 +4293,21 @@
   },
   {
     "id": "f43e6df7-1715-597a-9041-41e1de08d318",
+    "palette": {
+      "seed": "#296fd5",
+      "accentLight": "#2a6fd6",
+      "accentDark": "#609aff",
+      "containerLight": "#d9e2fc",
+      "onContainerLight": "#005bbf",
+      "containerDark": "#394257",
+      "onContainerDark": "#acc7ff"
+    },
+    "photoPalette": {
+      "mediaId": "62d16725-fdcb-4ce1-89f4-8b4003c60706",
+      "thumbnailPath": "f43e6df7-1715-597a-9041-41e1de08d318/62d16725-fdcb-4ce1-89f4-8b4003c60706-480.webp",
+      "sha256": "22dd3dcac62edddaef02cb96788bbfff3affebe72f52a82cbca630cc7dade3f8",
+      "basis": "photo"
+    },
     "catalogCode": "plant-cereus-hildmannianus",
     "scientificName": "Cereus hildmannianus",
     "acceptedName": "Cereus hildmannianus",
@@ -4339,6 +4579,21 @@
   },
   {
     "id": "60a484b4-f944-5556-80c9-0db2bf90d98e",
+    "palette": {
+      "seed": "#a0b059",
+      "accentLight": "#6a7928",
+      "accentDark": "#93a34d",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#576415",
+      "containerDark": "#404528",
+      "onContainerDark": "#becf74"
+    },
+    "photoPalette": {
+      "mediaId": "af3f272e-75e6-49ec-805a-5401bdb85e53",
+      "thumbnailPath": "60a484b4-f944-5556-80c9-0db2bf90d98e/af3f272e-75e6-49ec-805a-5401bdb85e53-480.webp",
+      "sha256": "713655cfa6e7986e76068632ace816516031105a8d7e1432174e79ac193d40ab",
+      "basis": "photo"
+    },
     "catalogCode": "plant-cestrum-parqui",
     "scientificName": "Cestrum parqui",
     "acceptedName": "Cestrum parqui",
@@ -4617,6 +4872,21 @@
   },
   {
     "id": "6181ac2f-6446-5eab-85e4-540287f81584",
+    "palette": {
+      "seed": "#99ca13",
+      "accentLight": "#5c7c00",
+      "accentDark": "#7ea900",
+      "containerLight": "#dde7c1",
+      "onContainerLight": "#4c6700",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#a5d726"
+    },
+    "photoPalette": {
+      "mediaId": "d561044c-9d8c-491e-b027-1874f9f188e8",
+      "thumbnailPath": "6181ac2f-6446-5eab-85e4-540287f81584/d561044c-9d8c-491e-b027-1874f9f188e8-480.webp",
+      "sha256": "a273d4b3f2bdc08d7c88efd86ef7d23b561d2763afc23039a83aa5bff3c7e989",
+      "basis": "photo"
+    },
     "catalogCode": "plant-citharexylum-montevidense",
     "scientificName": "Citharexylum montevidense",
     "acceptedName": "Citharexylum montevidense",
@@ -4884,6 +5154,21 @@
   },
   {
     "id": "c463a5a2-3be4-5bef-8baa-741daed7adbd",
+    "palette": {
+      "seed": "#52a124",
+      "accentLight": "#368200",
+      "accentDark": "#5eae30",
+      "containerLight": "#d7e8c7",
+      "onContainerLight": "#2c6c00",
+      "containerDark": "#38462f",
+      "onContainerDark": "#88db59"
+    },
+    "photoPalette": {
+      "mediaId": "f66584f9-bd7b-4f55-b08c-178870b1e091",
+      "thumbnailPath": "c463a5a2-3be4-5bef-8baa-741daed7adbd/f66584f9-bd7b-4f55-b08c-178870b1e091-480.webp",
+      "sha256": "29a19341797396944246d5536b088b9e64f173048969111ab4a876acedcb085d",
+      "basis": "photo"
+    },
     "catalogCode": "plant-citronella-gongonha",
     "scientificName": "Citronella gongonha",
     "acceptedName": "Citronella gongonha",
@@ -5143,6 +5428,21 @@
   },
   {
     "id": "0bf238a4-5a6d-5863-9002-d2a83ef68b9f",
+    "palette": {
+      "seed": "#8c7e72",
+      "accentLight": "#926a40",
+      "accentDark": "#c09365",
+      "containerLight": "#ffdcbd",
+      "onContainerLight": "#7c572e",
+      "containerDark": "#553d24",
+      "onContainerDark": "#efbd8c"
+    },
+    "photoPalette": {
+      "mediaId": "8f3d0640-6c39-4c91-b46b-d571512d5232",
+      "thumbnailPath": "0bf238a4-5a6d-5863-9002-d2a83ef68b9f/8f3d0640-6c39-4c91-b46b-d571512d5232-480.webp",
+      "sha256": "f15a046e0bec5f48d0a5518f5816535c1d5b9f8886379478181fa5a2144dc8c8",
+      "basis": "photo"
+    },
     "catalogCode": "plant-coleataenia-prionitis",
     "scientificName": "Coleataenia prionitis",
     "acceptedName": "Coleataenia prionitis",
@@ -5421,6 +5721,21 @@
   },
   {
     "id": "88236971-ebd5-59ae-ba87-def369912995",
+    "palette": {
+      "seed": "#8ca42c",
+      "accentLight": "#657a00",
+      "accentDark": "#8da52d",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#546500",
+      "containerDark": "#3f4529",
+      "onContainerDark": "#b8d255"
+    },
+    "photoPalette": {
+      "mediaId": "6a26b815-ca5f-4e30-88d0-1eea52689474",
+      "thumbnailPath": "88236971-ebd5-59ae-ba87-def369912995/6a26b815-ca5f-4e30-88d0-1eea52689474-480.webp",
+      "sha256": "b2057f10068df6ce6018f903b212b01d40fbadc0001ea9502f09ea7fc3e5b3dd",
+      "basis": "photo"
+    },
     "catalogCode": "plant-colletia-paradoxa",
     "scientificName": "Colletia paradoxa",
     "acceptedName": "Colletia paradoxa",
@@ -5686,6 +6001,21 @@
   },
   {
     "id": "c3731036-423e-58c4-8ec6-cb6fefe2c482",
+    "palette": {
+      "seed": "#7d9f3c",
+      "accentLight": "#5c7c1c",
+      "accentDark": "#84a743",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#496803",
+      "containerDark": "#3c452b",
+      "onContainerDark": "#aed369"
+    },
+    "photoPalette": {
+      "mediaId": "8b62b249-d583-4f74-ad17-badcc7c9d524",
+      "thumbnailPath": "c3731036-423e-58c4-8ec6-cb6fefe2c482/8b62b249-d583-4f74-ad17-badcc7c9d524-480.webp",
+      "sha256": "d6deeac174a9adb3de5b90346ec0853461eea01fc13e14ee09561aa00dd48249",
+      "basis": "photo"
+    },
     "catalogCode": "plant-commelina-erecta",
     "scientificName": "Commelina erecta",
     "acceptedName": "Commelina erecta",
@@ -5955,6 +6285,21 @@
   },
   {
     "id": "79604c13-77de-5c85-b684-15c44afbb985",
+    "palette": {
+      "seed": "#a8803a",
+      "accentLight": "#916c27",
+      "accentDark": "#bf944c",
+      "containerLight": "#fadfb6",
+      "onContainerLight": "#7b5815",
+      "containerDark": "#513f22",
+      "onContainerDark": "#eebf72"
+    },
+    "photoPalette": {
+      "mediaId": "e16afc14-90b8-4e69-a999-bfdc8520e95d",
+      "thumbnailPath": "79604c13-77de-5c85-b684-15c44afbb985/e16afc14-90b8-4e69-a999-bfdc8520e95d-480.webp",
+      "sha256": "f46772ebf91f8b11be25f07be25ab6d9d37f11e8b83a114ffe50827ff995493f",
+      "basis": "photo"
+    },
     "catalogCode": "plant-cordia-americana",
     "scientificName": "Cordia americana",
     "acceptedName": "Cordia americana",
@@ -6212,6 +6557,21 @@
   },
   {
     "id": "5d69401e-0246-5fac-9b8f-822ffc095701",
+    "palette": {
+      "seed": "#b4bc4c",
+      "accentLight": "#707705",
+      "accentDark": "#9aa234",
+      "containerLight": "#e4e5bc",
+      "onContainerLight": "#5d6300",
+      "containerDark": "#424426",
+      "onContainerDark": "#c5ce5b"
+    },
+    "photoPalette": {
+      "mediaId": "f73b6e71-fc55-4228-9f0f-1270d7d8b5c8",
+      "thumbnailPath": "5d69401e-0246-5fac-9b8f-822ffc095701/f73b6e71-fc55-4228-9f0f-1270d7d8b5c8-480.webp",
+      "sha256": "3c2d89f5e9d3685aaa9dd7f31ee6d03bd282fcac948248d9a4e25e5f1c96d87c",
+      "basis": "photo"
+    },
     "catalogCode": "plant-cortaderia-selloana",
     "scientificName": "Cortaderia selloana",
     "acceptedName": "Cortaderia selloana",
@@ -6486,6 +6846,21 @@
   },
   {
     "id": "bc1d32c1-d68d-58a7-a749-8f3ce20f5e17",
+    "palette": {
+      "seed": "#c87f1c",
+      "accentLight": "#a36300",
+      "accentDark": "#d68b28",
+      "containerLight": "#ffddbb",
+      "onContainerLight": "#885200",
+      "containerDark": "#553e24",
+      "onContainerDark": "#ffb868"
+    },
+    "photoPalette": {
+      "mediaId": "303d6776-f17c-44a1-9f93-2973ebfe0fd9",
+      "thumbnailPath": "bc1d32c1-d68d-58a7-a749-8f3ce20f5e17/303d6776-f17c-44a1-9f93-2973ebfe0fd9-480.webp",
+      "sha256": "70ec41f178d3f60991c6676bc4c5f4e6e40c07737ec96f2cf6ed17672a019d52",
+      "basis": "photo"
+    },
     "catalogCode": "plant-croton-urucurana",
     "scientificName": "Croton urucurana",
     "acceptedName": "Croton urucurana",
@@ -6754,6 +7129,21 @@
   },
   {
     "id": "2456dd65-968f-5802-9d6c-28c410a6b6ab",
+    "palette": {
+      "seed": "#84a419",
+      "accentLight": "#617b00",
+      "accentDark": "#87a71d",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#506600",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#b1d449"
+    },
+    "photoPalette": {
+      "mediaId": "9bb31c17-e92c-4a26-aa89-161c41f1f9b2",
+      "thumbnailPath": "2456dd65-968f-5802-9d6c-28c410a6b6ab/9bb31c17-e92c-4a26-aa89-161c41f1f9b2-480.webp",
+      "sha256": "223fbeb366f4f2930106835d78cdc0d6da4f457d59c686a6b4e7b8ea4d87689c",
+      "basis": "photo"
+    },
     "catalogCode": "plant-cupania-vernalis",
     "scientificName": "Cupania vernalis",
     "acceptedName": "Cupania vernalis",
@@ -7026,6 +7416,21 @@
   },
   {
     "id": "3e62325f-3d12-5edc-b661-2e6bad9f69c0",
+    "palette": {
+      "seed": "#e4c44c",
+      "accentLight": "#887000",
+      "accentDark": "#b69923",
+      "containerLight": "#f1e2b6",
+      "onContainerLight": "#715d00",
+      "containerDark": "#4b4222",
+      "onContainerDark": "#e4c44c"
+    },
+    "photoPalette": {
+      "mediaId": "0ea15f9d-112b-4e1c-b47b-5873d5e212bf",
+      "thumbnailPath": "3e62325f-3d12-5edc-b661-2e6bad9f69c0/0ea15f9d-112b-4e1c-b47b-5873d5e212bf-480.webp",
+      "sha256": "68b5d1306504f2fb8ee252d806775303ba501dd525f93731f2ce726b6c0d8ea4",
+      "basis": "photo"
+    },
     "catalogCode": "plant-dicliptera-squarrosa",
     "scientificName": "Dicliptera squarrosa",
     "acceptedName": "Dicliptera squarrosa",
@@ -7302,6 +7707,21 @@
   },
   {
     "id": "ae6ffd99-a91f-5095-bec5-d765d81bee6d",
+    "palette": {
+      "seed": "#9eb00d",
+      "accentLight": "#6c7900",
+      "accentDark": "#93a400",
+      "containerLight": "#e2e6bd",
+      "onContainerLight": "#596400",
+      "containerDark": "#414427",
+      "onContainerDark": "#bed136"
+    },
+    "photoPalette": {
+      "mediaId": "b232f349-650a-4044-b305-c2693902e0c9",
+      "thumbnailPath": "ae6ffd99-a91f-5095-bec5-d765d81bee6d/b232f349-650a-4044-b305-c2693902e0c9-480.webp",
+      "sha256": "8c8d9bbf85a25147d43f470417f3a083de647e7d67fbc0eaa45e0adf8c20c8a0",
+      "basis": "photo"
+    },
     "catalogCode": "plant-dodonaea-viscosa",
     "scientificName": "Dodonaea viscosa",
     "acceptedName": "Dodonaea viscosa",
@@ -7582,6 +8002,21 @@
   },
   {
     "id": "b564d8a0-8f5d-5b1c-9f5a-9071a6518d89",
+    "palette": {
+      "seed": "#847c3c",
+      "accentLight": "#7b7334",
+      "accentDark": "#a69d59",
+      "containerLight": "#ebe3b8",
+      "onContainerLight": "#675f23",
+      "containerDark": "#474323",
+      "onContainerDark": "#d2c880"
+    },
+    "photoPalette": {
+      "mediaId": "159c344b-35de-41f5-81dc-a5d1f09ad7b6",
+      "thumbnailPath": "b564d8a0-8f5d-5b1c-9f5a-9071a6518d89/159c344b-35de-41f5-81dc-a5d1f09ad7b6-480.webp",
+      "sha256": "d00ec53339610bbb1cd9a087bb622ca192c212a03cdfe71eaf3e5ce33ae3dcfc",
+      "basis": "photo"
+    },
     "catalogCode": "plant-dolichandra-unguis-cati",
     "scientificName": "Dolichandra unguis-cati",
     "acceptedName": "Dolichandra unguis-cati",
@@ -7849,6 +8284,21 @@
   },
   {
     "id": "e7ca3a63-afd7-5be3-9b32-c6c2074e8c8f",
+    "palette": {
+      "seed": "#7c8c34",
+      "accentLight": "#6a7923",
+      "accentDark": "#92a348",
+      "containerLight": "#e1e6bf",
+      "onContainerLight": "#56650e",
+      "containerDark": "#404528",
+      "onContainerDark": "#bdcf6f"
+    },
+    "photoPalette": {
+      "mediaId": "ca6333bb-d5e3-4268-9060-5ce6f7902659",
+      "thumbnailPath": "e7ca3a63-afd7-5be3-9b32-c6c2074e8c8f/ca6333bb-d5e3-4268-9060-5ce6f7902659-480.webp",
+      "sha256": "9a3a7d2cbfbd22766407f6d712af280bd173b005b291a2301750046755658db9",
+      "basis": "photo"
+    },
     "catalogCode": "plant-enterolobium-contortisiliquum",
     "scientificName": "Enterolobium contortisiliquum",
     "acceptedName": "Enterolobium contortisiliquum",
@@ -8119,6 +8569,21 @@
   },
   {
     "id": "2f52dc8a-1ed0-57a3-bdf1-5abf9cd30e8b",
+    "palette": {
+      "seed": "#637c3b",
+      "accentLight": "#617a39",
+      "accentDark": "#89a45e",
+      "containerLight": "#dce7c3",
+      "onContainerLight": "#4e6628",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#b4d086"
+    },
+    "photoPalette": {
+      "mediaId": "689d50af-f63e-4fe9-b747-b10344847e16",
+      "thumbnailPath": "2f52dc8a-1ed0-57a3-bdf1-5abf9cd30e8b/689d50af-f63e-4fe9-b747-b10344847e16-480.webp",
+      "sha256": "03c73075ba65de5698c04742bdd71b8405845a653ad1977e9c929235d8816861",
+      "basis": "photo"
+    },
     "catalogCode": "plant-eryngium-pandanifolium",
     "scientificName": "Eryngium pandanifolium",
     "acceptedName": "Eryngium pandanifolium",
@@ -8384,6 +8849,21 @@
   },
   {
     "id": "20a8fa6e-e499-5ce3-8f90-02421638bede",
+    "palette": {
+      "seed": "#e2284d",
+      "accentLight": "#d1374f",
+      "accentDark": "#ff6979",
+      "containerLight": "#ffdada",
+      "onContainerLight": "#b5213d",
+      "containerDark": "#5a393b",
+      "onContainerDark": "#ffb2b6"
+    },
+    "photoPalette": {
+      "mediaId": "8366b870-4fa0-4145-8359-afd36a6baf6c",
+      "thumbnailPath": "20a8fa6e-e499-5ce3-8f90-02421638bede/8366b870-4fa0-4145-8359-afd36a6baf6c-480.webp",
+      "sha256": "64091aa122821be318ab99dcae1a3120cb3254fad16de5695763397085200c72",
+      "basis": "photo"
+    },
     "catalogCode": "plant-erythrina-crista-galli",
     "scientificName": "Erythrina crista-galli",
     "acceptedName": "Erythrina crista-galli",
@@ -8662,6 +9142,21 @@
   },
   {
     "id": "0e021ed9-7041-599e-8f93-0320c1aa47ba",
+    "palette": {
+      "seed": "#9bb648",
+      "accentLight": "#637b0e",
+      "accentDark": "#8ba539",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#516600",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#b6d260"
+    },
+    "photoPalette": {
+      "mediaId": "2c1c0d22-0b15-409e-b4ed-8861ff566aa6",
+      "thumbnailPath": "0e021ed9-7041-599e-8f93-0320c1aa47ba/2c1c0d22-0b15-409e-b4ed-8861ff566aa6-480.webp",
+      "sha256": "af33c0a34892edc5668901a80d9665059b477b1f5a34eb58b31bba77a81344c1",
+      "basis": "photo"
+    },
     "catalogCode": "plant-eugenia-involucrata",
     "scientificName": "Eugenia involucrata",
     "acceptedName": "Eugenia involucrata",
@@ -8930,6 +9425,21 @@
   },
   {
     "id": "b1be4e09-546e-504e-be70-36056eccbd84",
+    "palette": {
+      "seed": "#98af10",
+      "accentLight": "#697a00",
+      "accentDark": "#8fa500",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#566500",
+      "containerDark": "#404528",
+      "onContainerDark": "#b9d239"
+    },
+    "photoPalette": {
+      "mediaId": "897dc003-2e87-4abb-8b50-8ebab5bd0122",
+      "thumbnailPath": "b1be4e09-546e-504e-be70-36056eccbd84/897dc003-2e87-4abb-8b50-8ebab5bd0122-480.webp",
+      "sha256": "634e80ba7470a4a1b3230313a95c8029cbc996d6d3c4e1bdd111922e60610531",
+      "basis": "photo"
+    },
     "catalogCode": "plant-eugenia-uniflora",
     "scientificName": "Eugenia uniflora",
     "acceptedName": "Eugenia uniflora",
@@ -9210,6 +9720,21 @@
   },
   {
     "id": "013324d8-e5c2-575a-9ced-5620215dc236",
+    "palette": {
+      "seed": "#7c8434",
+      "accentLight": "#6f7729",
+      "accentDark": "#99a14e",
+      "containerLight": "#e3e5bd",
+      "onContainerLight": "#5c6315",
+      "containerDark": "#414427",
+      "onContainerDark": "#c4cd74"
+    },
+    "photoPalette": {
+      "mediaId": "0d07d739-f6a3-4fca-8324-1f5e2cb20464",
+      "thumbnailPath": "013324d8-e5c2-575a-9ced-5620215dc236/0d07d739-f6a3-4fca-8324-1f5e2cb20464-480.webp",
+      "sha256": "9991fc9c6538084b2c35e61bbb16b07301d3e2474580254e299f84ae52ea19e9",
+      "basis": "photo"
+    },
     "catalogCode": "plant-feijoa-sellowiana",
     "scientificName": "Feijoa sellowiana",
     "acceptedName": "Feijoa sellowiana",
@@ -9486,6 +10011,21 @@
   },
   {
     "id": "ab9f1196-f2e6-581b-bf5e-3719fbcb9b0b",
+    "palette": {
+      "seed": "#689335",
+      "accentLight": "#547d21",
+      "accentDark": "#7ca848",
+      "containerLight": "#dae7c4",
+      "onContainerLight": "#41690c",
+      "containerDark": "#3a462c",
+      "onContainerDark": "#a6d56e"
+    },
+    "photoPalette": {
+      "mediaId": "c06cdb52-6a14-49d5-8f70-9ca5814af7c4",
+      "thumbnailPath": "ab9f1196-f2e6-581b-bf5e-3719fbcb9b0b/c06cdb52-6a14-49d5-8f70-9ca5814af7c4-480.webp",
+      "sha256": "17360bacda788aa9ea80c083f2ca0ec4b77217f65c171b8e2f6582a67d3be745",
+      "basis": "photo"
+    },
     "catalogCode": "plant-ficus-luschnathiana",
     "scientificName": "Ficus luschnathiana",
     "acceptedName": "Ficus luschnathiana",
@@ -9764,6 +10304,21 @@
   },
   {
     "id": "de637867-7186-5ce8-8bab-c7c95158a8a7",
+    "palette": {
+      "seed": "#a1af4f",
+      "accentLight": "#6c781e",
+      "accentDark": "#95a244",
+      "containerLight": "#e2e6be",
+      "onContainerLight": "#586406",
+      "containerDark": "#404527",
+      "onContainerDark": "#c0cf6b"
+    },
+    "photoPalette": {
+      "mediaId": "aa7cc9df-3bcf-479d-96cf-90ca09567879",
+      "thumbnailPath": "de637867-7186-5ce8-8bab-c7c95158a8a7/aa7cc9df-3bcf-479d-96cf-90ca09567879-480.webp",
+      "sha256": "f32f5b82d224909854f4560b86de6dec07295530566635bd491d89cba6221269",
+      "basis": "photo"
+    },
     "catalogCode": "plant-glandularia-selloi",
     "scientificName": "Glandularia selloi",
     "acceptedName": "Glandularia selloi",
@@ -10040,6 +10595,21 @@
   },
   {
     "id": "a6cabd8a-7e1b-50aa-a5a1-da3511970128",
+    "palette": {
+      "seed": "#8aa628",
+      "accentLight": "#637b00",
+      "accentDark": "#8aa628",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#526600",
+      "containerDark": "#3f4529",
+      "onContainerDark": "#b4d351"
+    },
+    "photoPalette": {
+      "mediaId": "2e603604-bd13-4580-8421-bd37bcfbffb5",
+      "thumbnailPath": "a6cabd8a-7e1b-50aa-a5a1-da3511970128/2e603604-bd13-4580-8421-bd37bcfbffb5-480.webp",
+      "sha256": "29d5fb8700e431c4a3cf2c3e6869675ca756f4c805db5ad906ea4ce9e753fb80",
+      "basis": "photo"
+    },
     "catalogCode": "plant-gleditsia-amorphoides",
     "scientificName": "Gleditsia amorphoides",
     "acceptedName": "Gleditsia amorphoides",
@@ -10301,6 +10871,21 @@
   },
   {
     "id": "12f61160-0645-5ee9-b1c6-8e107afe99d9",
+    "palette": {
+      "seed": "#6c843c",
+      "accentLight": "#637a33",
+      "accentDark": "#8ba458",
+      "containerLight": "#dde7c2",
+      "onContainerLight": "#4f6621",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#b5d07f"
+    },
+    "photoPalette": {
+      "mediaId": "97c4246c-8d50-434e-97a1-10c4d7f763cf",
+      "thumbnailPath": "12f61160-0645-5ee9-b1c6-8e107afe99d9/97c4246c-8d50-434e-97a1-10c4d7f763cf-480.webp",
+      "sha256": "7b57976b84ecbaa1d4a738dd9ecdfaa5f882c9f4c1603ceb69b7702aa254a8f0",
+      "basis": "photo"
+    },
     "catalogCode": "plant-guettarda-uruguensis",
     "scientificName": "Guettarda uruguensis",
     "acceptedName": "Guettarda uruguensis",
@@ -10581,6 +11166,21 @@
   },
   {
     "id": "0eb693b1-0fd9-58b3-8c75-7a84807ee995",
+    "palette": {
+      "seed": "#65b1fa",
+      "accentLight": "#1776bb",
+      "accentDark": "#52a0e8",
+      "containerLight": "#d3e4fa",
+      "onContainerLight": "#0062a0",
+      "containerDark": "#344355",
+      "onContainerDark": "#9bcbff"
+    },
+    "photoPalette": {
+      "mediaId": "bfadd53b-8aa8-47f4-9f48-0f8ab20e5a10",
+      "thumbnailPath": "0eb693b1-0fd9-58b3-8c75-7a84807ee995/bfadd53b-8aa8-47f4-9f48-0f8ab20e5a10-480.webp",
+      "sha256": "53fda87b9544b8a691e8c28e49ff758d0bd1831324a29dd0208268688aa753d7",
+      "basis": "photo"
+    },
     "catalogCode": "plant-handroanthus-heptaphyllus",
     "scientificName": "Handroanthus heptaphyllus",
     "acceptedName": "Handroanthus heptaphyllus",
@@ -10838,6 +11438,21 @@
   },
   {
     "id": "e6b44539-6b90-5d00-bae5-a2021a110d19",
+    "palette": {
+      "seed": "#91916d",
+      "accentLight": "#747542",
+      "accentDark": "#9d9e67",
+      "containerLight": "#e6e5bb",
+      "onContainerLight": "#606130",
+      "containerDark": "#434426",
+      "onContainerDark": "#c9ca8f"
+    },
+    "photoPalette": {
+      "mediaId": "954c42b0-b8d7-49f1-bb86-86981b43397b",
+      "thumbnailPath": "e6b44539-6b90-5d00-bae5-a2021a110d19/954c42b0-b8d7-49f1-bb86-86981b43397b-480.webp",
+      "sha256": "ea9ee516a14dd8040e19b57a1b7b4c1f63705f11bc8f8158c671cefdb8680814",
+      "basis": "photo"
+    },
     "catalogCode": "plant-ilex-paraguariensis",
     "scientificName": "Ilex paraguariensis",
     "acceptedName": "Ilex paraguariensis",
@@ -11110,6 +11725,21 @@
   },
   {
     "id": "8ae66049-eba1-5763-bc6c-72b3d7c8b402",
+    "palette": {
+      "seed": "#647434",
+      "accentLight": "#687838",
+      "accentDark": "#91a25d",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#556426",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#bcce84"
+    },
+    "photoPalette": {
+      "mediaId": "96f7a975-936f-4093-a200-ea9db6fe1e9f",
+      "thumbnailPath": "8ae66049-eba1-5763-bc6c-72b3d7c8b402/96f7a975-936f-4093-a200-ea9db6fe1e9f-480.webp",
+      "sha256": "e312ec137f5c04cbc779a3e3b773b68c4c7c9164d6ae2c49432ffee5baba8763",
+      "basis": "photo"
+    },
     "catalogCode": "plant-jodina-rhombifolia",
     "scientificName": "Jodina rhombifolia",
     "acceptedName": "Jodina rhombifolia",
@@ -11375,6 +12005,21 @@
   },
   {
     "id": "d9084a28-4b27-54d3-9062-f64c2d7081b5",
+    "palette": {
+      "seed": "#bc8c3c",
+      "accentLight": "#956a1c",
+      "accentDark": "#c39342",
+      "containerLight": "#fbdeb6",
+      "onContainerLight": "#7f5705",
+      "containerDark": "#523f22",
+      "onContainerDark": "#f3bd68"
+    },
+    "photoPalette": {
+      "mediaId": "fe0ba698-5f47-4d35-94c4-b307ddf94e5f",
+      "thumbnailPath": "d9084a28-4b27-54d3-9062-f64c2d7081b5/fe0ba698-5f47-4d35-94c4-b307ddf94e5f-480.webp",
+      "sha256": "d648624fe40fa8a433848cfbc0acd968d1c02abf3caf7dc946697dba69121f21",
+      "basis": "photo"
+    },
     "catalogCode": "plant-labatia-gardneriana",
     "scientificName": "Labatia gardneriana",
     "acceptedName": "Labatia gardneriana",
@@ -11643,6 +12288,21 @@
   },
   {
     "id": "84fcdfb5-a907-5523-b9e9-c66237bbcc36",
+    "palette": {
+      "seed": "#acbc6c",
+      "accentLight": "#6a7831",
+      "accentDark": "#93a255",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#57641e",
+      "containerDark": "#3f4528",
+      "onContainerDark": "#bece7c"
+    },
+    "photoPalette": {
+      "mediaId": "d8a24789-227b-41f6-8a4b-8f776f7f0b6c",
+      "thumbnailPath": "84fcdfb5-a907-5523-b9e9-c66237bbcc36/d8a24789-227b-41f6-8a4b-8f776f7f0b6c-480.webp",
+      "sha256": "2652be6cc0c1cc1b5b09d0788169860cba687f1581631a65f414f92fb43b100e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-labatia-salicifolia",
     "scientificName": "Labatia salicifolia",
     "acceptedName": "Labatia salicifolia",
@@ -11913,6 +12573,21 @@
   },
   {
     "id": "5e4c06de-8c9c-5bd8-89cd-480132b64cb2",
+    "palette": {
+      "seed": "#ce751c",
+      "accentLight": "#ad5d00",
+      "accentDark": "#e1842c",
+      "containerLight": "#ffdcc3",
+      "onContainerLight": "#914d00",
+      "containerDark": "#573c27",
+      "onContainerDark": "#ffb77d"
+    },
+    "photoPalette": {
+      "mediaId": "c4c1354c-0880-40d0-b200-8cf52b8b1121",
+      "thumbnailPath": "5e4c06de-8c9c-5bd8-89cd-480132b64cb2/c4c1354c-0880-40d0-b200-8cf52b8b1121-480.webp",
+      "sha256": "270ee0768623ed6fc38b5cafef3cb9d6464bb6c27945a12a96af7966b8707c6e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-lantana-camara",
     "scientificName": "Lantana camara",
     "acceptedName": "Lantana camara",
@@ -12184,6 +12859,21 @@
   },
   {
     "id": "385be31f-73a8-512b-9930-85bb4a69a39b",
+    "palette": {
+      "seed": "#6c9840",
+      "accentLight": "#537d29",
+      "accentDark": "#7ba84e",
+      "containerLight": "#d9e8c5",
+      "onContainerLight": "#406915",
+      "containerDark": "#3a462d",
+      "onContainerDark": "#a5d575"
+    },
+    "photoPalette": {
+      "mediaId": "5e7a01b7-1f5f-4457-8bfb-62d180918e5c",
+      "thumbnailPath": "385be31f-73a8-512b-9930-85bb4a69a39b/5e7a01b7-1f5f-4457-8bfb-62d180918e5c-480.webp",
+      "sha256": "df7e3c4ce296aa67ca9fa62f1ab616e40e98069de040f3756f716354ad17d9a6",
+      "basis": "photo"
+    },
     "catalogCode": "plant-lithraea-brasiliensis",
     "scientificName": "Lithraea brasiliensis",
     "acceptedName": "Lithraea brasiliensis",
@@ -12462,6 +13152,21 @@
   },
   {
     "id": "42876265-eeeb-563c-8389-df79ee4bca32",
+    "palette": {
+      "seed": "#5eb612",
+      "accentLight": "#3f8100",
+      "accentDark": "#59af0c",
+      "containerLight": "#d8e8c6",
+      "onContainerLight": "#336b00",
+      "containerDark": "#39462e",
+      "onContainerDark": "#83dd40"
+    },
+    "photoPalette": {
+      "mediaId": "8e74af88-60d9-4e0b-b640-7d7539dad98b",
+      "thumbnailPath": "42876265-eeeb-563c-8389-df79ee4bca32/8e74af88-60d9-4e0b-b640-7d7539dad98b-480.webp",
+      "sha256": "1ba12515ff5c537d48cafe1d822814045d227151cb2063858e26cd786c49286e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-lithraea-molleoides",
     "scientificName": "Lithraea molleoides",
     "acceptedName": "Lithraea molleoides",
@@ -12734,6 +13439,21 @@
   },
   {
     "id": "0ef63b1b-bb82-570e-91bf-071161cf913f",
+    "palette": {
+      "seed": "#9cac4c",
+      "accentLight": "#6a791e",
+      "accentDark": "#93a344",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#576506",
+      "containerDark": "#404528",
+      "onContainerDark": "#becf6b"
+    },
+    "photoPalette": {
+      "mediaId": "87136967-2b43-4894-8979-ea5b4132cccc",
+      "thumbnailPath": "0ef63b1b-bb82-570e-91bf-071161cf913f/87136967-2b43-4894-8979-ea5b4132cccc-480.webp",
+      "sha256": "95fee6c86582386543ae6ed5efc01e536135085eb8b17521b4d82721f7e40fd1",
+      "basis": "photo"
+    },
     "catalogCode": "plant-luehea-divaricata",
     "scientificName": "Luehea divaricata",
     "acceptedName": "Luehea divaricata",
@@ -12993,6 +13713,21 @@
   },
   {
     "id": "744cf261-a611-54c9-9486-e7c6fece5137",
+    "palette": {
+      "seed": "#51a104",
+      "accentLight": "#3f8100",
+      "accentDark": "#5dae1a",
+      "containerLight": "#d8e8c6",
+      "onContainerLight": "#336b00",
+      "containerDark": "#39462e",
+      "onContainerDark": "#87dc47"
+    },
+    "photoPalette": {
+      "mediaId": "8fd89f27-9805-4958-87d2-5dc576f98bfc",
+      "thumbnailPath": "744cf261-a611-54c9-9486-e7c6fece5137/8fd89f27-9805-4958-87d2-5dc576f98bfc-480.webp",
+      "sha256": "9df83e0c11b5110ab575f291f32ca629ff879d384267b1a2aba7f6d75ab892d7",
+      "basis": "photo"
+    },
     "catalogCode": "plant-matayba-elaeagnoides",
     "scientificName": "Matayba elaeagnoides",
     "acceptedName": "Matayba elaeagnoides",
@@ -13267,6 +14002,21 @@
   },
   {
     "id": "92dfbc9a-c53b-53f5-8236-c24afdcb5f20",
+    "palette": {
+      "seed": "#1680a5",
+      "accentLight": "#087ba0",
+      "accentDark": "#4ca5cc",
+      "containerLight": "#cde6f5",
+      "onContainerLight": "#006686",
+      "containerDark": "#2e4551",
+      "onContainerDark": "#7bd1f9"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "plant-monteverdia-ilicifolia",
     "scientificName": "Monteverdia ilicifolia",
     "acceptedName": "Monteverdia ilicifolia",
@@ -13509,6 +14259,21 @@
   },
   {
     "id": "7ca9f837-774d-5ac2-8047-38a16ae91a90",
+    "palette": {
+      "seed": "#a4b818",
+      "accentLight": "#6b7900",
+      "accentDark": "#92a400",
+      "containerLight": "#e2e6be",
+      "onContainerLight": "#586400",
+      "containerDark": "#414527",
+      "onContainerDark": "#bcd135"
+    },
+    "photoPalette": {
+      "mediaId": "99a5b279-ea9f-4ef3-a419-8bad57277fce",
+      "thumbnailPath": "7ca9f837-774d-5ac2-8047-38a16ae91a90/99a5b279-ea9f-4ef3-a419-8bad57277fce-480.webp",
+      "sha256": "ee09a074196664e75655afeefb8d6239c4f48a7dc8b2e82fb092c088c8c44882",
+      "basis": "photo"
+    },
     "catalogCode": "plant-myrceugenia-glaucescens",
     "scientificName": "Myrceugenia glaucescens",
     "acceptedName": "Myrceugenia glaucescens",
@@ -13778,6 +14543,21 @@
   },
   {
     "id": "c6c6cfd6-8af8-54ba-8261-18eb905dcfba",
+    "palette": {
+      "seed": "#5c7c34",
+      "accentLight": "#5c7c34",
+      "accentDark": "#84a659",
+      "containerLight": "#dae7c4",
+      "onContainerLight": "#496722",
+      "containerDark": "#3b462c",
+      "onContainerDark": "#aed280"
+    },
+    "photoPalette": {
+      "mediaId": "2105ab55-4e8b-4f55-9908-9aafc566ce8a",
+      "thumbnailPath": "c6c6cfd6-8af8-54ba-8261-18eb905dcfba/2105ab55-4e8b-4f55-9908-9aafc566ce8a-480.webp",
+      "sha256": "d1f484b217f1cea39e5b99488928aafc32ec01b812109726bcede8d28f4d6769",
+      "basis": "photo"
+    },
     "catalogCode": "plant-myrcianthes-cisplatensis",
     "scientificName": "Myrcianthes cisplatensis",
     "acceptedName": "Myrcianthes cisplatensis",
@@ -14056,6 +14836,21 @@
   },
   {
     "id": "a3f02de8-07b8-5252-9933-41f17833adb2",
+    "palette": {
+      "seed": "#84b4cc",
+      "accentLight": "#48788e",
+      "accentDark": "#72a2b9",
+      "containerLight": "#cde6f5",
+      "onContainerLight": "#33647a",
+      "containerDark": "#2d4551",
+      "onContainerDark": "#9dcde6"
+    },
+    "photoPalette": {
+      "mediaId": "f988ef3f-4c24-4576-87f6-ddf82c307d76",
+      "thumbnailPath": "a3f02de8-07b8-5252-9933-41f17833adb2/f988ef3f-4c24-4576-87f6-ddf82c307d76-480.webp",
+      "sha256": "4a1609abb8423faac3158816364351b38cfc584c586ffd2e4eb9054e37b0c3b5",
+      "basis": "photo"
+    },
     "catalogCode": "plant-myrcianthes-pungens",
     "scientificName": "Myrcianthes pungens",
     "acceptedName": "Myrcianthes pungens",
@@ -14328,6 +15123,21 @@
   },
   {
     "id": "46a58423-9e5c-59b8-91ed-ab31faa06a1a",
+    "palette": {
+      "seed": "#8a900e",
+      "accentLight": "#727700",
+      "accentDark": "#9ba224",
+      "containerLight": "#e5e5bc",
+      "onContainerLight": "#5e6300",
+      "containerDark": "#434426",
+      "onContainerDark": "#c7ce4e"
+    },
+    "photoPalette": {
+      "mediaId": "2fb92fed-9115-4b4d-b549-95bea704b263",
+      "thumbnailPath": "46a58423-9e5c-59b8-91ed-ab31faa06a1a/2fb92fed-9115-4b4d-b549-95bea704b263-480.webp",
+      "sha256": "ca5c8d887b22b97fae087f0d5ff5b19555a5b53bfd93fbbfc792b3020710dc36",
+      "basis": "photo"
+    },
     "catalogCode": "plant-myrrhinium-atropurpureum",
     "scientificName": "Myrrhinium atropurpureum",
     "acceptedName": "Myrrhinium atropurpureum",
@@ -14608,6 +15418,21 @@
   },
   {
     "id": "43fbed7b-00d5-531c-a18b-88b6982cae64",
+    "palette": {
+      "seed": "#81847a",
+      "accentLight": "#63794f",
+      "accentDark": "#8ca275",
+      "containerLight": "#d9e8c5",
+      "onContainerLight": "#50653d",
+      "containerDark": "#3a462d",
+      "onContainerDark": "#b7ce9d"
+    },
+    "photoPalette": {
+      "mediaId": "97c7b6e7-1561-49f7-ae1c-130ba5a20469",
+      "thumbnailPath": "43fbed7b-00d5-531c-a18b-88b6982cae64/97c7b6e7-1561-49f7-ae1c-130ba5a20469-480.webp",
+      "sha256": "50708ca8eb3032cc73153ecf79b29a5a8646a16fdf13e48bdba885448bae70b1",
+      "basis": "photo"
+    },
     "catalogCode": "plant-myrsine-laetevirens",
     "scientificName": "Myrsine laetevirens",
     "acceptedName": "Myrsine laetevirens",
@@ -14888,6 +15713,21 @@
   },
   {
     "id": "95ac1e82-18ea-5a64-9e6d-c2eda7aa0fd5",
+    "palette": {
+      "seed": "#749c44",
+      "accentLight": "#577d29",
+      "accentDark": "#7fa74e",
+      "containerLight": "#dae7c4",
+      "onContainerLight": "#446815",
+      "containerDark": "#3b462c",
+      "onContainerDark": "#a9d475"
+    },
+    "photoPalette": {
+      "mediaId": "6b849d9b-3cef-4467-93a8-30fd8754ad14",
+      "thumbnailPath": "95ac1e82-18ea-5a64-9e6d-c2eda7aa0fd5/6b849d9b-3cef-4467-93a8-30fd8754ad14-480.webp",
+      "sha256": "a269e6e812a30105cac9404e76efc254f080bafb0d4467eca2c94d38892a50ed",
+      "basis": "photo"
+    },
     "catalogCode": "plant-nassella-neesiana",
     "scientificName": "Nassella neesiana",
     "acceptedName": "Nassella neesiana",
@@ -15168,6 +16008,21 @@
   },
   {
     "id": "b94f5bb8-874e-59ba-b4c7-5305c7dae030",
+    "palette": {
+      "seed": "#3e6c34",
+      "accentLight": "#4e7d43",
+      "accentDark": "#76a869",
+      "containerLight": "#d5e8ca",
+      "onContainerLight": "#3b6931",
+      "containerDark": "#364731",
+      "onContainerDark": "#a0d491"
+    },
+    "photoPalette": {
+      "mediaId": "8982c2e2-5541-4aaf-b82b-e5a4ab3fe0cc",
+      "thumbnailPath": "b94f5bb8-874e-59ba-b4c7-5305c7dae030/8982c2e2-5541-4aaf-b82b-e5a4ab3fe0cc-480.webp",
+      "sha256": "dd8f3c4a67fb1a1777611b0aeeda8755ee69d7615fcdaf63914fe5a708394b2d",
+      "basis": "photo"
+    },
     "catalogCode": "plant-neltuma-affinis",
     "scientificName": "Neltuma affinis",
     "acceptedName": "Neltuma affinis",
@@ -15438,6 +16293,21 @@
   },
   {
     "id": "741e15f6-85bb-5dbb-a267-e209066e1e19",
+    "palette": {
+      "seed": "#648c14",
+      "accentLight": "#577d00",
+      "accentDark": "#7ea831",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#476800",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#a8d559"
+    },
+    "photoPalette": {
+      "mediaId": "d5c5e5f6-8b49-4af0-8414-e88024eb25fe",
+      "thumbnailPath": "741e15f6-85bb-5dbb-a267-e209066e1e19/d5c5e5f6-8b49-4af0-8414-e88024eb25fe-480.webp",
+      "sha256": "116b1a54bba50650eb0aaf9ce6309725540258bc03056778b5f4cbe5bba10c3e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-ocotea-acutifolia",
     "scientificName": "Ocotea acutifolia",
     "acceptedName": "Ocotea acutifolia",
@@ -15714,6 +16584,21 @@
   },
   {
     "id": "b75bca48-b02b-53df-a49c-2358366b23c5",
+    "palette": {
+      "seed": "#6672b8",
+      "accentLight": "#616db3",
+      "accentDark": "#8b97df",
+      "containerLight": "#dfe1fd",
+      "onContainerLight": "#4d599e",
+      "containerDark": "#3e4157",
+      "onContainerDark": "#bac3ff"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "plant-ocotea-pulchella",
     "scientificName": "Ocotea pulchella",
     "acceptedName": "Ocotea pulchella",
@@ -15953,6 +16838,21 @@
   },
   {
     "id": "8f20e2d7-c514-5333-af94-dfc57e164b58",
+    "palette": {
+      "seed": "#f08921",
+      "accentLight": "#ad5d00",
+      "accentDark": "#e68218",
+      "containerLight": "#ffdcc3",
+      "onContainerLight": "#904d00",
+      "containerDark": "#573c27",
+      "onContainerDark": "#ffb77d"
+    },
+    "photoPalette": {
+      "mediaId": "c90afac9-a7d7-4ec7-b08f-80a43f1181d0",
+      "thumbnailPath": "8f20e2d7-c514-5333-af94-dfc57e164b58/c90afac9-a7d7-4ec7-b08f-80a43f1181d0-480.webp",
+      "sha256": "6ec1e36c5ae584f45433991a00c74d83f40ca30e0eb4235c3c042622ccae84e3",
+      "basis": "photo"
+    },
     "catalogCode": "plant-opuntia-elata",
     "scientificName": "Opuntia elata",
     "acceptedName": "Opuntia elata",
@@ -16214,6 +17114,21 @@
   },
   {
     "id": "bbbc12db-42bb-58f5-b1eb-c96fb31f9464",
+    "palette": {
+      "seed": "#83c546",
+      "accentLight": "#468000",
+      "accentDark": "#6cac2f",
+      "containerLight": "#d9e8c5",
+      "onContainerLight": "#396a00",
+      "containerDark": "#3a462d",
+      "onContainerDark": "#95d957"
+    },
+    "photoPalette": {
+      "mediaId": "e17278fe-bddd-4259-8731-91fec3d0a6a3",
+      "thumbnailPath": "bbbc12db-42bb-58f5-b1eb-c96fb31f9464/e17278fe-bddd-4259-8731-91fec3d0a6a3-480.webp",
+      "sha256": "7970bb7b207979d283854b92fe102385e00e2d5e15757ae992b241bb2cd389ed",
+      "basis": "photo"
+    },
     "catalogCode": "plant-oxalis-articulata",
     "scientificName": "Oxalis articulata",
     "acceptedName": "Oxalis articulata",
@@ -16477,6 +17392,21 @@
   },
   {
     "id": "2f4489b7-0658-516a-b21a-4ab7393d0885",
+    "palette": {
+      "seed": "#e6d611",
+      "accentLight": "#7d7400",
+      "accentDark": "#aa9e00",
+      "containerLight": "#eae4b9",
+      "onContainerLight": "#686000",
+      "containerDark": "#474324",
+      "onContainerDark": "#d9c900"
+    },
+    "photoPalette": {
+      "mediaId": "75b9220a-f5bf-418a-bc90-193c473d0e54",
+      "thumbnailPath": "2f4489b7-0658-516a-b21a-4ab7393d0885/75b9220a-f5bf-418a-bc90-193c473d0e54-480.webp",
+      "sha256": "0728f0852bd184d7f02686bae28e1ab90776485cf6a882170f74fae881c80edf",
+      "basis": "photo"
+    },
     "catalogCode": "plant-oxalis-sellowiana",
     "scientificName": "Oxalis sellowiana",
     "acceptedName": "Oxalis sellowiana",
@@ -16738,6 +17668,21 @@
   },
   {
     "id": "64323504-8fa7-5a9e-a207-634b7fb6ce29",
+    "palette": {
+      "seed": "#868178",
+      "accentLight": "#82713b",
+      "accentDark": "#ad9a60",
+      "containerLight": "#f2e1b6",
+      "onContainerLight": "#6d5d2a",
+      "containerDark": "#4c4122",
+      "onContainerDark": "#dbc587"
+    },
+    "photoPalette": {
+      "mediaId": "c823d248-3642-4129-a0ac-c628752d097e",
+      "thumbnailPath": "64323504-8fa7-5a9e-a207-634b7fb6ce29/c823d248-3642-4129-a0ac-c628752d097e-480.webp",
+      "sha256": "c96c8c874e7a4b84ef8e4cba2627180691d00eecbc75f2196ce80bb931ed12cb",
+      "basis": "photo"
+    },
     "catalogCode": "plant-parapiptadenia-rigida",
     "scientificName": "Parapiptadenia rigida",
     "acceptedName": "Parapiptadenia rigida",
@@ -17010,6 +17955,21 @@
   },
   {
     "id": "81435938-563f-5f60-b707-f194ee55fb95",
+    "palette": {
+      "seed": "#b6404c",
+      "accentLight": "#c24954",
+      "accentDark": "#f6717b",
+      "containerLight": "#ffdada",
+      "onContainerLight": "#a83542",
+      "containerDark": "#5a393b",
+      "onContainerDark": "#ffb3b5"
+    },
+    "photoPalette": {
+      "mediaId": "51df50dd-bf37-4171-9405-70a149d2ffed",
+      "thumbnailPath": "81435938-563f-5f60-b707-f194ee55fb95/51df50dd-bf37-4171-9405-70a149d2ffed-480.webp",
+      "sha256": "6276085a656f0eace796fb2c6a214d3f3978cf42a48f2a3936771f9fff16780c",
+      "basis": "photo"
+    },
     "catalogCode": "plant-paspalum-dilatatum",
     "scientificName": "Paspalum dilatatum",
     "acceptedName": "Paspalum dilatatum",
@@ -17292,6 +18252,21 @@
   },
   {
     "id": "e91e4264-45bb-5a63-b3bc-78a2de1036b4",
+    "palette": {
+      "seed": "#ae6750",
+      "accentLight": "#a56049",
+      "accentDark": "#d5886f",
+      "containerLight": "#ffdbd0",
+      "onContainerLight": "#8e4d37",
+      "containerDark": "#5a3a30",
+      "onContainerDark": "#ffb59e"
+    },
+    "photoPalette": {
+      "mediaId": "110111e5-b471-46c8-b0df-0789e3b307f3",
+      "thumbnailPath": "e91e4264-45bb-5a63-b3bc-78a2de1036b4/110111e5-b471-46c8-b0df-0789e3b307f3-480.webp",
+      "sha256": "d46e70d8b3acdb649f86bf28d811632644828ac29598b48135969732ca73ab0d",
+      "basis": "photo"
+    },
     "catalogCode": "plant-paspalum-notatum",
     "scientificName": "Paspalum notatum",
     "acceptedName": "Paspalum notatum",
@@ -17565,6 +18540,21 @@
   },
   {
     "id": "81055dc6-4997-5444-8bc0-fd2cebd05ae3",
+    "palette": {
+      "seed": "#8f8d6f",
+      "accentLight": "#767440",
+      "accentDark": "#a09e66",
+      "containerLight": "#e8e4ba",
+      "onContainerLight": "#62612f",
+      "containerDark": "#454425",
+      "onContainerDark": "#ccc98d"
+    },
+    "photoPalette": {
+      "mediaId": "480e0de6-6e8a-4b74-a99e-4fc4b96d8f2f",
+      "thumbnailPath": "81055dc6-4997-5444-8bc0-fd2cebd05ae3/480e0de6-6e8a-4b74-a99e-4fc4b96d8f2f-480.webp",
+      "sha256": "c836ef137c991fa252393d29a0917b445cbc9bcd799912b6754f889312d7d8f4",
+      "basis": "photo"
+    },
     "catalogCode": "plant-paspalum-quadrifarium",
     "scientificName": "Paspalum quadrifarium",
     "acceptedName": "Paspalum quadrifarium",
@@ -17843,6 +18833,21 @@
   },
   {
     "id": "8d86bbf4-dda0-562e-b675-af586e46383b",
+    "palette": {
+      "seed": "#639b72",
+      "accentLight": "#467d57",
+      "accentDark": "#6fa87e",
+      "containerLight": "#cfe9d2",
+      "onContainerLight": "#326944",
+      "containerDark": "#314736",
+      "onContainerDark": "#99d4a7"
+    },
+    "photoPalette": {
+      "mediaId": "5e03b4ef-2bb5-4d6f-9d6c-e93c738457e2",
+      "thumbnailPath": "8d86bbf4-dda0-562e-b675-af586e46383b/5e03b4ef-2bb5-4d6f-9d6c-e93c738457e2-480.webp",
+      "sha256": "e7173b992bbeeba1f4a850ba5db0114562da9d826e144a1b6431d748dd6fe179",
+      "basis": "photo"
+    },
     "catalogCode": "plant-passiflora-caerulea",
     "scientificName": "Passiflora caerulea",
     "acceptedName": "Passiflora caerulea",
@@ -18118,6 +19123,21 @@
   },
   {
     "id": "07bbf051-1b91-50a3-8dbc-b0e1bc31d673",
+    "palette": {
+      "seed": "#3f74cc",
+      "accentLight": "#3b70c8",
+      "accentDark": "#699af5",
+      "containerLight": "#d9e2fc",
+      "onContainerLight": "#205cb3",
+      "containerDark": "#394257",
+      "onContainerDark": "#acc7ff"
+    },
+    "photoPalette": {
+      "mediaId": "bae56efb-2534-40db-802c-8d11a301fc62",
+      "thumbnailPath": "07bbf051-1b91-50a3-8dbc-b0e1bc31d673/bae56efb-2534-40db-802c-8d11a301fc62-480.webp",
+      "sha256": "885ddc4aab3998961bfbec31040d134481ff0030560a38b1dcf9145d8e3c7fb5",
+      "basis": "photo"
+    },
     "catalogCode": "plant-peltophorum-dubium",
     "scientificName": "Peltophorum dubium",
     "acceptedName": "Peltophorum dubium",
@@ -18388,6 +19408,21 @@
   },
   {
     "id": "34a8ff60-1324-5389-9904-6e4d67337d23",
+    "palette": {
+      "seed": "#627234",
+      "accentLight": "#68783a",
+      "accentDark": "#91a25f",
+      "containerLight": "#dfe6c0",
+      "onContainerLight": "#556428",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#bcce86"
+    },
+    "photoPalette": {
+      "mediaId": "88fe728c-67db-4d95-b9e4-116c71a7b50d",
+      "thumbnailPath": "34a8ff60-1324-5389-9904-6e4d67337d23/88fe728c-67db-4d95-b9e4-116c71a7b50d-480.webp",
+      "sha256": "e9cd3d7a38bd1441965272145a40aaa38895995b1817e852ca0007039fa3db84",
+      "basis": "photo"
+    },
     "catalogCode": "plant-petunia-axillaris",
     "scientificName": "Petunia axillaris",
     "acceptedName": "Petunia axillaris",
@@ -18651,6 +19686,21 @@
   },
   {
     "id": "56b10b86-73aa-57c9-8f1e-398f59ea9e1e",
+    "palette": {
+      "seed": "#cc48c4",
+      "accentLight": "#bb38b5",
+      "accentDark": "#ed65e2",
+      "containerLight": "#fad9f0",
+      "onContainerLight": "#a31e9f",
+      "containerDark": "#523b4d",
+      "onContainerDark": "#ffabf1"
+    },
+    "photoPalette": {
+      "mediaId": "098499ab-1215-47d7-ba2b-3c80af38d7d5",
+      "thumbnailPath": "56b10b86-73aa-57c9-8f1e-398f59ea9e1e/098499ab-1215-47d7-ba2b-3c80af38d7d5-480.webp",
+      "sha256": "6f2eb99e496c43a541dae1445bf3e1a3ba6dde5079d5db0e12d4bfc83d8bc4c2",
+      "basis": "photo"
+    },
     "catalogCode": "plant-petunia-integrifolia",
     "scientificName": "Petunia integrifolia",
     "acceptedName": "Petunia integrifolia",
@@ -18921,6 +19971,21 @@
   },
   {
     "id": "59124cb1-0dd3-5b17-9e6f-9350b656797a",
+    "palette": {
+      "seed": "#bce44c",
+      "accentLight": "#607c00",
+      "accentDark": "#84a806",
+      "containerLight": "#dee7c0",
+      "onContainerLight": "#4f6600",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#aed53e"
+    },
+    "photoPalette": {
+      "mediaId": "47942bdd-b7f4-4b0c-8fa5-d6d4812bd627",
+      "thumbnailPath": "59124cb1-0dd3-5b17-9e6f-9350b656797a/47942bdd-b7f4-4b0c-8fa5-d6d4812bd627-480.webp",
+      "sha256": "826d1348655254db677ffb9224bcae59443d6497ae20fbecac2170a84634ffff",
+      "basis": "photo"
+    },
     "catalogCode": "plant-phytolacca-dioica",
     "scientificName": "Phytolacca dioica",
     "acceptedName": "Phytolacca dioica",
@@ -19197,6 +20262,21 @@
   },
   {
     "id": "c7124656-cda4-5e91-be32-ad3323008cb9",
+    "palette": {
+      "seed": "#59991e",
+      "accentLight": "#448100",
+      "accentDark": "#6aac31",
+      "containerLight": "#d9e8c6",
+      "onContainerLight": "#376b00",
+      "containerDark": "#39462d",
+      "onContainerDark": "#94d959"
+    },
+    "photoPalette": {
+      "mediaId": "751a8036-1682-4b91-8bc8-4ad96e0cd490",
+      "thumbnailPath": "c7124656-cda4-5e91-be32-ad3323008cb9/751a8036-1682-4b91-8bc8-4ad96e0cd490-480.webp",
+      "sha256": "cd3b6ed461e70699884ea7a3fcf70ce809c98ea2cf3f45d3d045ee1f5176a0a2",
+      "basis": "photo"
+    },
     "catalogCode": "plant-pontederia-cordata",
     "scientificName": "Pontederia cordata",
     "acceptedName": "Pontederia cordata",
@@ -19445,6 +20525,21 @@
   },
   {
     "id": "b9cf39f5-388f-5aef-ad3d-268d107fede3",
+    "palette": {
+      "seed": "#a8c634",
+      "accentLight": "#657b00",
+      "accentDark": "#8aa60d",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#536600",
+      "containerDark": "#3f4529",
+      "onContainerDark": "#b4d340"
+    },
+    "photoPalette": {
+      "mediaId": "975a8398-549f-4200-ab9e-de5cf7cd9dd3",
+      "thumbnailPath": "b9cf39f5-388f-5aef-ad3d-268d107fede3/975a8398-549f-4200-ab9e-de5cf7cd9dd3-480.webp",
+      "sha256": "5794a5f84aa06c65b8497fb781750870e7a854a29fb135602f85778582a7eff2",
+      "basis": "photo"
+    },
     "catalogCode": "plant-prunus-subcoriacea",
     "scientificName": "Prunus subcoriacea",
     "acceptedName": "Prunus subcoriacea",
@@ -19708,6 +20803,21 @@
   },
   {
     "id": "b9f8c9dc-3694-5b0d-9dae-df0eb0886d32",
+    "palette": {
+      "seed": "#89a645",
+      "accentLight": "#607b1e",
+      "accentDark": "#89a645",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#4d6707",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#b3d26b"
+    },
+    "photoPalette": {
+      "mediaId": "7c451ee5-2589-45fc-ac05-63be06141512",
+      "thumbnailPath": "b9f8c9dc-3694-5b0d-9dae-df0eb0886d32/7c451ee5-2589-45fc-ac05-63be06141512-480.webp",
+      "sha256": "c6f47a9a62f6988c238a61567b3d3c6481cdf424f8e96486f84bb46449886bfa",
+      "basis": "photo"
+    },
     "catalogCode": "plant-psidium-cattleyanum",
     "scientificName": "Psidium cattleyanum",
     "acceptedName": "Psidium cattleyanum",
@@ -19980,6 +21090,21 @@
   },
   {
     "id": "b2e8ecb9-6f79-59cf-8250-a0d33e0e93a7",
+    "palette": {
+      "seed": "#8ca420",
+      "accentLight": "#667a00",
+      "accentDark": "#8da521",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#546500",
+      "containerDark": "#3f4528",
+      "onContainerDark": "#b8d24c"
+    },
+    "photoPalette": {
+      "mediaId": "299428f7-d998-4d4d-a5f1-f5a854f37d85",
+      "thumbnailPath": "b2e8ecb9-6f79-59cf-8250-a0d33e0e93a7/299428f7-d998-4d4d-a5f1-f5a854f37d85-480.webp",
+      "sha256": "61dc26920137163171e362b5b9a33e47d7970fe2f096ded3f978aa1a20709b8a",
+      "basis": "photo"
+    },
     "catalogCode": "plant-quillaja-lancifolia",
     "scientificName": "Quillaja lancifolia",
     "acceptedName": "Quillaja lancifolia",
@@ -20254,6 +21379,21 @@
   },
   {
     "id": "845dede3-0a0a-59f0-814c-9dfde849d828",
+    "palette": {
+      "seed": "#7f9c31",
+      "accentLight": "#607b0f",
+      "accentDark": "#88a63a",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#4e6700",
+      "containerDark": "#3e452a",
+      "onContainerDark": "#b3d261"
+    },
+    "photoPalette": {
+      "mediaId": "3fded987-7784-4a93-b8f4-0d78cf93e7be",
+      "thumbnailPath": "845dede3-0a0a-59f0-814c-9dfde849d828/3fded987-7784-4a93-b8f4-0d78cf93e7be-480.webp",
+      "sha256": "14bb27f8d6bb6f382bcd16b16e4965c76b23cd911056bdf2957ef09a9f108e83",
+      "basis": "photo"
+    },
     "catalogCode": "plant-richardia-brasiliensis",
     "scientificName": "Richardia brasiliensis",
     "acceptedName": "Richardia brasiliensis",
@@ -20528,6 +21668,21 @@
   },
   {
     "id": "ec9a5b6e-35e6-574b-87c6-3a391c2e76bd",
+    "palette": {
+      "seed": "#9dba4a",
+      "accentLight": "#627b0c",
+      "accentDark": "#8aa638",
+      "containerLight": "#dfe7c0",
+      "onContainerLight": "#506600",
+      "containerDark": "#3e4529",
+      "onContainerDark": "#b4d25f"
+    },
+    "photoPalette": {
+      "mediaId": "1c185ce5-0dd8-4032-9177-e721b5b084f1",
+      "thumbnailPath": "ec9a5b6e-35e6-574b-87c6-3a391c2e76bd/1c185ce5-0dd8-4032-9177-e721b5b084f1-480.webp",
+      "sha256": "4409849e47844d5c94c348b26f348e9fbeb150191eecb6f7eb23c902835c166b",
+      "basis": "photo"
+    },
     "catalogCode": "plant-ruprechtia-laxiflora",
     "scientificName": "Ruprechtia laxiflora",
     "acceptedName": "Ruprechtia laxiflora",
@@ -20800,6 +21955,21 @@
   },
   {
     "id": "b29de263-67f1-5ea4-8e67-37b7ba5c2d33",
+    "palette": {
+      "seed": "#84a624",
+      "accentLight": "#5f7c00",
+      "accentDark": "#85a725",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#4e6700",
+      "containerDark": "#3e452a",
+      "onContainerDark": "#afd44f"
+    },
+    "photoPalette": {
+      "mediaId": "9894bfd6-a4df-4e98-a689-d3f692d5d310",
+      "thumbnailPath": "b29de263-67f1-5ea4-8e67-37b7ba5c2d33/9894bfd6-a4df-4e98-a689-d3f692d5d310-480.webp",
+      "sha256": "092bb99147959b3dde256dea3b4c9774635e4b03dbadf14dc1ddf690b5a25b82",
+      "basis": "photo"
+    },
     "catalogCode": "plant-sagittaria-montevidensis",
     "scientificName": "Sagittaria montevidensis",
     "acceptedName": "Sagittaria montevidensis",
@@ -21072,6 +22242,21 @@
   },
   {
     "id": "33f85dd6-3d80-5d3a-a242-f318dc104f4e",
+    "palette": {
+      "seed": "#8c9c30",
+      "accentLight": "#6a790a",
+      "accentDark": "#93a337",
+      "containerLight": "#e2e6be",
+      "onContainerLight": "#586400",
+      "containerDark": "#404528",
+      "onContainerDark": "#bed05e"
+    },
+    "photoPalette": {
+      "mediaId": "24ac48b6-8681-41fc-baa2-573fbef0e8c1",
+      "thumbnailPath": "33f85dd6-3d80-5d3a-a242-f318dc104f4e/24ac48b6-8681-41fc-baa2-573fbef0e8c1-480.webp",
+      "sha256": "aa0fd760eda9c403dd398af9192b182eba972f9a71b88dfe03241e5d27a52716",
+      "basis": "photo"
+    },
     "catalogCode": "plant-salix-humboldtiana",
     "scientificName": "Salix humboldtiana",
     "acceptedName": "Salix humboldtiana",
@@ -21340,6 +22525,21 @@
   },
   {
     "id": "b306be6c-4d78-5678-adde-6bf88a4cdf34",
+    "palette": {
+      "seed": "#82950d",
+      "accentLight": "#697900",
+      "accentDark": "#91a421",
+      "containerLight": "#e1e6be",
+      "onContainerLight": "#576500",
+      "containerDark": "#404528",
+      "onContainerDark": "#bcd14c"
+    },
+    "photoPalette": {
+      "mediaId": "2a6e533b-b4d5-4fb9-ab80-5dd62d7ac4f9",
+      "thumbnailPath": "b306be6c-4d78-5678-adde-6bf88a4cdf34/2a6e533b-b4d5-4fb9-ab80-5dd62d7ac4f9-480.webp",
+      "sha256": "3b2aaae1d882faa8df7e0a6a616a7f71e86a6986922466200e277c3b34c37a4d",
+      "basis": "photo"
+    },
     "catalogCode": "plant-sapium-glandulosum",
     "scientificName": "Sapium glandulosum",
     "acceptedName": "Sapium glandulosum",
@@ -21605,6 +22805,21 @@
   },
   {
     "id": "d803cf52-cf4b-5519-a23a-1498238d166c",
+    "palette": {
+      "seed": "#5c7434",
+      "accentLight": "#627a39",
+      "accentDark": "#8aa45e",
+      "containerLight": "#dce7c3",
+      "onContainerLight": "#4f6627",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#b5d085"
+    },
+    "photoPalette": {
+      "mediaId": "dbfb32ac-290a-4a03-a733-1a59c0588e3e",
+      "thumbnailPath": "d803cf52-cf4b-5519-a23a-1498238d166c/dbfb32ac-290a-4a03-a733-1a59c0588e3e-480.webp",
+      "sha256": "84ef6e7a167be7e45ae09f04bfda3c848699cdd9124a31491e9155e9a9561905",
+      "basis": "photo"
+    },
     "catalogCode": "plant-schinus-lentiscifolia",
     "scientificName": "Schinus lentiscifolia",
     "acceptedName": "Schinus lentiscifolia",
@@ -21875,6 +23090,21 @@
   },
   {
     "id": "34a7f4fd-8c17-5fec-a7e7-160ba38f5042",
+    "palette": {
+      "seed": "#a3805b",
+      "accentLight": "#916a3f",
+      "accentDark": "#bf9364",
+      "containerLight": "#ffddbb",
+      "onContainerLight": "#7b572e",
+      "containerDark": "#553e24",
+      "onContainerDark": "#eebe8b"
+    },
+    "photoPalette": {
+      "mediaId": "63bbc98b-7f30-4098-abc2-5ea599f84572",
+      "thumbnailPath": "34a7f4fd-8c17-5fec-a7e7-160ba38f5042/63bbc98b-7f30-4098-abc2-5ea599f84572-480.webp",
+      "sha256": "b368e1746332f647eec0eda97d7bfb7972d47042fa89ef93a7216dd32c5f556a",
+      "basis": "photo"
+    },
     "catalogCode": "plant-schinus-molle",
     "scientificName": "Schinus molle",
     "acceptedName": "Schinus molle",
@@ -22157,6 +23387,21 @@
   },
   {
     "id": "aa1b0d79-6c19-5e07-b5d5-1852083c7a5f",
+    "palette": {
+      "seed": "#9c8362",
+      "accentLight": "#8d6c3c",
+      "accentDark": "#ba9561",
+      "containerLight": "#fddeb7",
+      "onContainerLight": "#78592b",
+      "containerDark": "#533f22",
+      "onContainerDark": "#e9c088"
+    },
+    "photoPalette": {
+      "mediaId": "2d5f161b-91a3-4292-a17e-c59e75d4d6ee",
+      "thumbnailPath": "aa1b0d79-6c19-5e07-b5d5-1852083c7a5f/2d5f161b-91a3-4292-a17e-c59e75d4d6ee-480.webp",
+      "sha256": "9b339cd5cf1deaddfe9c5b5c3cae8ac6cf4496f15eb380145a42f8802ef6f537",
+      "basis": "photo"
+    },
     "catalogCode": "plant-schizachyrium-microstachyum",
     "scientificName": "Schizachyrium microstachyum",
     "acceptedName": "Schizachyrium microstachyum",
@@ -22435,6 +23680,21 @@
   },
   {
     "id": "fa5a2432-b83c-52bd-8898-b97d6d774990",
+    "palette": {
+      "seed": "#88a210",
+      "accentLight": "#667a00",
+      "accentDark": "#8ca616",
+      "containerLight": "#e0e6bf",
+      "onContainerLight": "#546500",
+      "containerDark": "#3f4528",
+      "onContainerDark": "#b6d244"
+    },
+    "photoPalette": {
+      "mediaId": "faf85e8f-4f6d-4c55-a682-f364144f3eba",
+      "thumbnailPath": "fa5a2432-b83c-52bd-8898-b97d6d774990/faf85e8f-4f6d-4c55-a682-f364144f3eba-480.webp",
+      "sha256": "ffcd06c92bda37523f3022a66580d48cbe788ac28ad0dad3bfa5194ca5c0b8ae",
+      "basis": "photo"
+    },
     "catalogCode": "plant-schoenoplectus-californicus",
     "scientificName": "Schoenoplectus californicus",
     "acceptedName": "Schoenoplectus californicus",
@@ -22707,6 +23967,21 @@
   },
   {
     "id": "448641f2-d313-505e-acca-1b11cb90d60c",
+    "palette": {
+      "seed": "#bece34",
+      "accentLight": "#6d7800",
+      "accentDark": "#95a400",
+      "containerLight": "#e3e5bd",
+      "onContainerLight": "#5a6400",
+      "containerDark": "#414427",
+      "onContainerDark": "#c0d036"
+    },
+    "photoPalette": {
+      "mediaId": "9dbdb088-e053-43b8-9bd1-9e885dbbf94f",
+      "thumbnailPath": "448641f2-d313-505e-acca-1b11cb90d60c/9dbdb088-e053-43b8-9bd1-9e885dbbf94f-480.webp",
+      "sha256": "612df5fff857e12f68bffdb7c0db7f54dc2455e9a3eb4ada96742d5c722a437d",
+      "basis": "photo"
+    },
     "catalogCode": "plant-scutia-buxifolia",
     "scientificName": "Scutia buxifolia",
     "acceptedName": "Scutia buxifolia",
@@ -22985,6 +24260,21 @@
   },
   {
     "id": "a6121c62-74c4-5f0c-bb3a-b038e5462869",
+    "palette": {
+      "seed": "#799cc4",
+      "accentLight": "#52759b",
+      "accentDark": "#7b9ec6",
+      "containerLight": "#d4e4fa",
+      "onContainerLight": "#3d6186",
+      "containerDark": "#344355",
+      "onContainerDark": "#a6caf4"
+    },
+    "photoPalette": {
+      "mediaId": "d6b7a41d-94ef-4277-9737-147a18c68b2f",
+      "thumbnailPath": "a6121c62-74c4-5f0c-bb3a-b038e5462869/d6b7a41d-94ef-4277-9737-147a18c68b2f-480.webp",
+      "sha256": "50f78b57a82a9ff751d1a414fc13e15a731777aaa1e3a79ee93db8e2f104250e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-senecio-bonariensis",
     "scientificName": "Senecio bonariensis",
     "acceptedName": "Senecio bonariensis",
@@ -23261,6 +24551,21 @@
   },
   {
     "id": "33583db7-cef5-5f5d-95b2-0a1b38d23c2e",
+    "palette": {
+      "seed": "#f2a704",
+      "accentLight": "#996800",
+      "accentDark": "#cf8e00",
+      "containerLight": "#fcdeb6",
+      "onContainerLight": "#805600",
+      "containerDark": "#523f22",
+      "onContainerDark": "#ffba43"
+    },
+    "photoPalette": {
+      "mediaId": "16569912-190f-4dff-9b22-3c574978212c",
+      "thumbnailPath": "33583db7-cef5-5f5d-95b2-0a1b38d23c2e/16569912-190f-4dff-9b22-3c574978212c-480.webp",
+      "sha256": "96afdbd2d8f008c2a15a451569cff0a19fc12e28026405c9cfc1cee04e56fba2",
+      "basis": "photo"
+    },
     "catalogCode": "plant-senecio-crassiflorus",
     "scientificName": "Senecio crassiflorus",
     "acceptedName": "Senecio crassiflorus",
@@ -23522,6 +24827,21 @@
   },
   {
     "id": "1ea07007-57e9-5e64-90cd-bf61a599aaec",
+    "palette": {
+      "seed": "#d5ad0d",
+      "accentLight": "#8a6f00",
+      "accentDark": "#bb9700",
+      "containerLight": "#f2e1b6",
+      "onContainerLight": "#735c00",
+      "containerDark": "#4c4122",
+      "onContainerDark": "#ecc22b"
+    },
+    "photoPalette": {
+      "mediaId": "85d2dda5-8482-4447-8637-9bdc85b21a5d",
+      "thumbnailPath": "1ea07007-57e9-5e64-90cd-bf61a599aaec/85d2dda5-8482-4447-8637-9bdc85b21a5d-480.webp",
+      "sha256": "1b97065e8306e6b428f975a8fd863537f04ded9893f8ed7bb69853ce16be259e",
+      "basis": "photo"
+    },
     "catalogCode": "plant-senna-corymbosa",
     "scientificName": "Senna corymbosa",
     "acceptedName": "Senna corymbosa",
@@ -23799,6 +25119,21 @@
   },
   {
     "id": "8e4b96f1-89c2-5f26-a925-ac2833161834",
+    "palette": {
+      "seed": "#607430",
+      "accentLight": "#657935",
+      "accentDark": "#8ea35a",
+      "containerLight": "#dee7c1",
+      "onContainerLight": "#526523",
+      "containerDark": "#3d452a",
+      "onContainerDark": "#b8d081"
+    },
+    "photoPalette": {
+      "mediaId": "bfca0008-bc1b-4ffb-88b6-d5d5f68de4c1",
+      "thumbnailPath": "8e4b96f1-89c2-5f26-a925-ac2833161834/bfca0008-bc1b-4ffb-88b6-d5d5f68de4c1-480.webp",
+      "sha256": "2be148d45b308bed5ce8d8de827b42d3af793c636e95cfac97f607d0ca011dc5",
+      "basis": "photo"
+    },
     "catalogCode": "plant-sisyrinchium-platense",
     "scientificName": "Sisyrinchium platense",
     "acceptedName": "Sisyrinchium platense",
@@ -24064,6 +25399,21 @@
   },
   {
     "id": "0ebdbff7-7b02-562b-8144-d049c0913812",
+    "palette": {
+      "seed": "#b8ba14",
+      "accentLight": "#757600",
+      "accentDark": "#9fa100",
+      "containerLight": "#e6e5bb",
+      "onContainerLight": "#616200",
+      "containerDark": "#444425",
+      "onContainerDark": "#cbcd2d"
+    },
+    "photoPalette": {
+      "mediaId": "a8fd3623-10e2-4d97-bc1b-b3305a2481c9",
+      "thumbnailPath": "0ebdbff7-7b02-562b-8144-d049c0913812/a8fd3623-10e2-4d97-bc1b-b3305a2481c9-480.webp",
+      "sha256": "5614cee1b2f231da54f3ec5754270dc7a56d7931e43c5a753aa5172a99d787e0",
+      "basis": "photo"
+    },
     "catalogCode": "plant-solanum-mauritianum",
     "scientificName": "Solanum mauritianum",
     "acceptedName": "Solanum mauritianum",
@@ -24329,6 +25679,21 @@
   },
   {
     "id": "907bbd29-ec0f-56a7-92a8-1fe8a1194f71",
+    "palette": {
+      "seed": "#84a44c",
+      "accentLight": "#5e7b28",
+      "accentDark": "#86a64e",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#4b6715",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#b0d274"
+    },
+    "photoPalette": {
+      "mediaId": "a08e109a-75d2-4cac-bf95-a3c0681e3299",
+      "thumbnailPath": "907bbd29-ec0f-56a7-92a8-1fe8a1194f71/a08e109a-75d2-4cac-bf95-a3c0681e3299-480.webp",
+      "sha256": "4724a9fd0c9d708275983b164d78b363eaf1186c2a435b7e3a4d8cef76ba3e09",
+      "basis": "photo"
+    },
     "catalogCode": "plant-sphaeralcea-bonariensis",
     "scientificName": "Sphaeralcea bonariensis",
     "acceptedName": "Sphaeralcea bonariensis",
@@ -24590,6 +25955,21 @@
   },
   {
     "id": "8f6aa32c-2c01-5b56-bacd-de36b398b30c",
+    "palette": {
+      "seed": "#98b85c",
+      "accentLight": "#5f7b27",
+      "accentDark": "#87a64c",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#4c6713",
+      "containerDark": "#3c452b",
+      "onContainerDark": "#b1d273"
+    },
+    "photoPalette": {
+      "mediaId": "b0b054b6-1964-4467-99f3-bce46cec50dd",
+      "thumbnailPath": "8f6aa32c-2c01-5b56-bacd-de36b398b30c/b0b054b6-1964-4467-99f3-bce46cec50dd-480.webp",
+      "sha256": "58127ff375c2db84ff99e6d96940d6345d450ee2f05af3526e5cf0950af6e5ae",
+      "basis": "photo"
+    },
     "catalogCode": "plant-syagrus-romanzoffiana",
     "scientificName": "Syagrus romanzoffiana",
     "acceptedName": "Syagrus romanzoffiana",
@@ -24866,6 +26246,21 @@
   },
   {
     "id": "f9e75498-e3da-51e5-b522-0213b39842c0",
+    "palette": {
+      "seed": "#9ca134",
+      "accentLight": "#727704",
+      "accentDark": "#9ca134",
+      "containerLight": "#e5e5bc",
+      "onContainerLight": "#5f6300",
+      "containerDark": "#434426",
+      "onContainerDark": "#c8cd5b"
+    },
+    "photoPalette": {
+      "mediaId": "82ebb7f9-edec-4e65-ab98-d27e2e7a5464",
+      "thumbnailPath": "f9e75498-e3da-51e5-b522-0213b39842c0/82ebb7f9-edec-4e65-ab98-d27e2e7a5464-480.webp",
+      "sha256": "7ccd1fc100b250c318858a0d887d06980ebd733de64addac5936990d70e16811",
+      "basis": "photo"
+    },
     "catalogCode": "plant-terminalia-australis",
     "scientificName": "Terminalia australis",
     "acceptedName": "Terminalia australis",
@@ -25125,6 +26520,21 @@
   },
   {
     "id": "2aa11117-ac09-5f4f-8657-d5ef31136960",
+    "palette": {
+      "seed": "#2c7eac",
+      "accentLight": "#2479a7",
+      "accentDark": "#58a3d3",
+      "containerLight": "#d0e5f8",
+      "onContainerLight": "#006590",
+      "containerDark": "#304453",
+      "onContainerDark": "#88ceff"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "plant-tillandsia-aeranthos",
     "scientificName": "Tillandsia aëranthos",
     "acceptedName": "Tillandsia aëranthos",
@@ -25378,6 +26788,21 @@
   },
   {
     "id": "7fdb6906-2c39-5830-86b4-4d0a66ef97c5",
+    "palette": {
+      "seed": "#82a936",
+      "accentLight": "#597d05",
+      "accentDark": "#81a835",
+      "containerLight": "#dce7c2",
+      "onContainerLight": "#496800",
+      "containerDark": "#3c452b",
+      "onContainerDark": "#abd45c"
+    },
+    "photoPalette": {
+      "mediaId": "4f3401b5-fd02-4a93-97f2-1d5eb71ca838",
+      "thumbnailPath": "7fdb6906-2c39-5830-86b4-4d0a66ef97c5/4f3401b5-fd02-4a93-97f2-1d5eb71ca838-480.webp",
+      "sha256": "2ff69af8d1265520bedf4fed667ebfa91c5971ffe7f127190289dc1eb79503fe",
+      "basis": "photo"
+    },
     "catalogCode": "plant-trifolium-polymorphum",
     "scientificName": "Trifolium polymorphum",
     "acceptedName": "Trifolium polymorphum",
@@ -25652,6 +27077,21 @@
   },
   {
     "id": "cfd0a737-ae56-551a-b1ad-8306eefb6aa3",
+    "palette": {
+      "seed": "#9aa440",
+      "accentLight": "#6f7816",
+      "accentDark": "#98a23e",
+      "containerLight": "#e3e5bd",
+      "onContainerLight": "#5b6400",
+      "containerDark": "#414427",
+      "onContainerDark": "#c3ce65"
+    },
+    "photoPalette": {
+      "mediaId": "4c261905-a659-49aa-881f-6ea750e38c8e",
+      "thumbnailPath": "cfd0a737-ae56-551a-b1ad-8306eefb6aa3/4c261905-a659-49aa-881f-6ea750e38c8e-480.webp",
+      "sha256": "d8f0db27bcaab854c12000139776c059164087706570c20de21561692795c438",
+      "basis": "photo"
+    },
     "catalogCode": "plant-typha-latifolia",
     "scientificName": "Typha latifolia",
     "acceptedName": "Typha latifolia",
@@ -25922,6 +27362,21 @@
   },
   {
     "id": "d86834a9-043a-59a7-9f35-c91a65942e1e",
+    "palette": {
+      "seed": "#d3b85b",
+      "accentLight": "#867019",
+      "accentDark": "#b29940",
+      "containerLight": "#f1e2b6",
+      "onContainerLight": "#715c01",
+      "containerDark": "#4b4222",
+      "onContainerDark": "#e0c566"
+    },
+    "photoPalette": {
+      "mediaId": "b63f912d-d256-4f98-b442-a85367d0f7a4",
+      "thumbnailPath": "d86834a9-043a-59a7-9f35-c91a65942e1e/b63f912d-d256-4f98-b442-a85367d0f7a4-480.webp",
+      "sha256": "c678dd5051e655454177f2047de02b84c573834bee2f0a47bad0cc55755136bc",
+      "basis": "photo"
+    },
     "catalogCode": "plant-vachellia-caven",
     "scientificName": "Vachellia caven",
     "acceptedName": "Vachellia caven",
@@ -26198,6 +27653,21 @@
   },
   {
     "id": "92beae47-f408-5fd7-acdd-0d50a8d01eec",
+    "palette": {
+      "seed": "#90726e",
+      "accentLight": "#9b645d",
+      "accentDark": "#c98c84",
+      "containerLight": "#ffdad5",
+      "onContainerLight": "#84514a",
+      "containerDark": "#5a3a35",
+      "onContainerDark": "#f9b6ad"
+    },
+    "photoPalette": {
+      "mediaId": "e55178e2-61eb-4c0f-a745-46ddd86a5657",
+      "thumbnailPath": "92beae47-f408-5fd7-acdd-0d50a8d01eec/e55178e2-61eb-4c0f-a745-46ddd86a5657-480.webp",
+      "sha256": "17e0036fa51b93a39167d05255ba919f5ff59bb02e12074ba08f9b74deb7ebe8",
+      "basis": "photo"
+    },
     "catalogCode": "plant-verbena-bonariensis",
     "scientificName": "Verbena bonariensis",
     "acceptedName": "Verbena bonariensis",
@@ -26478,6 +27948,21 @@
   },
   {
     "id": "e5d14fcb-ad87-59c8-9185-76f00f243d51",
+    "palette": {
+      "seed": "#af31c8",
+      "accentLight": "#b13cc8",
+      "accentDark": "#e169f6",
+      "containerLight": "#f6daf4",
+      "onContainerLight": "#9a22b2",
+      "containerDark": "#4f3c50",
+      "onContainerDark": "#f7acff"
+    },
+    "photoPalette": {
+      "mediaId": "b6787643-30e5-4478-bd94-e9de5429c2c4",
+      "thumbnailPath": "e5d14fcb-ad87-59c8-9185-76f00f243d51/b6787643-30e5-4478-bd94-e9de5429c2c4-480.webp",
+      "sha256": "1286511110a9a73f4af5373d69244d1b152cfb4bb607eecabfb825c7459cb7a8",
+      "basis": "photo"
+    },
     "catalogCode": "plant-verbena-rigida",
     "scientificName": "Verbena rigida",
     "acceptedName": "Verbena rigida",
@@ -26748,6 +28233,21 @@
   },
   {
     "id": "8945f167-9b27-5f4a-af6a-4d6e4c2f903f",
+    "palette": {
+      "seed": "#6d8c39",
+      "accentLight": "#5d7b2a",
+      "accentDark": "#85a650",
+      "containerLight": "#dce7c3",
+      "onContainerLight": "#4a6717",
+      "containerDark": "#3c462b",
+      "onContainerDark": "#b0d276"
+    },
+    "photoPalette": {
+      "mediaId": "4693033e-620b-43e7-ac89-436962ef6501",
+      "thumbnailPath": "8945f167-9b27-5f4a-af6a-4d6e4c2f903f/4693033e-620b-43e7-ac89-436962ef6501-480.webp",
+      "sha256": "0b445640fa0c1a4d1b951fda867cacdf173c2e538dbe9a033c17c2d70e359214",
+      "basis": "photo"
+    },
     "catalogCode": "plant-vitex-megapotamica",
     "scientificName": "Vitex megapotamica",
     "acceptedName": "Vitex megapotamica",

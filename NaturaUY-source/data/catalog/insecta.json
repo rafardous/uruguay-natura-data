@@ -1,6 +1,21 @@
 [
   {
     "id": "859ba3a7-1ad2-535c-8ab8-207e0bdb1716",
+    "palette": {
+      "seed": "#8d8d71",
+      "accentLight": "#737542",
+      "accentDark": "#9d9f68",
+      "containerLight": "#e5e5bb",
+      "onContainerLight": "#5f6131",
+      "containerDark": "#434426",
+      "onContainerDark": "#c9ca8f"
+    },
+    "photoPalette": {
+      "mediaId": "ff02c2c6-81c0-4394-9ccb-909b23f8dd97",
+      "thumbnailPath": "859ba3a7-1ad2-535c-8ab8-207e0bdb1716/ff02c2c6-81c0-4394-9ccb-909b23f8dd97-480.webp",
+      "sha256": "78c270b203542852e1ab1f236362a355020b521588d5f827656dbcc0e4b0dc48",
+      "basis": "photo"
+    },
     "catalogCode": "aedes-aegypti",
     "scientificName": "Aedes aegypti",
     "acceptedName": "Aedes aegypti",
@@ -174,6 +189,21 @@
   },
   {
     "id": "2b0b8051-acde-5aa4-8bb2-3e2126ee1871",
+    "palette": {
+      "seed": "#307dad",
+      "accentLight": "#2a78a8",
+      "accentDark": "#5ba2d4",
+      "containerLight": "#d0e5f8",
+      "onContainerLight": "#006493",
+      "containerDark": "#314454",
+      "onContainerDark": "#8ccdff"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "haematobia-irritans",
     "scientificName": "Haematobia irritans",
     "acceptedName": "Haematobia irritans",
@@ -314,6 +344,21 @@
   },
   {
     "id": "43dde36d-5822-53ff-8ea7-e92e485d8eb8",
+    "palette": {
+      "seed": "#1081a3",
+      "accentLight": "#007c9d",
+      "accentDark": "#49a6c9",
+      "containerLight": "#cce7f4",
+      "onContainerLight": "#006783",
+      "containerDark": "#2d4550",
+      "onContainerDark": "#79d2f7"
+    },
+    "photoPalette": {
+      "mediaId": null,
+      "thumbnailPath": null,
+      "sha256": null,
+      "basis": "family"
+    },
     "catalogCode": "lutzomyia-longipalpis",
     "scientificName": "Lutzomyia longipalpis",
     "acceptedName": "Lutzomyia longipalpis",
@@ -454,6 +499,21 @@
   },
   {
     "id": "41c9e064-56d2-51d1-9ea6-3b49f936dc0e",
+    "palette": {
+      "seed": "#76ad51",
+      "accentLight": "#4b7f29",
+      "accentDark": "#73aa4e",
+      "containerLight": "#d8e8c7",
+      "onContainerLight": "#386a15",
+      "containerDark": "#39462e",
+      "onContainerDark": "#9dd675"
+    },
+    "photoPalette": {
+      "mediaId": "039fffe7-4415-4ac7-b8fb-98e545936323",
+      "thumbnailPath": "41c9e064-56d2-51d1-9ea6-3b49f936dc0e/039fffe7-4415-4ac7-b8fb-98e545936323-480.webp",
+      "sha256": "91b04f4f0e55c7c3a75b25cdc592be62e96092583eb4b8ee3ab475a6df7dde81",
+      "basis": "photo"
+    },
     "catalogCode": "reticulitermes-flavipes",
     "scientificName": "Reticulitermes flavipes",
     "acceptedName": "Reticulitermes flavipes",
@@ -629,6 +689,21 @@
   },
   {
     "id": "4db319c2-d449-504f-9895-5d99fe2191b1",
+    "palette": {
+      "seed": "#a88156",
+      "accentLight": "#916b3f",
+      "accentDark": "#be9364",
+      "containerLight": "#ffddba",
+      "onContainerLight": "#7b572d",
+      "containerDark": "#553e24",
+      "onContainerDark": "#edbe8b"
+    },
+    "photoPalette": {
+      "mediaId": "92d05543-1c6c-4f76-9e8b-244de97b0ebe",
+      "thumbnailPath": "4db319c2-d449-504f-9895-5d99fe2191b1/92d05543-1c6c-4f76-9e8b-244de97b0ebe-480.webp",
+      "sha256": "70cb0b6310fbb97137e90788b440852ff1b5b0576f4a7035b4a52596e456222d",
+      "basis": "photo"
+    },
     "catalogCode": "triatoma-infestans",
     "scientificName": "Triatoma infestans",
     "acceptedName": "Triatoma infestans",

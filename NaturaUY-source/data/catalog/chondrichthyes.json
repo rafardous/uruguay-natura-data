@@ -1,6 +1,21 @@
 [
   {
     "id": "81454d7a-e693-5ff5-bdbb-7f8becdd3230",
+    "palette": {
+      "seed": "#5aa2a4",
+      "accentLight": "#327d7f",
+      "accentDark": "#5fa7a9",
+      "containerLight": "#c8e9e9",
+      "onContainerLight": "#16696b",
+      "containerDark": "#294748",
+      "onContainerDark": "#8bd3d5"
+    },
+    "photoPalette": {
+      "mediaId": "f64317aa-a3a7-4645-8024-a080a9f7dfbf",
+      "thumbnailPath": "81454d7a-e693-5ff5-bdbb-7f8becdd3230/f64317aa-a3a7-4645-8024-a080a9f7dfbf-480.webp",
+      "sha256": "8e3dbb08e6eba2f778b54562aa4e29a7bac52fb01c818203e14202f77864805b",
+      "basis": "photo"
+    },
     "catalogCode": "P_brachyur",
     "scientificName": "Potamotrygon brachyura",
     "acceptedName": "Potamotrygon brachyura",
@@ -181,6 +196,21 @@
   },
   {
     "id": "0c625769-b21a-54b7-921a-d38be588e942",
+    "palette": {
+      "seed": "#d4749c",
+      "accentLight": "#ae547b",
+      "accentDark": "#de7ca5",
+      "containerLight": "#ffd9e5",
+      "onContainerLight": "#964167",
+      "containerDark": "#573a45",
+      "onContainerDark": "#ffb0ce"
+    },
+    "photoPalette": {
+      "mediaId": "b6e04337-4c2a-484d-a67a-9a72c4f4494c",
+      "thumbnailPath": "0c625769-b21a-54b7-921a-d38be588e942/b6e04337-4c2a-484d-a67a-9a72c4f4494c-480.webp",
+      "sha256": "bfb800cd83fa844e51ce995d95ae1028ae3d6cd7f5594f4088f841b1309d3bbb",
+      "basis": "photo"
+    },
     "catalogCode": "P_motoro",
     "scientificName": "Potamotrygon motoro",
     "acceptedName": "Potamotrygon motoro",

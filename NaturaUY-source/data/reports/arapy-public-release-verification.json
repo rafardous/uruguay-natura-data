@@ -1,0 +1,14 @@
+{
+  "dataVersion": 8,
+  "schemaVersion": 14,
+  "species": 1048,
+  "plants": 100,
+  "birdProfiles": 432,
+  "photoPalettes": 865,
+  "distinctAccents": 770,
+  "sha256": "8b974b00ad4fd9cba32e9e574a0538077b6d0f13e43c8b2da1cd2ccc0170e907",
+  "databaseSize": 13897728,
+  "compressedDownloadVerified": true,
+  "jsonSqlitePalettesIdentical": true,
+  "workflowRun": 38075399204
+}

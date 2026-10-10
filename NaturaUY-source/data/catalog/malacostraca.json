@@ -1,6 +1,21 @@
 [
   {
     "id": "07bb4962-b087-5dab-9bf7-d8102c1476b7",
+    "palette": {
+      "seed": "#ac8c4c",
+      "accentLight": "#8b6e31",
+      "accentDark": "#b89755",
+      "containerLight": "#f8dfb6",
+      "onContainerLight": "#755a1f",
+      "containerDark": "#4f4022",
+      "onContainerDark": "#e6c27c"
+    },
+    "photoPalette": {
+      "mediaId": "b9d1ce5a-80d6-40c4-822f-03e99d853963",
+      "thumbnailPath": "07bb4962-b087-5dab-9bf7-d8102c1476b7/b9d1ce5a-80d6-40c4-822f-03e99d853963-480.webp",
+      "sha256": "65acc58f9f6a5def0deaf67c109e616d21369faa0ee1c9a1ffc37dbd5bcd8160",
+      "basis": "photo"
+    },
     "catalogCode": "ligia-exotica",
     "scientificName": "Ligia exotica",
     "acceptedName": "Ligia exotica",
