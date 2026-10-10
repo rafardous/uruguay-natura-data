@@ -16,7 +16,6 @@
     },
     "android": {
       "package": "uy.naturauy.app",
-      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#CBD8C4"
@@ -37,10 +36,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 180,
           "resizeMode": "contain",
-          "backgroundColor": "#CBD8C4",
-          "dark": {
-            "backgroundColor": "#CBD8C4"
-          }
+          "backgroundColor": "#CBD8C4"
         }
       ],
       "expo-asset",

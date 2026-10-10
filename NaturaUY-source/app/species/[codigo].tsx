@@ -33,6 +33,7 @@ import { SpeciesNames, SpeciesTaxonomy } from '../../src/presentation/components
 import { BirdConservation, BirdSpeciesDescription } from '../../src/presentation/components/BirdSpeciesDetails';
 import { speciesGallery } from '../../src/domain/services/speciesGallery';
 import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
+import { SpeciesEcologyTags } from '../../src/presentation/components/SpeciesEcologyTags';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
 import { SpeciesImage } from '../../src/presentation/components/SpeciesImage';
 import { FamilyGlyph } from '../../src/presentation/components/FamilyGlyph';
@@ -472,8 +473,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               <Staggered index={3}>
                 <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
-                  {(ecology.habitats.length > 0 || ecology.vegetationFormations.length > 0) && <View style={[styles.tagRow, { marginTop: spacing.sm }]}>{[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations].map((value) => <View key={value} style={[styles.dataTag, { backgroundColor: palette.container, borderRadius: radius.pill }]}><Text style={[typography.caption, { color: palette.onContainer }]}>{value}</Text></View>)}</View>}
-                  {ecology.diet.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 8 }]}>Alimentación: {ecology.diet.map(dietLabel).join(' · ')}</Text>}
+                  <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} />
+                  <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} />
                   {ecology.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Modo de vida: {ecology.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   {ecology.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Actividad: {ecology.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   <View style={{ gap: 6, marginTop: 6 }}>

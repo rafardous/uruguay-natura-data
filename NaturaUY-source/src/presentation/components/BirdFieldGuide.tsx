@@ -7,19 +7,13 @@ import { formatSpeciesMeasurement } from '../../domain/services/measurementForma
 import { CloseIcon, InfoIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
 import { BirdEcologyDetails, BirdObservability, BirdTechnicalMeasures } from './BirdSpeciesDetails';
+import { SpeciesEcologyTags } from './SpeciesEcologyTags';
 
 const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SET','OCT','NOV','DIC'];
 const MONTH_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
 
 function GuideTags({ title, values, historical, accent, container, foreground }: { title: string; values: string[]; historical: boolean; accent: string; container: string; foreground: string }): React.JSX.Element | null {
-  const [expanded, setExpanded] = useState(false);
-  const { typography, colors, radius } = useTheme();
-  if (!values.length) return null;
-  return <View style={styles.section}>
-    <Text style={[typography.label, { color: accent }]}>{title}</Text>
-    <View style={styles.tags}>{(expanded ? values : values.slice(0,3)).map((value) => <View key={value} style={[styles.tag, { borderColor: colors.border, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: colors.textSecondary }]}>{value}</Text></View>)}</View>
-    {values.length > 3 && <Pressable accessibilityRole="button" accessibilityState={{ expanded }} onPress={() => setExpanded(!expanded)} style={styles.expand}><Text style={[typography.label, { color: accent }]}>{expanded ? 'Ver menos' : `Ver ${values.length - 3} más`}</Text></Pressable>}
-  </View>;
+  return <SpeciesEcologyTags title={title} values={values} accent={accent} />;
 }
 
 export function BirdFieldGuide({ bird: suppliedBird, species, accent, container, foreground }: { bird?: BirdNaturalHistory; species: Species; accent: string; container: string; foreground: string }): React.JSX.Element {
