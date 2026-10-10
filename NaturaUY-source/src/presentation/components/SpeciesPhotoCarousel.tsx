@@ -5,14 +5,14 @@ import type { SpeciesGalleryItem } from '../../domain/services/speciesGallery';
 import { TransientZoomView } from './TransientZoomView';
 import { GalleryIcon } from './TabIcons';
 
-function GalleryImage({ item, label }: { item: SpeciesGalleryItem; label: string }): React.JSX.Element {
+function GalleryImage({ item, label, fullscreen }: { item: SpeciesGalleryItem; label: string; fullscreen: boolean }): React.JSX.Element {
   const [failed, setFailed] = useState(0);
   useEffect(() => { setFailed(0); }, [item.id, item.url, item.thumbnailUrl]);
   const thumbnailAvailable = Boolean(item.thumbnailUrl && item.thumbnailUrl !== item.url);
   if (failed >= (thumbnailAvailable ? 2 : 1)) {
     return <View style={[StyleSheet.absoluteFill, { alignItems: 'center', justifyContent: 'center' }]} accessibilityLabel={`${label}: imagen no disponible`}><View style={{ alignItems: 'center', gap: 12, padding: 20, borderRadius: 20, backgroundColor: 'rgba(0,0,0,0.64)' }}><GalleryIcon color="#FFFFFF" size={40} /><Text style={{ color: '#FFFFFF', fontSize: 14 }}>Imagen no disponible</Text></View></View>;
   }
-  return <Image source={{ uri: failed ? item.thumbnailUrl : item.url }} contentFit="contain" cachePolicy="memory-disk" style={StyleSheet.absoluteFill} accessibilityLabel={label} onError={() => setFailed((previous) => previous + 1)} />;
+  return <Image source={{ uri: failed ? item.thumbnailUrl : item.url }} contentFit={fullscreen ? 'contain' : 'cover'} cachePolicy="memory-disk" style={StyleSheet.absoluteFill} accessibilityLabel={label} onError={() => setFailed((previous) => previous + 1)} />;
 }
 
 interface Props {
@@ -45,7 +45,7 @@ export function SpeciesPhotoCarousel({ items, index, onIndexChange, onPress, lab
       onMomentumScrollEnd={(event) => onIndexChange(Math.max(0, Math.min(items.length - 1, Math.round(event.nativeEvent.contentOffset.x / width))))}
       renderItem={({ item, index: position }) => <View style={{ width, height: '100%' }}>
         <TransientZoomView onPress={onPress} onZoomActiveChange={setZooming} showControls={fullscreen} accessibilityLabel={`${label}, imagen ${position + 1} de ${items.length}`}>
-          <GalleryImage item={item} label={`${label}, imagen ${position + 1}`} />
+          <GalleryImage item={item} label={`${label}, imagen ${position + 1}`} fullscreen={fullscreen} />
         </TransientZoomView>
       </View>} />}
     {items.length > 1 && <View style={[styles.pagination, { bottom: fullscreen ? 90 : 10 }]}>

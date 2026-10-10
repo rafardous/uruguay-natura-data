@@ -54,7 +54,7 @@ La auditoría compara cada perfil completo contra `normalized.json`, no sólo su
 
 Se reutilizan Manrope y colores propios de cada especie. La app usa exclusivamente modo claro, aunque el sistema tenga modo oscuro; Configuración no ofrece selección de apariencia. La información secundaria se agrupa donde corresponde, en lugar de una lista de desplegables al final:
 
-- Tocar el nombre abre los otros nombres comunes, inglés, nombre aceptado e histórico disponibles. La taxonomía permanece visible con atajos por rango, sin el título «Identificación y clasificación». La ⓘ destacada abre la información relevante inmediatamente debajo de los nombres, antes de la taxonomía y del resto de los datos.
+- Tocar el nombre abre los otros nombres comunes, inglés, nombre aceptado e histórico disponibles. La taxonomía aparece al final, inmediatamente antes del reporte de errores, como un recorrido vertical con conexiones curvas y desplazamiento gradual hacia la derecha. Cada rango conserva su atajo y el color de acento. La ⓘ destacada abre la información relevante inmediatamente debajo de los nombres, antes del resto de los datos.
 - Origen y conservación actual diferenciados; evaluaciones expandibles junto a ese bloque.
 - Tamaño con ⓘ y **Medidas técnicas** dentro de la misma tarjeta.
 - Abundancia en una fila independiente.
@@ -64,7 +64,9 @@ Se reutilizan Manrope y colores propios de cada especie. La app usa exclusivamen
 
 Todas las fuentes científicas, incluyendo AVONET, Azpiroz y su número de guía, están en **tres puntitos → Fuentes**. No mostrar una etiqueta de fuente debajo de cada medida. La autoría/licencia de medios acompaña a la fotografía seleccionada y es tocable.
 
-La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto que 4:3), imagen completa, swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. Imagen principal primero, deduplicación por identidad/URL. Puntos pequeños y flechas discretas sólo con varias fotos; sin contador numérico. Créditos más pequeños y pegados a la imagen, con acceso a derechos completos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, doble toque para alternar zoom 1×/2×, pinch y controles accesibles; transiciones suaves sin rebote; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
+La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto que 4:3), foto que llena el marco sin márgenes (`cover`), swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. El visor ampliado conserva la imagen completa (`contain`). Imagen principal primero, deduplicación por identidad/URL. Puntos pequeños y flechas discretas sólo con varias fotos; sin contador numérico. Créditos más pequeños y pegados a la imagen, con acceso a derechos completos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, doble toque para alternar zoom 1×/2×, pinch y controles accesibles; transiciones suaves sin rebote; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
+
+Las tarjetas de las demás clases reutilizan el fondo `palette.container`, las esquinas `radius.lg` y la presentación compacta de las medidas del tamaño enriquecido de aves. Ecología, perfiles botánicos, historia natural y evaluaciones conservan sus contenidos con esa misma superficie de acento.
 
 ## Contrato de datos y medios
 

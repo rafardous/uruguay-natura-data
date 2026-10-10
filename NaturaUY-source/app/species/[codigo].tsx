@@ -61,7 +61,7 @@ function Fact({ label, value, container, onContainer }: { label: string; value: 
   const { radius, typography } = useTheme();
 
   return (
-    <View style={[styles.fact, { backgroundColor: container, borderRadius: radius.md }]}>
+    <View style={[styles.fact, { backgroundColor: container, borderRadius: radius.lg }]}>
       <Text style={[typography.caption, { color: onContainer }]} numberOfLines={1}>
         {label}
       </Text>
@@ -419,8 +419,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
-            <SpeciesTaxonomy items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} />
-
             <Staggered index={1}>
               <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
                 {conservationHeadline && <ConservationBadge label={conservationHeadline} rank={species.conservation.nationalDesignations.includes('threatened') ? 3 : 2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
@@ -461,9 +459,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             {!isBird && <>
             {hasMeasurements && (
               <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}><Text style={[typography.label, { color: palette.accent }]}>Tamaño</Text><MeasurementHelp accent={palette.accent} /></View>
-                  {[bodyLength, bodyMass].filter((item): item is NonNullable<typeof item> => Boolean(item)).map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}{measurement.provenance === 'legacy_unverified' ? ' · aproximado' : ''}</Text></View>)}
+                <View style={[styles.traits, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}><Text style={[typography.label, { color: palette.onContainer }]}>Tamaño</Text><MeasurementHelp accent={palette.accent} /></View>
+                  <View style={styles.measurements}>{[bodyLength, bodyMass].filter((item): item is NonNullable<typeof item> => Boolean(item)).map((measurement) => <View key={measurement.kind} style={styles.measure}><Text style={[typography.caption, { color: palette.onContainer }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.title, { color: palette.onContainer, marginTop: 4 }]}>{formatSpeciesMeasurement(measurement)}{measurement.provenance === 'legacy_unverified' ? ' · aproximado' : ''}</Text></View>)}</View>
                   {detailedMeasurements.length > 0 && <><Pressable onPress={() => setSizeDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Medidas detalladas" accessibilityState={{ expanded: sizeDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Medidas detalladas</Text><Text style={[typography.label, { color: palette.accent }]}>{sizeDetailsOpen ? '−' : '+'}</Text></Pressable>{sizeDetailsOpen && detailedMeasurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}</>}
                 </View>
               </Staggered>
@@ -471,7 +469,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {hasEcology && ecology && (
               <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                <View style={[styles.traits, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
                   <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} />
                   <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} />
@@ -492,7 +490,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {arthropodHistory && (
               <Staggered index={7}>
-                <View style={[styles.naturalHistory, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}>
+                <View style={[styles.naturalHistory, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Historia natural</Text>
                   {arthropodHistory.morphology && <>
                     {arthropodHistory.morphology.bodyRegions?.length ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Regiones corporales: {arthropodHistory.morphology.bodyRegions.join(' · ')}</Text> : null}
@@ -514,7 +512,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {plantHistory && (
               <Staggered index={7}>
-                <View style={[styles.naturalHistory, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.xl }]}>
+                <View style={[styles.naturalHistory, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Perfil botánico</Text>
                   {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Tipo: {plantHistory.habit}</Text> : null}
                   {plantHistory.lifeForm ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Forma de vida: {plantHistory.lifeForm}</Text> : null}
@@ -528,7 +526,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {(species.conservation.nationalRedList || species.conservation.iucnGlobal) && (
               <Staggered index={8}>
-                <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                <View style={[styles.note, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: colors.text }]}>Evaluaciones de conservación</Text>
                   {species.conservation.nationalRedList && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Lista Roja Uruguay: {species.conservation.nationalRedList.category}</Text>}
                   {species.conservation.iucnGlobal && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>UICN global: {species.conservation.iucnGlobal.category}</Text>}
@@ -539,7 +537,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             {species.observability && (
               <Staggered index={9}>
-                <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
+                <View style={[styles.note, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: colors.text }]}>Observabilidad pública: {observabilityBand}</Text>
                   <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Índice {Math.round(species.observability.score)}/100 · {species.observability.occurrenceCount} registros · {species.observability.occupiedCells} celdas de 10 km · {species.observability.periodStart.slice(0, 4)}–{species.observability.periodEnd.slice(0, 4)}</Text>
                   <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>Es una medida automática de registros públicos, no una categoría de conservación ni una estimación poblacional.</Text>
@@ -549,6 +547,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
             </>}
             <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />
+            <SpeciesTaxonomy items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
@@ -600,7 +599,9 @@ const styles = StyleSheet.create({
   pill: { paddingHorizontal: 9, paddingVertical: 5 },
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   fact: { flexGrow: 1, flexBasis: '46%', padding: 12 },
-  traits: { padding: 14 },
+  traits: { paddingHorizontal: 14, paddingVertical: 8 },
+  measurements: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  measure: { flexBasis: '42%', flexGrow: 1 },
   traitsHeader: { minHeight: 48, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   photoCredit: { alignSelf: 'flex-start', paddingTop: 1, paddingHorizontal: 3 },

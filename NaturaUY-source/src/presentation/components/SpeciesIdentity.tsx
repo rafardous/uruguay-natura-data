@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
 import type { Species } from '../../domain/entities/species';
 import { useTheme } from '../theme/ThemeProvider';
 import { ChevronRightIcon, CloseIcon } from './TabIcons';
@@ -41,12 +42,26 @@ export function SpeciesNames({ species, accent }: { species: Species; accent: st
   </>;
 }
 
-export function SpeciesTaxonomy<Rank extends string>({ items, onNavigate, accent }: { items: { label: string; rank: Rank; value: string }[]; onNavigate: (rank: Rank) => void; accent: string }): React.JSX.Element {
+export function SpeciesTaxonomy<Rank extends string>({ items, onNavigate, accent, container, foreground }: { items: { label: string; rank: Rank; value: string }[]; onNavigate: (rank: Rank) => void; accent: string; container: string; foreground: string }): React.JSX.Element | null {
   const { typography, colors, radius } = useTheme();
-  return <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 14 }}>
-    {items.map((item) => <Pressable key={item.rank} onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Ver ${item.label}: ${item.value}`} style={{ minHeight: 44, flexBasis: '47%', flexGrow: 1, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 10, paddingVertical: 8, backgroundColor: colors.surfaceVariant, borderRadius: radius.sm }}>
-      <View style={{ flex: 1 }}><Text style={[typography.caption, { color: colors.textMuted, fontSize: 11 }]}>{item.label}</Text><Text style={[typography.label, { color: colors.text }]}>{item.value}</Text></View>
-      <ChevronRightIcon color={accent} size={15} />
-    </Pressable>)}
+  if (!items.length) return null;
+  return <View style={{ marginTop: 28 }}>
+    <Text accessibilityRole="header" style={[typography.label, { color: colors.text, marginBottom: 4 }]}>Su lugar en la naturaleza</Text>
+    <Text style={[typography.caption, { color: colors.textMuted, marginBottom: 16 }]}>De lo general a lo particular · tocá un grupo para explorarlo</Text>
+    {items.map((item, index) => {
+      const indent = index * 12;
+      const previous = (index - 1) * 12;
+      return <View key={item.rank}>
+        {index > 0 && <Svg width={indent + 32} height={26} accessible={false} style={{ pointerEvents: 'none' }}>
+          <Path d={`M ${previous + 20} 0 C ${previous + 20} 14, ${indent + 20} 10, ${indent + 20} 24`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" />
+          <Path d={`M ${indent + 17} 20 L ${indent + 20} 24 L ${indent + 23} 20`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" />
+        </Svg>}
+        <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Ver ${item.label}: ${item.value}`} style={({ pressed }) => ({ marginLeft: indent, minHeight: 60, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: container, borderRadius: radius.lg, opacity: pressed ? 0.75 : 1 })}>
+          <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: accent }} />
+          <View style={{ flex: 1 }}><Text style={[typography.caption, { color: foreground, opacity: 0.75 }]}>{item.label}</Text><Text style={[typography.label, { color: foreground, marginTop: 2 }]}>{item.value}</Text></View>
+          <ChevronRightIcon color={accent} size={16} />
+        </Pressable>
+      </View>;
+    })}
   </View>;
 }
