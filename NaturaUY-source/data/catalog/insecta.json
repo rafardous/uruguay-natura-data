@@ -26,6 +26,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
       "class": "Insecta",
       "order": "Diptera",
       "family": "Culicidae",
@@ -214,6 +215,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
       "class": "Insecta",
       "order": "Diptera",
       "family": "Muscidae",
@@ -369,6 +371,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
       "class": "Insecta",
       "order": "Diptera",
       "family": "Psychodidae",
@@ -526,6 +529,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
       "class": "Insecta",
       "order": "Blattodea",
       "family": "Rhinotermitidae",
@@ -714,6 +718,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Hexapoda",
       "class": "Insecta",
       "order": "Hemiptera",
       "family": "Reduviidae",

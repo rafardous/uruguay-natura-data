@@ -127,3 +127,11 @@ El publicador tenía una paleta verde fija. `NaturaUY-admin/scripts/photo-palett
 La isla de navegación conserva visibles Inicio, Descubrir y Juegos, con icono arriba y etiqueta debajo; la selección usa fondo oscuro y texto blanco. Su altura es 80 dp y el espacio inferior de las pantallas reserva esa altura y el área segura.
 
 Catálogo público v8 verificado: workflow 38075399204, SQLite de 13.897.728 bytes, SHA-256 `8b974b00ad4fd9cba32e9e574a0538077b6d0f13e43c8b2da1cd2ccc0170e907`; descarga gzip y sin comprimir idénticas. 432 perfiles históricos, 1048 especies, 100 plantas, 865 paletas desde fotos y 770 acentos distintos. El mismo SQLite se incluye en la app.
+
+### Corrección de distribución taxonómica: v9
+
+La prueba nativa detectó que v8 omitía las tablas de navegación taxonómica aunque declaraba schema 14. v9 lo reemplaza, con 998 nodos editoriales, 1013 nombres, 6234 vínculos y cierre de ancestros. No se reconstruyen IDs ni se incorporan plantas archivadas. `data/catalog/taxonomy.json` conserva este derivado; el publicador y la app bloquean contratos incompletos.
+
+Workflow [38078077829](https://github.com/rafardous/uruguay-natura-data/actions/runs/38078077829), SQLite público de 19.599.360 bytes, SHA-256 `25e396dbb8eabce6112168ddb5bb9e16475e71049cd98b2baf395e00f1f1918a`. Descargas normal/gzip, integridad, claves foráneas, 1048 especies, 100 plantas, 432 perfiles y las 1048 paletas JSON/SQLite verificadas. El binario publicado se copia sin modificaciones a la app.
+
+La actualización nativa 1.3.0 → 1.3.1 preservó cuatro favoritos y el progreso de Aprender (0/21 módulos completos y una idea pendiente de repaso). Se comprobaron las fichas de ñandú (150 cm), albatros (80/220 cm), gavilán alilargo (48/60 cm por sexo, BC), ayuda de tamaño, otros nombres, carrusel, doble toque y configuración exclusivamente clara. A 150 % de texto el calendario usa dos filas y las etiquetas de navegación siguen visibles; se restauró el tamaño original del teléfono.

@@ -26,6 +26,7 @@
     "taxonomy": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
+      "subphylum": "Crustacea",
       "class": "Malacostraca",
       "order": "Isopoda",
       "family": "Ligiidae",
