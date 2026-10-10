@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { DatabaseSync } from 'node:sqlite';
+import { run } from './15-azpiroz.mjs';
+const root = fileURLToPath(new URL('../..',import.meta.url));
+const current = JSON.parse(readFileSync(resolve(root,'data/catalog/aves.json'),'utf8'));
+const original = JSON.parse(execFileSync('git',['show','HEAD:NaturaUY-source/data/catalog/aves.json'],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024}));
+assert.equal(current.length, original.length);
+const protectedFields = ['id','catalogCode','scientificName','acceptedName','taxonomy','origin','seasonality','habitat','diet','traits','conservation','media'];
+current.forEach((row,index) => protectedFields.forEach((field) => assert.deepEqual(row[field],original[index][field], `${row.id}: protected ${field}`)));
+const db = new DatabaseSync(resolve(root,'assets/db/natura.db'),{readOnly:true});
+const byId = new Map(current.map((row)=>[row.id,row]));
+const birds = db.prepare("select stable_id,codigo,tamano,natural_history,sources from species where clase='Aves'").all();
+assert.equal(birds.length,475);
+let enriched=0;
+for(const bird of birds) {
+  const catalog=byId.get(bird.stable_id);
+  assert.ok(catalog, `missing stable id ${bird.stable_id}`);
+  const history=JSON.parse(bird.natural_history);
+  if(!catalog.naturalHistory?.bird) continue;
+  enriched++;
+  assert.deepEqual(history.bird,catalog.naturalHistory.bird);
+  assert.equal(bird.tamano,catalog.size);
+  assert.ok(JSON.parse(bird.sources).some((ref)=>ref.source==='azpiroz_2003' && ref.citation && ref.fieldPath==='naturalHistory.bird.guide'));
+}
+assert.equal(enriched,432);
+db.close();
+assert.equal(run(false).changedRecords,0,'overlay is not idempotent');
+console.log('Azpiroz OK: identity, taxonomy, conservation-related inputs and media unchanged; 432 JSON/SQLite profiles and sources round-trip; idempotent overlay.');

@@ -7,6 +7,7 @@
     "excludedPresence": ["fossil", "doubtful", "error", "unresolved"]
   },
   "sources": [
+    { "code": "azpiroz_2003", "name": "Azpiroz — Aves del Uruguay", "role": ["bird_measurements", "historical_presence", "habitat", "diet", "historical_abundance"], "publisher": "Aves Uruguay — GUPECA", "license": "Referencia bibliográfica; datos factuales, sin licencia abierta atribuida", "citation": "Azpiroz, A. B. (2003). Aves del Uruguay. Lista e introducción a su biología y conservación. Aves Uruguay — GUPECA. 104 pp.", "version": "2003 (edición indicada por el usuario)", "usePolicy": "identifier_only" },
     { "code": "sibuy", "role": ["presence", "national_taxonomy"], "url": "https://sibuy.ambiente.gub.uy/", "usePolicy": "identifier_only" },
     { "code": "snap", "name": "SNAP historical export", "role": ["historical_presence", "historical_taxonomy"], "version": "outputSNAP.json", "usePolicy": "identifier_only" },
     { "code": "biodiversidata", "role": ["presence", "vernacular_names", "taxonomy"], "url": "https://biodiversidata.org/", "usePolicy": "identifier_only" },

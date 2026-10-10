@@ -37,12 +37,14 @@ const SEASONALITY_LABELS: Record<string, string> = {
 const ABUNDANCE_LABELS: Record<string, string> = {
   abundant: 'Abundante',
   common: 'Común',
+  fairly_common: 'Bastante común',
   uncommon: 'Poco común',
   rare: 'Rara',
   occasional: 'Ocasional',
 };
 
 const SOURCE_LABELS: Record<string, string> = {
+  azpiroz_2003: 'Azpiroz — Aves del Uruguay (2003)',
   avonet: 'AVONET',
   amphibio: 'AmphiBIO',
   biodiversidata: 'Biodiversidata',

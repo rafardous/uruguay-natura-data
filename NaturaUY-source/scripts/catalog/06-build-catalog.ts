@@ -270,7 +270,7 @@ function main(): void {
           naturalHistory: previous?.naturalHistory ?? null,
           distributionSummary: previous?.distributionSummary ?? (observation ? { periodStart: observation.periodStart, periodEnd: observation.periodEnd, occurrenceCount: observation.occurrenceCount, confidence: observation.band } : null),
           media: { image: cachedImage, audio: previous?.media?.audio ?? null },
-          sources: sourceNames,
+          sources: [...sourceNames, ...(previous?.sources ?? []).filter((source) => source.source === 'azpiroz_2003')],
           reviewStatus: row.resolution.status === 'resolved' ? 'unreviewed' : 'needs_review',
         };
         // Keep editorial enrichment, but always refresh identity, taxonomy,

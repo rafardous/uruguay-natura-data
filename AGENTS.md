@@ -17,6 +17,7 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 - El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.
 - La línea base animal tiene 1052 registros/948 especies. El catálogo schema 12 agrega el snapshot v1.3 de Flora Uruguaya Online (3157 plantas vasculares) y queda en 4209 registros/4105 especies; el backlog candidate-only externo se mantiene separado.
 - La fuente editorial definitiva ya es PostgreSQL. Los JSON y `natura.db` son artefactos derivados y versionados.
+- Las aves tienen enriquecimiento histórico de Azpiroz 2003 en `natural_history.bird`: 432 perfiles aprobados, schema 12/data_version 4 en el derivado local. Procedencia, códigos, cruces y comandos están en `NaturaUY-source/data/AVES_AZPIROZ_2003.md`. Preservar el tamaño de la guía al regenerar traits y mantener separados abundancia y conservación. La publicación productiva del nuevo derivado depende del workflow manual y sus secretos.
 - La base histórica animal tuvo 1006 entradas/902 especies. El derivado schema 12 actual tiene 4209 registros/4105 especies y conserva los 948 códigos de la línea base animal. No asumir que “registro JSON” y “especie” son equivalentes.
 
 ### Panel web disponible actualmente

@@ -24,7 +24,7 @@ const { data: release, error: releaseError } = await client
   .single();
 if (releaseError) throw releaseError;
 
-const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), loadApprovedLearningPaths()]);
+const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), Number(release.schema_version) >= 13 ? loadApprovedLearningPaths() : Promise.resolve([])]);
 const blockers: string[] = [];
 const warnings: Array<{ code: string; speciesId: string; detail: string }> = [];
 const scientificNames = new Set<string>();

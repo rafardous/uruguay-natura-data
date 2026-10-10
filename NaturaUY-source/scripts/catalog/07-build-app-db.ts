@@ -15,7 +15,8 @@ const DB_PATH = process.env.NATURA_CATALOG_DB_PATH ?? resolve(PATHS.catalog, '..
 const NEXT_PATH = `${DB_PATH}.next`;
 const PREVIOUS_PATH = `${DB_PATH}.previous`;
 const SCHEMA_VERSION = 12;
-const DATA_VERSION = 2;
+const DATA_VERSION = Number(process.env.NATURA_CATALOG_DATA_VERSION ?? 4);
+if (!Number.isSafeInteger(DATA_VERSION) || DATA_VERSION < 1) throw new Error('Invalid NATURA_CATALOG_DATA_VERSION');
 
 type Origin = 'native' | 'introduced' | null;
 

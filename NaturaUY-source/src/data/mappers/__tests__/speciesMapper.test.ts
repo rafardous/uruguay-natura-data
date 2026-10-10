@@ -46,6 +46,20 @@ const baseRow: SpeciesRow = {
 };
 
 describe('rowToSpecies', () => {
+  it('keeps guide wingspan, source number and abundance separate from traits and conservation', () => {
+    const bird = {
+      guide: { sourceCode: 'azpiroz_2003', year: 2003, number: 13, page: 51, commonName: 'Albatros Pico Fino', englishName: 'Yellow-nosed Albatross', scientificName: 'Diomedea chlororhynchus' },
+      measurements: [{ kind: 'body_length', valueCm: 80 }, { kind: 'wingspan', valueCm: 220 }],
+      presence: { code: 'VI', label: 'Visitante de invierno', months: [4,5,6,7,8,9], note: 'Abril a setiembre.', outsidePeriod: false },
+      habitat: ['I'], diet: ['Ps'], abundanceCode: 'BC',
+    };
+    const species = rowToSpecies({ ...baseRow, tamano: '80 cm', abundance_status: 'fairly_common', natural_history: JSON.stringify({ version: 1, bird }) });
+    expect(species.naturalHistory?.bird).toEqual(bird);
+    expect(species.traits.measurements[0]?.kind).toBe('body_mass');
+    expect(species.conservation.label).toBe('No prioritaria');
+    expect(species.abundanceStatus).toBe('fairly_common');
+    expect(species.codigo).toBe(baseRow.codigo);
+  });
   it('maps a complete row into a domain entity', () => {
     const species = rowToSpecies(baseRow);
 

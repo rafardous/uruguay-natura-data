@@ -1,0 +1,38 @@
+{
+  "policy": "Correcciones de lectura de la foto y separadores OCR inequívocos; lo restante se conserva como campo ilegible. La columna revision no bloquea datos.",
+  "fields": {
+    "status": { "Oo": "O", "oO": "O" },
+    "abundance": { "=BC": "BC", "Cc": "C", "PC.": "PC" },
+    "habitat": { "P.": "P", "Cc": "C", "CoA": "C•A", "AeC": "A•C", "Asc": "A•C", "ASC": "A•C", "AsP": "A•P", "MeA": "M•A", "MeH": "M•H", "MeP": "M•P", "MePM": "M•PM", "MePMeH": "M•PM•H", "HePM": "H•PM", "PMeA": "PM•A", "PMeH": "PM•H", "PMeM": "PM•M", "PMeMeA": "PM•M•A", "PMeMeH": "PM•M•H", "PeA": "P•A", "PeH": "P•H", "PeM": "P•M", "PePM": "P•PM", "PeCeA": "P•C•A" },
+    "diet": { "Seein": "Se•In", "Sein": "Se•In", "FreSe": "Fr•Se", "Frein": "Fr•In", "Frin": "Fr•In", "HbeSe": "Hb•Se", "HbeSeelb": "Hb•Se•Ib", "Hbein": "Hb•In", "Hbelb": "Hb•Ib", "Hbsin": "Hb•In", "IbeIn": "Ib•In", "Ibein": "Ib•In", "Ibeln": "Ib•In", "IbePs": "Ib•Ps", "IbeSe": "Ib•Se", "IbeTp*Ps": "Ib•Tp•Ps", "IneFr": "In•Fr", "InePseTp": "In•Ps•Tp", "IneSe": "In•Se", "ineSe": "In•Se", "IneTp": "In•Tp", "IneTpFr": "In•Tp•Fr", "IneTpe*Fr": "In•Tp•Fr", "IneTpeFr": "In•Tp•Fr", "Ineib": "In•Ib", "Inelb": "In•Ib", "InsFr": "In•Fr", "InsTp•Ps": "In•Tp•Ps", "NeeIn": "Ne•In", "Nesin": "Ne•In", "PseTp": "Ps•Tp", "PseTpein": "Ps•Tp•In", "Ps*Tpein": "Ps•Tp•In", "Psein": "Ps•In", "Pseln": "Ps•In", "Pssin": "Ps•In", "SeeFr": "Se•Fr", "SeeHb": "Se•Hb", "SeeHbelb": "Se•Hb•Ib", "SeeHbeln": "Se•Hb•In", "SeeineFr": "Se•In•Fr", "Seeln": "Se•In", "SesHbelb": "Se•Hb•Ib", "SesineFr": "Se•In•Fr", "Se-ineFr": "Se•In•Fr", "TpePs": "Tp•Ps", "Tpein": "Tp•In", "Tpeln": "Tp•In", "lbeSesHb": "Ib•Se•Hb", "ch": "Cñ", "PseCh": "Ps•Cñ" }
+  },
+  "excluded": {
+    "126": "El Excel repite nombre científico y común de la entrada 125. No asignar automáticamente dos fichas históricas a una especie.",
+    "387": "Sporophila zelichi y S. palustris convergen al mismo ID actual. Conservar la entrada histórica separada; la ficha usa la entrada 385 de S. palustris."
+  },
+  "matches": {
+    "92": { "id": "elanus-leucurus", "rationale": "Nombre común Halcón Blanco, con é por ó en OCR; coincidencia única en el catálogo." },
+    "112": { "id": "falco-femoralis", "rationale": "Nombre común Halcón Plomizo, con OCR corrupto; coincidencia única en el catálogo." },
+    "118": { "id": "pardirallus-sanguinolentus", "rationale": "Gallineta Común, con i por ú en OCR; coincidencia única en el catálogo." },
+    "146": { "id": "oreopholus-ruficollis", "rationale": "Eudromias ruficollis, Chorlo Cabezón: combinación histórica y nombre común concordante." },
+    "153": { "id": "tringa-solitaria", "rationale": "Playero Solitario; prefijo H espurio de OCR, nombre del catálogo Playerito Solitario." },
+    "169": { "id": "chionis-albus", "rationale": "Chionis alba/albus, Paloma Antártica; concordancia de epíteto y nombre común." },
+    "170": { "id": "stercorarius-antarcticus", "rationale": "Catharacta antarctica, Escúa Antártica; combinación histórica y nombre común concordante." },
+    "171": { "id": "stercorarius-chilensis", "rationale": "Catharacta chilensis, Escúa Chilena; combinación histórica y nombre común concordante." },
+    "207": { "id": "coccyzus-americanus", "rationale": "Cuclillo Pico Amarillo con sufijo OCR; coincidencia única en el catálogo." },
+    "225": { "id": "chordeiles-minor", "rationale": "Chordelles minor: l por i en OCR; coincide epíteto y nombre común Añapero." },
+    "230": { "id": "hydropsalis-torquata", "rationale": "Hydropsalis brasiana: OCR de brasiliana, nombre histórico presente en el catálogo con mismo ID; Dormilón Tijereta." },
+    "268": { "id": "certhiaxis-cinnamomeus", "rationale": "Certhiaxis cinnamomea/cinnamomeus, Curutié Colorado; concordancia de epíteto y nombre común." },
+    "271": { "id": "cranioleuca-sulphurifera", "rationale": "Cranioleuca sulphunitera: OCR de sulphurifera; Curutié Ocráceo concordante." },
+    "277": { "id": "phacellodomus-striaticollis", "rationale": "Tiotío Común con prefijo y sufijo OCR; coincidencia única en el catálogo." },
+    "285": { "id": "conopophaga-lineata", "rationale": "Chupadientes con sufijo OCR; coincidencia única en el catálogo." },
+    "286": { "id": "camptostoma-obsoletum", "rationale": "Piojito Silbón con 6 por ó y sufijo OCR; coincidencia única en el catálogo." },
+    "376": { "id": "embernagra-platensis", "rationale": "Verdón con 6 por ó y prefijo OCR; coincidencia única en el catálogo." },
+    "396": { "id": "cyanocompsa-brissonii", "rationale": "Cyanocompsa brissonil: l final por i en OCR; Reina Mora concordante." },
+    "410": { "id": "myiothlypis-leucoblephara", "rationale": "Arañero Oliváceo con OCR corrupto; coincidencia única en el catálogo." },
+    "424": { "id": "gnorimopsar-chopi", "rationale": "Gnorimopsar ch. chopi: subespecie abreviada; Mirlo Charrúa concordante." },
+    "13": { "id": "thalassarche-chlororhynchos", "rationale": "Diomedea chlororhynchus: combinación histórica; Albatros Pico Fino, foto p.51." },
+    "72": { "id": "sarkidiornis-sylvicola", "rationale": "La subespecie sylvicola está escrita en la guía; no asignar a S. melanotos." },
+    "324": { "id": "hirudinea-ferruginea", "rationale": "El catálogo tiene Hirudinea ferruginea; acceptedName es Hirundinea ferruginea. No rectificar identidad." }
+  }
+}

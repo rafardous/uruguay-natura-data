@@ -1,0 +1,111 @@
+{
+  "habitat": {
+    "C": "Costa",
+    "I": "Islas y océano",
+    "P": "Pastizales y praderas",
+    "M": "Bosques autóctonos y palmares",
+    "PM": "Pastizales con árboles",
+    "A": "Ambientes acuáticos",
+    "H": "Ambientes antrópicos"
+  },
+  "diet": {
+    "Hb": "Vegetales verdes",
+    "Se": "Semillas y granos",
+    "Fr": "Frutos",
+    "Ne": "Néctar",
+    "In": "Insectos",
+    "Ib": "Invertebrados litorales y bentónicos",
+    "Ps": "Peces, crustáceos y otras presas acuáticas",
+    "Tp": "Pequeños vertebrados",
+    "Cñ": "Carroña"
+  },
+  "abundance": {
+    "C": "common",
+    "BC": "fairly_common",
+    "PC": "uncommon",
+    "R": "rare"
+  },
+  "presence": {
+    "RN": {
+      "label": "Residente todo el año",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "note": "Habita durante todo el año en Uruguay y se estima nidificante."
+    },
+    "RV": {
+      "label": "Residente de verano",
+      "months": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        12
+      ],
+      "note": "Nidifica en Uruguay; presente entre setiembre y marzo."
+    },
+    "VV": {
+      "label": "Visitante de verano",
+      "months": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        12
+      ],
+      "note": "Incluye aves de paso, principalmente entre setiembre y noviembre y entre marzo y mayo; el período es variable."
+    },
+    "VI": {
+      "label": "Visitante de invierno",
+      "months": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "note": "Presente de abril a setiembre."
+    },
+    "V": {
+      "label": "Visitante",
+      "months": [],
+      "note": "La guía no establece una estacionalidad clara."
+    },
+    "DR": {
+      "label": "Registro reciente en la guía",
+      "months": [],
+      "note": "Reciente respecto de la edición de 2003; no implica un registro reciente en la actualidad."
+    },
+    "IN": {
+      "label": "Introducida según la guía",
+      "months": [],
+      "note": "Introducida o asilvestrada a partir de animales escapados del cautiverio. No reemplaza la evaluación actual de origen."
+    },
+    "O": {
+      "label": "Ocasional",
+      "months": [],
+      "note": "Presencia ocasional según la guía de 2003."
+    },
+    "Ex": {
+      "label": "Extinta según la guía",
+      "months": [],
+      "note": "Categoría histórica de la guía; no reemplaza el estado actual de conservación."
+    }
+  }
+}

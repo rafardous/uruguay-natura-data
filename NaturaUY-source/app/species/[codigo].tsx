@@ -27,6 +27,7 @@ import {
 import { ConservationBadge } from '../../src/presentation/components/ConservationBadge';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
+import { BirdFieldGuide } from '../../src/presentation/components/BirdFieldGuide';
 import { TransientZoomView } from '../../src/presentation/components/TransientZoomView';
 import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
@@ -91,6 +92,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [lightboxUri, setLightboxUri] = useState<string | undefined>();
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
   const [traitsOpen, setTraitsOpen] = useState(false);
+  const [birdDetailsOpen, setBirdDetailsOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const palette = useSpeciesPalette(species);
@@ -246,6 +248,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   }) : [];
   const arthropodHistory = species?.naturalHistory?.arthropod;
   const plantHistory = species?.naturalHistory?.plant;
+  const birdHistory = species?.naturalHistory?.bird;
   const observabilityBand = species?.observability?.band === 'high' ? 'Alta'
     : species?.observability?.band === 'medium' ? 'Media'
       : species?.observability?.band === 'low' ? 'Baja' : 'Datos insuficientes';
@@ -429,7 +432,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                         : 'Origen sin determinar'}
                   </Text>
                 </View>
-                {species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
+                {!birdHistory && species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
               </View>
             </Staggered>
 
@@ -452,7 +455,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
-            {facts.length > 0 && (
+            {birdHistory && <BirdFieldGuide key={species.codigo} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} onSources={() => setSourcesOpen(true)} />}
+
+            {!birdHistory && facts.length > 0 && (
               <Staggered index={2}>
                 <View style={[styles.facts, { marginTop: spacing.lg }]}>
                   {facts.map((fact) => (
@@ -468,11 +473,13 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
+            {birdHistory && <Pressable onPress={() => setBirdDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityState={{ expanded: birdDetailsOpen }} style={[styles.traitsHeader, { minHeight: 52, marginTop: spacing.xl, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border }]}><Text style={[typography.label, { color: colors.text }]}>Más sobre esta ave</Text><Text style={[typography.label, { color: palette.accent }]}>{birdDetailsOpen ? '−' : '+'}</Text></Pressable>}
+            {(!birdHistory || birdDetailsOpen) && <>
             {hasTraits && (
               <Staggered index={3}>
                 <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
                   <Pressable onPress={() => setTraitsOpen((open) => !open)} accessibilityRole="button" accessibilityState={{ expanded: traitsOpen }} style={styles.traitsHeader}>
-                    <Text style={[typography.label, { color: colors.text }]}>Tamaño y ecología</Text>
+                    <Text style={[typography.label, { color: colors.text }]}>{birdHistory ? 'Medidas técnicas y ecología' : 'Tamaño y ecología'}</Text>
                     <Text style={[typography.label, { color: palette.accent }]}>{traitsOpen ? '−' : '+'}</Text>
                   </Pressable>
                   {traitsOpen && <View style={{ gap: 8 }}>
@@ -488,7 +495,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.habitat.length > 0 && (
+            {!birdHistory && species.habitat.length > 0 && (
               <Staggered index={3}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Hábitat</Text>
                 <View style={[styles.tagRow, { marginTop: spacing.sm }]}>
@@ -501,7 +508,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.diet.length > 0 && (
+            {!birdHistory && species.diet.length > 0 && (
               <Staggered index={4}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
                 <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
@@ -570,7 +577,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {species.diet.length === 0 && species.alimentacion.length > 0 && (
+            {!birdHistory && species.diet.length === 0 && species.alimentacion.length > 0 && (
               <Staggered index={6}>
                 <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>Alimentación</Text>
                 <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
@@ -624,6 +631,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
+            {birdHistory && <View style={{ marginTop: spacing.lg, gap: 6 }}><Text style={[typography.label, { color: palette.accent }]}>En la guía de 2003</Text>{birdHistory.guide.englishName && <Text style={[typography.body, { color: colors.textSecondary }]}>{birdHistory.guide.englishName}</Text>}{birdHistory.guide.scientificName && <Text style={[typography.body, styles.scientific, { color: colors.textSecondary }]}>{birdHistory.guide.scientificName}</Text>}<Pressable onPress={() => setSourcesOpen(true)} accessibilityRole="button" style={{ minHeight: 44, justifyContent: 'center' }}><Text style={[typography.label, { color: palette.accent }]}>Ver fuentes y referencias</Text></Pressable></View>}
+            </>}
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}

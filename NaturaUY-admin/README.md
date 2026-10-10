@@ -2,6 +2,10 @@
 
 Panel privado para mantener el catálogo aprobado de Natura UY. Supabase conserva identidades, permisos, fichas actuales, solicitudes y auditoría. GitHub Actions procesa medios y genera los artefactos públicos; Supabase Storage sirve derivados y el manifiesto estable.
 
+Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo e historial editorial. `npm run catalog:import-azpiroz` permite verificar los lotes y generar SQL para las RPCs existentes; el procedimiento y las excepciones están en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). No requiere desplegar schema 13.
+
+Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo e historial editorial. `npm run catalog:import-azpiroz` permite verificar los lotes y generar SQL para las RPCs existentes; el procedimiento y las excepciones están en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). No requiere desplegar schema 13.
+
 ## Arquitectura
 
 - `profiles` representa cualquier cuenta; `editor_access` agrega una invitación o permiso editorial, sin tablas de usuarios duplicadas.

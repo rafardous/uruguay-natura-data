@@ -14,6 +14,7 @@ interface SpeciesSourcesSheetProps {
 const GROUPS = [
   ['taxonomy', 'Nombres y taxonomía'],
   ['conservation', 'Conservación'],
+  ['presence', 'Presencia y abundancia'],
   ['traits', 'Tamaño y ecología'],
   ['habitat', 'Hábitat'],
   ['diet', 'Alimentación'],
@@ -26,6 +27,7 @@ function groupFor(fieldPath: string): typeof GROUPS[number][0] {
   const field = fieldPath.toLocaleLowerCase('es');
   if (field.includes('taxonomy') || field.includes('name') || field.includes('common')) return 'taxonomy';
   if (field.includes('conservation')) return 'conservation';
+  if (field.includes('presence') || field.includes('abundance') || field.includes('seasonality')) return 'presence';
   if (field.includes('trait') || field.includes('size') || field.includes('measurement')) return 'traits';
   if (field.includes('habitat')) return 'habitat';
   if (field.includes('diet') || field.includes('aliment')) return 'diet';

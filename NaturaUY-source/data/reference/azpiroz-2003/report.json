@@ -1,0 +1,930 @@
+{
+  "guideRows": 435,
+  "matchedSpecies": 432,
+  "unmatched": [
+    {
+      "number": 126,
+      "speciesId": null,
+      "scientificName": null,
+      "method": "historical_conflict",
+      "guideScientificName": "Lateralius m. melanophaius",
+      "guideCommonName": "Burrito Patas Verdes",
+      "rationale": "El Excel repite nombre científico y común de la entrada 125. No asignar automáticamente dos fichas históricas a una especie."
+    },
+    {
+      "number": 160,
+      "speciesId": null,
+      "scientificName": null,
+      "method": "unmatched",
+      "guideScientificName": null,
+      "guideCommonName": "Play t solor"
+    },
+    {
+      "number": 387,
+      "speciesId": null,
+      "scientificName": null,
+      "method": "historical_conflict",
+      "guideScientificName": "Sporophila zelichi ze,",
+      "guideCommonName": "Capuchino de Collar",
+      "rationale": "Sporophila zelichi y S. palustris convergen al mismo ID actual. Conservar la entrada histórica separada; la ficha usa la entrada 385 de S. palustris."
+    }
+  ],
+  "fieldIssues": [
+    {
+      "number": 22,
+      "field": "diet",
+      "raw": "P"
+    },
+    {
+      "number": 23,
+      "field": "diet",
+      "raw": "P"
+    },
+    {
+      "number": 47,
+      "field": "abundance",
+      "raw": "PG"
+    },
+    {
+      "number": 49,
+      "field": "diet",
+      "raw": "InsTp»Ps"
+    },
+    {
+      "number": 52,
+      "field": "presence",
+      "raw": "te)"
+    },
+    {
+      "number": 55,
+      "field": "abundance",
+      "raw": "BG"
+    },
+    {
+      "number": 56,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 58,
+      "field": "presence",
+      "raw": "ie)"
+    },
+    {
+      "number": 64,
+      "field": "presence",
+      "raw": "vr"
+    },
+    {
+      "number": 68,
+      "field": "measurements",
+      "raw": "400"
+    },
+    {
+      "number": 70,
+      "field": "presence",
+      "raw": "0)"
+    },
+    {
+      "number": 72,
+      "field": "presence",
+      "raw": "te)"
+    },
+    {
+      "number": 75,
+      "field": "abundance",
+      "raw": "RB"
+    },
+    {
+      "number": 76,
+      "field": "presence",
+      "raw": "VUN"
+    },
+    {
+      "number": 77,
+      "field": "presence",
+      "raw": "ie)"
+    },
+    {
+      "number": 79,
+      "field": "diet",
+      "raw": "Se*Hbelb"
+    },
+    {
+      "number": 81,
+      "field": "abundance",
+      "raw": "PG"
+    },
+    {
+      "number": 83,
+      "field": "presence",
+      "raw": "VIN"
+    },
+    {
+      "number": 84,
+      "field": "diet",
+      "raw": "Se*Hbelb"
+    },
+    {
+      "number": 85,
+      "field": "diet",
+      "raw": "Se*Hbelb"
+    },
+    {
+      "number": 86,
+      "field": "presence",
+      "raw": "vl"
+    },
+    {
+      "number": 88,
+      "field": "habitat",
+      "raw": "~~"
+    },
+    {
+      "number": 88,
+      "field": "diet",
+      "raw": "PC"
+    },
+    {
+      "number": 88,
+      "field": "abundance",
+      "raw": "~PeAePM"
+    },
+    {
+      "number": 89,
+      "field": "diet",
+      "raw": "ChieTpeln"
+    },
+    {
+      "number": 90,
+      "field": "presence",
+      "raw": "WwW"
+    },
+    {
+      "number": 91,
+      "field": "abundance",
+      "raw": "PM -"
+    },
+    {
+      "number": 99,
+      "field": "habitat",
+      "raw": "PiMeA"
+    },
+    {
+      "number": 99,
+      "field": "diet",
+      "raw": "TpeCA"
+    },
+    {
+      "number": 101,
+      "field": "habitat",
+      "raw": "Au"
+    },
+    {
+      "number": 101,
+      "field": "presence",
+      "raw": "ie)"
+    },
+    {
+      "number": 106,
+      "field": "presence",
+      "raw": "M"
+    },
+    {
+      "number": 107,
+      "field": "presence",
+      "raw": "WwW"
+    },
+    {
+      "number": 108,
+      "field": "diet",
+      "raw": "CfhisTpein"
+    },
+    {
+      "number": 109,
+      "field": "diet",
+      "raw": "CiisineTp"
+    },
+    {
+      "number": 111,
+      "field": "diet",
+      "raw": "Tpelt"
+    },
+    {
+      "number": 114,
+      "field": "habitat",
+      "raw": "Phe"
+    },
+    {
+      "number": 114,
+      "field": "diet",
+      "raw": "ItTp"
+    },
+    {
+      "number": 116,
+      "field": "diet",
+      "raw": "FreSesHbeln"
+    },
+    {
+      "number": 120,
+      "field": "diet",
+      "raw": "PeeTpein"
+    },
+    {
+      "number": 120,
+      "field": "presence",
+      "raw": "AN"
+    },
+    {
+      "number": 121,
+      "field": "habitat",
+      "raw": "Ae"
+    },
+    {
+      "number": 127,
+      "field": "diet",
+      "raw": "SorHbeln"
+    },
+    {
+      "number": 130,
+      "field": "abundance",
+      "raw": "(o"
+    },
+    {
+      "number": 136,
+      "field": "abundance",
+      "raw": ":"
+    },
+    {
+      "number": 136,
+      "field": "presence",
+      "raw": "(o}"
+    },
+    {
+      "number": 137,
+      "field": "diet",
+      "raw": "2"
+    },
+    {
+      "number": 138,
+      "field": "presence",
+      "raw": "AN"
+    },
+    {
+      "number": 139,
+      "field": "habitat",
+      "raw": "PeAsC"
+    },
+    {
+      "number": 140,
+      "field": "presence",
+      "raw": "WwW"
+    },
+    {
+      "number": 141,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 144,
+      "field": "measurements",
+      "raw": "2"
+    },
+    {
+      "number": 145,
+      "field": "presence",
+      "raw": "W"
+    },
+    {
+      "number": 147,
+      "field": "habitat",
+      "raw": "40"
+    },
+    {
+      "number": 147,
+      "field": "abundance",
+      "raw": "CoA PC"
+    },
+    {
+      "number": 148,
+      "field": "habitat",
+      "raw": "32"
+    },
+    {
+      "number": 148,
+      "field": "abundance",
+      "raw": "P :"
+    },
+    {
+      "number": 149,
+      "field": "habitat",
+      "raw": "43"
+    },
+    {
+      "number": 149,
+      "field": "abundance",
+      "raw": "Cc R"
+    },
+    {
+      "number": 150,
+      "field": "habitat",
+      "raw": "30"
+    },
+    {
+      "number": 150,
+      "field": "abundance",
+      "raw": "P. PC"
+    },
+    {
+      "number": 151,
+      "field": "habitat",
+      "raw": "26"
+    },
+    {
+      "number": 151,
+      "field": "abundance",
+      "raw": "AC BC"
+    },
+    {
+      "number": 152,
+      "field": "habitat",
+      "raw": "33"
+    },
+    {
+      "number": 152,
+      "field": "abundance",
+      "raw": "AcC PC"
+    },
+    {
+      "number": 153,
+      "field": "habitat",
+      "raw": "20"
+    },
+    {
+      "number": 153,
+      "field": "abundance",
+      "raw": "AP Cc"
+    },
+    {
+      "number": 154,
+      "field": "habitat",
+      "raw": "36"
+    },
+    {
+      "number": 154,
+      "field": "abundance",
+      "raw": "CA ="
+    },
+    {
+      "number": 155,
+      "field": "habitat",
+      "raw": "19"
+    },
+    {
+      "number": 155,
+      "field": "abundance",
+      "raw": "Acc PC"
+    },
+    {
+      "number": 156,
+      "field": "habitat",
+      "raw": "22"
+    },
+    {
+      "number": 156,
+      "field": "abundance",
+      "raw": "Cc PC"
+    },
+    {
+      "number": 157,
+      "field": "habitat",
+      "raw": "25"
+    },
+    {
+      "number": 157,
+      "field": "abundance",
+      "raw": "A R"
+    },
+    {
+      "number": 158,
+      "field": "habitat",
+      "raw": "28"
+    },
+    {
+      "number": 158,
+      "field": "abundance",
+      "raw": "AP BC"
+    },
+    {
+      "number": 159,
+      "field": "habitat",
+      "raw": "20"
+    },
+    {
+      "number": 159,
+      "field": "abundance",
+      "raw": "CA PC"
+    },
+    {
+      "number": 160,
+      "field": "abundance",
+      "raw": "AR"
+    },
+    {
+      "number": 160,
+      "field": "presence",
+      "raw": "w"
+    },
+    {
+      "number": 166,
+      "field": "presence",
+      "raw": "WwW"
+    },
+    {
+      "number": 167,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 169,
+      "field": "habitat",
+      "raw": "rc"
+    },
+    {
+      "number": 170,
+      "field": "presence",
+      "raw": "M"
+    },
+    {
+      "number": 171,
+      "field": "presence",
+      "raw": "ie)"
+    },
+    {
+      "number": 172,
+      "field": "presence",
+      "raw": "w"
+    },
+    {
+      "number": 173,
+      "field": "presence",
+      "raw": "WwW"
+    },
+    {
+      "number": 174,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 175,
+      "field": "presence",
+      "raw": "Mw"
+    },
+    {
+      "number": 177,
+      "field": "presence",
+      "raw": "FN"
+    },
+    {
+      "number": 178,
+      "field": "diet",
+      "raw": "PseineCa"
+    },
+    {
+      "number": 179,
+      "field": "presence",
+      "raw": "W."
+    },
+    {
+      "number": 182,
+      "field": "diet",
+      "raw": "Psel"
+    },
+    {
+      "number": 182,
+      "field": "presence",
+      "raw": "VIN"
+    },
+    {
+      "number": 183,
+      "field": "presence",
+      "raw": "W"
+    },
+    {
+      "number": 184,
+      "field": "presence",
+      "raw": "ie)"
+    },
+    {
+      "number": 187,
+      "field": "presence",
+      "raw": "Mi"
+    },
+    {
+      "number": 190,
+      "field": "presence",
+      "raw": "VUN"
+    },
+    {
+      "number": 195,
+      "field": "diet",
+      "raw": "C"
+    },
+    {
+      "number": 195,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 206,
+      "field": "diet",
+      "raw": "_SeeFr"
+    },
+    {
+      "number": 208,
+      "field": "diet",
+      "raw": "In*TpeFr"
+    },
+    {
+      "number": 209,
+      "field": "diet",
+      "raw": "In*TpeFr"
+    },
+    {
+      "number": 212,
+      "field": "diet",
+      "raw": "In*TpeFr"
+    },
+    {
+      "number": 225,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 229,
+      "field": "habitat",
+      "raw": "Pie!"
+    },
+    {
+      "number": 231,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 231,
+      "field": "presence",
+      "raw": "(0)"
+    },
+    {
+      "number": 235,
+      "field": "habitat",
+      "raw": "Met"
+    },
+    {
+      "number": 236,
+      "field": "habitat",
+      "raw": "Met"
+    },
+    {
+      "number": 236,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 237,
+      "field": "habitat",
+      "raw": "Meri"
+    },
+    {
+      "number": 247,
+      "field": "habitat",
+      "raw": "18 M"
+    },
+    {
+      "number": 248,
+      "field": "habitat",
+      "raw": "PMeCeHH"
+    },
+    {
+      "number": 248,
+      "field": "abundance",
+      "raw": "OC"
+    },
+    {
+      "number": 249,
+      "field": "habitat",
+      "raw": "PMeC#H"
+    },
+    {
+      "number": 249,
+      "field": "abundance",
+      "raw": "3=C"
+    },
+    {
+      "number": 256,
+      "field": "habitat",
+      "raw": "Pe"
+    },
+    {
+      "number": 256,
+      "field": "presence",
+      "raw": "Ml"
+    },
+    {
+      "number": 257,
+      "field": "presence",
+      "raw": "Mi"
+    },
+    {
+      "number": 258,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 262,
+      "field": "presence",
+      "raw": "AN-"
+    },
+    {
+      "number": 265,
+      "field": "abundance",
+      "raw": "A"
+    },
+    {
+      "number": 271,
+      "field": "abundance",
+      "raw": "PG"
+    },
+    {
+      "number": 271,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 273,
+      "field": "habitat",
+      "raw": "Ped"
+    },
+    {
+      "number": 274,
+      "field": "presence",
+      "raw": "VM"
+    },
+    {
+      "number": 277,
+      "field": "habitat",
+      "raw": "PMeVeA"
+    },
+    {
+      "number": 277,
+      "field": "diet",
+      "raw": "C"
+    },
+    {
+      "number": 277,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 279,
+      "field": "habitat",
+      "raw": "Pie."
+    },
+    {
+      "number": 284,
+      "field": "habitat",
+      "raw": "PMelVieA"
+    },
+    {
+      "number": 298,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 301,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 305,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 316,
+      "field": "habitat",
+      "raw": "PeAcC"
+    },
+    {
+      "number": 316,
+      "field": "presence",
+      "raw": "vir"
+    },
+    {
+      "number": 328,
+      "field": "habitat",
+      "raw": "PVeMeH"
+    },
+    {
+      "number": 328,
+      "field": "diet",
+      "raw": "C"
+    },
+    {
+      "number": 328,
+      "field": "abundance",
+      "raw": "8"
+    },
+    {
+      "number": 330,
+      "field": "habitat",
+      "raw": "NMePM"
+    },
+    {
+      "number": 331,
+      "field": "diet",
+      "raw": "inf"
+    },
+    {
+      "number": 336,
+      "field": "presence",
+      "raw": "Mi"
+    },
+    {
+      "number": 337,
+      "field": "presence",
+      "raw": "M"
+    },
+    {
+      "number": 339,
+      "field": "diet",
+      "raw": "n"
+    },
+    {
+      "number": 342,
+      "field": "habitat",
+      "raw": "PeMeCe#H"
+    },
+    {
+      "number": 344,
+      "field": "habitat",
+      "raw": "Pe"
+    },
+    {
+      "number": 345,
+      "field": "presence",
+      "raw": "W"
+    },
+    {
+      "number": 346,
+      "field": "presence",
+      "raw": "Ww"
+    },
+    {
+      "number": 347,
+      "field": "presence",
+      "raw": "W"
+    },
+    {
+      "number": 351,
+      "field": "habitat",
+      "raw": "Pea"
+    },
+    {
+      "number": 354,
+      "field": "diet",
+      "raw": "heer"
+    },
+    {
+      "number": 358,
+      "field": "abundance",
+      "raw": "2"
+    },
+    {
+      "number": 359,
+      "field": "diet",
+      "raw": "IneEr"
+    },
+    {
+      "number": 359,
+      "field": "abundance",
+      "raw": ":"
+    },
+    {
+      "number": 360,
+      "field": "diet",
+      "raw": "InsEr"
+    },
+    {
+      "number": 360,
+      "field": "abundance",
+      "raw": ":"
+    },
+    {
+      "number": 363,
+      "field": "abundance",
+      "raw": "(S}"
+    },
+    {
+      "number": 365,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 370,
+      "field": "diet",
+      "raw": "eeln"
+    },
+    {
+      "number": 375,
+      "field": "habitat",
+      "raw": "14, PR"
+    },
+    {
+      "number": 376,
+      "field": "habitat",
+      "raw": "PsA"
+    },
+    {
+      "number": 377,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 378,
+      "field": "habitat",
+      "raw": "B"
+    },
+    {
+      "number": 379,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 382,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 384,
+      "field": "measurements",
+      "raw": "1"
+    },
+    {
+      "number": 385,
+      "field": "habitat",
+      "raw": "PsA"
+    },
+    {
+      "number": 387,
+      "field": "habitat",
+      "raw": "Pea"
+    },
+    {
+      "number": 389,
+      "field": "abundance",
+      "raw": "B"
+    },
+    {
+      "number": 399,
+      "field": "habitat",
+      "raw": "Mer"
+    },
+    {
+      "number": 404,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 407,
+      "field": "abundance",
+      "raw": "#NAME?"
+    },
+    {
+      "number": 407,
+      "field": "presence",
+      "raw": "(@)"
+    },
+    {
+      "number": 408,
+      "field": "habitat",
+      "raw": "PMelVieA,"
+    },
+    {
+      "number": 422,
+      "field": "habitat",
+      "raw": "PiveA,"
+    },
+    {
+      "number": 426,
+      "field": "habitat",
+      "raw": "PeMeAtH"
+    },
+    {
+      "number": 435,
+      "field": "presence",
+      "raw": "le)"
+    }
+  ],
+  "changedRecords": 519
+}

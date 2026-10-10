@@ -66,7 +66,7 @@ for (const [id, state] of applied) {
   species.traits = traits;
   if (state.habitat) species.habitat = state.habitat.value;
   if (state.diet) species.diet = state.diet.value;
-  species.size = ((traits.measurements ?? []).map((measurement) => `${label[measurement.kind] ?? measurement.kind}: ${measurement.value} ${measurement.unit}`).join(' · ') || species.size || null);
+  if (!species.naturalHistory?.bird?.measurements?.length) species.size = ((traits.measurements ?? []).map((measurement) => `${label[measurement.kind] ?? measurement.kind}: ${measurement.value} ${measurement.unit}`).join(' · ') || species.size || null);
 }
 
 for (const [path, rows] of catalogs) writeFileSync(path, `${JSON.stringify(rows, null, 2)}\n`, 'utf8');

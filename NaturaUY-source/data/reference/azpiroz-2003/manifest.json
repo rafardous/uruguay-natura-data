@@ -1,0 +1,10 @@
+{
+  "source": "azpiroz_2003",
+  "workbook": "Indice_aves_Uruguay_1-435_BORRADOR.xlsx",
+  "workbookSha256": "b27df257f6fa943c5398d2eb0c283ed460e1dd98d76e52d332efc317a7b4e300",
+  "rows": 435,
+  "userReviewed": true,
+  "reviewPolicy": "La revisión del usuario reemplaza las marcas OCR de la columna revision; los valores ilegibles se conservan y se informan por campo.",
+  "legendPhoto": "PXL_20260923_002439182.NIGHT.jpg",
+  "legendPhotoSha256": "606abae12eff542cf37bc791b1388c8bac0794cbfdb1c36dd6ec63b953103722"
+}

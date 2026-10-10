@@ -89,7 +89,15 @@ export interface PlantNaturalHistory {
   sources?: SpeciesSource[];
 }
 
-export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory; plant?: PlantNaturalHistory }
+export interface BirdNaturalHistory {
+  guide: { sourceCode: 'azpiroz_2003'; year: number; number: number; page: number | null; commonName: string | null; englishName: string | null; scientificName: string | null };
+  measurements: { kind: 'body_length' | 'wingspan'; valueCm: number; sex?: 'male' | 'female' }[];
+  presence: { code: string; label: string; months: number[]; note: string; outsidePeriod: boolean } | null;
+  habitat: string[];
+  diet: string[];
+  abundanceCode: string | null;
+}
+export interface SpeciesNaturalHistory { version: 1; arthropod?: ArthropodNaturalHistory; plant?: PlantNaturalHistory; bird?: BirdNaturalHistory }
 export interface SpeciesDistributionSummary {
   country?: string;
   departments?: string[]; cells?: string[]; periodStart?: string | null; periodEnd?: string | null;

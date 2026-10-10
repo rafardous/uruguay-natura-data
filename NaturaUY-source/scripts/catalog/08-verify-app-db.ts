@@ -121,7 +121,7 @@ const unassignedOrderBranch = db.prepare(`SELECT
 const failures = [
   integrity !== 'ok' && `integrity_check=${integrity}`,
   schemaVersion !== '12' && `schema_version=${schemaVersion ?? 'missing'}, expected 12`,
-  dataVersion !== '2' && `data_version=${dataVersion ?? 'missing'}, expected 2`,
+  (!dataVersion || !Number.isSafeInteger(Number(dataVersion)) || Number(dataVersion) < 1) && `data_version=${dataVersion ?? 'missing'}, expected positive integer`,
   plantSpecies !== 3157 && `plant species=${plantSpecies}, expected 3157`,
   confirmedPlants !== plantSpecies && `confirmed plants=${confirmedPlants}, expected ${plantSpecies}`,
   plantRoots !== 6 && `described plant navigation nodes=${plantRoots}, expected 6`,

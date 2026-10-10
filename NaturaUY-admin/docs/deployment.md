@@ -122,6 +122,8 @@ La publicación es manual y admin-only. El Release contiene únicamente DB, DB c
 
 ## 6. Mobile y piloto
 
+El enriquecimiento de aves Azpiroz 2003 usa `natural_history.bird`, sin migración nueva. Su importación aprobada pasa por las RPCs editoriales y conserva las revisiones. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md` para fuente, cruces, excepciones y comandos `catalog:import-azpiroz`. El builder sólo carga Aprender para releases schema 13 o superior; `prepare-release` usa schema 12 por defecto y permite `CATALOG_SCHEMA_VERSION` al desplegar versiones posteriores. El derivado local de aves usa data_version 4; no confundirlo con una publicación productiva hasta completar el workflow manual.
+
 La app utiliza claves públicas y continúa operativa sin login. Soporta hasta schema de catálogo 13 y conserva `user.db`; schema 13 agrega documentos de Aprender al catálogo y mantiene el progreso exclusivamente en la base personal. Antes de reabrir escrituras:
 
 ```powershell

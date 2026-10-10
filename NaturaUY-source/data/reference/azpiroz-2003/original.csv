@@ -1,0 +1,436 @@
+numero_guia,nombre_comun_guia,nombre_ingles_guia,nombre_cientifico_guia,estatus_guia,tamano_cm_guia,tamano_segundo_valor_guia,habitat_guia,abundancia_guia,alimentacion_guia,pagina_guia,imagen_fuente,revision
+1,Ñandú,Greater Rhea,Rhea americana intermedia,RN,150,,P,BC,Hb•In•Fr•Se,51,16-145170.jpg,COTEJADO VISUALMENTE
+2,Perdiz de Monte,Brown Tinamou,Crypturellus o. obsoletus,RN,28,,M,R,Seein,51,16-145170.jpg,COTEJADO VISUALMENTE
+3,Martineta,Red-winged Tinamou,Rhynchotus r. rufescens,RN,38,,P,BC,Se•In,51,16-145170.jpg,COTEJADO VISUALMENTE
+4,Perdiz,Spotted Tinamou,Nothura m. maculosa,RN,25,,P,Cc,Seein,51,16-145170.jpg,COTEJADO VISUALMENTE
+5,Pingüino Rey,King Penguin,Aptenodytes patagonicus,O,75,,C•I,-,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+6,Pingüino Penacho Amarillo,Rockhopper Penguin,Eudyptes c. chrysocome,VI,40,,C•I,PC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+7,Pingüino Frente Dorada,Macaroni Penguin,Eudyptes chrysolophus,O,45,,C•I,-,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+8,Pingüino de Magallanes,Magellanic Penguin,Spheniscus magellanicus,VI,44,,C•I,BC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+9,Maca Gris,Least Grebe,Tachybaptus dominicus brachyrhynchus,RN,22,,A,R,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+10,Maca Pico Grueso,Pied-billed Grebe,Podilymbus podiceps antarcticus,RN,32,,A,BC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+11,Macá Común,White-tufted Grebe,Rollandia rolland chilensis,RN,30,,A,BC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+12,Macá Grande,Great Grebe,Podiceps m. major,RN,60,,C•A,BC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+13,Albatros Pico Fino,Yellow-nosed Albatross,Diomedea chlororhynchus,VI,80,220,I,BC,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+14,Albatros Cabeza Gris,Gray-headed Albatross,Diomedea chrysostoma,O,80,220,I,-,Ps,51,16-145170.jpg,COTEJADO VISUALMENTE
+15,Albatros Real,Royal Albatross Vl VAS,Diomedea epomophora 320),VI,115,320,I,R,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+16,Albatros Errante,Wandering Albatross,,VI,120,320,I,BC,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+17,Albatros Ceja Negra,Black-browed Albatross,,VI,88,240,I•C,C,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+18,Petrel Gigante Común,Southern Giant Petrel M,Macronectes giganteus,VI,90,200,I•C,BC,Ps•Cñ,52,15-145174.jpg,COTEJADO VISUALMENTE
+19,Petrel Gigante Oscuro,,,VI,90,190,I,R,Ps•Cñ,,15-145174.jpg,COTEJADO VISUALMENTE
+20,Petrel Plateado,Southern Fulmar,| Fulmarus gilacialoides,VI,45,115,I•C,BC,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+21,Petrel Damero,Cape Petrel,,VI,40,85,I•C,BC,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+22,Petrel Plomizo,,,O,34,80,I,-,P,,15-145174.jpg,COTEJADO VISUALMENTE
+23,Petrel Cabeza Parda,,,O,43,104,I,-,P,,15-145174.jpg,COTEJADO VISUALMENTE
+24,Petrel Collar Gris,,,O,37,85,I,-,Ps,,15-145174.jpg,COTEJADO VISUALMENTE
+25,Petrel Azulado,Blue Petre,Halobaena caerulea,O,32,65,I•C,-,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+26,Prión Pico Fino,,,VI,26,56,I•C,BC,Ps,,15-145174.jpg,COTEJADO VISUALMENTE
+27,Prión Pico Ancho,Dove Prion Vl,Pachyptila desolata banksi,VI,28,65,I,PC,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+28,Petrel Barba Blanca,White-chinned Petrel Ml,,VI,55,140,I•C,C,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+29,Petrel de Anteojos,Spectacled Petrel,,VI,55,140,I,PC,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+30,Petrel Ceniciento,Gray Petrel fo,Procellaria cinerea,O,48,120,I,-,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+31,Pardela Grande,Cory’s Shearwater Ww,Calonectris diomedea borealis,VV,48,120,I,R,Ps,52,15-145174.jpg,COTEJADO VISUALMENTE
+32,Pardela Cabeza Negra,Greater Shearwater VM,Puffinus gravis,VI,46,110,I,BC,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+33,Pardela Oscura,Sooty Shearwater Ml,Puffinus griseus,VI,45,100,I,PC,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+34,Pardela Boreal,Manx Shearwater WwW.,,VV,35,82,I,PC,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+35,Paíño Pardo,Wilson,,VI,19,40,I,BC,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+36,Paíño Cara Blanca,White-faced Storm-Petrel ie,,O,20,42,I,-,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+37,Paíño Vientre Negro,Black-bellied Storm-Petrel,Fregetta tropica,O,20,46,I,-,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+38,Paíño de Leach,Leach’s Storm-Petrel,,O,20,46,I,-,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+39,Petrel Zambullidor,Common Diving-Petrel,Pelecanoides urinatrix berard,O,22,35,I,-,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+40,Piquero Pardo,Brown Booby le,,O,75,,C,-,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+41,Bigüá Vientre Blanco,King Cormorant Mv,Phalacrocorax albiventer,VI,70,,C,R,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+42,Bigüá,Neotropic Cormorant,Phalacrocorax b. brasilianus,RN,70,,A•C,C,Ps,53,15-145174.jpg,COTEJADO VISUALMENTE
+43,Anhinga,Anhinga,Anhinga a. anhinga,RN,90,,A,PC,Ps•Tp,53,15-145174.jpg,COTEJADO VISUALMENTE
+44,Fragata,Magnificent Frigatebird,Fregata magnificens,VV,95,,C•I,PC,Ps•Tp,53,15-145174.jpg,COTEJADO VISUALMENTE
+45,Mirasol Grande,Pinnated Bittern,Botaurus p. pinnatus,RN,66,,A,PC,Ps•Tp•In,53,15-145174.jpg,COTEJADO VISUALMENTE
+46,Mirasol Chico ag ;,Stripe-backed Bittern ‘,Ixobrychus involucris,RN,33,,A,PC,Pssin,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+47,Garza Colorada,Rufescent Tiger-Heron,Tigrisoma lineatum marmoratum,RN,70,,A,PG,Ps,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+48,Garza Bruja,Black-crowed Night-Heron,Nycticorax n. nycticorax,RN,58,,A,BC,Ps*Tp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+49,Garza Bueyera,Cattle Egret,,RN,45,,P,C,InsTp»Ps,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+50,Garza Amarilla,Whistling Heron,Syrigma s. sibilatrix,RN,58,,PeA,Cc,IneTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+51,Garcita Azulada,Striated Heron,"Butorides s. striatus """,RN,40,,A,BC,PseTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+52,Garza Azul,Little Blue-Heron ie,"Hydranassa caerulea ,",te),50,,A,-,PseTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+53,Garza Blanca Chica,Snowy Egret,Egretta t. thula,RN,58,,A,Cc,PseTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+54,Garza Blanca Grande,Great Egret,Casmerodius albus egretta,RN,88,,A,C,Ps•Tp,54,14-145175.jpg,COTEJADO VISUALMENTE
+55,Garza Mora,White-necked Heron,Ardea cocoi,RN,126,,A,BG,Ps*Tp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+56,Cigiiefia Cabeza Pelada,Wood-Stork WwW,Mycteria americana,Ww,90,,A,BC,PseTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+57,Cigiiena Comun,Maguari Stork,Ciconia maguari,RN,100,,A,BC,TpePs,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+58,Yabiru,Jabiru,Jabiru mycteria,ie),130,,A,,PseTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+59,Bandurria Mora,Plumbeous Ibis,Harpiprion caerulescens,RN,80,,A,BC,Pseln,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+60,Bandurria Amarilla,Buff-necked Ibis,Theristicus caudatus hyperorius,RN,72,,P,PC,IneTp,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+61,Cuervillo Cara Pelada,Bare-faced Ibis,"Phimosus i. infuscatus . """,RN,48,,A,BC,IbeSe,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+62,Cuervillo de Canada,White-faced Ibis,Plegadis chihi,RN,50,,A,Cc,IbeTp*Ps,54,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+63,Espatula Rosada |,eate Spoonbi,,RN,80,,A,BC,IbePs,55,14-145175.jpg,VERIFICAR OCR ANTES DE USAR
+64,Flamenco Austral ',Chilean Flamingo vr,Phoenicopterus chilensis,vr,103,,A,PC,Ib,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+65,Chaja,Southern Screamer,Chauna torquata,RN,88,,A,BC,Hb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+66,Pato Canela,Fulvous Tree-Duck,Dendrocygna bicolor,RN,48,,A,BC,Hb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+67,Pato Cara Blanca },White-faced Tree-Duck,Dendrocygna viduata,RN,45,,A,BC,Hbelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+68,Cisne Cuello Negro i,Black-necked Swan,Cygnus melancoryphus |,RN,400,,A,BC,Hb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+69,Coscoroba |,Coscoroba Swan,Coscoroba coscoroba,RN,82,,A,PC,Hb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+70,Cauqueén \,Upland Goose,Chloephaga p. picta,0),70,,PA,-,,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+71,Pato Criollo,Muscovy Duck,Cairina moschata,RN,65,,AM,R,HbeSeelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+72,Pato Crestudo,Comb Duck te,Sarkidiornis metanotos sylvicola,te),65,,A,-,SeeHbelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+73,Pato de Collar,Ringed Teal,Callonetta leucophrys,RN,36,,A,PC,SeeHb,55,14-145175.jpg,VERIFICAR OCR ANTES DE USAR
+74,Pato Brasilero,Brazilian Duck,Amazonetta brasiliensis ipecutiri,RN,38,,A,c,Hbelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+75,Pato Gargantilla,White-cheeked Pintail,Anas bahamensis rubrirostris,Vi,43,,A,RB,HbeSe,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+76,Pato Colorado :,Cinnamon Teal VIN,Anas c. cyanoptera,VUN,40,,A,R,SesHbelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+77,Pato Media Luna,Blue-winged Teal ie,Anas discors,ie),38,,A,-,SeeHbelb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+78,Pato Barcino,Speckled Teal,Anas f. flavirostris,RN,43,,A,Cc,lbeSesHb,55,13-145176.jpg,VERIFICAR OCR ANTES DE USAR
+79,Pato Maicero,Brown Pintai,Anas georgica spinicauda,RN,60,,A,Cc,Se*Hbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+80,Pato Cuchara,Red Shoveler,Anas platalea,Vi,46,,A,PC,SeeHbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+81,Pato Overo,Southern Wigeon,Anas sibilatrix,RN,48,,A,PG,Hb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+82,Pato Capuchino,Silver Teal,Anas v. versicolor,RN,41,,A,Cc,SeeHbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+83,Pato Picazo,Rosy-billed Pochard VIN,: Netta peposaca,VIN,53,,A,BC,Se*Hb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+84,Pato Cabeza Negra,Biack-headed Duck,Heteronetia atricapilla,RN,38,,A,PC,Se*Hbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+85,Pato Fierro,Masked Duck,Oxyura dominica,RN,36,,A,R,Se*Hbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+86,| Pato Zambullidor,Lake Duck vl,Oxyura vittata,vl,38,,A,PC,SeeHbelb,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+87,Cuervo Cabeza Roja,,,RN,74,,PM,Cc,ch,,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+88,Cuervo Cabeza Amarilla,Lesser Yellow-headed Vulture,| Cathartes burrovianus urubitinga,RN,71,,~~,~PeAePM,PC,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+89,Cuervo Cabeza Negra,Black Vulture,Coragyps atratus foetens,RN,64,,MeP,PC,ChieTpeln,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+90,Aguila Pescadora,Osprey WwW,Pandion haliaetus carolinensis,WwW,58,,A,PC,Ps,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+91,Haicon Tijereta,Swallow-tailed Kite oO,Elanoides forficatus yetapa «,oO,55,,,PM -,In*Tp,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+92,Halcén Blanco,White-tailed Kite,,RN,38,,P,BC,Tp,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+93,Caracolero,Everglade Kite,Rostrhamus s. sociabilis,RV,41,,A,BC,Ps,56,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+94,Gavilán Patas Largas,Crane Hawk,Geranospiza caerulescens flexipes,RN,48/58,,M,R,Tp•In,56,12-145177.jpg,COTEJADO VISUALMENTE
+95,Gavilán Alilargo,Long-winged Harrier,Circus buffoni,RN,48/60,,A•P,BC,Tp,57,12-145177.jpg,COTEJADO VISUALMENTE
+96,Gavilán Ceniciento,Cinereous Harrier,Circus cinereus,RN,46/53,,A•P,R,Tp,57,12-145177.jpg,COTEJADO VISUALMENTE
+97,Gavilan Bicolor,Bicolored Hawk,Accipiter bicolor pileatus,RN,43,,M,R,Tp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+98,Gavilan Chico,Sharp-shinned Hawk,Accipiter striatus erythronemius,RN,33,,MeP,PC,Tp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+99,Aguila Negra,Great Black Hawk,Buteogallus u urubitinga,RN,66,,PiMeA,R,TpeCA,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+100,Aguila Colorada,Savanna Hawk,Heterospizias meridionalis,RN,52,,MeP,PC,Tp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+101,Aguila Pampa,Black-collared Hawk ie,Busarellus nigricollis leucocephalus 1,ie),54,,Au,,,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+102,Agulla Mora,Black-chested Buzzard-Eagle,Geranoaetus m. melanoleucus,RN,68,,PM,PC,Tp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+103,Gavilan Mixto,Bay-winged Hawk,Parabuteo u. unicinctus,RN,48,,PM,PC,Tp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+104,Aguila Cola Blanca,White-tailed Hawk,Buteo a. albicaudatus {,RV,61,,PM,PC,Tpein,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+105,Gavilan Comun,Roadside Hawk,Buteo magnirostris pucheranl,RN,36,,PM,Cc,IneTp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+106,Aguilucho Lomo Rojo,Red-backed Hawk M,,M,50,,PM,,,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+107,Agullucho Langostero,Swainson,Buteo swainsoni },WwW,51,,PM,,,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+108,Carancho |,Crested Caracara,Polyborus p. plancus,RN,58,,PM,Cc,CfhisTpein,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+109,Chimachima,Yellow-headed Caracara,Milvago c. chimachima :,RN,43,,PM,PC,CiisineTp,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+110,Chimango,Chimango Caracara AN,,RN,41,,PM,,,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+111,Halconcito Gris,Spot-winged Falconet,,RN,30,,M,R,Tpelt,57,12-145177.jpg,VERIFICAR OCR ANTES DE USAR
+112,Haicdén Plomizo,Aplomado Falcon FN,,,35/45,,,,,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+113,Halc6n Peregrino aC,Peregrine Faicon,Falco peregrinus cassini Vi,,48,,HePM,PC,Tp,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+114,Haiconcito Comin,American Kestrel,Falco sparverius cinnamominus,RN,28,,Phe,C,ItTp,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+115,Charata,Charata,Ontalis c. canicollis,,70,,,,,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+116,Pava de Monte,Dusky-legged Guan,Penelope o. obscura,RN,90,,M,BC,FreSesHbeln,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+117,Carao,Carao,Aramus g. guarauna,,65,,,,,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+118,Gallineta Comin,Plumbeous Rail,,RN,28,,A,BC,PseTpein,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+119,Gallineta Overa,Spotted Rail,,RN,25,,A,R,Ps*Tpein,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+120,] Chiricote,Gray-necked Wood-Rail AN,Aramides c. cajanea,AN,38,,M,BC,PeeTpein,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+121,Gallineta Grande,Giant Wood-Rail AN,Aramides ypecaha,RN,48,,Ae,Cc,PseTpein,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+122,Burrito Amarillo,Yellow-breasted Crake,,RV,14,,A,R,IneSe,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+123,Burrito Plomizo,Dot-winged Crake,Porzana spiloptera,RN,15,,A,R,IneSe,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+124,Burrito Patas Rojas,Red-and-White Crake,Laterallus loucopyrrhus |,RN,18,,A,PC,IneSe,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+125,Burrito Patas Verdes,Rufous-sided Crake,Laterallus m. melanophaius,RN,18,,A,BC,In•Se,58,11-145178.jpg,COTEJADO VISUALMENTE
+126,Burrito Patas Verdes,Rufous-sided Crake,Lateralius m. melanophaius,RN,18,,A,BC,IneSe,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+127,Polla Pintado,Gpot-flanked Gallinule,Porphyriops m. melanops .,RN,28,,A,BC,SorHbeln,58,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+128,Polla de Agua,Common Gallinule,Gallinula chloropus galeata,RN,32,,A,C,Se•Hb•In,59,11-145178.jpg,COTEJADO VISUALMENTE
+129,Polla Azul,Purt Sallinule,,RV,32,,A,PC,SeeHbeln,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+130,Gallareta Grande,Red-gartered Coot,,RN,48,,A,(o,Hbein,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+131,Gallareta Ala Blanca,White-winged Coot,Fulica leucoptera,RN,35,,A,BC,Hbsin,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+132,Gallareta Escudete Rojo,Red-fronted Coot,Fulica rufifrons,RN,43,,A,BC,Hbein,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+133,Seriema,Red-legged Serlema,Carlama cristata,RN,75,,PeM,PC,IneTp,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+134,Jacana f,Wattled Jacana,Jacana j. jacana,RN,25,,A,BC,Inelb,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+135,Aguatero \,South American Painted-Snipe,Nycticryphes semicollaris,RN,20,,A,PC,Ib,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+136,Ostrero Negro,Blackish Oystercatcher,Haematopus ater |,(o},48,,Cc,:,Ib,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+137,Ostrero Comun,American Oystercatcher,Haematopus p. palilatus,RN,43,,Cc,BC,2,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+138,Tero Real,South American Stilt AN,Himantopus mexicanus melanurus,AN,50,,A,BC,Ibein,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+139,Tero,Southern Lawping,Vanellus chilensis lampronotus | },RN,34,,PeAsC,Cc,Ineib,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+140,Chorlo Dorado,American Golden Plover WwW,,WwW,25,,P,BC,Ibein,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+141,Chorlo Artico,Black-bollied Plover Ww,Pluvialis squatarola |,Ww,28,,Cc,R,Ib,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+142,Chorlito de Collar,Collared Plover,Charadrius collaris :,RN,16,,CoA,BC,Ib,59,11-145178.jpg,VERIFICAR OCR ANTES DE USAR
+143,Chorlito Doble Collar,Two-banded Plover,Charadnus f. falklandicus,,20,,,BC,Ibein,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+144,Chorlito Pecho Canela,Rufous-chested Dotterel,Charadrius modestus,Vi,2,,CA,BC,IbeIn,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+145,Chorlito Palmado,Semipaimated Plover,Charadrius semipalmatus,W,17,,CA,PC,Ibeln,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+146,Chorio Cabezon,Tawny-throated Dotterel,Eudromias ruficollis,Vi,27,,P,PC,In,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+147,; Becasa de Mar,Hudsonian Godwit WwW,II Limosa haemastica,,40,,40,CoA PC,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+148,i Playero Esquimal,Eskimo Curlew Ex,Numenius borealis,,32,,32,P :,IneSe,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+149,ie Playero Trinador,Whimbrel Ww,Numenius phaeopus,,43,,43,Cc R,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+150,Batitu,Upland Sandpiper WwW,Bartramia longicauda,,30,,30,P. PC,IneSe,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+151,} Playero Patas Amarilias Chico,Lesser Yellowlegs WwW,‘ Tringa flavipes,,26,,26,AC BC,IbePs,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+152,Playero Patas Amarillas Grande,Greater Yellowlegs Ww,Tringa melanoleuca,,33,,33,AcC PC,IbePs,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+153,H Playero Solitario,,,,20,,20,AP Cc,Ib,,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+154,Playero Ala Blanca,,,,36,,36,CA =,Ib,,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+155,| Playerito Manchado,Spotted Sandpiper WwW.,Actitis macularia,,19,,19,Acc PC,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+156,| Vuelvepiedras,Ruddy Turnstone WwW,Arenaria interpres morinelia,,22,,22,Cc PC,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+157,Falaropo Comun,Wilson,Phalaropus tricolor,,25,,25,A R,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+158,Becasina,Common Snipe,Gallinago p. paraguaiae RN,,28,,28,AP BC,Inelb,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+159,Playerito Blanco,Sanderling Ww,Calidris alba,,20,,20,CA PC,Ib,60,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+160,Play t solor,E piper,,w,18,,ASC,AR,Inelb,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+161,Playero Rojizo,Re Ww,,,25,,,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+162,Playerito Rabadilla Blanca,White-rumped Sandpiper Ww,Caliaris fuscicouls |,,18,,,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+163,Playerito Pecho Gris i |,Pectoral Sandpiper WwW,Calidris melanotos,,20,,,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+164,Playerito Menor,Least Sandpiper Oo,Calidris minutilla,,13,,,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+165,Playerito Enano,Semipaimated Sandpiper,Calidris pusilla |,Oo,13,,Cc,-,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+166,Playero Zancudo . |,Stilt Sandpiper W.,Micropalama himantopus,WwW,21,,A,R,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+167,Playerito Canela,Buff-breasted Sandpiper WwW,Tryngites subruficollis,Ww,20,,P,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+168,Agachona iA,Least Seedsnipe,Thinocorus f. rumicivorus,Vi,19,,PeA,R,Se,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+169,Paloma Antartica 2 “ |,Snowy Sheathbill M,Chionis alba,vi,40,,rc,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+170,Esctia Antartica,Brown Skua Mv,Catharacta antarctica |,M,60,,Cc,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+171,Escua Chilena P |,Chilean Skua fe,Catharacta chilensis,ie),60,,Cc,-,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+172,Salteador Coludo,Long-tailed Jaeger,Stercorarius longicaudus,w,40,,Cc,R,Ps*Tp,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+173,Salteador Chico,Parasitic Jaeger Ww,Stercorarius parasiticus,WwW,45,,Cc,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+174,Salteador Grande,Pomarine Jaeger WwW,Stercorarius pomarinus :,Ww,53,,Cc,,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+175,Gaviota Cangrejera,Band-talled Gull M,,Mw,50,,,Cc,,61,10-145179.jpg,VERIFICAR OCR ANTES DE USAR
+176,Gaviota Capucho Gris,Gray-hooded Gull AN,Larus c. cirrocephalus,,42,,,,,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+177,Gaviota Cocinera,Kelp Gull RN,Larus a. dominicanus ],FN,53,,,,PseCh,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+178,Gaviota Capucho Café,Brown-hooded Gull,Larus maculipennis,RN,35,,CAP,Cc,PseineCa,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+179,Gaviotin Negro,Black Tem W.,Chlidonias niger surinamensis,W.,24,,Cc,R,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+180,Atí,Large-billed Tern,Phaetusa simplex,RN,38,,A•C,PC,Ps,62,09-145180.jpg,COTEJADO VISUALMENTE
+181,Gaviotin Pico Grueso,,Geiochelidon nilotica groenvoldi,RN,35,,Asc,PC.,InePseTp,,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+182,Gaviotin Cola Larga,South American Tern VIN,Sterna hirundinacea,VIN,43,,Cc,BC,Psel,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+183,Gaviotin Golondrina,Common Tern WwW,Sterna h. hirundo,W,36,,Cc,BC,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+184,Gaviotin Artico,Arctic Tern ie,Sterna paradisaea,ie),39,,I,,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+185,Gaviotin Chico,Yellow-billed Tem,: Sterna superciliaris,RN,23,,AeC,BC,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+186,Gaviotin de Antifaz,Snowy-crowned Tern,Sterna trudeaui |,RN,35,,CoA,BC,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+187,Gaviotin Antartico,,Sterna vittata georgiae,Mi,35,,Cc,R,Pseln,,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+188,Gaviotin Real,Royal Tern,Thalasseus m. maximus,RN,48,,Cc,PC,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+189,Gaviotin Pico Amarillo,Cayenne Tern,Thalasseus sandvicensis eurygnathus },RN,40,,Cc,PC,Pseln,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+190,Rayador |,Black Skimmer VUN,Rhynchops niger intercedens,VUN,45,,CoA,BC,Psein,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+191,Paloma Colorada,Paloma Colorada,Pale-vented Pigeon ie) 30 M - Se,,30,,,,,62,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+192,Paloma Doméstica,Rock Dove,Columba l. livia,IN,33,,H,C,Se,63,09-145180.jpg,COTEJADO VISUALMENTE
+193,Paloma Ala Manchada,Spot-winged Pigeon,Columba m. maculosa,RN,33,,P•M,BC,Se•Fr,63,09-145180.jpg,COTEJADO VISUALMENTE
+194,Paloma de Monte,Picazuro Pigeon,Columba p. picazuro,RN,35,,P•M,C,Se•Fr,63,09-145180.jpg,COTEJADO VISUALMENTE
+195,Torcaza,Eared Dove,Zenaida auriculata chrysauchenia,RN,25,,PMeMeH,#NAME?,C,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+196,Torcacita Comun ),Picul Ground-Dove,,RN,18,,PMeH,BC,Se,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+197,Torcacita Colorada,Ruddy Ground-Dove,Columbina t. talpacoti,RN,18,,PM,PC,Se,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+198,Paloma Montaraz Oscura,Gray-fronted Dove,Leptotila rufaxilla reichenbachil,RN,28,,M,PC,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+199,Paloma Montaraz Comun |,White-tipped Dove,Leptotila verreauxi chlorauchenia,RN,28,,PMeM,Cc,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+200,Guacamayo Azul,Glaucous Macaw Ex,Anodorhynchus glaucus 2 j,Ex,70,,M,,,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+201,Loro Cabeza Azul,Blue-crowned Parakeet,Aratinga a. acuticaudata f,RN,38,,PM,R,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+202,Loro Maracana,White-eyed Parakeet,,RN,35,,M,PC,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+203,Loro Cabeza Negra |,Black-hooded Parakeet,Nandayus nenday |,IN,34,,M,R,Se*Fr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+204,Loro Barranquero |,Burrowing Parrot,Cyanoliseus p. patagonus,v,45,,P,R,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+205,Chiripepe :,Reddish-bellied Parakeet,Pyrrhura frontalis chiripepe,RN,27,,M,R,SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+206,Cotorra,Monk Parakeet,,RN,28,,PMeH,Cc,_SeeFr,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+207,Cuclillo Pico Amarillo int |,Yellow-billed Guckoo fe,,oO,30,,M,,,63,09-145180.jpg,VERIFICAR OCR ANTES DE USAR
+208,Cuclillo Gris,Ash-colored Cuckoo,Coocyzus cinereus,RV,25,,M,R,In*TpeFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+209,Cuclillo Comun,Dark-billed Cuckoo,Coccyzus melacoryphus,RV,29,,M,PC,In*TpeFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+210,Pirincho de Monte,Squirrel Cuckoo,Piaya cayana macroura,RN,42,,M,PC,in*Tp*Fr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+211,Pirincho Negro Chico,Smooth-bilied Ani,Grotophaga ani j,RN,33,,PM,PC,IneTpeFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+212,Pirincho Negro Grande,Greater Ani,Crotophaga major,RV,48,,M,R,In*TpeFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+213,"Pirincho ,",Guira Cuckoo,Guira guira,RN,40,,PMeH,Cc,IneTpeFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+214,Crespin ',Striped Cuckoo,Tapera naevia chochi,RV,28,,M,BC,IneTpFr,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+215,Lechuza de Campanario,Bam Owl,Tyto alba tuidara :,RN,38,,HePM,PC,Tp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+216,Tamborcito Grande,Long-tulted Screech-Ow!l,Otus sanctaecatarinae |,RN,28,,M,R,IneTp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+217,Tamborcito Comun,Tropical Screech-Owl,Otus ch. choliba },RN,23,,M,BC,IneTp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+218,Nacurutu,Great Homed Owl,Bubo virginianus nacurutu |,RN,50,,M,PC,Tp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+219,Caburé |,Ferruginous Pygmy-Ow!,Glaucidium b. brasilianum .,RN,18,,M,R,Tpeln,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+220,Lechucita de Campo,Burrowing Owl,Speotyto cunicularia partridge,RN,23,,P,BC,IneTp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+221,Lechuz6n Orejudo |,Striped Owl,Pseudoscops clamator midas },RN,38,,PM,PC,Tp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+222,Lechuzén de Campo ‘,Short-eared Ow!,Asio flammeus suinda,RN,42,,P,PC,Tp,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+223,Lechucita Canela |,Butf-fronted Owl,Aegolius harrisil Ihering!,RN,20,,M,R,Tpein,64,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+224,Urutau,Comr alo:,Nyctibius griseus comutus,RV,38,,M,R,In,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+225,Afiapero,Common Nighthawk WwW,Chordelles minor chapman!,Ww,22,,PePM,R,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+226,Ñacundá,Nacunda Nighthawk,Podager n. nacunda,RV,28,,P,BC,In,65,08-145181.jpg,COTEJADO VISUALMENTE
+227,Curlango,Pauraque,Nyctidromus albicollis derbyanus,DR,35,,PM,R,In,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+228,Dormilén Patagonico,Band-winged Nightjar Ml,Caprimulgus longirostris patagonicus /,,25,,,,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+229,Dormilén Chico F |,Little Nightjar,Caprimulgus p. parvulus :,RV,20,,Pie!,PC,In,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+230,Dormilén Tijereta,Scissor-tailed Nightjar RV,Hydropsalis brasiana furcifera a |,RV,50,,PM,BC,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+231,Vencejo de Collar,White-collared Swift,Streptoprocne z. zonaris,(0),21,,PM,#NAME?,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+232,Picaflor Vientre Negro,Black-throated Mango te,Anthracothorax nigricollis,Oo,10,,MeH,,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+233,Coqueta Verde,Festive Coquette fo,"Lophornis ch, chalybeus /",Oo,6,,H,-,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+234,Picaflor Negro,Black Jacobin vir,Melanotrochilus fuscus,,10,,,,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+235,Picaflor Verde,Glittering-bellied Emerald,Chlorostilbon aureoventris berlepschi,RV,9,,Met,BC,Nesin,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+236,Picaflor Corona Violacea Nest,Violet-capped Woodnymph V,Thalurania glaucopis,Vv,1,,Met,R,,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+237,Picaflor Bronceado,Gilded Sapphire,,RN,9,,Meri,BC,Nesin,65,08-145181.jpg,VERIFICAR OCR ANTES DE USAR
+238,Picaflor Garganta Blanca,White-throated Hummingbird,Leucochloris albicollis,RN,10,,M•H,BC,Ne•In,65,08-145181.jpg,COTEJADO VISUALMENTE
+239,Picaflor de Barbijo,Blue-tufted Starthroat RV ut M PC Nesin,Heliomaster furcifer,,10,,,,NeeIn,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+240,Martin Pescador Grande,Ringed Kingfisher,Ceryle t. torquata,RN,38,,A,BC,Ps,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+241,Martin Pescador Mediano,Amazon Kingfisher,Chloroceryle a. amazona,RN,30,,A,BC,Ps,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+242,Martin Pescador Chico,Green Kingfisher,Chloroceryle americana mathewsii,RN,20,,A,BC,Ps,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+243,Carpintero Enano,Mottled Piculet,Picumnus nebulosus,RN,11,,M,PC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+244,Carpintero del Cardén,White-fronted Woodpecker,Melanerpes cactorum,RN,19,,MP,R,IneFr,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+245,t Carpintero Blanco,White Woodpecker,Melanerpes candidus,RN,26,,PM,BC,IneFr,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+246,Carpintero Bataraz,Checkered Woodpecker .,Picoides m. mixtus,RN,16,,M,PC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+247,Carpintero Manchado,,Veniliornis spilogaster,,18,,18 M,Cc,In,,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+248,| Carpintero de Campo,Field Flicker,Colaptes campestris campestroides,RN,33,,PMeCeHH,OC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+249,Carpintero Nuca Roja,Green-barred Woodpecker,Colaptes melanochloros leucofrenatus,RN,28,,PMeC#H,3=C,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+250,Carpintero Negro,Cream-backed Woodpecker,Campephilus leucopogon,RN,33,,M,R,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+251,Trepador Grande,Scimitar-billed Woodcreeper,Drymornis bridgesii,RN,31,,PMeM,BC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+252,Trepador Chico,Narrow-billed Woodcreeper,Lepidocolaptes angustirostris praedatus,RN,21,,M,BC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+253,Trepador Escamado,Scaled Woodcreeper,Lepidocolaptes squamatus falcinellus,RN,19,,M,PC,In,66,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+254,Tarefero :,Oliv ; Woodcreeper,Sitta Js griseicapillus sylviellus,RN,17,,M,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+255,Caminera,Common Mine,Geositta c. cuniculana,RN,16,,P,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+256,Bandurrita,Scale-throated Earthcreeper M,Upucerthia d. dumetana,Ml,23,,Pe,R,,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+257,Remolinera |,Bar-winged Cinclodes Mi,Cinciodes f. fuscus,Mi,18,,PeCeA,BC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+258,Hornero,Rufous Hornero,Furnarius r. rufus,RN,20,,PMeMeH,#NAME?,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+259,Pajonalera Pico Curvo ani,Curve-billed Reechaunter,Limnornis curvirostris |,RN,18,,A,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+260,Junquero },Wren-like Rushbird,Phieocryptes melanops,RN,14,,A,BC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+261,Coludito Copeton,Tufted Tit-Spinetail,Leptasthenura platensis },RN,15,,M,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+262,Espartillero Enano,Red-capped Wren-Spinetall AN-,Spartonoica maluroides . |),AN-,14,,A,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+263,Chotoy,Chotoy Spinetail,Schoeniophylax p. phryganophila,RN,23,,PMeA,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+264,Pijui Blancuzco,Pale-breasted Spinetall,Synallaxis albescens australis,RN,15,,M,R,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+265,Pijui Oscuro,Gray-bellied Spinetail,Synallaxis cinerascens,RN,14,,M,A,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+266,Pijui Frente Gris,Sooty-fronted Spinetall,Synailaxis f. frontalis,RN,16,,M,BC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+267,Pijui Comun ;,Chicli Spinetail,Synallaxis spixi :,RN,16,,M,BC,in,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+268,Curutié Colorado R in },Yellow-throated Spinetail RN,Certhiaxis cinnamomea russeola,RN,16,,A,R,,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+269,Pajonalera Pico Recto,Straight-billed Reedhaunter,Limnoetites rectirostris,RN,17,,A,PC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+270,Trepadorcito,Stripe-crowned Spinetail,,RN,14,,M,BC,In,67,07-145182.jpg,VERIFICAR OCR ANTES DE USAR
+271,Curutié Ocraéceo,Sulphur-bearded Spinetail RN,Cranioleuca sulphunitera },RN,1,,A,PG,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+272,Canastero Comun,Short-billed Canastero,,RN,15,,M,PC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+273,Espartiliero Pampeano,Hudson's Canastero,Asthenes hudsoni,RN,16,,Ped,PC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+274,Canastero Coludo,Lesser Canastero Mi,,VM,16,,P,R,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+275,Tiotio Ojo Rojo,Red-eyed Thormbird,| Phacellodomus erythrophthalmus ferrugineigula,DR,18,,A,-,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+276,Tiotio Chico,Little Thornbird,Phacellodomus sibilatrix,RN,13,,M,R,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+277,N Tiotio Comun i,Freckle-breasted Thornbird,,RN,18,,PMeVeA,#NAME?,C,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+278,{ Crestudo ;,Lark-like Brushrunner,Coryphistera a. alaudina,RN,15,,M,R,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+279,Espinero,Firewood-gathered,Anumbius a. annumbi,RN,21,,Pie.,Cc,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+280,Hornerén,Brown Cacholote,Pseudoseisura lophotes argentina i,RN,26,,MePM,PC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+281,Titiri,,,RN,18,,M,BC,In,,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+282,| Macuquifio |,Sharp-tailed Streamcreeper,Lochmias n. nematura,RN,16,,M,PC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+283,Bataraé Plomizo |,Variable Antshrike,Thamnophilus caerulescens gilvigaster,RN,15,,M,BC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+284,Batara Pardo |,Rufous-capped Antshrike,Thamnophilus r. ruficapillus ),RN,18,,PMelVieA,BC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+285,Chupadientes j,Rufous Gnateater,,RN,13,,M,R,in,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+286,Piojito Silb6n ),Southern Beardless Tyrannulet,,RV,11,,M,BC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+287,Suiriri Copeton,Scrub Flycatcher,Sublegatus modestus brevirostris,RN,15,,M,PC,In,68,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+288,Suirirí Común,Suiriri Flycatcher,Suiriri s. suiriri,RN,17,,M,PC,In,69,06-145183.jpg,COTEJADO VISUALMENTE
+289,Fiofio Silbon,Wt ested Elaenia,Elaenia albiceps chilensis,Vi,15,,M,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+290,Fiofio Olivaceo,Olivaceus Elaenia,Elaenia mesoleuca,DR,16,,M,-,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+291,Flofio Oscuro,Highland Elaenia,Elaenia obscura sordida,RV,18,,M,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+292,Fiofio Pico Corto,Small-billed Elaenia,Elaenia parvirostns,RV,15,,M,Cc,IneFr,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+293,Fiofio Grande |,Large Elaenia,,RV,18,,M,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+294,Tiquitiqui Vientre Blanco,White-bellied Tyrannulet ie,Serpophaga munda |,,11,,,,,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+295,Tiquitiqui Oscuro,Sooty Tyrannulet,Serpophaga nigricans,RN,11,,A,BC,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+296,Tiquitiqui Comin Ki,White-crested Tyrannulet,Serpophaga subcristata straminea |,RN,11,,MeH,Cc,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+297,Sietecolores de Laguna :,Many-colored Rush-Tyrant,Tachuris r. rubrigastra,RN,12,,A,BC,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+298,Tachuri Coludo |,Sharp-tailed Tyrant,Culicivora caudacuta,DR,1,,P,R,Seein,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+299,Tachuri Canela,Bearded Tachuri,,RV,10,,P,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+300,Piojito Amarillo,Warbling Doradito,Pseudocolopteryx flaviventris,RN,12,,A,Pc,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+301,Piojito Copeton,Crested Doradito,Pseudocolopteryx sclater!,RN,1,,A,R,in,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+302,Barullero,Tawny-crowned Pygmy-Tyrant,,RV,11,,M,PC,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+303,Ligerito,Mottled-cheeked Tyrannulet,,RN,12,,M,BC,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+304,Mosqueta Ojo Dorado,Pearly-vented Tody-tyrant,Hemitriccus margaritacelventer,RN,12,,M,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+305,Mosqueta Cara Canela,Ochre-faced Tody-tyrant,Todirostrum p. plumbeiceps,RN,1,,M,R,In,69,06-145183.jpg,VERIFICAR OCR ANTES DE USAR
+306,Mosqueta Corona Amarilla,Bran-colored Flycatcher,Myiophobus fasciatus flammiceps,RV,13,,MeA,BC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+307,Mosqueta de Monte,Euler's Flycatcher,Empidonax e. euleri j,RV,12,,M,R,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+308,Churrinche |,Vermilion Flycatcher,Pyrocephalus r. rubinus,RV,15,,PMeM,Cc,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+309,: Escarchero,Gray Monjita,Xolmis cinerea,RN,23,,PePM,BC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+310,Viudita Coronada,Black-crowned Monjita,Xolmis coronata,Vi,21,,PM,PC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+311,Viudita Blanca Comun,,Xolmis i. irupero,RN,18,,PMeM,BC,,,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+312,Viudita Blanca Grande,Black-and-white Monjita,Heteroxolmis dominicana,RN,20,,PeA,PC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+313,Viudita Chocolate |,Chocolate-vented Tyrant Ml,Neoxolmis rufiventris . t,,25,,,,,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+314,Gaucho Chico,Mouse-brown Shrike-Tyrant,: Agriomis murina,DR,18,,P,-,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+315,Dormilona Cara Negra |,Dark-faced Ground-Tyrant Mi,Muscisaxicola m. macloviana,,17,,CP,,,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+316,Sobrepuesto,,Lessonia r. rufa,vir,13,,PeAcC,BC,,,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+317,Viudita Negra Aliblanca,White-winged Black-Tyrant Mi,Knipolegus a. aterrimus,,17,,,,,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+318,Viudita Negra Comun,Blue-billed Black-Tyrant,Knipolegus cyanirostris,RN,15,,M,BC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+319,Viudita Negra Copetona,Crested Biack-Tyrant,Knipolegus lophotes,RN,20,,PePM,PC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+320,Pico de Plata,Spectacled Tyrant,Hymenops p. perspiciliatus,RN,15,,AsP,BC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+321,Lavandera Blanca },Pied Water-Tyrant,Fluvicola pica albiventer },RV,14,,A,R,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+322,Yetapa de Collar,Strange-tailed Tyrant ie,Alectrurus risora |,,35,,,,,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+323,Vinchero,Yellow-browed Tyrant,,RN,18,,PMeMeA,=BC,In,70,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+324,Viudita Colorada,Cliff catcher,Hirundinea ferruginea bellicosa,RV,18,,MePM,PC,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+325,Margarita,Cattle Tyrant,Macheiomis rixOSUS,RN,20,,PMeH,Cc,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+326,Burlisto Castano,Rufous Casiornis,Casiomis rufa ’,RV,18,,M,R,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+327,Burlisto Comun,Swainson s Flycatcher,,RV,20,,M,BC,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+328,Benteveo,Great Kiskadee,Pitangus sulphuratus argentinus,RV,25,,PVeMeH,8,C,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+329,Benteveo Rayado,Streaked Flycatcher,Mylodynastes maculatus solitarius | fl,RV,23,,M,BC,IneFr,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+330,Tuquito Gris “\ 1),Crowned Slaty-Flycatcher,Empidonomus a. aurantioatrocristatus fi,RV,18,,NMePM,PC,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+331,Tuquito Rayado ',Variegated Flycatcher,Empidonomus vy. varius,RV,18,,MePM,R,inf,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+332,Benteveo Real iT i,Tropical Kingbird,Tyrannus m. melancholicus Z| |:,RV,23,,PM,Cc,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+333,Tijereta |,Fork-tailed Flycatcher,Tyrannus s. savana,RV,40,,PM,Cc,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+334,Anambé Negro,White-winged Becard,Pachyramphus polychopterus SpIixi! =~,RV,15,,M,BC,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+335,Anambé Verdoso,Green-backed Becard,,RN,15,,M,PC,In,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+336,Cortarramas |,White-tipped Plantcutter M,Phytotoma r. rutila,Mi,19,,,,,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+337,Golondrina Patagonica,Chilean Swallow Mi,Tachycineta meyenl!,M,12,,,,,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+338,Golondrina Ceja Blanca,White-rumped Swallow RV,Tachycineta leucorrhoa,"RV""",14,,,,,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+339,Golondrina Azul Grande i,Gray-breasted Martin,Progne chalybea macroramphus,RV,19,,PeH,Cc,n,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+340,Golondrina Negra = \,Southern Martin RV,Progne modesta elegans a,RV,20,,,,,71,05-145184.jpg,VERIFICAR OCR ANTES DE USAR
+341,Golondrina Parda Grande,Brown-chested Martin RV In,Progne tapera fusca,RV,18,,P,C,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+342,Golondrina Azul Chica F,Blue-and-white Swallow,Notiochelidon c. cyanoleuca RV,,12,,PeMeCe#H,C,,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+343,Golondrina Cara Rojiza |,Tawny-headed Swallow,Alopochelidon fucata,RV,13,,PeM,BC,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+344,Golondrina Cuello Canela,Rough-winged Swallow,Stelgidopteryx r. ruficollis,RV,14,,Pe,BC,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+345,Golondrina Parda Chica,Bank Swallow,Riparia r. riparia,W,12,,PeA,R,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+346,Golondrina Tijereta,Barn Swallow W.,! Hirundo rustica erythrogaster,Ww,16,,PeA,PC,,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+347,Golondrina Rabadilla Canela,Cliff Swallow WwW,Petrochelidon p. pyrrhonota,W,14,,PeA,PC,,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+348,Cachirla Una Larga,Correndera Pipit,Anthus c. correndera,RN,15,,PeA,PC,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+349,Cachirla Comun,Short-billed Pipit,Anthus f. furcatus,RN,15,,P,Cc,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+350,Cachirla Palida,Hellmayr’s Pipit,Anthus hellmayri brasilianus,RN,14,,P,PC,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+351,Cachirla Chica },Yellowish Pipit,Anthus lutescens,RN,13,,Pea,PC,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+352,Ratonera,House Wren,Troglodytes aedon bonariae |,RN,11,,PMeMeH,C,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+353,Ratonera Aperdizada,Grass Wren,Cistothorus platensis polygiottus,RN,14,,Pp,R,In,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+354,Calandria,Chalk-browed Mockingbird,Mimus saturninus modulator F) a’,RN,27,,PMeMeH,C,heer,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+355,Calandria Tres Colas,White-banded Mockingbird vir,Mimus triurus,"Vi""",23,,,,,72,04-145185.jpg,VERIFICAR OCR ANTES DE USAR
+356,Zorzal Azulado,Yellow-legged Thrush,Platycichla f. flavipes,DR,23,,M,-,In•Fr,73,03-145186.jpg,COTEJADO VISUALMENTE
+357,Zorzal Collar Blanco,White-necked Thrush RN,UrauUS aidicolis paraguayensis Cc IneFr,,24,,,,,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+358,Sabia,Creamy-bellied Thrush RN,Turdus amaurochalinus Cc IneFr,RN,24,,,2,,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+359,Sabia Misionero,Pale-breasted Thrush,,DR,24,,M,:,IneEr,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+360,Zorzal Plomizo,Slaty Thrush,Turdus nigriceps subalaris |,DR,29,,M,:,InsEr,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+361,Zorzal Comun,Rufous-bellied Thrush,Turdus r. rufiventris,RN,25,,MeH,Cc,InsFr,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+362,Piojito Azulado =e,Masked Gnatcatcher,Polioptila d. dumicola wed,RN,11,,M,BC,In,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+363,Chingolo,Rufous-collared Sparrow,Zonotrichia capensis subtorquata,RN,15,,MePMeH,(S},Se,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+364,Yal Negro,Mourning Sierra-Finch,Phrygilus f. fruticeti,Vi,18,,PMeM,R,Se,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+365,Cigarra,Uniform Finch,Haplospiza unicolor |,DR,13,,M,#NAME?,Se,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+366,Chingolo Ceja Amarilla,Grassland Sparrow,Ammodramus humeralis xanthornus |,RN,13,,P,BC,Se,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+367,Soldadito |,Black-crested Finch,Lophospingus pusillus,IN,14,,PMeM,R,Sein,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+368,Monterita Cabeza Gris,Long-tailed Reed-Finch,Donacospiza albifrons,RN,16,,P,BC,Seeln,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+369,Diuca,Common Diuca-Finch,Diuca diuca minor,Vi,16,,PMeM,R,Se,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+370,Monterita Rabadilla Roja ex |,Red-rumped Warbling-Finch,Poospiza lateralis cabanisi,RN,14,,M,BC,eeln,73,03-145186.jpg,VERIFICAR OCR ANTES DE USAR
+371,Monterita Cabeza Negra,Biack-capped Warbling-Finch iN,Poospiza melanoieuca,,13,,,,,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+372,Sietevestidos,Black-and-rufous Warbling Finch RN i,Poospiza n. nigroruta,,14,,,,,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+373,Monterita Canela,Cinnamon Warbling-Finch,Poospiza ornata,VI,14,,M,R,Seein,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+374,Dorado,Saffron Finch,Sicalis flaveola peizeini,RN,14,,PM,C,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+375,Misto,Grassland Yellow-Finch RN,Sicalis luteola luteiventris,RN,14,,"14, PR",BC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+376,: Verd6én,Great Pampa-Finch,,RN,22,,PsA,Cc,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+377,Coludo Grande,Wedge-tailed Grass-Finch,Emberizoides h. herbicola,DR,20,,P,#NAME?,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+378,Coludo Chico,,,DR,17,,B,-,Se,,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+379,Volatinero,Blue-Black Grassquit,Volatinia j. jacarina,RV,1,,P,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+380,Capuchino Boina Negra,Capped Seedeater,Sporophila bouvreuil pileata 4,RV,11,,P.,R,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+381,Gargantillo,Double-collared Seedeater,Sporophila c. caerulescens,RV,11,,PePM,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+382,Capuchino Corona Gris,Chestnut Seedeater,Sporophila cinnamomea,RV,1,,P,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+383,Domino,Rusty-collared Seedeater,Sporophila collaris melanocephala,RV,11,,PeA,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+384,Capuchino Canela ',Ruddy-breasted Seedeater,Sporophila hypoxantha,RV,1,,P,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+385,Capuchino Pecho Blanco,Marsh Seedeater,Sporophila palustris t,RV,10,,PsA,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+386,Capuchino Garganta Café :,Dark-throated Seedeater,Sporophila ruticollis,RV,10,,P,PC,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+387,Capuchino de Collar,White-collared Seedeater,"Sporophila zelichi ze,",RV,10,,Pea,R,Se,74,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+388,Pepitero Chico,Many-colored Chaco-Finch,Saltatricula multicolor,RN,16,,M,R,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+389,Cardenal Amarillo,Yellow Cardinal,Gubernatrix cristata,RN,20,,M,B,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+390,Brasita de Fuego,Red-crested Finch,Coryphospingus cucullatus rubescens,RN,14,,M,R,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+391,Cardenilla,Yellow-billed Cardinal,Paroana c. capitata,RN,18,,M,R,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+392,Cardenal Copete Rojo,Red-crested Cardinal,Paroaria coronata,RN,14,,PMeM,BC,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+393,Rey del Bosque Comtin,Golden-billed Saltator,Saltator aurantiirostris parkes|,RN,20,,M,BC,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+394,Rey del Bosque Gris,Grayish Saltator,Sailtator c. coerulescens cd,RN,22,,M,PC,SeeFr,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+395,Rey del Bosque Verdoso,Green-winged Saltator,Sallator s. similis _,RN,21,,M,PC,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+396,Reina Mora Y,Ultramarine Grosbeak,Cyanocompsa brissonil sterea,RV,16,,PMeM,R,.,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+397,Azulito,Indigo Grosbeak,Cyanoloxia glaucocaerulea,RV,15,,PM,PC,Se,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+398,Frutero Corona Dorada,Black-goggled Tanager,Tricothraupis melanops,DR,17,,M,-,FreSe,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+399,Fueguero,Hepatic Tanager,Piranga f. flava,RN,17,,Mer,BC,Frein,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+400,Naranjero,Blue-and-yellow Tanager,Thraupis b. bonariensis,RN,18,,M,BC,Frin,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+401,Celeston,Sayaca Tanager,,RN,18,,M,BC,Frein,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+402,Cardenal Azul,Diademed Tanager,Stephanophorus diadematus,RN,19,,M,BC,Frin,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+403,Viuva,Fawn-breasted Tanager,Pipraeidea m. melanonota,RN,15,,M,PC,Frein,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+404,Tangara Corona Celeste,Blue-hooded Euphonia DR,Euphonia musica aureata,DR,12,,M,#NAME?,Frein,75,02-145187.jpg,VERIFICAR OCR ANTES DE USAR
+405,Achara,Chestnut-backed Tanager,Tangara preciosa |,RN,16,,M,BC,Frin,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+406,Pitiayumi },Tropical Parula,Parula pitiayumi,RN,10,,M,Cc,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+407,Aranero Estriado,Blackpoll Warbler te,Dendroica striata,(@),14,,M,#NAME?,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+408,Aranhero Cara Negra,Masked Yellowthroat,Geothlypis aequinoctialis velata,RV,13,,"PMelVieA,",BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+409,Arafiero Chico,Goiden-crowned Warbler AN,Basileuterus culicivorus azarae,RN,13,,M,BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+410,Arafero Olivaceo,White-browed Warbler,,RN,14,,M,BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+411,Juan Chiviro,Rufous-browed Peppershrike,Cyelarhis gujanensis ochrocephala,RN,16,,M,BC,IneTpe*Fr,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+412,Cyelarhis gujanensis ochrocephala,Red-eyed Vireo,_ Vireo olivaceus diversus,RV,14,,M,BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+413,Boyerin,Epaulet Oriole,Icterus cayanensis pyrrhopterus,RN,20,,M,BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+414,Boyero Ala Amarilla,Golden-winged Cacique,Cacicus chrysopterus,RN,20,,M,BC,In,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+415,Boyero Negro,Solitary Black Cacique,Cacicus solitarius,RN,21,,M,PC,IneFr,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+416,Dragon,Saffron-cowled Blackbird,Xanthopsar flavus,RN,21,,PeA,PC,IneSe,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+417,Garibaidino,Chestnut-capped Blackbird,Agelaius r. ruficapillus,RN,18,,A,BC,Seein,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+418,Alférez,Yellow-winged Blackbird,Agelaius thilius petersii,RN,18,,A,BC,IneSe,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+419,Loica Pampeana |,Pampas Meadowlark,Stumelila defilippii,RN,21,,P,R,IneSe,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+420,Pecho Colorado,White-browed Blackbird,Stumelia superciliaris e,RN,19,,P,BC,Seeln,76,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+421,Canario de la Sierra,Yellow-rumped Marshbird,Pseudoleistes guirahuro,RN,24,,PM,PC,IneSe,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+422,Pecho Amarillo,Brown-and-Yellow Marshbird,Pseudoleistes virescens,RN,23,,"PiveA,",Cc,IneSe,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+423,Federal,Scarlet-headed Blackbird,Amblyramphus holosericeus,RN,24,,A,PC,In,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+424,Mirlo Charrda,Chopi Blackbird,Gnorimopsar ch. chopi,RN,21,,PMeM,PC,ineSe,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+425,Musico,Bay-winged Cowbird,,RN,20,,PMeM,BC,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+426,Tordo Comun,Shiny Cowbird,Molothrus b. bonariensis,RN,20,,PeMeAtH,C,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+427,Tordo Pico Corto,Screaming Cowbird,Molothrus rufoaxillaris,RN,19,,PMeM,BC,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+428,Verderon ‘,European Greenfinch,Chioris chloris .,IN,14,,HePM,PC,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+429,Cardelino |,European Goldfinch,Carduelis carduelis /,IN,12,,HePM,BC,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+430,Cabecitanegra,Hooded Siskin,,RN,13,,PM,BC,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+431,Gorri6én,House Sparrow,Passer domesticus,IN,14,,H,Cc,Seein,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+432,Pico de Lacre,Common Waxbill a,Estrilda astrild,IN,13,,H,R,Se,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+433,Urraca Azul,Azure Jay,Cyanocorax caeruleus,DR,38,,M,.,SeeineFr,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+434,Urraca Comun,Plush-crested Jay,"Cyanocorax ch, chrysops",RN,35,,M,BC,SesineFr,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
+435,Urraca Morada,Purplish Jay Le,Cyanocorax cyanomelas,le),36,,M,-,Se-ineFr,77,01-145188.jpg,VERIFICAR OCR ANTES DE USAR
