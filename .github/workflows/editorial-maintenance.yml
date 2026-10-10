@@ -20,6 +20,9 @@ jobs:
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       BACKUP_ENCRYPTION_PASSWORD: ${{ secrets.BACKUP_ENCRYPTION_PASSWORD }}
       SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      PGHOST: aws-0-sa-east-1.pooler.supabase.com
+      PGPORT: '5432'
+      PGUSER: postgres.xbnbfekcxrkgteuijbzh
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,7 +36,8 @@ jobs:
           set -euo pipefail
           : "${SUPABASE_DB_URL:?Falta SUPABASE_DB_URL}"
           : "${BACKUP_ENCRYPTION_PASSWORD:?Falta BACKUP_ENCRYPTION_PASSWORD}"
-          pg_dump "$SUPABASE_DB_URL" --schema=public --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
+          export PGPASSWORD="$(node -e 'process.stdout.write(decodeURIComponent(new URL(process.env.SUPABASE_DB_URL).password))')"
+          pg_dump --dbname=postgres --schema=public --schema=private --no-owner --no-acl | gzip | openssl enc -aes-256-cbc -salt -pbkdf2 -pass env:BACKUP_ENCRYPTION_PASSWORD -out "editorial-$(date -u +%Y%m%d).sql.gz.enc"
           test "$(wc -c < "editorial-$(date -u +%Y%m%d).sql.gz.enc")" -gt 1024
       - name: Conservar respaldo cifrado durante siete días
         uses: actions/upload-artifact@v4
