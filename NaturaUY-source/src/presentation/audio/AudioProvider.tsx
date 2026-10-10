@@ -1,11 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { AppState } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import { Asset } from 'expo-asset';
 import { setAudioModeAsync, setIsAudioActiveAsync, useAudioPlayer, useAudioPlayerStatus, type AudioPlayer } from 'expo-audio';
 import { Directory, File, Paths } from 'expo-file-system';
 
 const CACHE_LIMIT_BYTES = 25 * 1024 * 1024;
-const cacheDirectory = new Directory(Paths.cache, 'natura-audio');
+// La API nueva de expo-file-system es nativa. En web dejamos que el navegador
+// resuelva la URL directamente y evitamos crear Directory al cargar la app.
+const cacheDirectory = Platform.OS === 'web' ? null : new Directory(Paths.cache, 'natura-audio');
 
 export interface PlayableSpeciesAudio {
   id: string;
@@ -44,6 +46,7 @@ function shortHash(value: string): string {
 }
 
 function getCacheFile(audio: PlayableSpeciesAudio): File {
+  if (!cacheDirectory) throw new Error('Audio filesystem cache is unavailable on web');
   return new File(cacheDirectory, `${shortHash(audio.id + audio.url)}.mp3`);
 }
 
@@ -54,6 +57,8 @@ async function cachedUri(audio: PlayableSpeciesAudio): Promise<string> {
     if (!asset.localUri && !asset.uri) throw new Error('Bundled audio asset has no local URI');
     return asset.localUri ?? asset.uri;
   }
+  if (Platform.OS === 'web') return audio.url;
+  if (!cacheDirectory) throw new Error('Audio filesystem cache is unavailable');
   cacheDirectory.create({ idempotent: true, intermediates: true });
   const file = getCacheFile(audio);
   if (!file.exists) await File.downloadFileAsync(audio.url, file, { idempotent: true });
@@ -62,6 +67,7 @@ async function cachedUri(audio: PlayableSpeciesAudio): Promise<string> {
 }
 
 async function trimCache(keepUri: string): Promise<void> {
+  if (!cacheDirectory) return;
   try {
     const files = cacheDirectory.list().filter((entry): entry is File => entry instanceof File);
     const records = files.map((file) => ({ file, size: file.size, modified: file.lastModified ?? 0 }));
