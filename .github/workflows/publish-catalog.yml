@@ -60,6 +60,7 @@ jobs:
           dist/catalog/natura.db
           dist/catalog/natura.db.gz
           dist/catalog/catalog-full.json
+          dist/catalog/taxonomy.json
           dist/catalog/aves.json
           dist/catalog/mammalia.json
           dist/catalog/reptilia.json

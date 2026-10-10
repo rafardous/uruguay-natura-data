@@ -6,7 +6,7 @@ import { defaultDatabaseDirectory, importDatabaseFromAssetAsync, openDatabaseAsy
 import { CATALOG_DATABASE_NAME } from './schema';
 import { OWNED_DATABASE_OPTIONS } from './sqliteOpenOptions';
 import { decideCatalogUpdate, shouldActivateBundledCatalog } from './catalogUpdatePolicy';
-import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from './catalogUpdateValidation';
+import { assertCatalogDownload, assertCatalogIntegrity, assertCatalogTables, recoverySource } from './catalogUpdateValidation';
 import { assertCatalogManifest, type CatalogManifestContract } from './catalogManifestValidation';
 
 const STAGED_DATABASE_NAME = 'natura.next.db';
@@ -40,6 +40,8 @@ async function readMeta(databaseName: string): Promise<{ dataVersion: number; sc
     assertCatalogIntegrity(integrity?.integrity_check);
     const rows = await database.getAllAsync<{ key: string; value: string }>("SELECT key, value FROM meta WHERE key IN ('data_version', 'schema_version')");
     const meta = Object.fromEntries(rows.map((row) => [row.key, row.value]));
+    const tables = await database.getAllAsync<{ name: string }>("SELECT name FROM sqlite_master WHERE type='table'");
+    assertCatalogTables(Number(meta.schema_version ?? 0), tables.map((table) => table.name));
     return { dataVersion: Number(meta.data_version ?? 0), schemaVersion: Number(meta.schema_version ?? 0) };
   } finally { await database.closeAsync(); }
 }

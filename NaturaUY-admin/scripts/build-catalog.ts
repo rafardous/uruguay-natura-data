@@ -4,7 +4,8 @@ import { resolve } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { gzipSync } from 'node:zlib';
 
-import { loadApprovedCatalog, loadApprovedLearningPaths, loadApprovedTaxonContent, loadApprovedTrivia, publicMediaUrl, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
+import { loadApprovedCatalog, loadApprovedLearningPaths, loadApprovedTaxonContent, loadApprovedTrivia, loadPublishedTaxonomy, publicMediaUrl, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
+import { writePublishedTaxonomy } from './catalog-taxonomy';
 import { adminClient, required } from './shared';
 import { derivePhotoPalettes } from './photo-palettes';
 
@@ -27,6 +28,12 @@ if (releaseError) throw releaseError;
 if (release.schema_version !== 14) throw new Error(`Schema de release incompatible: ${release.schema_version}; se requiere 14`);
 
 const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), Number(release.schema_version) >= 13 ? loadApprovedLearningPaths() : Promise.resolve([])]);
+const taxonomy = await loadPublishedTaxonomy(items);
+const taxonomyNodes = new Map(taxonomy.nodes.map((node) => [String(node.taxon_id), node]));
+for (const item of items) {
+  const subphylum = taxonomy.links.filter((link) => link.species_id === item.species.id).map((link) => taxonomyNodes.get(String(link.taxon_id))).find((node) => node?.rank === 'subphylum');
+  item.species.subphylum = subphylum?.canonical_name ?? '';
+}
 await derivePhotoPalettes(items);
 const blockers: string[] = [];
 const warnings: Array<{ code: string; speciesId: string; detail: string }> = [];
@@ -229,6 +236,10 @@ try {
     ));
     item.gameRules.forEach((rule) => insertGameRule.run(species.id, rule.game_key, rule.enabled ? 1 : 0, rule.min_knowledge_level));
   }
+  writePublishedTaxonomy(db, taxonomy, catalogSources);
+  db.exec("ALTER TABLE species ADD COLUMN subfilo TEXT NOT NULL DEFAULT ''");
+  const setSubphylum = db.prepare('UPDATE species SET subfilo=? WHERE stable_id=?');
+  items.forEach((item) => setSubphylum.run(item.species.subphylum, item.species.id));
   trivia.forEach((question) => {
     insertTrivia.run(question.id, question.species_id, question.prompt, question.explanation, question.source_id,
       mediaUrl(question.image?.thumbnail_path ?? question.image?.storage_path),question.image?.author??null,question.image?.license??null);
@@ -261,6 +272,8 @@ const integrity = db.prepare('pragma integrity_check').get() as { integrity_chec
 const count = (db.prepare('select count(*) as count from species').get() as { count: number }).count;
 const ftsCount = (db.prepare('select count(*) as count from species_fts').get() as { count: number }).count;
 const mediaCount = (db.prepare('select count(*) as count from species_media').get() as { count: number }).count;
+const unlinked = (db.prepare('select count(*) as count from species s where not exists(select 1 from species_taxa st where st.stable_id=s.stable_id)').get() as { count: number }).count;
+if (unlinked || db.prepare('pragma foreign_key_check').all().length) throw new Error(`Taxonomy validation failed: unlinked=${unlinked}`);
 if (integrity.integrity_check !== 'ok' || count !== items.length || ftsCount !== items.length) {
   throw new Error(`SQLite validation failed: integrity=${integrity.integrity_check}, species=${count}, fts=${ftsCount}, media=${mediaCount}`);
 }
@@ -268,6 +281,7 @@ db.exec('pragma optimize; vacuum;');
 db.close();
 
 writeCatalogJson(output, items);
+writeFileSync(resolve(output, 'taxonomy.json'), JSON.stringify(taxonomy, null, 2));
 const database = readFileSync(databasePath);
 const compressed = gzipSync(database, { level: 9 });
 writeFileSync(`${databasePath}.gz`, compressed);
@@ -277,6 +291,7 @@ const report = {
   schemaVersion: release.schema_version,
   generatedAt: new Date().toISOString(),
   speciesCount: items.length,
+  taxonomy: { nodes: taxonomy.nodes.length, names: taxonomy.names.length, links: taxonomy.links.length },
   media: { images: items.filter((item) => item.image).length, audio: items.filter((item) => item.audio).length },
   palettes: { fromPhoto: items.filter((item) => item.photoPalette?.basis === 'photo').length, fromFamily: items.filter((item) => item.photoPalette?.basis === 'family').length, distinctAccents: new Set(items.map((item) => item.photoPalette?.colors.accentLight)).size },
   blockers,

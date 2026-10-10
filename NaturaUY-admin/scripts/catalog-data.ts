@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 import { adminClient } from './shared';
 import type { PhotoPalette } from './photo-palettes';
+import { selectPublishedTaxonomy } from './catalog-taxonomy';
 
 export type DatabaseRow = Record<string, any>;
 
@@ -46,6 +47,11 @@ async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
     result.push(...(data as DatabaseRow[]));
     if (!data || data.length < 1000) return result;
   }
+}
+
+export async function loadPublishedTaxonomy(items: CatalogRecord[]) {
+  const [nodes, links, names] = await Promise.all([fetchAll('taxa'), fetchAll('species_taxa'), fetchAll('taxon_names')]);
+  return selectPublishedTaxonomy(new Set(items.map((item) => String(item.species.id))), nodes, links, names);
 }
 
 export function publicMediaUrl(path: string | null | undefined) {
@@ -244,6 +250,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     taxonomy: {
       kingdom: species.kingdom,
       phylum: species.phylum,
+      ...(species.subphylum ? { subphylum: species.subphylum } : {}),
       class: species.class,
       order: species.order_name,
       family: species.family,

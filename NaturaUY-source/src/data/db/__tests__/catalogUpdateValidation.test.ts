@@ -1,4 +1,4 @@
-import { assertCatalogDownload, assertCatalogIntegrity, recoverySource } from '../catalogUpdateValidation';
+import { assertCatalogDownload, assertCatalogIntegrity, assertCatalogTables, recoverySource } from '../catalogUpdateValidation';
 
 const valid = {
   actualSize: 10, expectedSize: 10, actualSha256: 'abc', expectedSha256: 'ABC',
@@ -6,6 +6,11 @@ const valid = {
 };
 
 describe('catalog candidate validation', () => {
+  test('rejects schema 14 without offline taxonomy despite valid integrity and metadata', () => {
+    expect(() => assertCatalogTables(14, ['species','meta','species_media','learning_paths'])).toThrow('catalog_tables_missing:taxa,species_taxa,taxon_names,taxon_closure');
+    expect(() => assertCatalogTables(14, ['species','meta','taxa','species_taxa','taxon_names','taxon_closure','species_media','learning_paths'])).not.toThrow();
+    expect(() => assertCatalogTables(12, ['species','meta'])).not.toThrow();
+  });
   test('accepts a matching candidate', () => expect(() => assertCatalogDownload(valid)).not.toThrow());
   test('rejects an invalid checksum', () => expect(() => assertCatalogDownload({ ...valid, actualSha256: 'bad' })).toThrow('catalog_sha256_mismatch'));
   test('rejects mismatched metadata', () => expect(() => assertCatalogDownload({ ...valid, actualSchemaVersion: 4 })).toThrow('catalog_version_mismatch'));

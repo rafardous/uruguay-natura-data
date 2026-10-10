@@ -2,6 +2,13 @@ export function assertCatalogIntegrity(integrity: string | undefined): void {
   if (integrity !== 'ok') throw new Error(`catalog_integrity_failed:${integrity}`);
 }
 
+export function assertCatalogTables(schemaVersion: number, tables: string[]): void {
+  if (schemaVersion < 14) return;
+  const required = ['species', 'meta', 'taxa', 'species_taxa', 'taxon_names', 'taxon_closure', 'species_media', 'learning_paths'];
+  const missing = required.filter((table) => !tables.includes(table));
+  if (missing.length) throw new Error(`catalog_tables_missing:${missing.join(',')}`);
+}
+
 export function assertCatalogDownload(input: {
   actualSize: number;
   expectedSize: number;

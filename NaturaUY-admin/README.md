@@ -67,6 +67,7 @@ Los tests SQL viven en `supabase/tests/` y se ejecutan con `npx supabase test db
 - `../.github/workflows/`: medios, publicación manual y respaldo/limpieza.
 
 La operación de cutover está documentada en [docs/deployment.md](docs/deployment.md).
+El catálogo publicado conserva la clasificación editorial y sus ancestros en SQLite y `taxonomy.json`; el publicador bloquea especies sin vínculos y la app rechaza schema 14 sin sus tablas taxonómicas.
 La preparación, carga manual y reconciliación de fotos familiares están documentadas en [docs/importacion-fotos-guia-aves.md](docs/importacion-fotos-guia-aves.md). La reconciliación verifica los objetos en Storage, da prioridad a las fotos familiares y completa automáticamente los lugares libres con imágenes externas de licencia admitida. Conserva el historial y deja como máximo dos imágenes activas por especie.
 
 ## Recuperación del catálogo aprobado

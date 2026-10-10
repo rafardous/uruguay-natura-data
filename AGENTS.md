@@ -105,6 +105,8 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 
 ## Comandos de verificación
 
+El publicador debe conservar las tablas móviles `taxa`, `species_taxa`, `taxon_names` y `taxon_closure`, con IDs editoriales y cierre de ancestros de las especies publicadas. Se exporta `taxonomy.json` y se validan vínculos, ciclos y claves foráneas. La app rechaza un schema 14 que omita esas tablas.
+
 Ejecutar desde el directorio correcto y no aplicar fixes automáticos de dependencias sin revisar el impacto en Expo.
 
 ```powershell
