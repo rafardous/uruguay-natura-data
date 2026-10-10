@@ -2,10 +2,12 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { adminClient } from './shared';
+import type { PhotoPalette } from './photo-palettes';
 
 export type DatabaseRow = Record<string, any>;
 
 export interface CatalogRecord {
+  photoPalette?: PhotoPalette;
   species: DatabaseRow;
   image: DatabaseRow | null;
   audio: DatabaseRow | null;
@@ -233,6 +235,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
   });
   return {
     id: species.id,
+    ...(record.photoPalette ? { palette: record.photoPalette.colors, photoPalette: { ...record.photoPalette, colors: undefined } } : {}),
     catalogCode: species.catalog_code,
     scientificName: species.scientific_name,
     acceptedName: species.accepted_name,

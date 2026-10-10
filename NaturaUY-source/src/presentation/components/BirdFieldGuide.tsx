@@ -55,15 +55,14 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
     <GuideTags title="Qué come" values={diets} historical={Boolean(bird.diet.length)} accent={accent} container={container} foreground={foreground} />
     <BirdEcologyDetails species={species} />
     <Modal visible={sizeInfo} transparent animationType="fade" onRequestClose={() => setSizeInfo(false)}>
-      <View style={[styles.modalRoot, { backgroundColor: colors.scrim }]}>
+      <View style={[styles.modalRoot, { backgroundColor: 'rgba(16,30,24,0.60)' }]}>
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setSizeInfo(false)} accessibilityLabel="Cerrar información de tamaño" />
-        <View accessibilityViewIsModal style={[styles.infoSheet, { backgroundColor: colors.surface, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl }]}>
+        <View accessibilityViewIsModal style={[styles.infoSheet, { backgroundColor: '#FFFFFF', borderTopWidth: 2, borderColor: accent, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl }]}>
           <View style={styles.heading}><Text accessibilityRole="header" style={[typography.title, { color: colors.text, flex: 1 }]}>Cómo leer el tamaño</Text><Pressable accessibilityRole="button" accessibilityLabel="Cerrar" onPress={() => setSizeInfo(false)} style={styles.info}><CloseIcon color={colors.text} size={22} /></Pressable></View>
-          <ScrollView contentContainerStyle={{ gap: 16, paddingBottom: 32 }}>
+          <ScrollView contentContainerStyle={{ gap: 12, paddingBottom: 32 }}>
             <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Largo corporal. </Text>Medida total aproximada del ave, en centímetros.</Text>
-            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Envergadura. </Text>Distancia entre las puntas de las alas extendidas. Es el segundo valor entre paréntesis en las aves marinas de la guía; no es el largo de un ala.</Text>
-            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Macho y hembra. </Text>Cuando la guía presenta dos medidas fuera del caso anterior, la superior corresponde al macho y la inferior a la hembra. No representan un rango.</Text>
-            <Text style={[typography.caption, { color: colors.textMuted }]}>Las medidas son aproximadas.</Text>
+            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Envergadura. </Text>De punta a punta de las alas abiertas; no es el largo de un ala.</Text>
+            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Macho y hembra. </Text>Son medidas separadas, no un rango.</Text>
           </ScrollView>
         </View>
       </View>
@@ -72,8 +71,8 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
 }
 const styles = StyleSheet.create({
   reference: { minHeight: 44, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 6, paddingBottom: 8 },
-  card: { padding: 16 }, heading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
-  info: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' }, measurements: { flexDirection: 'row', flexWrap: 'wrap', gap: 20, paddingTop: 4 }, measure: { flexBasis: '42%', flexGrow: 1 },
+  card: { paddingHorizontal: 14, paddingVertical: 8 }, heading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  info: { width: 44, height: 36, alignItems: 'center', justifyContent: 'center' }, measurements: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 }, measure: { flexBasis: '42%', flexGrow: 1 },
   abundance: { minHeight: 54, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 8, borderBottomWidth: 0.5, marginTop: 8 },
   section: { marginTop: 24, gap: 10 }, tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 }, tag: { paddingHorizontal: 10, paddingVertical: 7, maxWidth: '100%', borderWidth: 0.5 },
   expand: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' }, presenceHeading: { minHeight: 44, flexDirection: 'row', alignItems: 'center', gap: 12 },

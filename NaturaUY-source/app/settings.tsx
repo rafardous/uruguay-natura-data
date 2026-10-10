@@ -1,5 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter, type Href } from 'expo-router';
+import Constants from 'expo-constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppHeader } from '../src/presentation/components/AppHeader';
@@ -7,11 +8,6 @@ import { ChevronRightIcon, CloseIcon } from '../src/presentation/components/TabI
 import { haptics } from '../src/presentation/haptics';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
 import { navigationBottomInset } from '../src/presentation/navigationPolicy';
-
-const MODES = [
-  { id: 'light', label: 'Claro', hint: 'Siempre en tonos claros', disabled: false },
-  { id: 'dark', label: 'Oscuro', hint: 'Próximamente', disabled: true },
-];
 
 export default function SettingsScreen(): React.JSX.Element {
   const router = useRouter();
@@ -29,42 +25,7 @@ export default function SettingsScreen(): React.JSX.Element {
       </AppHeader>
 
       <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.xl) }}>
-        <Text style={[typography.eyebrow, { color: colors.textMuted }]}>APARIENCIA</Text>
-
-        <View style={[styles.group, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.md }]}>
-          {MODES.map((option, index) => {
-            const selected = option.id === 'light';
-
-            return (
-              <Pressable
-                key={option.id}
-                onPress={() => haptics.tick()}
-                disabled={option.disabled}
-                accessibilityRole="radio"
-                accessibilityState={{ selected }}
-                style={[
-                  styles.option,
-                  index > 0 && { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border },
-                ]}
-              >
-                <View style={styles.flex}>
-                  <Text style={[typography.label, { color: option.disabled ? colors.textMuted : colors.text }]}>{option.label}</Text>
-                  <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]}>{option.hint}</Text>
-                </View>
-                <View
-                  style={[
-                    styles.radio,
-                    { borderColor: selected ? colors.primary : colors.outline },
-                  ]}
-                >
-                  {selected && <View style={[styles.radioDot, { backgroundColor: colors.primary }]} />}
-                </View>
-              </Pressable>
-            );
-          })}
-        </View>
-
-        <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.xl }]}>ACERCA DE</Text>
+        <Text style={[typography.eyebrow, { color: colors.textMuted }]}>ACERCA DE</Text>
 
         <Pressable
           onPress={() => router.push({ pathname: '/report', params: { kind: 'bug' } } as unknown as Href)}
@@ -102,7 +63,7 @@ export default function SettingsScreen(): React.JSX.Element {
         </Pressable>
 
         <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.xl, textAlign: 'center' }]}>
-          Arapy · versión 1.0.0
+          Arapy · versión {Constants.expoConfig?.version ?? '—'}
         </Text>
       </ScrollView>
     </View>
@@ -114,8 +75,5 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   row: { flexDirection: 'row', alignItems: 'center' },
   group: { borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
-  option: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16 },
   linkRow: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16 },
-  radio: { width: 22, height: 22, borderRadius: 11, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
-  radioDot: { width: 10, height: 10, borderRadius: 5 },
 });

@@ -41,8 +41,10 @@
     "catalog:test-guide-verification": "node --test scripts/verify-guide-catalog.test.mjs"
   },
   "dependencies": {
+    "@material/material-color-utilities": "^0.4.0",
     "@supabase/supabase-js": "^2.112.3",
     "lucide-react": "^0.468.0",
+    "node-vibrant": "^4.0.4",
     "pica": "^10.0.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",

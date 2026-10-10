@@ -28,7 +28,9 @@ import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { BirdFieldGuide } from '../../src/presentation/components/BirdFieldGuide';
 import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
 import { SpeciesPhotoCarousel } from '../../src/presentation/components/SpeciesPhotoCarousel';
-import { BirdConservation, BirdIdentification, BirdSpeciesDescription } from '../../src/presentation/components/BirdSpeciesDetails';
+import { MeasurementHelp } from '../../src/presentation/components/MeasurementHelp';
+import { SpeciesNames, SpeciesTaxonomy } from '../../src/presentation/components/SpeciesIdentity';
+import { BirdConservation, BirdSpeciesDescription } from '../../src/presentation/components/BirdSpeciesDetails';
 import { speciesGallery } from '../../src/domain/services/speciesGallery';
 import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
 import { Skeleton } from '../../src/presentation/components/Skeleton';
@@ -106,7 +108,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
   const [sizeDetailsOpen, setSizeDetailsOpen] = useState(false);
-  const [ecologyDetailsOpen, setEcologyDetailsOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const palette = useSpeciesPalette(species);
@@ -119,7 +120,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
 
   const dismiss = (): void => {
     haptics.tap();
-    router.back();
+    if (router.canGoBack()) router.back();
+    else router.replace('/');
   };
 
   const scrollGesture = Gesture.Native();
@@ -244,7 +246,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         { label: 'Género', rank: 'genero', value: species.taxonomy.genero },
       ]
     : [];
-  const alternateNames = species ? species.commonNames.filter((name) => name.toLocaleLowerCase('es') !== species.displayName.toLocaleLowerCase('es')) : [];
+
   const hasMeasurements = Boolean(species?.measurements.length);
   const ecology = species?.ecology;
   const hasEcology = Boolean(ecology && Object.entries(ecology).some(([key, value]) => key.startsWith('depth') ? value !== null : Array.isArray(value) && value.length));
@@ -378,18 +380,18 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             contentContainerStyle={{ paddingBottom: insets.bottom + spacing.xxl }}
           >
           <View style={{ paddingHorizontal: spacing.lg }}>
-            {galleryItems.length > 0 ? <SpeciesPhotoCarousel key={species.codigo} items={galleryItems} index={photoIndex} onIndexChange={setPhotoIndex} onPress={() => setLightboxOpen(true)} label={species.displayName} radius={radius.lg} foreground="#FFFFFF" background={colors.surfaceVariant} /> : <SpeciesImage species={species} height={230} full borderRadius={radius.lg} glyphSize={78} />}
-            {selectedPhoto && <Pressable accessibilityRole="button" accessibilityLabel="Ver autoría y licencia de esta imagen" style={[styles.photoCredit, { minHeight: 44, justifyContent: 'center' }]} onPress={() => Alert.alert('Autoría y derechos', `${selectedPhoto.attribution || 'Autoría no registrada'}\n${selectedPhoto.license || 'Licencia no registrada'}`, [...(selectedPhoto.page ? [{ text: 'Ver fuente', onPress: () => { void Linking.openURL(selectedPhoto.page!); } }] : []), { text: 'Cerrar' }])}>
-              <Text style={[typography.caption, { color: colors.textMuted }]} numberOfLines={1}>{selectedPhoto.attribution || 'Autoría y derechos'} · ⓘ</Text>
+            {galleryItems.length > 0 ? <SpeciesPhotoCarousel key={species.codigo} items={galleryItems} index={photoIndex} onIndexChange={setPhotoIndex} onPress={() => setLightboxOpen(true)} label={species.displayName} radius={radius.lg} foreground="#FFFFFF" background={colors.surfaceVariant} /> : <SpeciesImage species={species} height={184} full borderRadius={radius.lg} glyphSize={78} />}
+            {selectedPhoto && <Pressable accessibilityRole="button" accessibilityLabel="Ver autoría y licencia de esta imagen" hitSlop={7} style={[styles.photoCredit, { minHeight: 30, justifyContent: 'center' }]} onPress={() => Alert.alert('Autoría y derechos', `${selectedPhoto.attribution || 'Autoría no registrada'}\n${selectedPhoto.license === 'permission' ? 'Autorización del autor' : selectedPhoto.license || 'Licencia no registrada'}`, [...(selectedPhoto.page ? [{ text: 'Ver fuente', onPress: () => { void Linking.openURL(selectedPhoto.page!); } }] : []), { text: 'Cerrar' }])}>
+              <Text style={[typography.caption, { color: colors.textMuted, fontSize: 11 }]} numberOfLines={1}>{selectedPhoto.attribution || 'Autoría y derechos'} · ⓘ</Text>
             </Pressable>}
             <SpeciesAudioButton species={species} />
           </View>
 
-          <View style={{ padding: spacing.lg }}>
+          <View style={{ paddingHorizontal: spacing.lg, paddingBottom: spacing.lg, paddingTop: spacing.sm }}>
             <Staggered index={0}>
               <View style={styles.nameRow}>
-                <Text style={[typography.display, styles.name, { color: colors.text }]}>{species.displayName}</Text>
-                {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: relevantInfoOpen ? palette.container : colors.surfaceVariant, borderRadius: radius.pill }]}><InfoIcon color={relevantInfoOpen ? palette.onContainer : palette.accent} size={20} /></Pressable>}
+                <SpeciesNames species={species} accent={palette.accent} />
+                {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: palette.accent, borderRadius: radius.pill }]}><InfoIcon color="#FFFFFF" size={23} /></Pressable>}
               </View>
               {/* Only when it adds something: `displayName` is the binomial itself
                   whenever a species has no vernacular name. */}
@@ -398,28 +400,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {species.scientificName}
                 </Text>
               )}
-              {!isBird && alternateNames.length > 0 && (
-                <Text style={[typography.caption, { color: colors.textMuted, marginTop: 6 }]}>Otros nombres: {alternateNames.join(' · ')}</Text>
-              )}
-              {isBird && <BirdIdentification key={`identification-${species.codigo}`} species={species} classification={classification} onTaxonomy={(rank) => openTaxonomyAt(rank as TaxonRank)} />}
-            </Staggered>
-
-            <Staggered index={1}>
-              <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
-                {conservationHeadline && <ConservationBadge label={conservationHeadline} rank={species.conservation.nationalDesignations.includes('threatened') ? 3 : 2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
-                {species.conservation.nationalDesignations.includes('snap') && <ConservationBadge label="Vinculada al SNAP" rank={2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
-                <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}>
-                  <Text style={[typography.caption, { color: palette.onContainer }]}>
-                    {species.origin === 'native'
-                      ? 'Nativa'
-                      : species.origin === 'introduced'
-                        ? 'Exótica'
-                        : 'Origen sin determinar'}
-                  </Text>
-                </View>
-                {!isBird && species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
-              </View>
-              {isBird && <BirdConservation key={`conservation-${species.codigo}`} species={species} />}
             </Staggered>
 
             {hasRelevantInfo && relevantInfoOpen && (
@@ -441,6 +421,28 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
+            <SpeciesTaxonomy items={classification} onNavigate={openTaxonomyAt} accent={palette.accent} />
+
+            <Staggered index={1}>
+              <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
+                {conservationHeadline && <ConservationBadge label={conservationHeadline} rank={species.conservation.nationalDesignations.includes('threatened') ? 3 : 2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
+                {species.conservation.nationalDesignations.includes('snap') && <ConservationBadge label="Vinculada al SNAP" rank={2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
+                <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}>
+                  <Text style={[typography.caption, { color: palette.onContainer }]}>
+                    {species.origin === 'native'
+                      ? 'Nativa'
+                      : species.origin === 'introduced'
+                        ? 'Exótica'
+                        : 'Origen sin determinar'}
+                  </Text>
+                </View>
+                {!isBird && species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
+              </View>
+              {isBird && <BirdConservation key={`conservation-${species.codigo}`} species={species} />}
+            </Staggered>
+
+
+
             {isBird && <BirdFieldGuide key={`guide-${species.codigo}`} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />}
             {!isBird && facts.length > 0 && (
               <Staggered index={2}>
@@ -458,12 +460,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            {isBird && <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />}
             {!isBird && <>
             {hasMeasurements && (
               <Staggered index={3}>
                 <View style={[styles.traits, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
-                  <Text style={[typography.label, { color: palette.accent }]}>Tamaño</Text>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}><Text style={[typography.label, { color: palette.accent }]}>Tamaño</Text><MeasurementHelp accent={palette.accent} /></View>
                   {[bodyLength, bodyMass].filter((item): item is NonNullable<typeof item> => Boolean(item)).map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}{measurement.provenance === 'legacy_unverified' ? ' · aproximado' : ''}</Text></View>)}
                   {detailedMeasurements.length > 0 && <><Pressable onPress={() => setSizeDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Medidas detalladas" accessibilityState={{ expanded: sizeDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Medidas detalladas</Text><Text style={[typography.label, { color: palette.accent }]}>{sizeDetailsOpen ? '−' : '+'}</Text></Pressable>{sizeDetailsOpen && detailedMeasurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}</>}
                 </View>
@@ -478,8 +479,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {ecology.diet.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 8 }]}>Alimentación: {ecology.diet.map(dietLabel).join(' · ')}</Text>}
                   {ecology.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Modo de vida: {ecology.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   {ecology.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Actividad: {ecology.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
-                  <Pressable onPress={() => setEcologyDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Más sobre su ecología" accessibilityState={{ expanded: ecologyDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Más sobre su ecología</Text><Text style={[typography.label, { color: palette.accent }]}>{ecologyDetailsOpen ? '−' : '+'}</Text></Pressable>
-                  {ecologyDetailsOpen && <View style={{ gap: 6 }}>
+                  <View style={{ gap: 6, marginTop: 6 }}>
                     {ecology.aquaticEnvironments.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Ambiente acuático: {ecology.aquaticEnvironments.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                     {(ecology.depthMinM !== null || ecology.depthMaxM !== null) && <Text style={[typography.body, { color: colors.textSecondary }]}>Profundidad: {ecology.depthMinM ?? 0}–{ecology.depthMaxM ?? '?'} m</Text>}
                     {ecology.waterZones.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Zona: {ecology.waterZones.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
@@ -487,7 +487,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                     {ecology.trophicRoles.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Rol trófico: {ecology.trophicRoles.join(' · ')}</Text>}
                     {ecology.hosts.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Hospedadores: {ecology.hosts.join(' · ')}</Text>}
                     {ecology.plantAssociations.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Asociaciones: {ecology.plantAssociations.join(' · ')}</Text>}
-                  </View>}
+                  </View>
                 </View>
               </Staggered>
             )}
@@ -542,16 +542,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             )}
 
 
-            {species.descripcion.length > 0 && (
-              <Staggered index={5}>
-                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Descripción</Text>
-                <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>
-                  {species.descripcion}
-                </Text>
-              </Staggered>
-            )}
-
-
             {species.observability && (
               <Staggered index={9}>
                 <View style={[styles.note, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.lg }]}>
@@ -562,42 +552,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </Staggered>
             )}
 
-            <Staggered index={10}>
-              <Text style={[typography.label, { color: palette.accent, marginTop: spacing.xl }]}>Clasificación</Text>
-              <View style={[styles.classification, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.sm }]}>
-                {classification.map(({ label, rank, value }, index) => (
-                  <Pressable
-                    key={rank}
-                    onPress={() => openTaxonomyAt(rank)}
-                    accessibilityRole="link"
-                    accessibilityLabel={`Ver ${label.toLocaleLowerCase('es')} ${value} en búsqueda taxonómica`}
-                    style={[
-                      styles.classificationRow,
-                      index > 0 && { borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth },
-                    ]}
-                  >
-                    <Text style={[typography.caption, { color: colors.textMuted }]}>{label}</Text>
-                    <View style={styles.classificationValue}>
-                      <Text style={[typography.label, rank === 'genero' && styles.scientific, { color: colors.text }]} numberOfLines={1}>{value}</Text>
-                      <ChevronRightIcon color={colors.textMuted} size={16} />
-                    </View>
-                  </Pressable>
-                ))}
-              </View>
-            </Staggered>
-
-            {species.acceptedName && species.acceptedName !== species.scientificName && (
-              <Staggered index={9}>
-                <Text style={[typography.label, { color: palette.accent, marginTop: spacing.lg }]}>
-                  Nombre aceptado
-                </Text>
-                <Text style={[typography.body, styles.scientific, { color: colors.textSecondary, marginTop: 6 }]}>
-                  {species.acceptedName}
-                </Text>
-              </Staggered>
-            )}
-
             </>}
+            <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />
             <Staggered index={11}>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
@@ -652,7 +608,7 @@ const styles = StyleSheet.create({
   traits: { padding: 14 },
   traitsHeader: { minHeight: 48, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  photoCredit: { alignSelf: 'flex-start', paddingTop: 7, paddingHorizontal: 3 },
+  photoCredit: { alignSelf: 'flex-start', paddingTop: 1, paddingHorizontal: 3 },
   naturalHistory: { padding: 14 },
   tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   dataTag: { paddingHorizontal: 11, paddingVertical: 7 },

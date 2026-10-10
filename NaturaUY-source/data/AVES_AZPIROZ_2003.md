@@ -1,6 +1,6 @@
 # Aves: Azpiroz 2003, ficha de campo y recuperación
 
-La fuente editorial es Supabase. Los JSON y `assets/db/natura.db` son derivados versionados. El contrato actual es schema 14; Arapy 1.3.1 prepara el catálogo v7 con 1048 especies: 948 animales y exactamente las 100 plantas seleccionadas. Esta documentación conserva las decisiones, referencias y comandos necesarios para recuperar el trabajo.
+La fuente editorial es Supabase. Los JSON y `assets/db/natura.db` son derivados versionados. El contrato actual es schema 14; Arapy 1.3.1 usa el catálogo v8 (en preparación; v7 ya publicado) con 1048 especies: 948 animales y exactamente las 100 plantas seleccionadas. Esta documentación conserva las decisiones, referencias y comandos necesarios para recuperar el trabajo.
 
 ## Fuente, originales e identidades
 
@@ -52,19 +52,19 @@ La auditoría compara cada perfil completo contra `normalized.json`, no sólo su
 
 ## Ficha y galería
 
-Se reutilizan Manrope, colores de especie y temas claro/oscuro. La información secundaria se agrupa donde corresponde, en lugar de una lista de desplegables al final:
+Se reutilizan Manrope y colores propios de cada especie. La app usa exclusivamente modo claro, aunque el sistema tenga modo oscuro; Configuración no ofrece selección de apariencia. La información secundaria se agrupa donde corresponde, en lugar de una lista de desplegables al final:
 
-- Identificación y clasificación debajo de los nombres, con navegación taxonómica.
+- Tocar el nombre abre los otros nombres comunes, inglés, nombre aceptado e histórico disponibles. La taxonomía permanece visible con atajos por rango, sin el título «Identificación y clasificación». La ⓘ destacada abre la información relevante inmediatamente debajo de los nombres, antes de la taxonomía y del resto de los datos.
 - Origen y conservación actual diferenciados; evaluaciones expandibles junto a ese bloque.
 - Tamaño con ⓘ y **Medidas técnicas** dentro de la misma tarjeta.
 - Abundancia en una fila independiente.
 - Presencia/calendario y observabilidad dentro de ese contexto. Meses de tres letras; dos filas con texto grande.
-- Hábitat y dieta muestran hasta tres elementos; “Ver más” amplía cada conjunto. Ecología adicional se despliega junto a ellos.
+- Hábitat y dieta muestran hasta tres elementos; “Ver más” amplía cada conjunto. Ecología adicional siempre visible junto a ellos.
 - Descripción breve, hasta tres líneas, con “Leer más”. Sin descripciones generadas ni probabilidades inventadas.
 
 Todas las fuentes científicas, incluyendo AVONET, Azpiroz y su número de guía, están en **tres puntitos → Fuentes**. No mostrar una etiqueta de fuente debajo de cada medida. La autoría/licencia de medios acompaña a la fotografía seleccionada y es tocable.
 
-La galería compartida se aplica a todas las especies: marco 4:3, imagen completa, swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. Imagen principal primero, deduplicación por identidad/URL. Puntos y contador sólo con varias fotos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, pinch y controles accesibles; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
+La galería compartida se aplica a todas las especies: marco 5:3 (20% menos alto que 4:3), imagen completa, swipe horizontal paginado, sin miniaturas inferiores, avance automático ni recorrido circular. Imagen principal primero, deduplicación por identidad/URL. Puntos pequeños y flechas discretas sólo con varias fotos; sin contador numérico. Créditos más pequeños y pegados a la imagen, con acceso a derechos completos. El visor se abre en la foto seleccionada y devuelve esa posición al cerrar. Tiene swipe, doble toque para alternar zoom 1×/2×, pinch y controles accesibles; transiciones suaves sin rebote; el zoom bloquea el cambio de foto. Sin imagen se conserva el fallback.
 
 ## Contrato de datos y medios
 
@@ -116,6 +116,12 @@ La publicación manual genera JSON/SQLite desde PostgreSQL, con schema 14/min ap
 
 El 10/10/2026 pasaron 143 pruebas pgTAP en Docker sobre una copia del catálogo real, los 99 tests móviles, TypeScript/lint, seis pruebas del normalizador y el cotejo JSON/SQLite de los 432 perfiles. Las 435 entradas, excepciones y hashes originales permanecen versionados. Se preservó un respaldo PostgreSQL cifrado descargado y verificado antes de migrar.
 
-Arapy 1.3.1 se entrega como APK interno con la firma EAS existente y versión Android superior. Instalar mediante `adb install -r`, conservar favoritos/preferencias/progreso en `user.db` y comprobar primero por USB. El Pixel fue retirado por el usuario; las pruebas nuevas se hacen en la OnePlus Pad conectada. La publicación en tiendas queda fuera del cambio.
+Arapy 1.3.1 se entrega como APK interno con la firma EAS existente y versión Android superior. Instalar mediante `adb install -r`, conservar favoritos/preferencias/progreso en `user.db` y comprobar primero por USB. El Pixel 9 Pro XL volvió a conectarse y es el dispositivo de verificación final. La publicación en tiendas queda fuera del cambio.
 
 Para revertir una ficha, crear y aprobar otra revisión a partir de `species_changes.before_values`. Regenerar y publicar con versión mayor; no borrar especies, revisiones o datos personales. Conservar versiones públicas anteriores y preferir roll-forward después de nuevas ediciones.
+
+## Paletas y navegación: revisión del 10/10/2026
+
+El publicador tenía una paleta verde fija. `NaturaUY-admin/scripts/photo-palettes.ts` deriva ahora el acento de la miniatura de la foto principal aprobada y registra ID, ruta y SHA-256 en el JSON. Comparte con el pipeline histórico el cálculo de tonos con contraste mínimo 4,5:1; sin foto usa una semilla estable por familia. SQLite recibe exactamente esos seis colores del JSON. Una nueva publicación vuelve a calcularlos: no depende de un cache local ni modifica registros editoriales.
+
+La isla de navegación conserva visibles Inicio, Descubrir y Juegos, con icono arriba y etiqueta debajo; la selección usa fondo oscuro y texto blanco. Su altura es 80 dp y el espacio inferior de las pantallas reserva esa altura y el área segura.

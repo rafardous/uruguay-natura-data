@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { ResetIcon, ZoomInIcon, ZoomOutIcon } from './TabIcons';
 
 interface TransientZoomViewProps {
@@ -22,7 +22,7 @@ export function TransientZoomView({ children, onPress, accessibilityLabel, borde
   const pinching = useSharedValue(false);
   const reset = (): void => {
     'worklet';
-    scale.value = withSpring(1, { damping: 18, stiffness: 220 });
+    scale.value = withTiming(1, { duration: 180 });
     if (onZoomActiveChange) runOnJS(onZoomActiveChange)(false);
   };
 
@@ -34,21 +34,31 @@ export function TransientZoomView({ children, onPress, accessibilityLabel, borde
     .enabled(Boolean(onPress))
     .maxDuration(260)
     .onEnd((_event, success) => { if (success && onPress) runOnJS(onPress)(); });
+  const doubleTap = Gesture.Tap()
+    .enabled(showControls)
+    .numberOfTaps(2)
+    .maxDelay(280)
+    .onEnd((_event, success) => {
+      if (!success) return;
+      const next = scale.value > 1 ? 1 : 2;
+      scale.value = withTiming(next, { duration: 180 });
+      if (onZoomActiveChange) runOnJS(onZoomActiveChange)(next > 1);
+    });
   const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
 
   const changeScale = (delta: number): void => {
     const next = Math.min(MAX_SCALE, Math.max(1, scale.value + delta));
-    scale.value = withSpring(next, { damping: 18, stiffness: 220 });
+    scale.value = withTiming(next, { duration: 180 });
     onZoomActiveChange?.(next > 1);
   };
   const resetFromControl = (): void => {
-    scale.value = withSpring(1, { damping: 18, stiffness: 220 });
+    scale.value = withTiming(1, { duration: 180 });
     onZoomActiveChange?.(false);
   };
 
   return (
     <View style={[styles.container, { borderRadius }]}>
-      <GestureDetector gesture={Gesture.Simultaneous(pinch, tap)}>
+      <GestureDetector gesture={Gesture.Simultaneous(pinch, Gesture.Exclusive(doubleTap, tap))}>
         <View style={[styles.clip, { borderRadius }]} accessible accessibilityRole={onPress ? 'imagebutton' : 'image'} accessibilityLabel={accessibilityLabel} onAccessibilityTap={onPress}>
           <Animated.View style={[styles.fill, animatedStyle]}>{children}</Animated.View>
         </View>

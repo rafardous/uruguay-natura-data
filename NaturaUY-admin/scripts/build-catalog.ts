@@ -6,6 +6,7 @@ import { gzipSync } from 'node:zlib';
 
 import { loadApprovedCatalog, loadApprovedLearningPaths, loadApprovedTaxonContent, loadApprovedTrivia, publicMediaUrl, serializeCatalogRecord, writeCatalogJson } from './catalog-data';
 import { adminClient, required } from './shared';
+import { derivePhotoPalettes } from './photo-palettes';
 
 const client = adminClient();
 const output = resolve(import.meta.dirname, '../dist/catalog');
@@ -26,6 +27,7 @@ if (releaseError) throw releaseError;
 if (release.schema_version !== 14) throw new Error(`Schema de release incompatible: ${release.schema_version}; se requiere 14`);
 
 const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), Number(release.schema_version) >= 13 ? loadApprovedLearningPaths() : Promise.resolve([])]);
+await derivePhotoPalettes(items);
 const blockers: string[] = [];
 const warnings: Array<{ code: string; speciesId: string; detail: string }> = [];
 const scientificNames = new Set<string>();
@@ -167,7 +169,6 @@ create table learning_paths (
 create table meta (key text primary key, value text not null);
 `);
 
-const defaults = ['#477052', '#BDD0B7', '#DCE8D8', '#293832', '#31533D', '#E5F1E2'];
 const insert = db.prepare(`insert into species values (${Array.from({ length: 42 }, () => '?').join(',')})`);
 const insertConservation = db.prepare('insert into species_conservation values (?,?,?,?,?,?,?,?)');
 const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
@@ -191,6 +192,7 @@ try {
     const species = item.species;
     const commonNames = [species.common_name, ...(species.alternate_common_names ?? [])];
     const serialized = serializeCatalogRecord(item);
+    const palette = item.photoPalette!.colors;
     const references = serialized.sources;
     const values = [
       species.id, species.catalog_code, species.scientific_name, species.accepted_name || species.scientific_name,
@@ -201,7 +203,7 @@ try {
       JSON.stringify(species.taxon_identifiers ?? {}), JSON.stringify(species.natural_history ?? {}), item.imageUrl,
       mediaUrl(item.image?.storage_path),
       null, item.audioUrl, item.image?.license ?? null, item.image?.author ?? null, item.image?.source ?? null,
-      item.image?.source_url ?? null, ...defaults, species.origin, species.seasonality,
+      item.image?.source_url ?? null, palette.accentLight, palette.accentDark, palette.containerLight, palette.onContainerLight, palette.containerDark, palette.onContainerDark, species.origin, species.seasonality,
       species.abundance_status, species.relevant_note, JSON.stringify(references),
       item.gameProfile?.knowledge_level ?? 'hard', species.abundance_status ?? null, species.abundance_status ?? null,
     ];
@@ -276,6 +278,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   speciesCount: items.length,
   media: { images: items.filter((item) => item.image).length, audio: items.filter((item) => item.audio).length },
+  palettes: { fromPhoto: items.filter((item) => item.photoPalette?.basis === 'photo').length, fromFamily: items.filter((item) => item.photoPalette?.basis === 'family').length, distinctAccents: new Set(items.map((item) => item.photoPalette?.colors.accentLight)).size },
   blockers,
   warningCount: warnings.length,
   warnings,

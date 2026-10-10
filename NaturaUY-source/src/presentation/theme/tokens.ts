@@ -240,7 +240,7 @@ export const darkElevation: ElevationSet = {
  * The tab bar no longer spans the full width, so screens can't rely on it
  * consuming layout height — they pad their scroll content by this much instead.
  */
-export const NAV_ISLAND_HEIGHT = 62;
+export const NAV_ISLAND_HEIGHT = 80;
 export const NAV_ISLAND_MARGIN = 14;
 
 /** Shared geometry excluding the device safe-area inset, which is added at runtime. */

@@ -9,8 +9,7 @@
  */
 import { Hct, TonalPalette, argbFromHex, hexFromArgb } from '@material/material-color-utilities';
 
-import { contrastRatio, AA_NORMAL } from '../../src/shared/color/contrast';
-import { darkColors, lightColors } from '../../src/presentation/theme/tokens';
+import { buildPaletteFromRamps } from './readablePalette';
 import type { PaletteRecord } from './types';
 
 /** Below this, washed-out photos would yield near-grey accents with no identity. */
@@ -26,52 +25,12 @@ const MAX_CHROMA = 76;
  */
 const CONTAINER_CHROMA = 18;
 
-const LIGHT_SURFACE = lightColors.surface;
-const DARK_SURFACE = darkColors.surface;
-
-/** Walks `tones` in order and returns the first that clears `min` against `bg`. */
-function firstReadableTone(palette: TonalPalette, tones: number[], bg: string, min = AA_NORMAL): string {
-  for (const tone of tones) {
-    const hex = hexFromArgb(palette.tone(tone));
-    if (contrastRatio(hex, bg) >= min) return hex;
-  }
-  // Tone 0 is black and tone 100 is white, so one end always satisfies any
-  // ratio against a mid surface; this is a safety net for impossible inputs.
-  const fallback = hexFromArgb(palette.tone(tones.at(-1)! < 50 ? 0 : 100));
-  return fallback;
-}
-
-const range = (from: number, to: number, step: number): number[] => {
-  const out: number[] = [];
-  for (let v = from; step > 0 ? v <= to : v >= to; v += step) out.push(v);
-  return out;
-};
-
 export function buildPalette(seedHex: string): PaletteRecord {
   const hct = Hct.fromInt(argbFromHex(seedHex));
   const chroma = Math.min(MAX_CHROMA, Math.max(MIN_CHROMA, hct.chroma));
   const ramp = TonalPalette.fromHueAndChroma(hct.hue, chroma);
   const soft = TonalPalette.fromHueAndChroma(hct.hue, Math.min(chroma, CONTAINER_CHROMA));
-
-  // Start vivid and darken only as far as legibility demands.
-  const accentLight = firstReadableTone(ramp, range(52, 8, -4), LIGHT_SURFACE);
-  const accentDark = firstReadableTone(ramp, range(60, 96, 4), DARK_SURFACE);
-
-  const containerLight = hexFromArgb(soft.tone(90));
-  const onContainerLight = firstReadableTone(ramp, range(40, 0, -4), containerLight);
-
-  const containerDark = hexFromArgb(soft.tone(28));
-  const onContainerDark = firstReadableTone(ramp, range(80, 100, 4), containerDark);
-
-  return {
-    seed: seedHex,
-    accentLight,
-    accentDark,
-    containerLight,
-    onContainerLight,
-    containerDark,
-    onContainerDark,
-  };
+  return buildPaletteFromRamps(seedHex, { hexAt: (tone) => hexFromArgb(ramp.tone(tone)) }, { hexAt: (tone) => hexFromArgb(soft.tone(tone)) });
 }
 
 /** Stable 32-bit string hash, so a family always lands on the same hue. */

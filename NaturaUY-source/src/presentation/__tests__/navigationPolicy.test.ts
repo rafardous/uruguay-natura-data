@@ -16,7 +16,7 @@ describe('navigation policy', () => {
   });
 
   test('reserves the island and safe-area space for scroll content', () => {
-    expect(navigationBottomInset(0)).toBe(76);
-    expect(navigationBottomInset(34, 8)).toBe(104);
+    expect(navigationBottomInset(0)).toBe(94);
+    expect(navigationBottomInset(34, 8)).toBe(122);
   });
 });

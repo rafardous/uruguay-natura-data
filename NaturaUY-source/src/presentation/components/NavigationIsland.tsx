@@ -1,7 +1,7 @@
 import { useEffect, type RefObject } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Animated, { interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { BlurView } from 'expo-blur';
 
 import { CompassIcon, GameIcon, HomeIcon, type IconProps } from './TabIcons';
@@ -31,8 +31,8 @@ export function NavigationIsland({
   const light = scheme === 'light';
   const islandBackground = light ? 'rgba(201,216,196,0.94)' : 'rgba(35,65,50,0.94)';
   const islandBorder = 'rgba(41,74,58,0.24)';
-  const activeBackground = '#BDD0B7';
-  const activeForeground = '#293832';
+  const activeBackground = '#294A3A';
+  const activeForeground = '#FFFFFF';
   const inactiveForeground = '#294A3A';
 
   return (
@@ -101,10 +101,7 @@ function NavigationItem({
 
   const pillStyle = useAnimatedStyle(() => ({
     backgroundColor: interpolateColor(progress.value, [0, 1], ['rgba(0,0,0,0)', activeBackground]),
-    paddingHorizontal: interpolate(progress.value, [0, 1], [11, 16]),
-    transform: [{ scale: interpolate(progress.value, [0, 1], [1, 1.025]) }],
   }));
-  const labelStyle = useAnimatedStyle(() => ({ opacity: progress.value, maxWidth: progress.value * 80 }));
 
   return (
     <Pressable
@@ -120,9 +117,7 @@ function NavigationItem({
     >
       <Animated.View style={[styles.pill, { borderRadius: radius }, pillStyle]}>
         <Icon color={focused ? activeForeground : inactiveForeground} size={22} strokeWidth={2} />
-        <Animated.View style={[styles.labelWrap, labelStyle]}>
-          <Text style={[typography.label, { color: activeForeground }]}>{label}</Text>
-        </Animated.View>
+        <Text numberOfLines={1} style={[typography.label, { color: focused ? activeForeground : inactiveForeground, fontSize: 12 }]}>{label}</Text>
       </Animated.View>
     </Pressable>
   );
@@ -131,7 +126,6 @@ function NavigationItem({
 const styles = StyleSheet.create({
   dock: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 18 },
   island: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 6, borderWidth: StyleSheet.hairlineWidth },
-  tab: { flex: 1, alignItems: 'center' },
-  pill: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 10 },
-  labelWrap: { overflow: 'hidden' },
+  tab: { flex: 1, alignItems: 'center', paddingHorizontal: 3 },
+  pill: { width: '100%', alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 9 },
 });

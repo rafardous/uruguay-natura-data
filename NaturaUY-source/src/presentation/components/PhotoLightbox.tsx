@@ -53,9 +53,9 @@ function PhotoLightboxContent({ visible, uri, label, onClose, items, initialInde
           <CloseIcon color="#FFFFFF" size={22} />
         </Pressable>
         <View pointerEvents="none" style={[styles.hint, { top: insets.top + 18 }]}> 
-          <Text style={styles.hintText}>Pellizcá para ampliar</Text>
+          <Text style={styles.hintText}>Doble toque o pellizco para ampliar</Text>
         </View>
-        {selected.attribution && <View pointerEvents="none" style={[styles.credit, { bottom: insets.bottom + 12 }]}><Text style={styles.hintText}>{selected.attribution}{selected.license ? ` · ${selected.license}` : ''}</Text></View>}
+        {selected.attribution && <View pointerEvents="none" style={[styles.credit, { bottom: insets.bottom + 12 }]}><Text style={styles.hintText}>{selected.attribution}{selected.license ? ` · ${selected.license === 'permission' ? 'Autorización del autor' : selected.license}` : ''}</Text></View>}
       </GestureHandlerRootView>
     </Modal>
   );

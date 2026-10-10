@@ -134,3 +134,7 @@ npm test -- --runInBand
 - `NaturaUY-admin/docs/deployment.md`: aprovisionamiento y operación.
 - `NaturaUY-admin/supabase/migrations/`: contrato real de base, cuentas unificadas, sincronización, medios, permisos y RPCs.
 - `NaturaUY-source/src/data/db/catalogUpdater.ts`: contrato de actualización móvil.
+
+## Apariencia y colores del catálogo
+
+Arapy usa exclusivamente modo claro; no ofrecer selector de tema ni seguir el modo oscuro del sistema. Las fichas comparten galería, nombres tocables y enlaces taxonómicos visibles. `NaturaUY-admin/scripts/photo-palettes.ts` genera los colores desde las fotos principales aprobadas (fallback por familia sólo cuando no hay imagen); JSON y SQLite deben conservar la misma paleta y el hash/ID de su foto. No volver a una paleta verde fija ni editar SQLite a mano. El build web limpia `dist/`: no correrlo simultáneamente con `catalog:build`.
