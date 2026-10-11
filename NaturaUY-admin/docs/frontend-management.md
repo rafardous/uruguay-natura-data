@@ -1,6 +1,6 @@
 # Gestión editorial web
 
-Implementación local del 11/10/2026. La migración `20261011222107_editorial_frontend_management.sql` debe probarse, respaldarse y aplicarse antes de desplegar este frontend. No está aplicada en producción durante esta revisión; el catálogo y APK publicados conservan su versión.
+Implementación del 11/10/2026. La migración `20261011231526_editorial_frontend_management.sql` está aplicada en producción tras respaldo cifrado y SHA-256 verificado del workflow `38183187752`. Se probaron las RPCs con rollback y el aislamiento de las tablas editoriales; permanecen 1048 especies activas, 3057 plantas archivadas y 9047 revisiones. El frontend se publica en Cloudflare Pages desde `main`; el catálogo y APK publicados conservan su versión.
 
 - `/species`: alta, edición, baja reversible y restauración mediante propuestas; `/reviews` valida y registra autovalidación explícita. Cada ficha mantiene UUID/código. El editor se reinicia al cambiar de especie o abrir un alta.
 - `/media`: biblioteca completa paginada desde Supabase, carga de imágenes y audios, recorte mono a 48 kHz antes de subir. Administradores pueden corregir autoría, licencia, fuente, principal y estado; las RPCs conservan una revisión y comprueban objetos en Storage antes de aprobar. Archivar libera el lugar para un reemplazo. Los audios nuevos admiten distintos autores con CC0, CC BY 4.0 o autorización verificable; Xeno-canto requiere ID externo. No crear referencias ficticias de permisos.

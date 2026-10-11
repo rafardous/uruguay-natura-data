@@ -38,7 +38,7 @@ const learningMigration=readFileSync(new URL('../supabase/migrations/20260913162
 const habitatsMigration=readFileSync(new URL('../supabase/migrations/20261011020254_habitats_catalog.sql',import.meta.url),'utf8');
 await db.exec(habitatsMigration.slice(0,habitatsMigration.indexOf('create function public.load_habitat_catalog')));
 await db.exec(learningMigration.slice(learningMigration.indexOf('create table public.learning_paths'),learningMigration.indexOf('create table public.mobile_learning_module_progress')));
-const migration = readFileSync(new URL('../supabase/migrations/20261011222107_editorial_frontend_management.sql',import.meta.url), 'utf8');
+const migration = readFileSync(new URL('../supabase/migrations/20261011231526_editorial_frontend_management.sql',import.meta.url), 'utf8');
 await db.exec(migration);
 await db.exec(readFileSync(new URL('../supabase/migrations/202609060004_mobile_popular_species.sql',import.meta.url),'utf8'));
 async function rejects(sql: string, params: unknown[], message: string) { await assert.rejects(db.query(sql,params),new RegExp(message)); checks++; }
