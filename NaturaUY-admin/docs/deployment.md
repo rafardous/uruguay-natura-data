@@ -127,6 +127,8 @@ Antes de publicar, revisar `data/reports/arthropod-discovery-candidates.json`, `
 
 El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `main` del repositorio `rafardous/uruguay-natura-data`. Use `NaturaUY-admin` como directorio raíz, `npm run build` como comando y `dist` como salida. Configure `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` únicamente en Production; el panel no tiene fallback de datos demo y muestra un error de configuración si faltan. Nunca colocar una `service_role` key en Cloudflare.
 
+Vite recibe la configuración TypeScript web explícita como cadena en `esbuild.tsconfigRaw`: las lecturas compartidas de `NaturaUY-source` no deben obligar al build del panel a resolver `expo/tsconfig.base`. Para verificar un checkout limpio, conservar el `tsconfig.json` móvil y ejecutar `npm ci` sólo en `NaturaUY-admin`; instalar Expo localmente puede ocultar este fallo.
+
 Los derivados se leen directamente desde el bucket público `media-public`; el manifest estable, desde `catalog-public/manifest.json`.
 
 El panel sube originales únicamente a rutas reservadas por `reserve_species_media_upload`, con `upsert=false`, MIME/tamaño validados y declaración de derechos. GitHub Actions escribe los derivados con `service_role`.
