@@ -47,7 +47,9 @@ jobs:
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
-      - run: npm run media:cleanup
+      - name: Limpiar temporales en mantenimiento programado
+        if: github.event_name == 'schedule'
+        run: npm run media:cleanup
 
   verify-media:
     if: github.event_name == 'workflow_dispatch' || github.event.schedule == '40 3 1 * *'
