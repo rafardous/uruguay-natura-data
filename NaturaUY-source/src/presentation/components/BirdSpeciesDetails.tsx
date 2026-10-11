@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import type { Species } from '../../domain/entities/species';
 import { formatSpeciesMeasurement } from '../../domain/services/measurementFormatting';
+import { SpeciesEcologyTags } from './SpeciesEcologyTags';
 import { useTheme } from '../theme/ThemeProvider';
 function Disclosure({ title, children, color }: { title: string; children: React.ReactNode; color?: string }): React.JSX.Element {
   const [open, setOpen] = useState(false); const { colors, typography } = useTheme();
@@ -19,10 +20,23 @@ export function BirdTechnicalMeasures({ species, color }: { species: Species; co
   const { typography } = useTheme(); const measures = species.measurements.filter((m) => m.kind !== 'body_length' && m.kind !== 'max_length');
   return measures.length ? <Disclosure title="Medidas técnicas" color={color}>{measures.map((m,i) => <View key={`${m.kind}-${i}`} style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 16 }}><Text style={[typography.body,{color,flex:1}]}>{MEASURES[m.kind]}</Text><Text style={[typography.label,{color}]}>{formatSpeciesMeasurement(m)}</Text></View>)}</Disclosure> : null;
 }
-export function BirdEcologyDetails({ species }: { species:Species }): React.JSX.Element | null {
-  const {colors,typography}=useTheme(); const rows=[['Modo de vida',species.ecology.lifeModes],['Actividad',species.ecology.activity],['Ambientes acuáticos',species.ecology.aquaticEnvironments],['Zona acuática',species.ecology.waterZones],['Microhábitat',species.ecology.microhabitats],['Rol trófico',species.ecology.trophicRoles],['Hospedadores',species.ecology.hosts],['Asociaciones vegetales',species.ecology.plantAssociations]] as const; const text=[typography.body,{color:colors.textSecondary}];
-  if(!rows.some(([,v])=>v.length)&&species.ecology.depthMinM===null&&species.ecology.depthMaxM===null)return null;
-  return <View style={{ marginTop: 24, gap: 8 }}><Text style={[typography.label, { color: colors.text }]}>Más sobre su ecología</Text>{rows.filter(([,v])=>v.length).map(([label,v])=><Text key={label} style={text}>{label}: {v.map((i)=>ECOLOGY[i]??i).join(' · ')}</Text>)}{(species.ecology.depthMinM!==null||species.ecology.depthMaxM!==null)&&<Text style={text}>Profundidad: {species.ecology.depthMinM??'?'}–{species.ecology.depthMaxM??'?'} m</Text>}</View>;
+export function BirdEcologyDetails({ species, accent, container, foreground }: { species: Species; accent: string; container: string; foreground: string }): React.JSX.Element {
+  const { typography, colors } = useTheme();
+  const ecology = species.ecology;
+  const rows: [string, string[]][] = [
+    ['Modo de vida', ecology.lifeModes], ['Actividad', ecology.activity],
+    ['Ambiente acuático', ecology.aquaticEnvironments], ['Zona de agua', ecology.waterZones],
+    ['Microhábitat', ecology.microhabitats], ['Rol trófico', ecology.trophicRoles],
+    ['Hospedadores', ecology.hosts], ['Asociaciones con plantas', ecology.plantAssociations],
+  ];
+  const depth = ecology.depthMinM !== null && ecology.depthMaxM !== null
+    ? ecology.depthMinM + '–' + ecology.depthMaxM + ' m'
+    : ecology.depthMinM !== null ? 'Desde ' + ecology.depthMinM + ' m'
+      : ecology.depthMaxM !== null ? 'Hasta ' + ecology.depthMaxM + ' m' : null;
+  return <View>
+    {rows.map(([title, values]) => <SpeciesEcologyTags key={title} title={title} values={values.map((value) => ECOLOGY[value] ?? value)} accent={accent} container={container} foreground={foreground} />)}
+    {depth && <View style={{ marginTop: 16 }}><Text style={[typography.label, { color: accent }]}>Profundidad</Text><Text style={[typography.body, { color: colors.textSecondary, marginTop: 8 }]}>{depth}</Text></View>}
+  </View>;
 }
 export function BirdObservability({species}:{species:Species}):React.JSX.Element|null {
   const {colors,typography}=useTheme(); const v=species.observability; return v ? <Disclosure title="Registros y observabilidad"><Text style={[typography.body,{color:colors.textSecondary}]}>Índice {Math.round(v.score)}/100 · {v.occurrenceCount} registros · {v.occupiedCells} celdas de 10 km{'\n'}{v.periodStart.slice(0,4)}–{v.periodEnd.slice(0,4)}. Describe registros públicos; no estima población ni probabilidad de avistamiento.</Text></Disclosure> : null;

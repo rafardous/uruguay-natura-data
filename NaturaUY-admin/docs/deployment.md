@@ -88,7 +88,7 @@ npm run media:migrate-external -- --dry-run
 npm run media:migrate-external
 ```
 
-El importador schema 12 informa 4209 registros y 4105 especies. La línea base animal conserva 948 códigos y el snapshot Flora Uruguaya aporta 3157 plantas. Las imágenes externas quedan archivadas con su metadata hasta confirmar derechos; no se copian por defecto.
+El importador inicial verifica las 1048 especies únicas del catálogo aprobado: 948 animales y exactamente las 100 plantas seleccionadas. Sólo permite escribir en una base vacía; para una base en uso se deben crear revisiones mediante RPCs. La importación histórica de 4105 especies se conserva por auditoría, con 3057 plantas archivadas; no repetirla.
 
 ## 5. Panel, Storage y publicación
 
@@ -102,7 +102,6 @@ npm run data:traits
 npm run data:catalog-media -- --reelect-all
 npm run data:plant-media -- --limit=100
 npm run data:plant-taxonomy -- --batch=100
-npm run data:plants
 npm run data:observability -- --batch=25
 npm run data:external-discovery -- --batch=25
 cd ../NaturaUY-admin
@@ -131,7 +130,6 @@ cd ../NaturaUY-source
 npx tsc --noEmit
 npm run lint
 npm test -- --runInBand
-npm run data:catalog-db
 npm run data:catalog-verify
 ```
 
@@ -158,3 +156,9 @@ El publicador deriva las paletas desde la miniatura de cada foto principal aprob
 La exportación también incluye `taxa`, `species_taxa`, `taxon_names` y `taxon_closure`, con los IDs editoriales y todos los ancestros de las especies seleccionadas. Los nodos exclusivos de plantas archivadas quedan fuera. Se publica `taxonomy.json` y se bloquean árboles incompletos, ciclos, especies sin clasificación o errores de claves foráneas. La app valida estas tablas antes de activar un schema 14: un número de esquema y un checksum correctos no bastan para aceptar un contrato incompleto.
 
 Entrega verificada: catálogo público v9/schema 14 y [APK Arapy 1.3.1/build 7](https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/Arapy-1.3.1.apk). Se comprobó la descarga real, firma compatible, SQLite incluido idéntico al público, actualización del Pixel sin pérdida de datos y reproducción offline. Los informes públicos están en `NaturaUY-source/data/reports/arapy-*-verification.json` y `arapy-native-acceptance.json`. La publicación en tiendas queda fuera de esta entrega.
+## Mantenimiento del código y consultas
+
+Se retiraron los generadores locales de catálogo, la importación masiva de Flora y la aplicación automática de rasgos sobre JSON. PostgreSQL es la única fuente editorial; `catalog:build` deriva el catálogo aprobado. `data:catalog-verify` abre SQLite en modo lectura y valida 1048 identidades, la selección seed-100, medios y taxonomía. `data:thumbnail-map -- --write` depura referencias de miniaturas, conservando archivos históricos.
+
+La migración `20261011001225_streamline_catalog_queries.sql` optimiza las políticas de lectura con funciones evaluadas una vez por consulta, combina políticas SELECT equivalentes y agrega cuatro índices por especie. No modifica fichas, revisiones, fuentes ni RPCs. Antes de aplicarla, conservar las definiciones anteriores de políticas y probar la reversión sobre una copia local real. La suite incluye aislamiento de favoritos/récords y acceso a noticias para cuentas móviles. Registrar por separado la prueba local y su aplicación remota.
+El 10/10/2026 se aplicó la optimización de consultas en `xbnbfekcxrkgteuijbzh`, con autorización explícita del responsable. Se respaldaron las 31 políticas originales y se probó su restauración en Docker antes de reaplicar la migración local. Pasaron 148 pruebas pgTAP en 12 archivos. Después de la aplicación remota permanecen 948 animales y 100 plantas activos, 3057 plantas archivadas y 8354 revisiones; los cuatro índices están presentes. El asesor dejó de informar evaluación RLS por fila y políticas SELECT múltiples equivalentes. No se eliminaron índices históricos por falta de uso reciente.

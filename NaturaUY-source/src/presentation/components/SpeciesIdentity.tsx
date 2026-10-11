@@ -1,4 +1,4 @@
-import { Pressable, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Pressable, Text, useWindowDimensions, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import type { Species } from '../../domain/entities/species';
 import { useTheme } from '../theme/ThemeProvider';
@@ -20,7 +20,7 @@ export function SpeciesNames({ species }: { species: Species }): React.JSX.Eleme
   const alternateNames = [...new Set(extra.map((row) => row.value.trim()).filter(Boolean))];
   return <View style={{ flex: 1, flexDirection: 'row', alignItems: 'baseline', gap: 10, minWidth: 0 }}>
     <Text selectable accessibilityRole="header" style={[typography.display, { color: colors.text, flexShrink: 1, maxWidth: alternateNames.length ? '70%' : '100%' }]}>{species.displayName}</Text>
-    {alternateNames.length > 0 && <Text selectable numberOfLines={1} ellipsizeMode="tail" accessibilityLabel={`Otros nombres: ${extra.map((row) => `${row.label}: ${row.value}`).join('; ')}`} style={[typography.caption, { color: colors.textMuted, flex: 1, minWidth: 0 }]}>{alternateNames.join(' · ')}</Text>}
+    {alternateNames.length > 0 && <Pressable accessibilityRole="button" accessibilityLabel="Ver todos los nombres" onPress={() => Alert.alert('Otros nombres', extra.map((row) => row.label + ': ' + row.value).join('\n\n'))} style={{ flex: 1, minWidth: 0, minHeight: 48, justifyContent: 'center' }}><Text numberOfLines={1} ellipsizeMode="tail" accessibilityLabel={`Otros nombres: ${extra.map((row) => `${row.label}: ${row.value}`).join('; ')}`} style={[typography.caption, { color: colors.primary }]}>{alternateNames.join(' · ')}</Text><Text style={[typography.caption, { color: colors.primary }]}>Ver nombres</Text></Pressable>}
   </View>;
 }
 
@@ -33,15 +33,13 @@ export function SpeciesTaxonomy<Rank extends string>({ items, onNavigate, accent
     <Text accessibilityRole="header" style={[typography.label, { color: colors.text, marginBottom: 12 }]}>Taxonomía</Text>
     {items.map((item, index) => {
       const indent = index * 8;
-      const previous = (index - 1) * 8;
       return <View key={item.rank}>
-        {index > 0 && <Svg width={indent + 32} height={14} accessible={false} style={{ pointerEvents: 'none' }}>
-          <Path d={`M ${previous + 16} 0 C ${previous + 16} 8, ${indent + 16} 5, ${indent + 16} 12`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" />
-          <Path d={`M ${indent + 13} 9 L ${indent + 16} 12 L ${indent + 19} 9`} fill="none" stroke={accent} strokeOpacity={0.55} strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" />
+        {index > 0 && <Svg width={indent + 32} height={16} accessible={false} style={{ pointerEvents: 'none' }}>
+          <Path d={`M ${indent + 8} 0 V 5 Q ${indent + 8} 8 ${indent + 12} 8 H ${indent + 16} V 14 M ${indent + 12} 10 L ${indent + 16} 14 L ${indent + 20} 10`} fill="none" stroke={accent} strokeOpacity={0.6} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
         </Svg>}
-        <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Explorar ${item.label}: ${item.value}`} style={({ pressed }) => ({ marginLeft: indent, width: '78%', height: nodeHeight, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, backgroundColor: container, borderRadius: radius.md, opacity: pressed ? 0.75 : 1 })}>
+        <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Explorar ${item.label}: ${item.value}`} style={({ pressed }) => ({ marginLeft: indent, marginRight: 0, minHeight: nodeHeight, paddingVertical: 10, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, backgroundColor: container, borderRadius: radius.md, opacity: pressed ? 0.75 : 1 })}>
           <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: accent }} />
-          <Text numberOfLines={1} style={[typography.label, { color: foreground, flex: 1 }]}><Text style={{ fontWeight: '400' }}>{item.label}: </Text>{item.value}</Text>
+          <Text style={[typography.label, { color: foreground, flex: 1 }]}><Text style={{ fontWeight: '400' }}>{item.label}: </Text>{item.value}</Text>
           <ChevronRightIcon color={accent} size={16} />
         </Pressable>
       </View>;

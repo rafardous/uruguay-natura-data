@@ -10,7 +10,7 @@ expo-env.d.ts
 /ios
 /android
 
-# Data pipeline intermediates — regenerate with `npm run data:all`
+# Intermediarios de los scripts de candidatos y auditoría
 scripts/.cache/
 scripts/out/
 

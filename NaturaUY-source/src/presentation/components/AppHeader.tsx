@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { MotiView } from 'moti';
 
 import { haptics } from '../haptics';
 import { useTheme } from '../theme/ThemeProvider';
@@ -48,10 +47,7 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
       </View>
 
       {(eyebrow || title || badge) && (
-        <MotiView
-          from={{ opacity: 0, translateY: 8 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ type: 'timing', duration: 180 }}
+        <View
           style={[styles.titleRow, { marginTop: spacing.lg }]}
         >
           <View style={styles.flex}>
@@ -64,7 +60,7 @@ export function AppHeader({ eyebrow, title, badge, onOpenMenu, children }: AppHe
               <Text style={[typography.caption, { color: colors.onPrimaryContainer }]}>{badge}</Text>
             </View>
           )}
-        </MotiView>
+        </View>
       )}
     </View>
   );

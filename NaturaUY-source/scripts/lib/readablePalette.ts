@@ -1,6 +1,52 @@
 import { contrastRatio, AA_NORMAL } from '../../src/shared/color/contrast';
-import { darkColors, lightColors } from '../../src/presentation/theme/tokens';
+import { lightColors, type ThemeColors } from '../../src/presentation/theme/tokens';
 import type { PaletteRecord } from './types';
+
+const darkColors: ThemeColors = {
+  background: '#0F1913',
+  surface: '#26332C',
+  surfaceVariant: '#2F3D35',
+  surfaceContainer: '#38473E',
+
+  text: '#E9F0E7',
+  textSecondary: '#BCC9BE',
+  textMuted: '#A2B1A5',
+
+  primary: '#9CCBAC',
+  onPrimary: '#0B1F16',
+  primaryContainer: '#2B4A3A',
+  onPrimaryContainer: '#CFE9D6',
+
+  border: '#2F3D35',
+  outline: '#8B9A90',
+
+  canvas: '#1A2B21',
+  canvasText: '#EDF3E8',
+  canvasTextMuted: '#A2B1A5',
+  canvasActive: '#26392E',
+  canvasBorder: 'rgba(237,243,232,0.14)',
+
+  accent: '#9CCBAC',
+  onAccent: '#0E2318',
+
+  navInactiveText: '#A2B1A5',
+
+  skeleton: '#212D25',
+  skeletonHighlight: '#2B3830',
+
+  success: '#7FCB9C',
+  danger: '#F2A0A0',
+  onDanger: '#3A0A0C',
+  warning: '#E8B04D',
+  onWarning: '#241400',
+
+  favorite: '#E8A0BE',
+  onFavorite: '#3A1524',
+  play: '#C3A8E0',
+  onPlay: '#2A1B42',
+
+  scrim: 'rgba(0, 0, 0, 0.6)',
+};
 
 export interface ToneRamp { hexAt: (tone: number) => string }
 const LIGHT_SURFACE = lightColors.surface;
@@ -45,4 +91,3 @@ export function buildPaletteFromRamps(seedHex: string, ramp: ToneRamp, soft: Ton
     onContainerDark,
   };
 }
-

@@ -12,14 +12,8 @@ import { FavoriteSparkles } from './FavoriteSparkles';
 import { PhotoLightbox } from './PhotoLightbox';
 import { ZoomInIcon } from './TabIcons';
 
-/** Exported so a list can derive its row pitch instead of hard-coding one. */
 export const CARD_HEIGHT = 268;
 
-/**
- * Text over a photograph sits on solid panels, not a gradient fade.
- * A fade has no edge, so it reads as an effect applied to the image; a panel
- * with a real boundary reads as a deliberate piece of the layout.
- */
 const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.72)';
 const PANEL = 'rgba(14,24,17,0.82)';
@@ -41,39 +35,17 @@ function HeartIcon({ filled, color }: { filled: boolean; color: string }): React
 export interface SpeciesCardProps {
   species: Species;
   favorite: boolean;
-  /**
-   * Take the código rather than a pre-bound closure: a parent that builds
-   * `() => open(item.codigo)` inside `renderItem` hands every card a new
-   * function on each render, which silently defeats the `memo` below.
-   */
+
   onPress: (codigo: string) => void;
   onToggleFavorite: (codigo: string) => void;
-  /** Staggers entry so a freshly loaded page cascades instead of popping. */
-  index?: number;
+
 }
 
-/**
- * Past this many rows the entry animation is pure cost: the cards are offscreen
- * when they mount, so nobody sees the fade, and on a fast scroll it competes
- * with the list for frame budget.
- */
-const ANIMATED_ROWS = 8;
-
-/**
- * The photograph is the card — it fills the whole surface and the text rides on
- * a gradient veil over it.
- *
- * Previously the image was a banner with a separate white text block bolted
- * underneath, which is the anatomy of an article teaser on a web page. Letting
- * the photo bleed to every edge is what makes a browsing list feel like a
- * gallery instead of a feed.
- */
 export const SpeciesCard = memo(function SpeciesCard({
   species,
   favorite,
   onPress,
   onToggleFavorite,
-  index = 0,
 }: SpeciesCardProps): React.JSX.Element {
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
@@ -85,18 +57,8 @@ export const SpeciesCard = memo(function SpeciesCard({
   const showScientific = species.scientificName !== species.displayName;
   const zoomUri = species.photo?.fullUrl ?? species.photo?.url;
 
-  const animated = index < ANIMATED_ROWS;
-  const Wrapper = animated ? MotiView : View;
-  const motion = animated
-    ? {
-        from: { opacity: 0, translateY: 7 },
-        animate: { opacity: 1, translateY: 0 },
-        transition: { type: 'timing' as const, duration: 180, delay: Math.min(index, 3) * 22 },
-      }
-    : {};
-
   return (
-    <Wrapper {...motion}>
+    <View>
       <View style={[styles.shadow, elevation.low, { borderRadius: radius.xl, backgroundColor: colors.surface }]}>
         <View style={[styles.card, { borderRadius: radius.xl, backgroundColor: colors.surface }]}>
           <Pressable
@@ -159,11 +121,10 @@ export const SpeciesCard = memo(function SpeciesCard({
           <PhotoLightbox visible={lightboxOpen} uri={zoomUri} label={species.displayName} onClose={() => setLightboxOpen(false)} />
         </View>
       </View>
-    </Wrapper>
+    </View>
   );
 });
 
-/** Matches SpeciesCard's geometry so the list does not reflow when data lands. */
 export function SpeciesCardSkeleton(): React.JSX.Element {
   const { colors, radius } = useTheme();
 

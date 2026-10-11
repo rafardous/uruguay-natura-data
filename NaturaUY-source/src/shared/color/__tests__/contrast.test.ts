@@ -1,5 +1,5 @@
 import { AA_NORMAL, contrastRatio, meetsAA, parseHex, relativeLuminance } from '../contrast';
-import { CONTRAST_CONTRACT, darkColors, lightColors } from '../../../presentation/theme/tokens';
+import { CONTRAST_CONTRACT, lightColors } from '../../../presentation/theme/tokens';
 
 describe('contrast maths', () => {
   it('matches the WCAG reference values at the extremes', () => {
@@ -32,8 +32,8 @@ describe('contrast maths', () => {
 });
 
 describe('theme contract', () => {
-  it.each(['light', 'dark'] as const)('every %s pair meets WCAG AA', (scheme) => {
-    const colors = scheme === 'dark' ? darkColors : lightColors;
+  it('every light theme pair meets WCAG AA', () => {
+    const colors = lightColors;
     const failures: string[] = [];
 
     for (const pair of CONTRAST_CONTRACT) {

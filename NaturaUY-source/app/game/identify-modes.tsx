@@ -23,13 +23,13 @@ export default function IdentifyModesScreen(): React.JSX.Element {
       <Pressable onPress={() => { haptics.tap(); router.back(); }} style={[styles.back, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.pill }]} accessibilityLabel="Volver"><BackIcon color={colors.text} /></Pressable>
       <View style={styles.flex}><Text style={[typography.eyebrow, { color: colors.play }]}>IDENTIFICÁ LA ESPECIE</Text><Text style={[typography.title, { color: colors.text }]}>Elegí un modo</Text></View>
     </View>
-    <Text style={[typography.body, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.md }]}>Cada modo propone una forma distinta de mirar y reconocer la fauna uruguaya.</Text>
+    <Text style={[typography.body, { color: colors.textMuted, paddingHorizontal: spacing.lg, marginTop: spacing.md }]}>Reconocé especies uruguayas a partir de sus fotos. Elegí cómo querés jugar.</Text>
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.md, paddingBottom: insets.bottom + spacing.xl }} showsVerticalScrollIndicator={false}>
       {MODES.map(({ id, icon: Icon }) => {
         const config = QUIZ_MODES[id];
         return <Pressable key={id} onPress={() => { haptics.press(); router.push(`/game/categories?mode=${id}`); }} style={({ pressed }) => [styles.card, elevation.low, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.lg, opacity: pressed ? .88 : 1 }]} accessibilityRole="button" accessibilityLabel={`Jugar ${config.title}`}>
           <View style={[styles.icon, { backgroundColor: colors.play, borderRadius: radius.md }]}><Icon color={colors.onPlay} size={23} /></View>
-          <View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{config.title}</Text><Text style={[typography.body, { color: colors.textMuted, marginTop: 3 }]}>{config.description}</Text>{id === 'naming' && <Text style={[typography.caption, { color: colors.play, marginTop: 5 }]}>Foto disponible · Sonido próximamente</Text>}</View>
+          <View style={styles.flex}><Text style={[typography.cardTitle, { color: colors.text }]}>{config.title}</Text><Text style={[typography.body, { color: colors.textMuted, marginTop: 3 }]}>{config.description}</Text></View>
           <ChevronRightIcon color={colors.textMuted} />
         </Pressable>;
       })}

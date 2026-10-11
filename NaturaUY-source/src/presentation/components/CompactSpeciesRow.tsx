@@ -29,6 +29,7 @@ export const CompactSpeciesRow = memo(function CompactSpeciesRow({
   const { colors, radius, spacing, typography, elevation } = useTheme();
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
   const threatened = conservationRank(species.conservation) >= 3;
+  const conservation = conservationLabel(species.conservation);
   const showScientific = species.scientificName !== species.displayName;
   return (
     <View>
@@ -45,9 +46,9 @@ export const CompactSpeciesRow = memo(function CompactSpeciesRow({
             <Text style={[typography.caption, { color: colors.textMuted, marginTop: 2 }]} numberOfLines={1}>{species.taxonomy.clase}</Text>
             <View style={styles.meta}>
               {showScientific && <Text style={[typography.caption, styles.scientific, { color: colors.textSecondary }]} numberOfLines={1}>{species.scientificName}</Text>}
-              <View style={[styles.status, { backgroundColor: threatened ? colors.danger : colors.surfaceVariant, borderRadius: radius.sm }]}>
-                {conservationLabel(species.conservation) && <Text style={[typography.caption, styles.statusText, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{conservationLabel(species.conservation)}</Text>}
-              </View>
+              {conservation && <View style={[styles.status, { backgroundColor: threatened ? colors.danger : colors.surfaceVariant, borderRadius: radius.sm }]}>
+                <Text style={[typography.caption, styles.statusText, { color: threatened ? colors.onDanger : colors.textSecondary }]} numberOfLines={1}>{conservation}</Text>
+              </View>}
             </View>
           </View>
         </Pressable>
@@ -75,12 +76,12 @@ const styles = StyleSheet.create({
   shadow: { height: COMPACT_ROW_HEIGHT },
   row: { height: COMPACT_ROW_HEIGHT, flexDirection: 'row', alignItems: 'center', overflow: 'hidden', padding: 4 },
   image: { width: 104, flexShrink: 0 },
-  copy: { flex: 1, minWidth: 0, justifyContent: 'center' },
+  copy: { flex: 1, minWidth: 0, justifyContent: 'center', paddingRight: 48 },
   meta: { flexDirection: 'row', alignItems: 'center', minWidth: 0, gap: 6, marginTop: 6 },
   scientific: { fontStyle: 'italic', flex: 1, minWidth: 0 },
   status: { maxWidth: 116, paddingHorizontal: 7, paddingVertical: 3 },
   statusText: { fontSize: 11.5, lineHeight: 15 },
-  heart: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  heart: { position: 'absolute', top: 6, right: 6, width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   skeleton: { height: COMPACT_ROW_HEIGHT, padding: 4, flexDirection: 'row', alignItems: 'center', gap: 10 },
   skeletonImage: { width: 104, height: 104 },
   skeletonLine: { width: '42%', height: 16, borderRadius: 8 },

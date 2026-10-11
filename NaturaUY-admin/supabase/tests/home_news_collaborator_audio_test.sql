@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select extensions.plan(18);
+select extensions.plan(20);
 
 insert into auth.users(instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values
  ('00000000-0000-0000-0000-000000000000','99999999-9999-4999-8999-999999999999','authenticated','authenticated','applicant@example.test','',now(),'{}','{}',now(),now()),
@@ -45,6 +45,12 @@ reset role;
 
 set local role anon;
 select extensions.is((select count(*)::bigint from public.home_news),1::bigint,'anonymous readers only see published news');
+reset role;
+
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"99999999-9999-4999-8999-999999999999","role":"authenticated","aal":"aal1"}',true);
+select extensions.is((select count(*)::bigint from public.home_news),1::bigint,'signed-in mobile readers only see published news');
+select extensions.is((select count(*)::bigint from public.home_news where status='draft'),0::bigint,'mobile readers cannot see news drafts');
 reset role;
 
 select * from extensions.finish();

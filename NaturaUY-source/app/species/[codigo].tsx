@@ -17,8 +17,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
-import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel } from '../../src/domain/catalogLabels';
-import { formatSpeciesMeasurement } from '../../src/domain/services/measurementFormatting';
+import { dietLabel, habitatLabel } from '../../src/domain/catalogLabels';
 import {
   speciesRepository,
   type TaxonRank,
@@ -28,7 +27,6 @@ import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { BirdFieldGuide } from '../../src/presentation/components/BirdFieldGuide';
 import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
 import { SpeciesPhotoCarousel } from '../../src/presentation/components/SpeciesPhotoCarousel';
-import { MeasurementHelp } from '../../src/presentation/components/MeasurementHelp';
 import { SpeciesNames, SpeciesTaxonomy } from '../../src/presentation/components/SpeciesIdentity';
 import { BirdConservation, BirdSpeciesDescription } from '../../src/presentation/components/BirdSpeciesDetails';
 import { speciesGallery } from '../../src/domain/services/speciesGallery';
@@ -43,34 +41,6 @@ import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { useSpeciesPalette } from '../../src/presentation/theme/useSpeciesPalette';
-
-/** Content blocks fade up one after another, 55ms apart. */
-function Staggered({ index, children }: { index: number; children: React.ReactNode }): React.JSX.Element {
-  return (
-    <MotiView
-      from={{ opacity: 0, translateY: 16 }}
-      animate={{ opacity: 1, translateY: 0 }}
-      transition={{ type: 'timing', duration: 220, delay: 40 + Math.min(index, 4) * 28 }}
-    >
-      {children}
-    </MotiView>
-  );
-}
-
-function Fact({ label, value, container, onContainer }: { label: string; value: string; container: string; onContainer: string }): React.JSX.Element {
-  const { radius, typography } = useTheme();
-
-  return (
-    <View style={[styles.fact, { backgroundColor: container, borderRadius: radius.lg }]}>
-      <Text style={[typography.caption, { color: onContainer }]} numberOfLines={1}>
-        {label}
-      </Text>
-      <Text style={[typography.label, { color: onContainer, marginTop: 3 }]} numberOfLines={2}>
-        {value}
-      </Text>
-    </View>
-  );
-}
 
 const TRAIT_LABELS: Record<string, string> = {
   body_length: 'Longitud corporal', max_length: 'Longitud máxima', body_mass: 'Masa', wing_length: 'Ala',
@@ -108,7 +78,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
-  const [sizeDetailsOpen, setSizeDetailsOpen] = useState(false);
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const palette = useSpeciesPalette(species);
@@ -218,21 +187,21 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   }));
 
   useEffect(() => {
+    let active = true;
+    setSpecies(null);
+    setNotFound(false);
+    setPhotoIndex(0);
     if (!codigo) return;
     void speciesRepository.findByCodigo(db, codigo).then((found) => {
-      if (found) setSpecies(found);
-      else setNotFound(true);
-    });
+      if (!active) return;
+      setSpecies(found);
+      setNotFound(!found);
+    }).catch(() => { if (active) setNotFound(true); });
+    return () => { active = false; };
   }, [db, codigo]);
 
   const favorite = species ? isFavorite(species.codigo) : false;
   const [sparkleTrigger, setSparkleTrigger] = useState(0);
-
-  const bodyLength = species?.measurements.find((item) => item.kind === 'body_length') ?? species?.measurements.find((item) => item.kind === 'max_length');
-  const bodyMass = species?.measurements.find((item) => item.kind === 'body_mass');
-  const detailedMeasurements = species?.measurements.filter((item) => !['body_length', 'max_length', 'body_mass'].includes(item.kind)) ?? [];
-  const facts = species?.seasonality && !['unknown', 'uncertain'].includes(species.seasonality)
-    ? [{ label: 'Estacionalidad', value: seasonalityLabel(species.seasonality) }] : [];
 
   const classification: { label: string; rank: TaxonRank; value: string }[] = species
     ? [
@@ -245,7 +214,6 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
       ]
     : [];
 
-  const hasMeasurements = Boolean(species?.measurements.length);
   const ecology = species?.ecology;
   const hasEcology = Boolean(ecology && Object.entries(ecology).some(([key, value]) => key.startsWith('depth') ? value !== null : Array.isArray(value) && value.length));
   const conservationHeadline = species?.conservation.nationalDesignations.includes('threatened') ? 'Amenazada en Uruguay'
@@ -253,7 +221,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
   const galleryItems = species ? speciesGallery(species) : [];
   const selectedPhoto = galleryItems[Math.min(photoIndex, galleryItems.length - 1)];
-  const isBird = species?.taxonomy.clase === 'Aves';
+  const isPlant = species?.taxonomy.kingdom === 'Plantae';
   const arthropodHistory = species?.naturalHistory?.arthropod;
   const plantHistory = species?.naturalHistory?.plant;
   const birdHistory = species?.naturalHistory?.bird;
@@ -386,7 +354,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           </View>
 
           <View style={{ paddingHorizontal: spacing.lg, paddingBottom: spacing.lg, paddingTop: spacing.sm }}>
-            <Staggered index={0}>
+            <View>
               <View style={styles.nameRow}>
                 <SpeciesNames species={species} />
                 {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: palette.accent, borderRadius: radius.pill }]}><InfoIcon color="#FFFFFF" size={23} /></Pressable>}
@@ -398,7 +366,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {species.scientificName}
                 </Text>
               )}
-            </Staggered>
+            </View>
 
             {hasRelevantInfo && relevantInfoOpen && (
               <MotiView
@@ -419,7 +387,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               </MotiView>
             )}
 
-            <Staggered index={1}>
+            <View>
               <View style={[styles.badgeRow, { marginTop: spacing.md }]}>
                 {conservationHeadline && <ConservationBadge label={conservationHeadline} rank={species.conservation.nationalDesignations.includes('threatened') ? 3 : 2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
                 {species.conservation.nationalDesignations.includes('snap') && <ConservationBadge label="Vinculada al SNAP" rank={2} accent={palette.accent} container={palette.container} onContainer={palette.onContainer} />}
@@ -432,43 +400,13 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                         : 'Origen sin determinar'}
                   </Text>
                 </View>
-                {!isBird && species.abundanceStatus && <View style={[styles.pill, { backgroundColor: palette.container, borderRadius: radius.sm }]}><Text style={[typography.caption, { color: palette.onContainer }]}>Abundancia: {abundanceLabel(species.abundanceStatus)}</Text></View>}
               </View>
-              {isBird && <BirdConservation key={`conservation-${species.codigo}`} species={species} />}
-            </Staggered>
+              {!isPlant && <BirdConservation key={`conservation-${species.codigo}`} species={species} />}
+            </View>
 
-
-
-            {isBird && <BirdFieldGuide key={`guide-${species.codigo}`} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />}
-            {!isBird && facts.length > 0 && (
-              <Staggered index={2}>
-                <View style={[styles.facts, { marginTop: spacing.lg }]}>
-                  {facts.map((fact) => (
-                    <Fact
-                      key={fact.label}
-                      label={fact.label}
-                      value={fact.value}
-                      container={palette.container}
-                      onContainer={palette.onContainer}
-                    />
-                  ))}
-                </View>
-              </Staggered>
-            )}
-
-            {!isBird && <>
-            {hasMeasurements && (
-              <Staggered index={3}>
-                <View style={[styles.traits, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}><Text style={[typography.label, { color: palette.onContainer }]}>Tamaño</Text><MeasurementHelp accent={palette.accent} /></View>
-                  <View style={styles.measurements}>{[bodyLength, bodyMass].filter((item): item is NonNullable<typeof item> => Boolean(item)).map((measurement) => <View key={measurement.kind} style={styles.measure}><Text style={[typography.caption, { color: palette.onContainer }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.title, { color: palette.onContainer, marginTop: 4 }]}>{formatSpeciesMeasurement(measurement)}{measurement.provenance === 'legacy_unverified' ? ' · aproximado' : ''}</Text></View>)}</View>
-                  {detailedMeasurements.length > 0 && <><Pressable onPress={() => setSizeDetailsOpen((open) => !open)} accessibilityRole="button" accessibilityLabel="Medidas detalladas" accessibilityState={{ expanded: sizeDetailsOpen }} style={styles.traitsHeader}><Text style={[typography.label, { color: colors.text }]}>Medidas detalladas</Text><Text style={[typography.label, { color: palette.accent }]}>{sizeDetailsOpen ? '−' : '+'}</Text></Pressable>{sizeDetailsOpen && detailedMeasurements.map((measurement) => <View key={measurement.kind} style={styles.traitRow}><Text style={[typography.caption, { color: colors.textMuted }]}>{TRAIT_LABELS[measurement.kind]}</Text><Text style={[typography.label, { color: colors.text }]}>{formatSpeciesMeasurement(measurement)}</Text></View>)}</>}
-                </View>
-              </Staggered>
-            )}
-
-            {hasEcology && ecology && (
-              <Staggered index={3}>
+            {!isPlant && <BirdFieldGuide key={`guide-${species.codigo}`} bird={birdHistory} species={species} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />}
+            {isPlant && hasEcology && ecology && (
+              <View>
                 <View style={[styles.traits, { backgroundColor: '#F3F5F4', borderWidth: 1, borderColor: '#E1E7E3', borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
                   <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
@@ -485,11 +423,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                     {ecology.plantAssociations.length > 0 && <Text style={[typography.body, { color: colors.textSecondary }]}>Asociaciones: {ecology.plantAssociations.join(' · ')}</Text>}
                   </View>
                 </View>
-              </Staggered>
+              </View>
             )}
 
             {arthropodHistory && (
-              <Staggered index={7}>
+              <View>
                 <View style={[styles.naturalHistory, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Historia natural</Text>
                   {arthropodHistory.morphology && <>
@@ -507,11 +445,11 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {arthropodHistory.humanRelevance && (arthropodHistory.humanRelevance.vector || arthropodHistory.humanRelevance.pest || arthropodHistory.humanRelevance.venomous || arthropodHistory.humanRelevance.veterinaryImportance) ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Indicadores documentados: {[arthropodHistory.humanRelevance.vector && 'vector', arthropodHistory.humanRelevance.pest && 'plaga', arthropodHistory.humanRelevance.venomous && 'veneno', arthropodHistory.humanRelevance.veterinaryImportance && 'importancia veterinaria'].filter(Boolean).join(' · ')}</Text> : null}
                   {arthropodHistory.humanRelevance?.note ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Relevancia humana: {arthropodHistory.humanRelevance.note}</Text> : null}
                 </View>
-              </Staggered>
+              </View>
             )}
 
             {plantHistory && (
-              <Staggered index={7}>
+              <View>
                 <View style={[styles.naturalHistory, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Perfil botánico</Text>
                   {plantHistory.habit ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 7 }]}>Tipo: {plantHistory.habit}</Text> : null}
@@ -521,34 +459,32 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                   {plantMonths(plantHistory.phenology?.fruitingMonths) ? <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Fructificación: {plantMonths(plantHistory.phenology?.fruitingMonths)}</Text> : null}
                   {plantHistory.nomenclature?.familyAliases?.length ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: 4 }]}>Familia también conocida como: {plantHistory.nomenclature.familyAliases.join(' · ')}</Text> : null}
                 </View>
-              </Staggered>
+              </View>
             )}
 
-            {(species.conservation.nationalRedList || species.conservation.iucnGlobal) && (
-              <Staggered index={8}>
+            {isPlant && (species.conservation.nationalRedList || species.conservation.iucnGlobal) && (
+              <View>
                 <View style={[styles.note, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: colors.text }]}>Evaluaciones de conservación</Text>
                   {species.conservation.nationalRedList && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Lista Roja Uruguay: {species.conservation.nationalRedList.category}</Text>}
                   {species.conservation.iucnGlobal && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>UICN global: {species.conservation.iucnGlobal.category}</Text>}
                 </View>
-              </Staggered>
+              </View>
             )}
 
-
-            {species.observability && (
-              <Staggered index={9}>
+            {isPlant && species.observability && (
+              <View>
                 <View style={[styles.note, { backgroundColor: palette.container, borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: colors.text }]}>Observabilidad pública: {observabilityBand}</Text>
                   <Text style={[typography.body, { color: colors.textSecondary, marginTop: 5 }]}>Índice {Math.round(species.observability.score)}/100 · {species.observability.occurrenceCount} registros · {species.observability.occupiedCells} celdas de 10 km · {species.observability.periodStart.slice(0, 4)}–{species.observability.periodEnd.slice(0, 4)}</Text>
                   <Text style={[typography.caption, { color: colors.textMuted, marginTop: 5 }]}>Es una medida automática de registros públicos, no una categoría de conservación ni una estimación poblacional.</Text>
                 </View>
-              </Staggered>
+              </View>
             )}
 
-            </>}
             <BirdSpeciesDescription key={`description-${species.codigo}`} species={species} />
             <SpeciesTaxonomy key={`taxonomy-${species.codigo}`} items={classification.filter((item) => Boolean(item.value))} onNavigate={openTaxonomyAt} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
-            <Staggered index={11}>
+            <View>
               <Pressable
                 onPress={() => router.push({ pathname: '/report', params: { kind: 'review', area: 'species', codigo: species.codigo } } as unknown as Href)}
                 style={[styles.reportButton, { backgroundColor: colors.surfaceVariant, borderColor: colors.border, borderRadius: radius.lg, marginTop: spacing.xxl }]}
@@ -556,7 +492,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 <View style={styles.reportCopy}><BugIcon color={colors.textMuted} size={17} /><Text style={[typography.caption, { color: colors.textSecondary }]}>¿Encontraste un dato incorrecto?</Text></View>
                 <ChevronRightIcon color={colors.textMuted} size={16} />
               </Pressable>
-            </Staggered>
+            </View>
 
           </View>
           </Animated.ScrollView>
@@ -592,27 +528,15 @@ const styles = StyleSheet.create({
   optionsMenu: { position: 'absolute', top: 84, zIndex: 40, minWidth: 188, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
   optionItem: { minHeight: 52, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 10 },
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  name: { flex: 1 },
   infoAction: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   scientific: { fontStyle: 'italic', marginTop: 2 },
   badgeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   pill: { paddingHorizontal: 9, paddingVertical: 5 },
-  facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  fact: { flexGrow: 1, flexBasis: '46%', padding: 12 },
   traits: { paddingHorizontal: 14, paddingVertical: 8 },
-  measurements: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
-  measure: { flexBasis: '42%', flexGrow: 1 },
-  traitsHeader: { minHeight: 48, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  traitRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   photoCredit: { alignSelf: 'flex-start', paddingTop: 1, paddingHorizontal: 3 },
   naturalHistory: { padding: 14 },
-  tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
-  dataTag: { paddingHorizontal: 11, paddingVertical: 7 },
   note: { padding: 14 },
   noteHeading: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  classification: { overflow: 'hidden', paddingHorizontal: 14 },
-  classificationRow: { minHeight: 45, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 16 },
-  classificationValue: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 },
   reportButton: { minHeight: 52, borderWidth: StyleSheet.hairlineWidth, paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   reportCopy: { flexDirection: 'row', alignItems: 'center', gap: 8 },
 });

@@ -2,7 +2,7 @@
 
 Panel privado para mantener el catálogo aprobado de Arapy. Supabase conserva identidades, permisos, fichas actuales, solicitudes y auditoría. GitHub Actions procesa medios y genera los artefactos públicos; Supabase Storage sirve derivados y el manifiesto estable. El repositorio, dominio e identificadores internos conservan nombres anteriores por compatibilidad.
 
-Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/códigos estables e historial editorial. El procedimiento está en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). Schema 13/14 ya están aplicados; Arapy 1.3.1 prepara el catálogo v7.
+Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/códigos estables e historial editorial. El procedimiento está en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). Schema 13/14 ya están aplicados; Arapy 1.3.1/build 7 incluye el catálogo público v9.
 
 ## Arquitectura
 
@@ -72,8 +72,9 @@ La preparación, carga manual y reconciliación de fotos familiares están docum
 
 ## Recuperación del catálogo aprobado
 
-`catalog:audit-arapy -- --write` coteja todos los perfiles contra el Excel normalizado y actualiza la correspondencia editorial. Los comandos `catalog:archive-unselected-plants`, `catalog:restore-selected-plants`, `media:restore-approved-images` y `media:restore-approved-audio` son dry-run por defecto; `--sql` genera transacciones para una conexión administrativa autorizada. Los workers sólo marcan derivados verificados como `ready`; aprobar por `review_species_change` antes de publicar. El importador inicial no es una herramienta de actualización de una base en uso.
+`catalog:audit-arapy -- --write` coteja todos los perfiles contra el Excel normalizado y actualiza la correspondencia editorial. Los comandos `catalog:archive-unselected-plants`, `catalog:restore-selected-plants`, `media:restore-approved-images` y `media:restore-approved-audio` son dry-run por defecto; `--sql` genera transacciones para una conexión administrativa autorizada. Los workers sólo marcan derivados verificados como `ready`; aprobar por `review_species_change` antes de publicar. El importador inicial sólo admite bases vacías y rechaza una base en uso; el dry-run verifica las 1048 especies actuales sin escribir.
 
 `catalog:prepare-release` usa schema 14/min app 1.3.1 y elige una versión mayor que el catálogo remoto y el incluido en la app. `CATALOG_DATA_VERSION_FLOOR` permite superar versiones de prueba anteriores. La selección de 100 plantas se valida tanto al cargar como al construir. No ejecutar el pipeline histórico de Flora masiva para preparar una publicación.
 
 El publicador deriva las paletas desde la miniatura de cada foto principal aprobada, conserva su identidad/hash en JSON y usa los mismos colores en SQLite. Necesita lectura de Storage durante `catalog:build`; un error de descarga o extracción bloquea la publicación, sin sustituir silenciosamente el color por verde. El informe incluye cobertura y cantidad de acentos distintos. No ejecutar `npm run build` del panel mientras se genera el catálogo: Vite limpia `dist/`, que también contiene `dist/catalog/`.
+Las páginas del panel se cargan por ruta para reducir el JavaScript inicial. El publicador filtra especies activas, medios aprobados y evaluaciones vigentes en PostgreSQL, ordena su paginación y agrupa filas por especie antes de construir el catálogo. Los generadores alternativos locales y la aplicación automática de rasgos sobre JSON fueron retirados. `data:catalog-verify` y `data:thumbnail-map` en la app comprueban los derivados incluidos.

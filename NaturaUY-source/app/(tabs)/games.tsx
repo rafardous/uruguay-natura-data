@@ -21,13 +21,13 @@ import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const COVER_SPECIES_CODES = ['O_bezoarti', 'S_magellan', 'P_coronata'] as const;
-const GAME_CARD_HEIGHT = 184;
+const GAME_CARD_HEIGHT = 140;
 
-const UPCOMING_GAMES = [
-  { id: 'trivia', title: 'Trivia', description: 'Preguntas y curiosidades de nuestra naturaleza.', colors: ['#2F7280', '#214F65', '#283E62'] as const },
-  { id: 'puzzle', title: 'Puzzle', description: 'Reconstruí una especie, pieza por pieza.', colors: ['#B56B3E', '#8D4D3A', '#633847'] as const },
-  { id: 'classify', title: 'Clasificar', description: 'Ordená especies por sus grupos y características.', colors: ['#66805B', '#4D684D', '#344F48'] as const },
-  { id: 'habitat', title: '¿Dónde vive?', description: 'Relacioná cada especie con su ambiente.', colors: ['#4F8A78', '#35675C', '#284F4A'] as const },
+const GAMES = [
+  { id: 'trivia', route: '/game/trivia-setup', title: 'Trivia', colors: ['#2F7280', '#214F65', '#283E62'] as const },
+  { id: 'puzzle', route: '/game/puzzle-setup', title: 'Puzzle', colors: ['#B56B3E', '#8D4D3A', '#633847'] as const },
+  { id: 'classify', route: '/game/classify', title: 'Clasificar', colors: ['#66805B', '#4D684D', '#344F48'] as const },
+  { id: 'habitat', route: '/game/habitat', title: '¿Dónde vive?', colors: ['#4F8A78', '#35675C', '#284F4A'] as const },
 ] as const;
 
 const PUZZLE_TILES = [
@@ -42,13 +42,11 @@ function IdentifyCover({ species, onPress }: { species: Species[]; onPress: () =
   const photoPositions = [styles.photoLeft, styles.photoRight, styles.photoCenter];
 
   return (
-    <MotiView from={{ opacity: 0, translateY: 10 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220 }}>
+    <View>
       <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel="Abrir Identificá la especie" style={({ pressed }) => [{ transform: [{ scale: pressed ? 0.99 : 1 }] }]}>
         <LinearGradient colors={['#A95670', '#813F5E', '#5B334E']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.identifyCover, elevation.medium, { borderRadius: radius.xl, padding: spacing.lg }]}>
           <View style={styles.identifyCopy}>
-            <Text style={[typography.eyebrow, styles.upcomingKicker]}>JUGÁ AHORA</Text>
             <Text style={[typography.display, { color: '#FFFFFF', marginTop: 4 }]}>Identificá</Text>
-            <Text style={[typography.body, { color: 'rgba(255,255,255,0.84)', marginTop: 5 }]}>Reconocé especies uruguayas a partir de sus fotos.</Text>
           </View>
           <View style={styles.photoFan} accessibilityElementsHidden>
             {species.slice(0, 3).map((item, index) => (
@@ -60,7 +58,7 @@ function IdentifyCover({ species, onPress }: { species: Species[]; onPress: () =
           </View>
         </LinearGradient>
       </Pressable>
-    </MotiView>
+    </View>
   );
 }
 
@@ -118,21 +116,19 @@ function HabitatArt(): React.JSX.Element {
   return <View style={styles.habitatArt} accessibilityElementsHidden><View style={styles.habitatCircle}><BiomesIcon color="#285349" size={46} /></View><View style={[styles.habitatDot, styles.habitatDotOne]} /><View style={[styles.habitatDot, styles.habitatDotTwo]} /><View style={[styles.habitatDot, styles.habitatDotThree]} /></View>;
 }
 
-function UpcomingCover({ game, species, index, onPress }: { game: (typeof UPCOMING_GAMES)[number]; species?: Species; index: number; onPress?: () => void }): React.JSX.Element {
+function GameCover({ game, species, onPress }: { game: (typeof GAMES)[number]; species?: Species; onPress: () => void }): React.JSX.Element {
   const { radius, spacing, typography, elevation } = useTheme();
   return (
-    <MotiView from={{ opacity: 0, translateY: 14 }} animate={{ opacity: 1, translateY: 0 }} transition={{ type: 'timing', duration: 220, delay: 50 + index * 45 }}>
-      <Pressable onPress={onPress} disabled={!onPress} accessibilityRole="button" accessibilityState={{ disabled: !onPress }} accessibilityLabel={onPress ? `Abrir ${game.title}` : `${game.title}, próximamente`}>
-        <LinearGradient colors={[...game.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.upcomingCover, elevation.low, { borderRadius: radius.xl, padding: spacing.lg }]}>
-          <View style={styles.upcomingCopy}>
-            <Text style={[typography.eyebrow, styles.upcomingKicker]}>{onPress ? 'JUGÁ AHORA' : 'PRÓXIMAMENTE'}</Text>
-            <Text style={[typography.display, styles.upcomingTitle]}>{game.title}</Text>
-            <Text style={[typography.body, styles.upcomingDescription]}>{game.description}</Text>
+    <View>
+      <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={`Abrir ${game.title}`}>
+        <LinearGradient colors={[...game.colors]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[styles.gameCover, elevation.low, { borderRadius: radius.xl, padding: spacing.lg }]}>
+          <View style={styles.gameCopy}>
+            <Text style={[typography.display, styles.gameTitle]}>{game.title}</Text>
           </View>
           {game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : game.id === 'classify' ? <ClassifyArt /> : <HabitatArt />}
         </LinearGradient>
       </Pressable>
-    </MotiView>
+    </View>
   );
 }
 
@@ -173,7 +169,7 @@ export default function GamesScreen(): React.JSX.Element {
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
-          {UPCOMING_GAMES.map((game, index) => <UpcomingCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} index={index} onPress={game.id === 'puzzle' ? () => { haptics.press(); router.push('/game/puzzle-setup' as never); } : game.id === 'trivia' ? () => { haptics.press(); router.push('/game/trivia-setup' as never); } : game.id === 'classify' ? () => { haptics.press(); router.push('/game/classify' as never); } : () => { haptics.press(); router.push('/game/habitat' as never); }} />)}
+          {GAMES.map((game, index) => <GameCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} onPress={() => { haptics.press(); router.push(game.route); }} />)}
         </View>
       </Animated.ScrollView>
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -186,7 +182,7 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   menuButton: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   recordsButton: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 13, height: 42 },
-  identifyCover: { height: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
+  identifyCover: { minHeight: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
   identifyCopy: { flex: 1, maxWidth: '58%', zIndex: 2 },
   photoFan: { height: 132, width: 130, position: 'relative' },
   photoFrame: { position: 'absolute', top: 12, width: 67, height: 92, overflow: 'hidden', backgroundColor: '#EEE8D5' },
@@ -194,11 +190,9 @@ const styles = StyleSheet.create({
   photoRight: { right: 0, transform: [{ rotate: '8deg' }, { translateY: 13 }], zIndex: 1, borderRadius: 15 },
   photoCenter: { left: 32, top: 2, zIndex: 3, borderRadius: 15 },
   photoBorder: { borderWidth: 2, borderColor: 'rgba(255,255,255,0.78)' },
-  upcomingCover: { height: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
-  upcomingCopy: { flex: 1, maxWidth: '59%', zIndex: 2 },
-  upcomingKicker: { color: 'rgba(255,255,255,0.72)' },
-  upcomingTitle: { color: '#FFFFFF', marginTop: 4 },
-  upcomingDescription: { color: 'rgba(255,255,255,0.82)', marginTop: 5 },
+  gameCover: { minHeight: GAME_CARD_HEIGHT, overflow: 'hidden', flexDirection: 'row', alignItems: 'center' },
+  gameCopy: { flex: 1, maxWidth: '59%', zIndex: 2 },
+  gameTitle: { color: '#FFFFFF', marginTop: 4 },
   triviaArt: { width: 128, height: 132, alignItems: 'center', justifyContent: 'center' },
   triviaPhoto: { width: 102 },
   questionBubble: { position: 'absolute', right: 3, top: 4, width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF', shadowColor: '#000000', shadowOffset: { width: 0, height: 5 }, shadowOpacity: 0.22, shadowRadius: 9, elevation: 5 },

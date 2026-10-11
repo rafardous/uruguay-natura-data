@@ -38,11 +38,26 @@ export function selectPublishedSpecies(rows: DatabaseRow[], plantNames: Set<stri
   return selected;
 }
 
-async function fetchAll(table: string, select = '*'): Promise<DatabaseRow[]> {
+function groupBy(rows: DatabaseRow[], key: string): Map<string, DatabaseRow[]> {
+  const groups = new Map<string, DatabaseRow[]>();
+  for (const row of rows) {
+    const id = String(row[key]);
+    const group = groups.get(id);
+    if (group) group.push(row);
+    else groups.set(id, [row]);
+  }
+  return groups;
+}
+
+async function fetchAll(table: string, select = '*', filter?: [string, string | boolean]): Promise<DatabaseRow[]> {
   const client = adminClient();
   const result: DatabaseRow[] = [];
   for (let from = 0; ; from += 1000) {
-    const { data, error } = await client.from(table).select(select).range(from, from + 999);
+    let query = client.from(table).select(select).order(table === 'taxa' ? 'taxon_id' : ['species_taxa', 'species_game_profiles'].includes(table) ? 'species_id' : 'id');
+    if (table === 'species_taxa') query = query.order('taxon_id');
+    if (table === 'learning_paths') query = query.order('version');
+    if (filter) query = query.eq(filter[0], filter[1]);
+    const { data, error } = await query.range(from, from + 999);
     if (error) throw error;
     result.push(...(data as DatabaseRow[]));
     if (!data || data.length < 1000) return result;
@@ -96,29 +111,29 @@ function resolveImageUrl(
 
 export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
   const [speciesRows, mediaRows, conservationRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources] = await Promise.all([
-    fetchAll('species'), fetchAll('species_media'), fetchAll('species_conservation_assessments'),
+    fetchAll('species', '*', ['status', 'active']), fetchAll('species_media', '*', ['status', 'approved']), fetchAll('species_conservation_assessments', '*', ['is_current', true]),
     fetchAll('species_observability_snapshots'), fetchAll('species_game_profiles'),
-    fetchAll('species_game_rules'), fetchAll('species_facts'), fetchAll('catalog_sources'),
+    fetchAll('species_game_rules'), fetchAll('species_facts', '*', ['active', true]), fetchAll('catalog_sources'),
   ]);
   const approved = mediaRows.filter((row) => row.status === 'approved' && row.storage_path);
+  const mediaBySpecies = groupBy(approved, 'species_id');
+  const conservationBySpecies = groupBy(conservationRows, 'species_id');
+  const observabilityBySpecies = groupBy(observabilityRows, 'species_id');
+  const profilesBySpecies = groupBy(gameProfiles, 'species_id');
+  const rulesBySpecies = groupBy(gameRules, 'species_id');
+  const factsBySpecies = groupBy(facts, 'species_id');
 
   const seed = JSON.parse(readFileSync(resolve(import.meta.dirname, '../../NaturaUY-source/data/raw/curated-plants/seed-100.json'), 'utf8'));
   const plantNames = new Set<string>([...seed.arboles, ...seed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
   return selectPublishedSpecies(speciesRows, plantNames)
     .map((species) => {
 
-      const assets = approved
-        .filter((asset) => asset.species_id === species.id)
+      const assets = (mediaBySpecies.get(species.id) ?? [])
         .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
       const { images, primary: image } = approvedImagesForSpecies(species, assets);
 
-const audio =
-  assets.find((asset) => asset.type === 'audio')
-  ?? null;
-
-// Las imágenes procesadas siguen entrando en species_media.
-      
-      const observability = observabilityRows.filter((row) => row.species_id === species.id)
+      const audio = assets.find((asset) => asset.type === 'audio') ?? null;
+      const observability = (observabilityBySpecies.get(species.id) ?? [])
         .sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)))[0] ?? null;
       return {
         species,
@@ -127,11 +142,11 @@ const audio =
         imageUrl: resolveImageUrl(image),
         thumbnailUrl: resolveImageUrl(image),
         audioUrl: publicMediaUrl(audio?.storage_path),
-        conservationAssessments: conservationRows.filter((row) => row.species_id === species.id && row.is_current),
+        conservationAssessments: (conservationBySpecies.get(species.id) ?? []).filter((row) => row.is_current),
         observability,
-        gameProfile: gameProfiles.find((row) => row.species_id === species.id) ?? null,
-        gameRules: gameRules.filter((row) => row.species_id === species.id),
-        facts: facts.filter((row) => row.species_id === species.id && row.active)
+        gameProfile: profilesBySpecies.get(species.id)?.[0] ?? null,
+        gameRules: rulesBySpecies.get(species.id) ?? [],
+        facts: (factsBySpecies.get(species.id) ?? []).filter((row) => row.active)
           .sort((a, b) => Number(a.sort_order) - Number(b.sort_order)),
         catalogSources,
       };

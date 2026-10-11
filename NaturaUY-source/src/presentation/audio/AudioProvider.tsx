@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { Asset } from 'expo-asset';
 import { setAudioModeAsync, setIsAudioActiveAsync, useAudioPlayer, useAudioPlayerStatus, type AudioPlayer } from 'expo-audio';
@@ -98,8 +98,11 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
   const [loading, setLoading] = useState(false);
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const request = useRef(0);
+  const mounted = useRef(true);
 
   const stop = useCallback((): void => {
+    request.current++;
     player.pause();
     setActiveId(null);
     setLoading(false);
@@ -108,13 +111,17 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
   }, [player]);
 
   useEffect(() => {
+    mounted.current = true;
+    const pending = request;
     void configureAudio().catch(() => undefined);
     const subscription = AppState.addEventListener('change', (state) => {
       if (state !== 'active') stop();
     });
     return () => {
+      mounted.current = false;
+      pending.current++;
       subscription.remove();
-      player.pause();
+      // useAudioPlayer libera el reproductor; no llamarlo después de su cleanup.
       void setIsAudioActiveAsync(false).catch(() => undefined);
     };
   }, [player, stop]);
@@ -129,6 +136,7 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
     durationSeconds: activeId ? Math.max(0, status.duration) : 0,
     error,
     async toggle(audio) {
+      const id = ++request.current;
       setError(null);
       if (activeId === audio.id && status.playing) {
         player.pause();
@@ -140,19 +148,24 @@ export function AudioProvider({ children }: { children: ReactNode }): React.JSX.
         if (activeId !== audio.id) {
           player.pause();
           const uri = await cachedUri(audio);
+          if (!mounted.current || id !== request.current) return;
           player.replace(uri);
           setActiveId(audio.id);
         } else if (status.didJustFinish || (status.duration > 0 && status.currentTime >= status.duration - 0.05)) {
           await player.seekTo(0);
         }
         await setIsAudioActiveAsync(true);
+        if (!mounted.current || id !== request.current) return;
         player.play();
       } catch {
+        if (!mounted.current || id !== request.current) return;
         setActiveId(null);
         setError('Este audio no está disponible sin conexión.');
       } finally {
-        setLoading(false);
-        setLoadingId(null);
+        if (mounted.current && id === request.current) {
+          setLoading(false);
+          setLoadingId(null);
+        }
       }
     },
     stop,

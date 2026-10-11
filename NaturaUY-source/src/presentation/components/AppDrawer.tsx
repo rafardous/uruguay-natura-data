@@ -17,14 +17,12 @@ import { useFavorites } from '../hooks/FavoritesProvider';
 import { useTheme } from '../theme/ThemeProvider';
 import {
   ChevronRightIcon,
-  BiomesIcon,
   BugIcon,
   CollaborateIcon,
   CloseIcon,
   CreditsIcon,
   HeartIcon,
   InfoIcon,
-  InterestSitesIcon,
   LeafIcon,
   SettingsIcon,
   ShieldIcon,
@@ -69,13 +67,6 @@ export interface AppDrawerProps {
   onClose: () => void;
 }
 
-/**
- * The navigation drawer.
- *
- * The prototype's drawer was a bright #abc58d panel whose muted text measured
- * 2.65:1 — the single worst pair in the design. It is now a deep forest surface
- * in both themes, which reads as a distinct plane and clears AA comfortably.
- */
 export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element | null {
   const { colors, radius, spacing, typography } = useTheme();
   const insets = useSafeAreaInsets();
@@ -185,12 +176,6 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               label="Especies nativas"
               onPress={() => go('/species?native=1')}
             />
-            <DrawerLink
-              icon={<BiomesIcon color={DRAWER.text} />}
-              label="Explorar ambientes"
-              onPress={() => go('/biomes')}
-              trailing="Próximamente"
-            />
 
             <View style={[styles.divider, { backgroundColor: DRAWER.border }]} />
 
@@ -202,18 +187,13 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
             />
             <DrawerLink
               icon={<BugIcon color={DRAWER.text} />}
-              label="Reportar un problema / bug"
+              label="Reportar un problema"
               onPress={() => go('/report')}
             />
             <DrawerLink
               icon={<CollaborateIcon color={DRAWER.text} />}
               label="Colaborar"
               onPress={() => go('/collaborate')}
-            />
-            <DrawerLink
-              icon={<InterestSitesIcon color={DRAWER.text} />}
-              label="Sitios de interés"
-              onPress={() => go('/interest-sites')}
             />
             <DrawerLink
               icon={<InfoIcon color={DRAWER.text} />}

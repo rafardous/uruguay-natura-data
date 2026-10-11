@@ -1,7 +1,6 @@
-import { useEffect, type RefObject } from 'react';
+import { type RefObject } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { BlurView } from 'expo-blur';
 
 import { CompassIcon, GameIcon, HomeIcon, type IconProps } from './TabIcons';
@@ -26,10 +25,9 @@ export function NavigationIsland({
   onNavigate: (tab: MainTab) => void;
   blurTarget?: RefObject<View | null>;
 }): React.JSX.Element {
-  const { radius, typography, elevation, scheme } = useTheme();
+  const { radius, typography, elevation } = useTheme();
   const insets = useSafeAreaInsets();
-  const light = scheme === 'light';
-  const islandBackground = light ? 'rgba(201,216,196,0.94)' : 'rgba(35,65,50,0.94)';
+  const islandBackground = 'rgba(201,216,196,0.94)';
   const islandBorder = 'rgba(41,74,58,0.24)';
   const activeBackground = '#294A3A';
   const activeForeground = '#FFFFFF';
@@ -56,14 +54,14 @@ export function NavigationIsland({
             pointerEvents="none"
             blurTarget={blurTarget}
             intensity={48}
-            tint={light ? 'light' : 'dark'}
+            tint="light"
             blurMethod={Platform.OS === 'android' ? 'dimezisBlurViewSdk31Plus' : undefined}
             style={StyleSheet.absoluteFill}
           />
         )}
-        <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: light ? 'rgba(190,211,184,0.42)' : 'rgba(42,83,61,0.3)' }]} />
+        <View pointerEvents="none" style={[StyleSheet.absoluteFill, { backgroundColor: 'rgba(190,211,184,0.42)' }]} />
         {ITEMS.map(({ name, label, icon: Icon }) => {
-          return <NavigationItem key={name} icon={Icon} name={name} label={label} focused={active === name} onNavigate={onNavigate} radius={radius.pill} typography={typography} activeBackground={activeBackground} activeForeground={activeForeground} inactiveForeground={inactiveForeground} />;
+          return <NavigationItem key={name} icon={Icon} name={name} label={label} focused={active === name} onNavigate={onNavigate} typography={typography} activeBackground={activeBackground} activeForeground={activeForeground} inactiveForeground={inactiveForeground} />;
         })}
       </View>
     </View>
@@ -76,7 +74,6 @@ function NavigationItem({
   label,
   focused,
   onNavigate,
-  radius,
   typography,
   activeBackground,
   activeForeground,
@@ -87,22 +84,11 @@ function NavigationItem({
   label: string;
   focused: boolean;
   onNavigate: (tab: MainTab) => void;
-  radius: number;
   typography: { label: { fontSize: number; fontFamily?: string; fontWeight?: '600' } };
   activeBackground: string;
   activeForeground: string;
   inactiveForeground: string;
 }): React.JSX.Element {
-  const progress = useSharedValue(focused ? 1 : 0);
-
-  useEffect(() => {
-    progress.value = withTiming(focused ? 1 : 0, { duration: 175 });
-  }, [focused, progress]);
-
-  const pillStyle = useAnimatedStyle(() => ({
-    backgroundColor: interpolateColor(progress.value, [0, 1], ['rgba(0,0,0,0)', activeBackground]),
-  }));
-
   return (
     <Pressable
       accessibilityRole="tab"
@@ -115,17 +101,17 @@ function NavigationItem({
       }}
       style={({ pressed }) => [styles.tab, { opacity: pressed ? 0.78 : 1 }]}
     >
-      <Animated.View style={[styles.pill, { borderRadius: radius }, pillStyle]}>
+      <View style={[styles.pill, { borderRadius: 24, overflow: 'hidden', backgroundColor: focused ? activeBackground : 'transparent' }]}>
         <Icon color={focused ? activeForeground : inactiveForeground} size={22} strokeWidth={2} />
         <Text numberOfLines={1} style={[typography.label, { color: focused ? activeForeground : inactiveForeground, fontSize: 12 }]}>{label}</Text>
-      </Animated.View>
+      </View>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  dock: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 18 },
+  dock: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 18, zIndex: 100, elevation: 10 },
   island: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 6, borderWidth: StyleSheet.hairlineWidth },
-  tab: { flex: 1, alignItems: 'center', paddingHorizontal: 3 },
-  pill: { width: '100%', alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 9 },
+  tab: { flex: 1, minHeight: 48, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 5 },
+  pill: { width: '100%', minHeight: 58, alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 9 },
 });

@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select extensions.plan(11);
+select extensions.plan(14);
 
 insert into auth.users(instance_id,id,aud,role,email,encrypted_password,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values
  ('00000000-0000-0000-0000-000000000000','55555555-5555-4555-8555-555555555555','authenticated','authenticated','sync-one@example.test','',now(),'{}','{}',now(),now()),
@@ -50,6 +50,8 @@ select extensions.is(
 );
 select extensions.is(jsonb_array_length(public.get_personal_mobile_progress()->'learningModules'),1,'personal progress returns learning modules');
 select extensions.is(jsonb_array_length(public.get_personal_mobile_progress()->'learningObjectives'),1,'personal progress returns learning objectives');
+select extensions.is((select count(*)::integer from public.favorites),1,'favorite rows are visible to their owner');
+select extensions.is((select count(*)::integer from public.mobile_puzzle_records),2,'puzzle rows are visible to their owner');
 reset role;
 
 set local role authenticated;
@@ -62,6 +64,7 @@ select extensions.is(
   0,
   'progress is isolated per user'
 );
+select extensions.is((select count(*)::integer from public.favorites) + (select count(*)::integer from public.mobile_puzzle_records),0,'RLS hides another user favorites and puzzle rows');
 reset role;
 
 select * from extensions.finish();

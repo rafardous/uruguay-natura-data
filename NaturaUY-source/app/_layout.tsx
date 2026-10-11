@@ -69,8 +69,6 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="auth/callback" options={{ animation: 'fade', gestureEnabled: false }} />
           <Stack.Screen name="report" />
           <Stack.Screen name="collaborate" />
-          <Stack.Screen name="biomes" />
-          <Stack.Screen name="interest-sites" />
           <Stack.Screen name="about" />
           <Stack.Screen name="taxonomy" />
           <Stack.Screen name="learn" />

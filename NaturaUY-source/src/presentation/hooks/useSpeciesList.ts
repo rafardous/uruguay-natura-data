@@ -1,114 +1,97 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useSQLiteContext } from 'expo-sqlite';
-
+import { useSQLiteContext, type SQLiteDatabase } from 'expo-sqlite';
 import type { Species } from '../../domain/entities/species';
 import { speciesRepository, type SpeciesFilters } from '../../data/repositories/speciesRepository';
 
 const PAGE_SIZE = 24;
-
-/**
- * SQLite resolves a filter query in a few milliseconds, so without a floor the
- * skeleton would flash for a single frame on every filter change — reading as
- * a glitch rather than a loading state. Holding it for at least this long
- * makes the transition feel deliberate instead of flickery.
- */
-const MIN_LOADING_MS = 120;
+const CACHE_LIMIT = 20;
 type CachedList = { items: Species[]; total: number; hasMore: boolean };
-const listCache = new Map<string, CachedList>();
+const caches = new WeakMap<SQLiteDatabase, Map<string, CachedList>>();
+const EMPTY: CachedList = { items: [], total: 0, hasMore: false };
 
-export interface SpeciesListState {
-  items: Species[];
-  total: number;
-  /** First page is loading — show skeletons. */
+function cacheFor(db: SQLiteDatabase): Map<string, CachedList> {
+  let cache = caches.get(db);
+  if (!cache) { cache = new Map(); caches.set(db, cache); }
+  return cache;
+}
+function remember(cache: Map<string, CachedList>, key: string, value: CachedList): void {
+  cache.delete(key);
+  cache.set(key, value);
+  if (cache.size > CACHE_LIMIT) cache.delete(cache.keys().next().value!);
+}
+
+export interface SpeciesListState extends CachedList {
   loading: boolean;
-  /** A further page is loading — show the footer spinner. */
   loadingMore: boolean;
-  hasMore: boolean;
   loadMore: () => void;
 }
 
-/**
- * Paged catalogue reads backing the infinite scroll.
- *
- * SQLite returns a page in about a millisecond, so the perceived wait is
- * entirely image loading — which is why the list shows skeleton *cards* rather
- * than a blocking spinner.
- */
+/** Conserva las páginas cargadas y descarta respuestas de filtros anteriores. */
 export function useSpeciesList(filters: SpeciesFilters, enabled = true, refreshKey = 0): SpeciesListState {
   const db = useSQLiteContext();
-  const key = JSON.stringify(filters);
-  const [items, setItems] = useState<Species[]>(() => listCache.get(key)?.items ?? []);
-  const [total, setTotal] = useState(() => listCache.get(key)?.total ?? 0);
-  const [loading, setLoading] = useState(() => !listCache.has(key));
+  const cache = cacheFor(db);
+  const key = JSON.stringify([filters, refreshKey]);
+  const [data, setData] = useState<CachedList>(() => enabled ? cache.get(key) ?? EMPTY : EMPTY);
+  const [loading, setLoading] = useState(() => enabled && !cache.has(key));
   const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(() => listCache.get(key)?.hasMore ?? false);
-
-  // Guards against a stale page landing after the filters changed.
   const requestId = useRef(0);
+  const fetching = useRef(false);
+  const readyKey = useRef<string | null>(null);
 
   useEffect(() => {
     const id = ++requestId.current;
+    fetching.current = false;
+    readyKey.current = null;
+    setLoadingMore(false);
+    const cleanup = () => { requestId.current++; };
     if (!enabled) {
-      setItems([]); setTotal(0); setHasMore(false); setLoading(false);
-      return;
+      setData(EMPTY); setLoading(false);
+      return cleanup;
     }
-    const startedAt = Date.now();
-    // Existing rows remain visible while a changed query is resolved. Only a
-    // genuinely empty list gets the full-page skeleton treatment.
-    setLoading(items.length === 0);
-
-    void (async () => {
-      try {
-        const [page, count] = await Promise.all([
-          speciesRepository.findPaged(db, filters, PAGE_SIZE, 0),
-          speciesRepository.count(db, filters),
-        ]);
-
-        if (id !== requestId.current) return;
-
-        const elapsed = Date.now() - startedAt;
-        if (elapsed < MIN_LOADING_MS) {
-          await new Promise((r) => setTimeout(r, MIN_LOADING_MS - elapsed));
-        }
-        // A newer request may have started during the wait — its own effect run
-        // will finish the job, so bail rather than overwrite with stale data.
-        if (id !== requestId.current) return;
-
-        setItems(page.items);
-        setHasMore(page.hasMore);
-        setTotal(count);
-        setLoading(false);
-        listCache.set(key, { items: page.items, total: count, hasMore: page.hasMore });
-      } catch {
-        if (id !== requestId.current) return;
-        setItems([]);
-        setHasMore(false);
-        setTotal(0);
-        setLoading(false);
-      }
-    })();
-    // `key` is the serialised form of `filters`; depending on the object itself
-    // would refetch on every render.
+    const cached = cache.get(key);
+    if (cached) {
+      setData(cached); setLoading(false); readyKey.current = key;
+      return cleanup;
+    }
+    setLoading(true);
+    void Promise.all([
+      speciesRepository.findPaged(db, filters, PAGE_SIZE, 0),
+      speciesRepository.count(db, filters),
+    ]).then(([page, total]) => {
+      if (id !== requestId.current) return;
+      const next = { items: page.items, total, hasMore: page.hasMore };
+      remember(cache, key, next);
+      readyKey.current = key;
+      setData(next);
+    }).catch(() => {
+      if (id === requestId.current) setData(EMPTY);
+    }).finally(() => {
+      if (id === requestId.current) setLoading(false);
+    });
+    return cleanup;
+    // La clave incluye todos los filtros y la versión de refresco.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, key, enabled, refreshKey]);
+  }, [db, key, enabled]);
 
   const loadMore = useCallback(() => {
-    if (!enabled || loading || loadingMore || !hasMore) return;
-
+    if (!enabled || loading || fetching.current || !data.hasMore || readyKey.current !== key) return;
     const id = requestId.current;
+    fetching.current = true;
     setLoadingMore(true);
-
-    void (async () => {
-      const page = await speciesRepository.findPaged(db, filters, PAGE_SIZE, items.length);
-
+    void speciesRepository.findPaged(db, filters, PAGE_SIZE, data.items.length).then((page) => {
       if (id !== requestId.current) return;
-
-      setItems((current) => [...current, ...page.items]);
-      setHasMore(page.hasMore);
+      const next = { ...data, items: [...data.items, ...page.items], hasMore: page.hasMore };
+      remember(cache, key, next);
+      setData(next);
+    }).catch(() => {
+      // Conserva lo ya cargado y permite reintentar la siguiente página.
+    }).finally(() => {
+      if (id !== requestId.current) return;
+      fetching.current = false;
       setLoadingMore(false);
-    })();
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [db, key, items.length, loading, loadingMore, hasMore, enabled]);
+  }, [db, key, data, loading, enabled]);
 
-  return { items, total, loading, loadingMore, hasMore, loadMore };
+  return { ...data, loading, loadingMore, loadMore };
 }

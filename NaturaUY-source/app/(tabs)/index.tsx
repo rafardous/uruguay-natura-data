@@ -1,13 +1,13 @@
 import { Alert, AppState, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { MotiView } from 'moti';
 import { Carousel } from 'react-native-reanimated-carousel';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import Animated, { cancelAnimation, runOnJS, useAnimatedScrollHandler, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 
 import { conservationLabel, type Species } from '../../src/domain/entities/species';
 import { rankNameMatches } from '../../src/domain/services/naming';
@@ -41,7 +41,6 @@ const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
 const CARD_HEIGHT = 230;
 const POPULAR_CODE_CACHE_KEY = 'home.most_favorited_code';
 const CAROUSEL_AUTOPLAY_INTERVAL = 7200;
-const CAROUSEL_AUTOPLAY_DURATION = 1440;
 let hasPlayedHomeIntro = false;
 
 const NEWS_LINKS: MobileHomeNews[] = [
@@ -156,33 +155,18 @@ function SpeciesCarousel({
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
-  const scrollOffset = useSharedValue(0);
-  const autoplayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [autoplayActive, setAutoplayActive] = useState(false);
 
-  const stopAutoplay = useCallback(() => {
-    if (autoplayTimer.current) {
-      clearTimeout(autoplayTimer.current);
-      autoplayTimer.current = null;
-    }
-  }, []);
-
-  const scheduleAutoplay = useCallback(() => {
-    stopAutoplay();
-    if (slides.length < 2) return;
-    autoplayTimer.current = setTimeout(() => {
-      const currentPage = Math.round(-scrollOffset.value / Math.max(width, 1));
-      const nextPage = currentPage + 1;
-      const nextIndex = ((nextPage % slides.length) + slides.length) % slides.length;
-      scrollOffset.value = withTiming(-nextPage * width, { duration: CAROUSEL_AUTOPLAY_DURATION }, (finished) => {
-        if (finished) runOnJS(setActiveIndex)(nextIndex);
-      });
-    }, CAROUSEL_AUTOPLAY_INTERVAL);
-  }, [slides.length, stopAutoplay, width, scrollOffset]);
-
-  useEffect(() => {
-    scheduleAutoplay();
-    return stopAutoplay;
-  }, [scheduleAutoplay, stopAutoplay]);
+  useFocusEffect(useCallback(() => {
+    setAutoplayActive(AppState.currentState === 'active');
+    const subscription = AppState.addEventListener('change', (state) => {
+      setAutoplayActive(state === 'active');
+    });
+    return () => {
+      subscription.remove();
+      setAutoplayActive(false);
+    };
+  }, []));
 
   return (
     <View>
@@ -191,20 +175,11 @@ function SpeciesCarousel({
         style={{ width, height: CARD_HEIGHT }}
         data={slides}
         loop
-        autoplay={false}
-        scrollOffsetValue={scrollOffset}
-        // The library uses this config for the gesture snap. Autoplay is
-        // driven separately above so a quick finger never inherits 1440ms.
+        autoplay={autoplayActive && slides.length > 1}
+        autoplayInterval={CAROUSEL_AUTOPLAY_INTERVAL}
         animation={{ type: 'spring', damping: 18, stiffness: 220, mass: 0.72 }}
         snapMode="page"
-        onScrollStart={() => {
-          stopAutoplay();
-          cancelAnimation(scrollOffset);
-        }}
-        onSnapToItem={(index) => {
-          setActiveIndex(index);
-          scheduleAutoplay();
-        }}
+        onSnapToItem={setActiveIndex}
         renderItem={({ item, index }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}
       />
       {slides.length > 1 && (

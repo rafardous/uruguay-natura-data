@@ -70,11 +70,10 @@ export default function FavoritesScreen(): React.JSX.Element {
           // FlashList doesn't reliably honour contentContainerStyle's paddingTop.
           ListHeaderComponent={<View style={{ height: spacing.xl }} />}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item, index }) => (
+          renderItem={({ item }) => (
             <View style={{ paddingHorizontal: spacing.lg, paddingBottom: spacing.lg }}>
               <SpeciesCard
                 species={item}
-                index={index}
                 favorite={isFavorite(item.codigo)}
                 onPress={() => router.push(`/species/${item.codigo}`)}
                 onToggleFavorite={() => toggle(item.codigo)}

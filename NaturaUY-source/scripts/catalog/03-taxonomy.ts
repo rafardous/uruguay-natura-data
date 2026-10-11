@@ -136,7 +136,7 @@ async function main(): Promise<void> {
     const synonymRefresh = cached?.sourceStatus === 'SYNONYM' && cached.matcherVersion !== MATCHER_VERSION;
     return !cached || synonymRefresh || emptyResponse || missingAuthority;
   }).slice(0, batchSize);
-  if (offline && pending.length > 0) throw new Error(`03-taxonomy offline: faltan ${pending.length} resoluciones en data/cache/gbif/species-match.json; ejecutá data:catalog-refresh`);
+  if (offline && pending.length > 0) throw new Error(`03-taxonomy offline: faltan ${pending.length} resoluciones en data/cache/gbif/species-match.json; ejecutá data:catalog-taxonomy`);
   console.log(`03-taxonomy: resolving ${pending.length} pending name(s); ${Object.keys(cache).length}/${candidates.length} already cached`);
   let completed = 0;
   for (const candidate of pending) { cache[candidate.scientificName] = resolution(candidate, await match(candidate.scientificName)); writeJson(PATHS.gbif, cache); if (++completed % 50 === 0) console.log(`  ${completed}/${pending.length} in this batch`); }

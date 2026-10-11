@@ -1,18 +1,20 @@
+import { lazy, Suspense } from 'react';
 import { AuthProvider, useAuth } from './auth/AuthProvider';
 import { Shell } from './components/Shell';
 import { ConfigurationError, Loading } from './components/Ui';
 import { usePathname } from './lib/router';
-import { DashboardPage } from './pages/DashboardPage';
-import { LoginPage } from './pages/LoginPage';
-import { MediaPage } from './pages/MediaPage';
-import { ReleasesPage } from './pages/ReleasesPage';
-import { ReportsPage } from './pages/ReportsPage';
-import { ReviewsPage } from './pages/ReviewsPage';
-import { SpeciesEditorV2Page } from './pages/SpeciesEditorV2Page';
-import { SpeciesListPage } from './pages/SpeciesListPage';
-import { UsersPage } from './pages/UsersPage';
-import { CatalogContentPage } from './pages/CatalogContentPage';
-import { NewsPage } from './pages/NewsPage';
+
+const DashboardPage = lazy(() => import('./pages/DashboardPage').then((module) => ({ default: module.DashboardPage })));
+const LoginPage = lazy(() => import('./pages/LoginPage').then((module) => ({ default: module.LoginPage })));
+const MediaPage = lazy(() => import('./pages/MediaPage').then((module) => ({ default: module.MediaPage })));
+const ReleasesPage = lazy(() => import('./pages/ReleasesPage').then((module) => ({ default: module.ReleasesPage })));
+const ReportsPage = lazy(() => import('./pages/ReportsPage').then((module) => ({ default: module.ReportsPage })));
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage').then((module) => ({ default: module.ReviewsPage })));
+const SpeciesEditorV2Page = lazy(() => import('./pages/SpeciesEditorV2Page').then((module) => ({ default: module.SpeciesEditorV2Page })));
+const SpeciesListPage = lazy(() => import('./pages/SpeciesListPage').then((module) => ({ default: module.SpeciesListPage })));
+const UsersPage = lazy(() => import('./pages/UsersPage').then((module) => ({ default: module.UsersPage })));
+const CatalogContentPage = lazy(() => import('./pages/CatalogContentPage').then((module) => ({ default: module.CatalogContentPage })));
+const NewsPage = lazy(() => import('./pages/NewsPage').then((module) => ({ default: module.NewsPage })));
 
 function Router(): React.JSX.Element {
   const path = usePathname(); const { loading, profile, configurationError, accessDenied } = useAuth();
@@ -32,7 +34,7 @@ function Router(): React.JSX.Element {
   else if (path === '/users' && profile.role === 'admin') page = <UsersPage />;
   else if (path === '/news' && profile.role === 'admin') page = <NewsPage />;
   else page = <DashboardPage />;
-  return <Shell path={path}>{page}</Shell>;
+  return <Shell path={path}><Suspense fallback={<Loading label="Cargando…" />}>{page}</Suspense></Shell>;
 }
 
-export function App(): React.JSX.Element { return <AuthProvider><Router /></AuthProvider>; }
+export function App(): React.JSX.Element { return <AuthProvider><Suspense fallback={<div className="full-state"><Loading label="Cargando…" /></div>}><Router /></Suspense></AuthProvider>; }

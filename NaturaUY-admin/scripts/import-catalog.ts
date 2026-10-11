@@ -123,7 +123,7 @@ const approvedImageLicense=(license:string):'CC0'|'CC-BY-4.0'|'legacy'=>license=
 const featuredFacts = (JSON.parse(readFileSync(resolve(sourceRoot, 'data/facts/featured.json'), 'utf8')) as { facts: FeaturedFact[] }).facts;
 
 const items = readdirSync(catalogDir)
-  .filter((file) => file.endsWith('.json'))
+  .filter((file) => /^(actinopterygii|amphibia|arachnida|aves|chondrichthyes|insecta|malacostraca|mammalia|plantae|reptilia)\.json$/.test(file))
   .sort()
   .flatMap((file) => JSON.parse(readFileSync(resolve(catalogDir, file), 'utf8')) as CatalogItem[]);
 
@@ -133,6 +133,9 @@ const curatedSeed = JSON.parse(readFileSync(resolve(sourceRoot, 'data/raw/curate
 };
 const selectedPlants = new Set([...curatedSeed.arboles, ...curatedSeed.otras_plantas_nativas].map((row) => row.nombre_cientifico));
 const importedPlants = items.filter((item) => item.taxonomy.kingdom === 'Plantae');
+if (items.length !== 1048 || new Set(items.map((item) => item.id)).size !== 1048) {
+  throw new Error('La importación requiere las 1048 especies únicas del catálogo aprobado.');
+}
 if (selectedPlants.size !== 100 || importedPlants.length !== 100 || importedPlants.some((item) => !selectedPlants.has(item.scientificName))) {
   throw new Error('La importación requiere exactamente las 100 plantas de raw/curated-plants/seed-100.json');
 }
@@ -243,6 +246,9 @@ console.log(JSON.stringify({
 if (dryRun) process.exit(0);
 
 const client = adminClient();
+const { count: existingSpecies, error: existingError } = await client.from('species').select('id', { count: 'exact', head: true });
+if (existingError) throw existingError;
+if (existingSpecies !== 0) throw new Error('El importador inicial sólo admite una base vacía. Para una base en uso, guardar nuevas revisiones mediante RPCs.');
 const actor = required('EDITORIAL_BOOTSTRAP_USER_ID');
 const { data: membership, error: membershipError } = await client
   .from('editor_access')
