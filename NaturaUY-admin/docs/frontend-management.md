@@ -1,0 +1,22 @@
+# Gestión editorial web
+
+Implementación local del 11/10/2026. La migración `20261011222107_editorial_frontend_management.sql` debe probarse, respaldarse y aplicarse antes de desplegar este frontend. No está aplicada en producción durante esta revisión; el catálogo y APK publicados conservan su versión.
+
+- `/species`: alta, edición, baja reversible y restauración mediante propuestas; `/reviews` valida y registra autovalidación explícita. Cada ficha mantiene UUID/código. El editor se reinicia al cambiar de especie o abrir un alta.
+- `/media`: biblioteca completa paginada desde Supabase, carga de imágenes y audios, recorte mono a 48 kHz antes de subir. Administradores pueden corregir autoría, licencia, fuente, principal y estado; las RPCs conservan una revisión y comprueban objetos en Storage antes de aprobar. Archivar libera el lugar para un reemplazo. Los audios nuevos admiten distintos autores con CC0, CC BY 4.0 o autorización verificable; Xeno-canto requiere ID externo. No crear referencias ficticias de permisos.
+- `/habitats`: administradores crean, editan, aprueban, archivan y restauran ambientes con fuentes por campo y relaciones superiores. Las versiones impiden sobrescribir una edición concurrente; los ciclos se rechazan. Se conservan fuentes adicionales, colores, grupos de juego y revisiones existentes.
+- `/content`: dificultad, reglas por especie para Identificá (imagen/nombre), Puzzle, Encastrar, Adiviá, Trivia, Clasificá y Ambientes; pistas; alta y ABM de trivia y datos curiosos. Las reglas y contenidos pasan por la bandeja de revisión. Sin regla explícita se aplica la selección automática; las exclusiones se respetan en respuestas y opciones del pool. Las fuentes redistribuidas excluyen `review_only`.
+- `/learning`: ABM de recorridos e historias/módulos, secciones, preguntas de respuesta única, múltiple, orden y clasificación, y sus fuentes. Un guardado crea una versión nueva; un borrador no reemplaza la aprobada. Editar mantiene IDs y aumenta la versión de preguntas modificadas. El archivo conserva el historial y se exporta como marca para ocultar el bootstrap; una versión aprobada posterior restaura el recorrido. Las pantallas de Aprender leen `learning_paths` offline con fallback validado al bootstrap.
+- `/home`: calendario de especie del día, amenazada, curiosidad y nativa, por fecha de Uruguay; ABM reversible y revisión. El publicador incluye `home_species_schedule` como tabla opcional y la app consulta un calendario de 30 días sin bloquear el arranque, conservándolo en `user.db`. Una consulta exitosa vacía anula la selección previa; sin conexión utiliza calendario/cache o rotación diaria local.
+
+El ranking de «Más gustada» usa `get_most_favorited_species`, conserva sólo favoritos activos de especies activas y se refresca después de sincronizar. No sustituir un ranking vacío por una especie al azar. `/home` permite consultar cantidades agregadas reales, sólo para administradores. Los favoritos sin cuenta permanecen offline y se contabilizan al sincronizar con una cuenta; no se exponen identidades de usuarios.
+
+La web usa Arapy, su icono, Manrope y los colores del tema claro móvil. Las etiquetas de navegación siguen accesibles en pantallas angostas.
+
+## Verificación
+
+En el panel: `npm run build`, `npm run typecheck:automation`, `npm run test:editorial` y `npm run catalog:import -- --dry-run`. La prueba editorial utiliza PostgreSQL embebido PGlite 0.5.8 con fixtures descartables; verifica RPCs, RLS, versiones, ciclos, archivos, reemplazos, fuentes y favoritos. No reemplaza las pruebas completas contra una copia del Supabase operativo ni la aceptación de medios reales en GitHub Actions.
+
+En la app: `npx tsc --noEmit`, `npm run lint -- --no-cache`, `npm test -- --runInBand`. Las pruebas del lector editorial verifican reemplazo del bootstrap, identidad, archivo/restauración y documentos inválidos. El catálogo público se genera desde PostgreSQL; no se editan JSON ni SQLite a mano.
+
+Para despliegue seguir `deployment.md`: respaldo cifrado verificado, migración, asesor de seguridad, smoke test con administrador y cuenta móvil, publicación del frontend. No importar las lecturas bootstrap automáticamente: el administrador las revisa y aprueba desde la web. Los cambios móviles de lectores, calendario y ranking necesitan un APK nuevo; los cambios editoriales de juegos y trivia necesitan publicar el catálogo para llegar a la app.

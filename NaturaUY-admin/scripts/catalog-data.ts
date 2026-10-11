@@ -173,7 +173,7 @@ export async function loadApprovedTaxonContent():Promise<DatabaseRow[]> {
 }
 
 export async function loadApprovedLearningPaths(): Promise<DatabaseRow[]> {
-  const approved = (await fetchAll('learning_paths')).filter((item) => item.status === 'approved');
+  const approved = (await fetchAll('learning_paths')).filter((item) => item.status === 'approved' || (item.status === 'archived' && item.content?.archived === true));
   const latest = new Map<string, DatabaseRow>();
   for (const item of approved) {
     const current = latest.get(String(item.id));

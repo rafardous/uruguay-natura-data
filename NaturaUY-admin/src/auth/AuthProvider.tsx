@@ -9,6 +9,7 @@ interface AuthState {
   profile: Profile | null;
   configurationError: string | null;
   accessDenied: boolean;
+  accessError: string | null;
   passwordFlow: 'invite' | 'recovery' | null;
   signIn(email: string, password: string): Promise<string | null>;
   signInWithGoogle(): Promise<string | null>;
@@ -28,10 +29,11 @@ const initialPasswordFlow = (): AuthState['passwordFlow'] => {
 async function loadProfile(session: Session): Promise<Profile | null> {
   if (!supabase) return null;
   const [{ data: profile, error: profileError }, { data: membership, error: membershipError }] = await Promise.all([
-    supabase.from('profiles').select('user_id, display_name').eq('user_id', session.user.id).single(),
-    supabase.from('editor_access').select('role, active').eq('user_id', session.user.id).single(),
+    supabase.from('profiles').select('user_id, display_name').eq('user_id', session.user.id).maybeSingle(),
+    supabase.from('editor_access').select('role, active').eq('user_id', session.user.id).maybeSingle(),
   ]);
-  if (profileError || membershipError || !profile || !membership?.active) return null;
+  if(profileError||membershipError)throw new Error(profileError?.message??membershipError?.message??'Error de acceso');
+  if (!profile || !membership?.active) return null;
   return { id: profile.user_id, displayName: profile.display_name, email: session.user.email ?? '', role: membership.role, active: membership.active };
 }
 
@@ -39,14 +41,14 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
   const [loading, setLoading] = useState(Boolean(supabase));
   const [profile, setProfile] = useState<Profile | null>(null);
   const [accessDenied, setAccessDenied] = useState(false);
+  const [accessError,setAccessError]=useState<string|null>(null);
   const [passwordFlow, setPasswordFlow] = useState<AuthState['passwordFlow']>(initialPasswordFlow);
 
   async function resolveSession(session: Session): Promise<void> {
     if (!supabase) return;
-    const nextProfile = await loadProfile(session);
-    setProfile(nextProfile);
-    setAccessDenied(!nextProfile);
-    setLoading(false);
+    try {const nextProfile = await loadProfile(session);setProfile(nextProfile);setAccessDenied(!nextProfile);setAccessError(null);}
+    catch(error){setProfile(null);setAccessDenied(false);setAccessError(`No pudimos verificar tu acceso editorial: ${error instanceof Error?error.message:'Error de conexión'}`);}
+    finally{setLoading(false);}
   }
 
   useEffect(() => {
@@ -62,7 +64,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
   }, []);
 
   const value = useMemo<AuthState>(() => ({
-    loading, profile, configurationError: supabaseConfigurationError, accessDenied, passwordFlow,
+    loading, profile, configurationError: supabaseConfigurationError, accessDenied,accessError, passwordFlow,
     async signIn(email, password) {
       if (!supabase) return supabaseConfigurationError ?? 'Supabase no está disponible.';
       const { error } = await supabase.auth.signInWithPassword({ email, password }); return error?.message ?? null;
@@ -84,7 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }): React.JSX.E
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/login?reset=1` }); return error?.message ?? null;
     },
     async signOut() { if (supabase) await supabase.auth.signOut(); setProfile(null); setAccessDenied(false); },
-  }), [loading, profile, accessDenied, passwordFlow]);
+  }), [loading, profile, accessDenied,accessError, passwordFlow]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

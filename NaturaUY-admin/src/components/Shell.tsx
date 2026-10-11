@@ -12,6 +12,8 @@ const items: Array<{ path: string; label: string; icon: typeof Leaf; admin?: boo
   { path: '/habitats', label: 'Ambientes', icon: Leaf },
   { path: '/reviews', label: 'Revisiones', icon: FileCheck2, badge: 'pendingReviews' },
   { path: '/content', label: 'Contenido y juegos', icon: BookOpenText, badge: 'pendingContent' },
+  { path: '/learning', label: 'Historias y lecturas', icon: BookOpenText, admin: true },
+  { path: '/home', label: 'Inicio de la app', icon: LayoutDashboard, admin: true },
   { path: '/media', label: 'Medios', icon: Image },
   { path: '/releases', label: 'Publicaciones', icon: FileClock },
   { path: '/reports', label: 'Reportes', icon: MessageSquareWarning, badge: 'openReports' },
@@ -31,7 +33,7 @@ export function Shell({ path, children }: { path: string; children: ReactNode })
           {items.filter((item) => !item.admin || profile?.role === 'admin').map(({ path: itemPath, label, icon: Icon, badge }) => {
             const active = itemPath === '/' ? path === '/' : path.startsWith(itemPath);
             const count = badge ? counts[badge] : 0;
-            return <button className={active ? 'nav-item active' : 'nav-item'} key={itemPath} onClick={() => navigate(itemPath)}><Icon size={19} /><span className="nav-label">{label}</span>{count > 0 && <span className="nav-badge" aria-label={`${count} pendientes`}>{count > 99 ? '99+' : count}</span>}</button>;
+            return <button aria-label={label} className={active ? 'nav-item active' : 'nav-item'} key={itemPath} onClick={() => navigate(itemPath)}><Icon size={19} /><span className="nav-label">{label}</span>{count > 0 && <span className="nav-badge" aria-label={`${count} pendientes`}>{count > 99 ? '99+' : count}</span>}</button>;
           })}
         </nav>
         <div className="sidebar-foot">

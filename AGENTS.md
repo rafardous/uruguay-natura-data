@@ -26,6 +26,8 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 ### Panel web disponible actualmente
 
+La gestión web ampliada está implementada localmente: `/learning` (historias y lecturas versionadas) y `/home` (calendario de especies y favoritos agregados), ABM de ambientes, biblioteca editable de trivia/curiosidades, selección por juego y edición auditada de medios. Requiere `20261011222107_editorial_frontend_management.sql`, pendiente de aplicar/desplegar; no asumir que está disponible en el panel productivo. Contrato, permisos y aceptación en `NaturaUY-admin/docs/frontend-management.md`. `npm run test:editorial` prueba las RPCs en PostgreSQL embebido sin Docker. Las nuevas lecturas/calendario/ranking móvil requieren actualizar el APK; no publicar el bootstrap automáticamente.
+
 El panel vive en `NaturaUY-admin/` y está implementado con React + Vite. El panel local se inicia así:
 
 ```powershell

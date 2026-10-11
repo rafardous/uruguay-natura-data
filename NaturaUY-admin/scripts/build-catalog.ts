@@ -9,6 +9,7 @@ import { writePublishedTaxonomy } from './catalog-taxonomy';
 import { adminClient, required } from './shared';
 import { derivePhotoPalettes } from './photo-palettes';
 import { applySchema14Habitats, loadPublishedHabitats, writePublishedHabitats } from './catalog-habitats';
+import { loadHomeSpeciesSchedule } from './catalog-home';
 
 const client = adminClient();
 const preview = process.argv.includes('--preview');
@@ -41,6 +42,7 @@ for (const item of items) {
   item.species.subphylum = subphylum?.canonical_name ?? '';
 }
 await derivePhotoPalettes(items);
+const homeSchedule=await loadHomeSpeciesSchedule(items);
 const blockers: string[] = [];
 const warnings: Array<{ code: string; speciesId: string; detail: string }> = [];
 const scientificNames = new Set<string>();
@@ -181,6 +183,7 @@ create table learning_paths (
   content text not null check(json_valid(content)), source_codes text not null check(json_valid(source_codes))
 );
 create table meta (key text primary key, value text not null);
+create table home_species_schedule (day text not null,slot text not null,catalog_code text not null,primary key(day,slot));
 `);
 
 const insert = db.prepare(`insert into species values (${Array.from({ length: 42 }, () => '?').join(',')})`);
@@ -263,6 +266,8 @@ try {
     item.id, item.version, item.language, item.title, item.short_title, item.description,
     item.accent_color, JSON.stringify(item.content), JSON.stringify(item.source_codes ?? []),
   ));
+  const insertHome=db.prepare('insert into home_species_schedule values (?,?,?)');
+  homeSchedule.forEach(row=>insertHome.run(row.day,row.slot,row.catalog_code));
   db.exec(`insert into species_fts(rowid, common_names, scientific_name, familia, genero)
     select rowid, replace(replace(replace(common_names, '["', ''), '"]', ''), '","', ' '), scientific_name, familia, genero from species;`);
   const meta = db.prepare('insert into meta values (?,?)');

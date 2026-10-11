@@ -1,5 +1,6 @@
 import type { CatalogRelease, ChangeRequest, CollaboratorApplication, DashboardStats, HomeNews, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { supabase } from './supabase';
+import { readAll } from './editorial';
 
 const assertClient = () => {
   if (!supabase) throw new Error('Supabase no está configurado');
@@ -107,10 +108,12 @@ function mapSpecies(row: Record<string, any>): SpeciesSummary {
 export async function getDashboardStats(): Promise<DashboardStats> {
   const { data, error } = await assertClient().from('dashboard_stats').select('*').single();
   if (error) throw error;
+  const management=await assertClient().rpc('catalog_management_dirty');
+  if(management.error)throw management.error;
   return {
     activeSpecies: data.active_species, retiredSpecies: data.archived_species,
     unreviewedSpecies: data.pending_changes, withImage: data.with_image, withAudio: data.with_audio,
-    pendingMedia: data.pending_media, dirtyChanges: Boolean(data.dirty_changes),
+    pendingMedia: data.pending_media, dirtyChanges: Boolean(data.dirty_changes||management.data),
     lastRelease: data.last_release_version ? String(data.last_release_version) : null, lastPublishedAt: data.last_published_at,
   };
 }
@@ -241,7 +244,7 @@ export async function getNavigationCounts(): Promise<NavigationCounts> {
 }
 
 export interface CatalogSource { id: string; code: string; name: string; license: string; usePolicy: string }
-export interface ContentChangeRow { id: string; contentType: string; entityId: string | null; speciesId: string | null; speciesName: string | null; proposedValues: Record<string, unknown>; proposedByName: string; comment: string; createdAt: string }
+export interface ContentChangeRow { id: string; contentType: string; entityId: string | null; speciesId: string | null; speciesName: string | null; proposedValues: Record<string, unknown>; proposedBy:string; proposedByName: string; comment: string; createdAt: string }
 export interface EnrichmentCandidateRow { id:string; scientificName:string; fieldPath:string; currentValue:unknown; proposedValue:unknown; sourceCode:string; confidence:number|null; status:string; rationale:string }
 export interface TaxonContentRow { id:string; taxonRank:'phylum'|'class'|'order'|'family'; kingdom:string; phylum:string; className:string; taxonName:string; simpleName:string|null; language:string; description:string; sourceId:string; active:boolean }
 export interface ApprovedImageRow { id:string; speciesId:string; label:string }
@@ -255,7 +258,7 @@ export async function listCatalogSources(): Promise<CatalogSource[]> {
 export async function listContentChanges(): Promise<ContentChangeRow[]> {
   const { data, error } = await assertClient().from('content_review_queue').select('*').eq('status', 'pending').order('created_at');
   if (error) throw error;
-  return (data ?? []).map((row) => ({ id: row.id, contentType: row.content_type, entityId: row.entity_id, speciesId: row.species_id, speciesName: row.common_name ?? row.scientific_name ?? null, proposedValues: row.proposed_values ?? {}, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at }));
+  return (data ?? []).map((row) => ({ id: row.id, contentType: row.content_type, entityId: row.entity_id, speciesId: row.species_id, speciesName: row.common_name ?? row.scientific_name ?? null, proposedValues: row.proposed_values ?? {}, proposedBy:row.proposed_by, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at }));
 }
 
 export async function listTaxonContent(): Promise<TaxonContentRow[]> {
@@ -309,8 +312,7 @@ export async function rejectChangeRequest(id: string) {
 }
 
 export async function listMedia(): Promise<MediaAsset[]> {
-  const { data, error } = await assertClient().from('media_queue').select('*').order('created_at', { ascending: false });
-  if (error) throw error;
+  const data = (await readAll<Record<string, any>>('media_queue')).sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
   return (data ?? []).map((row) => ({
     id: row.id, jobId: row.id, speciesId: row.species_id, speciesName: row.species_name ?? 'Alta pendiente',
     kind: row.type, state: row.status === 'reserved' ? 'incoming' : row.status === 'ready' ? 'pending' : row.status === 'approved' ? 'ready' : row.status,
@@ -321,12 +323,14 @@ export async function listMedia(): Promise<MediaAsset[]> {
 }
 
 export interface ReservedMediaUpload { mediaId: string; jobId: string; changeRequestId: string | null; incomingPath: string }
-export async function reserveMediaUpload(input: { speciesId: string | null; changeRequestId?: string | null; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; source: string; sourceUrl: string; originalFilename: string; makePrimary: boolean; confirmRights: boolean; clipStartSeconds?: number; clipDurationSeconds?: number }): Promise<ReservedMediaUpload> {
+export async function reserveMediaUpload(input: { speciesId: string | null; changeRequestId?: string | null; kind: 'image' | 'audio'; author: string; license: MediaAsset['license']; source: string; sourceUrl: string; originalFilename: string; makePrimary: boolean; confirmRights: boolean; evidenceRef?:string; clipStartSeconds?: number; clipDurationSeconds?: number }): Promise<ReservedMediaUpload> {
+  if(!input.confirmRights)throw new Error('Confirmá los derechos del medio.');
+  if(input.license==='permission'&&!input.evidenceRef?.trim())throw new Error('La autorización necesita una referencia verificable.');
   const { data, error } = await assertClient().rpc('reserve_species_media_upload', {
     p_species_id: input.speciesId, p_change_id: input.changeRequestId ?? null, p_type: input.kind,
     p_author: input.author, p_license: input.license, p_source: input.source,
     p_source_url: input.sourceUrl || null, p_original_filename: input.originalFilename,
-    p_is_primary: input.makePrimary, p_evidence_path: input.license === 'permission' ? `pending/${crypto.randomUUID()}` : null,
+    p_is_primary: input.makePrimary, p_evidence_path: input.license === 'permission' ? input.evidenceRef!.trim() : null,
   });
   if (error) throw error;
   const row = Array.isArray(data) ? data[0] : data;

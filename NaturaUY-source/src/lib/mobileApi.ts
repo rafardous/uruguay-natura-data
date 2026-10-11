@@ -1,6 +1,14 @@
 import type { KnowledgeLevel, QuizMode, QuizScope } from '../domain/entities/quiz';
 import { Platform } from 'react-native';
 import { mobileSupabase } from './supabase';
+import type { HomeSpeciesSelection } from '../data/repositories/homeSpeciesRepository';
+
+export async function getHomeSpeciesSchedule(from: string, to: string): Promise<HomeSpeciesSelection[]> {
+  if (!mobileSupabase) throw new Error('Sin conexión editorial');
+  const { data, error } = await mobileSupabase.rpc('get_home_species_schedule', { p_from: from, p_to: to });
+  if (error) throw error;
+  return data ?? [];
+}
 
 export interface MobileHomeNews {
   id: string;

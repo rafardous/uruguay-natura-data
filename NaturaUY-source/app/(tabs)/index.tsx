@@ -31,7 +31,8 @@ import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useMobileSync } from '../../src/sync/MobileSyncProvider';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { settingsRepository } from '../../src/data/repositories/settingsRepository';
-import { getHomeNews, getMostFavoritedSpecies, type MobileHomeNews } from '../../src/lib/mobileApi';
+import { getHomeNews, getHomeSpeciesSchedule, getMostFavoritedSpecies, type MobileHomeNews } from '../../src/lib/mobileApi';
+import { homeSpeciesRepository, uruguayDay, type HomeSpeciesSelection } from '../../src/data/repositories/homeSpeciesRepository';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
@@ -40,6 +41,7 @@ const ON_PHOTO = '#FFFFFF';
 const ON_PHOTO_MUTED = 'rgba(255,255,255,0.78)';
 const CARD_HEIGHT = 230;
 const POPULAR_CODE_CACHE_KEY = 'home.most_favorited_code';
+const HOME_SCHEDULE_CACHE_KEY = 'home.editorial_schedule';
 const CAROUSEL_AUTOPLAY_INTERVAL = 7200;
 let hasPlayedHomeIntro = false;
 
@@ -340,14 +342,19 @@ export default function HomeScreen(): React.JSX.Element {
       pick({ onlyWithPhoto: true, onlyWithRelevantNote: true }, curiosityCount, 31),
       pick({ onlyWithPhoto: true, onlyNative: true }, nativeCount, 47),
     ]);
+    const today=uruguayDay();
+    let selections=await homeSpeciesRepository.list(db,today);
+    const saved=await settingsRepository.get(userDb,HOME_SCHEDULE_CACHE_KEY);
+    if(saved)try {const cache=JSON.parse(saved) as {from:string;to:string;rows:HomeSpeciesSelection[]};if(today>=cache.from&&today<=cache.to&&Array.isArray(cache.rows))selections=cache.rows.filter(r=>r.day===today);} catch { /* Se conserva la programación del catálogo. */ }
+    const selected=async(slot:HomeSpeciesSelection['slot'],fallback:Species|null)=>{const code=selections.find(s=>s.slot===slot)?.catalog_code;return code?(await speciesRepository.findByCodigo(db,code))??fallback:fallback;};
+    const [selectedDaily,selectedThreatened,selectedCuriosity,selectedNative]=await Promise.all([selected('daily',daily),selected('threatened',threatened),selected('curiosity',curiosity),selected('native',native)]);
     setTotal(stats.total);
-    setDailySpecies(daily);
+    setDailySpecies(selectedDaily);
     const popular = popularCode ? await speciesRepository.findByCodigo(db, popularCode) : null;
-    const fallbackFavorite = await pick({ onlyWithPhoto: true }, withPhoto, 73);
-    setFavoriteSpecies(popular?.photo ? popular : fallbackFavorite);
-    setThreatenedSpecies(threatened);
-    setCuriositySpecies(curiosity);
-    setNativeSpecies(native);
+    setFavoriteSpecies(popular);
+    setThreatenedSpecies(selectedThreatened);
+    setCuriositySpecies(selectedCuriosity);
+    setNativeSpecies(selectedNative);
     setMetricBackgroundSpecies(await pick({ onlyWithPhoto: true }, withPhoto, 91));
   }, [db, userDb]);
 
@@ -355,14 +362,16 @@ export default function HomeScreen(): React.JSX.Element {
     // Refresh the ranking independently; local content never waits on the network.
     let active = true;
     void getMostFavoritedSpecies(1).then(async (remote) => {
-      if (!active || !remote[0]) return;
-      const cached = await settingsRepository.get(userDb, POPULAR_CODE_CACHE_KEY);
-      if (!active || cached === remote[0]) return;
-      await settingsRepository.set(userDb, POPULAR_CODE_CACHE_KEY, remote[0]);
-      // The updated ranking is used on the next refresh, avoiding a carousel jump.
+      if (!active) return;
+      const code=remote[0]??'';
+      await settingsRepository.set(userDb,POPULAR_CODE_CACHE_KEY,code);
+      const popular=code?await speciesRepository.findByCodigo(db,code):null;
+      if(active)setFavoriteSpecies(popular);
     }).catch(() => {});
     return () => { active = false; };
-  }, [userDb]);
+  }, [db,userDb,revision]);
+
+  useEffect(()=>{let active=true;const from=uruguayDay();const until=new Date(`${from}T12:00:00-03:00`);until.setDate(until.getDate()+30);const to=until.toISOString().slice(0,10);void getHomeSpeciesSchedule(from,to).then(async rows=>{if(!active)return;await settingsRepository.set(userDb,HOME_SCHEDULE_CACHE_KEY,JSON.stringify({from,to,rows}));if(active)await loadHome();}).catch(()=>{});return()=>{active=false;};},[loadHome,userDb,revision]);
 
   useEffect(() => {
     if (total === null) return;

@@ -1,5 +1,11 @@
 # Despliegue y cutover
 
+## Gestión web ampliada — pendiente de despliegue
+
+`20261011222107_editorial_frontend_management.sql` incorpora revisiones inmutables, gestión admin de `learning_paths`, calendario de Inicio, estadísticas agregadas privadas, edición de medios y relaciones de ambientes. Corrige la reserva al reemplazar medios archivados y admite nuevos autores de audio con derechos verificados. Está preparada y probada localmente; **no está aplicada en producción**. Antes de desplegar este frontend, conservar respaldo cifrado verificado y probar la migración en una copia real del esquema, aplicar sólo esta migración y ejecutar los asesores de seguridad. No repetir importaciones históricas ni publicar automáticamente lecturas bootstrap.
+
+El catálogo exporta historias aprobadas o marcas de archivo, y el calendario como tabla SQLite opcional compatible con schema 14/15. Se detectan cambios editoriales publicables mediante `catalog_management_dirty` además del estado previo. `/learning` y `/home` son admin-only; RLS impide lectura de borradores y estadísticas privadas a cuentas móviles. Las escrituras usan RPCs y conservan revisiones. Las pantallas móviles nuevas leen el catálogo offline, refrescan favoritos y consultan programación sin bloquear el arranque; su aceptación necesita un APK nuevo. Ver [frontend-management.md](frontend-management.md).
+
 ## Juegos en desarrollo — 11/10/2026
 
 La migración `20261011191403_enriched_games.sql` agrega pistas editoriales y RPCs privadas de récords para Adiviá/Encastrar. Está aplicada en `xbnbfekcxrkgteuijbzh` desde el 11/10/2026, luego de autorización específica y pruebas en PostgreSQL local. El respaldo cifrado del workflow `38164442217` fue descargado y su digest comprobado antes del cambio. Se conservaron 1048 especies activas (948 animales/100 plantas) y 3057 plantas archivadas.

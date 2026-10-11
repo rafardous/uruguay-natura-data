@@ -3,7 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeft, ArrowRight, RotateCcw } from 'lucide-react-native';
-import { LEARNING_PATHS } from '../../src/content/learningContent';
+import { useLearningCatalog } from '../../src/presentation/hooks/useLearningCatalog';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { learningRepository, type LearningModuleProgress } from '../../src/data/repositories/learningRepository';
 import type { LearningObjectiveProgress } from '../../src/domain/entities/learning';
@@ -11,13 +11,14 @@ import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { LearningIllustration } from '../../src/presentation/components/LearningIllustration';
 
 export default function LearnHub(): React.JSX.Element {
+  const {paths: LEARNING_PATHS}=useLearningCatalog();
   const router = useRouter(); const insets = useSafeAreaInsets(); const db = useUserDatabase();
   const { colors, radius, typography, elevation } = useTheme();
   const [modules, setModules] = useState<LearningModuleProgress[]>([]); const [objectives, setObjectives] = useState<LearningObjectiveProgress[]>([]); const [now, setNow] = useState(0);
   const refresh = useCallback(async () => { setModules(await learningRepository.listModules(db)); setObjectives(await learningRepository.listObjectives(db)); setNow(Date.now()); }, [db]);
   useFocusEffect(useCallback(() => { void refresh(); }, [refresh]));
-  const due = useMemo(() => objectives.filter((item) => { const question = LEARNING_PATHS.flatMap(path => path.modules.flatMap(module => module.questions)).find(question => question.objectiveId === item.objectiveId); return question && (item.dueAt <= now || item.questionVersion !== question.version); }).slice(0, 8), [now, objectives]);
-  const dueTarget = useMemo(() => LEARNING_PATHS.flatMap((path) => path.modules.map((module) => ({ path, module }))).find(({ module }) => module.questions.some((question) => due.some((item) => item.objectiveId === question.objectiveId))), [due]);
+  const due = useMemo(() => objectives.filter((item) => { const question = LEARNING_PATHS.flatMap(path => path.modules.flatMap(module => module.questions)).find(question => question.objectiveId === item.objectiveId); return question && (item.dueAt <= now || item.questionVersion !== question.version); }).slice(0, 8), [now, objectives,LEARNING_PATHS]);
+  const dueTarget = useMemo(() => LEARNING_PATHS.flatMap((path) => path.modules.map((module) => ({ path, module }))).find(({ module }) => module.questions.some((question) => due.some((item) => item.objectiveId === question.objectiveId))), [due,LEARNING_PATHS]);
   const total = LEARNING_PATHS.reduce((sum, path) => sum + path.modules.length, 0);
 
   return <View style={[styles.screen, { backgroundColor: colors.background }]}><ScrollView contentContainerStyle={{ paddingTop: insets.top + 10, paddingBottom: insets.bottom + 28 }}>

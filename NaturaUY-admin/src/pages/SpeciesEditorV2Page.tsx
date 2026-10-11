@@ -74,8 +74,10 @@ export function SpeciesEditorV2Page({ id }: { id: string | null }): React.JSX.El
 
   async function lifecycleAction(): Promise<void> {
     if (!species || !confirm) return;
-    await submitLifecycleChange(species, confirm === 'retire' ? 'archived' : 'active', reason);
-    setConfirm(null); navigate('/reviews');
+    setSaving(true);setMessage('');
+    try{await submitLifecycleChange(species, confirm === 'retire' ? 'archived' : 'active', reason);setConfirm(null);navigate('/reviews');}
+    catch(error){setMessage(error instanceof Error?error.message:'No se pudo enviar el cambio de estado.');}
+    finally{setSaving(false);}
   }
 
   if (loading) return <Loading label="Abriendo ficha editorial…" />;
@@ -89,7 +91,7 @@ export function SpeciesEditorV2Page({ id }: { id: string | null }): React.JSX.El
     <section className="editor-layout">
       <aside className="editor-tabs">
         {tabs.map(([key, label]) => <button className={tab === key ? 'active' : ''} onClick={() => setTab(key)} key={key}>{key === 'history' && <History size={17} />}{label}</button>)}
-        <div className="editor-state"><small>Versión visible</small><span className="status validated">Aprobada</span><small>Editar nunca modifica la ficha publicada hasta que una solicitud sea validada.</small></div>
+        <div className="editor-state"><small>Versión visible</small><span className="status validated">{creating ? 'Alta en preparación' : species?.lifecycle === 'retired' ? 'Archivada' : 'Aprobada'}</span><small>Editar nunca modifica la ficha publicada hasta que una solicitud sea validada.</small></div>
       </aside>
       <article className="panel editor-panel">
         {tab === 'identity' && <IdentityAndTaxonomy payload={payload} catalogCode={catalogCode} setCatalogCode={setCatalogCode} patch={patch} />}
@@ -100,7 +102,7 @@ export function SpeciesEditorV2Page({ id }: { id: string | null }): React.JSX.El
         {tab !== 'history' && <label className="field full"><span>Motivo del cambio</span><input value={reason} onChange={(event) => setReason(event.target.value)} placeholder="Ej.: rectificación según fuente oficial" /></label>}
       </article>
     </section>
-    {confirm && <Modal title={confirm === 'retire' ? 'Dar de baja la especie' : 'Restaurar la especie'} onClose={() => setConfirm(null)}><p>{confirm === 'retire' ? 'La especie dejará de aparecer en la próxima publicación, pero todo su historial se conservará.' : 'La especie volverá a incluirse en el catálogo publicado.'}</p><label className="field"><span>Motivo obligatorio</span><textarea value={reason} onChange={(event) => setReason(event.target.value)} /></label><footer className="modal-actions"><button className="secondary" onClick={() => setConfirm(null)}>Cancelar</button><button className="primary" disabled={!reason.trim()} onClick={() => void lifecycleAction()}>Confirmar</button></footer></Modal>}
+    {confirm && <Modal title={confirm === 'retire' ? 'Dar de baja la especie' : 'Restaurar la especie'} onClose={() => setConfirm(null)}><p>{confirm === 'retire' ? 'La especie dejará de aparecer en la próxima publicación, pero todo su historial se conservará.' : 'La especie volverá a incluirse en el catálogo publicado.'}</p><label className="field"><span>Motivo obligatorio</span><textarea value={reason} onChange={(event) => setReason(event.target.value)} /></label><footer className="modal-actions"><button className="secondary" onClick={() => setConfirm(null)}>Cancelar</button><button className="primary" disabled={!reason.trim() || saving} onClick={() => void lifecycleAction()}>Confirmar</button></footer></Modal>}
   </>;
 }
 

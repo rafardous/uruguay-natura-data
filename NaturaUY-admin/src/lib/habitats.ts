@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-export interface HabitatRow {id:string;code:string;name:string;kind:'group'|'type'|'aggregate';family_code:string;sort_order:number;color:string;content:Record<string,unknown>;field_sources:Record<string,{name:string;url:string;year:string|null}[]>;version:number;status:string}
+export interface HabitatRow {id:string;code:string;name:string;kind:'group'|'type'|'aggregate';family_code:string;sort_order:number;color:string;game_groups:string[];content:Record<string,unknown>;field_sources:Record<string,{name:string;url:string;year:string|null}[]>;version:number;status:string}
 const client=()=>{if(!supabase)throw new Error('Supabase no está configurado');return supabase;};
 async function read(table:string,select='*',order='id') {const rows:Record<string,any>[]=[];for(let from=0;;from+=1000){let query=client().from(table).select(select).order(order);if(table==='species_habitats')query=query.order('habitat_id');if(table==='habitat_relations')query=query.order('child_id');const {data,error}=await query.range(from,from+999);if(error)throw error;rows.push(...data);if(data.length<1000)break;}return rows;}
 export async function listHabitats():Promise<HabitatRow[]> {return await read('habitats') as HabitatRow[];}

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --pretty false",
     "typecheck:automation": "tsc -p tsconfig.scripts.json --pretty false",
+    "test:editorial": "tsx scripts/test-editorial-management.ts",
     "catalog:import": "tsx scripts/import-catalog.ts",
     "catalog:curate-plants": "tsx scripts/curate-plants.ts",
     "catalog:prepare-release": "tsx scripts/prepare-release.ts",
@@ -59,6 +60,7 @@
     "wavesurfer.js": "^7.12.11"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",

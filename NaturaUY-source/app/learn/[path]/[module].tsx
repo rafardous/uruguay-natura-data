@@ -3,7 +3,7 @@ import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-na
 import { Redirect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react-native';
-import { LEARNING_PATHS, LEARNING_SOURCES } from '../../../src/content/learningContent';
+import { useLearningCatalog } from '../../../src/presentation/hooks/useLearningCatalog';
 import { useUserDatabase } from '../../../src/data/db/UserDatabaseProvider';
 import { learningRepository } from '../../../src/data/repositories/learningRepository';
 import { LearningQuestionCard } from '../../../src/presentation/components/LearningQuestionCard';
@@ -17,11 +17,13 @@ export default function LearningModuleScreen(): React.JSX.Element {
 }
 
 function LearningModuleContent({ params }: { params: { path: string; module: string } }): React.JSX.Element {
+  const {paths: LEARNING_PATHS,sources: LEARNING_SOURCES,loading:catalogLoading}=useLearningCatalog();
   const router = useRouter(); const insets = useSafeAreaInsets(); const db = useUserDatabase(); const { requestSync } = useMobileSync();
   const { colors, radius, typography } = useTheme(); const path = LEARNING_PATHS.find((item) => item.id === params.path); const module = path?.modules.find((item) => item.id === params.module);
   const [answered, setAnswered] = useState<string[]>([]); const [finished, setFinished] = useState(false);
   const [saving, setSaving] = useState(false); const [error, setError] = useState('');
   const sources = LEARNING_SOURCES.filter((source) => module?.sourceCodes.includes(source.code));
+  if(catalogLoading)return <View />;
   if (!path || !module) return <Redirect href={'/learn' as never} />;
   const moduleIndex = path.modules.findIndex(item => item.id === module.id);
   const nextModule = path.modules[moduleIndex + 1];
