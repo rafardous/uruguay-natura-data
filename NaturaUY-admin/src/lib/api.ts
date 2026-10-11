@@ -19,7 +19,11 @@ export interface SpeciesFilters {
 }
 
 function mediaUrl(path: unknown) {
-  return path ? assertClient().storage.from('media-public').getPublicUrl(String(path)).data.publicUrl : null;
+  if (!path) return null;
+  const storedPath = String(path);
+  const guide = storedPath.startsWith('guia-aves/');
+  return assertClient().storage.from(guide ? 'guia-aves' : 'media-public')
+    .getPublicUrl(guide ? storedPath.slice('guia-aves/'.length) : storedPath).data.publicUrl;
 }
 
 function resolveSpeciesImage(media: Array<Record<string, any>>) {

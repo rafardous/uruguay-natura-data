@@ -129,7 +129,7 @@ El panel se hospeda como frontend estático en Cloudflare Pages desde la rama `m
 
 Vite recibe la configuración TypeScript web explícita como cadena en `esbuild.tsconfigRaw`: las lecturas compartidas de `NaturaUY-source` no deben obligar al build del panel a resolver `expo/tsconfig.base`. Para verificar un checkout limpio, conservar el `tsconfig.json` móvil y ejecutar `npm ci` sólo en `NaturaUY-admin`; instalar Expo localmente puede ocultar este fallo.
 
-Los derivados se leen directamente desde el bucket público `media-public`; el manifest estable, desde `catalog-public/manifest.json`.
+Los derivados se leen desde `media-public`, salvo las fotos cuyo identificador editorial empieza con `guia-aves/`: pertenecen al bucket público `guia-aves` y se consultan quitando ese prefijo del nombre del objeto. El panel y el resolver `/m/*` respetan ambos buckets; no mover ni duplicar archivos para corregir una URL. El manifest estable se lee desde `catalog-public/manifest.json`.
 
 El panel sube originales únicamente a rutas reservadas por `reserve_species_media_upload`, con `upsert=false`, MIME/tamaño validados y declaración de derechos. GitHub Actions escribe los derivados con `service_role`.
 
