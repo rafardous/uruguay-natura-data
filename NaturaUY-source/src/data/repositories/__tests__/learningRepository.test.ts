@@ -15,4 +15,8 @@ describe('learning review schedule', () => {
     expect(nextLearningReview(row(1, new Date(2026, 8, 13, 9).getTime()), true, now, 1).streak).toBe(1);
   });
   it('resets mastery when the question version changes', () => expect(nextLearningReview(row(3, 1000, 1), true, 1000 + DAY, 2).streak).toBe(1));
+  it('counts the first correct answer to a new version even on the same day', () => {
+    const now = new Date(2026, 9, 11, 15).getTime();
+    expect(nextLearningReview(row(3, now - 1000, 1), true, now, 2)).toEqual({ streak: 1, dueAt: now + 3 * DAY });
+  });
 });

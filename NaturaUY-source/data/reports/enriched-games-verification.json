@@ -1,0 +1,264 @@
+{
+  "generatedAt": "2026-10-11T19:18:30.264Z",
+  "status": "production_migration_and_clues_verified",
+  "catalog": {
+    "version": 10,
+    "schema": 15,
+    "species": 1048,
+    "plants": 100,
+    "clues": 40,
+    "cluedSpecies": 8,
+    "jsonSqliteMismatches": 0,
+    "integrity": "ok",
+    "foreignKeyErrors": 0,
+    "sha256": "07e2c7748b2164847e919c324302aac16c47dfbf04f34363d3d84d8444c01755",
+    "provenance": "production_postgresql"
+  },
+  "checks": {
+    "appTypecheck": "passed",
+    "appLint": "passed",
+    "jest": {
+      "suites": 34,
+      "tests": 141,
+      "result": "passed"
+    },
+    "panelBuild": "passed",
+    "automationTypecheck": "passed",
+    "importDryRun": "passed",
+    "catalogVerification": "passed",
+    "sqlIntegration": "passed_local_postgresql_18"
+  },
+  "web": {
+    "encastrar": {
+      "completed": true,
+      "grid": 3,
+      "placed": 9,
+      "moves": 33,
+      "timeSeconds": 36,
+      "recordReadAfterReload": true,
+      "additionalGrid4": {
+        "completed": true,
+        "placed": 16,
+        "moves": 62,
+        "timeSeconds": 19,
+        "compactResult": true
+      }
+    },
+    "guessChoices": {
+      "wrongAttemptRevealsNextClue": true,
+      "wonOnAttempt": 2,
+      "score": 200,
+      "recordReadAfterReload": true
+    },
+    "guessSearch": {
+      "scientificAutocomplete": true,
+      "plantNutritionLabel": true,
+      "wonOnAttempt": 1,
+      "score": 500
+    },
+    "consoleErrors": 0
+  },
+  "pending": [
+    "android_acceptance",
+    "new_apk"
+  ],
+  "backup": {
+    "workflow": "https://github.com/rafardous/uruguay-natura-data/actions/runs/38164442217",
+    "encryptedArtifactDigestVerified": true,
+    "sha256": "6a074a9986c343962a92315df7d38195c5f1f94756e84fd08b635695d815d0d9"
+  },
+  "production": {
+    "projectId": "xbnbfekcxrkgteuijbzh",
+    "verifiedAt": "2026-10-11T19:18:16.204Z",
+    "migration": {
+      "version": "20261011191403",
+      "name": "enriched_games",
+      "result": "applied"
+    },
+    "rls": true,
+    "clues": 40,
+    "counts": [
+      {
+        "count": 948,
+        "status": "active",
+        "kingdom": "Animalia"
+      },
+      {
+        "count": 100,
+        "status": "active",
+        "kingdom": "Plantae"
+      },
+      {
+        "count": 3057,
+        "status": "archived",
+        "kingdom": "Plantae"
+      }
+    ],
+    "record_rows": 0,
+    "clued_species": 8,
+    "sources_valid": true,
+    "approved_changes": 40,
+    "complete_species": [
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "D_novemcin"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "F_rufus"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "H_hydrocha"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "plant-erythrina-crista-galli"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "plant-salix-humboldtiana"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "R_american"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "S_magellan"
+      },
+      {
+        "clues": 5,
+        "kinds": [
+          "habitat",
+          "diet",
+          "behavior",
+          "appearance",
+          "decisive"
+        ],
+        "positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "catalog_code": "V_chilensi"
+      }
+    ],
+    "anon_sync_execute": false,
+    "anon_records_execute": false,
+    "public_rpc_security_invoker": true,
+    "authenticated_direct_clue_insert": false,
+    "authenticated_direct_record_insert": false,
+    "emptySyncAndEditorialRead": "passed_transaction_rolled_back",
+    "securityAdvisors": {
+      "newFindings": 0,
+      "before": 41,
+      "after": 40,
+      "removed": [
+        "authenticated_security_definer_function_executable"
+      ]
+    },
+    "seedTransaction": "committed_via_submit_and_review_rpcs",
+    "seedTextMismatches": 0
+  }
+}

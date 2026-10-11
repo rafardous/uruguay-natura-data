@@ -1,5 +1,7 @@
 # Arapy · App móvil
 
+En desarrollo: Puzzle incorpora Encastrar (arrastrar/rotar, 3 × 3 y 4 × 4) y Adiviá ofrece cinco pistas progresivas con buscador u opciones. Sus récords funcionan offline y quedan separados por modalidad, selección y cuenta. La migración y las 40 pistas están aplicadas en producción; la vista previa se deriva de PostgreSQL. La aceptación Android y un APK nuevo quedan pendientes. Ver [games.md](docs/games.md).
+
 Catálogo offline de biodiversidad de Uruguay, desarrollado con Expo y React Native. La fuente editorial es PostgreSQL en Supabase; los JSON de `data/catalog/` y `assets/db/natura.db` son derivados publicados.
 
 El catálogo incluido v9/schema 14 contiene 1048 especies: 948 animales y las 100 plantas de `data/raw/curated-plants/seed-100.json`. Las otras 3057 plantas y sus revisiones permanecen archivadas en Supabase. Los registros históricos y candidatos externos se conservan para auditoría; no alimentan un catálogo alternativo.
@@ -49,6 +51,7 @@ El publicador genera las paletas desde las fotos principales aprobadas. No edita
 - Las fichas animales comparten tamaño, abundancia, presencia, alimentación y apartados ecológicos separados. Las plantas mantienen su ficha botánica.
 - Los nombres alternativos se abren al tocar; las fuentes científicas se consultan en tres puntitos → Fuentes.
 - Las tarjetas de juegos muestran nombre e ilustración. Las reglas y la descripción se muestran al entrar.
+- Aprender incluye 21 lecturas revisadas para niñas y niños, 47 preguntas e ilustraciones del catálogo. No muestra tiempos estimados; las descripciones se leen dentro de cada recorrido. Contrato de contenido, fotos y preservación de progreso en [learning.md](docs/learning.md).
 
 ## Android
 

@@ -75,6 +75,15 @@ jobs:
           dist/catalog/quality-report.json
           --title "Catálogo Arapy v${DATA_VERSION}"
           --notes "Publicación manual del catálogo editorial aprobado."
+      - name: Adjuntar ambientes cuando el esquema los incluya
+        if: steps.prepare.outputs.should_publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATA_VERSION: ${{ steps.metadata.outputs.data_version }}
+        run: |
+          if [ -f dist/catalog/habitats.json ]; then
+            gh release upload "catalog-v${DATA_VERSION}" dist/catalog/habitats.json
+          fi
       - name: Finalizar manifiesto estable
         if: steps.prepare.outputs.should_publish == 'true'
         env:

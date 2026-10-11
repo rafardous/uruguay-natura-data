@@ -24,6 +24,7 @@ const COVER_SPECIES_CODES = ['O_bezoarti', 'S_magellan', 'P_coronata'] as const;
 const GAME_CARD_HEIGHT = 140;
 
 const GAMES = [
+  { id: 'guess', route: '/game/guess', title: 'Adiviá', colors: ['#84659E', '#644A82', '#48365E'] as const },
   { id: 'trivia', route: '/game/trivia-setup', title: 'Trivia', colors: ['#2F7280', '#214F65', '#283E62'] as const },
   { id: 'puzzle', route: '/game/puzzle-setup', title: 'Puzzle', colors: ['#B56B3E', '#8D4D3A', '#633847'] as const },
   { id: 'classify', route: '/game/classify', title: 'Clasificar', colors: ['#66805B', '#4D684D', '#344F48'] as const },
@@ -125,7 +126,7 @@ function GameCover({ game, species, onPress }: { game: (typeof GAMES)[number]; s
           <View style={styles.gameCopy}>
             <Text style={[typography.display, styles.gameTitle]}>{game.title}</Text>
           </View>
-          {game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : game.id === 'classify' ? <ClassifyArt /> : <HabitatArt />}
+          {game.id === 'guess' ? <View style={styles.triviaArt}><Text style={{fontSize:72,color:'#FFFFFF',fontWeight:'700'}}>?</Text><Text style={{color:'#FFFFFF'}}>5 pistas</Text></View> : game.id === 'trivia' ? <TriviaArt species={species} /> : game.id === 'puzzle' ? <PuzzleArt species={species} /> : game.id === 'classify' ? <ClassifyArt /> : <HabitatArt />}
         </LinearGradient>
       </Pressable>
     </View>
@@ -169,7 +170,7 @@ export default function GamesScreen(): React.JSX.Element {
           <IdentifyCover species={coverSpecies} onPress={() => { haptics.press(); router.push('/game/identify-modes' as never); }} />
         </View>
         <View style={{ paddingHorizontal: spacing.lg, marginTop: spacing.md, gap: spacing.md }}>
-          {GAMES.map((game, index) => <GameCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} onPress={() => { haptics.press(); router.push(game.route); }} />)}
+          {GAMES.map((game, index) => <GameCover key={game.id} game={game} species={coverSpecies[(index + 1) % Math.max(coverSpecies.length, 1)]} onPress={() => { haptics.press(); router.push(game.route as never); }} />)}
         </View>
       </Animated.ScrollView>
       <AppDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />

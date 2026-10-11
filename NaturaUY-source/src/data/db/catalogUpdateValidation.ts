@@ -7,6 +7,7 @@ export function assertCatalogTables(schemaVersion: number, tables: string[]): vo
   const required = ['species', 'meta', 'taxa', 'species_taxa', 'taxon_names', 'taxon_closure', 'species_media', 'learning_paths'];
   const missing = required.filter((table) => !tables.includes(table));
   if (missing.length) throw new Error(`catalog_tables_missing:${missing.join(',')}`);
+  if(schemaVersion>=15){const habitatTables=['habitats','habitat_relations','habitat_aliases','species_habitats','habitat_metrics','habitat_media'];const absent=habitatTables.filter(table=>!tables.includes(table));if(absent.length)throw new Error(`catalog_tables_missing:${absent.join(',')}`);}
 }
 
 export function assertCatalogDownload(input: {

@@ -1,4 +1,5 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
+import { ENRICHED_RECORDS_SQL } from './enrichedGameRepository';
 
 const ACCOUNT_TABLES_SQL = `
 CREATE TABLE IF NOT EXISTS account_favorites (owner_id TEXT NOT NULL, codigo TEXT NOT NULL, created_at INTEGER NOT NULL, PRIMARY KEY (owner_id, codigo));
@@ -17,6 +18,7 @@ CREATE TABLE IF NOT EXISTS account_learning_objective_progress (owner_id TEXT NO
  */
 export async function activateLocalAccount(db: SQLiteDatabase, ownerId: string): Promise<boolean> {
   await db.execAsync(ACCOUNT_TABLES_SQL);
+  await db.execAsync(ENRICHED_RECORDS_SQL);
   const current = await db.getFirstAsync<{ value: string }>(
     "SELECT value FROM settings WHERE key = 'sync.active_owner_id' LIMIT 1",
   );
@@ -34,6 +36,10 @@ export async function activateLocalAccount(db: SQLiteDatabase, ownerId: string):
 
   await db.withTransactionAsync(async () => {
     const previous = current.value;
+    await db.runAsync('DELETE FROM account_enriched_game_records WHERE owner_id=?', [previous]);
+    await db.runAsync('INSERT INTO account_enriched_game_records SELECT ?, mode, scope, best_score, best_time_ms, fewest_moves, played_at, updated_at FROM enriched_game_records', [previous]);
+    await db.runAsync('DELETE FROM enriched_game_records');
+    await db.runAsync('INSERT INTO enriched_game_records SELECT mode, scope, best_score, best_time_ms, fewest_moves, played_at, updated_at FROM account_enriched_game_records WHERE owner_id=?', [ownerId]);
     for (const table of ['account_favorites', 'account_favorite_sync', 'account_quiz_records', 'account_quiz_sync', 'account_game_sync', 'account_puzzle_records', 'account_learning_module_progress', 'account_learning_objective_progress']) {
       await db.runAsync(`DELETE FROM ${table} WHERE owner_id = ?`, [previous]);
     }

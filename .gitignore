@@ -26,6 +26,7 @@ NaturaUY-source/scripts/out/
 NaturaUY-source/data/raw/traits/*
 !NaturaUY-source/data/raw/traits/README.md
 NaturaUY-source/assets/audio/
+NaturaUY-source/assets/images/habitats/
 
 # Local configuration and secrets
 .env

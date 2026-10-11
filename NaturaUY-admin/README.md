@@ -1,5 +1,7 @@
 # Arapy · Panel editorial
 
+Las pistas de Adiviá se administran en Contenido y juegos mediante propuestas y revisión. La migración `20261011191403_enriched_games.sql` está aplicada en producción desde el 11/10/2026; las 40 pistas de ocho especies quedaron aprobadas y auditadas, con autorización específica y respaldo verificado. La vista previa se deriva de esos datos; el catálogo público y el APK continúan en v9/1.3.1. Contrato, puntajes y progreso offline en [games.md](../NaturaUY-source/docs/games.md).
+
 Panel privado para mantener el catálogo aprobado de Arapy. Supabase conserva identidades, permisos, fichas actuales, solicitudes y auditoría. GitHub Actions procesa medios y genera los artefactos públicos; Supabase Storage sirve derivados y el manifiesto estable. El repositorio, dominio e identificadores internos conservan nombres anteriores por compatibilidad.
 
 Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/códigos estables e historial editorial. El procedimiento está en [AVES_AZPIROZ_2003.md](../NaturaUY-source/data/AVES_AZPIROZ_2003.md). Schema 13/14 ya están aplicados; Arapy 1.3.1/build 7 incluye el catálogo público v9.
@@ -15,6 +17,7 @@ Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/có
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
 - La publicación genera SQLite/JSON/manifest con schema 14. Separa `measurements` y `ecology`, normaliza conservación y conserva el árbol taxonómico, fuentes por campo, galería, trivia y Aprender.
 - Las migraciones de Aprender (schema 13), modelo biológico (schema 14) y compatibilidad de medios están aplicadas en Supabase. La galería toma su imagen principal de `species_media.is_primary`; no existe `species.primary_image_id`.
+- La revisión móvil de Aprender en desarrollo conserva los 21 módulos bootstrap y agrega lecturas para niñas y niños, 47 preguntas e ilustraciones con fotos del catálogo. No modifica PostgreSQL ni publica derivados. Compatibilidad de contenido y progreso en [learning.md](../NaturaUY-source/docs/learning.md).
 - La taxonomía publicada contempla `Arthropoda`, `Arachnida`, `Insecta` y `Malacostraca`. Catalogue of Life y WoRMS llegan como candidatos revisables; BOLD queda limitado a cobertura molecular y no alimenta texto ni medios.
 - `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
 - Abundancia experta (`species.abundance_status`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. La abundancia admite también `fairly_common` (BC) y `rare` (R) de Azpiroz, exige fuente editorial y nunca se deriva de observaciones automáticas. Dificultad, reglas por juego, curiosidades y trivia pasan por `content_changes`.

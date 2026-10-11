@@ -114,6 +114,7 @@ export interface SpeciesMeasurement {
 }
 export interface SpeciesEcology {
   habitats: string[];
+  habitatGameGroups?: string[];
   diet: string[];
   lifeModes: string[];
   activity: string[];

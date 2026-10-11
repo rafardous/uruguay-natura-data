@@ -14,6 +14,7 @@ import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { haptics } from '../../src/presentation/haptics';
 import { puzzleRepository } from '../../src/data/repositories/puzzleRepository';
 import { PUZZLE_SCOPES, type PuzzleRecord } from '../../src/domain/entities/puzzle';
+import { enrichedGameRepository, type EnrichedGameRecord } from '../../src/data/repositories/enrichedGameRepository';
 import { useMobileSync } from '../../src/sync/MobileSyncProvider';
 
 const MODES: QuizMode[] = ['classic', 'timed', 'survival', 'naming'];
@@ -30,12 +31,14 @@ export default function RecordsScreen(): React.JSX.Element {
   const [records, setRecords] = useState<Record<string, QuizRecord>>({});
   const [leaderboards, setLeaderboards] = useState<Partial<Record<QuizMode, LeaderboardEntry[]>>>({});
   const [loadingGlobal, setLoadingGlobal] = useState(false);
+  const [extraRecords,setExtraRecords]=useState<EnrichedGameRecord[]>([]);
   const [puzzleRecords, setPuzzleRecords] = useState<PuzzleRecord[]>([]);
 
   const load = useCallback(() => {
     void revision;
     void quizRepository.listRecords(db).then(setRecords);
     void puzzleRepository.list(db).then(setPuzzleRecords);
+    void enrichedGameRepository.list(db).then(setExtraRecords);
     if (!configured) return;
     setLoadingGlobal(true);
     void Promise.all(MODES.map(async (mode) => [mode, await getQuizLeaderboard(mode, scope, level)] as const))
@@ -60,6 +63,7 @@ export default function RecordsScreen(): React.JSX.Element {
         const rows = leaderboards[mode] ?? []; const Icon = ICONS[mode];
         return <View key={mode} style={[styles.ranking, elevation.low, { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg }]}><View style={styles.rankingTitle}><Icon color={colors.play} /><Text style={[typography.cardTitle, { color: colors.text }]}>{QUIZ_MODES[mode].title}</Text></View>{rows.length === 0 ? <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.md }]}>Todavía no hay puntajes públicos.</Text> : rows.slice(0, 10).map((entry) => <View key={`${mode}-${entry.position}-${entry.publicAlias}`} style={[styles.rankRow, { borderTopColor: colors.border }]}><Text style={[typography.label, { color: colors.play, width: 28 }]}>{entry.position}</Text><Text style={[typography.body, styles.flex, { color: colors.text }]}>{entry.publicAlias}</Text><Text style={[typography.label, { color: colors.text }]}>{entry.bestScore}</Text></View>)}</View>;
       })}
+      {view==='personal'&&<><Text style={[typography.cardTitle,{color:colors.text}]}>Adiviá y Encastrar</Text>{extraRecords.filter(record=>record.scope===`${scope}:${level}`||record.scope.startsWith(`${scope}:${level}:`)).map(record=><View key={`${record.mode}-${record.scope}`} style={[styles.card,{backgroundColor:colors.surface,borderRadius:radius.lg,padding:spacing.lg}]}><View style={styles.flex}><Text style={[typography.cardTitle,{color:colors.text}]}>{record.mode==='jigsaw'?`Encastrar ${record.scope.split(':')[2]} × ${record.scope.split(':')[2]}`:record.mode==='guess_search'?'Adiviá · Buscador':'Adiviá · Opciones'}</Text><Text style={[typography.caption,{color:colors.textMuted}]}>{record.mode==='jigsaw'?`Mejor tiempo ${Math.round(record.best_time_ms/1000)} s · ${record.fewest_moves} movimientos`:`Mejor puntaje ${record.best_score}`}</Text></View></View>)}</>}
       <Text style={[typography.caption, { color: colors.textMuted, textAlign: 'center', marginTop: spacing.md }]}>{view === 'personal' ? 'Tus récords permanecen disponibles offline y se respaldan al iniciar sesión.' : 'El ranking muestra sólo el alias público elegido por cada persona.'}</Text>
     </ScrollView>
   </View>;

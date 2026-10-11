@@ -10,6 +10,7 @@ export interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  accessibilityLabel?: string;
   onSubmit?: () => void;
   collapseOffset?: SharedValue<number>;
   onFocusChange?: (focused: boolean) => void;
@@ -17,7 +18,7 @@ export interface SearchBarProps {
   variant?: 'gradient' | 'surface';
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Buscar una especie', onSubmit, collapseOffset, onFocusChange, onLayout, variant = 'gradient' }: SearchBarProps): React.JSX.Element {
+export function SearchBar({ value, onChange, placeholder = 'Buscar una especie', accessibilityLabel = 'Buscar especies', onSubmit, collapseOffset, onFocusChange, onLayout, variant = 'gradient' }: SearchBarProps): React.JSX.Element {
   const { colors, radius, typography } = useTheme();
   const [focused, setFocused] = useState(false);
   const compactStyle = useAnimatedStyle(() => {
@@ -58,7 +59,7 @@ export function SearchBar({ value, onChange, placeholder = 'Buscar una especie',
         onSubmitEditing={onSubmit}
         onFocus={() => { setFocused(true); onFocusChange?.(true); }}
         onBlur={() => { setFocused(false); onFocusChange?.(false); }}
-        accessibilityLabel="Buscar especies"
+        accessibilityLabel={accessibilityLabel}
         style={[typography.body, styles.input, { color: colors.text }]}
       />
 

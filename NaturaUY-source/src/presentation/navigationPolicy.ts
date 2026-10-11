@@ -11,7 +11,7 @@ export function navigationTabForPath(pathname: string): MainTab | undefined {
   if (pathname === '/' || pathname === '/index' || pathname === '/(tabs)' || pathname === '/(tabs)/index') return 'index';
   if (
     pathname === '/explore' || pathname === '/(tabs)/explore' || pathname === '/taxonomy'
-    || pathname === '/species' || pathname === '/favorites'
+    || pathname === '/species' || pathname === '/favorites' || pathname.startsWith('/habitats')
   ) return 'explore';
   if (pathname === '/games' || pathname === '/(tabs)/games') return 'games';
   return undefined;

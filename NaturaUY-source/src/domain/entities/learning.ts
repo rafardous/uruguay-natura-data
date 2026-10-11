@@ -12,6 +12,14 @@ export interface LearningBlock {
   title: string;
   body: string;
   callout?: string;
+  illustration?: LearningIllustration;
+}
+
+/** Fotos del catálogo y pasos de lectura; las flechas sólo se usan en secuencias. */
+export interface LearningIllustration {
+  title: string;
+  layout: 'compare' | 'sequence';
+  items: { label: string; speciesCode?: string; caption?: string }[];
 }
 
 export interface LearningQuestion {
@@ -30,7 +38,9 @@ export interface LearningQuestion {
 export interface LearningModule {
   id: string;
   title: string;
-  minutes: number;
+  /** Compatibilidad con documentos editoriales anteriores; no se muestra en la UI. */
+  minutes?: number;
+  contentVersion?: number;
   hook: string;
   blocks: LearningBlock[];
   questions: LearningQuestion[];
@@ -44,6 +54,7 @@ export interface LearningPath {
   description: string;
   color: string;
   icon: string;
+  illustration?: LearningIllustration;
   modules: LearningModule[];
 }
 

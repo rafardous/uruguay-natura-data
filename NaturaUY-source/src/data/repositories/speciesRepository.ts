@@ -31,6 +31,7 @@ export interface SpeciesFilters {
   onlyWithRelevantNote?: boolean;
   classes?: string[];
   habitats?: string[];
+  habitatId?: string;
   diets?: string[];
   seasonalities?: string[];
   metamorphoses?: string[];
@@ -78,12 +79,13 @@ interface BuiltQuery {
   params: (string | number)[];
 }
 
-async function supportsSchema14(db: SQLiteDatabase): Promise<boolean> {
-  const row = await db.getFirstAsync<{ n:number }>("SELECT COUNT(*) AS n FROM pragma_table_info('species') WHERE name='ecology'");
-  return (row?.n ?? 0) === 1;
+async function catalogCapabilities(db: SQLiteDatabase) {
+  const row = await db.getFirstAsync<{ n:number; has_habitats:number }>("SELECT COUNT(*) AS n, (SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='habitats') AS has_habitats FROM pragma_table_info('species') WHERE name='ecology'");
+  return {schema14:(row?.n??0)===1,schema15:(row?.has_habitats??0)===1};
 }
+async function supportsSchema14(db: SQLiteDatabase):Promise<boolean> {return (await catalogCapabilities(db)).schema14;}
 
-function buildQuery(filters: SpeciesFilters, schema14: boolean): BuiltQuery {
+function buildQuery(filters: SpeciesFilters, schema14: boolean, schema15=false): BuiltQuery {
   const clauses: string[] = [];
   const params: (string | number)[] = [];
   let joins = '';
@@ -131,6 +133,12 @@ function buildQuery(filters: SpeciesFilters, schema14: boolean): BuiltQuery {
     params.push(filters.taxonId);
   }
   if (filters.onlyWithPhoto) clauses.push('species.image_url IS NOT NULL');
+  if (filters.habitatId) {
+    clauses.push(`EXISTS (WITH RECURSIVE selected_habitats(id) AS (
+      SELECT ? UNION SELECT r.child_id FROM habitat_relations r JOIN selected_habitats s ON r.parent_id=s.id
+    ) SELECT 1 FROM species_habitats sh JOIN selected_habitats h ON h.id=sh.habitat_id WHERE sh.stable_id=species.stable_id)`);
+    params.push(filters.habitatId);
+  }
   if (filters.onlyWithRelevantNote) clauses.push("species.relevant_note IS NOT NULL AND TRIM(species.relevant_note) <> ''");
 
   const addIn = (column: string, values?: string[]): void => {
@@ -153,7 +161,13 @@ function buildQuery(filters: SpeciesFilters, schema14: boolean): BuiltQuery {
   };
   addEcologyArray('$.trophicRoles', "json_extract(species.natural_history,'$.arthropod.ecology.trophicRole')", filters.trophicRoles);
   addEcologyArray('$.microhabitats', "json_extract(species.natural_history,'$.arthropod.ecology.microhabitat')", filters.microhabitats);
-  addEcologyArray('$.habitats', 'species.habitat', filters.habitats);
+  if(schema15&&filters.habitats?.length) {
+    clauses.push(`EXISTS (WITH RECURSIVE selected_habitats(id) AS (
+      SELECT id FROM habitats WHERE code IN (${filters.habitats.map(()=>'?').join(',')})
+      UNION SELECT r.child_id FROM habitat_relations r JOIN selected_habitats s ON r.parent_id=s.id
+    ) SELECT 1 FROM species_habitats sh JOIN selected_habitats h ON h.id=sh.habitat_id WHERE sh.stable_id=species.stable_id)`);
+    params.push(...filters.habitats);
+  } else addEcologyArray('$.habitats', 'species.habitat', filters.habitats);
   addEcologyArray('$.diet', 'species.diet', filters.diets);
 
   return {
@@ -207,7 +221,8 @@ export const speciesRepository = {
     limit: number,
     offset: number,
   ): Promise<Page<Species>> {
-    const { where, joins, params } = buildQuery(filters, await supportsSchema14(db));
+    const capabilities=await catalogCapabilities(db);
+    const { where, joins, params } = buildQuery(filters, capabilities.schema14, capabilities.schema15);
 
     // Fetch one extra row to learn whether another page exists, which avoids a
     // second COUNT query on every scroll.
@@ -223,7 +238,8 @@ export const speciesRepository = {
   },
 
   async count(db: SQLiteDatabase, filters: SpeciesFilters): Promise<number> {
-    const { where, joins, params } = buildQuery(filters, await supportsSchema14(db));
+    const capabilities=await catalogCapabilities(db);
+    const { where, joins, params } = buildQuery(filters, capabilities.schema14, capabilities.schema15);
     const row = await db.getFirstAsync<{ n: number }>(
       `SELECT COUNT(*) AS n FROM species ${joins} ${where}`,
       params,

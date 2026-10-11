@@ -6,6 +6,7 @@ import { Chip } from './Chip';
 import { CloseIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
 import { haptics } from '../haptics';
+import { knownHabitatLabel } from '../../domain/catalogLabels';
 
 export interface SpeciesSelection {
   classes: string[];
@@ -43,7 +44,7 @@ export const speciesSelectionCount = (selection: SpeciesSelection): number => (
 
 export const friendlyFilterValue = (value: string): string => (
   ({ migratory: 'Migratoria', resident: 'Residente', summer_visitor: 'Visitante estival', incomplete: 'Incompleta', complete: 'Completa', none: 'Sin metamorfosis', variable: 'Variable' }[value]
-    ?? value.replaceAll('_', ' '))
+    ?? knownHabitatLabel(value) ?? value.replaceAll('_', ' '))
 );
 
 function Group({ title, values, selected, change }: { title: string; values: string[]; selected: string[]; change: (value: string) => void }): React.JSX.Element | null {

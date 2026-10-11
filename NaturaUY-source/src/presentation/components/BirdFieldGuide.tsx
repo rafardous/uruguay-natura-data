@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { BirdNaturalHistory, Species } from '../../domain/entities/species';
-import { abundanceLabel, dietLabel, habitatLabel, seasonalityLabel } from '../../domain/catalogLabels';
+import { abundanceLabel, dietLabel, seasonalityLabel } from '../../domain/catalogLabels';
 import { BIRD_ABUNDANCE, BIRD_DIETS, BIRD_HABITATS, birdMeasureLabel, formatBirdMeasure } from '../../domain/services/birdGuide';
 import { formatSpeciesMeasurement } from '../../domain/services/measurementFormatting';
 import { CloseIcon, InfoIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
 import { BirdEcologyDetails, BirdObservability, BirdTechnicalMeasures } from './BirdSpeciesDetails';
 import { SpeciesEcologyTags } from './SpeciesEcologyTags';
+import { SpeciesHabitatTags } from './SpeciesHabitatTags';
 
 const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SET','OCT','NOV','DIC'];
 const MONTH_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
@@ -19,7 +20,7 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
   const [sizeInfo, setSizeInfo] = useState(false);
   const [presenceInfo, setPresenceInfo] = useState(false);
   const abundance = bird.abundanceCode ? BIRD_ABUNDANCE[bird.abundanceCode] : species.abundanceStatus ? abundanceLabel(species.abundanceStatus) : null;
-  const habitats = bird.habitat.length ? bird.habitat.map((code) => BIRD_HABITATS[code] ?? code) : [...species.ecology.habitats.map(habitatLabel), ...species.ecology.vegetationFormations];
+  const habitats = species.ecology.habitats.length ? species.ecology.habitats : bird.habitat.map((code) => BIRD_HABITATS[code] ?? code);
   const diets = bird.diet.length ? bird.diet.map((code) => BIRD_DIETS[code] ?? code) : species.ecology.diet.map(dietLabel);
   return <View style={{ marginTop: abundance ? spacing.sm : spacing.lg }}>
     {abundance && <View accessible accessibilityLabel={`Especie ${abundance.toLocaleLowerCase('es')}`} style={[styles.abundance, { marginBottom: spacing.sm }]}>
@@ -45,7 +46,7 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
       </>}
       {presenceInfo && <Text style={[typography.body, { color: colors.textSecondary }]}>{bird.presence ? `${bird.presence.note}${bird.presence.outsidePeriod ? ' Puede observarse fuera del período habitual.' : ''}\nReferencia histórica de 2003; no indica la probabilidad actual de avistamiento.` : 'Estacionalidad del catálogo, de otras fuentes.'}</Text>}
     </View>}
-    <SpeciesEcologyTags title="Dónde vive" values={habitats} accent={accent} container={container} foreground={foreground} />
+    <SpeciesHabitatTags values={habitats} accent={accent} container={container} foreground={foreground} />
     <SpeciesEcologyTags title="Qué come" values={diets} accent={accent} container={container} foreground={foreground} />
     <BirdEcologyDetails species={species} accent={accent} container={container} foreground={foreground} />
     <BirdObservability species={species} />

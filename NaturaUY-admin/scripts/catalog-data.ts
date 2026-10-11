@@ -21,6 +21,7 @@ export interface CatalogRecord {
   gameProfile: DatabaseRow | null;
   gameRules: DatabaseRow[];
   facts: DatabaseRow[];
+  gameClues?: DatabaseRow[];
   catalogSources: DatabaseRow[];
 }
 
@@ -53,7 +54,8 @@ async function fetchAll(table: string, select = '*', filter?: [string, string | 
   const client = adminClient();
   const result: DatabaseRow[] = [];
   for (let from = 0; ; from += 1000) {
-    let query = client.from(table).select(select).order(table === 'taxa' ? 'taxon_id' : ['species_taxa', 'species_game_profiles'].includes(table) ? 'species_id' : 'id');
+    let query = client.from(table).select(select).order(['taxa','taxon_names'].includes(table) ? 'taxon_id' : ['species_taxa', 'species_game_profiles'].includes(table) ? 'species_id' : 'id');
+    if(table==='taxon_names')query=query.order('name').order('language').order('name_type');
     if (table === 'species_taxa') query = query.order('taxon_id');
     if (table === 'learning_paths') query = query.order('version');
     if (filter) query = query.eq(filter[0], filter[1]);
@@ -110,10 +112,10 @@ function resolveImageUrl(
 }
 
 export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
-  const [speciesRows, mediaRows, conservationRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources] = await Promise.all([
+  const [speciesRows, mediaRows, conservationRows, observabilityRows, gameProfiles, gameRules, facts, catalogSources, gameClues] = await Promise.all([
     fetchAll('species', '*', ['status', 'active']), fetchAll('species_media', '*', ['status', 'approved']), fetchAll('species_conservation_assessments', '*', ['is_current', true]),
     fetchAll('species_observability_snapshots'), fetchAll('species_game_profiles'),
-    fetchAll('species_game_rules'), fetchAll('species_facts', '*', ['active', true]), fetchAll('catalog_sources'),
+    fetchAll('species_game_rules'), fetchAll('species_facts', '*', ['active', true]), fetchAll('catalog_sources'), fetchAll('species_game_clues', '*', ['active', true]),
   ]);
   const approved = mediaRows.filter((row) => row.status === 'approved' && row.storage_path);
   const mediaBySpecies = groupBy(approved, 'species_id');
@@ -121,6 +123,7 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
   const observabilityBySpecies = groupBy(observabilityRows, 'species_id');
   const profilesBySpecies = groupBy(gameProfiles, 'species_id');
   const rulesBySpecies = groupBy(gameRules, 'species_id');
+  const cluesBySpecies = groupBy(gameClues.filter(clue=>catalogSources.some(source=>source.id===clue.source_id&&source.active&&source.use_policy==='redistributable')), 'species_id');
   const factsBySpecies = groupBy(facts, 'species_id');
 
   const seed = JSON.parse(readFileSync(resolve(import.meta.dirname, '../../NaturaUY-source/data/raw/curated-plants/seed-100.json'), 'utf8'));
@@ -146,6 +149,7 @@ export async function loadApprovedCatalog(): Promise<CatalogRecord[]> {
         observability,
         gameProfile: profilesBySpecies.get(species.id)?.[0] ?? null,
         gameRules: rulesBySpecies.get(species.id) ?? [],
+        gameClues: (cluesBySpecies.get(species.id) ?? []).sort((a,b)=>a.sort_order-b.sort_order),
         facts: (factsBySpecies.get(species.id) ?? []).filter((row) => row.active)
           .sort((a, b) => Number(a.sort_order) - Number(b.sort_order)),
         catalogSources,
@@ -284,6 +288,7 @@ export function serializeCatalogRecord(record: CatalogRecord) {
     } : null,
     game: {
       knowledgeLevel: record.gameProfile?.knowledge_level ?? 'hard',
+      clues: (record.gameClues??[]).map(clue=>({id:clue.id,kind:clue.kind,body:clue.body,sortOrder:clue.sort_order,sourceCode:sourcesById.get(String(clue.source_id))?.code??null})),
       rules: record.gameRules.map((rule) => ({ gameKey: rule.game_key, enabled: rule.enabled, minKnowledgeLevel: rule.min_knowledge_level })),
     },
     facts: record.facts.map((fact) => ({

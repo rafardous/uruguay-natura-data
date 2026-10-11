@@ -26,7 +26,7 @@ const sameLocalDay = (a: number, b: number) => new Date(a).toDateString() === ne
 export function nextLearningReview(previous: ObjectiveRow | null, correct: boolean, now: number, version: number) {
   if (!correct) return { streak: 0, dueAt: now + DAY };
   const previousStreak = previous?.question_version === version ? previous.correct_streak : 0;
-  const streak = previous && previous.last_result === 1 && sameLocalDay(previous.last_answered_at, now)
+  const streak = previous && previous.question_version === version && previous.last_result === 1 && sameLocalDay(previous.last_answered_at, now)
     ? previousStreak
     : Math.min(3, previousStreak + 1);
   const delay = streak >= 3 ? 45 * DAY : streak === 2 ? 14 * DAY : 3 * DAY;

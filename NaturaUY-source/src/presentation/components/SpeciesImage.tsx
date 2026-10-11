@@ -16,6 +16,7 @@ export interface SpeciesImageProps {
   transition?: number;
   borderRadius?: number;
   bordered?: boolean;
+  contentFit?: 'cover' | 'contain';
 }
 
 /** La clave reinicia el estado al reciclar una fila para otra foto. */
@@ -27,7 +28,7 @@ export const SpeciesImage = memo(function SpeciesImage(props: SpeciesImageProps)
 
 function ImageContent({
   species, height = 190, glyphSize = 56, style, transition = 0,
-  borderRadius = 0, bordered = true, remote,
+  borderRadius = 0, bordered = true, contentFit = 'cover', remote,
 }: SpeciesImageProps & { remote?: string | null }): React.JSX.Element {
   const { colors } = useTheme();
   const [failed, setFailed] = useState(false);
@@ -42,7 +43,7 @@ function ImageContent({
       </View>
       {source !== null && source !== undefined && <Image
         source={source}
-        contentFit="cover"
+        contentFit={contentFit}
         transition={transition}
         cachePolicy="memory-disk"
         recyclingKey={species.codigo + ':' + (remote ?? '')}

@@ -1,0 +1,7 @@
+import { useEffect, useState } from 'react';
+import { listHabitats, type HabitatRow } from '../lib/habitats';
+export function HabitatSelector({value,onChange}:{value:string[];onChange(value:string[]):void}) {
+  const [items,setItems]=useState<HabitatRow[]>([]);const [error,setError]=useState('');const [query,setQuery]=useState('');
+  useEffect(()=>{let active=true;void listHabitats().then(rows=>{if(active)setItems(rows.filter(h=>h.status==='approved'));}).catch((e:Error)=>{if(active)setError(e.message);});return()=>{active=false;};},[]);
+  return <div className="field full"><span>Ambientes documentados</span><input placeholder="Buscar un ambiente" value={query} onChange={e=>setQuery(e.target.value)}/>{error&&<p role="alert">No se pudo cargar el catálogo: {error}</p>}<div style={{maxHeight:220,overflowY:'auto',display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:8}}>{items.filter(h=>h.name.toLocaleLowerCase('es').includes(query.toLocaleLowerCase('es'))||value.includes(h.code)).sort((a,b)=>a.name.localeCompare(b.name,'es')).map(h=><label key={h.id} style={{display:'flex',alignItems:'center',gap:8}}><input type="checkbox" checked={value.includes(h.code)} onChange={e=>onChange(e.target.checked?[...value,h.code]:value.filter(v=>v!==h.code))}/>{h.name}{h.kind==='aggregate'?' (amplio)':''}</label>)}</div><small>Elegí sólo el grado de precisión que respalde la fuente. Seleccionar un grupo no selecciona sus subtipos.</small></div>;
+}

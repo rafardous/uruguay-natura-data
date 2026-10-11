@@ -17,7 +17,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import type { Species } from '../../src/domain/entities/species';
-import { dietLabel, habitatLabel } from '../../src/domain/catalogLabels';
+import { dietLabel } from '../../src/domain/catalogLabels';
+import { SpeciesHabitatTags } from '../../src/presentation/components/SpeciesHabitatTags';
 import {
   speciesRepository,
   type TaxonRank,
@@ -409,7 +410,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
               <View>
                 <View style={[styles.traits, { backgroundColor: '#F3F5F4', borderWidth: 1, borderColor: '#E1E7E3', borderRadius: radius.lg, marginTop: spacing.lg }]}>
                   <Text style={[typography.label, { color: palette.accent }]}>Ecología</Text>
-                  <SpeciesEcologyTags title="Dónde vive" values={[...ecology.habitats.map(habitatLabel), ...ecology.vegetationFormations]} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
+                  <SpeciesHabitatTags values={ecology.habitats} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
                   <SpeciesEcologyTags title="Qué come" values={ecology.diet.map(dietLabel)} accent={palette.accent} container={palette.container} foreground={palette.onContainer} />
                   {ecology.lifeModes.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Modo de vida: {ecology.lifeModes.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}
                   {ecology.activity.length > 0 && <Text style={[typography.body, { color: colors.textSecondary, marginTop: 6 }]}>Actividad: {ecology.activity.map((item) => TRAIT_LABELS[item] ?? item).join(' · ')}</Text>}

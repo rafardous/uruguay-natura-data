@@ -1,0 +1,681 @@
+[
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Arbustal",
+    "habitatCodes": [
+      "matorrales"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Bañado",
+    "habitatCodes": [
+      "banado"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Bosque",
+    "habitatCodes": [
+      "monte_nativo"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Parque",
+    "habitatCodes": [
+      "monte_parque",
+      "algarrobal"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Palmar",
+    "habitatCodes": [
+      "palmar"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Pradera de relieve plano",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Pradera de relieve ondulado",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Pradera de relieve serrano",
+    "habitatCodes": [
+      "pastizales",
+      "sierras_roquedales"
+    ],
+    "decision": "grouped",
+    "note": "PPR 2011, sección 5.1. Se agrupan combinaciones de pendiente, suelo, drenaje, hidromorfismo, salinidad y rocosidad; equivalencia editorial no significa identidad cartográfica."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Pastizales",
+    "habitatCodes": [
+      "pastizales",
+      "pastizal_seco",
+      "pastizal_mesofilo",
+      "pastizal_inundable",
+      "pastizal_arbolado"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/comunicacion/publicaciones/estrategia-nacional-bosque-nativo/3-diagnostico/31-situacion-del-bosque",
+    "referenceClass": "Montes nativos y palmares",
+    "habitatCodes": [
+      "montes_palmares",
+      "monte_ribereno",
+      "monte_serrano",
+      "monte_quebrada",
+      "monte_higrofilo",
+      "monte_psamofilo",
+      "monte_parque",
+      "algarrobal",
+      "palmar",
+      "palmar_butia",
+      "palmar_yatay"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Matorrales",
+    "habitatCodes": [
+      "matorrales",
+      "matorral_seco",
+      "matorral_mesofilo",
+      "matorral_psamofilo"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Humedales",
+    "habitatCodes": [
+      "humedales",
+      "banado",
+      "estero",
+      "pajonal",
+      "juncal",
+      "totoral",
+      "herbazal_hidrofilo",
+      "humedal_salobre",
+      "turbera"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Aguas continentales",
+    "habitatCodes": [
+      "aguas_continentales",
+      "rio",
+      "arroyo",
+      "laguna_interior",
+      "charca_temporal",
+      "embalse"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/INFORME-FINAL-Mayo2024-1.pdf",
+    "referenceClass": "Costas y mar",
+    "habitatCodes": [
+      "costas_mar",
+      "playa_arena",
+      "duna",
+      "herbazal_psamofilo",
+      "costa_rocosa",
+      "laguna_costera",
+      "estuario",
+      "mar_costero",
+      "mar_abierto",
+      "fondo_marino"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Sierras y roquedales",
+    "habitatCodes": [
+      "sierras_roquedales",
+      "roquedal_interior",
+      "paredon"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Ambientes transformados",
+    "habitatCodes": [
+      "transformados",
+      "cultivo",
+      "forestacion",
+      "urbano_suburbano",
+      "ruderal"
+    ],
+    "decision": "covered",
+    "note": "Síntesis educativa; no equivale a todas las unidades cartográficas del sistema de referencia."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Unidades por pendiente, suelo y relieve",
+    "habitatCodes": [],
+    "decision": "grouped",
+    "note": "Se describen como condiciones físicas; no se crean fichas para cada combinación cartográfica."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/INFORME-FINAL-Mayo2024-1.pdf",
+    "referenceClass": "Hábitats marinos vulnerables y comunidades profundas",
+    "habitatCodes": [
+      "fondo_marino"
+    ],
+    "decision": "grouped",
+    "note": "Cobertura amplia; detalle de bancos, corales y ambientes quimiosintéticos pendiente de fichas específicas."
+  },
+  {
+    "reference": "https://vidasilvestre.org.uy/wp-content/uploads/2012/05/Sistema-de-Clasificacion-de-ambientes.pdf",
+    "referenceClass": "Dulce y salobre",
+    "habitatCodes": [],
+    "decision": "condition",
+    "note": "Se conserva como ambientes acuáticos freshwater y brackish; no es una unidad de paisaje."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "F: estuarios",
+    "habitatCodes": [
+      "estuario"
+    ],
+    "decision": "covered",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Xf: humedales boscosos de agua dulce",
+    "habitatCodes": [
+      "monte_ribereno",
+      "monte_higrofilo"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "M: ríos y arroyos permanentes",
+    "habitatCodes": [
+      "rio",
+      "arroyo"
+    ],
+    "decision": "covered",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "L: deltas interiores",
+    "habitatCodes": [
+      "aguas_continentales"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Ts: pantanos, esteros y charcas temporales",
+    "habitatCodes": [
+      "banado",
+      "estero",
+      "charca_temporal"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Tp: pantanos, esteros y charcas permanentes",
+    "habitatCodes": [
+      "banado",
+      "estero"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "H: pantanos y esteros",
+    "habitatCodes": [
+      "humedal_salobre",
+      "estero"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Sp: pantanos, esteros y charcas salinos o salobres",
+    "habitatCodes": [
+      "humedal_salobre"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "6: áreas de almacenamiento de agua",
+    "habitatCodes": [
+      "embalse"
+    ],
+    "decision": "covered",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "2: estanques artificiales",
+    "habitatCodes": [
+      "embalse"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Modificado: humedales transformados para uso productivo",
+    "habitatCodes": [
+      "cultivo",
+      "transformados"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "J: lagunas costeras salobres o saladas",
+    "habitatCodes": [
+      "laguna_costera"
+    ],
+    "decision": "covered",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "O: lagos permanentes de agua dulce",
+    "habitatCodes": [
+      "laguna_interior"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "P: lagos temporales de agua dulce",
+    "habitatCodes": [
+      "charca_temporal",
+      "laguna_interior"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "E1: playas marinas de arena o guijarros",
+    "habitatCodes": [
+      "playa_arena",
+      "costa_rocosa"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "E2: playas continentales",
+    "habitatCodes": [
+      "aguas_continentales"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/uploads/2017/07/Informe-Humedales-Uruguay.pdf",
+    "referenceClass": "Islas: islas marinas",
+    "habitatCodes": [
+      "islas_oceano",
+      "costa_rocosa"
+    ],
+    "decision": "grouped",
+    "note": "Tabla 2 del informe de 2014. Equivalencia editorial, sin convertir permanencia o salinidad en una inferencia sobre especies."
+  },
+  {
+    "reference": "https://www.ambiente.gub.uy/oan/documentos/INFORME-FINAL-Mayo2024-1.pdf",
+    "referenceClass": "Bancos de moluscos, corales de aguas frías y ambientes quimiosintéticos",
+    "habitatCodes": [
+      "fondo_marino"
+    ],
+    "decision": "pending",
+    "note": "Representados sólo por la agrupación fondos marinos; faltan fichas especializadas y evidencia de distribución por comunidad."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Matorral y bosque costero",
+    "habitatCodes": [
+      "matorral_psamofilo",
+      "monte_psamofilo"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Bosque fluvial",
+    "habitatCodes": [
+      "monte_ribereno"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Bosque serrano",
+    "habitatCodes": [
+      "monte_serrano"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Bosque de quebrada",
+    "habitatCodes": [
+      "monte_quebrada"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Bosque parque",
+    "habitatCodes": [
+      "monte_parque"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Palmares de Butia",
+    "habitatCodes": [
+      "palmar_butia"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Palmares de Yatay",
+    "habitatCodes": [
+      "palmar_yatay"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales sobre afloramientos rocosos",
+    "habitatCodes": [
+      "pastizal_seco",
+      "roquedal_interior"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Puntas rocosas",
+    "habitatCodes": [
+      "costa_rocosa"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Arenales",
+    "habitatCodes": [
+      "duna",
+      "herbazal_psamofilo"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Playa arenosa costera",
+    "habitatCodes": [
+      "playa_arena"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Dunas y arenales costeros",
+    "habitatCodes": [
+      "duna"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Áreas inundables",
+    "habitatCodes": [
+      "pastizal_inundable",
+      "banado"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Lagunas costeras",
+    "habitatCodes": [
+      "laguna_costera"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Lagos y pequeñas lagunas",
+    "habitatCodes": [
+      "laguna_interior",
+      "charca_temporal"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Cañadas y arroyos",
+    "habitatCodes": [
+      "arroyo"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Ríos",
+    "habitatCodes": [
+      "rio"
+    ],
+    "decision": "covered",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Islas fluviales",
+    "habitatCodes": [
+      "aguas_continentales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Islas del Río de la Plata y Océano Atlántico",
+    "habitatCodes": [
+      "islas_oceano"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 1–19. Islas fluviales y arenales interiores se incluyen a escala amplia; sus comunidades no se deducen de la forma del terreno."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Cuesta Basáltica",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Colinas y Lomadas del Este",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Cuenca Sedimentaria del Noreste",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Cuenca Sedimentaria del Suroeste",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Cuenca Sedimentaria del Litoral Oeste y Región Centro Sur",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Sistema de Planicies y Fosa de Laguna Merín",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Sierras del Este e Isla Cristalina de Rivera",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Retroceso de Frente de Cuesta",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de baja productividad: Fosa Tectónica del Santa Lucía",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 20–28. Productividad y unidad geomorfológica no se convierten automáticamente en humedad ni asociaciones específicas."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de alta productividad: Cuesta Basáltica, Cuenca Sedimentaria del Suroeste y Planicies de Laguna Merín",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 29–32. La guía conserva el nivel amplio; no sustituye los polígonos de la referencia."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de alta productividad: Colinas y Lomadas del Este y Cuenca Sedimentaria del Litoral Oeste",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 29–32. La guía conserva el nivel amplio; no sustituye los polígonos de la referencia."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de alta productividad: Cuenca Sedimentaria del Noreste, Fosa Tectónica del Santa Lucía y Región Centro Sur",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 29–32. La guía conserva el nivel amplio; no sustituye los polígonos de la referencia."
+  },
+  {
+    "reference": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/DT_20.pdf",
+    "referenceClass": "Pastizales de alta productividad: Retroceso del Frente de Cuesta, Sierras del Este e Isla Cristalina de Rivera",
+    "habitatCodes": [
+      "pastizales"
+    ],
+    "decision": "grouped",
+    "note": "DT20, tabla 3, clases 29–32. La guía conserva el nivel amplio; no sustituye los polígonos de la referencia."
+  }
+]

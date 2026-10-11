@@ -16,6 +16,8 @@ if (!releaseId) {
     client.from('species_media').select('processed_at').eq('status', 'approved').order('processed_at', { ascending: false }).limit(1).maybeSingle(),
     client.from('species_observability_snapshots').select('generated_at').order('generated_at', { ascending: false }).limit(1).maybeSingle(),
     client.from('taxon_content').select('updated_at').order('updated_at', { ascending: false }).limit(1).maybeSingle(),
+    client.from('habitat_revisions').select('created_at').order('created_at', { ascending: false }).limit(1).maybeSingle(),
+    client.from('habitat_revisions').select('created_at').order('created_at', { ascending: false }).limit(1).maybeSingle(),
   ]);
   const { data: latestPublished, error: publishedError } = publishedResult;
   const dirtyError = changes.find((result) => result.error)?.error;

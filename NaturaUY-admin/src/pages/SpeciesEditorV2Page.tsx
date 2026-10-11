@@ -7,6 +7,7 @@ import { Empty, Loading, Modal, Notice, PageHeader } from '../components/Ui';
 import { emptySpeciesPayload, type Revision, type SpeciesNaturalHistoryPayload, type SpeciesPayload, type SpeciesSummary } from '../domain';
 import { findOwnPendingCreateRequest, getSpecies, saveSpecies, submitLifecycleChange } from '../lib/api';
 import { navigate } from '../lib/router';
+import { HabitatSelector } from '../components/HabitatSelector';
 
 type Tab = 'identity' | 'content' | 'conservation' | 'sources' | 'history';
 const tabs: Array<[Tab, string]> = [
@@ -158,12 +159,12 @@ function EcologyEditor({ payload, patch }: EditorSectionProps): React.JSX.Elemen
   const source = (label: string, path: string) => <Field label={`Fuente · ${label}`} value={(payload.fieldSources[path] ?? []).join(', ')} onChange={(value) => patch('fieldSources', { ...payload.fieldSources, [path]: split(value) })} hint="Código registrado y, si corresponde, ID del registro" />;
   const controlled = (label: string, key: 'lifeModes'|'activity'|'aquaticEnvironments'|'waterZones', options: Array<readonly [string,string]>) => <MultiSelectField label={label} values={payload.ecology[key]} options={options} onChange={(values) => update(key, values)} />;
   if (payload.taxonomy.kingdom === 'Plantae') return <FormSection title="Ambientes" detail="Hábitats y formaciones vegetales requieren fuente por campo."><div className="form-grid three">
-    <Field label="Hábitats" value={payload.ecology.habitats.join(', ')} onChange={(value) => update('habitats', split(value))} />
+    <HabitatSelector value={payload.ecology.habitats} onChange={(value)=>update('habitats',value)} />
     <Field label="Formaciones vegetales" value={payload.ecology.vegetationFormations.join(', ')} onChange={(value) => update('vegetationFormations', split(value))} />
     {source('Hábitats','ecology.habitats')}{source('Formaciones vegetales','ecology.vegetationFormations')}
   </div></FormSection>;
   return <FormSection title="Ecología" detail="Los campos ecológicos se publican separados del tamaño y con rutas de fuente propias."><div className="form-grid three">
-    <Field label="Hábitats" value={payload.ecology.habitats.join(', ')} onChange={(value) => update('habitats', split(value))} />
+    <HabitatSelector value={payload.ecology.habitats} onChange={(value)=>update('habitats',value)} />
     <Field label="Alimentación" value={payload.ecology.diet.join(', ')} onChange={(value) => update('diet', split(value))} />
     {controlled('Modo de vida','lifeModes',[['terrestrial','Terrestre'],['arboreal','Arborícola'],['aquatic','Acuático'],['aerial','Aéreo'],['fossorial','Fosorial'],['perching','Posador'],['generalist','Generalista']])}
     {controlled('Actividad','activity',[['diurnal','Diurna'],['nocturnal','Nocturna'],['both','Diurna y nocturna']])}

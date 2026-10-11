@@ -271,7 +271,13 @@ export async function listApprovedImages(speciesId?:string):Promise<ApprovedImag
   return (data??[]).map((row:any)=>({id:row.id,speciesId:row.species_id,label:`${row.species?.common_name??'Especie'} · ${row.author} · ${row.source}`}));
 }
 
-export async function submitContentChange(input: { contentType: 'game_profile'|'game_rule'|'fact'|'trivia'|'taxon_content'; entityId?: string|null; speciesId?: string|null; operation?: 'upsert'|'archive'; values: Record<string, unknown>; comment?: string }): Promise<string> {
+export interface GameClueRow { id:string; kind:'habitat'|'diet'|'behavior'|'appearance'|'decisive'; body:string; sortOrder:number; sourceId:string; sourceRecordId:string|null }
+export async function listGameClues(speciesId:string):Promise<GameClueRow[]> {
+  const {data,error}=await assertClient().from('species_game_clues').select('id,kind,body,sort_order,source_id,source_record_id').eq('species_id',speciesId).eq('active',true).order('sort_order');
+  if(error)throw error;
+  return (data??[]).map(row=>({id:row.id,kind:row.kind,body:row.body,sortOrder:row.sort_order,sourceId:row.source_id,sourceRecordId:row.source_record_id}));
+}
+export async function submitContentChange(input: { contentType: 'game_profile'|'game_rule'|'game_clue'|'fact'|'trivia'|'taxon_content'; entityId?: string|null; speciesId?: string|null; operation?: 'upsert'|'archive'; values: Record<string, unknown>; comment?: string }): Promise<string> {
   const { data, error } = await assertClient().rpc('submit_content_change', { p_content_type: input.contentType, p_entity_id: input.entityId ?? null, p_species_id: input.speciesId ?? null, p_operation: input.operation ?? 'upsert', p_proposed_values: input.values, p_comment: input.comment ?? null });
   if (error) throw error;
   return String(data);

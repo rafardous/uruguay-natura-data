@@ -1,0 +1,284 @@
+{
+  "active": 1048,
+  "identityChanges": 0,
+  "historicalChanges": 0,
+  "lostGameAnswers": 0,
+  "coverage": {
+    "grouped": 43,
+    "covered": 24,
+    "condition": 1,
+    "pending": 1
+  },
+  "photosCovered": 12,
+  "photosMissing": [
+    {
+      "code": "humedal",
+      "name": "Humedales"
+    },
+    {
+      "code": "mar_abierto",
+      "name": "Mar abierto"
+    },
+    {
+      "code": "palmar",
+      "name": "Palmar"
+    },
+    {
+      "code": "ambientes_acuaticos",
+      "name": "Ambientes acuáticos"
+    },
+    {
+      "code": "pastizal_mesofilo",
+      "name": "Pastizal mesófilo"
+    },
+    {
+      "code": "pastizal_arbolado",
+      "name": "Pastizal con árboles"
+    },
+    {
+      "code": "pajonal",
+      "name": "Pajonal"
+    },
+    {
+      "code": "palmar_butia",
+      "name": "Palmar de butiá"
+    },
+    {
+      "code": "monte_higrofilo",
+      "name": "Monte higrófilo"
+    },
+    {
+      "code": "monte_psamofilo",
+      "name": "Monte psamófilo"
+    },
+    {
+      "code": "estero",
+      "name": "Estero"
+    },
+    {
+      "code": "herbazal_hidrofilo",
+      "name": "Herbazal hidrófilo"
+    },
+    {
+      "code": "fondo_marino",
+      "name": "Fondos marinos"
+    },
+    {
+      "code": "laguna_costera",
+      "name": "Laguna costera"
+    },
+    {
+      "code": "embalse",
+      "name": "Embalse y tajamar"
+    },
+    {
+      "code": "matorral",
+      "name": "Matorrales"
+    },
+    {
+      "code": "roquedal_sierras",
+      "name": "Roquedales y sierras"
+    },
+    {
+      "code": "forestacion",
+      "name": "Forestaciones"
+    },
+    {
+      "code": "laguna_interior",
+      "name": "Laguna interior"
+    },
+    {
+      "code": "costa_rocosa",
+      "name": "Costa rocosa"
+    },
+    {
+      "code": "estuario",
+      "name": "Estuario"
+    },
+    {
+      "code": "algarrobal",
+      "name": "Algarrobal"
+    },
+    {
+      "code": "pastizal_seco",
+      "name": "Pastizal seco"
+    },
+    {
+      "code": "monte_quebrada",
+      "name": "Monte de quebrada"
+    },
+    {
+      "code": "matorral_mesofilo",
+      "name": "Matorral mesófilo"
+    },
+    {
+      "code": "monte_nativo",
+      "name": "Monte nativo"
+    },
+    {
+      "code": "matorral_psamofilo",
+      "name": "Matorral psamófilo"
+    },
+    {
+      "code": "matorral_seco",
+      "name": "Matorral xerófilo"
+    },
+    {
+      "code": "pastizal_inundable",
+      "name": "Pastizal inundable"
+    },
+    {
+      "code": "bosques_palmares",
+      "name": "Bosques autóctonos y palmares"
+    },
+    {
+      "code": "roquedal_interior",
+      "name": "Roquedal interior"
+    },
+    {
+      "code": "monte_serrano",
+      "name": "Monte serrano"
+    },
+    {
+      "code": "islas_oceano",
+      "name": "Islas y océano"
+    },
+    {
+      "code": "monte_parque",
+      "name": "Monte parque"
+    },
+    {
+      "code": "matorrales",
+      "name": "Matorrales"
+    },
+    {
+      "code": "paredon",
+      "name": "Paredón rocoso"
+    },
+    {
+      "code": "banado",
+      "name": "Bañado"
+    },
+    {
+      "code": "montes_palmares",
+      "name": "Montes nativos y palmares"
+    },
+    {
+      "code": "turbera",
+      "name": "Turbera"
+    },
+    {
+      "code": "charca_temporal",
+      "name": "Charca temporal"
+    },
+    {
+      "code": "arroyo",
+      "name": "Arroyo y cañada"
+    },
+    {
+      "code": "totoral",
+      "name": "Totoral"
+    },
+    {
+      "code": "humedales",
+      "name": "Humedales"
+    },
+    {
+      "code": "cultivo",
+      "name": "Cultivos y chacras"
+    },
+    {
+      "code": "herbazal_psamofilo",
+      "name": "Herbazal psamófilo"
+    },
+    {
+      "code": "sierras_roquedales",
+      "name": "Sierras y roquedales"
+    },
+    {
+      "code": "monte_ribereno",
+      "name": "Monte ribereño"
+    },
+    {
+      "code": "laguna_estero",
+      "name": "Lagunas y esteros"
+    },
+    {
+      "code": "humedal_salobre",
+      "name": "Humedal salobre y herbazal halófilo"
+    },
+    {
+      "code": "ruderal",
+      "name": "Ambientes ruderales"
+    },
+    {
+      "code": "agroecosistema",
+      "name": "Agroecosistemas"
+    },
+    {
+      "code": "palmar_yatay",
+      "name": "Palmar de yatay"
+    },
+    {
+      "code": "juncal",
+      "name": "Juncal"
+    }
+  ],
+  "placesMissing": [
+    "mar_costero",
+    "humedal",
+    "mar_abierto",
+    "urbano_suburbano",
+    "ambientes_acuaticos",
+    "pastizal_mesofilo",
+    "pastizal_arbolado",
+    "pajonal",
+    "monte_higrofilo",
+    "monte_psamofilo",
+    "playa_arena",
+    "herbazal_hidrofilo",
+    "fondo_marino",
+    "matorral",
+    "roquedal_sierras",
+    "forestacion",
+    "rio_arroyo",
+    "algarrobal",
+    "pastizal_seco",
+    "matorral_mesofilo",
+    "monte_nativo",
+    "matorral_psamofilo",
+    "matorral_seco",
+    "costa_playa_dunas",
+    "bosques_palmares",
+    "islas_oceano",
+    "monte_parque",
+    "matorrales",
+    "paredon",
+    "turbera",
+    "charca_temporal",
+    "arroyo",
+    "totoral",
+    "transformados",
+    "cultivo",
+    "herbazal_psamofilo",
+    "laguna_estero",
+    "humedal_salobre",
+    "ruderal",
+    "agroecosistema",
+    "pastizal_campo_natural",
+    "palmar_yatay",
+    "juncal"
+  ],
+  "manifest": {
+    "data_version": 9,
+    "schema_version": 14,
+    "published_at": "2026-10-10T19:04:58.211Z",
+    "database_url": "https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/natura.db",
+    "compressed_database_url": "https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/natura.db.gz",
+    "compressed_size": 1818921,
+    "database_size": 19599360,
+    "sha256": "25e396dbb8eabce6112168ddb5bb9e16475e71049cd98b2baf395e00f1f1918a",
+    "min_app_version": "1.3.1",
+    "quality_report_url": "https://github.com/rafardous/uruguay-natura-data/releases/download/catalog-v9/quality-report.json"
+  }
+}

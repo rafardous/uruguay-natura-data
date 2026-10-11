@@ -26,10 +26,12 @@ import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { COLLAPSIBLE_HEADER_EXPANDED, spacing as space } from '../../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 import { useDebouncedValue } from '../../src/shared/hooks/useDebouncedValue';
+import { useHabitatCatalog } from '../../src/presentation/hooks/useHabitatCatalog';
 
 const ROW_HEIGHT = CARD_HEIGHT + space.lg;
 
 export default function ExploreScreen(): React.JSX.Element {
+  useHabitatCatalog();
   const db = useSQLiteContext(); const router = useRouter(); const insets = useSafeAreaInsets();
   const { colors, radius, spacing, typography, elevation } = useTheme(); const { isFavorite, toggle: toggleFavorite } = useFavorites();
   const params = useLocalSearchParams<{ native?: string; priority?: string; clase?: string; q?: string; all?: string }>();
@@ -81,6 +83,7 @@ export default function ExploreScreen(): React.JSX.Element {
     />
     {!canShowResults ? <Animated.ScrollView onScroll={(event) => { scrollY.value = event.nativeEvent.contentOffset.y; }} scrollEventThrottle={16} contentContainerStyle={{ paddingTop: COLLAPSIBLE_HEADER_EXPANDED + insets.top, paddingHorizontal: spacing.lg, gap: spacing.md, paddingBottom: bottom }} showsVerticalScrollIndicator={false}>
       {taxonomyCard}
+      <Pressable onPress={()=>router.push('/habitats' as never)} accessibilityRole="button" accessibilityLabel="Explorar Ambientes de Uruguay" style={[styles.featureCard,elevation.low,{backgroundColor:'#DDEAF0',borderColor:'#AECBD5',borderRadius:radius.lg}]}><View style={[styles.featureAccent,{backgroundColor:'#397986'}]}/><View style={[styles.featureIcon,{backgroundColor:'#BBD8E1',borderRadius:radius.md}]}><Text style={{fontSize:44,color:'#397986'}}>≈</Text></View><View style={styles.flex}><Text style={[typography.cardTitle,{color:'#285A65'}]}>Ambientes de Uruguay</Text><Text style={[typography.caption,{color:'#496D77',marginTop:3}]}>Recorré paisajes y descubrí qué especies los habitan</Text></View><ChevronRightIcon color="#397986"/></Pressable>
       <Pressable onPress={() => { haptics.tap(); router.push('/species' as never); }} style={[styles.featureCard, elevation.low, { backgroundColor: '#E3ECD9', borderColor: '#AEC29F', borderRadius: radius.lg }]}>
         <View style={[styles.featureAccent, { backgroundColor: '#52705A' }]} /><View style={[styles.featureIcon, { backgroundColor: '#C7DABE', borderRadius: radius.md }]}><SpeciesLensArt species={discoverSpecies} /></View><View style={styles.flex}><Text style={[typography.cardTitle, { color: '#304C3A' }]}>Ver todas las especies</Text><Text style={[typography.caption, { color: '#526559', marginTop: 3 }]}>Catálogo completo con filtros y búsqueda</Text></View><ChevronRightIcon color="#41634B" />
       </Pressable>

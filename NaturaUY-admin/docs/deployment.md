@@ -1,5 +1,13 @@
 # Despliegue y cutover
 
+## Juegos en desarrollo — 11/10/2026
+
+La migración `20261011191403_enriched_games.sql` agrega pistas editoriales y RPCs privadas de récords para Adiviá/Encastrar. Está aplicada en `xbnbfekcxrkgteuijbzh` desde el 11/10/2026, luego de autorización específica y pruebas en PostgreSQL local. El respaldo cifrado del workflow `38164442217` fue descargado y su digest comprobado antes del cambio. Se conservaron 1048 especies activas (948 animales/100 plantas) y 3057 plantas archivadas.
+
+`npx tsx scripts/seed-guess-clues.ts` genera SQL sin aplicarlo. Las 40 pistas se propusieron y aprobaron en una transacción bajo un editor autorizado, con `request.jwt.claims` configurado; cada pista conserva evidencia y valores auditados. El generador es idempotente para textos iguales y rechaza sobrescribir pistas diferentes. Se verificaron RLS, permisos, lectura editorial y sincronización vacía con rollback; los asesores no informaron hallazgos nuevos. Regenerar con `catalog:preview`, comprobar el informe y usar `catalog:install-preview` sólo para desarrollo; nunca guardar credenciales en Git. La vista previa actual proviene íntegramente de PostgreSQL de producción. El manifiesto remoto y el APK publicado siguen en v9/1.3.1.
+
+El catálogo exporta `species_game_clues` y `game.clues`; los lectores anteriores ignoran la tabla adicional. El estado `dirty` utiliza las revisiones aprobadas existentes. Los nuevos récords se sincronizan por `sync_enriched_game_records` / `get_enriched_game_records`, con RLS por cuenta; no alteran Puzzle deslizante ni sus récords. Ver [games.md](../../NaturaUY-source/docs/games.md). No ejecutar el build de Vite al mismo tiempo que el publicador.
+
 Proyecto Supabase objetivo: `xbnbfekcxrkgteuijbzh`. El panel productivo está publicado en `https://uruguay-natura-data.pages.dev`. No guardar secretos en Git ni en archivos versionados.
 
 ## 1. Preflight y respaldo
@@ -120,6 +128,8 @@ El panel sube originales únicamente a rutas reservadas por `reserve_species_med
 La publicación es manual y admin-only. El Release contiene únicamente DB, DB comprimida, JSON públicos, manifest e informe. `build-metadata.json` no se adjunta.
 
 ## 6. Mobile y piloto
+
+La revisión de Aprender en desarrollo (octubre de 2026) cambia lecturas y UI bootstrap, sin migración ni importación editorial. Conserva 21 IDs de módulos, agrega preguntas y sólo incrementa la versión de `tax-purpose`. Verificar reintentos, avance entre módulos, fotos del catálogo y conservación de progreso según [learning.md](../../NaturaUY-source/docs/learning.md). No forma parte del APK ya publicado; necesita una actualización de la app.
 
 El enriquecimiento Azpiroz usa `natural_history.bird` y conserva fuentes por campo. Consultar `../../NaturaUY-source/data/AVES_AZPIROZ_2003.md`. El publicador y `prepare-release` usan schema 14/min app 1.3.1; la versión debe superar tanto la remota como la incluida. Arapy 1.3.1 incluye el catálogo público data_version 9. Sólo cargar fichas y medios aprobados; validar 100 plantas, 432 perfiles, 309 vínculos familiares y 594 fotos antes de publicar.
 

@@ -1,0 +1,66 @@
+[
+  {
+    "codes": [
+      "rio",
+      "aguas_continentales",
+      "rio_arroyo"
+    ],
+    "location": "Departamento de Río Negro, Uruguay; vista del río hacia Soriano",
+    "caption": "Río Negro en el paisaje rural. La imagen no documenta un subtipo de monte ni un régimen de inundación.",
+    "title": "File:Paisaje del departamento de Río Negro.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paisaje_del_departamento_de_R%C3%ADo_Negro.jpg",
+    "author": "Mx. Granger",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "reviewedAt": "2026-10-11",
+    "reviewNote": "Metadatos de Commons y miniatura verificados individualmente: lugar uruguayo explícito, pertinencia visual y licencia exacta."
+  },
+  {
+    "codes": [
+      "pastizales",
+      "pastizal_campo_natural"
+    ],
+    "location": "Departamento de Rocha, Uruguay",
+    "caption": "Paisaje abierto de Rocha con tapiz herbáceo y arbolado. La foto no permite distinguir el régimen de humedad del pastizal.",
+    "title": "File:Paisaje del departamento de Rocha.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paisaje_del_departamento_de_Rocha.jpg",
+    "author": "Mx. Granger",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "reviewedAt": "2026-10-11",
+    "reviewNote": "Metadatos de Commons y miniatura verificados individualmente: lugar uruguayo explícito, pertinencia visual y licencia exacta."
+  },
+  {
+    "codes": [
+      "costas_mar",
+      "costa_playa_dunas",
+      "duna",
+      "playa_arena",
+      "mar_costero"
+    ],
+    "location": "Barra de Valizas, Rocha, Uruguay",
+    "caption": "Arena, dunas y Océano Atlántico en Barra de Valizas.",
+    "title": "File:Barra de Valizas banner.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barra_de_Valizas_banner.jpg",
+    "author": "Luciajimena1990",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "reviewedAt": "2026-10-11",
+    "reviewNote": "Metadatos de Commons y miniatura verificados individualmente: lugar uruguayo explícito, pertinencia visual y licencia exacta."
+  },
+  {
+    "codes": [
+      "transformados",
+      "urbano_suburbano"
+    ],
+    "location": "Barrio Prado, Montevideo, Uruguay",
+    "caption": "Calle, arbolado y edificaciones en el Prado de Montevideo, junto a la iglesia de los Carmelitas.",
+    "title": "File:Iglesia de los Carmelitas Montevideo.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iglesia_de_los_Carmelitas_Montevideo.JPG",
+    "author": "Ypsilon from Finland",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "reviewedAt": "2026-10-11",
+    "reviewNote": "Metadatos de Commons y miniatura verificados individualmente: lugar uruguayo explícito, pertinencia visual y licencia exacta."
+  }
+]

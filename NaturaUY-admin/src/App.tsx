@@ -15,6 +15,7 @@ const SpeciesListPage = lazy(() => import('./pages/SpeciesListPage').then((modul
 const UsersPage = lazy(() => import('./pages/UsersPage').then((module) => ({ default: module.UsersPage })));
 const CatalogContentPage = lazy(() => import('./pages/CatalogContentPage').then((module) => ({ default: module.CatalogContentPage })));
 const NewsPage = lazy(() => import('./pages/NewsPage').then((module) => ({ default: module.NewsPage })));
+const HabitatsPage = lazy(() => import('./pages/HabitatsPage').then((module) => ({ default: module.HabitatsPage })));
 
 function Router(): React.JSX.Element {
   const path = usePathname(); const { loading, profile, configurationError, accessDenied } = useAuth();
@@ -24,6 +25,8 @@ function Router(): React.JSX.Element {
   let page: React.JSX.Element;
   if (path === '/') page = <DashboardPage />;
   else if (path === '/species') page = <SpeciesListPage />;
+  else if (path === '/habitats') page = <HabitatsPage />;
+  else if (/^\/habitats\/[^/]+$/.test(path)) page = <HabitatsPage id={decodeURIComponent(path.split('/')[2]??'')} />;
   else if (path === '/species/new') page = <SpeciesEditorV2Page id={null} />;
   else if (path === '/content') page = <CatalogContentPage />;
   else if (/^\/species\/[^/]+$/.test(path)) page = <SpeciesEditorV2Page id={decodeURIComponent(path.split('/')[2] ?? '')} />;

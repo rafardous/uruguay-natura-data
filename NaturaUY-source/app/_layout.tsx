@@ -10,7 +10,9 @@ import { SQLiteProvider } from 'expo-sqlite';
 import { BlurTargetView } from 'expo-blur';
 
 import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/CatalogUpdateProvider';
-import { prepareCatalogDatabase, SUPPORTED_CATALOG_SCHEMA } from '../src/data/db/catalogUpdater';
+import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
+import { BUNDLED_CATALOG_VERSION } from '../src/data/db/bundledCatalogVersion';
+import { HabitatCatalogProvider } from '../src/presentation/hooks/useHabitatCatalog';
 import { CATALOG_DATABASE_NAME } from '../src/data/db/schema';
 import { UserDatabaseProvider } from '../src/data/db/UserDatabaseProvider';
 import { LONG_LIVED_DATABASE_OPTIONS } from '../src/data/db/sqliteOpenOptions';
@@ -90,6 +92,7 @@ function Navigator(): React.JSX.Element {
           <Stack.Screen name="game/categories" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/records" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/puzzle-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
+          <Stack.Screen name="game/guess" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/puzzle" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/trivia-setup" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
           <Stack.Screen name="game/trivia" options={{ animation: 'fade_from_bottom', animationDuration: 180 }} />
@@ -142,7 +145,7 @@ export default function RootLayout(): React.JSX.Element | null {
   // part of the web filename so a new bundled schema gets a fresh database
   // without overwriting a file that an HMR worker may still have open.
   const catalogDatabaseName = Platform.OS === 'web'
-    ? `natura.web.schema-${SUPPORTED_CATALOG_SCHEMA}.db`
+    ? `natura.web.schema-${BUNDLED_CATALOG_VERSION.schema}.v-${BUNDLED_CATALOG_VERSION.data}.db`
     : CATALOG_DATABASE_NAME;
   const catalogAssetSource = {
     assetId: BUNDLED_CATALOG_ASSET_ID,
@@ -204,7 +207,7 @@ export default function RootLayout(): React.JSX.Element | null {
             options={LONG_LIVED_DATABASE_OPTIONS}
             onError={handleDatabaseError}
           >
-            <CatalogUpdateProvider>
+              <HabitatCatalogProvider><CatalogUpdateProvider>
               <CatalogUpdateNotice />
               <UserDatabaseProvider>
                 <ThemeProvider>
@@ -221,7 +224,7 @@ export default function RootLayout(): React.JSX.Element | null {
                   </MobileAuthProvider>
                 </ThemeProvider>
               </UserDatabaseProvider>
-            </CatalogUpdateProvider>
+              </CatalogUpdateProvider></HabitatCatalogProvider>
           </SQLiteProvider>
         ))}
         </StartupExperience>

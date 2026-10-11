@@ -43,6 +43,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -66,7 +67,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -233,6 +235,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -256,7 +259,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -389,6 +393,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -412,7 +417,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -578,6 +584,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -601,7 +608,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -768,6 +776,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -791,7 +800,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -924,6 +934,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -947,7 +958,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1080,6 +1092,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1103,7 +1116,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1236,6 +1250,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1259,7 +1274,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1392,6 +1408,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1415,7 +1432,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1548,6 +1566,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1571,7 +1590,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1704,6 +1724,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1727,7 +1748,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1860,6 +1882,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1883,7 +1906,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2049,6 +2073,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2072,7 +2097,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2205,6 +2231,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2228,7 +2255,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2361,6 +2389,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2384,7 +2413,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2517,6 +2547,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2540,7 +2571,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2673,6 +2705,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2696,7 +2729,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2862,6 +2896,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2885,7 +2920,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3018,6 +3054,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3041,7 +3078,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3207,6 +3245,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3230,7 +3269,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3396,6 +3436,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3419,7 +3460,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3585,6 +3627,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3608,7 +3651,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3741,6 +3785,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3764,7 +3809,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3897,6 +3943,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -3920,7 +3967,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4053,6 +4101,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4076,7 +4125,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4242,6 +4292,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4265,7 +4316,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4398,6 +4450,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4421,7 +4474,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4554,6 +4608,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4577,7 +4632,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4710,6 +4766,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4733,7 +4790,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -4866,6 +4924,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4889,7 +4948,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -5022,6 +5082,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -5045,7 +5106,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -5178,6 +5240,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -5201,7 +5264,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -5983,6 +6047,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6006,7 +6071,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -6139,6 +6205,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6162,7 +6229,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -6328,6 +6396,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6351,7 +6420,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -6517,6 +6587,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6540,7 +6611,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -6673,6 +6745,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6696,7 +6769,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -6862,6 +6936,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6885,7 +6960,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -7018,6 +7094,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -7041,7 +7118,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -7174,6 +7252,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -7197,7 +7276,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",

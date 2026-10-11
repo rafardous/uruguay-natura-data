@@ -9,6 +9,7 @@ import { getNavigationCounts } from '../lib/api';
 const items: Array<{ path: string; label: string; icon: typeof Leaf; admin?: boolean; badge?: keyof NavigationCounts }> = [
   { path: '/', label: 'Resumen', icon: LayoutDashboard },
   { path: '/species', label: 'Especies', icon: Leaf },
+  { path: '/habitats', label: 'Ambientes', icon: Leaf },
   { path: '/reviews', label: 'Revisiones', icon: FileCheck2, badge: 'pendingReviews' },
   { path: '/content', label: 'Contenido y juegos', icon: BookOpenText, badge: 'pendingContent' },
   { path: '/media', label: 'Medios', icon: Image },

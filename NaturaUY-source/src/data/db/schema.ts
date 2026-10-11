@@ -104,6 +104,8 @@ export const USER_DATABASE_NAME = 'user.db';
 
 /** Applied in order on the user database; each must be idempotent. */
 export const USER_MIGRATIONS: string[] = [
+  `CREATE TABLE IF NOT EXISTS enriched_game_records (mode TEXT NOT NULL, scope TEXT NOT NULL, best_score INTEGER NOT NULL DEFAULT 0, best_time_ms INTEGER NOT NULL DEFAULT 0, fewest_moves INTEGER NOT NULL DEFAULT 0, played_at INTEGER NOT NULL, updated_at INTEGER NOT NULL, PRIMARY KEY(mode,scope));
+   CREATE TABLE IF NOT EXISTS account_enriched_game_records (owner_id TEXT NOT NULL, mode TEXT NOT NULL, scope TEXT NOT NULL, best_score INTEGER NOT NULL DEFAULT 0, best_time_ms INTEGER NOT NULL DEFAULT 0, fewest_moves INTEGER NOT NULL DEFAULT 0, played_at INTEGER NOT NULL, updated_at INTEGER NOT NULL, PRIMARY KEY(owner_id,mode,scope));`,
   `CREATE TABLE IF NOT EXISTS favorites (
      codigo     TEXT PRIMARY KEY,
      created_at INTEGER NOT NULL

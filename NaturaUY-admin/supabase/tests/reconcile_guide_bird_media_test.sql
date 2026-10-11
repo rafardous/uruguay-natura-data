@@ -20,9 +20,9 @@ create temporary table guide_photos_test(payload jsonb);
 insert into guide_photos_test select jsonb_agg(jsonb_build_object(
   'id',case when i=1 then '99999999-9999-4999-8999-999999999991' else '99999999-9999-4999-8999-999999999992' end,
   'species_id','99999999-9999-4999-8999-999999999998','type','image','status','approved','ordinal',i,'is_primary',i=1,
-  'storage_path',format('guia-aves/001/0%s.webp',i),'thumbnail_path',format('guia-aves/001/0%s-480.webp',i),
+  'storage_path',format('guia-aves/435/0%s.webp',i),'thumbnail_path',format('guia-aves/435/0%s-480.webp',i),
   'checksum_sha256',repeat('a',64),'author','Pedro Rinaldi','license','permission','source','Archivo fotográfico familiar',
-  'original_filename',format('001/0%s.webp',i),'evidence_path','guide-test.json','authorization_evidence_ref','guide-test.json',
+  'original_filename',format('435/0%s.webp',i),'evidence_path','guide-test.json','authorization_evidence_ref','guide-test.json',
   'uploaded_by','99999999-9999-4999-8999-999999999999')) from generate_series(1,2) i;
 select extensions.is(public.reconcile_guide_bird_media('99999999-9999-4999-8999-999999999998',(select payload from guide_photos_test)),2,'both verified photos can be registered');
 select extensions.is((select count(*)::integer from public.species_media where species_id='99999999-9999-4999-8999-999999999998' and is_primary),1,'exactly one primary image is retained');
@@ -32,3 +32,4 @@ select extensions.throws_ok($$select public.reconcile_guide_bird_media('99999999
 
 select * from extensions.finish();
 rollback;
+

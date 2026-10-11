@@ -13,7 +13,7 @@ const db = new DatabaseSync(process.env.NATURA_CATALOG_DB_PATH ?? resolve(root, 
 try {
   const scalar = (sql: string): number => Number(Object.values(db.prepare(sql).get()!)[0]);
   const meta = Object.fromEntries(db.prepare('select key,value from meta').all().map((row) => [row.key, row.value]));
-  assert.equal(meta.schema_version, '14');
+  assert.ok(['14','15'].includes(String(meta.schema_version)));
   assert.ok(Number.isSafeInteger(Number(meta.data_version)) && Number(meta.data_version) > 0);
   assert.equal(db.prepare('pragma integrity_check').get()!.integrity_check, 'ok');
   assert.deepEqual(db.prepare('pragma foreign_key_check').all(), []);
@@ -42,7 +42,20 @@ try {
   assert.equal(scalar("select count(*) from species_media where media_type='audio' and (duration_seconds is null or duration_seconds<=0 or duration_seconds>15 or external_id is null)"), 0);
   assert.equal(scalar("select count(*) from species_media where media_type='audio'"), 177);
   assert.equal(scalar("select count(*) from species where measurements is null or not json_valid(measurements) or ecology is null or not json_valid(ecology) or conservation is null or not json_valid(conservation)"), 0);
-  console.log('Catálogo v' + meta.data_version + '/schema 14: 1048 UUID/códigos, 948 animales, seed-100 exacto, integridad, taxonomía, búsqueda, licencias y 177 audios verificados.');
+  if(meta.schema_version==='15') {
+    const habitats=JSON.parse(readFileSync(resolve(root,'data/catalog/habitats.json'),'utf8'));
+    for(const table of ['habitats','habitat_relations','habitat_aliases','species_habitats','habitat_metrics','habitat_media']) assert.equal(scalar(`select count(*) from sqlite_master where name='${table}'`),1,table);
+    assert.equal(scalar('select count(*) from habitats'),habitats.habitats.length);
+    assert.equal(scalar('select count(*) from species_habitats'),habitats.links.length);
+    for(const row of db.prepare('select stable_id,ecology from species').all()) {
+      const codes=db.prepare('select h.code from species_habitats sh join habitats h on h.id=sh.habitat_id where sh.stable_id=? order by h.code').all(String(row.stable_id)).map(h=>h.code);
+      assert.deepEqual(codes,JSON.parse(String(row.ecology)).habitats.slice().sort(),String(row.stable_id));
+      assert.deepEqual(codes,byId.get(row.stable_id).ecology.habitats.slice().sort());
+    }
+    assert.equal(scalar('select count(*) from species s where not exists(select 1 from species_habitats sh where sh.stable_id=s.stable_id)'),355);
+    assert.equal(scalar("select count(*) from habitat_media where author='' or location='' or license not in ('CC0','CC-BY-4.0','permission')"),0);
+  }
+  console.log('Catálogo v' + meta.data_version + '/schema '+meta.schema_version+': 1048 UUID/códigos, 948 animales, seed-100 exacto, integridad, taxonomía, búsqueda, licencias y 177 audios verificados.');
 } finally {
   db.close();
 }

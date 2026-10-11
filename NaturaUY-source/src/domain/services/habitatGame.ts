@@ -38,6 +38,7 @@ export interface HabitatQuestion {
 }
 
 export function macroHabitatsFor(species: Pick<Species, 'ecology'>): MacroHabitat[] {
+  if (species.ecology.habitatGameGroups) return MACRO_HABITATS.filter(group=>species.ecology.habitatGameGroups!.includes(group));
   return MACRO_HABITATS.filter((group) => species.ecology.habitats.some((raw) => HABITAT_GROUPS[group].includes(raw)));
 }
 

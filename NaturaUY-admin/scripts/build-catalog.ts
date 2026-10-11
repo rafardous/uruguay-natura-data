@@ -8,16 +8,18 @@ import { loadApprovedCatalog, loadApprovedLearningPaths, loadApprovedTaxonConten
 import { writePublishedTaxonomy } from './catalog-taxonomy';
 import { adminClient, required } from './shared';
 import { derivePhotoPalettes } from './photo-palettes';
+import { applySchema14Habitats, loadPublishedHabitats, writePublishedHabitats } from './catalog-habitats';
 
 const client = adminClient();
-const output = resolve(import.meta.dirname, '../dist/catalog');
+const preview = process.argv.includes('--preview');
+const output = resolve(import.meta.dirname, preview ? '../dist/catalog-preview' : '../dist/catalog');
 const databasePath = resolve(output, 'natura.db');
 const mediaUrl = publicMediaUrl;
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 
-const releaseId = required('CATALOG_RELEASE_ID');
-const { data: release, error: releaseError } = await client
+const releaseId = preview ? null : required('CATALOG_RELEASE_ID');
+const { data: release, error: releaseError } = preview ? { data: { version: Number(process.env.CATALOG_PREVIEW_VERSION ?? 10), schema_version: 15, min_app_version: '1.4.0' }, error: null } : await client
   .from('catalog_releases')
   .update({ status: 'building', started_at: new Date().toISOString(), error: null })
   .eq('id', releaseId)
@@ -25,10 +27,14 @@ const { data: release, error: releaseError } = await client
   .select('*')
   .single();
 if (releaseError) throw releaseError;
-if (release.schema_version !== 14) throw new Error(`Schema de release incompatible: ${release.schema_version}; se requiere 14`);
+if (![14,15].includes(release.schema_version)) throw new Error(`Schema de release incompatible: ${release.schema_version}`);
+if (release.schema_version===15 && release.min_app_version!=='1.4.0') throw new Error('schema15_min_app_version_required');
 
 const [items, trivia, taxonContent, learningPaths] = await Promise.all([loadApprovedCatalog(), loadApprovedTrivia(), loadApprovedTaxonContent(), Number(release.schema_version) >= 13 ? loadApprovedLearningPaths() : Promise.resolve([])]);
 const taxonomy = await loadPublishedTaxonomy(items);
+const canonicalHabitats = await loadPublishedHabitats(items);
+const habitats = release.schema_version >= 15 ? canonicalHabitats : null;
+if(release.schema_version===14)applySchema14Habitats(items,canonicalHabitats);
 const taxonomyNodes = new Map(taxonomy.nodes.map((node) => [String(node.taxon_id), node]));
 for (const item of items) {
   const subphylum = taxonomy.links.filter((link) => link.species_id === item.species.id).map((link) => taxonomyNodes.get(String(link.taxon_id))).find((node) => node?.rank === 'subphylum');
@@ -95,7 +101,7 @@ writeFileSync(resolve(output, 'plant-photo-gaps.json'), JSON.stringify({ selecte
 for (const gap of photoGaps) blockers.push(`plant_not_ready:${gap.scientificName}:${gap.reasons.join(',')}`);
 
 if (blockers.length) {
-  await client.from('catalog_releases').update({ status: 'failed', error: blockers.join('\n') }).eq('id', releaseId);
+  if (!preview) await client.from('catalog_releases').update({ status: 'failed', error: blockers.join('\n') }).eq('id', releaseId);
   throw new Error(`Catalog blocked:\n${blockers.join('\n')}`);
 }
 
@@ -146,6 +152,7 @@ create table species_facts (
   source_code text, source_record_id text
 );
 create index idx_species_facts_species on species_facts(stable_id, sort_order);
+create table species_game_clues (id text primary key, stable_id text not null references species(stable_id), kind text not null, body text not null, sort_order integer not null, source_code text not null, unique(stable_id,kind), unique(stable_id,sort_order));
 create table species_game_rules (
   stable_id text not null references species(stable_id), game_key text not null, enabled integer not null,
   min_knowledge_level text, primary key(stable_id, game_key)
@@ -180,6 +187,7 @@ const insert = db.prepare(`insert into species values (${Array.from({ length: 42
 const insertConservation = db.prepare('insert into species_conservation values (?,?,?,?,?,?,?,?)');
 const insertMedia = db.prepare('insert into species_media values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 const insertObservability = db.prepare('insert into species_observability values (?,?,?,?,?,?,?,?,?,?)');
+const insertClue = db.prepare('insert into species_game_clues values (?,?,?,?,?,?)');
 const insertFact = db.prepare('insert into species_facts values (?,?,?,?,?,?)');
 const insertGameRule = db.prepare('insert into species_game_rules values (?,?,?,?)');
 const insertTaxon = db.prepare('insert into taxon_content values (?,?,?,?,?,?,?,?,?,?)');
@@ -230,6 +238,7 @@ try {
       item.observability.occurrence_count, item.observability.occupied_cells, item.observability.years_observed,
       item.observability.score, item.observability.band, item.observability.comparison_class,
     );
+    (item.gameClues??[]).forEach(clue=>insertClue.run(clue.id,species.id,clue.kind,clue.body,clue.sort_order,sourcesById.get(String(clue.source_id))!.code));
     item.facts.forEach((fact) => insertFact.run(
       fact.id, species.id, fact.body, fact.sort_order,
       sourcesById.get(String(fact.source_id))?.code ?? null, fact.source_record_id ?? null,
@@ -237,6 +246,7 @@ try {
     item.gameRules.forEach((rule) => insertGameRule.run(species.id, rule.game_key, rule.enabled ? 1 : 0, rule.min_knowledge_level));
   }
   writePublishedTaxonomy(db, taxonomy, catalogSources);
+  if (habitats) writePublishedHabitats(db, habitats);
   db.exec("ALTER TABLE species ADD COLUMN subfilo TEXT NOT NULL DEFAULT ''");
   const setSubphylum = db.prepare('UPDATE species SET subfilo=? WHERE stable_id=?');
   items.forEach((item) => setSubphylum.run(item.species.subphylum, item.species.id));
@@ -282,6 +292,7 @@ db.close();
 
 writeCatalogJson(output, items);
 writeFileSync(resolve(output, 'taxonomy.json'), JSON.stringify(taxonomy, null, 2));
+if (habitats) writeFileSync(resolve(output, 'habitats.json'), JSON.stringify(habitats, null, 2));
 const database = readFileSync(databasePath);
 const compressed = gzipSync(database, { level: 9 });
 writeFileSync(`${databasePath}.gz`, compressed);
@@ -292,6 +303,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   speciesCount: items.length,
   taxonomy: { nodes: taxonomy.nodes.length, names: taxonomy.names.length, links: taxonomy.links.length },
+  habitats: habitats ? { nodes: habitats.habitats.length, associations: habitats.links.length, photos: habitats.media.length } : null,
   media: { images: items.filter((item) => item.image).length, audio: items.filter((item) => item.audio).length },
   palettes: { fromPhoto: items.filter((item) => item.photoPalette?.basis === 'photo').length, fromFamily: items.filter((item) => item.photoPalette?.basis === 'family').length, distinctAccents: new Set(items.map((item) => item.photoPalette?.colors.accentLight)).size },
   blockers,

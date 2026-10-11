@@ -14,6 +14,7 @@ import { EmptyState } from '../../src/presentation/components/EmptyState';
 import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useSpeciesList } from '../../src/presentation/hooks/useSpeciesList';
+import { useHabitatCatalog } from '../../src/presentation/hooks/useHabitatCatalog';
 import { useScrollDetentHaptics } from '../../src/presentation/hooks/useScrollDetentHaptics';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
@@ -24,6 +25,7 @@ import { Chip } from '../../src/presentation/components/Chip';
 
 export default function SpeciesIndexScreen(): React.JSX.Element {
   const db = useSQLiteContext();
+  useHabitatCatalog();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { colors, radius, spacing, typography, elevation } = useTheme();

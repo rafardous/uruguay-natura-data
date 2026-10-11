@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import sharp from 'sharp';
+import { imageVariants } from './media-image';
 
 import { adminClient, required } from './shared';
 
@@ -42,12 +42,7 @@ try {
   let thumbnailPath: string | null = null;
 
   if (media.type === 'image') {
-    if (original.length > 20 * 1024 * 1024) throw new Error('image_too_large');
-    const input = sharp(original, { failOn: 'error', limitInputPixels: 50_000_000 });
-    const metadata = await input.metadata();
-    if (!metadata.format || !['jpeg', 'png', 'webp', 'heif'].includes(metadata.format) || !metadata.width || !metadata.height || metadata.width * metadata.height > 50_000_000) throw new Error('image_invalid');
-    const main = await input.clone().rotate().resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true }).webp({ quality: 80, effort: 5 }).toBuffer();
-    const thumbnail = await input.clone().rotate().resize({ width: 480, height: 480, fit: 'inside', withoutEnlargement: true }).webp({ quality: 76, effort: 5 }).toBuffer();
+    const { main, thumbnail } = await imageVariants(original);
     storagePath = `${basePath}.webp`; thumbnailPath = `${basePath}-480.webp`;
     checksum = await putVerified(storagePath, main, 'image/webp');
     await putVerified(thumbnailPath, thumbnail, 'image/webp');

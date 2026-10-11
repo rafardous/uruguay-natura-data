@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { AppState, Pressable, StyleSheet, Text, View, useWindowDimensions, type ImageSourcePropType } from 'react-native';
+import { AppState, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions, type ImageSourcePropType } from 'react-native';
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
@@ -18,13 +18,18 @@ import { haptics } from '../../src/presentation/haptics';
 import { useNetwork } from '../../src/presentation/network/NetworkProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { useMobileSync } from '../../src/sync/MobileSyncProvider';
+import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
+import { enrichedGameRepository } from '../../src/data/repositories/enrichedGameRepository';
+import { JigsawPicturePuzzle } from '../../src/presentation/components/JigsawPicturePuzzle';
+import { newJigsaw, type JigsawPiece } from '../../src/domain/services/jigsawPuzzle';
 
 const clampGrid = (value: string | undefined): PuzzleDifficulty => value === '4' ? 4 : 3;
 
 export default function PuzzleScreen(): React.JSX.Element {
   const db = useSQLiteContext();
+  const userDb = useUserDatabase();
   const router = useRouter();
-  const params = useLocalSearchParams<{ scope?: string; grid?: string; level?: string }>();
+  const params = useLocalSearchParams<{ scope?: string; grid?: string; level?: string; mode?: string }>();
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const { colors, spacing, radius, typography } = useTheme();
@@ -36,6 +41,9 @@ export default function PuzzleScreen(): React.JSX.Element {
   }, [isOffline]);
 
   const grid = clampGrid(params.grid);
+  const mode = params.mode === 'jigsaw' ? 'jigsaw' : 'sliding';
+  const [jigsaw, setJigsaw] = useState<JigsawPiece[]>([]);
+  const [error, setError] = useState('');
   const rawScope = params.scope;
   const scope = (typeof rawScope === 'string' && rawScope in PUZZLE_SCOPES ? rawScope : 'animals_all') as PuzzleScope;
   const knowledgeLevel: KnowledgeLevel = params.level === 'easy' || params.level === 'medium' ? params.level : 'hard';
@@ -54,14 +62,16 @@ export default function PuzzleScreen(): React.JSX.Element {
   const previousCode = useRef<string | null>(null);
 
   const loadPuzzle = useCallback(async () => {
+    setError('');
+    setState('ready');
     setSpecies(null);
     setImageSource(null);
     setLightboxOpen(false);
-    const pool = await speciesRepository.findQuizPool(db, PUZZLE_SCOPES[scope].classes, knowledgeLevel, 'puzzle', PUZZLE_SCOPES[scope].taxa);
+    const pool = await speciesRepository.findQuizPool(db, PUZZLE_SCOPES[scope].classes, knowledgeLevel, mode==='jigsaw'?'jigsaw':'puzzle', PUZZLE_SCOPES[scope].taxa);
     const available = pool.filter((item) => item.codigo !== previousCode.current && (item.photo || thumbnailFor(item.codigo)));
     const choices = available.length > 0 ? available : pool.filter((item) => item.photo || thumbnailFor(item.codigo));
     const pick = choices[Math.floor(Math.random() * choices.length)];
-    if (!pick) return;
+    if (!pick) { setError('No hay fotos disponibles para esta selección.'); return; }
 
     previousCode.current = pick.codigo;
     const bundled = thumbnailFor(pick.codigo);
@@ -75,14 +85,15 @@ export default function PuzzleScreen(): React.JSX.Element {
 
     setSpecies(pick);
     setImageSource(frozenSource);
+    setJigsaw(newJigsaw(grid, boardSize));
     setPieces(shuffledSolvablePuzzle(grid, Math.random));
     setState('ready');
     setMoves(0);
     setElapsed(0);
-  }, [db, grid, knowledgeLevel, scope]);
+  }, [db, grid, knowledgeLevel, scope, mode, boardSize]);
 
   useEffect(() => {
-    void loadPuzzle();
+    void loadPuzzle().catch(()=>setError('No pudimos preparar el puzzle. Volvé a intentar.'));
   }, [loadPuzzle]);
 
   useEffect(() => {
@@ -109,7 +120,8 @@ export default function PuzzleScreen(): React.JSX.Element {
     setElapsed(finalElapsed);
     setState('completed');
     const now = Date.now();
-    await puzzleRepository.submit(db, {
+    if(mode==='jigsaw') await enrichedGameRepository.submit(userDb,{mode:'jigsaw',scope:`${scope}:${knowledgeLevel}:${grid}`,best_score:0,best_time_ms:finalElapsed,fewest_moves:nextMoves,played_at:now,updated_at:now});
+    else await puzzleRepository.submit(userDb, {
       scope,
       knowledgeLevel,
       gridSize: grid,
@@ -120,7 +132,7 @@ export default function PuzzleScreen(): React.JSX.Element {
     });
     await requestSync();
     haptics.success();
-  }, [db, grid, knowledgeLevel, requestSync, scope]);
+  }, [userDb, grid, knowledgeLevel, requestSync, scope, mode]);
 
   const move = useCallback((piece: number) => {
     if (state === 'completed') return;
@@ -140,6 +152,13 @@ export default function PuzzleScreen(): React.JSX.Element {
     if (isPuzzleSolved(next)) void finish(nextMoves);
   }, [finish, grid, hiddenPiece, moves, pieces, state]);
 
+  const moveJigsaw = (piece: JigsawPiece) => {
+    if(state==='completed'||state==='paused')return;
+    if(state==='ready'){startedAt.current=Date.now();setState('running');}
+    const next=jigsaw.map(p=>p.id===piece.id?piece:p);
+    const count=moves+1;setMoves(count);setJigsaw(next);haptics.tap();
+    if(next.every(p=>p.placed))void finish(count).catch(()=>setError('Completaste el puzzle, pero no pudimos guardar el récord.'));
+  };
   const fullPhoto = species?.photo?.fullUrl ?? species?.photo?.url;
 
   return (
@@ -149,16 +168,17 @@ export default function PuzzleScreen(): React.JSX.Element {
           <BackIcon color={colors.text} />
         </Pressable>
         <View style={styles.flex}>
-          <Text style={[typography.headerTitle, { color: colors.text }]}>Puzzle {grid} × {grid}</Text>
+          <Text style={[typography.headerTitle, { color: colors.text }]}>{mode==='jigsaw'?'Encastrar':'Puzzle'} {grid} × {grid}</Text>
           <Text style={[typography.caption, { color: colors.textMuted }]}>
             {PUZZLE_SCOPES[scope].label} · {Math.floor(elapsed / 1000)} s · {moves} movimientos
           </Text>
         </View>
       </View>
 
+      <ScrollView style={{width:'100%'}} contentContainerStyle={{alignItems:'center',paddingBottom:insets.bottom+24}}>
       {species && imageSource && pieces.length > 0 ? (
         <View style={[styles.boardFrame, { marginTop: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceVariant }]}>
-          <SlidingPicturePuzzle
+          {mode==='jigsaw'?<JigsawPicturePuzzle size={boardSize} grid={grid} pieces={jigsaw} source={imageSource} onChange={moveJigsaw}/>:<SlidingPicturePuzzle
             key={`${species.codigo}-${grid}`}
             size={boardSize}
             gridSize={grid}
@@ -169,11 +189,11 @@ export default function PuzzleScreen(): React.JSX.Element {
             disabled={state === 'completed'}
             revealHidden={state === 'completed'}
             label={state === 'completed' ? species.displayName : 'una especie por descubrir'}
-          />
+          />}
         </View>
       ) : (
         <View style={[styles.loading, { width: boardSize, height: boardSize, marginTop: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceVariant }]}>
-          <Text style={[typography.body, { color: colors.textMuted }]}>Preparando puzzle…</Text>
+          <Text style={[typography.body, { color: colors.textMuted }]}>{error||'Preparando puzzle…'}</Text>
         </View>
       )}
 
@@ -193,9 +213,11 @@ export default function PuzzleScreen(): React.JSX.Element {
           </View>
         </View>
       ) : (
-        <Text style={[typography.body, styles.instructions, { color: colors.textMuted, marginTop: spacing.lg }]}>Tocá una ficha junto al espacio vacío para deslizarla. Ordená la imagen completa; todas las partidas tienen solución.</Text>
+        <Text style={[typography.body, styles.instructions, { color: colors.textMuted, marginTop: spacing.lg }]}>{mode==='jigsaw'?'Arrastrá las piezas al tablero. Tocá una pieza para girarla; encastra cuando coincide su posición y orientación.':'Tocá una ficha junto al espacio vacío para deslizarla. Ordená la imagen completa; todas las partidas tienen solución.'}</Text>
       )}
 
+      {error&&species?<Text style={{color:colors.text,padding:16}}>{error}</Text>:null}
+      </ScrollView>
       <PhotoLightbox visible={lightboxOpen} uri={fullPhoto} label={species?.displayName ?? ''} onClose={() => setLightboxOpen(false)} />
     </View>
   );

@@ -80,6 +80,8 @@ function humanize(value: string): string {
 }
 
 export const habitatLabel = (value: string): string => HABITAT_LABELS[value] ?? humanize(value);
+export const knownHabitatLabel = (value: string): string | undefined => HABITAT_LABELS[value];
+export function registerHabitatLabels(items: {code:string;name:string}[]):void { items.forEach(item=>{HABITAT_LABELS[item.code]=item.name;}); }
 export const dietLabel = (value: string): string => DIET_LABELS[value] ?? humanize(value);
 export const seasonalityLabel = (value: string): string => SEASONALITY_LABELS[value] ?? humanize(value);
 export const abundanceLabel = (value: string): string => ABUNDANCE_LABELS[value] ?? humanize(value);

@@ -14,6 +14,15 @@ function species(codigo: string, clase: string, habitat: string[]): Species {
 }
 
 describe('habitatGame', () => {
+  it('uses approved canonical game groups and keeps every valid answer',()=>{
+    const item=species('canonical','Plantae',['pastizal_mesofilo','monte_ribereno']);
+    item.ecology.habitatGameGroups=['Campo natural','Monte y matorral'];
+    const [question]=buildHabitatQuestions([item],1,()=>0.5);
+    expect(question?.correctAnswers).toEqual(['Campo natural','Monte y matorral']);
+    expect(question?.options).toEqual(expect.arrayContaining(question!.correctAnswers));
+    item.ecology.habitatGameGroups=[];
+    expect(macroHabitatsFor(item)).toEqual([]);
+  });
   it('groups raw catalogue habitats into simple options', () => {
     expect(macroHabitatsFor(species('x', 'Aves', ['humedal', 'monte_nativo']))).toEqual(['Monte y matorral', 'Humedales y aguas continentales']);
   });

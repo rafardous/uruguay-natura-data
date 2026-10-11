@@ -42,6 +42,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -86,9 +87,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -103,7 +104,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -239,6 +245,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "ministerio",
@@ -335,6 +352,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -389,8 +407,8 @@
         "both"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "humedal"
+        "humedal",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -405,7 +423,11 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -541,6 +563,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "ministerio",
@@ -670,6 +703,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -725,9 +759,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -743,7 +777,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -879,6 +918,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "ministerio",
@@ -974,6 +1024,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -1026,10 +1077,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -1044,7 +1095,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -1840,6 +1897,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -2080,6 +2148,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2141,11 +2210,11 @@
         "both"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -2161,7 +2230,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -2363,6 +2438,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -2504,6 +2590,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -2554,9 +2641,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -2572,7 +2659,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -3830,6 +3922,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -4146,6 +4249,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -4196,10 +4300,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -4215,7 +4319,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -5407,6 +5517,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -5713,6 +5834,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -5740,7 +5862,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -5984,6 +6107,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -6007,7 +6131,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -9022,6 +9147,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -9077,10 +9203,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -9096,7 +9222,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -9364,6 +9496,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -9481,6 +9624,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -9536,10 +9680,10 @@
         "both"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -9556,7 +9700,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -9758,6 +9908,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -9898,6 +10059,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -9949,10 +10111,10 @@
         "diurnal"
       ],
       "habitats": [
-        "matorral",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -9967,7 +10129,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -11489,6 +11657,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -11849,6 +12028,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -11899,10 +12079,10 @@
         "diurnal"
       ],
       "habitats": [
-        "matorral",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -11917,7 +12097,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -13769,6 +13955,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -14184,6 +14381,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -14248,11 +14446,11 @@
         "both"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -14267,7 +14465,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -16581,6 +16785,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -17073,6 +17288,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -17134,11 +17350,11 @@
         "both"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -17154,7 +17370,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -17884,6 +18106,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -18112,6 +18345,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -18177,10 +18411,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -18195,7 +18429,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -18331,6 +18571,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "ministerio",
@@ -18460,6 +18711,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -18500,10 +18752,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -18519,7 +18771,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -19645,6 +19903,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -19939,6 +20208,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -19992,7 +20262,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -20257,6 +20528,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -20308,9 +20580,9 @@
         "diurnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -20326,7 +20598,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -21058,6 +21335,17 @@
         "license": null
       },
       {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
+      },
+      {
         "source": "biodiversidata",
         "record": "Biodiversidata:UY:Amphibia:2093",
         "fieldPath": "taxonomy.kingdom",
@@ -21285,6 +21573,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -21330,7 +21619,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -21892,6 +22182,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -21932,7 +22223,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -22152,6 +22444,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [
@@ -22214,8 +22507,8 @@
         "diurnal"
       ],
       "habitats": [
-        "matorral",
-        "humedal"
+        "humedal",
+        "matorral"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -22230,7 +22523,11 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -22434,6 +22731,17 @@
         "license": null
       },
       {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
+      },
+      {
         "source": "biodiversidata",
         "record": "Biodiversidata:UY:Amphibia:2178",
         "fieldPath": "taxonomy.kingdom",
@@ -22584,6 +22892,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -22607,7 +22916,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -23005,6 +23315,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -23046,7 +23357,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -23266,6 +23578,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -23317,11 +23630,11 @@
         "diurnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -23337,7 +23650,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -24793,6 +25112,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -25143,6 +25473,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -25183,7 +25514,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -25437,6 +25769,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -25488,11 +25821,11 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "matorral",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -25507,7 +25840,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -26237,6 +26576,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -26465,6 +26815,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -26530,10 +26881,10 @@
         "both"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -26549,7 +26900,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -26753,6 +27110,17 @@
         "license": null
       },
       {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
+      },
+      {
         "source": "biodiversidata",
         "record": "Biodiversidata:UY:Amphibia:2119",
         "fieldPath": "taxonomy.kingdom",
@@ -26891,6 +27259,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -26942,7 +27311,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -27173,6 +27543,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -27224,10 +27595,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -27242,7 +27613,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -27972,6 +28349,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -28200,6 +28588,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -28253,9 +28642,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -28270,7 +28659,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -28604,6 +28998,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -28766,6 +29171,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -28814,8 +29220,8 @@
         "nocturnal"
       ],
       "habitats": [
-        "matorral",
-        "humedal"
+        "humedal",
+        "matorral"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -28830,7 +29236,11 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -29758,6 +30168,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -30020,6 +30441,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -30070,9 +30492,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -30088,7 +30510,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -30422,6 +30849,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -30584,6 +31022,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -30634,11 +31073,11 @@
         "both"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -30653,7 +31092,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -30723,6 +31168,17 @@
         "url": "https://biodiversidata.org/",
         "citation": "Consorcio de datos de biodiversidad del Uruguay",
         "license": "Ver conjunto de datos"
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -30842,6 +31298,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -30872,7 +31329,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -31159,6 +31617,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -31209,9 +31668,9 @@
         "both"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -31226,7 +31685,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -33540,6 +34004,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -34032,6 +34507,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -34086,9 +34562,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -34103,7 +34579,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -34305,6 +34786,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -34411,6 +34903,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -34452,9 +34945,9 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -34469,7 +34962,12 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -36849,6 +37347,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -37353,6 +37862,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -37385,7 +37895,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -38013,6 +38524,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -38073,11 +38585,11 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "humedal",
+        "agroecosistema",
         "costa_playa_dunas",
-        "agroecosistema"
+        "humedal",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -38092,7 +38604,14 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Costa y mar",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -38558,6 +39077,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -38742,6 +39272,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -38792,11 +39323,11 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -38811,7 +39342,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -38881,6 +39418,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "snap",
@@ -39000,6 +39548,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -39023,7 +39572,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -39498,6 +40048,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -39538,7 +40089,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -39870,6 +40422,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -39931,10 +40484,10 @@
         "both"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "humedal",
+        "agroecosistema",
         "costa_playa_dunas",
-        "agroecosistema"
+        "humedal",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -39948,7 +40501,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Costa y mar",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -40218,6 +40777,17 @@
         "license": null
       },
       {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
+      },
+      {
         "source": "biodiversidata",
         "record": "Biodiversidata:UY:Amphibia:2147",
         "fieldPath": "taxonomy.kingdom",
@@ -40333,6 +40903,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -40360,7 +40931,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -40801,6 +41373,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -40824,7 +41397,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -41145,6 +41719,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -41205,10 +41780,10 @@
         "nocturnal"
       ],
       "habitats": [
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -41224,7 +41799,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -42088,6 +42669,17 @@
         "license": null
       },
       {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
+      },
+      {
         "source": "biodiversidata",
         "record": "Biodiversidata:UY:Amphibia:2151",
         "fieldPath": "taxonomy.kingdom",
@@ -42337,6 +42929,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -42378,7 +42971,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -44711,6 +45305,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -44761,11 +45356,11 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -44781,7 +45376,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -45049,6 +45650,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -45200,6 +45812,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -45250,11 +45863,11 @@
         "nocturnal"
       ],
       "habitats": [
-        "monte_nativo",
-        "pastizal_campo_natural",
-        "matorral",
+        "agroecosistema",
         "humedal",
-        "agroecosistema"
+        "matorral",
+        "monte_nativo",
+        "pastizal_campo_natural"
       ],
       "depthMaxM": null,
       "depthMinM": null,
@@ -45270,7 +45883,13 @@
       "aquaticEnvironments": [
         "freshwater"
       ],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": [
+        "Humedales y aguas continentales",
+        "Monte y matorral",
+        "Ambientes humanos",
+        "Campo natural"
+      ]
     },
     "naturalHistory": {},
     "relevantNote": "",
@@ -46990,6 +47609,17 @@
         "url": null,
         "citation": null,
         "license": null
+      },
+      {
+        "source": "natura_uy_editorial",
+        "record": "habitats-v1",
+        "fieldPath": "ecology.habitats",
+        "sourceCode": "natura_uy_editorial",
+        "name": "Síntesis editorial Natura UY",
+        "version": null,
+        "url": "https://uruguay-natura-data.pages.dev/",
+        "citation": "Equipo editorial de Natura UY",
+        "license": "CC BY 4.0"
       },
       {
         "source": "biodiversidata",
@@ -47383,6 +48013,7 @@
     "observability": null,
     "game": {
       "knowledgeLevel": "hard",
+      "clues": [],
       "rules": []
     },
     "facts": [],
@@ -47406,7 +48037,8 @@
       "microhabitats": [],
       "plantAssociations": [],
       "aquaticEnvironments": [],
-      "vegetationFormations": []
+      "vegetationFormations": [],
+      "habitatGameGroups": []
     },
     "naturalHistory": {},
     "relevantNote": "",
