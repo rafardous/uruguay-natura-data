@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Component, lazy, Suspense, type ReactNode } from 'react';
 import { AuthProvider, useAuth } from './auth/AuthProvider';
 import { Shell } from './components/Shell';
 import { ConfigurationError, Loading } from './components/Ui';
@@ -19,6 +19,13 @@ const HabitatsPage = lazy(() => import('./pages/HabitatsPage').then((module) => 
 const LearningPage = lazy(() => import('./pages/LearningPage').then((module) => ({ default: module.LearningPage })));
 const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })));
 const ContentHubPage = lazy(() => import('./pages/ContentHubPage').then((module) => ({ default: module.ContentHubPage })));
+
+// An open session may still reference a chunk from the previous Pages deployment.
+class PageLoadBoundary extends Component<{children:ReactNode},{failed:boolean}> {
+  state={failed:false};
+  static getDerivedStateFromError(){return {failed:true};}
+  render(){return this.state.failed?<section className="panel visual-block"><h2>No se pudo abrir esta pantalla</h2><p>Puede haber una actualización del panel o un problema de conexión. Recargá para continuar con tu sesión.</p><button className="primary" onClick={()=>window.location.reload()}>Actualizar panel</button></section>:this.props.children;}
+}
 
 function Router(): React.JSX.Element {
   const path = usePathname(); const { loading, profile, configurationError, accessDenied,accessError } = useAuth();
@@ -43,7 +50,7 @@ function Router(): React.JSX.Element {
   else if (path === '/users' && profile.role === 'admin') page = <UsersPage />;
   else if (path === '/news' && profile.role === 'admin') page = <NewsPage />;
   else page = <DashboardPage />;
-  return <Shell path={path}><Suspense fallback={<Loading label="Cargando…" />}>{page}</Suspense></Shell>;
+  return <Shell path={path}><PageLoadBoundary key={path}><Suspense fallback={<Loading label="Cargando…" />}>{page}</Suspense></PageLoadBoundary></Shell>;
 }
 
 export function App(): React.JSX.Element { return <AuthProvider><Suspense fallback={<div className="full-state"><Loading label="Cargando…" /></div>}><Router /></Suspense></AuthProvider>; }
