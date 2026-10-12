@@ -1,7 +1,7 @@
 # Natura UY — contexto para agentes
 
 
-- Corrección de altas y revisiones del 12/10/2026: `20261012144431_review_rejection_and_upload_recovery.sql` aplicada tras respaldo verificado. El rechazo propio no exige autovalidación; la aprobación sí. Revisiones permite corregir altas pendientes conservando la propuesta anterior y sus medios. Validación previa de fuentes y fallback de JPG al procesador. Ver `NaturaUY-admin/docs/visual-editor.md`.
+- Estado editorial del 12/10/2026: aplicada `20261012151934_sync_editorial_taxonomy_and_schema15.sql` tras respaldo cifrado verificado. Altas y cambios sincronizan vínculos taxonómicos al aprobar; publicaciones nuevas usan schema 15/Arapy 1.4.0. Las fuentes de atributos son opcionales: «Sin fuente» y medidas no verificadas cuando faltan. El alta autorizada de F_catus lleva el catálogo a 1049 especies (949 animales/100 plantas), cero archivadas. No reintroducir las 3057 plantas eliminadas. Rechazo propio, recuperación de altas y pruebas en `NaturaUY-admin/docs/visual-editor.md`.
 
 ## Propósito
 

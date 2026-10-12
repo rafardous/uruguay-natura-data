@@ -1,6 +1,7 @@
 import type { CatalogRelease, ChangeRequest, CollaboratorApplication, DashboardStats, HomeNews, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { supabase } from './supabase';
 import { readAll, editorialRpc } from './editorial';
+import {withOptionalSources} from './optionalSources';
 
 const assertClient = () => {
   if (!supabase) throw new Error('Supabase no está configurado');
@@ -77,6 +78,7 @@ export function rowToPayload(row: Record<string, any>): SpeciesPayload {
 }
 
 export function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
+  payload=withOptionalSources(payload);
   const names = [...new Map(payload.commonNames
     .map((name) => name.normalize('NFC').replace(/\s+/g, ' ').trim()).filter(Boolean)
     .map((name) => [name.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es'), name])).values()];
@@ -170,21 +172,17 @@ function changedColumns(before: Record<string, unknown>, after: Record<string, u
 }
 
 export function validateSpeciesPayload(input: { payload: SpeciesPayload }): void {
-  if (input.payload.taxonomy.kingdom !== 'Plantae' && input.payload.abundanceStatus && !input.payload.fieldSources.abundance_status?.some(source => source.trim())) throw new Error('Indicá la fuente de abundancia o elegí «Sin dato» antes de guardar.');
   const measurementNames: Record<string,string> = {body_length:'longitud corporal',max_length:'longitud máxima',body_mass:'masa',wing_length:'ala',tail_length:'cola',tarsus_length:'tarso'};
   for (const item of input.payload.measurements) {
     if (!Number.isFinite(item.value) || item.value<=0) throw new Error(`La medida de ${measurementNames[item.kind]} debe ser positiva.`);
-    if (!item.sourceCode.trim()) throw new Error(`Indicá la fuente de ${measurementNames[item.kind]} o quitá esa medida antes de guardar.`);
   }
   if (input.payload.taxonomy.kingdom === 'Plantae') {
     const plant = input.payload.naturalHistory?.plant;
     const height = plant?.heightCm;
     for (const value of [height?.min, height?.max]) if (value !== null && value !== undefined && (!Number.isFinite(value) || value <= 0)) throw new Error('La altura debe ser un número positivo en centímetros.');
     if (height?.min != null && height?.max != null && height.min > height.max) throw new Error('La altura mínima no puede superar la máxima.');
-    if ((height?.min != null || height?.max != null) && !input.payload.fieldSources['naturalHistory.plant.heightCm']?.length) throw new Error('La altura necesita una fuente.');
     for (const [field, months] of [['floweringMonths', plant?.phenology?.floweringMonths], ['fruitingMonths', plant?.phenology?.fruitingMonths]] as const) {
       if (months?.some((month) => !Number.isInteger(month) || month < 1 || month > 12)) throw new Error('Los meses deben estar entre 1 y 12.');
-      if (months?.length && !input.payload.fieldSources[`naturalHistory.plant.phenology.${field}`]?.length) throw new Error('La floración y fructificación necesitan fuente por campo.');
     }
   }
 }

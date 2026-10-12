@@ -42,6 +42,8 @@ const migration = readFileSync(new URL('../supabase/migrations/20261011231526_ed
 await db.exec(migration);
 await db.exec(readFileSync(new URL('../supabase/migrations/20261012063500_habitat_editor_media_read.sql',import.meta.url),'utf8'));
 await db.exec(readFileSync(new URL('../supabase/migrations/20261012054647_catalog_schema_15_mobile_compatibility.sql',import.meta.url),'utf8'));
+const publishFix=readFileSync(new URL('../supabase/migrations/20261012151934_sync_editorial_taxonomy_and_schema15.sql',import.meta.url),'utf8');
+await db.exec(publishFix.slice(publishFix.indexOf('-- Publicaciones:')));
 await db.exec(readFileSync(new URL('../supabase/migrations/202609060004_mobile_popular_species.sql',import.meta.url),'utf8'));
 async function rejects(sql: string, params: unknown[], message: string) { await assert.rejects(db.query(sql,params),new RegExp(message)); checks++; }
 async function check(sql: string, expected: unknown) { const r=await db.query<{value:unknown}>(sql);assert.deepEqual(r.rows[0]?.value,expected);checks++; }
@@ -135,5 +137,10 @@ await rejects("select * from learning_paths",[],'permission denied');
 await rejects("select get_editor_habitat_media($1)",[habitatId],'permission denied');
 await check(`select count(*)::integer value from get_home_species_schedule('2026-10-11','2026-10-11')`,0);
 await rejects("select save_home_species('2026-10-12','daily',$1,true,'Anónimo',null)",[species],'permission denied');
+await db.query("select set_config('request.jwt.claim.sub',$1,false)",[admin]);
+await db.exec('reset role');
+const nextPublish=(await db.query<{id:string}>('select request_catalog_publish() id')).rows[0]!.id;
+await check(`select schema_version value from catalog_releases where id='${nextPublish}'`,15);
+await check(`select min_app_version value from catalog_releases where id='${nextPublish}'`,'1.4.0');
 await db.close();
 console.log(`${checks} verificaciones editoriales aprobadas en PostgreSQL embebido.`);

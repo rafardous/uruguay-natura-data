@@ -50,9 +50,9 @@ if (!releaseId) {
       if (!Number.isSafeInteger(versionFloor) || versionFloor < 1) throw new Error('CATALOG_DATA_VERSION_FLOOR inválido');
       const { data: created, error: createError } = await client.from('catalog_releases').insert({
         version: Math.max(Number(latest?.version ?? 0) + 1, bundledVersion + 1, versionFloor),
-        schema_version: Number(process.env.CATALOG_SCHEMA_VERSION ?? 14),
+        schema_version: Number(process.env.CATALOG_SCHEMA_VERSION ?? 15),
         requested_by: required('EDITORIAL_SYSTEM_USER_ID'),
-        min_app_version: '1.3.1',
+        min_app_version: Number(process.env.CATALOG_SCHEMA_VERSION ?? 15)>=15?'1.4.0':'1.3.1',
       }).select('id').single();
       if (createError) throw createError;
       releaseId = created.id;

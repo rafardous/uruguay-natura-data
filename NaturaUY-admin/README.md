@@ -1,7 +1,7 @@
 # Arapy · Panel editorial
 
 
-Las altas pendientes pueden corregirse desde Revisiones conservando medios e historial. Abundancia y medidas necesitan fuentes antes de guardar; una foto que el navegador no decodifica se verifica en el procesador. Requiere `20261012144431_review_rejection_and_upload_recovery.sql`.
+Las altas pendientes pueden corregirse desde Revisiones conservando medios e historial. Las fuentes de atributos son opcionales; si faltan, se guarda «Sin fuente» y las medidas no se marcan verificadas. La aprobación sincroniza taxonomía; las publicaciones usan schema 15/Arapy 1.4.0. Requiere `20261012144431_review_rejection_and_upload_recovery.sql` y `20261012151934_sync_editorial_taxonomy_and_schema15.sql`.
 
 El editor visual reúne fotos, audio y atributos dentro de cada ficha: tres fotos y un audio, controles de orden/principal, reemplazos preparados antes de retirar el medio vigente y propuestas auditadas. Administradores revisan/aplican en la ficha; colaboradores proponen. `/content` agrupa historias, lecturas y curiosidades; `/games` reúne selección, trivia y pistas; `/media` es una bandeja paginada. Ambientes usa tarjetas y edición por bloques con jerarquías y fuentes. Ver [visual-editor.md](docs/visual-editor.md).
 

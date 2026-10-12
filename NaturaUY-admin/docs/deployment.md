@@ -3,7 +3,7 @@
 
 ## Corrección de altas y revisiones — 12/10/2026
 
-Aplicada `20261012144431_review_rejection_and_upload_recovery.sql` tras descargar y verificar el respaldo cifrado del workflow `38239080036` (SHA-256 `bc8a4268870fc7673b9d3e988d22fa1fa6b68a355757241f71904283abf17c3f`). Se probaron rechazo propio, corrección y aprobación con rol authenticated y rollback. Se conservaron 1048 especies y las propuestas originales. Ver `visual-editor.md` para recuperación, autorización, concurrencia y pruebas.
+Aplicadas `20261012144431_review_rejection_and_upload_recovery.sql` y `20261012151934_sync_editorial_taxonomy_and_schema15.sql`. Antes de la segunda se verificó el respaldo cifrado `38269288220`, SHA-256 `4680eae4c98a07aff7f1c1b0570485ab42807c0a35df92646020c27653ce14e1`. Se repararon únicamente los vínculos faltantes de F_catus; las fichas y vínculos anteriores conservaron sus hashes. La aprobación mantiene taxonomía transaccional y futuras publicaciones schema 15. Las fuentes de atributos son opcionales por solicitud expresa; las medidas sin fuente conservan valores y se marcan no verificadas mediante revisión auditada. El catálogo tiene 1049 especies tras el alta autorizada, sin reintroducir el lote descartado. Ver `visual-editor.md`.
 
 ## Editor visual — 12/10/2026
 
