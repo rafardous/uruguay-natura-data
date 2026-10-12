@@ -10,6 +10,8 @@
     "typecheck": "tsc -b --pretty false",
     "typecheck:automation": "tsc -p tsconfig.scripts.json --pretty false",
     "test:editorial": "tsx scripts/test-editorial-management.ts",
+    "test:visual": "tsx scripts/test-visual-editor.ts",
+    "media:test-external": "tsx --test scripts/external-media.test.ts",
     "catalog:import": "tsx scripts/import-catalog.ts",
     "catalog:curate-plants": "tsx scripts/curate-plants.ts",
     "catalog:prepare-release": "tsx scripts/prepare-release.ts",

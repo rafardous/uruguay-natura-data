@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
 export function navigate(path: string): void {
+  const event = new CustomEvent('arapy:beforeNavigate', { cancelable: true, detail: { path } });
+  if (!window.dispatchEvent(event)) return;
   window.history.pushState({}, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
 }

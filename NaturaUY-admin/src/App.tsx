@@ -10,7 +10,7 @@ const MediaPage = lazy(() => import('./pages/MediaPage').then((module) => ({ def
 const ReleasesPage = lazy(() => import('./pages/ReleasesPage').then((module) => ({ default: module.ReleasesPage })));
 const ReportsPage = lazy(() => import('./pages/ReportsPage').then((module) => ({ default: module.ReportsPage })));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage').then((module) => ({ default: module.ReviewsPage })));
-const SpeciesEditorV2Page = lazy(() => import('./pages/SpeciesEditorV2Page').then((module) => ({ default: module.SpeciesEditorV2Page })));
+const SpeciesEditorV2Page = lazy(() => import('./pages/VisualSpeciesPage').then((module) => ({ default: module.VisualSpeciesPage })));
 const SpeciesListPage = lazy(() => import('./pages/SpeciesListPage').then((module) => ({ default: module.SpeciesListPage })));
 const UsersPage = lazy(() => import('./pages/UsersPage').then((module) => ({ default: module.UsersPage })));
 const CatalogContentPage = lazy(() => import('./pages/CatalogContentPage').then((module) => ({ default: module.CatalogContentPage })));
@@ -18,6 +18,7 @@ const NewsPage = lazy(() => import('./pages/NewsPage').then((module) => ({ defau
 const HabitatsPage = lazy(() => import('./pages/HabitatsPage').then((module) => ({ default: module.HabitatsPage })));
 const LearningPage = lazy(() => import('./pages/LearningPage').then((module) => ({ default: module.LearningPage })));
 const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })));
+const ContentHubPage = lazy(() => import('./pages/ContentHubPage').then((module) => ({ default: module.ContentHubPage })));
 
 function Router(): React.JSX.Element {
   const path = usePathname(); const { loading, profile, configurationError, accessDenied,accessError } = useAuth();
@@ -30,8 +31,9 @@ function Router(): React.JSX.Element {
   else if (path === '/habitats') page = <HabitatsPage />;
   else if (/^\/habitats\/[^/]+$/.test(path)) page = <HabitatsPage id={decodeURIComponent(path.split('/')[2]??'')} />;
   else if (path === '/species/new') page = <SpeciesEditorV2Page key="new-species" id={null} />;
-  else if (path === '/content') page = <CatalogContentPage />;
-  else if (path === '/learning' && profile.role === 'admin') page = <LearningPage />;
+  else if (path === '/content') page = <ContentHubPage />;
+  else if (path === '/games') page = <CatalogContentPage mode="games" />;
+  else if (path === '/learning' && profile.role === 'admin') page = <ContentHubPage initial="stories" />;
   else if (path === '/home' && profile.role === 'admin') page = <HomePage />;
   else if (/^\/species\/[^/]+$/.test(path)) page = <SpeciesEditorV2Page key={path} id={decodeURIComponent(path.split('/')[2] ?? '')} />;
   else if (path === '/media') page = <MediaPage />;

@@ -88,7 +88,7 @@ export function approvedImagesForSpecies(species: DatabaseRow, mediaRows: Databa
   const images = mediaRows
     .filter((row) => row.species_id === species.id && row.type === 'image' && row.status === 'approved' && row.storage_path)
     .sort((a, b) => Number(a.ordinal) - Number(b.ordinal));
-  if (images.length > 2) throw new Error(`Más de dos fotos aprobadas para ${species.catalog_code ?? species.id}`);
+  if (images.length > 3) throw new Error(`Más de tres fotos aprobadas para ${species.catalog_code ?? species.id}`);
   const primary = images.find((row) => row.is_primary) ?? images.find((row) => row.id === species.primary_image_id) ?? images[0] ?? null;
   return { images, primary };
 }

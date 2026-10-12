@@ -53,6 +53,7 @@ export interface SpeciesEcologyPayload {
 
 export interface SpeciesNaturalHistoryPayload {
   version: 1;
+  bird?: import('../../NaturaUY-source/src/domain/entities/species').BirdNaturalHistory;
   arthropod?: {
     morphology?: { bodyRegions?: string[]; exoskeleton?: string; legs?: number | null; antennae?: string; wings?: string; cheliceraePedipalps?: string; sources?: string[] };
     identification?: { diagnosticCharacters?: string[]; similarSpecies?: string[]; sources?: string[] };

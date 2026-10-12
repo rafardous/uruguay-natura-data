@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { BirdNaturalHistory, Species } from '../../domain/entities/species';
 import { abundanceLabel, dietLabel, seasonalityLabel } from '../../domain/catalogLabels';
-import { BIRD_ABUNDANCE, BIRD_DIETS, BIRD_HABITATS, birdMeasureLabel, formatBirdMeasure } from '../../domain/services/birdGuide';
+import { birdGuideDisplay, birdMeasureLabel, formatBirdMeasure } from '../../domain/services/birdGuide';
 import { formatSpeciesMeasurement } from '../../domain/services/measurementFormatting';
 import { CloseIcon, InfoIcon } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
@@ -19,9 +19,7 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
   const bird = suppliedBird ?? { measurements: [], presence: null, habitat: [], diet: [], abundanceCode: null, guide: null };
   const [sizeInfo, setSizeInfo] = useState(false);
   const [presenceInfo, setPresenceInfo] = useState(false);
-  const abundance = bird.abundanceCode ? BIRD_ABUNDANCE[bird.abundanceCode] : species.abundanceStatus ? abundanceLabel(species.abundanceStatus) : null;
-  const habitats = species.ecology.habitats.length ? species.ecology.habitats : bird.habitat.map((code) => BIRD_HABITATS[code] ?? code);
-  const diets = bird.diet.length ? bird.diet.map((code) => BIRD_DIETS[code] ?? code) : species.ecology.diet.map(dietLabel);
+  const { abundance, habitats, diets } = birdGuideDisplay(suppliedBird,species.ecology,species.abundanceStatus,species.seasonality);
   return <View style={{ marginTop: abundance ? spacing.sm : spacing.lg }}>
     {abundance && <View accessible accessibilityLabel={`Especie ${abundance.toLocaleLowerCase('es')}`} style={[styles.abundance, { marginBottom: spacing.sm }]}>
       <Text style={[typography.caption, { color: colors.textSecondary }]}>Especie</Text>

@@ -18,7 +18,7 @@ export interface SpeciesFilters {
   sort?: 'name' | 'recent';
 }
 
-function mediaUrl(path: unknown) {
+export function mediaUrl(path: unknown) {
   if (!path) return null;
   const storedPath = String(path);
   const guide = storedPath.startsWith('guia-aves/');
@@ -30,7 +30,7 @@ function resolveSpeciesImage(media: Array<Record<string, any>>) {
   const images = media.filter((item) => item.type === 'image');
   const approved = images.find((item) => item.status === 'approved' && item.is_primary)
     ?? images.find((item) => item.status === 'approved');
-  const legacy = images.find((item) => item.status === 'archived' && item.license === 'legacy' && item.source_url);
+  const legacy = images.find((item) => item.status === 'archived' && item.license === 'legacy' && item.source_url && !item.removed_by_editor);
   const selected = approved ?? legacy;
   const storedUrl = approved ? mediaUrl(approved.thumbnail_path ?? approved.storage_path) : null;
   return {
@@ -74,7 +74,7 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
   };
 }
 
-function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
+export function payloadToColumns(catalogCode: string, payload: SpeciesPayload) {
   const names = [...new Map(payload.commonNames
     .map((name) => name.normalize('NFC').replace(/\s+/g, ' ').trim()).filter(Boolean)
     .map((name) => [name.normalize('NFKC').replace(/\p{Cf}/gu, '').toLocaleLowerCase('es'), name])).values()];

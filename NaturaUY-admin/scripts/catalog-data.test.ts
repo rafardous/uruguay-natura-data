@@ -28,10 +28,11 @@ test('la publicación ignora las fotos archivadas y conserva el orden nuevo', ()
   assert.equal(selected.primary?.id, 'new-1');
 });
 
-test('la publicación rechaza más de dos fotos aprobadas por especie', () => {
+test('la publicación admite tres fotos y rechaza una cuarta', () => {
+  assert.equal(approvedImagesForSpecies(species, [image('one',1,'approved'),image('two',2,'approved'),image('three',3,'approved')]).images.length,3);
   assert.throws(() => approvedImagesForSpecies(species, [
-    image('one', 1, 'approved'), image('two', 2, 'approved'), image('three', 3, 'approved'),
-  ]), /Más de dos/);
+    image('one', 1, 'approved'), image('two', 2, 'approved'), image('three', 3, 'approved'), image('four', 4, 'approved'),
+  ]), /Más de tres/);
 });
 
 test('las URLs del catálogo pasan por la ruta estable de medios', () => {

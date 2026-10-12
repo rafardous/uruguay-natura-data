@@ -38,9 +38,12 @@ jobs:
       - name: Preparar análisis antimalware
         run: |
           sudo apt-get update
-          sudo apt-get install -y clamav
+          sudo apt-get install -y clamav ffmpeg
           sudo freshclam || true
           clamscan --version
       - name: Verificar ffmpeg
         run: ffmpeg -version
       - run: npm run media:process
+      - name: Registrar fallo de la cola
+        if: failure()
+        run: npx tsx scripts/fail-media-processing.ts

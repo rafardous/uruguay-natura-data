@@ -1,5 +1,13 @@
 # Despliegue y cutover
 
+## Editor visual — 12/10/2026
+
+La migración `20261012035721_visual_species_editor.sql` está aplicada. Se descargó y verificó el respaldo cifrado del workflow `38203066293`, SHA-256 `30117f953f00166b5fa2aee91692e64e997dec62fa5860af0907b3ac143e1391`, antes de modificar el esquema. La migración no altera fichas ni identidades: mantiene 1048 especies activas, cero archivadas y 2933 revisiones anteriores a las pruebas. `review_species_change` exige admin; la implementación previa de atributos queda privada, sin ejecución directa de clientes.
+
+El límite es ahora tres imágenes y un audio. `submit_visual_species_change` comprueba fecha de ficha y snapshot de galería; aprobación, retiros, orden, principal y atributos son atómicos. `reserve_editor_media` prepara reemplazos sin archivar el vigente. Enlaces importados pasan por resolución del proveedor y descargas HTTPS con DNS fijado a IPv4 público, límites de tamaño y validación de cada redirección. El workflow instala ffmpeg y ClamAV; registra un fallo si se detiene antes del script. La función `request-media-processing` admite CORS del panel productivo y localhost de desarrollo, manteniendo autenticación y pertenencia editorial.
+
+Ver `docs/visual-editor.md` para interfaz, pruebas y aceptación real. Las fotos de tres posiciones usan el contrato SQLite existente; el lector ya recorre la galería completa. La refactorización de presentación comparte la prioridad histórica de aves sin reinterpretar los datos.
+
 ## Gestión web ampliada — 11/10/2026
 
 `20261011231526_editorial_frontend_management.sql` incorpora revisiones inmutables, gestión admin de `learning_paths`, calendario de Inicio, estadísticas agregadas privadas, edición de medios y relaciones de ambientes. Corrige la reserva al reemplazar medios archivados y admite nuevos autores de audio con derechos verificados. Está aplicada en producción desde el 11/10/2026. El respaldo cifrado del workflow `38183187752` se descargó y se verificó con SHA-256 `bf7bb467b0974df218a05557ae9799bd35321ef59d201de72bcbd4775765a286`; los dispatch manuales ya no ejecutan limpieza de medios. Pasaron 39 pruebas editoriales, la instalación sobre columnas/restricciones/funciones del esquema real y las comprobaciones remotas de RPCs/RLS con rollback. Se conservaron 1048 especies activas (948 animales/100 plantas), 3057 plantas archivadas y 9047 revisiones de especies; ninguna fila de prueba quedó persistida. Se ejecutaron los asesores de seguridad: las RPCs nuevas exigen administrador y el calendario público expone sólo fecha, tipo y código de especie. No repetir importaciones históricas ni publicar automáticamente lecturas bootstrap.

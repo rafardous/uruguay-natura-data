@@ -92,7 +92,7 @@ export interface PlantNaturalHistory {
 }
 
 export interface BirdNaturalHistory {
-  guide: { sourceCode: 'azpiroz_2003'; year: number; number: number; page: number | null; commonName: string | null; englishName: string | null; scientificName: string | null };
+  guide: { sourceCode: 'azpiroz_2003'; year: number; number: number; page: number | null; commonName: string | null; englishName: string | null; scientificName: string | null } | null;
   measurements: { kind: 'body_length' | 'wingspan'; valueCm: number; sex?: 'male' | 'female' }[];
   presence: { code: string; label: string; months: number[]; note: string; outsidePeriod: boolean } | null;
   habitat: string[];

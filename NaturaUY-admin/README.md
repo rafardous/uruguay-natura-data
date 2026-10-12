@@ -1,5 +1,7 @@
 # Arapy · Panel editorial
 
+El editor visual reúne fotos, audio y atributos dentro de cada ficha: tres fotos y un audio, controles de orden/principal, reemplazos preparados antes de retirar el medio vigente y propuestas auditadas. Administradores revisan/aplican en la ficha; colaboradores proponen. `/content` agrupa historias, lecturas y curiosidades; `/games` reúne selección, trivia y pistas; `/media` es una bandeja paginada. Ambientes usa tarjetas y edición por bloques con jerarquías y fuentes. Ver [visual-editor.md](docs/visual-editor.md).
+
 Las pistas de Adiviá se administran en Contenido y juegos mediante propuestas y revisión. La migración `20261011191403_enriched_games.sql` está aplicada en producción desde el 11/10/2026; las 40 pistas de ocho especies quedaron aprobadas y auditadas, con autorización específica y respaldo verificado. La vista previa se deriva de esos datos; el catálogo público y el APK continúan en v9/1.3.1. Contrato, puntajes y progreso offline en [games.md](../NaturaUY-source/docs/games.md).
 
 Panel privado para mantener el catálogo aprobado de Arapy. Supabase conserva identidades, permisos, fichas actuales, solicitudes y auditoría. GitHub Actions procesa medios y genera los artefactos públicos; Supabase Storage sirve derivados y el manifiesto estable. El repositorio, dominio e identificadores internos conservan nombres anteriores por compatibilidad.

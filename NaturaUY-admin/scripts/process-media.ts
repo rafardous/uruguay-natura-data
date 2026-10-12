@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { imageVariants } from './media-image';
+import { downloadPublic, resolveExternalMedia, verifyResolvedRights } from './external-media';
 
 import { adminClient, required } from './shared';
 
@@ -31,9 +32,16 @@ async function putVerified(path: string, body: Uint8Array, contentType: string) 
 await client.from('species_media').update({ status: 'processing', processing_error: null }).eq('id', mediaId);
 
 try {
-  const { data: incoming, error } = await client.storage.from('incoming').download(media.incoming_path);
-  if (error || !incoming) throw error ?? new Error('incoming_missing');
-  const original = new Uint8Array(await incoming.arrayBuffer());
+  let original: Uint8Array;
+  if (media.import_url) {
+    const resolved = await resolveExternalMedia(media.import_url);
+    verifyResolvedRights(resolved, media);
+    original = new Uint8Array(await downloadPublic(resolved.url, media.type === 'image' ? 20 * 1024 * 1024 : 45 * 1024 * 1024));
+  } else {
+    const { data: incoming, error } = await client.storage.from('incoming').download(media.incoming_path);
+    if (error || !incoming) throw error ?? new Error('incoming_missing');
+    original = new Uint8Array(await incoming.arrayBuffer());
+  }
   const scanPath = join(temp, 'original-upload');
   writeFileSync(scanPath, original);
   execFileSync('clamscan', ['--no-summary', scanPath], { stdio: 'inherit' });
@@ -47,13 +55,15 @@ try {
     checksum = await putVerified(storagePath, main, 'image/webp');
     await putVerified(thumbnailPath, thumbnail, 'image/webp');
   } else if (media.type === 'audio') {
-    if (original.length > 5 * 1024 * 1024) throw new Error('audio_too_large');
+    if (original.length > (media.import_url ? 45 : 5) * 1024 * 1024) throw new Error('audio_too_large');
     const inputPath = join(temp, 'clip.wav'); const outputPath = join(temp, 'app.mp3');
     writeFileSync(inputPath, original);
     const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=channels,sample_rate', '-of', 'json', inputPath], { encoding: 'utf8' })) as { format?: { duration?: string }; streams?: Array<{ channels?: number; sample_rate?: string }> };
     const duration = Number(probe.format?.duration ?? 0); const audio = probe.streams?.[0];
-    if (!duration || duration > 15.05 || audio?.channels !== 1 || Number(audio.sample_rate) !== 48000) throw new Error('audio_clip_invalid');
-    execFileSync('ffmpeg', ['-y', '-i', inputPath, '-vn', '-map_metadata', '-1', '-ar', '48000', '-ac', '1', '-codec:a', 'libmp3lame', '-b:a', '96k', outputPath], { stdio: 'inherit' });
+    if (!duration || (!media.import_url && (duration > 15.05 || audio?.channels !== 1 || Number(audio.sample_rate) !== 48000))) throw new Error('audio_clip_invalid');
+    const clip = media.import_url ? ['-ss', String(media.clip_start_seconds ?? 0), '-t', String(media.clip_duration_seconds ?? 15)] : [];
+    if (media.import_url && Number(media.clip_start_seconds ?? 0) >= duration) throw new Error('audio_clip_outside_file');
+    execFileSync('ffmpeg', ['-y', '-i', inputPath, ...clip, '-vn', '-map_metadata', '-1', '-ar', '48000', '-ac', '1', '-codec:a', 'libmp3lame', '-b:a', '96k', outputPath], { stdio: 'inherit' });
     storagePath = `${basePath}.mp3`; checksum = await putVerified(storagePath, readFileSync(outputPath), 'audio/mpeg');
   } else throw new Error(`unsupported_media_type:${media.type}`);
 
