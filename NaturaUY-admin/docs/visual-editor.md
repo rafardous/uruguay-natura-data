@@ -2,6 +2,8 @@
 
 ## Recuperación de altas y revisiones — 12/10/2026
 
+La taxonomía usa comboboxes con valores del catálogo editorial, filtrados por los rangos superiores. Se puede escribir un valor nuevo sin modificar los anteriores; su incorporación sigue pasando por aprobación. Los nombres comunes alternativos se agregan como etiquetas mediante coma, Enter, Tab o al salir del campo, conservando el texto parcial mientras se escribe. Las confirmaciones editoriales y de derechos explican junto a la casilla qué falta para continuar. El resumen diferencia versión publicada al día, cambios pendientes, primera publicación y publicación en curso.
+
 Revisiones ofrece «Corregir alta y cargar medios» al autor y al administrador. La RPC `revise_pending_species_create` bloquea la propuesta pendiente, compara sus valores originales y crea una propuesta nueva; conserva la anterior como rechazada, con referencia a su reemplazo, y transfiere los medios asociados con sus derechos. No modifica una ficha aprobada. La aprobación propia sigue exigiendo confirmación; el rechazo propio no exige autovalidación.
 
 El alta valida fuente de abundancia y de cada medida antes de enviar. Los errores PostgREST se presentan con su motivo y quedan visibles aunque cierre el modal de aprobación. Si `createImageBitmap` no decodifica un JPG, el original pasa al procesador habitual, que verifica formato y produce WebP/miniatura; el fallback nunca aprueba archivos inválidos.
