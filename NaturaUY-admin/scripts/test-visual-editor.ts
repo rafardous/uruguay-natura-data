@@ -26,6 +26,8 @@ const previous=read('20261011231526_editorial_frontend_management.sql');
 await db.exec(fn(previous,'public.reserve_species_media_upload'));
 await db.exec(fn(previous,'public.save_media_editor'));
 await db.exec(read('20261012035721_visual_species_editor.sql'));
+await db.exec("alter table species_media add column original_license text, add column external_id text, add column license_url text");
+await db.exec(read('20261012050316_visual_editor_snapshot_rights.sql'));
 let checks=0;
 const actor=async(id:string)=>db.query("select set_config('request.jwt.claim.sub',$1,false)",[id]);
 const val=async(sql:string,params:unknown[]=[]) => (await db.query<any>(sql,params)).rows[0];
@@ -58,5 +60,8 @@ await rejects('select submit_visual_species_change($1,$2,$3,$4,$5,$6,false,false
 await rejects('select submit_visual_species_change($1,$2,$3,$4,$5,$6,false,false)',[species,state.updated_at,{catalog_code:'changed'},state.snapshot,[],'Cambio ID'],/immutable/);
 await rejects('select submit_visual_species_change($1,$2,$3,$4,$5,$6,false,false)',[species,state.updated_at,{},[],[],'Galería obsoleta'],/gallery_change_conflict/);
 await actor(mobile);await rejects('select get_editorial_trait_options($1)',['diet'],/editor_access/);
+await actor(admin);const rightsSnapshot=await val('select private.gallery_snapshot($1) value',[species]);
+await db.query("update species_media set evidence_path='Nueva autorización' where id=$1",[one]);
+await rejects('select submit_visual_species_change($1,$2,$3,$4,$5,$6,false,false)',[species,(await val('select updated_at from species where id=$1',[species])).updated_at,{},rightsSnapshot.value,[],'Permiso modificado durante edición'],/gallery_change_conflict/);
 await actor(admin);await rejects('select get_editorial_trait_options($1)',['arbitrary'],/invalid_trait/);
 await db.close();console.log(`${checks} verificaciones del editor visual aprobadas en PostgreSQL embebido.`);

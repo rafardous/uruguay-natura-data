@@ -1,7 +1,7 @@
 import { FileAudio, FileImage, Plus, Trash2, UploadCloud } from 'lucide-react';
 
 import type { Profile, MediaAsset } from '../domain';
-import { requestMediaProcessing, reserveMediaUpload, updateSpeciesAudioMetadata } from '../lib/api';
+import { requestMediaProcessing, reserveMediaUpload, updateSpeciesAudioMetadata, type ReservedMediaUpload } from '../lib/api';
 import { uploadIncoming } from '../lib/mediaUpload';
 import { prepareImageForUpload } from '../lib/prepareImage';
 import { prepareAudioForUpload } from '../lib/prepareAudio';
@@ -31,20 +31,24 @@ export function mediaDraftIsComplete(draft: NewSpeciesMediaDraft): boolean {
   return Boolean(draft.file && draft.author.trim() && draft.source.trim() && draft.accepted && (draft.license!=='permission'||draft.authorizationEvidenceRef.trim()) && (draft.kind === 'image' || (draft.clipStartSeconds >= 0 && draft.clipDurationSeconds > 0 && draft.clipDurationSeconds <= 15 && (draft.source.trim().toLocaleLowerCase('es')!=='xeno-canto'||draft.externalId.trim()))));
 }
 
-export async function uploadNewSpeciesMedia(requestId: string, draft: NewSpeciesMediaDraft): Promise<void> {
+export interface NewMediaUploadState { reservation?: ReservedMediaUpload; uploaded?: boolean; dispatched?: boolean; }
+export async function uploadNewSpeciesMedia(requestId: string, draft: NewSpeciesMediaDraft, state: NewMediaUploadState = {}): Promise<void> {
+  if (state.dispatched) return;
   if (!draft.file) throw new Error('Elegí un archivo para cada medio propuesto.');
   const uploadFile = draft.kind === 'image' ? await prepareImageForUpload(draft.file) : await prepareAudioForUpload(draft.file,{start:draft.clipStartSeconds,duration:draft.clipDurationSeconds});
   const sizeLimit = (draft.kind === 'image' ? 20 : 45) * 1024 * 1024;
   if (uploadFile.size > sizeLimit) throw new Error(`El archivo ${draft.file.name} supera el máximo permitido.`);
-  const reservation = await reserveMediaUpload({
+  const reservation = state.reservation ?? await reserveMediaUpload({
     speciesId: null, changeRequestId: requestId, kind: draft.kind, author: draft.author, license: draft.license,
     source: draft.source, sourceUrl: draft.sourceUrl, originalFilename: uploadFile.name, makePrimary: draft.kind === 'image' && draft.makePrimary,
     confirmRights: draft.accepted,evidenceRef:draft.authorizationEvidenceRef, clipStartSeconds: draft.kind === 'audio' ? draft.clipStartSeconds : undefined,
     clipDurationSeconds: draft.kind === 'audio' ? draft.clipDurationSeconds : undefined,
   });
+  state.reservation = reservation;
   if (draft.kind === 'audio') await updateSpeciesAudioMetadata({ mediaId: reservation.mediaId, externalId: draft.externalId.trim(), originalLicense: draft.originalLicense.trim(), authorizationEvidenceRef: draft.authorizationEvidenceRef.trim() });
-  await uploadIncoming(uploadFile, reservation.incomingPath, () => undefined);
+  if (!state.uploaded) { await uploadIncoming(uploadFile, reservation.incomingPath, () => undefined); state.uploaded = true; }
   await requestMediaProcessing(reservation.jobId);
+  state.dispatched = true;
 }
 
 export function NewSpeciesMedia({ drafts, onChange, profile }: { drafts: NewSpeciesMediaDraft[]; onChange(drafts: NewSpeciesMediaDraft[]): void; profile: Profile | null }): React.JSX.Element {
@@ -58,7 +62,7 @@ export function NewSpeciesMedia({ drafts, onChange, profile }: { drafts: NewSpec
       {draft.kind==='image'&&draft.license==='permission'&&<label className="field"><span>Referencia privada de la autorización verificable</span><input required value={draft.authorizationEvidenceRef} onChange={e=>update(draft.id,{authorizationEvidenceRef:e.target.value})}/></label>}
       <label className="check-field"><input type="checkbox" checked={draft.accepted} onChange={(event) => update(draft.id, { accepted: event.target.checked })} /><span>Declaro que tengo derecho a aportar este medio y autorizo su publicación según la licencia indicada.</span></label>
     </article>)}</div>
-    <div className="header-actions"><button type="button" className="secondary" onClick={() => onChange([...drafts, newDraft('image')])}><FileImage size={17} /> Agregar imagen</button><button type="button" className="secondary" onClick={() => onChange([...drafts, newDraft('audio')])}><FileAudio size={17} /> Agregar audio</button></div>
+    <div className="header-actions"><button type="button" className="secondary" disabled={drafts.filter(d=>d.kind==='image').length>=3} onClick={() => onChange([...drafts, newDraft('image')])}><FileImage size={17} /> Agregar imagen</button><button type="button" className="secondary" disabled={drafts.some(d=>d.kind==='audio')} onClick={() => onChange([...drafts, newDraft('audio')])}><FileAudio size={17} /> Agregar audio</button></div>
   </section>;
 }
 

@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-10-12",
+  "environment": "production",
+  "uiOrigin": "http://localhost:5173",
+  "actor": "authorized administrator session",
+  "speciesCode": "T_preciosa",
+  "image": {
+    "id": "30aae8e4-fef3-47f9-8bb5-d0e9c74c8f84",
+    "workflowRun": 38204635950,
+    "sha256": "69f729dcbb979bb7f9061036e0fbcb0c7cdb4a39eacdf29149256187456a8c84",
+    "persisted": true
+  },
+  "audio": {
+    "id": "1bb337db-f474-44fa-b53f-903b1ce318f5",
+    "workflowRun": 38204766279,
+    "sha256": "1b27b89c6913f4271fc5072fdc9ba6651d63f1ebb0f33bb2fc2c6695752eb399",
+    "persisted": true,
+    "playedAfterReload": true
+  },
+  "approvedTogetherThroughUi": true,
+  "galleryAfterReload": {"photos": 3, "audio": 1},
+  "cleanupThroughUi": true,
+  "fixturesFinalStatus": "archived",
+  "originalPhotosRetained": 2,
+  "scientificAttributesUnchanged": true,
+  "speciesCounts": {"active": 1048, "animals": 948, "plants": 100, "archived": 0},
+  "revisionsAfterTest": 2935
+}

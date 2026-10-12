@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import type { BirdNaturalHistory, Species } from '../../domain/entities/species';
-import { abundanceLabel, dietLabel, seasonalityLabel } from '../../domain/catalogLabels';
+import { seasonalityLabel } from '../../domain/catalogLabels';
 import { birdGuideDisplay, birdMeasureLabel, formatBirdMeasure } from '../../domain/services/birdGuide';
 import { formatSpeciesMeasurement } from '../../domain/services/measurementFormatting';
 import { CloseIcon, InfoIcon } from './TabIcons';

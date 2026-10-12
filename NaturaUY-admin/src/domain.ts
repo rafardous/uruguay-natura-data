@@ -188,6 +188,7 @@ export interface ChangeRequest {
   changeType: 'create' | 'update' | 'media';
   currentValues: Record<string, unknown>;
   proposedChanges: Record<string, unknown>;
+  galleryReview?: { before: Array<Record<string, any>>; after: Array<Record<string, any>> };
   proposedBy: string;
   proposedByName: string;
   comment: string;

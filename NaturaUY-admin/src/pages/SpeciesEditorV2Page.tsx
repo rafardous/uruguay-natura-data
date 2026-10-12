@@ -137,7 +137,7 @@ function SizeEditor({ payload, patch }: EditorSectionProps): React.JSX.Element {
     const rest = payload.measurements.filter((item) => item.kind !== kind);
     const value = Number(raw.replace(',', '.'));
     const previous = find(kind);
-    patch('measurements', raw.trim() && Number.isFinite(value) && value > 0 ? [...rest, { kind, value, unit, basis, estimated: previous?.estimated ?? false, sourceCode: previous?.sourceCode ?? '', sourceRecordId: previous?.sourceRecordId ?? null, provenance: previous?.provenance ?? 'verified' }] : rest);
+    patch('measurements', raw.trim() && Number.isFinite(value) && value > 0 ? [...rest, { ...previous, kind, value, unit, basis, estimated: previous?.estimated ?? false, sourceCode: previous?.sourceCode ?? '', sourceRecordId: previous?.sourceRecordId ?? null, provenance: previous?.provenance ?? 'verified' }] : rest);
   };
   const source = (kind: SpeciesPayload['measurements'][number]['kind']) => <><Field label="Código de fuente" value={find(kind)?.sourceCode ?? ''} onChange={(value) => patch('measurements', payload.measurements.map((item) => item.kind === kind ? { ...item, sourceCode: value } : item))} /><Field label="ID en la fuente" value={find(kind)?.sourceRecordId ?? ''} onChange={(value) => patch('measurements', payload.measurements.map((item) => item.kind === kind ? { ...item, sourceRecordId: value || null } : item))} /></>;
   return <FormSection title="Tamaño" detail="Cada medida conserva su convención, fuente y procedencia; el largo corporal nunca se calcula sumando otras medidas."><div className="form-grid three">

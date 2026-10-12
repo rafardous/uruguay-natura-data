@@ -5,7 +5,7 @@ import { editorialClient, editorialRpc } from './editorial';
 export type GalleryRow = Record<string, any> & { id:string; type:'image'|'audio'; status:string; ordinal:number; is_primary:boolean; url:string|null; thumb:string|null };
 export type GalleryChoice = { id:string; type:'image'|'audio'; ordinal:number; is_primary:boolean; metadata?:Record<string,string> };
 export function gallerySnapshot(rows: GalleryRow[]) {
-  return rows.filter(r=>r.status==='approved'||(r.status==='archived'&&r.license==='legacy'&&!r.removed_by_editor)).sort((a,b)=>a.id.localeCompare(b.id)).map(r=>Object.fromEntries(['id','status','ordinal','is_primary','checksum_sha256','author','source','license','source_url','removed_by_editor'].map(k=>[k,r[k]??null])));
+  return rows.filter(r=>r.status==='approved'||(r.status==='archived'&&r.license==='legacy'&&!r.removed_by_editor)).sort((a,b)=>a.id.localeCompare(b.id)).map(r=>Object.fromEntries(['id','status','ordinal','is_primary','checksum_sha256','author','source','license','source_url','removed_by_editor','evidence_path','license_url','original_license','external_id'].map(k=>[k,r[k]??null])));
 }
 export function galleryChoices(rows: GalleryRow[]):GalleryChoice[] {
   return rows.filter(r=>r.status==='approved').sort((a,b)=>Number(b.is_primary)-Number(a.is_primary)||a.ordinal-b.ordinal).map((r,i)=>({id:r.id,type:r.type,ordinal:r.type==='audio'?1:i+1,is_primary:r.is_primary}));

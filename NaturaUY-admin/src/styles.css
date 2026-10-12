@@ -34,6 +34,9 @@
 .month-strip > span.present { background:#cfdfc4; color:#385e44; font-weight:800; }
 .visual-save-bar { position:fixed; bottom:0; left:250px; right:0; z-index:30; display:flex; justify-content:space-between; gap:16px; align-items:center; padding:16px 32px; background:#fff9eaf5; border-top:1px solid var(--arapy-border); box-shadow:0 -6px 26px #29383214; backdrop-filter:blur(12px); }
 .visual-secondary summary { cursor:pointer; font-weight:700; min-height:36px; }
+.visual-species .header-actions .secondary { display:inline-flex; }
+.visual-species .header-actions { flex-wrap:wrap; }
+@media(min-width:761px) and (max-width:900px) { .visual-species .visual-save-bar { left:250px; } }
 .text-button { display:inline-flex; align-items:center; gap:6px; background:transparent; border:0; color:var(--arapy-primary); padding:8px 0; text-align:left; }
 .content-tabs { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:25px; }
 .habitat-card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin:24px 0; }

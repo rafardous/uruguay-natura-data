@@ -28,7 +28,10 @@ export async function activeSpecies(): Promise<SpeciesSummary[]> {
 
 export async function editorialRpc(name: string, args: Record<string, unknown>): Promise<unknown> {
   const { data, error } = await editorialClient().rpc(name, args);
-  if (error) throw error;
+  if (error) {
+    const messages:Record<string,string>={species_change_conflict:'La ficha cambió desde que la abriste. Revisá la versión actual antes de guardar.',gallery_change_conflict:'La galería cambió desde que la abriste. Revisá los medios actuales antes de guardar.',media_limit_exceeded:'La especie admite hasta tres fotos y un audio.',media_not_ready:'Esperá a que los archivos terminen de procesarse antes de aplicar.',media_objects_missing:'No se encontró un archivo verificado en Storage. Reintentá el procesamiento.',permission_evidence_required:'Completá la referencia verificable de autorización.',bird_source_required:'El perfil de aves necesita una fuente por campo.',admin_required:'Esta acción requiere un administrador.',habitat_change_conflict:'El ambiente cambió desde que lo abriste. Actualizá su versión antes de guardar.'};
+    throw new Error(messages[error.message]??error.message);
+  }
   return data;
 }
 

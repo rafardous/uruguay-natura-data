@@ -9,8 +9,8 @@ export function allowedMediaUrl(input:string):URL {
 }
 export function publicIPv4(ip:string):boolean {
   if(isIP(ip)!==4)return false;
-  const [a,b]=ip.split('.').map(Number) as [number,number,number,number];
-  return !(a===0||a===10||a===127||a>=224||(a===169&&b===254)||(a===172&&b>=16&&b<=31)||(a===192&&(b===168||b===0))||(a===100&&b>=64&&b<=127)||(a===198&&(b===18||b===19)));
+  const [a,b,c]=ip.split('.').map(Number) as [number,number,number,number];
+  return !(a===0||a===10||a===127||a>=224||(a===169&&b===254)||(a===172&&b>=16&&b<=31)||(a===192&&(b===168||b===0||(b===88&&c===99)))||(a===100&&b>=64&&b<=127)||(a===198&&(b===18||b===19||(b===51&&c===100)))||(a===203&&b===0&&c===113));
 }
 /** Pin each TLS connection to a checked IPv4; never forward cookies or credentials. */
 export async function downloadPublic(input:string,maxBytes=45*1024*1024,redirects=0):Promise<Buffer> {
@@ -20,7 +20,7 @@ export async function downloadPublic(input:string,maxBytes=45*1024*1024,redirect
   if(!addresses.length||addresses.some(v=>!publicIPv4(v.address)))throw new Error('external_destination_not_public');
   const address=addresses[0]!.address;
   const response=await new Promise<{redirect?:string;body?:Buffer}>((resolve,reject)=>{
-    const req=request(url,{lookup:(_host,_options,callback)=>callback(null,address,4),headers:{'User-Agent':'Arapy-editorial/1.4'},timeout:30000},res=>{
+    const req=request(url,{family:4,lookup:(_host,_options,callback)=>callback(null,address,4),headers:{'User-Agent':'Arapy-editorial/1.4'},timeout:30000},res=>{
       if([301,302,303,307,308].includes(res.statusCode??0)&&res.headers.location){res.resume();resolve({redirect:new URL(res.headers.location,url).href});return;}
       if(res.statusCode!==200){res.resume();reject(new Error(`external_download_${res.statusCode}`));return;}
       if(Number(res.headers['content-length']??0)>maxBytes){res.destroy();reject(new Error('external_file_too_large'));return;}

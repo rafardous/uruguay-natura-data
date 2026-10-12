@@ -53,6 +53,7 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
     seasonality: row.seasonality ?? 'unknown',
     abundanceStatus: row.abundance_status ?? '',
     conservation: {
+      ...conservation,
       nationalRedList: conservation.nationalRedList ?? { category: '', sourceCode: '', version: '', assessedAt: '' },
       iucnGlobal: conservation.iucnGlobal ?? { category: '', sourceCode: '', version: '', assessedAt: '' },
       nationalDesignations: conservation.nationalDesignations ?? [],
@@ -60,6 +61,7 @@ function rowToPayload(row: Record<string, any>): SpeciesPayload {
     description: row.description ?? '',
     measurements: Array.isArray(row.measurements) ? row.measurements : Array.isArray(traits.measurements) ? traits.measurements : [],
     ecology: {
+      ...ecology,
       habitats: ecology.habitats ?? row.habitat ?? [], diet: ecology.diet ?? row.diet ?? [],
       lifeModes: ecology.lifeModes ?? traits.lifeModes ?? [], activity: ecology.activity ?? traits.activity ?? [],
       aquaticEnvironments: ecology.aquaticEnvironments ?? traits.aquaticEnvironments ?? [], waterZones: ecology.waterZones ?? traits.waterZones ?? [],
@@ -221,6 +223,20 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
   if (error) throw error;
   const speciesIds = [...new Set((data ?? []).map((row) => row.species_id).filter(Boolean))];
   const imageBySpecies = new Map<string, string | null>();
+  const galleryByChange = new Map<string, {before:Array<Record<string,any>>;after:Array<Record<string,any>>}>();
+  if (data?.length) {
+    const {data: changes,error: changesError}=await client.from('species_changes').select('id,gallery_before,gallery_values').in('id',data.map(r=>r.id));
+    if(changesError)throw changesError;
+    const galleries=(changes??[]).filter(r=>r.gallery_values!==null);
+    const ids=[...new Set(galleries.flatMap(r=>[...(r.gallery_before??[]),...(r.gallery_values??[])].map((v:any)=>v.id)))];
+    if(ids.length) {
+      const {data: media,error: mediaError}=await client.from('species_media').select('id,type,author,license,source,source_url,storage_path,thumbnail_path').in('id',ids);
+      if(mediaError)throw mediaError;
+      const byId=new Map((media??[]).map(r=>[r.id,r]));
+      const describe=(v:any)=>{const m=byId.get(v.id);return {...m,...v,...v.metadata,url:mediaUrl(m?.storage_path),thumbnail:mediaUrl(m?.thumbnail_path??m?.storage_path)};};
+      for(const change of galleries)galleryByChange.set(change.id,{before:(change.gallery_before??[]).map(describe),after:(change.gallery_values??[]).map(describe)});
+    } else for(const change of galleries)galleryByChange.set(change.id,{before:[],after:[]});
+  }
   if (speciesIds.length) {
     const { data: speciesRows, error: speciesError } = await client.from('species_editor').select('id,media').in('id', speciesIds);
     if (speciesError) throw speciesError;
@@ -231,6 +247,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
     commonName: row.common_name, changeType: row.change_type, currentValues: row.before_values ?? {}, proposedChanges: row.proposed_values,
     proposedBy: row.proposed_by, proposedByName: row.proposed_by_name, comment: row.comment ?? '', createdAt: row.created_at,
     imageUrl: row.species_id ? imageBySpecies.get(row.species_id) ?? null : null,
+    galleryReview: galleryByChange.get(row.id),
   }));
 }
 
