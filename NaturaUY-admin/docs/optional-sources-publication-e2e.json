@@ -1,0 +1,29 @@
+{
+  "version": 15,
+  "schema": 15,
+  "checksumVerified": true,
+  "bytes": 20877312,
+  "species": 1049,
+  "plants": 100,
+  "catLinks": 6,
+  "foreignKeyErrors": 0,
+  "integrity": "ok",
+  "catMeasurements": [
+    {
+      "source": "Sin fuente",
+      "provenance": "legacy_unverified"
+    },
+    {
+      "source": "Sin fuente",
+      "provenance": "legacy_unverified"
+    },
+    {
+      "source": "Sin fuente",
+      "provenance": "legacy_unverified"
+    },
+    {
+      "source": "Sin fuente",
+      "provenance": "legacy_unverified"
+    }
+  ]
+}
