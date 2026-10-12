@@ -366,11 +366,18 @@ export async function requestMediaProcessing(mediaId: string): Promise<void> {
 export async function listReleases(): Promise<CatalogRelease[]> {
   const { data, error } = await assertClient().from('catalog_release_history').select('*').order('version', { ascending: false });
   if (error) throw error;
-  return (data ?? []).map((row) => ({ id: row.id, dataVersion: row.version, status: row.status, requestedBy: row.requested_by_name, requestedAt: row.requested_at, publishedAt: row.published_at, speciesCount: row.species_count, databaseSize: row.database_size, qualityReportUrl: row.quality_report_url, error: row.error }));
+  return (data ?? []).map((row) => ({ id: row.id, dataVersion: row.version, schemaVersion: row.schema_version, status: row.status, requestedBy: row.requested_by_name, requestedAt: row.requested_at, publishedAt: row.published_at, speciesCount: row.species_count, databaseSize: row.database_size, qualityReportUrl: row.quality_report_url, error: row.error }));
 }
 
 export async function requestPublish(): Promise<void> {
   const { data, error } = await assertClient().rpc('request_catalog_publish');
+  if (error) throw error;
+  const dispatch = await assertClient().functions.invoke('request-catalog-publish', { body: { releaseId: data } });
+  if (dispatch.error) throw dispatch.error;
+}
+
+export async function requestSchema15Publish(): Promise<void> {
+  const { data, error } = await assertClient().rpc('request_catalog_schema15_publish');
   if (error) throw error;
   const dispatch = await assertClient().functions.invoke('request-catalog-publish', { body: { releaseId: data } });
   if (dispatch.error) throw dispatch.error;

@@ -23,7 +23,7 @@ await db.exec(`
  create table public.species_observability_snapshots(id uuid,generated_at timestamptz);
  create table public.taxon_content(id uuid,updated_at timestamptz);
  create table public.species_media(id uuid primary key default gen_random_uuid(),species_id uuid references species(id),change_id uuid,type text,ordinal smallint,is_primary boolean default false,status text default 'reserved',incoming_path text,storage_path text,thumbnail_path text,evidence_path text,author text,license text,source text,source_url text,license_url text,original_filename text,checksum_sha256 text,uploaded_by uuid,processed_at timestamptz);
- create table public.catalog_releases(id uuid primary key default gen_random_uuid(),version bigint unique,status text default 'pending',requested_by uuid,requested_at timestamptz default now(),published_at timestamptz);
+ create table public.catalog_releases(id uuid primary key default gen_random_uuid(),version bigint unique,schema_version integer not null default 14,min_app_version text not null default '1.3.1',status text default 'pending',requested_by uuid,requested_at timestamptz default now(),published_at timestamptz);
  create table public.favorites(user_id uuid,species_id uuid,is_favorite boolean,updated_at bigint,primary key(user_id,species_id));
  create table storage.objects(bucket_id text,name text);
  alter table species_media add column external_id text,add column original_license text,add column authorization_evidence_ref text;
@@ -41,10 +41,21 @@ await db.exec(learningMigration.slice(learningMigration.indexOf('create table pu
 const migration = readFileSync(new URL('../supabase/migrations/20261011231526_editorial_frontend_management.sql',import.meta.url), 'utf8');
 await db.exec(migration);
 await db.exec(readFileSync(new URL('../supabase/migrations/20261012063500_habitat_editor_media_read.sql',import.meta.url),'utf8'));
+await db.exec(readFileSync(new URL('../supabase/migrations/20261012054647_catalog_schema_15_mobile_compatibility.sql',import.meta.url),'utf8'));
 await db.exec(readFileSync(new URL('../supabase/migrations/202609060004_mobile_popular_species.sql',import.meta.url),'utf8'));
 async function rejects(sql: string, params: unknown[], message: string) { await assert.rejects(db.query(sql,params),new RegExp(message)); checks++; }
 async function check(sql: string, expected: unknown) { const r=await db.query<{value:unknown}>(sql);assert.deepEqual(r.rows[0]?.value,expected);checks++; }
 await db.query("select set_config('request.jwt.claim.sub',$1,false)",[admin]);
+const schema15Release=(await db.query<{id:string}>("select public.request_catalog_schema15_publish() id")).rows[0]!.id;
+await check(`select schema_version::integer value from catalog_releases where id='${schema15Release}'`,15);
+await check(`select min_app_version value from catalog_releases where id='${schema15Release}'`,'1.4.0');
+await check(`select version::integer value from catalog_releases where id='${schema15Release}'`,1);
+await check(`select public.request_catalog_schema15_publish() value` ,schema15Release);
+await db.query("select set_config('request.jwt.claim.sub',$1,false)",[mobile]);
+await rejects('select public.request_catalog_schema15_publish()',[],'admin_required');
+await db.query("select set_config('request.jwt.claim.sub',$1,false)",[admin]);
+await db.query("update catalog_releases set status='published',published_at=now() where id=$1",[schema15Release]);
+await rejects('select public.request_catalog_schema15_publish()',[],'catalog_schema15_already_published');
 const path = { ...structuredClone(LEARNING_PATHS.find(p=>p.id==='historias-del-territorio')!), sources: LEARNING_SOURCES };
 assert(validLearningPath(path)); checks++;
 await db.query("select public.save_learning_path($1,null,'approved','Carga editorial de prueba')",[path]);

@@ -151,6 +151,7 @@ export interface MediaAsset {
 export interface CatalogRelease {
   id: string;
   dataVersion: number;
+  schemaVersion: number;
   status: 'pending' | 'building' | 'published' | 'failed';
   requestedBy: string;
   requestedAt: string;
