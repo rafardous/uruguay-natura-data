@@ -1,6 +1,6 @@
 import type { CatalogRelease, ChangeRequest, CollaboratorApplication, DashboardStats, HomeNews, MediaAsset, NavigationCounts, Profile, Revision, SpeciesPayload, SpeciesSummary, UserReport } from '../domain';
 import { supabase } from './supabase';
-import { readAll } from './editorial';
+import { readAll, editorialRpc } from './editorial';
 
 const assertClient = () => {
   if (!supabase) throw new Error('Supabase no está configurado');
@@ -40,7 +40,7 @@ function resolveSpeciesImage(media: Array<Record<string, any>>) {
   };
 }
 
-function rowToPayload(row: Record<string, any>): SpeciesPayload {
+export function rowToPayload(row: Record<string, any>): SpeciesPayload {
   const traits = row.traits && typeof row.traits === 'object' ? row.traits : {};
   const ecology = row.ecology && typeof row.ecology === 'object' ? row.ecology : {};
   const conservation = row.conservation && typeof row.conservation === 'object' ? row.conservation : {};
@@ -169,7 +169,13 @@ function changedColumns(before: Record<string, unknown>, after: Record<string, u
   return Object.fromEntries(Object.entries(after).filter(([key, value]) => JSON.stringify(value) !== JSON.stringify(before[key])));
 }
 
-export async function saveSpecies(input: { id?: string; catalogCode: string; payload: SpeciesPayload; baseUpdatedAt: string | null; reason: string }): Promise<string> {
+export function validateSpeciesPayload(input: { payload: SpeciesPayload }): void {
+  if (input.payload.taxonomy.kingdom !== 'Plantae' && input.payload.abundanceStatus && !input.payload.fieldSources.abundance_status?.some(source => source.trim())) throw new Error('Indicá la fuente de abundancia o elegí «Sin dato» antes de guardar.');
+  const measurementNames: Record<string,string> = {body_length:'longitud corporal',max_length:'longitud máxima',body_mass:'masa',wing_length:'ala',tail_length:'cola',tarsus_length:'tarso'};
+  for (const item of input.payload.measurements) {
+    if (!Number.isFinite(item.value) || item.value<=0) throw new Error(`La medida de ${measurementNames[item.kind]} debe ser positiva.`);
+    if (!item.sourceCode.trim()) throw new Error(`Indicá la fuente de ${measurementNames[item.kind]} o quitá esa medida antes de guardar.`);
+  }
   if (input.payload.taxonomy.kingdom === 'Plantae') {
     const plant = input.payload.naturalHistory?.plant;
     const height = plant?.heightCm;
@@ -181,6 +187,10 @@ export async function saveSpecies(input: { id?: string; catalogCode: string; pay
       if (months?.length && !input.payload.fieldSources[`naturalHistory.plant.phenology.${field}`]?.length) throw new Error('La floración y fructificación necesitan fuente por campo.');
     }
   }
+}
+
+export async function saveSpecies(input: { id?: string; catalogCode: string; payload: SpeciesPayload; baseUpdatedAt: string | null; reason: string }): Promise<string> {
+  validateSpeciesPayload(input);
   const columns = payloadToColumns(input.catalogCode, input.payload);
   let proposedChanges: Record<string, unknown> = columns;
   if (input.id) {
@@ -323,13 +333,11 @@ export async function triageEnrichmentCandidate(id:string,accept:boolean):Promis
 }
 
 export async function approveChangeRequest(id: string, confirmSelfValidation: boolean) {
-  const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: true, p_confirm_self_validation: confirmSelfValidation });
-  if (error) throw error;
+  await editorialRpc('review_species_change', { p_change_id: id, p_approve: true, p_confirm_self_validation: confirmSelfValidation });
 }
 
 export async function rejectChangeRequest(id: string) {
-  const { error } = await assertClient().rpc('review_species_change', { p_change_id: id, p_approve: false, p_confirm_self_validation: false });
-  if (error) throw error;
+  await editorialRpc('review_species_change', { p_change_id: id, p_approve: false, p_confirm_self_validation: false });
 }
 
 export async function listMedia(): Promise<MediaAsset[]> {

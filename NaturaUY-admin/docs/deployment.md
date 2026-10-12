@@ -1,5 +1,10 @@
 # Despliegue y cutover
 
+
+## Corrección de altas y revisiones — 12/10/2026
+
+Aplicada `20261012144431_review_rejection_and_upload_recovery.sql` tras descargar y verificar el respaldo cifrado del workflow `38239080036` (SHA-256 `bc8a4268870fc7673b9d3e988d22fa1fa6b68a355757241f71904283abf17c3f`). Se probaron rechazo propio, corrección y aprobación con rol authenticated y rollback. Se conservaron 1048 especies y las propuestas originales. Ver `visual-editor.md` para recuperación, autorización, concurrencia y pruebas.
+
 ## Editor visual — 12/10/2026
 
 La migración `20261012035721_visual_species_editor.sql` está aplicada. Se descargó y verificó el respaldo cifrado del workflow `38203066293`, SHA-256 `30117f953f00166b5fa2aee91692e64e997dec62fa5860af0907b3ac143e1391`, antes de modificar el esquema. La migración no altera fichas ni identidades: mantiene 1048 especies activas, cero archivadas y 2933 revisiones anteriores a las pruebas. `review_species_change` exige admin; la implementación previa de atributos queda privada, sin ejecución directa de clientes.

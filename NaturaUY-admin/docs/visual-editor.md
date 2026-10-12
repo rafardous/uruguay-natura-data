@@ -1,5 +1,13 @@
 # Editor visual
 
+## Recuperación de altas y revisiones — 12/10/2026
+
+Revisiones ofrece «Corregir alta y cargar medios» al autor y al administrador. La RPC `revise_pending_species_create` bloquea la propuesta pendiente, compara sus valores originales y crea una propuesta nueva; conserva la anterior como rechazada, con referencia a su reemplazo, y transfiere los medios asociados con sus derechos. No modifica una ficha aprobada. La aprobación propia sigue exigiendo confirmación; el rechazo propio no exige autovalidación.
+
+El alta valida fuente de abundancia y de cada medida antes de enviar. Los errores PostgREST se presentan con su motivo y quedan visibles aunque cierre el modal de aprobación. Si `createImageBitmap` no decodifica un JPG, el original pasa al procesador habitual, que verifica formato y produce WebP/miniatura; el fallback nunca aprueba archivos inválidos.
+
+Verificación: 32 pruebas visuales, 49 editoriales, `npx tsx --test scripts/prepare-image.test.ts`, build y typecheck de automatización. En producción se probó rechazo propio, corrección y aprobación de alta bajo rol `authenticated`, con rollback completo. El alta `F_catus` conserva sus valores originales y su estado pendiente. Se verificó el respaldo cifrado del workflow `38239080036`, SHA-256 `bc8a4268870fc7673b9d3e988d22fa1fa6b68a355757241f71904283abf17c3f`, antes de aplicar `20261012144431_review_rejection_and_upload_recovery.sql`.
+
 La especie se consulta y edita en una ficha: galería, audio, nombres, origen/conservación, presencia/abundancia, tamaño, ecología, descripción y perfil del grupo. Cada bloque tiene su edición; fuentes e historial permanecen plegados. Código y UUID de registros existentes son estables.
 
 Las fotos se ordenan con botones accesibles; la primera es principal. Tres fotos y un audio son el máximo aprobado. Los aportes primero se reservan y procesan; «Usar en la ficha» incorpora un archivo verificado a la propuesta. Un reemplazo fallido conserva el vigente. «Quitar» archiva; una referencia externa retirada explícitamente no vuelve a ser fallback. Restauraciones pasan por la misma verificación y auditoría.

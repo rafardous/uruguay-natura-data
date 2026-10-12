@@ -1,5 +1,8 @@
 # Arapy · Panel editorial
 
+
+Las altas pendientes pueden corregirse desde Revisiones conservando medios e historial. Abundancia y medidas necesitan fuentes antes de guardar; una foto que el navegador no decodifica se verifica en el procesador. Requiere `20261012144431_review_rejection_and_upload_recovery.sql`.
+
 El editor visual reúne fotos, audio y atributos dentro de cada ficha: tres fotos y un audio, controles de orden/principal, reemplazos preparados antes de retirar el medio vigente y propuestas auditadas. Administradores revisan/aplican en la ficha; colaboradores proponen. `/content` agrupa historias, lecturas y curiosidades; `/games` reúne selección, trivia y pistas; `/media` es una bandeja paginada. Ambientes usa tarjetas y edición por bloques con jerarquías y fuentes. Ver [visual-editor.md](docs/visual-editor.md).
 
 Las pistas de Adiviá se administran en Contenido y juegos mediante propuestas y revisión. La migración `20261011191403_enriched_games.sql` está aplicada en producción desde el 11/10/2026; las 40 pistas de ocho especies quedaron aprobadas y auditadas, con autorización específica y respaldo verificado. La vista previa se deriva de esos datos; el catálogo público y el APK continúan en v9/1.3.1. Contrato, puntajes y progreso offline en [games.md](../NaturaUY-source/docs/games.md).

@@ -1,5 +1,8 @@
 # Natura UY — contexto para agentes
 
+
+- Corrección de altas y revisiones del 12/10/2026: `20261012144431_review_rejection_and_upload_recovery.sql` aplicada tras respaldo verificado. El rechazo propio no exige autovalidación; la aprobación sí. Revisiones permite corregir altas pendientes conservando la propuesta anterior y sus medios. Validación previa de fuentes y fallback de JPG al procesador. Ver `NaturaUY-admin/docs/visual-editor.md`.
+
 ## Propósito
 
 Natura UY es un catálogo de biodiversidad de Uruguay. El repositorio contiene:

@@ -4,7 +4,14 @@ export async function prepareImageForUpload(file: File): Promise<File> {
   const { default: createPica } = await import('pica');
   const pica = createPica();
   if (file.type === 'image/heic' || file.type === 'image/heif') return file;
-  const bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+  // La decodificación del navegador es una optimización. El procesador verifica
+  // el original y produce ambas variantes aunque este navegador no lo soporte.
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+  } catch {
+    return file;
+  }
   try {
     const scale = Math.min(1, MAX_SIDE / Math.max(bitmap.width, bitmap.height));
     const width = Math.max(1, Math.round(bitmap.width * scale));
