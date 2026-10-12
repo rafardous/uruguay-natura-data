@@ -18,11 +18,47 @@
     "playedAfterReload": true
   },
   "approvedTogetherThroughUi": true,
-  "galleryAfterReload": {"photos": 3, "audio": 1},
+  "galleryAfterReload": {
+    "photos": 3,
+    "audio": 1
+  },
   "cleanupThroughUi": true,
   "fixturesFinalStatus": "archived",
   "originalPhotosRetained": 2,
   "scientificAttributesUnchanged": true,
-  "speciesCounts": {"active": 1048, "animals": 948, "plants": 100, "archived": 0},
-  "revisionsAfterTest": 2935
+  "speciesCounts": {
+    "active": 1048,
+    "animals": 948,
+    "plants": 100,
+    "archived": 0
+  },
+  "revisionsAfterTest": 2935,
+  "publishedCatalog": {
+    "version": 11,
+    "schema": 14,
+    "sha256": "57a2e31cd4ce1d7d7059fe358e1788d03ad28c2963a024d9ae0c79e8dda15cd3",
+    "checksumVerified": true,
+    "integrity": "ok",
+    "counts": [
+      {
+        "kingdom": "Animalia",
+        "count": 948
+      },
+      {
+        "kingdom": "Plantae",
+        "count": 100
+      }
+    ],
+    "gallery": [
+      {
+        "media_type": "image",
+        "count": 2
+      }
+    ],
+    "fixtureCount": {
+      "count": 0
+    },
+    "photoLimitViolations": 0,
+    "foreignKeyViolations": 0
+  }
 }
