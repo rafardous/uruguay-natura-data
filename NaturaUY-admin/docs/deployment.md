@@ -1,9 +1,17 @@
 # Despliegue y cutover
 
+## UX móvil y récord mixto — pendiente de despliegue
+
+El reporte rápido de fotos reutiliza `has_editor_access` y `submit_feedback` sin cambios de base; se verifica mediante `npm run test:mobile-ux` con PostgreSQL local. La nueva selección de Adiviá reúne animales/plantas y conserva récords independientes `all:nivel`. Antes de distribuir esa app, respaldar y aplicar `20261012171935_mixed_guess_scope.sql` según este procedimiento; permite la nueva clave exclusivamente para las modalidades de Adiviá y mantiene los registros históricos. La migración está preparada y probada localmente, sin aplicación a producción ni publicación de APK en esta entrega. Contrato y aceptación: [mobile-ux.md](../../NaturaUY-source/docs/mobile-ux.md).
+
+## Anuncios de app y actualizaciones móviles — implementación del 12/10/2026
+
+Cloudflare Pages incorpora el recurso estático `/updates/app.json` con caché deshabilitada y valor inicial `android: null`. Su despliegue y la aceptación de un nuevo APK quedan pendientes: no interpretar la implementación como publicación de una build. Las descargas de catálogo automática/manual usan la publicación editorial existente y se activan sólo al siguiente arranque completo, con recibo de verificación y recuperación. No requiere migraciones ni importadores. Para promover una build Android probada, `npm run app:prepare-release` comprueba identidad EAS, enlace público directo, bytes, paquete y firma compatibles; `--write` prepara el manifiesto para revisar y desplegar desde `main`. Contrato, resultados requeridos y aceptación en [updates.md](../../NaturaUY-source/docs/updates.md). No anunciar builds experimentales ni publicar bootstrap automáticamente.
 
 ## Corrección de altas y revisiones — 12/10/2026
 
 Aplicadas `20261012144431_review_rejection_and_upload_recovery.sql` y `20261012151934_sync_editorial_taxonomy_and_schema15.sql`. Antes de la segunda se verificó el respaldo cifrado `38269288220`, SHA-256 `4680eae4c98a07aff7f1c1b0570485ab42807c0a35df92646020c27653ce14e1`. Se repararon únicamente los vínculos faltantes de F_catus; las fichas y vínculos anteriores conservaron sus hashes. La aprobación mantiene taxonomía transaccional y futuras publicaciones schema 15. Las fuentes de atributos son opcionales por solicitud expresa; las medidas sin fuente conservan valores y se marcan no verificadas mediante revisión auditada. El catálogo tiene 1049 especies tras el alta autorizada, sin reintroducir el lote descartado. Ver `visual-editor.md`.
+
 
 ## Editor visual — 12/10/2026
 
@@ -14,6 +22,16 @@ El límite es ahora tres imágenes y un audio. `submit_visual_species_change` co
 Ver `docs/visual-editor.md` para interfaz, pruebas y aceptación real. Las fotos de tres posiciones usan el contrato SQLite existente; el lector ya recorre la galería completa. La refactorización de presentación comparte la prioridad histórica de aves sin reinterpretar los datos.
 
 Entrega: también se aplicaron `20261012050316_visual_editor_snapshot_rights.sql` (conflictos de derechos) y `20261012063500_habitat_editor_media_read.sql` (lectura admin de fotos retiradas/evidencia privada). La prueba autenticada subió, procesó, aprobó y reprodujo foto/audio; retiró ambos fixtures desde la ficha. Publicado catálogo v11/schema 14 con 1048 especies y sin fixtures, SHA-256 `57a2e31cd4ce1d7d7059fe358e1788d03ad28c2963a024d9ae0c79e8dda15cd3`; SQLite descargado íntegro, sin errores de claves foráneas. Permanecen 2935 revisiones auditadas. La suite editorial pasa 43 comprobaciones y la visual 19. El cambio de galería usa el lector móvil actual y no requiere otro APK.
+
+## Depuración definitiva de la expansión descartada — 11/10/2026
+
+El responsable solicitó expresamente eliminar las 3057 especies archivadas. Se ejecutó una operación puntual en producción, con transacción, bloqueo de las cuatro tablas afectadas, comprobación de identidad del lote y abortos ante dependencias inesperadas. Se eliminaron 3057 especies Plantae archivadas, 6114 revisiones, 3057 perfiles botánicos y 15285 vínculos de especies a taxones. No tenían medios, favoritos, reportes, trivia, pistas, programación ni otros contenidos asociados. Los taxones compartidos y los registros de publicaciones históricas se conservan.
+
+Estado verificado después de COMMIT: 1048 especies activas (948 Animalia y 100 Plantae), cero archivadas, 2933 revisiones, cero perfiles o vínculos huérfanos. El hash de todas las fichas activas antes y después es `6acfdb195384e97e234107a6fc069005`; también se compararon íntegramente las revisiones, perfiles y vínculos ajenos al lote. La prueba previa ejecutó el mismo SQL con ROLLBACK. El SQL está en `scripts/sql/purge-failed-flora-20261011.sql`; es una operación de una sola vez, no una migración repetible ni un nuevo permiso de borrado para el panel.
+
+Antes de borrar se volvió a descargar y verificar el respaldo cifrado privado del workflow `38183187752`, SHA-256 `bf7bb467b0974df218a05557ae9799bd35321ef59d201de72bcbd4775765a286`, con vencimiento el 18/10/2026. Incluye el lote: sus fichas y revisiones no cambiaban desde el 10/10/2026, antes del respaldo. La copia local está fuera de Git en `.tmp/purge/editorial-backup.zip`. Una recuperación debe extraer sólo las filas del lote en un entorno privado, sin restaurar toda la base sobre cambios posteriores.
+
+Las menciones a 3057 plantas archivadas y 4105 fichas en las secciones siguientes son históricas y anteriores a esta depuración. No restaurar ni reimportar ese lote. El importador inicial ya exige una base vacía y exactamente las 100 plantas seleccionadas; el catálogo público ya excluía las archivadas y no necesita una nueva publicación por este borrado.
 
 ## Gestión web ampliada — 11/10/2026
 

@@ -49,6 +49,7 @@ import {
   Zap,
   ZoomIn,
   ZoomOut,
+  WifiOff,
 } from 'lucide-react-native';
 
 export interface IconProps {
@@ -56,6 +57,8 @@ export interface IconProps {
   size?: number;
   strokeWidth?: number;
 }
+
+export const OfflineIcon = ({ color, size = 22, strokeWidth = 2 }: IconProps): React.JSX.Element => <WifiOff color={color} size={size} strokeWidth={strokeWidth} />;
 
 export const HomeIcon = ({ color, size = 22, strokeWidth = 2 }: IconProps): React.JSX.Element => (
   <House color={color} size={size} strokeWidth={strokeWidth} />

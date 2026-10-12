@@ -8,19 +8,18 @@ import { Chip } from '../../src/presentation/components/Chip';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { PUZZLE_SCOPES, type PuzzleDifficulty, type PuzzleScope } from '../../src/domain/entities/puzzle';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
-import { KNOWLEDGE_LEVELS, type KnowledgeLevel } from '../../src/domain/entities/quiz';
 import { settingsRepository } from '../../src/data/repositories/settingsRepository';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 
-const SCOPE_KEY = 'puzzle.scope'; const GRID_KEY = 'puzzle.grid'; const LEVEL_KEY = 'puzzle.knowledge_level';
+const SCOPE_KEY = 'puzzle.scope'; const GRID_KEY = 'puzzle.grid';
 export default function PuzzleSetupScreen(): React.JSX.Element {
   const db = useSQLiteContext(); const router = useRouter(); const insets = useSafeAreaInsets(); const { colors, spacing, radius, typography } = useTheme();
   const userDb = useUserDatabase();
   const [mode, setMode] = useState<'sliding'|'jigsaw'>('sliding');
   const [scope, setScope] = useState<PuzzleScope>('animals_all'); const [grid, setGrid] = useState<PuzzleDifficulty>(3);
-  const [level, setLevel] = useState<KnowledgeLevel>('hard');
+  const level = 'hard' as const;
   const [available, setAvailable] = useState<Partial<Record<PuzzleScope, number>> | null>(null);
-  useEffect(() => { void Promise.all([settingsRepository.get(userDb, SCOPE_KEY), settingsRepository.get(userDb, GRID_KEY), settingsRepository.get(userDb, LEVEL_KEY)]).then(([savedScope, savedGrid, savedLevel]) => { if (savedScope && savedScope in PUZZLE_SCOPES) setScope(savedScope as PuzzleScope); if (savedGrid === '4') setGrid(4); if (savedLevel === 'medium' || savedLevel === 'hard') setLevel(savedLevel); }); }, [userDb]);
+  useEffect(() => { void Promise.all([settingsRepository.get(userDb, SCOPE_KEY), settingsRepository.get(userDb, GRID_KEY)]).then(([savedScope, savedGrid]) => { if (savedScope && savedScope in PUZZLE_SCOPES) setScope(savedScope as PuzzleScope); if (savedGrid === '4') setGrid(4); }); }, [userDb]);
   useEffect(() => { let active = true; void Promise.all(Object.entries(PUZZLE_SCOPES).map(async ([key, item]) => [key, (await speciesRepository.findQuizPool(db, item.classes, level, mode==='jigsaw'?'jigsaw':'puzzle', item.taxa)).length] as const)).then((rows) => { if (active) setAvailable(Object.fromEntries(rows) as Partial<Record<PuzzleScope, number>>); }); return () => { active = false; }; }, [db, level, mode]);
   useEffect(() => {
     if (!available) return;
@@ -28,14 +27,13 @@ export default function PuzzleSetupScreen(): React.JSX.Element {
     const fallback = (Object.keys(PUZZLE_SCOPES) as PuzzleScope[]).find((candidate) => (available[candidate] ?? 0) > 0);
     if (fallback) setScope(fallback);
   }, [available, scope]);
-  const start = async () => { await settingsRepository.set(userDb, SCOPE_KEY, scope); await settingsRepository.set(userDb, GRID_KEY, String(grid)); await settingsRepository.set(userDb, LEVEL_KEY, level); router.push({ pathname: '/game/puzzle', params: { scope, grid: String(grid), level, mode } } as never); };
+  const start = async () => { await settingsRepository.set(userDb, SCOPE_KEY, scope); if (mode === 'sliding') await settingsRepository.set(userDb, GRID_KEY, String(grid)); router.push({ pathname: '/game/puzzle', params: { scope, ...(mode === 'sliding' ? { grid: String(grid) } : {}), level, mode } } as never); };
   return <View style={[styles.screen, { backgroundColor: colors.background, paddingTop: insets.top + spacing.sm }]}>
     <View style={styles.header}><Pressable onPress={() => router.back()} style={[styles.back, { backgroundColor: colors.surface, borderRadius: radius.pill }]} accessibilityLabel="Volver"><BackIcon color={colors.text} /></Pressable><Text style={[typography.headerTitle, { color: colors.text }]}>Puzzle</Text></View>
     <ScrollView contentContainerStyle={{ padding: spacing.lg, gap: spacing.xl }}>
       <Text style={[typography.body, { color: colors.textSecondary }]}>Reconstruí la foto de una especie. Elegí deslizar las fichas o encastrar piezas que podés arrastrar y rotar.</Text>
       <View><Text style={[typography.cardTitle, { color: colors.text }]}>Modalidad</Text><View style={styles.row}><Chip label="Deslizante" selected={mode==='sliding'} accent={colors.play} onAccent={colors.onPlay} onPress={()=>setMode('sliding')}/><Chip label="Encastrar" selected={mode==='jigsaw'} accent={colors.play} onAccent={colors.onPlay} onPress={()=>setMode('jigsaw')}/></View></View>
-      <View><Text style={[typography.cardTitle, { color: colors.text }]}>Elegí la dificultad</Text><View style={styles.row}><Chip label="3 × 3" selected={grid === 3} accent={colors.play} onAccent={colors.onPlay} onPress={() => setGrid(3)} /><Chip label="4 × 4" selected={grid === 4} accent={colors.play} onAccent={colors.onPlay} onPress={() => setGrid(4)} /></View></View>
-      <View><Text style={[typography.cardTitle, { color: colors.text }]}>Especies que pueden aparecer</Text><View style={styles.wrap}>{KNOWLEDGE_LEVELS.map((item) => <Chip key={item.id} label={item.label} selected={level === item.id} accent={colors.play} onAccent={colors.onPlay} onPress={() => setLevel(item.id)} />)}</View><Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>{KNOWLEDGE_LEVELS.find((item) => item.id === level)?.description}</Text></View>
+      {mode === 'sliding' && <View><Text style={[typography.cardTitle, { color: colors.text }]}>Elegí la dificultad</Text><View style={styles.row}><Chip label="3 × 3" selected={grid === 3} accent={colors.play} onAccent={colors.onPlay} onPress={() => setGrid(3)} /><Chip label="4 × 4" selected={grid === 4} accent={colors.play} onAccent={colors.onPlay} onPress={() => setGrid(4)} /></View></View>}
       <View><Text style={[typography.cardTitle, { color: colors.text }]}>Categoría</Text><View style={styles.wrap}>{Object.entries(PUZZLE_SCOPES).map(([key, item]) => available && (available[key as PuzzleScope] ?? 0) < 1 ? null : <Chip key={key} label={item.label} selected={scope === key} accent={colors.play} onAccent={colors.onPlay} onPress={() => setScope(key as PuzzleScope)} />)}</View>{available && Object.values(available).every((count) => (count ?? 0) < 1) && <Text style={[typography.caption, { color: colors.textMuted, marginTop: 8 }]}>Todavía no hay imágenes suficientes para armar un puzzle.</Text>}</View>
       <Pressable disabled={!available || !(available[scope] ?? 0)} onPress={()=>void start()} style={[styles.start, { backgroundColor: colors.play, borderRadius: radius.pill }]}><Text style={[typography.label, { color: colors.onPlay }]}>Empezar puzzle</Text></Pressable>
     </ScrollView>

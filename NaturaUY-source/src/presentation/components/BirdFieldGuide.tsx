@@ -19,6 +19,16 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
   const bird = suppliedBird ?? { measurements: [], presence: null, habitat: [], diet: [], abundanceCode: null, guide: null };
   const [sizeInfo, setSizeInfo] = useState(false);
   const [presenceInfo, setPresenceInfo] = useState(false);
+  const hasSizeData = bird.measurements.length > 0 || species.measurements.length > 0;
+  const hasLength = bird.measurements.some((measure) => measure.kind !== 'wingspan') || species.measurements.some((measure) => measure.kind === 'body_length' || measure.kind === 'max_length');
+  const hasWingspan = bird.measurements.some((measure) => measure.kind === 'wingspan');
+  const hasSex = bird.measurements.some((measure) => measure.sex);
+  const technicalExplanations: Record<string, string> = {
+    body_mass: 'Masa. Peso del animal; la unidad se indica junto al valor.',
+    wing_length: 'Largo de ala. Medida de un ala; no equivale a la envergadura.',
+    tail_length: 'Cola. Longitud de la cola.',
+    tarsus_length: 'Tarso. Longitud de la parte inferior de la pata.',
+  };
   const { abundance, habitats, diets } = birdGuideDisplay(suppliedBird,species.ecology,species.abundanceStatus,species.seasonality);
   return <View style={{ marginTop: abundance ? spacing.sm : spacing.lg }}>
     {abundance && <View accessible accessibilityLabel={`Especie ${abundance.toLocaleLowerCase('es')}`} style={[styles.abundance, { marginBottom: spacing.sm }]}>
@@ -28,7 +38,7 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
       </View>
     </View>}
     <View style={[styles.card, { backgroundColor: container, borderRadius: radius.lg }]}>
-      <View style={[styles.heading, { flexWrap: 'wrap' }]}><Text style={[typography.label, { color: foreground }]}>Tamaño</Text><Pressable onPress={() => setSizeInfo(true)} accessibilityRole="button" accessibilityLabel="Qué significan las medidas de tamaño" style={styles.info}><InfoIcon size={20} color={foreground} /></Pressable></View>
+      <View style={[styles.heading, { flexWrap: 'wrap', minHeight: 48 }]}><Text style={[typography.label, { color: foreground }]}>Tamaño</Text>{hasSizeData && <Pressable onPress={() => setSizeInfo(true)} accessibilityRole="button" accessibilityLabel="Qué significan las medidas de tamaño" style={styles.info}><InfoIcon size={20} color={foreground} /></Pressable>}</View>
       <View style={styles.measurements}>
         {bird.measurements.map((measure) => <View key={`${measure.kind}-${measure.sex ?? ''}`} style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>{birdMeasureLabel(measure)}</Text><Text style={[typography.title, { color: foreground, marginTop: 4 }]}>{formatBirdMeasure(measure.valueCm)}</Text></View>)}
         {!bird.measurements.length && <View style={styles.measure}><Text style={[typography.caption, { color: foreground }]}>Largo corporal</Text><Text style={[typography.body, { color: foreground }]}>{species.measurements.filter((measure) => measure.kind === 'body_length' || measure.kind === 'max_length').map(formatSpeciesMeasurement).join(' · ') || 'Sin datos disponibles'}</Text></View>}
@@ -48,15 +58,16 @@ export function BirdFieldGuide({ bird: suppliedBird, species, accent, container,
     <SpeciesEcologyTags title="Qué come" values={diets} accent={accent} container={container} foreground={foreground} />
     <BirdEcologyDetails species={species} accent={accent} container={container} foreground={foreground} />
     <BirdObservability species={species} />
-    <Modal visible={sizeInfo} transparent animationType="fade" onRequestClose={() => setSizeInfo(false)}>
+    <Modal visible={sizeInfo && hasSizeData} transparent animationType="fade" onRequestClose={() => setSizeInfo(false)}>
       <View style={[styles.modalRoot, { backgroundColor: 'rgba(16,30,24,0.60)' }]}>
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setSizeInfo(false)} accessibilityLabel="Cerrar información de tamaño" />
         <View accessibilityViewIsModal style={[styles.infoSheet, { backgroundColor: '#FFFFFF', borderTopWidth: 2, borderColor: accent, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl }]}>
           <View style={styles.heading}><Text accessibilityRole="header" style={[typography.title, { color: colors.text, flex: 1 }]}>Cómo leer el tamaño</Text><Pressable accessibilityRole="button" accessibilityLabel="Cerrar" onPress={() => setSizeInfo(false)} style={styles.info}><CloseIcon color={colors.text} size={22} /></Pressable></View>
           <ScrollView contentContainerStyle={{ gap: 12, paddingBottom: 32 }}>
-            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Largo corporal. </Text>Medida total aproximada del animal. La unidad se indica junto al valor.</Text>
-            {species.taxonomy.clase === 'Aves' && <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Envergadura. </Text>De punta a punta de las alas abiertas; no es el largo de un ala.</Text>}
-            <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Macho y hembra. </Text>Son medidas separadas, no un rango.</Text>
+            {hasLength && <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Largo corporal. </Text>Medida total aproximada del animal. La unidad se indica junto al valor.</Text>}
+            {hasWingspan && <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Envergadura. </Text>De punta a punta de las alas abiertas; no es el largo de un ala.</Text>}
+            {hasSex && <Text style={[typography.body, { color: colors.textSecondary }]}><Text style={typography.label}>Macho y hembra. </Text>Son medidas separadas, no un rango.</Text>}
+            {[...new Set(species.measurements.map((measure) => measure.kind))].map((kind) => technicalExplanations[kind] && <Text key={kind} style={[typography.body, { color: colors.textSecondary }]}>{technicalExplanations[kind]}</Text>)}
           </ScrollView>
         </View>
       </View>

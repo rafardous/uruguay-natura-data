@@ -5,7 +5,7 @@ import { BlurView } from 'expo-blur';
 
 import { CompassIcon, GameIcon, HomeIcon, type IconProps } from './TabIcons';
 import { useTheme } from '../theme/ThemeProvider';
-import { NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN } from '../theme/tokens';
+import { NAV_BUTTON_HEIGHT, NAV_BUTTON_RADIUS, NAV_ISLAND_HEIGHT, NAV_ISLAND_MARGIN, NAV_ISLAND_RADIUS } from '../theme/tokens';
 import { haptics } from '../haptics';
 
 export type MainTab = 'index' | 'explore' | 'games';
@@ -25,7 +25,7 @@ export function NavigationIsland({
   onNavigate: (tab: MainTab) => void;
   blurTarget?: RefObject<View | null>;
 }): React.JSX.Element {
-  const { radius, typography, elevation } = useTheme();
+  const { typography, elevation } = useTheme();
   const insets = useSafeAreaInsets();
   const islandBackground = 'rgba(201,216,196,0.94)';
   const islandBorder = 'rgba(41,74,58,0.24)';
@@ -42,7 +42,7 @@ export function NavigationIsland({
           {
             backgroundColor: islandBackground,
             borderColor: islandBorder,
-            borderRadius: radius.pill,
+            borderRadius: NAV_ISLAND_RADIUS,
             height: NAV_ISLAND_HEIGHT,
             overflow: 'hidden',
           },
@@ -101,7 +101,7 @@ function NavigationItem({
       }}
       style={({ pressed }) => [styles.tab, { opacity: pressed ? 0.78 : 1 }]}
     >
-      <View style={[styles.pill, { borderRadius: 24, overflow: 'hidden', backgroundColor: focused ? activeBackground : 'transparent' }]}>
+      <View style={[styles.pill, { borderRadius: NAV_BUTTON_RADIUS, overflow: 'hidden', backgroundColor: focused ? activeBackground : 'transparent' }]}>
         <Icon color={focused ? activeForeground : inactiveForeground} size={22} strokeWidth={2} />
         <Text numberOfLines={1} style={[typography.label, { color: focused ? activeForeground : inactiveForeground, fontSize: 12 }]}>{label}</Text>
       </View>
@@ -113,5 +113,5 @@ const styles = StyleSheet.create({
   dock: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 18, zIndex: 100, elevation: 10 },
   island: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 6, borderWidth: StyleSheet.hairlineWidth },
   tab: { flex: 1, minHeight: 48, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 5 },
-  pill: { width: '100%', minHeight: 58, alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 9 },
+  pill: { width: '100%', height: NAV_BUTTON_HEIGHT, alignItems: 'center', justifyContent: 'center', gap: 3, paddingVertical: 9 },
 });

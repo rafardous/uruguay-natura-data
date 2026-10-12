@@ -106,6 +106,9 @@ export default function LoginScreen(): React.JSX.Element {
                 <Text style={[typography.label, { color: colors.text }]}>{status === 'syncing' ? 'Sincronizando…' : status === 'error' ? 'Reintentar sincronización' : 'Sincronizar ahora'}</Text>
               </Pressable>
               <Text style={[typography.caption, { color: colors.textMuted }]}>Sincroniza tus favoritos y récords de este teléfono con tu cuenta para recuperarlos en otros dispositivos. El catálogo sigue disponible sin conexión.</Text>
+              <Pressable disabled={busy} onPress={goBack} style={({ pressed }) => [styles.primaryButton, { backgroundColor: colors.primary, borderRadius: radius.pill, marginTop: spacing.sm, opacity: busy ? 0.5 : pressed ? 0.84 : 1 }]}>
+                <Text style={[typography.label, { color: colors.onPrimary }]}>Listo</Text>
+              </Pressable>
               <Pressable disabled={busy} onPress={() => void disconnect()} style={styles.signOut}><Text style={[typography.label, { color: colors.textMuted }]}>Cerrar sesión</Text></Pressable>
             </View>
           </> : <>

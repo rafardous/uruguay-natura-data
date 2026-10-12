@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Platform } from 'react-native';
 import * as Linking from 'expo-linking';
 import { makeRedirectUri } from 'expo-auth-session';
@@ -7,6 +7,7 @@ import * as WebBrowser from 'expo-web-browser';
 import type { Session } from '@supabase/supabase-js';
 
 import { isSupabaseConfigured, mobileSupabase } from '../lib/supabase';
+import { getEditorAccess } from '../lib/mobileApi';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -22,6 +23,8 @@ interface MobileAuthContextValue {
   loading: boolean;
   session: Session | null;
   profile: MobileProfile | null;
+  editorAccess: boolean | null;
+  refreshEditorAccess(): Promise<boolean>;
   signInWithGoogle(returnTo?: string): Promise<string | null>;
   completeOAuthFromUrl(url: string): Promise<string>;
   signOut(): Promise<void>;
@@ -102,27 +105,57 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
   const [loading, setLoading] = useState(isSupabaseConfigured);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<MobileProfile | null>(null);
+  const [editorAccess, setEditorAccess] = useState<boolean | null>(null);
+  const currentSession = useRef<Session | null>(null);
+  const sessionGeneration = useRef(0);
+  const accessGeneration = useRef(0);
+
+  const refreshEditorAccess = useCallback(async (): Promise<boolean> => {
+    const next = currentSession.current;
+    const generation = ++accessGeneration.current;
+    setEditorAccess(null);
+    if (!next) return false;
+    try {
+      const allowed = await getEditorAccess();
+      if (generation !== accessGeneration.current || currentSession.current?.user.id !== next.user.id) return false;
+      setEditorAccess(allowed);
+      return allowed;
+    } catch {
+      if (generation === accessGeneration.current) setEditorAccess(null);
+      return false;
+    }
+  }, []);
 
   const resolveSession = useCallback(async (next: Session | null) => {
+    const generation = ++sessionGeneration.current;
+    currentSession.current = next;
     setSession(next);
+    setProfile(null);
+    setEditorAccess(null);
+    ++accessGeneration.current;
     if (!next) {
       setProfile(null);
       setLoading(false);
       return;
     }
-    try {
-      setProfile(await loadProfile(next.user.id));
-    } finally {
+    const [loaded] = await Promise.allSettled([loadProfile(next.user.id), refreshEditorAccess()]);
+    if (generation === sessionGeneration.current) {
+      setProfile(loaded.status === 'fulfilled' ? loaded.value : null);
       setLoading(false);
     }
-  }, []);
+  }, [refreshEditorAccess]);
 
   useEffect(() => {
     if (!mobileSupabase) {
       setLoading(false);
       return;
     }
-    void mobileSupabase.auth.getSession().then(({ data }) => resolveSession(data.session));
+    const initialGeneration = sessionGeneration.current;
+    const sessionGuard = sessionGeneration;
+    const accessGuard = accessGeneration;
+    void mobileSupabase.auth.getSession().then(({ data }) => {
+      if (initialGeneration === sessionGeneration.current) return resolveSession(data.session);
+    }).catch(() => setLoading(false));
     const { data } = mobileSupabase.auth.onAuthStateChange((_event, next) => void resolveSession(next));
     const linkingSubscription = Linking.addEventListener('url', ({ url }) => {
       void createSessionFromUrl(url).catch(() => undefined);
@@ -131,6 +164,9 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
       if (url) void createSessionFromUrl(url).catch(() => undefined);
     });
     return () => {
+      ++sessionGuard.current;
+      ++accessGuard.current;
+      currentSession.current = null;
       data.subscription.unsubscribe();
       linkingSubscription.remove();
     };
@@ -141,6 +177,8 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
     loading,
     session,
     profile,
+    editorAccess,
+    refreshEditorAccess,
     async signInWithGoogle(returnTo = DEFAULT_RETURN_TO) {
       if (!mobileSupabase) return 'La sincronización todavía no está configurada.';
       const redirectTo = redirectUriFor(returnTo);
@@ -177,6 +215,8 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
       }
     },
     async signOut() {
+      setEditorAccess(null);
+      ++accessGeneration.current;
       if (mobileSupabase) await mobileSupabase.auth.signOut();
     },
     async setPublicAlias(alias) {
@@ -186,7 +226,7 @@ export function MobileAuthProvider({ children }: { children: ReactNode }): React
       setProfile((current) => current ? { ...current, publicAlias: String(data) } : current);
       return null;
     },
-  }), [loading, profile, session]);
+  }), [loading, profile, session, editorAccess, refreshEditorAccess]);
 
   return <MobileAuthContext.Provider value={value}>{children}</MobileAuthContext.Provider>;
 }

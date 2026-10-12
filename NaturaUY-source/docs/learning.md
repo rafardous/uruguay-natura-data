@@ -1,12 +1,12 @@
 # Aprender: lecturas e ilustraciones
 
-La revisión de octubre de 2026 mantiene cinco recorridos y 21 módulos bootstrap en `src/content/learningContent.ts`. Incluye 47 preguntas: al menos dos por módulo y tres en cada historia del territorio. Las lecturas se escriben para que niñas y niños puedan seguir una idea a la vez, con términos explicados, ejemplos y un cierre que responde a «Antes de seguir» antes de evaluar la comprensión.
+La revisión de octubre de 2026 mantiene cinco recorridos y 21 módulos bootstrap en `src/content/learningContent.ts`. Incluye 48 preguntas: al menos dos por módulo y tres en cada historia del territorio. Las lecturas se escriben para que niñas y niños puedan seguir una idea a la vez, con términos explicados, ejemplos y un cierre que responde a «Antes de seguir» antes de evaluar la comprensión.
 
 Las tarjetas de entrada muestran fotos y progreso. La descripción aparece al entrar al recorrido. No se muestran duraciones estimadas; `minutes` queda opcional sólo para compatibilidad con documentos anteriores. `contentVersion: 2` identifica las lecturas revisadas.
 
 ## Imágenes y diagramas
 
-`LearningIllustration` admite comparaciones y secuencias. Cada elemento lleva una etiqueta y puede referenciar una especie por `speciesCode`. Los ejemplos que nombran especies deben tener fotos de esas mismas especies en el módulo. Las flechas indican pasos o niveles; una fila de fotos no afirma por sí sola una interacción entre esas especies.
+`LearningIllustration` admite comparaciones, secuencias y un árbol taxonómico vectorial. Las fotos de especies se muestran como ilustraciones circulares sin fichas de catálogo; cada ejemplo que nombra especies incluye fotos de esas mismas especies en el módulo. Las flechas indican pasos o niveles; una fila de fotos no afirma por sí sola una interacción entre esas especies. La portada de Taxonomía usa grupos abstractos y deja las especies para sus artículos.
 
 Las fotos se resuelven desde la conexión del catálogo mediante `speciesRepository` y `SpeciesImage`, igual que las fichas. Se conservan autoría, licencia, enlace a la especie, caché y fallback a miniaturas asociadas al catálogo. No se agregan imágenes generadas ni se atribuyen miniaturas históricas a una foto editorial diferente. Las lecturas y el progreso funcionan offline; una foto sin miniatura incluida ni caché previa necesita conexión, igual que en el catálogo.
 

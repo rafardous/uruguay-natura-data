@@ -2,6 +2,8 @@ import type { KnowledgeLevel } from './species';
 import { GAME_SCOPES, type GameScope } from './gameScopes';
 
 export type PuzzleDifficulty = 3 | 4;
+/** Encastrar has one piece layout, independent of the sliding preference. */
+export const JIGSAW_GRID_SIZE: PuzzleDifficulty = 4;
 export type PuzzleScope = GameScope;
 export type PuzzleRunState = 'ready' | 'running' | 'paused' | 'completed';
 export interface PuzzleRecord { scope: PuzzleScope; knowledgeLevel: KnowledgeLevel; gridSize: PuzzleDifficulty; bestTimeMs: number; fewestMoves: number; playedAt: number; updatedAt: number; }

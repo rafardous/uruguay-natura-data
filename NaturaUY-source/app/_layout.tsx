@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Alert, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Manrope_400Regular, Manrope_600SemiBold, Manrope_700Bold, useFonts } from '@expo-google-fonts/manrope';
@@ -9,7 +9,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 import { BlurTargetView } from 'expo-blur';
 
-import { CatalogUpdateProvider, useCatalogUpdateState } from '../src/data/db/CatalogUpdateProvider';
+import { CatalogUpdateProvider } from '../src/data/db/CatalogUpdateProvider';
+import { AppUpdateProvider } from '../src/data/updates/AppUpdateProvider';
+import { UpdateNotices } from '../src/presentation/components/UpdateNotices';
 import { prepareCatalogDatabase } from '../src/data/db/catalogUpdater';
 import { BUNDLED_CATALOG_VERSION } from '../src/data/db/bundledCatalogVersion';
 import { HabitatCatalogProvider } from '../src/presentation/hooks/useHabitatCatalog';
@@ -120,14 +122,6 @@ function LocalDataFailure({ onRetry }: { onRetry: () => void }): React.JSX.Eleme
   );
 }
 
-function CatalogUpdateNotice(): null {
-  const updateState = useCatalogUpdateState();
-  useEffect(() => {
-    if (updateState === 'app_update_required') Alert.alert('Actualización necesaria', 'Hay un catálogo nuevo que requiere una versión más reciente de Arapy. Mientras tanto podés seguir usando tus datos actuales.');
-  }, [updateState]);
-  return null;
-}
-
 // Held open until fonts are ready, so headline text never flashes in the
 // system font first and then jumps to Manrope mid-render.
 void SplashScreen.preventAutoHideAsync();
@@ -207,24 +201,26 @@ export default function RootLayout(): React.JSX.Element | null {
             options={LONG_LIVED_DATABASE_OPTIONS}
             onError={handleDatabaseError}
           >
-              <HabitatCatalogProvider><CatalogUpdateProvider>
-              <CatalogUpdateNotice />
+              <HabitatCatalogProvider>
               <UserDatabaseProvider>
                 <ThemeProvider>
                   <MobileAuthProvider>
                     <MobileSyncProvider>
                       <NetworkProvider>
+                        <AppUpdateProvider><CatalogUpdateProvider>
                         <AudioProvider>
                           <FavoritesProvider>
                             <Navigator />
+                            <UpdateNotices />
                           </FavoritesProvider>
                         </AudioProvider>
+                        </CatalogUpdateProvider></AppUpdateProvider>
                       </NetworkProvider>
                     </MobileSyncProvider>
                   </MobileAuthProvider>
                 </ThemeProvider>
               </UserDatabaseProvider>
-              </CatalogUpdateProvider></HabitatCatalogProvider>
+              </HabitatCatalogProvider>
           </SQLiteProvider>
         ))}
         </StartupExperience>

@@ -6,9 +6,9 @@ import { GAME_SCOPES, type GameScope } from '../../domain/entities/gameScopes';
 import { buildGuessClues, type GameClue } from '../../domain/services/guessGame';
 
 export const guessRepository = {
-  async load(db: SQLiteDatabase, scope: GameScope, level: KnowledgeLevel): Promise<{ candidates: Species[]; targets: { species: Species; clues: GameClue[] }[] }> {
+  async load(db: SQLiteDatabase, scope: GameScope | 'all', level: KnowledgeLevel): Promise<{ candidates: Species[]; targets: { species: Species; clues: GameClue[] }[] }> {
     const allowed = level==='easy'?['easy']:level==='medium'?['easy','medium']:['easy','medium','hard'];
-    const taxa = GAME_SCOPES[scope].taxa;
+    const taxa = scope === 'all' ? ['Animalia', 'Plantae'] : GAME_SCOPES[scope].taxa;
     const rows = await db.getAllAsync<SpeciesRow>(`SELECT s.* FROM species s LEFT JOIN species_game_rules r ON r.stable_id=s.stable_id AND r.game_key='guess'
       WHERE COALESCE(r.enabled,1)=1 AND COALESCE(r.min_knowledge_level,s.knowledge_level,'hard') IN (${allowed.map(()=>'?').join(',')})
       AND EXISTS(SELECT 1 FROM species_taxa st JOIN taxa t ON t.taxon_id=st.taxon_id WHERE st.stable_id=s.stable_id AND t.canonical_name IN (${taxa.map(()=>'?').join(',')}))`, [...allowed,...taxa]);

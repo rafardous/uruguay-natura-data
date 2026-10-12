@@ -34,7 +34,7 @@ import { settingsRepository } from '../../src/data/repositories/settingsReposito
 import { getHomeNews, getHomeSpeciesSchedule, getMostFavoritedSpecies, type MobileHomeNews } from '../../src/lib/mobileApi';
 import { homeSpeciesRepository, uruguayDay, type HomeSpeciesSelection } from '../../src/data/repositories/homeSpeciesRepository';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { COLLAPSIBLE_HEADER_EXPANDED } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED, MAIN_HEADER_GRADIENT } from '../../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 
 const ON_PHOTO = '#FFFFFF';
@@ -60,7 +60,8 @@ function NewsThumbnail({ item, color, backgroundColor }: { item: MobileHomeNews;
 
 type CarouselSlide =
   | { kind: 'metric'; value: number | null }
-  | { kind: 'species'; species: Species; kicker: string; variant: 'threatened' | 'favorite' | 'curiosity' | 'native' };
+  | { kind: 'species'; species: Species; kicker: string; variant: 'threatened' | 'favorite' | 'curiosity' | 'native' }
+  | { kind: 'message'; kicker: string; title: string; description: string; variant: 'threatened' | 'favorite' | 'curiosity' | 'native' };
 
 const SLIDE_ACCENTS = {
   threatened: '#E79A57',
@@ -144,6 +145,17 @@ function MetricCard({ value, width, backgroundSpecies }: { value: number | null;
   );
 }
 
+function CarouselMessageCard({ item, width }: { item: Extract<CarouselSlide, { kind: 'message' }>; width: number }): React.JSX.Element {
+  const { radius, spacing, typography } = useTheme();
+  const backgrounds = { threatened: ['#5B5141', '#384638'], favorite: ['#70515E', '#443C55'], curiosity: ['#42606A', '#343F58'], native: ['#55704F', '#344E43'] } as const;
+  return <LinearGradient colors={[...backgrounds[item.variant]]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ width, height: CARD_HEIGHT, borderRadius: radius.xl, padding: spacing.xl, justifyContent: 'center', overflow: 'hidden' }}>
+    <View style={{ width: 42, height: 4, borderRadius: radius.pill, backgroundColor: SLIDE_ACCENTS[item.variant], marginBottom: spacing.lg }} />
+    <Text style={[typography.eyebrow, { color: '#FFF9EA' }]}>{item.kicker}</Text>
+    <Text style={[typography.title, { color: '#FFF9EA', marginTop: spacing.sm }]}>{item.title}</Text>
+    <Text style={[typography.body, { color: 'rgba(255,249,234,0.82)', marginTop: spacing.sm }]}>{item.description}</Text>
+  </LinearGradient>;
+}
+
 function SpeciesCarousel({
   slides,
   width,
@@ -152,7 +164,7 @@ function SpeciesCarousel({
 }: {
   slides: CarouselSlide[];
   width: number;
-  onPress: (codigo: string) => void;
+  onPress: (codigo: string, showRelevantNote?: boolean) => void;
   backgroundSpecies?: Species | null;
 }): React.JSX.Element {
   const { colors, radius, spacing } = useTheme();
@@ -182,13 +194,13 @@ function SpeciesCarousel({
         animation={{ type: 'spring', damping: 18, stiffness: 220, mass: 0.72 }}
         snapMode="page"
         onSnapToItem={setActiveIndex}
-        renderItem={({ item, index }) => item.kind === 'metric' ? <MetricCard value={item.value} width={width} backgroundSpecies={backgroundSpecies} /> : <LargeSpeciesCard species={item.species} width={width} onPress={onPress} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}
+        renderItem={({ item, index }) => <View style={{ width, height: CARD_HEIGHT, paddingHorizontal: 6, justifyContent: 'center' }}>{item.kind === 'metric' ? <MetricCard value={item.value} width={width - 12} backgroundSpecies={backgroundSpecies} /> : item.kind === 'message' ? <CarouselMessageCard item={item} width={width - 12} /> : <LargeSpeciesCard species={item.species} width={width - 12} onPress={(codigo) => onPress(codigo, item.variant === 'curiosity')} kicker={item.kicker} variant={item.variant} active={index === activeIndex} rounded />}</View>}
       />
       {slides.length > 1 && (
         <View style={[styles.dots, { marginTop: spacing.md }]} accessibilityLabel={`Diapositiva ${activeIndex + 1} de ${slides.length}`}>
           {slides.map((item, index) => (
             <View
-              key={item.kind === 'metric' ? 'metric' : `${item.variant}-${item.species.codigo}`}
+              key={item.kind === 'metric' ? 'metric' : `${item.kind}-${item.variant}`}
               style={{
                 width: index === activeIndex ? 22 : 7,
                 height: 7,
@@ -245,13 +257,13 @@ export default function HomeScreen(): React.JSX.Element {
 
   const carouselSlides = useMemo<CarouselSlide[]>(() => [
     { kind: 'metric', value: total },
-    ...(threatenedSpecies ? [{ kind: 'species' as const, species: threatenedSpecies, kicker: 'NUESTRAS ESPECIES AMENAZADAS', variant: 'threatened' as const }] : []),
-    ...(favoriteSpecies ? [{ kind: 'species' as const, species: favoriteSpecies, kicker: 'MÁS GUSTADA', variant: 'favorite' as const }] : []),
-    ...(curiositySpecies ? [{ kind: 'species' as const, species: curiositySpecies, kicker: 'UN DATO PARA DESCUBRIR', variant: 'curiosity' as const }] : []),
-    ...(nativeSpecies ? [{ kind: 'species' as const, species: nativeSpecies, kicker: 'NATIVA DE URUGUAY', variant: 'native' as const }] : []),
+    threatenedSpecies ? { kind: 'species', species: threatenedSpecies, kicker: 'NUESTRAS ESPECIES AMENAZADAS', variant: 'threatened' } : { kind: 'message', kicker: 'NUESTRAS ESPECIES AMENAZADAS', title: 'Conocerlas es el primer paso para cuidarlas.', description: 'Explorá las fichas prioritarias y descubrí qué necesitan.', variant: 'threatened' },
+    favoriteSpecies ? { kind: 'species', species: favoriteSpecies, kicker: 'MÁS GUSTADA', variant: 'favorite' } : { kind: 'message', kicker: 'MÁS GUSTADA', title: 'Las favoritas de la comunidad.', description: 'Con conexión, destacamos las especies que más guarda la comunidad.', variant: 'favorite' },
+    curiositySpecies ? { kind: 'species', species: curiositySpecies, kicker: 'UN DATO PARA DESCUBRIR', variant: 'curiosity' } : { kind: 'message', kicker: 'UN DATO PARA DESCUBRIR', title: 'Cada especie tiene algo para contar.', description: 'Abrí una ficha y descubrí su historia natural.', variant: 'curiosity' },
+    nativeSpecies ? { kind: 'species', species: nativeSpecies, kicker: 'NATIVA DE URUGUAY', variant: 'native' } : { kind: 'message', kicker: 'NATIVA DE URUGUAY', title: 'La naturaleza uruguaya está cerca.', description: 'Explorá las especies nativas que comparten el país con nosotros.', variant: 'native' },
   ], [curiositySpecies, favoriteSpecies, nativeSpecies, threatenedSpecies, total]);
 
-  const openSpecies = useCallback((codigo: string) => router.push(`/species/${codigo}`), [router]);
+  const openSpecies = useCallback((codigo: string, showRelevantNote = false) => router.push({ pathname: '/species/[codigo]', params: { codigo, ...(showRelevantNote ? { showRelevantNote: '1' } : {}) } }), [router]);
   const openExternal = useCallback(async (url: string) => {
     try {
       if (!await Linking.canOpenURL(url)) throw new Error('unsupported_url');
@@ -353,7 +365,7 @@ export default function HomeScreen(): React.JSX.Element {
     const popular = popularCode ? await speciesRepository.findByCodigo(db, popularCode) : null;
     setFavoriteSpecies(popular);
     setThreatenedSpecies(selectedThreatened);
-    setCuriositySpecies(selectedCuriosity);
+    setCuriositySpecies(selectedCuriosity?.relevantNote?.trim() ? selectedCuriosity : curiosity);
     setNativeSpecies(selectedNative);
     setMetricBackgroundSpecies(await pick({ onlyWithPhoto: true }, withPhoto, 91));
   }, [db, userDb]);
@@ -413,7 +425,7 @@ export default function HomeScreen(): React.JSX.Element {
     <View style={[styles.screen, { backgroundColor: colors.background }]}>
       <CollapsibleGradientHeader
         scrollY={scrollY}
-        gradient={['#7C9277', '#677E61', '#465B47']}
+        gradient={MAIN_HEADER_GRADIENT}
         controls={
           <View style={[styles.topActions, { gap: spacing.sm }]}>
             <Pressable
@@ -534,7 +546,7 @@ export default function HomeScreen(): React.JSX.Element {
         <View style={{ marginTop: spacing.xl }}>
           <Text style={[typography.eyebrow, { color: colors.textMuted, paddingHorizontal: spacing.lg }]}>EXPLORÁ ARAPY</Text>
           <View style={{ paddingHorizontal: carouselPadding, marginTop: spacing.md }}>
-            {carouselSlides.length > 1 && total !== null ? (
+            {carouselSlides.length > 1 ? (
             <SpeciesCarousel slides={carouselSlides} width={cardWidth} onPress={openSpecies} backgroundSpecies={metricBackgroundSpecies} />
             ) : (
               <Skeleton width="100%" height={CARD_HEIGHT} radius={radius.xl} />

@@ -1,9 +1,15 @@
 # Arapy · Panel editorial
 
+La app incorpora un reporte rápido de fotos que aparece en la bandeja existente. `npm run test:mobile-ux` verifica reporte/RLS y récords mixtos en PostgreSQL local; `-- --serve` abre Reportes con fixtures aislados. El contrato de UX y la migración pendiente para Adiviá están en [mobile-ux.md](../NaturaUY-source/docs/mobile-ux.md).
+
+El anuncio de builds Android se sirve como `/updates/app.json`, independiente del catálogo editorial. Inicialmente no anuncia ninguna build. `npm run app:prepare-release` verifica una build `field-guide` probada, su firma y el APK directo de Expo antes de preparar un anuncio. Operación, contrato y aceptación en [updates.md](../NaturaUY-source/docs/updates.md).
 
 Las altas pendientes pueden corregirse desde Revisiones conservando medios e historial. Las fuentes de atributos son opcionales; si faltan, se guarda «Sin fuente» y las medidas no se marcan verificadas. La aprobación sincroniza taxonomía; las publicaciones usan schema 15/Arapy 1.4.0. Requiere `20261012144431_review_rejection_and_upload_recovery.sql` y `20261012151934_sync_editorial_taxonomy_and_schema15.sql`.
 
+
 El editor visual reúne fotos, audio y atributos dentro de cada ficha: tres fotos y un audio, controles de orden/principal, reemplazos preparados antes de retirar el medio vigente y propuestas auditadas. Administradores revisan/aplican en la ficha; colaboradores proponen. `/content` agrupa historias, lecturas y curiosidades; `/games` reúne selección, trivia y pistas; `/media` es una bandeja paginada. Ambientes usa tarjetas y edición por bloques con jerarquías y fuentes. Ver [visual-editor.md](docs/visual-editor.md).
+
+El 11/10/2026, por pedido expreso del responsable, se eliminaron las 3057 plantas archivadas del proyecto de expansión descartado y sus registros dependientes. La base actual contiene únicamente 1048 especies activas (948 animales y 100 plantas), cero archivadas y 2933 revisiones. Operación y recuperación en [deployment.md](docs/deployment.md); SQL puntual en [purge-failed-flora-20261011.sql](scripts/sql/purge-failed-flora-20261011.sql).
 
 Las pistas de Adiviá se administran en Contenido y juegos mediante propuestas y revisión. La migración `20261011191403_enriched_games.sql` está aplicada en producción desde el 11/10/2026; las 40 pistas de ocho especies quedaron aprobadas y auditadas, con autorización específica y respaldo verificado. La vista previa se deriva de esos datos; el catálogo público y el APK continúan en v9/1.3.1. Contrato, puntajes y progreso offline en [games.md](../NaturaUY-source/docs/games.md).
 
@@ -22,7 +28,7 @@ Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/có
 - La migración `202609060003_mobile_feedback_sync.sql` agrega las áreas `species`, `general`, `app` y `games`, contexto de plataforma/versión y los contratos RPC que usa la app (`submit_feedback`, `sync_favorites`, `record_game_result`, `get_game_leaderboard`). La bandeja permite filtrar y cerrar con nota.
 - La publicación genera SQLite/JSON/manifest con schema 14. Separa `measurements` y `ecology`, normaliza conservación y conserva el árbol taxonómico, fuentes por campo, galería, trivia y Aprender.
 - Las migraciones de Aprender (schema 13), modelo biológico (schema 14) y compatibilidad de medios están aplicadas en Supabase. La galería toma su imagen principal de `species_media.is_primary`; no existe `species.primary_image_id`.
-- La revisión móvil de Aprender en desarrollo conserva los 21 módulos bootstrap y agrega lecturas para niñas y niños, 47 preguntas e ilustraciones con fotos del catálogo. No modifica PostgreSQL ni publica derivados. Compatibilidad de contenido y progreso en [learning.md](../NaturaUY-source/docs/learning.md).
+- La revisión móvil de Aprender en desarrollo conserva los 21 módulos bootstrap y agrega lecturas para niñas y niños, 48 preguntas e ilustraciones con fotos del catálogo. No modifica PostgreSQL ni publica derivados. Compatibilidad de contenido y progreso en [learning.md](../NaturaUY-source/docs/learning.md).
 - La taxonomía publicada contempla `Arthropoda`, `Arachnida`, `Insecta` y `Malacostraca`. Catalogue of Life y WoRMS llegan como candidatos revisables; BOLD queda limitado a cobertura molecular y no alimenta texto ni medios.
 - `catalog_sources`, `enrichment_runs` y `enrichment_candidates` registran procedencia, versión, checksum y diferencias por campo. Una coincidencia automática nunca modifica la ficha aprobada.
 - Abundancia experta (`species.abundance_status`) y observabilidad pública (`species_observability_snapshots`) son conceptos separados. La abundancia admite también `fairly_common` (BC) y `rare` (R) de Azpiroz, exige fuente editorial y nunca se deriva de observaciones automáticas. Dificultad, reglas por juego, curiosidades y trivia pasan por `content_changes`.
@@ -31,7 +37,7 @@ Las aves incorporan 432 perfiles de Azpiroz 2003 con fuentes por campo, UUID/có
 - El respaldo PostgreSQL se cifra y se conserva como artefacto privado temporal. R2 sigue fuera del primer despliegue; `/m/*` aporta una URL pública estable y redirige al proveedor configurado.
 - La importación familiar de aves convierte todos los originales compatibles sin modificarlos, exige correspondencias UUID y autorización revisadas, limita el total a dos imágenes activas por especie y verifica cada carga por SHA-256.
 
-El catálogo activo tiene 1048 especies: 948 animales y exactamente las 100 plantas del JSON seleccionado. Las otras 3057 plantas quedaron archivadas mediante RPCs, con revisiones intactas. De las 100 plantas originales, 96 tenían foto CC0 y cuatro usan el fallback; 71 tienen origen nativo documentado y 29 conservan origen sin determinar. No inventar procedencia ni fotos para superar la validación. Las 594 fotos familiares de 309 aves y los 177 clips ya aprobados de Pedro Rinaldi están en Storage con autorización privada y hashes verificados.
+El catálogo activo tiene 1048 especies: 948 animales y exactamente las 100 plantas del JSON seleccionado. Las otras 3057 plantas se eliminaron por pedido expreso del responsable; no reimportarlas. De las 100 plantas originales, 96 tenían foto CC0 y cuatro usan el fallback; 71 tienen origen nativo documentado y 29 conservan origen sin determinar. No inventar procedencia ni fotos para superar la validación. Las 594 fotos familiares de 309 aves y los 177 clips ya aprobados de Pedro Rinaldi están en Storage con autorización privada y hashes verificados.
 
 ## Desarrollo y verificación
 
@@ -86,7 +92,6 @@ La preparación, carga manual y reconciliación de fotos familiares están docum
 
 El publicador deriva las paletas desde la miniatura de cada foto principal aprobada, conserva su identidad/hash en JSON y usa los mismos colores en SQLite. Necesita lectura de Storage durante `catalog:build`; un error de descarga o extracción bloquea la publicación, sin sustituir silenciosamente el color por verde. El informe incluye cobertura y cantidad de acentos distintos. No ejecutar `npm run build` del panel mientras se genera el catálogo: Vite limpia `dist/`, que también contiene `dist/catalog/`.
 Las páginas del panel se cargan por ruta para reducir el JavaScript inicial. El publicador filtra especies activas, medios aprobados y evaluaciones vigentes en PostgreSQL, ordena su paginación y agrupa filas por especie antes de construir el catálogo. Los generadores alternativos locales y la aplicación automática de rasgos sobre JSON fueron retirados. `data:catalog-verify` y `data:thumbnail-map` en la app comprueban los derivados incluidos.
-
 ## Gestión editorial ampliada (desarrollo)
 
 Se agregan `/learning` y `/home`, edición de ambientes y medios, ABM de trivia/curiosidades y selección de especies por juego. La web comparte nombre, icono, Manrope y colores claros con Arapy. Requiere la migración `20261011231526_editorial_frontend_management.sql`, aplicada en producción el 11/10/2026 con respaldo cifrado verificado; Cloudflare publica el frontend desde `main`. Ver [contrato y verificación](docs/frontend-management.md). Ejecutar `npm run test:editorial` para comprobar permisos y RPCs con PostgreSQL embebido. La app debe actualizarse para leer las historias editoriales y el calendario offline y corregir el ranking vacío.

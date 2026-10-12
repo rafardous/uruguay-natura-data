@@ -13,7 +13,7 @@ const PIECES = Array.from({ length: 28 }, (_, index) => ({
   height: index % 3 === 0 ? 5 : 9,
 }));
 
-export function RecordCelebration({ visible, palette, reducedMotion }: { visible: boolean; palette: string[]; reducedMotion: boolean }): React.JSX.Element | null {
+export function RecordCelebration({ visible, palette, reducedMotion, message = '¡Nuevo récord personal!' }: { visible: boolean; palette: string[]; reducedMotion: boolean; message?: string }): React.JSX.Element | null {
   if (!visible) return null;
   return (
     <View pointerEvents="none" style={styles.layer} accessibilityLiveRegion="polite">
@@ -29,7 +29,7 @@ export function RecordCelebration({ visible, palette, reducedMotion }: { visible
         <ConfettiPiece key={index} {...piece} color={palette[index % palette.length] ?? '#E7C65D'} />
       ))}
       <View style={styles.badge}>
-        <Text style={styles.badgeText}>¡Nuevo récord personal!</Text>
+        <Text style={styles.badgeText}>{message}</Text>
       </View>
     </View>
   );

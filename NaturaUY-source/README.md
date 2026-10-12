@@ -1,5 +1,7 @@
 # Arapy · App móvil
 
+Actualizaciones en desarrollo: Configuración muestra versión/build de Arapy, catálogo activo y descarga pendiente; permite buscar y descargar el catálogo con cualquier conexión. Los cambios se aplican al siguiente arranque completo. Un anuncio de build aprobada ofrece el APK directo de Expo. Requiere un APK nuevo y aceptación en dispositivos; el anuncio inicial está vacío. Ver [updates.md](docs/updates.md).
+
 En desarrollo: Puzzle incorpora Encastrar (arrastrar/rotar, 3 × 3 y 4 × 4) y Adiviá ofrece cinco pistas progresivas con buscador u opciones. Sus récords funcionan offline y quedan separados por modalidad, selección y cuenta. La migración y las 40 pistas están aplicadas en producción; la vista previa se deriva de PostgreSQL. La aceptación Android y un APK nuevo quedan pendientes. Ver [games.md](docs/games.md).
 
 Catálogo offline de biodiversidad de Uruguay, desarrollado con Expo y React Native. La fuente editorial es PostgreSQL en Supabase; los JSON de `data/catalog/` y `assets/db/natura.db` son derivados publicados.
@@ -43,6 +45,8 @@ El publicador genera las paletas desde las fotos principales aprobadas. No edita
 
 ## Funcionamiento móvil
 
+Las mejoras de fichas, zoom, reportes de fotos, navegación y juegos están documentadas en [mobile-ux.md](docs/mobile-ux.md). Encastrar usa dieciséis piezas sin selector; Adiviá mezcla animales/plantas. La clave de récord mixto requiere la migración indicada antes de distribuir una app nueva.
+
 - `natura.db`: catálogo, fuentes, taxonomía, fotos, audio y documentos de Aprender.
 - `user.db`: favoritos, preferencias, récords y progreso de Aprender; funciona sin cuenta y se sincroniza al iniciar sesión.
 - El actualizador descarga una base nueva, verifica compatibilidad y SHA-256, y la activa al siguiente inicio. Ante un fallo conserva la anterior.
@@ -51,7 +55,7 @@ El publicador genera las paletas desde las fotos principales aprobadas. No edita
 - Las fichas animales comparten tamaño, abundancia, presencia, alimentación y apartados ecológicos separados. Las plantas mantienen su ficha botánica.
 - Los nombres alternativos se abren al tocar; las fuentes científicas se consultan en tres puntitos → Fuentes.
 - Las tarjetas de juegos muestran nombre e ilustración. Las reglas y la descripción se muestran al entrar.
-- Aprender incluye 21 lecturas revisadas para niñas y niños, 47 preguntas e ilustraciones del catálogo. No muestra tiempos estimados; las descripciones se leen dentro de cada recorrido. Contrato de contenido, fotos y preservación de progreso en [learning.md](docs/learning.md).
+- Aprender incluye 21 lecturas revisadas para niñas y niños, 48 preguntas e ilustraciones del catálogo. No muestra tiempos estimados; las descripciones se leen dentro de cada recorrido. Contrato de contenido, fotos y preservación de progreso en [learning.md](docs/learning.md).
 
 ## Android
 

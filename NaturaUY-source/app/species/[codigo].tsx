@@ -28,7 +28,7 @@ import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { BirdFieldGuide } from '../../src/presentation/components/BirdFieldGuide';
 import { SpeciesSourcesSheet } from '../../src/presentation/components/SpeciesSourcesSheet';
 import { SpeciesPhotoCarousel } from '../../src/presentation/components/SpeciesPhotoCarousel';
-import { SpeciesNames, SpeciesTaxonomy } from '../../src/presentation/components/SpeciesIdentity';
+import { SpeciesNames, SpeciesSecondaryNames, SpeciesTaxonomy } from '../../src/presentation/components/SpeciesIdentity';
 import { BirdConservation, BirdSpeciesDescription } from '../../src/presentation/components/BirdSpeciesDetails';
 import { speciesGallery } from '../../src/domain/services/speciesGallery';
 import { SpeciesAudioButton } from '../../src/presentation/components/SpeciesAudioButton';
@@ -42,6 +42,7 @@ import { haptics } from '../../src/presentation/haptics';
 import { useFavorites } from '../../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
 import { useSpeciesPalette } from '../../src/presentation/theme/useSpeciesPalette';
+import { usePhotoReport } from '../../src/presentation/hooks/usePhotoReport';
 
 const TRAIT_LABELS: Record<string, string> = {
   body_length: 'Longitud corporal', max_length: 'Longitud máxima', body_mass: 'Masa', wing_length: 'Ala',
@@ -66,7 +67,7 @@ const plantHeight = (height: { min: number | null; max: number | null } | undefi
 
 /** A custom sheet keeps Android scrolling predictable and owns its dismiss gesture. */
 export default function SpeciesDetailScreen(): React.JSX.Element {
-  const { codigo } = useLocalSearchParams<{ codigo: string }>();
+  const { codigo, showRelevantNote } = useLocalSearchParams<{ codigo: string; showRelevantNote?: string }>();
   const db = useSQLiteContext();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -78,7 +79,8 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
   const [notFound, setNotFound] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [relevantInfoOpen, setRelevantInfoOpen] = useState(false);
+  const [relevantInfoOpen, setRelevantInfoOpen] = useState(showRelevantNote === '1');
+  useEffect(() => { setRelevantInfoOpen(showRelevantNote === '1'); }, [codigo, showRelevantNote]);
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const palette = useSpeciesPalette(species);
@@ -221,6 +223,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
     : species?.conservation.nationalDesignations.includes('priority') ? 'Prioritaria para la conservación' : null;
   const hasRelevantInfo = Boolean(species?.relevantNote || species?.facts.length);
   const galleryItems = species ? speciesGallery(species) : [];
+  const photoReport = usePhotoReport(species?.codigo, galleryItems.length > 0);
   const selectedPhoto = galleryItems[Math.min(photoIndex, galleryItems.length - 1)];
   const isPlant = species?.taxonomy.kingdom === 'Plantae';
   const arthropodHistory = species?.naturalHistory?.arthropod;
@@ -309,7 +312,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
           hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel="Cerrar"
-          style={[styles.action, { backgroundColor: colors.surfaceVariant, marginLeft: spacing.sm }]}
+          style={[styles.action, styles.closeAction, { backgroundColor: colors.surfaceVariant, marginLeft: spacing.sm }]}
         >
           <CloseIcon color={colors.text} size={20} />
         </Pressable>
@@ -320,6 +323,10 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
             <DatabaseIcon color={colors.primary} size={19} />
             <Text style={[typography.label, { color: colors.text }]}>Fuentes de datos</Text>
           </Pressable>
+          {photoReport.available && <Pressable disabled={photoReport.busy} onPress={() => { haptics.tap(); setOptionsOpen(false); void photoReport.send(); }} accessibilityRole="menuitem" accessibilityState={{ disabled: photoReport.busy }} style={styles.optionItem}>
+            <BugIcon color={colors.primary} size={19} />
+            <Text style={[typography.label, { color: colors.text, flexShrink: 1 }]}>Enviar a chequear fotos</Text>
+          </Pressable>}
         </View>
       )}
 
@@ -360,13 +367,7 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
                 <SpeciesNames species={species} />
                 {hasRelevantInfo && <Pressable onPress={() => { haptics.tap(); setRelevantInfoOpen((open) => !open); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={relevantInfoOpen ? 'Ocultar información relevante' : 'Mostrar información relevante'} accessibilityState={{ expanded: relevantInfoOpen }} style={[styles.infoAction, { backgroundColor: palette.accent, borderRadius: radius.pill }]}><InfoIcon color="#FFFFFF" size={23} /></Pressable>}
               </View>
-              {/* Only when it adds something: `displayName` is the binomial itself
-                  whenever a species has no vernacular name. */}
-              {species.scientificName !== species.displayName && (
-                <Text style={[typography.body, styles.scientific, { color: colors.textSecondary }]}>
-                  {species.scientificName}
-                </Text>
-              )}
+              <SpeciesSecondaryNames species={species} />
             </View>
 
             {hasRelevantInfo && relevantInfoOpen && (
@@ -510,6 +511,9 @@ export default function SpeciesDetailScreen(): React.JSX.Element {
         onClose={() => setLightboxOpen(false)}
       />
       {species && <SpeciesSourcesSheet visible={sourcesOpen} species={species} onClose={() => setSourcesOpen(false)} />}
+      {photoReport.notice !== '' && <View pointerEvents="none" style={[styles.reportNotice, { bottom: insets.bottom + spacing.lg, backgroundColor: colors.text, borderRadius: radius.md }]}>
+        <Text accessibilityRole="alert" accessibilityLiveRegion="polite" style={[typography.body, { color: colors.surface }]}>{photoReport.notice}</Text>
+      </View>}
         </Animated.View>
       </GestureDetector>
     </View>
@@ -524,13 +528,14 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   headerRow: { flexDirection: 'row', alignItems: 'center', paddingTop: 8, paddingBottom: 18 },
   action: { padding: 9, borderRadius: 12 },
+  closeAction: { width: 48, height: 48, padding: 0, borderRadius: 24, alignItems: 'center', justifyContent: 'center' },
   classIdentity: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   classGlyph: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
-  optionsMenu: { position: 'absolute', top: 84, zIndex: 40, minWidth: 188, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
+  optionsMenu: { position: 'absolute', top: 84, left: 16, zIndex: 40, minWidth: 188, borderWidth: StyleSheet.hairlineWidth, overflow: 'hidden' },
   optionItem: { minHeight: 52, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 10 },
   nameRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   infoAction: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
-  scientific: { fontStyle: 'italic', marginTop: 2 },
+  reportNotice: { position: 'absolute', left: 16, right: 16, padding: 14, zIndex: 50, elevation: 12 },
   badgeRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   pill: { paddingHorizontal: 9, paddingVertical: 5 },
   traits: { paddingHorizontal: 14, paddingVertical: 8 },

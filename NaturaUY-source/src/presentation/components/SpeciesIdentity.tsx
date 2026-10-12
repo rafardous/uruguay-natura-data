@@ -4,23 +4,39 @@ import type { Species } from '../../domain/entities/species';
 import { useTheme } from '../theme/ThemeProvider';
 import { ChevronRightIcon } from './TabIcons';
 
-/** Alternate names stay visible beside the main name, with accessible full text. */
+/** Leave room for Manrope's descenders, including multiline Android text. */
 export function SpeciesNames({ species }: { species: Species }): React.JSX.Element {
   const { colors, typography } = useTheme();
+  return <Text selectable accessibilityRole="header" style={[typography.display, { color: colors.text, flex: 1, minWidth: 0, lineHeight: 42, paddingBottom: 4, includeFontPadding: true }]}>{species.displayName}</Text>;
+}
+
+export function alternateSpeciesNames(species: Species): { label: string; value: string }[] {
   const guide = species.naturalHistory?.bird?.guide;
   const names = [...species.commonNames, ...(guide?.commonName ? [guide.commonName] : [])]
-    .filter((name, index, all) => name.toLocaleLowerCase('es') !== species.displayName.toLocaleLowerCase('es')
-      && all.findIndex((value) => value.toLocaleLowerCase('es') === name.toLocaleLowerCase('es')) === index);
+    .map((name) => name.trim()).filter(Boolean);
   const extra = [
     ...names.map((name) => ({ label: 'Otro nombre común', value: name })),
     ...(guide?.englishName ? [{ label: 'En inglés', value: guide.englishName }] : []),
     ...(species.acceptedName && species.acceptedName !== species.scientificName ? [{ label: 'Nombre aceptado', value: species.acceptedName }] : []),
     ...(guide?.scientificName && guide.scientificName !== species.scientificName ? [{ label: 'Nombre científico histórico', value: guide.scientificName }] : []),
   ];
-  const alternateNames = [...new Set(extra.map((row) => row.value.trim()).filter(Boolean))];
-  return <View style={{ flex: 1, flexDirection: 'row', alignItems: 'baseline', gap: 10, minWidth: 0 }}>
-    <Text selectable accessibilityRole="header" style={[typography.display, { color: colors.text, flexShrink: 1, maxWidth: alternateNames.length ? '70%' : '100%' }]}>{species.displayName}</Text>
-    {alternateNames.length > 0 && <Pressable accessibilityRole="button" accessibilityLabel="Ver todos los nombres" onPress={() => Alert.alert('Otros nombres', extra.map((row) => row.label + ': ' + row.value).join('\n\n'))} style={{ flex: 1, minWidth: 0, minHeight: 48, justifyContent: 'center' }}><Text numberOfLines={1} ellipsizeMode="tail" accessibilityLabel={`Otros nombres: ${extra.map((row) => `${row.label}: ${row.value}`).join('; ')}`} style={[typography.caption, { color: colors.primary }]}>{alternateNames.join(' · ')}</Text><Text style={[typography.caption, { color: colors.primary }]}>Ver nombres</Text></Pressable>}
+  const seen = new Set([species.displayName.trim(), species.scientificName.trim()].map((name) => name.toLocaleLowerCase('es')));
+  return extra.map((row) => ({ ...row, value: row.value.trim() })).filter((row) => {
+    const key = row.value.toLocaleLowerCase('es');
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+export function SpeciesSecondaryNames({ species }: { species: Species }): React.JSX.Element | null {
+  const { colors, typography } = useTheme();
+  const extra = alternateSpeciesNames(species);
+  const scientific = species.scientificName !== species.displayName;
+  if (!scientific && !extra.length) return null;
+  return <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: 12, rowGap: 4, marginTop: 4 }}>
+    {scientific && <Text selectable style={[typography.body, { color: colors.textSecondary, fontStyle: 'italic', flexShrink: 1 }]}>{species.scientificName}</Text>}
+    {extra.length > 0 && <Pressable accessibilityRole="button" accessibilityLabel={`Otros nombres: ${extra.map((row) => `${row.label}: ${row.value}`).join('; ')}. Ver todos los nombres`} onPress={() => Alert.alert('Otros nombres', extra.map((row) => row.label + ': ' + row.value).join('\n\n'))} style={{ flexShrink: 1, minWidth: 0, minHeight: 44, justifyContent: 'center' }}><Text style={[typography.caption, { color: colors.primary, lineHeight: 18 }]}>Otros nombres: {extra.map((row) => row.value).join(' · ')}</Text></Pressable>}
   </View>;
 }
 
@@ -34,7 +50,7 @@ export function SpeciesTaxonomy<Rank extends string>({ items, onNavigate, accent
     {items.map((item, index) => {
       const indent = index * 8;
       return <View key={item.rank}>
-        {index > 0 && <Svg width={indent + 32} height={16} accessible={false} style={{ pointerEvents: 'none' }}>
+        {index > 0 && <Svg width={indent + 32} height={16} style={{ pointerEvents: 'none' }}>
           <Path d={`M ${indent + 8} 0 V 5 Q ${indent + 8} 8 ${indent + 12} 8 H ${indent + 16} V 14 M ${indent + 12} 10 L ${indent + 16} 14 L ${indent + 20} 10`} fill="none" stroke={accent} strokeOpacity={0.6} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
         </Svg>}
         <Pressable onPress={() => onNavigate(item.rank)} accessibilityRole="link" accessibilityLabel={`Explorar ${item.label}: ${item.value}`} style={({ pressed }) => ({ marginLeft: indent, marginRight: 0, minHeight: nodeHeight, paddingVertical: 10, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, backgroundColor: container, borderRadius: radius.md, opacity: pressed ? 0.75 : 1 })}>

@@ -3,6 +3,19 @@ import { Platform } from 'react-native';
 import { mobileSupabase } from './supabase';
 import type { HomeSpeciesSelection } from '../data/repositories/homeSpeciesRepository';
 
+export const PHOTO_REVIEW_DESCRIPTION = 'Revisar fotos de esta especie: calidad o pertinencia de las imágenes.';
+
+export async function getEditorAccess(): Promise<boolean> {
+  if (!mobileSupabase) return false;
+  const { data, error } = await mobileSupabase.rpc('has_editor_access');
+  if (error) throw error;
+  return data === true;
+}
+
+export async function submitPhotoReviewReport(catalogCode: string, appVersion: string): Promise<void> {
+  await submitUserReport({ kind: 'review', area: 'species', catalogCode, description: PHOTO_REVIEW_DESCRIPTION, appVersion });
+}
+
 export async function getHomeSpeciesSchedule(from: string, to: string): Promise<HomeSpeciesSelection[]> {
   if (!mobileSupabase) throw new Error('Sin conexión editorial');
   const { data, error } = await mobileSupabase.rpc('get_home_species_schedule', { p_from: from, p_to: to });

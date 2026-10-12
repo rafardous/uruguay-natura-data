@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
@@ -10,10 +10,8 @@ import { speciesRepository } from '../src/data/repositories/speciesRepository';
 import { AppHeader } from '../src/presentation/components/AppHeader';
 import { EmptyState } from '../src/presentation/components/EmptyState';
 import { SpeciesCard, SpeciesCardSkeleton } from '../src/presentation/components/SpeciesCard';
-import { CloseIcon } from '../src/presentation/components/TabIcons';
 import { useFavorites } from '../src/presentation/hooks/FavoritesProvider';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
-import { haptics } from '../src/presentation/haptics';
 import { navigationBottomInset } from '../src/presentation/navigationPolicy';
 
 export default function FavoritesScreen(): React.JSX.Element {
@@ -37,18 +35,8 @@ export default function FavoritesScreen(): React.JSX.Element {
         eyebrow="TU COLECCIÓN"
         title="Favoritos"
         badge={`${codigos.length} guardada${codigos.length === 1 ? '' : 's'}`}
-      >
-        <View style={styles.row}>
-          <Pressable
-            onPress={() => { haptics.tap(); router.back(); }}
-            hitSlop={10}
-            accessibilityLabel="Volver"
-            style={{ marginLeft: 'auto' }}
-          >
-            <CloseIcon color={colors.text} />
-          </Pressable>
-        </View>
-      </AppHeader>
+        onClose={() => router.back()}
+      />
 
       {items === null ? (
         <View style={{ padding: spacing.lg, gap: spacing.lg }}>

@@ -18,6 +18,21 @@ export const LEARNING_SOURCES: LearningSource[] = [
     "url": "https://www.gbif.org/species"
   },
   {
+    "code": "NHM-TAX",
+    "name": "Natural History Museum — What is taxonomy?",
+    "url": "https://www.nhm.ac.uk/discover/what-is-taxonomy.html"
+  },
+  {
+    "code": "LINNEAN-NAMES",
+    "name": "The Linnean Society — Naming Nature",
+    "url": "https://www.linnean.org/research-collections/on-display/staircase/naming-nature"
+  },
+  {
+    "code": "UOREGON-HISTORY",
+    "name": "University of Oregon — A Bibliographic History of Biology",
+    "url": "https://expo.uoregon.edu/spotlight/history-biology/feature/greeks-and-romans"
+  },
+  {
     "code": "OPENSTAX-ECO",
     "name": "OpenStax Biology 2e — Community ecology",
     "url": "https://openstax.org/books/biology-2e/pages/45-6-community-ecology"
@@ -121,7 +136,7 @@ export const LEARNING_PATHS: LearningPath[] = [
       {
         "id": "para-que-clasificar",
         "title": "¿Para qué clasificar?",
-        "hook": "Un cardenal y un ceibo tienen nombre común. ¿Alcanza para saber de qué organismo hablamos?",
+        "hook": "¿Cómo nos ayuda poner en orden la enorme variedad de seres vivos?",
         "blocks": [
           {
             "title": "Empecemos por dos seres vivos",
@@ -144,8 +159,21 @@ export const LEARNING_PATHS: LearningPath[] = [
             }
           },
           {
-            "title": "Un nombre para entendernos",
-            "body": "En una conversación, decir “cardenal” puede alcanzar. Pero hay más de una especie con ese nombre. Además, los nombres comunes cambian de un lugar a otro. El nombre científico permite que personas de distintos países sepan de cuál hablamos y comparen sus observaciones."
+            "title": "¿En qué nos ayuda clasificar?",
+            "body": "Clasificar nos ayuda a evitar confusiones: podemos saber de qué organismo hablamos aunque en distintos lugares usen nombres comunes diferentes. También permite comparar sus características, ordenar mucha información y descubrir qué seres vivos comparten antepasados. Con esas pistas estudiamos la evolución y podemos decidir qué ambientes y especies necesitan más atención."
+          },
+          {
+            "title": "Una idea que fue creciendo",
+            "body": "Hace más de dos mil años, Aristóteles observó animales y buscó maneras de ordenarlos según sus características. Teofrasto, que estudió las plantas, describió cómo eran y cómo crecían. Mucho después, en el siglo XVIII, Carlos Linneo organizó nombres y grupos en un sistema que ayudaba a naturalistas de distintos lugares a conversar sobre las mismas especies. La ciencia de hoy suma nuevas pruebas, como el ADN, y revisa algunas ramas de aquel árbol.",
+            "illustration": {
+              "title": "Tres momentos de la historia de la clasificación",
+              "layout": "sequence",
+              "items": [
+                { "label": "Aristóteles", "caption": "Observó y agrupó animales." },
+                { "label": "Teofrasto", "caption": "Describió plantas y sus formas de crecer." },
+                { "label": "Linneo", "caption": "Ordenó grupos y popularizó los nombres de dos palabras." }
+              ]
+            }
           },
           {
             "title": "Un mapa de parentescos",
@@ -157,7 +185,7 @@ export const LEARNING_PATHS: LearningPath[] = [
           },
           {
             "title": "Volvamos a la pregunta inicial",
-            "body": "El nombre común es útil, pero no siempre alcanza para identificar una especie sin confusiones. La clasificación y el nombre científico nos ayudan a entendernos."
+            "body": "Clasificar sirve para reconocer organismos sin confundirlos, comparar sus características y estudiar cómo se relacionan. Aristóteles, Teofrasto y Linneo buscaron formas de ordenar lo que observaban; hoy seguimos revisando esas ideas con nuevas pruebas."
           }
         ],
         "questions": [
@@ -178,24 +206,26 @@ export const LEARNING_PATHS: LearningPath[] = [
             "explanation": "Clasificar permite compartir nombres, comparar seres vivos y estudiar sus parentescos. No es un ranking de importancia."
           },
           {
-            "id": "para-que-clasificar-comprension",
-            "objectiveId": "para-que-clasificar-comprension",
+            "id": "tax-history-comprehension",
+            "objectiveId": "tax-history-comprehension",
             "version": 1,
             "type": "single",
-            "prompt": "¿Por qué puede ser confuso decir solamente “cardenal”?",
+            "prompt": "¿Qué aporta una clasificación a quienes estudian la naturaleza?",
             "options": [
-              "Porque todos los cardenales son la misma especie",
-              "Porque distintas especies pueden compartir ese nombre",
-              "Porque las aves no tienen nombres"
+              "Ayuda a comparar seres vivos y estudiar sus relaciones",
+              "Hace que las especies nunca cambien",
+              "Sirve para elegir cuál especie es más importante"
             ],
             "correct": [
-              "Porque distintas especies pueden compartir ese nombre"
+              "Ayuda a comparar seres vivos y estudiar sus relaciones"
             ],
-            "explanation": "Porque distintas especies pueden compartir ese nombre. El nombre común es útil, pero no siempre alcanza para identificar una especie sin confusiones. La clasificación y el nombre científico nos ayudan a entendernos."
+            "explanation": "Ayuda a comparar seres vivos y estudiar sus relaciones. También permite ordenar información y evitar confusiones; no es una competencia entre especies."
           }
         ],
         "sourceCodes": [
-          "GBIF-TAX"
+          "GBIF-TAX",
+          "NHM-TAX",
+          "UOREGON-HISTORY"
         ],
         "contentVersion": 2
       },
@@ -310,7 +340,7 @@ export const LEARNING_PATHS: LearningPath[] = [
       {
         "id": "nombres",
         "title": "Cómo se escribe un nombre científico",
-        "hook": "¿Por qué “Paroaria coronata” tiene dos palabras?",
+        "hook": "¿Cómo evita confusiones un nombre científico de dos palabras?",
         "blocks": [
           {
             "title": "Dos palabras que van juntas",
@@ -328,6 +358,18 @@ export const LEARNING_PATHS: LearningPath[] = [
             }
           },
           {
+            "title": "Dos cardenales, dos especies",
+            "body": "En una charla, “cardenal” puede alcanzar. Pero el cardenal de copete rojo y el cardenal amarillo son aves distintas. Los nombres comunes varían entre regiones y hasta pueden repetirse. Sus nombres científicos, Paroaria coronata y Gubernatrix cristata, nos permiten saber con precisión de cuál se trata y compartir observaciones sin enredos.",
+            "illustration": {
+              "title": "El mismo nombre común puede señalar especies distintas",
+              "layout": "compare",
+              "items": [
+                { "speciesCode": "P_coronata", "label": "Cardenal de copete rojo", "caption": "Paroaria coronata" },
+                { "speciesCode": "G_cristata", "label": "Cardenal amarillo", "caption": "Gubernatrix cristata" }
+              ]
+            }
+          },
+          {
             "title": "Una pequeña regla de escritura",
             "body": "El género empieza con mayúscula y el epíteto va en minúscula. Cuando el formato lo permite, las dos palabras se escriben en cursiva, con letras inclinadas. Probá reconocer la forma correcta antes de seguir: Paroaria coronata."
           },
@@ -337,7 +379,7 @@ export const LEARNING_PATHS: LearningPath[] = [
           },
           {
             "title": "Volvamos a la pregunta inicial",
-            "body": "Paroaria coronata tiene dos palabras porque el nombre de la especie combina un género y un epíteto específico."
+            "body": "El nombre científico usa dos palabras —género y epíteto específico— para identificar la especie con precisión. Por eso Paroaria coronata y Gubernatrix cristata no se confunden aunque a las dos aves les digamos “cardenal”."
           }
         ],
         "questions": [
@@ -372,11 +414,28 @@ export const LEARNING_PATHS: LearningPath[] = [
               "El género y el epíteto juntos"
             ],
             "explanation": "El género y el epíteto juntos. Paroaria coronata tiene dos palabras porque el nombre de la especie combina un género y un epíteto específico."
+          },
+          {
+            "id": "para-que-clasificar-comprension",
+            "objectiveId": "para-que-clasificar-comprension",
+            "version": 1,
+            "type": "single",
+            "prompt": "¿Por qué puede ser confuso decir solamente “cardenal”?",
+            "options": [
+              "Porque todos los cardenales son la misma especie",
+              "Porque distintas especies pueden compartir ese nombre",
+              "Porque las aves no tienen nombres"
+            ],
+            "correct": [
+              "Porque distintas especies pueden compartir ese nombre"
+            ],
+            "explanation": "Distintas especies pueden compartir un nombre común. Paroaria coronata y Gubernatrix cristata son dos ejemplos; sus nombres científicos permiten distinguirlas."
           }
         ],
         "sourceCodes": [
           "ICZN",
-          "ICN"
+          "ICN",
+          "LINNEAN-NAMES"
         ],
         "contentVersion": 2
       },
@@ -469,23 +528,14 @@ export const LEARNING_PATHS: LearningPath[] = [
     ],
     "illustration": {
       "title": "Un árbol con distintas ramas",
-      "layout": "compare",
+      "layout": "tree",
       "items": [
-        {
-          "speciesCode": "P_coronata",
-          "label": "Cardenal de copete rojo",
-          "caption": "Paroaria coronata"
-        },
-        {
-          "speciesCode": "H_hydrocha",
-          "label": "Carpincho",
-          "caption": "Hydrochoerus hydrochaeris"
-        },
-        {
-          "speciesCode": "plant-erythrina-crista-galli",
-          "label": "Ceibo",
-          "caption": "Erythrina crista-galli"
-        }
+        { "label": "Vida" },
+        { "label": "Plantas" },
+        { "label": "Animales" },
+        { "label": "Hongos" },
+        { "label": "Aves" },
+        { "label": "Mamíferos" }
       ]
     }
   },

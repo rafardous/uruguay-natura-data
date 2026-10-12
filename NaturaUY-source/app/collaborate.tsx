@@ -1,15 +1,18 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+import { MAIN_HEADER_GRADIENT } from '../src/presentation/theme/tokens';
 
 import { useMobileAuth } from '../src/auth/MobileAuthProvider';
 import { getOwnCollaboratorApplication, submitCollaboratorApplication, type OwnCollaboratorApplication } from '../src/lib/mobileApi';
 import { AppHeader } from '../src/presentation/components/AppHeader';
-import { CloseIcon, CollaborateIcon } from '../src/presentation/components/TabIcons';
-import { haptics } from '../src/presentation/haptics';
+import { navigationBottomInset } from '../src/presentation/navigationPolicy';
+import { CollaborateIcon } from '../src/presentation/components/TabIcons';
 import { useTheme } from '../src/presentation/theme/ThemeProvider';
 
-const INTERESTS = ['Datos y nombres', 'Descripción y ecología', 'Conservación', 'Fotos y audios', 'Tecnología y diseño', 'Otro'] as const;
+const INTERESTS = ['Datos y nombres', 'Descripción y ecología', 'Conservación', 'Fotos y audios', 'Juegos', 'Ambientes', 'Artículos o historias', 'Tecnología y diseño', 'Otro'] as const;
 const AVAILABILITY: { value: 'occasional' | 'monthly' | 'weekly' | 'more'; label: string }[] = [
   { value: 'occasional', label: 'De vez en cuando' },
   { value: 'monthly', label: 'Unas horas al mes' },
@@ -27,6 +30,7 @@ function statusLabel(status: OwnCollaboratorApplication['status']): string {
 
 export default function CollaborateScreen(): React.JSX.Element {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const { session, profile, signInWithGoogle } = useMobileAuth();
   const { colors, radius, spacing, typography } = useTheme();
   const [draft, setDraft] = useState<Draft>(savedDraft);
@@ -78,9 +82,9 @@ export default function CollaborateScreen(): React.JSX.Element {
   const intro = useMemo(() => googleSession ? 'Completá estos datos y el equipo editorial va a revisar tu propuesta.' : 'Nos gustaría conocer tus intereses para sumar colaboraciones cuidadas y con fuentes.', [googleSession]);
 
   return <View style={[styles.screen, { backgroundColor: colors.background }]}>
-    <AppHeader eyebrow="COLABORAR" title="Sumate a Arapy"><Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Volver"><CloseIcon color={colors.text} /></Pressable></AppHeader>
-    <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: spacing.lg, gap: spacing.md }}>
-      <View style={[styles.intro, { backgroundColor: colors.primaryContainer, borderRadius: radius.lg, padding: spacing.lg }]}><View style={[styles.introIcon, { backgroundColor: colors.surface, borderRadius: radius.pill }]}><CollaborateIcon color={colors.primary} size={25} /></View><Text style={[typography.body, { color: colors.onPrimaryContainer, flex: 1 }]}>{intro}</Text></View>
+    <AppHeader eyebrow="COLABORAR" title="Sumate a Arapy" onClose={() => router.back()} />
+    <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: spacing.lg, paddingBottom: navigationBottomInset(insets.bottom, spacing.lg), gap: spacing.md }}>
+      <LinearGradient colors={MAIN_HEADER_GRADIENT} style={[styles.intro, { borderRadius: radius.lg, padding: spacing.lg }]}><View style={[styles.introIcon, { backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: radius.pill }]}><CollaborateIcon color="#FFFFFF" size={25} /></View><Text style={[typography.body, { color: '#FFFFFF', flex: 1 }]}>{intro}</Text></LinearGradient>
       {!googleSession ? <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.lg }]}>
         <Text style={[typography.title, { color: colors.text }]}>Primero, iniciá sesión</Text>
         <Text style={[typography.body, { color: colors.textMuted, marginTop: spacing.sm }]}>Usamos tu cuenta de Google para saber quién envía la solicitud y poder responderte. El borrador queda guardado en este dispositivo.</Text>
@@ -90,7 +94,12 @@ export default function CollaborateScreen(): React.JSX.Element {
         <Text style={[typography.eyebrow, { color: colors.textMuted }]}>DATOS DE CONTACTO</Text>
         <View style={[styles.identity, { backgroundColor: colors.surfaceVariant, borderRadius: radius.md, marginTop: spacing.sm }]}><Text style={[typography.label, { color: colors.text }]}>{contactName || 'Tu nombre de Google'}</Text><Text style={[typography.caption, { color: colors.textMuted, marginTop: 3 }]}>{contactEmail}</Text></View>
         <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.lg }]}>ÁREAS DE INTERÉS</Text>
-        <View style={styles.chips}>{INTERESTS.map((item) => <Pressable key={item} onPress={() => toggleInterest(item)} style={[styles.chip, { backgroundColor: draft.interests.includes(item) ? colors.primaryContainer : colors.background, borderColor: draft.interests.includes(item) ? colors.primary : colors.border, borderRadius: radius.pill }]}><Text style={[typography.caption, { color: draft.interests.includes(item) ? colors.onPrimaryContainer : colors.textSecondary }]}>{item}</Text></Pressable>)}</View>
+        <View style={styles.chips}>{INTERESTS.map((item) => {
+          const selected = draft.interests.includes(item);
+          const limitReached = !selected && draft.interests.length >= 6;
+          return <Pressable key={item} disabled={limitReached} onPress={() => toggleInterest(item)} style={[styles.chip, { backgroundColor: selected ? colors.primaryContainer : colors.background, borderColor: selected ? colors.primary : colors.border, borderRadius: radius.pill, opacity: limitReached ? 0.45 : 1 }]}><Text style={[typography.caption, { color: selected ? colors.onPrimaryContainer : colors.textSecondary }]}>{item}</Text></Pressable>;
+        })}</View>
+        <Text style={[typography.caption, { color: colors.textMuted, marginTop: spacing.xs }]}>Elegí hasta seis áreas.</Text>
         <Field label="Experiencia" hint="¿Qué experiencia tenés con naturaleza, datos, divulgación, fotografía, audio o tecnología?" value={draft.experience} onChange={(value) => update('experience', value)} placeholder="Contanos brevemente…" multiline colors={colors} radius={radius} typography={typography} />
         <Field label="Motivación" hint="¿Qué te gustaría aportar al catálogo?" value={draft.motivation} onChange={(value) => update('motivation', value)} placeholder="Me interesa…" multiline colors={colors} radius={radius} typography={typography} />
         <Text style={[typography.eyebrow, { color: colors.textMuted, marginTop: spacing.md }]}>DISPONIBILIDAD</Text>

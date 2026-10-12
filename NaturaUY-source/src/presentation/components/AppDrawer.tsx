@@ -18,6 +18,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import {
   ChevronRightIcon,
   BugIcon,
+  BiomesIcon,
   CollaborateIcon,
   CloseIcon,
   CreditsIcon,
@@ -139,12 +140,14 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
         >
           <View style={styles.header}>
             <View style={styles.brand}>
+              <View style={[styles.logoFrame, { backgroundColor: '#D6E0D2', borderColor: DRAWER.border, borderRadius: radius.md }]}>
               <Image
-                source={require('../../../assets/images/logo.png')}
-                contentFit="cover"
-                style={[styles.logo, { borderRadius: radius.md, borderColor: DRAWER.border }]}
+                source={require('../../../assets/images/arapy-logo.png')}
+                contentFit="contain"
+                style={styles.logo}
                 accessibilityLabel="Logo de Arapy"
               />
+              </View>
               <View>
                 <Text style={[typography.title, { color: DRAWER.text }]}>Arapy</Text>
               </View>
@@ -175,6 +178,11 @@ export function AppDrawer({ open, onClose }: AppDrawerProps): React.JSX.Element 
               icon={<LeafIcon color={DRAWER.text} />}
               label="Especies nativas"
               onPress={() => go('/species?native=1')}
+            />
+            <DrawerLink
+              icon={<BiomesIcon color={DRAWER.text} />}
+              label="Ambientes del Uruguay"
+              onPress={() => go('/habitats')}
             />
 
             <View style={[styles.divider, { backgroundColor: DRAWER.border }]} />
@@ -217,7 +225,8 @@ const styles = StyleSheet.create({
   panel: { position: 'absolute', left: 0, top: 0, bottom: 0, paddingHorizontal: 20 },
   header: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 26 },
   brand: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  logo: { width: 44, height: 44, borderWidth: StyleSheet.hairlineWidth },
+  logoFrame: { width: 64, height: 58, padding: 6, borderWidth: StyleSheet.hairlineWidth, alignItems: 'center', justifyContent: 'center' },
+  logo: { width: 50, height: 44 },
   favorites: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 18 },
   section: { marginTop: 26, marginBottom: 8, paddingHorizontal: 4 },
   link: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 12, paddingVertical: 14 },

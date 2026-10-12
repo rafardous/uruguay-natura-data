@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "scheme": "naturauy",
     "userInterfaceStyle": "light",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/arapy-app-icon.png",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "uy.naturauy.app",
@@ -17,8 +17,8 @@
     "android": {
       "package": "uy.naturauy.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#CBD8C4"
+        "foregroundImage": "./assets/images/arapy-adaptive-foreground.png",
+        "backgroundColor": "#D6E0D2"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO",
@@ -33,10 +33,10 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/arapy-splash.png",
           "imageWidth": 180,
           "resizeMode": "contain",
-          "backgroundColor": "#CBD8C4"
+          "backgroundColor": "#D6E0D2"
         }
       ],
       "expo-asset",
@@ -54,6 +54,7 @@
     "extra": {
       "router": {},
       "catalogManifestUrl": "https://uruguay-natura-data.pages.dev/catalog/manifest.json",
+      "appReleaseManifestUrl": "https://uruguay-natura-data.pages.dev/updates/app.json",
       "eas": {
         "projectId": "19da2ae0-b85c-4ed8-9dbc-f26fe80c6a8e"
       }

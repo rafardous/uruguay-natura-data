@@ -1,7 +1,9 @@
 # Natura UY — contexto para agentes
 
+- Actualizaciones móviles: la implementación en desarrollo consulta anuncios Android en `/updates/app.json` (Cloudflare, APK directo de Expo) y conserva la descarga automática/manual de catálogo para el siguiente arranque completo. Contrato y aceptación en `NaturaUY-source/docs/updates.md`. El manifiesto inicial no anuncia ninguna build; no promover sin aceptación Android real y firma compatible. `npm run app:prepare-release` valida la promoción desde `NaturaUY-admin`; es independiente de la publicación editorial y no requiere migraciones Supabase.
 
 - Estado editorial del 12/10/2026: aplicada `20261012151934_sync_editorial_taxonomy_and_schema15.sql` tras respaldo cifrado verificado. Altas y cambios sincronizan vínculos taxonómicos al aprobar; publicaciones nuevas usan schema 15/Arapy 1.4.0. Las fuentes de atributos son opcionales: «Sin fuente» y medidas no verificadas cuando faltan. El alta autorizada de F_catus lleva el catálogo a 1049 especies (949 animales/100 plantas), cero archivadas. No reintroducir las 3057 plantas eliminadas. Rechazo propio, recuperación de altas y pruebas en `NaturaUY-admin/docs/visual-editor.md`.
+
 
 ## Propósito
 
@@ -19,12 +21,14 @@ La interfaz y la documentación del proyecto se escriben en español rioplatense
 
 - Entrega verificada del editor: las migraciones `20261012050316_visual_editor_snapshot_rights.sql` y `20261012063500_habitat_editor_media_read.sql` están aplicadas. La prueba web real persistió foto/audio y retiró los fixtures reversiblemente antes de publicar. Catálogo público v11/schema 14 con 1048 especies (948/100), cero especies archivadas y 2935 revisiones; informe en `NaturaUY-admin/docs/visual-editor-e2e.json`. El lector móvil existente admite tres fotos sin migración de user.db.
 
+- Depuración autorizada expresamente por el responsable el 11/10/2026: se eliminaron físicamente las 3057 plantas archivadas de la expansión descartada, sus 6114 revisiones, 3057 perfiles y 15285 vínculos taxonómicos. Quedan únicamente 1048 especies activas (948 animales y las 100 plantas seleccionadas), cero archivadas y 2933 revisiones. El SQL puntual y sus guardas están en `NaturaUY-admin/scripts/sql/purge-failed-flora-20261011.sql`; se probó con rollback antes de aplicar y se verificó el respaldo cifrado del workflow 38183187752. Las menciones posteriores a 3057 archivadas describen el estado histórico anterior a esta depuración. No reimportar ese lote ni usar el SQL como migración recurrente.
+
 - Juegos en desarrollo: Puzzle → Encastrar y Adiviá (buscador/opciones, cinco pistas e intentos). Contrato en `NaturaUY-source/docs/games.md`. `species_game_clues` sólo conserva pistas específicas aprobadas; datos personales en `user.db.enriched_game_records`, con copias por cuenta y sincronización privada. La migración `20261011191403_enriched_games.sql` está aplicada en Supabase desde el 11/10/2026, con autorización específica y respaldo cifrado verificado. Las 40 pistas de ocho especies se cargaron mediante propuesta/aprobación editorial; se conservaron los conteos 1048/948/100 y 3057 plantas archivadas. La vista previa se deriva del PostgreSQL de producción; el APK/manifiesto publicados siguen en v9/1.3.1 y la aceptación Android queda pendiente.
 
 - Arapy 1.3.1/build Android 7 está publicado como APK interno en el release `catalog-v9`, probado e instalado como actualización en el Pixel sin borrar favoritos/progreso. La app usa exclusivamente modo claro. El catálogo incluido coincide con el público v9; las comprobaciones de firma, descarga y audio offline están en los informes de `NaturaUY-source/data/reports/`.
 
 - Supabase `xbnbfekcxrkgteuijbzh` opera con schema 14. La optimización de consultas RLS e índices por especie está aplicada desde el 10/10/2026, con 148 pruebas locales y conteos remotos preservados. Hay exactamente 1048 especies activas: 948 animales y las 100 plantas de `data/raw/curated-plants/seed-100.json`. Las otras 3057 plantas están archivadas con sus revisiones; no restaurarlas ni volver a publicarlas al regenerar derivados. Los 4105 registros editoriales históricos se conservan por auditoría. El panel está en `https://uruguay-natura-data.pages.dev`; los cinco secretos de publicación/respaldo de GitHub ya están configurados. R2 sigue fuera del despliegue.
-- Aprender mantiene cinco recorridos y 21 módulos bootstrap; la revisión de lecturas en desarrollo de octubre de 2026 suma 47 preguntas, cierres que responden «Antes de seguir» e ilustraciones de las especies del catálogo, sin tiempos estimados. Conserva progreso offline y IDs; sólo `tax-purpose` cambia a versión 2. Contrato y verificación en `NaturaUY-source/docs/learning.md`. Esta revisión aún no forma parte del APK publicado. Schema 13/14 y las RPCs privadas están aplicados en Supabase desde el 10/10/2026; el catálogo admite `learning_paths` aprobados.
+- Aprender mantiene cinco recorridos y 21 módulos bootstrap; la revisión de lecturas en desarrollo de octubre de 2026 suma 48 preguntas, cierres que responden «Antes de seguir» e ilustraciones de las especies del catálogo, sin tiempos estimados. Conserva progreso offline y IDs; sólo `tax-purpose` cambia a versión 2. Contrato y verificación en `NaturaUY-source/docs/learning.md`. Esta revisión aún no forma parte del APK publicado. Schema 13/14 y las RPCs privadas están aplicados en Supabase desde el 10/10/2026; el catálogo admite `learning_paths` aprobados.
 - El panel administrativo ya no usa datos ni sesión simulados. Requiere `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`; si faltan, muestra un error de configuración y no permite operar con datos ficticios.
 - La línea base animal tiene 1052 registros/948 especies. El catálogo publicado sólo debe incorporar esos 948 animales y las 100 plantas seleccionadas. Flora Uruguaya Online v1.3 se conserva como referencia histórica; el backlog externo sigue siendo candidate-only.
 - La fuente editorial definitiva ya es PostgreSQL. Los JSON y `natura.db` son artefactos derivados y versionados.
@@ -84,7 +88,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
 
 1. No editar `natura.db` a mano. Se genera y se valida desde datos editoriales.
 2. El ID UUID de Natura UY y `catalog_code` son estables; no romper favoritos, navegación ni enlaces al rectificar taxonomía.
-3. Una edición crea una revisión nueva. Nunca sobrescribir ni borrar revisiones ni especies físicamente.
+3. Una edición crea una revisión nueva. Nunca sobrescribir ni borrar revisiones ni especies físicamente en el flujo editorial normal. La única excepción aplicada es la depuración puntual del lote de 3057 plantas archivadas, solicitada expresamente por el responsable el 11/10/2026; no generalizarla a otras especies.
 4. `abundanceStatus` no es conservación. Conservar separados abundancia, conservación, origen, establecimiento, estacionalidad y certeza. La abundancia experta y la observabilidad automática también permanecen separadas; observabilidad no es una estimación poblacional.
 5. Las fuentes son por campo (`taxonomy.order`, `description`, etc.), no sólo una lista genérica de especie. Los candidatos automáticos de enriquecimiento nunca se publican sin aprobación humana. Fuentes `review_only` no pueden alimentar texto redistribuido.
 6. Favoritos, preferencias, juegos y progreso de Aprender tienen fuente offline en `user.db`; nunca se mezclan con `natura.db`. Si hay cuenta Google, se sincronizan con Supabase sin volver al backend un requisito de arranque.
@@ -94,7 +98,7 @@ El SVG horizontal `Natura UY Editorial` representa la arquitectura objetivo y su
    Aprender guarda finalización por módulo y dominio por objetivo/pregunta. Los errores vuelven al día siguiente y los aciertos se repasan a 3, 14 y 45 días; una nueva versión de pregunta reinicia sólo ese objetivo. El contenido bootstrap vive versionado en la app y `learning_paths` es la fuente editorial prevista para releases schema 13.
 7. Cada medio nuevo debe registrar autoría y derechos. Sólo aceptar CC0, CC BY 4.0 o autorización verificable; las licencias heredadas se preservan como históricas.
 8. Los medios procesados se verifican en Supabase Storage antes de eliminar el original temporal. Si en el futuro se configura R2, también se verifica allí. Las URLs públicas siguen `/m/{assetId}/{variant}`.
-9. Las imágenes definitivas usan lado mayor de 1600 px y miniatura de 480 px. Los audios definitivos duran como máximo 15 s, son mono, MP3 96 kbps y 48 kHz.
+9. Cada especie admite tres imágenes y un audio aprobado. Las imágenes definitivas usan lado mayor de 1600 px y miniatura de 480 px. Los audios definitivos duran como máximo 15 s, son mono, MP3 96 kbps y 48 kHz.
 10. No incluir secretos, archivos `.env`, medios, builds, `node_modules` ni backups en Git.
 
 ## Pipeline de expansión
@@ -151,5 +155,7 @@ npm test -- --runInBand
 - `NaturaUY-source/src/data/db/catalogUpdater.ts`: contrato de actualización móvil.
 
 ## Apariencia y colores del catálogo
+
+UX móvil en desarrollo del 12/10/2026: contrato y aceptación en `NaturaUY-source/docs/mobile-ux.md`. El reporte rápido de fotos usa `has_editor_access` y `submit_feedback`; no crea revisiones. Encastrar usa dieciséis piezas sin selector; Adiviá mezcla animales/plantas con récords `all:nivel`. La migración local `20261012171935_mixed_guess_scope.sql` debe aplicarse con respaldo antes de distribuir esa app; no se despliega automáticamente con las pruebas de UX.
 
 Arapy usa exclusivamente modo claro; no ofrecer selector de tema ni seguir el modo oscuro del sistema. Las fichas comparten galería, nombres tocables y enlaces taxonómicos visibles. `NaturaUY-admin/scripts/photo-palettes.ts` genera los colores desde las fotos principales aprobadas (fallback por familia sólo cuando no hay imagen); JSON y SQLite deben conservar la misma paleta y el hash/ID de su foto. No volver a una paleta verde fija ni editar SQLite a mano. El build web limpia `dist/`: no correrlo simultáneamente con `catalog:build`.

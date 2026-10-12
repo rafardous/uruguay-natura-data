@@ -137,7 +137,11 @@ export const lightElevation: ElevationSet = {
 };
 
 export const NAV_ISLAND_HEIGHT = 80;
+export const NAV_BUTTON_HEIGHT = 58;
+export const NAV_ISLAND_RADIUS = NAV_ISLAND_HEIGHT / 2;
+export const NAV_BUTTON_RADIUS = NAV_BUTTON_HEIGHT / 2;
 export const NAV_ISLAND_MARGIN = 14;
+export const MAIN_HEADER_GRADIENT = ['#7C9277', '#677E61', '#465B47'] as const;
 
 export const COLLAPSIBLE_HEADER_EXPANDED = 144;
 // Keep the compact chrome comfortably taller than the 48 px menu/account

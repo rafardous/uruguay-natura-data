@@ -95,11 +95,11 @@ export function SpeciesFilterSheet({
           style={[styles.sheet, { backgroundColor: colors.background, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl, paddingBottom: insets.bottom + spacing.sm }]}
         >
           <View style={[styles.header, { padding: spacing.lg }]}>
-            <View>
+            <View style={{ flex: 1 }}>
               <Text style={[typography.title, { color: colors.text }]}>Filtrar especies</Text>
               <Text style={[typography.caption, { color: colors.textMuted }]}>Podés combinar varios criterios.</Text>
             </View>
-            <Pressable onPress={() => { haptics.tap(); onClose(); }} hitSlop={10} accessibilityRole="button" accessibilityLabel="Cerrar filtros"><CloseIcon color={colors.text} /></Pressable>
+            <Pressable onPress={() => { haptics.tap(); onClose(); }} accessibilityRole="button" accessibilityLabel="Cerrar filtros" style={{ width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }}><CloseIcon color={colors.text} /></Pressable>
           </View>
           <ScrollView contentContainerStyle={{ paddingHorizontal: spacing.lg, gap: spacing.lg }}>
             <Group title="CLASE" values={classes} selected={draft.classes} change={(value) => setList('classes', value)} />

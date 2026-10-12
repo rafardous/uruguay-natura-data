@@ -46,3 +46,16 @@ test('el calendario migratorio marca los meses con ticks y conserva su significa
   expect(tree).toContain('Abril: período habitual según la guía');
   expect(tree).toContain('Enero: fuera del período habitual');
 });
+
+test('Tamaño no ofrece información cuando no hay ninguna medida', async () => {
+  const tree = await renderGuide(makeSpecies());
+  expect(tree).toContain('Sin datos disponibles');
+  expect(tree).not.toContain('Qué significan las medidas de tamaño');
+});
+
+test('Tamaño ofrece información incluso cuando sólo hay una medida técnica', async () => {
+  const species = makeSpecies({ measurements: [{ kind: 'body_mass', value: 10, unit: 'g', estimated: false, provenance: 'legacy_unverified', basis: null, sourceCode: '', sourceRecordId: null }] });
+  const tree = await renderGuide(species);
+  expect(tree).toContain('Qué significan las medidas de tamaño');
+  expect(tree).toContain('Medidas técnicas');
+});

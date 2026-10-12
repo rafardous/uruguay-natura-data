@@ -6,7 +6,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { guessRepository } from '../../src/data/repositories/guessRepository';
 import { enrichedGameRepository } from '../../src/data/repositories/enrichedGameRepository';
-import { GAME_SCOPES, type GameScope } from '../../src/domain/entities/gameScopes';
 import { KNOWLEDGE_LEVELS } from '../../src/domain/entities/quiz';
 import type { KnowledgeLevel, Species } from '../../src/domain/entities/species';
 import { CLUE_LABELS, guessOptions, guessSuggestions, submitGuess, type GuessRound, type GuessState } from '../../src/domain/services/guessGame';
@@ -25,7 +24,7 @@ function ActionButton({text,onPress,disabled=false}:{text:string;onPress:()=>voi
 export default function GuessScreen(): React.JSX.Element {
   const db=useSQLiteContext(), userDb=useUserDatabase(), router=useRouter(), insets=useSafeAreaInsets();
   const {colors,spacing,radius,typography}=useTheme(); const {requestSync}=useMobileSync();
-  const [scope,setScope]=useState<GameScope>('animals_all'); const [level,setLevel]=useState<KnowledgeLevel>('hard');
+  const scope = 'all' as const; const [level,setLevel]=useState<KnowledgeLevel>('hard');
   const [mode,setMode]=useState<'search'|'choices'>('search');
   const [catalog,setCatalog]=useState<Awaited<ReturnType<typeof guessRepository.load>>|null>(null);
   const [loading,setLoading]=useState(false), [error,setError]=useState('');
@@ -59,7 +58,7 @@ export default function GuessScreen(): React.JSX.Element {
   const finished=state.status!=='playing';
   const suggestions=catalog?guessSuggestions(catalog.candidates,query,state.guesses):[];
   return <View style={{flex:1,backgroundColor:colors.background,paddingTop:insets.top+spacing.sm}}>
-    <View style={styles.header}><Pressable accessibilityLabel="Volver" onPress={()=>round?(setRound(null),setState(INITIAL)):router.back()} style={[styles.back,{backgroundColor:colors.surface,borderRadius:radius.pill}]}><BackIcon color={colors.text}/></Pressable><View><Text style={[typography.headerTitle,{color:colors.text}]}>Adiviá</Text><Text style={[typography.caption,{color:colors.textMuted}]}>{round?`${GAME_SCOPES[scope].label} · ${mode==='choices'?'Con opciones':'Buscador'}`:'Una especie, cinco pistas'}</Text></View></View>
+    <View style={styles.header}><Pressable accessibilityLabel="Volver" onPress={()=>round?(setRound(null),setState(INITIAL)):router.back()} style={[styles.back,{backgroundColor:colors.surface,borderRadius:radius.pill}]}><BackIcon color={colors.text}/></Pressable><View><Text style={[typography.headerTitle,{color:colors.text}]}>Adiviná</Text><Text style={[typography.caption,{color:colors.textMuted}]}>{round?(mode==='choices'?'Con opciones':'Buscador'):'Una especie, cinco pistas'}</Text></View></View>
     <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{padding:spacing.lg,paddingBottom:insets.bottom+32,gap:spacing.md}}>
       {!round?<>
         <Text style={[typography.body,{color:colors.textSecondary}]}>Descubrí una especie por sus pistas. Tenés cinco intentos: cada respuesta incorrecta revela otra pista. Cuanto antes aciertes, más puntos ganás.</Text>
@@ -68,9 +67,7 @@ export default function GuessScreen(): React.JSX.Element {
         <Text style={[typography.caption,{color:colors.textMuted}]}>Buscador: 500 a 100 puntos. Con opciones: 250 a 50 puntos. Los récords se guardan por separado.</Text>
         <Text style={[typography.cardTitle,{color:colors.text}]}>Especies que pueden aparecer</Text>
         <View style={styles.wrap}>{KNOWLEDGE_LEVELS.map(item=><Chip key={item.id} label={item.label} selected={level===item.id} accent={colors.play} onAccent={colors.onPlay} onPress={()=>setLevel(item.id)}/>)}</View>
-        <Text style={[typography.cardTitle,{color:colors.text}]}>Categoría</Text>
-        <View style={styles.wrap}>{Object.entries(GAME_SCOPES).map(([key,item])=><Chip key={key} label={item.label} selected={scope===key} accent={colors.play} onAccent={colors.onPlay} onPress={()=>setScope(key as GameScope)}/>)}</View>
-        {loading?<ActivityIndicator color={colors.play}/>:<Text style={[typography.caption,{color:colors.textMuted}]}>{catalog?.targets.length?`${catalog.targets.length} especies con cinco pistas disponibles offline.`:'Todavía no hay especies con cinco pistas completas en esta selección. Probá otra categoría o nivel.'}</Text>}
+        {loading?<ActivityIndicator color={colors.play}/>:<Text style={[typography.caption,{color:colors.textMuted}]}>{catalog?.targets.length?`${catalog.targets.length} especies con cinco pistas disponibles offline.`:'Todavía no hay especies con cinco pistas completas en este nivel. Probá otro nivel.'}</Text>}
         <ActionButton text="Empezar" onPress={start} disabled={loading||!catalog?.targets.length||(mode==='choices'&&(catalog?.candidates.length??0)<6)}/>
       </>:<>
         <View style={[styles.status,{backgroundColor:colors.surfaceVariant,borderRadius:radius.lg}]}><Text style={[typography.label,{color:colors.text}]}>{finished?state.status==='won'?'¡La encontraste!':'Se terminaron los intentos':`${5-state.guesses.length} intentos disponibles`}</Text><Text style={[typography.cardTitle,{color:colors.play}]}>{finished?`${state.score} puntos`:`Por ${Math.max(1,5-state.guesses.length)*(mode==='choices'?50:100)} puntos`}</Text></View>

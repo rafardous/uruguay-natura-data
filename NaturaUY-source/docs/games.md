@@ -1,14 +1,18 @@
-# Encastrar y Adiviá
+# Encastrar y Adiviná
 
 Implementación en desarrollo para Arapy 1.4.0. No forma parte del APK 1.3.1/build 7 publicado.
 
 ## Puzzle → Encastrar
 
-Puzzle permite elegir Deslizante o Encastrar, categoría, nivel de conocimiento y grilla 3 × 3 / 4 × 4. Encastrar usa todas las piezas de la foto, con bordes complementarios: se arrastran al tablero y se giran con un toque o con Rotar. Una pieza se fija sólo cerca de su lugar y con la orientación correcta. El tiempo empieza con el primer movimiento; arrastrar o girar cuenta como un movimiento. Pasar al segundo plano pausa el tiempo.
+UX revisada del 12/10/2026: sólo Deslizante permite elegir 3×3/4×4. Encastrar usa dieciséis piezas fijas sin selector. Puzzle no ofrece nivel de especies y usa todas las habilitadas de la categoría elegida. Contrato y aceptación en [mobile-ux.md](mobile-ux.md).
+
+Puzzle permite elegir Deslizante o Encastrar y categoría; sólo Deslizante ofrece grilla 3 × 3 / 4 × 4. Encastrar usa todas las piezas de la foto, con bordes complementarios: se arrastran al tablero y se giran con un toque o con Rotar. Una pieza se fija sólo cerca de su lugar y con la orientación correcta. El tiempo empieza con el primer movimiento; arrastrar o girar cuenta como un movimiento. Pasar al segundo plano pausa el tiempo.
 
 Es una implementación propia en React Native y SVG, inspirada en la interacción del [ejemplo de JointJS](https://www.jointjs.com/demos/puzzle). Usa fotos aprobadas y miniaturas incluidas. Deslizante conserva sus récords existentes; Encastrar tiene mínimos independientes de tiempo y movimientos por categoría, nivel y grilla.
 
-## Adiviá
+## Adiviná
+
+La app ya no ofrece categorías: reúne animales/plantas habilitados. Conserva nivel y forma de respuesta. Los nuevos récords `all:nivel` quedan separados de los históricos; requieren `20261012171935_mixed_guess_scope.sql` antes de distribuir la app. Esa migración se prueba localmente y no se aplica a producción en esta entrega.
 
 Cada partida tiene una especie y hasta cinco respuestas válidas. Escribir o repetir una respuesta no consume intentos. El buscador reconoce nombres comunes, alternativos, científicos y aceptados, sin distinguir mayúsculas o tildes. Se confirma la especie seleccionada. Cada error revela la siguiente pista; acertar o agotar los intentos revela la respuesta y permite abrir su ficha o jugar otra partida.
 
@@ -38,7 +42,7 @@ El panel Contenido y juegos propone, edita y archiva mediante `submit_content_ch
 
 `NaturaUY-admin/scripts/guess-clue-seed.json` contiene 40 textos originales para carpincho, ñandú, pingüino de Magallanes, tero, hornero, tatú, ceibo y sauce criollo, con enlaces de evidencia. `seed-guess-clues.ts` genera SQL revisable que propone y aprueba cada pista bajo la identidad editorial autorizada. No ejecuta SQL por sí mismo ni sobrescribe pistas existentes diferentes. Se atribuye la redacción a `natura_uy_editorial` y se conserva evidencia por pista en `source_record_id`.
 
-El publicador PostgreSQL exporta pistas activas de fuentes redistribuibles a `game.clues` en JSON y `species_game_clues` en SQLite. La tabla adicional es compatible con lectores anteriores; Adiviá también abre catálogos que aún no la tengan. La migración `20261011191403_enriched_games.sql` y las 40 pistas están aplicadas en Supabase de producción desde el 11/10/2026, luego de autorización específica y respaldo cifrado verificado. La vista previa se generó íntegramente desde ese PostgreSQL; el catálogo público continúa en v9/schema 14.
+El publicador PostgreSQL exporta pistas activas de fuentes redistribuibles a `game.clues` en JSON y `species_game_clues` en SQLite. La tabla adicional es compatible con lectores anteriores; Adiviná también abre catálogos que aún no la tengan. La migración `20261011191403_enriched_games.sql` y las 40 pistas están aplicadas en Supabase de producción desde el 11/10/2026, luego de autorización específica y respaldo cifrado verificado. La vista previa se generó íntegramente desde ese PostgreSQL; el catálogo público continúa en v9/schema 14.
 
 ### Progreso offline
 

@@ -18,7 +18,7 @@ export interface PhotoLightboxProps {
   onIndexChange?: (index: number) => void;
 }
 
-/** Full-resolution viewer with transient pinch-to-zoom. */
+/** Full-resolution viewer with persistent zoom and bounded panning. */
 export function PhotoLightbox(props: PhotoLightboxProps): React.JSX.Element | null {
   if (!props.visible) return null;
   return <PhotoLightboxContent key={`${props.label}-${props.initialIndex ?? 0}`} {...props} />;
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   backgroundTap: { ...StyleSheet.absoluteFill },
   imageWrap: { width: '100%' },
   credit: { position: 'absolute', left: 20, right: 20 },
-  close: { position: 'absolute', right: 16, padding: 10, borderRadius: 20, backgroundColor: 'rgba(255,255,255,0.16)' },
+  close: { position: 'absolute', right: 16, width: 48, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 24, backgroundColor: 'rgba(255,255,255,0.16)' },
   hint: { position: 'absolute', left: 62, right: 62, alignItems: 'center' },
   hintText: { color: 'rgba(255,255,255,0.82)', fontSize: 12, fontWeight: '600', textAlign: 'center' },
 });

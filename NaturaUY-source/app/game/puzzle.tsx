@@ -9,7 +9,7 @@ import { puzzleRepository } from '../../src/data/repositories/puzzleRepository';
 import { speciesRepository } from '../../src/data/repositories/speciesRepository';
 import { thumbnailFor } from '../../src/data/assets/thumbMap';
 import type { KnowledgeLevel, Species } from '../../src/domain/entities/species';
-import { PUZZLE_SCOPES, type PuzzleDifficulty, type PuzzleScope, type PuzzleRunState } from '../../src/domain/entities/puzzle';
+import { JIGSAW_GRID_SIZE, PUZZLE_SCOPES, type PuzzleDifficulty, type PuzzleScope, type PuzzleRunState } from '../../src/domain/entities/puzzle';
 import { isPuzzleSolved, movePuzzlePiece, shuffledSolvablePuzzle } from '../../src/domain/services/slidingPuzzle';
 import { PhotoLightbox } from '../../src/presentation/components/PhotoLightbox';
 import { SlidingPicturePuzzle } from '../../src/presentation/components/SlidingPicturePuzzle';
@@ -22,6 +22,7 @@ import { useUserDatabase } from '../../src/data/db/UserDatabaseProvider';
 import { enrichedGameRepository } from '../../src/data/repositories/enrichedGameRepository';
 import { JigsawPicturePuzzle } from '../../src/presentation/components/JigsawPicturePuzzle';
 import { newJigsaw, type JigsawPiece } from '../../src/domain/services/jigsawPuzzle';
+import { PuzzleSuccessArtwork } from '../../src/presentation/components/PuzzleSuccessArtwork';
 
 const clampGrid = (value: string | undefined): PuzzleDifficulty => value === '4' ? 4 : 3;
 
@@ -40,8 +41,9 @@ export default function PuzzleScreen(): React.JSX.Element {
     offlineRef.current = isOffline;
   }, [isOffline]);
 
-  const grid = clampGrid(params.grid);
   const mode = params.mode === 'jigsaw' ? 'jigsaw' : 'sliding';
+  // Jigsaw's piece layout is independent of the sliding game's preference.
+  const grid: PuzzleDifficulty = mode === 'jigsaw' ? JIGSAW_GRID_SIZE : clampGrid(params.grid);
   const [jigsaw, setJigsaw] = useState<JigsawPiece[]>([]);
   const [error, setError] = useState('');
   const rawScope = params.scope;
@@ -168,7 +170,7 @@ export default function PuzzleScreen(): React.JSX.Element {
           <BackIcon color={colors.text} />
         </Pressable>
         <View style={styles.flex}>
-          <Text style={[typography.headerTitle, { color: colors.text }]}>{mode==='jigsaw'?'Encastrar':'Puzzle'} {grid} × {grid}</Text>
+          <Text style={[typography.headerTitle, { color: colors.text }]}>{mode==='jigsaw'?'Encastrar':`Puzzle ${grid} × ${grid}`}</Text>
           <Text style={[typography.caption, { color: colors.textMuted }]}>
             {PUZZLE_SCOPES[scope].label} · {Math.floor(elapsed / 1000)} s · {moves} movimientos
           </Text>
@@ -178,7 +180,7 @@ export default function PuzzleScreen(): React.JSX.Element {
       <ScrollView style={{width:'100%'}} contentContainerStyle={{alignItems:'center',paddingBottom:insets.bottom+24}}>
       {species && imageSource && pieces.length > 0 ? (
         <View style={[styles.boardFrame, { marginTop: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceVariant }]}>
-          {mode==='jigsaw'?<JigsawPicturePuzzle size={boardSize} grid={grid} pieces={jigsaw} source={imageSource} onChange={moveJigsaw}/>:<SlidingPicturePuzzle
+          {state === 'completed' ? <PuzzleSuccessArtwork source={imageSource} size={boardSize} /> : mode==='jigsaw'?<JigsawPicturePuzzle size={boardSize} grid={grid} pieces={jigsaw} source={imageSource} onChange={moveJigsaw}/>:<SlidingPicturePuzzle
             key={`${species.codigo}-${grid}`}
             size={boardSize}
             gridSize={grid}
@@ -186,9 +188,9 @@ export default function PuzzleScreen(): React.JSX.Element {
             hiddenPiece={hiddenPiece}
             source={imageSource}
             onMove={move}
-            disabled={state === 'completed'}
-            revealHidden={state === 'completed'}
-            label={state === 'completed' ? species.displayName : 'una especie por descubrir'}
+            disabled={false}
+            revealHidden={false}
+            label="una especie por descubrir"
           />}
         </View>
       ) : (

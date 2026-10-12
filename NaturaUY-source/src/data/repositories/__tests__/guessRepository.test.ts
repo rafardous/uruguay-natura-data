@@ -19,6 +19,13 @@ test('bundled editorial clues produce complete animal and plant rounds',async()=
   expect(plants.targets.map(t=>t.species.codigo)).toEqual(expect.arrayContaining(['plant-erythrina-crista-galli','plant-salix-humboldtiana']));
   expect([...animals.targets,...plants.targets].every(t=>t.clues.length===5)).toBe(true);
 });
+test('la selección sin categorías reúne animales y plantas habilitados',async()=>{
+  const mixed=await guessRepository.load(db,'all','hard');
+  expect(mixed.targets.map(t=>t.species.codigo)).toEqual(expect.arrayContaining(['H_hydrocha','plant-erythrina-crista-galli']));
+  const stableId=String(sqlite.prepare("SELECT stable_id FROM species WHERE codigo='H_hydrocha'").get()!.stable_id);
+  sqlite.prepare('INSERT INTO species_game_rules VALUES(?,?,?,?)').run(stableId,'guess',0,null);
+  expect((await guessRepository.load(db,'all','hard')).targets.some(t=>t.species.codigo==='H_hydrocha')).toBe(false);
+});
 test('older catalogs, editorial exclusions and non-redistributable facts are respected',async()=>{
   const stableId=String(sqlite.prepare("SELECT stable_id FROM species WHERE codigo='H_hydrocha'").get()!.stable_id);
   sqlite.prepare('INSERT INTO species_game_rules VALUES(?,?,?,?)').run(stableId,'guess',0,null);

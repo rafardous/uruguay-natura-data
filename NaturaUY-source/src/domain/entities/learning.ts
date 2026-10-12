@@ -18,7 +18,7 @@ export interface LearningBlock {
 /** Fotos del catálogo y pasos de lectura; las flechas sólo se usan en secuencias. */
 export interface LearningIllustration {
   title: string;
-  layout: 'compare' | 'sequence';
+  layout: 'compare' | 'sequence' | 'tree';
   items: { label: string; speciesCode?: string; caption?: string }[];
 }
 

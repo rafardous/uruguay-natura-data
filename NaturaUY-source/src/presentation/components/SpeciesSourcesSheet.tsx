@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   sheet: { maxHeight: '82%', overflow: 'hidden' },
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, borderBottomWidth: StyleSheet.hairlineWidth },
   icon: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
-  close: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center' },
+  close: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   reference: { minHeight: 58, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 },
   flex: { flex: 1 },
 });

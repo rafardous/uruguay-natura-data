@@ -376,11 +376,11 @@ export default function IdentifyGameScreen(): React.JSX.Element {
         ]}
       >
         <View style={styles.hudTop}>
-          <Pressable onPress={() => { haptics.tap(); router.back(); }} hitSlop={10} accessibilityLabel="Salir del juego">
+          <View style={{ width: 48 }} />
+          <Text style={[typography.label, { color: hudFg, flex: 1, textAlign: 'center' }]}>{config.title}</Text>
+          <Pressable onPress={() => { haptics.tap(); router.back(); }} accessibilityRole="button" accessibilityLabel="Salir del juego" style={{ width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }}>
             <CloseIcon color={hudFg} />
           </Pressable>
-          <Text style={[typography.label, { color: hudFg }]}>{config.title}</Text>
-          <View style={{ width: 22 }} />
         </View>
 
         <View style={[styles.hudRow, { paddingHorizontal: spacing.lg }]}>
@@ -581,7 +581,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1 },
   flex: { flex: 1 },
   hud: { paddingBottom: 14, overflow: 'hidden', borderBottomWidth: StyleSheet.hairlineWidth },
-  hudTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, marginBottom: 12 },
+  hudTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, marginBottom: 12 },
   hudRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   hudSpacer: { flex: 1 },
   hudChip: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(255,255,255,0.16)', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999 },

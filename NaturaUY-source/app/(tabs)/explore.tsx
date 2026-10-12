@@ -23,7 +23,7 @@ import { useSpeciesList } from '../../src/presentation/hooks/useSpeciesList';
 import { useScrollDetentHaptics } from '../../src/presentation/hooks/useScrollDetentHaptics';
 import { useTaxonomyChildren } from '../../src/presentation/hooks/useTaxonomyChildren';
 import { useTheme } from '../../src/presentation/theme/ThemeProvider';
-import { COLLAPSIBLE_HEADER_EXPANDED, spacing as space } from '../../src/presentation/theme/tokens';
+import { COLLAPSIBLE_HEADER_EXPANDED, MAIN_HEADER_GRADIENT, spacing as space } from '../../src/presentation/theme/tokens';
 import { navigationBottomInset } from '../../src/presentation/navigationPolicy';
 import { useDebouncedValue } from '../../src/shared/hooks/useDebouncedValue';
 import { useHabitatCatalog } from '../../src/presentation/hooks/useHabitatCatalog';
@@ -77,7 +77,7 @@ export default function ExploreScreen(): React.JSX.Element {
   return <View style={[styles.screen, { backgroundColor: colors.background }]}>
     <CollapsibleGradientHeader
       scrollY={scrollY}
-      gradient={['#3F7A6C', '#34675A', '#274D43']}
+      gradient={MAIN_HEADER_GRADIENT}
       controls={<View style={[styles.topActions, { gap: spacing.sm }]}><Pressable onPress={() => { haptics.tap(); setMenuOpen(true); }} hitSlop={8} accessibilityRole="button" accessibilityLabel="Abrir menú" style={[styles.menuButton, { backgroundColor: 'rgba(255,249,234,0.18)', borderRadius: radius.pill }]}><MenuIcon color="#FFF9EA" /></Pressable><View style={styles.searchWrap}><SearchBar value={query} onChange={setQuery} placeholder="Buscar una especie" collapseOffset={scrollY} /></View><AccountButton onPress={() => router.push('/login')} color="#FFF9EA" backgroundColor="rgba(255,249,234,0.16)" /></View>}
       expandedContent={<Text style={[typography.headerTitle, { color: '#FFF9EA', maxWidth: 350 }]}>Explorá nuestra flora y fauna de distintas maneras</Text>}
     />
