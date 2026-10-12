@@ -40,6 +40,7 @@ await db.exec(habitatsMigration.slice(0,habitatsMigration.indexOf('create functi
 await db.exec(learningMigration.slice(learningMigration.indexOf('create table public.learning_paths'),learningMigration.indexOf('create table public.mobile_learning_module_progress')));
 const migration = readFileSync(new URL('../supabase/migrations/20261011231526_editorial_frontend_management.sql',import.meta.url), 'utf8');
 await db.exec(migration);
+await db.exec(readFileSync(new URL('../supabase/migrations/20261012063500_habitat_editor_media_read.sql',import.meta.url),'utf8'));
 await db.exec(readFileSync(new URL('../supabase/migrations/202609060004_mobile_popular_species.sql',import.meta.url),'utf8'));
 async function rejects(sql: string, params: unknown[], message: string) { await assert.rejects(db.query(sql,params),new RegExp(message)); checks++; }
 async function check(sql: string, expected: unknown) { const r=await db.query<{value:unknown}>(sql);assert.deepEqual(r.rows[0]?.value,expected);checks++; }
@@ -72,6 +73,11 @@ await check(`select count(*)::integer value from habitat_relations`,1);
 await rejects("select save_habitat_editor($1,1,'Ciclo inválido')",[{...habitat,parent_ids:[childId]}],'cycle');
 await db.query("select save_habitat_editor($1,1,'Archivo reversible')",[{...child,status:'archived'}]);
 await check(`select status value from habitats where id='${childId}'`,'archived');
+await db.exec(`insert into habitat_media(id,habitat_id,status,author,license,evidence_path,source_url,location,caption,storage_path,thumbnail_path,checksum_sha256) values('55555555-5555-4555-8555-555555555555','${habitatId}','archived','Autora','permission','private/evidence','https://example.test','Uruguay','Prueba','test/1600.webp','test/480.webp',repeat('a',64));`);
+await db.exec('set role authenticated');
+await check(`select evidence_path value from get_editor_habitat_media('${habitatId}')`,'private/evidence');
+await rejects('select get_editor_habitat_media()',[],'habitat_media_scope_required');
+await db.exec('reset role');
 await db.exec(`insert into species_media(id,species_id,type,ordinal,status,is_primary,author,license,source,source_url,storage_path,thumbnail_path,checksum_sha256) values('44444444-4444-4444-8444-444444444444','${species}','image',1,'approved',true,'Autora','CC0','Obra propia','https://example.test','test/1600.webp','test/480.webp',repeat('a',64)); insert into storage.objects values('media-public','test/1600.webp'),('media-public','test/480.webp');`);
 await db.query("select save_home_species('2026-10-11','daily',$1,true,'Selección de prueba',null)",[species]);
 await check(`select count(*)::integer value from get_home_species_schedule('2026-10-11','2026-10-11')`,1);
@@ -111,9 +117,11 @@ await check(`select count(*)::integer value from learning_paths`,0);
 await check(`select count(*)::integer value from home_species_schedule`,0);
 await rejects("select save_learning_path($1,null,'draft','Sin permiso')",[path],'admin_required');
 await rejects("select get_editorial_popularity()",[],'admin_required');
+await rejects("select get_editor_habitat_media($1)",[habitatId],'admin_required');
 await rejects("insert into home_species_schedule(day,slot,species_id) values('2026-10-12','daily',$1)",[species],'permission denied');
 await db.exec('reset role;set role anon');
 await rejects("select * from learning_paths",[],'permission denied');
+await rejects("select get_editor_habitat_media($1)",[habitatId],'permission denied');
 await check(`select count(*)::integer value from get_home_species_schedule('2026-10-11','2026-10-11')`,0);
 await rejects("select save_home_species('2026-10-12','daily',$1,true,'Anónimo',null)",[species],'permission denied');
 await db.close();
